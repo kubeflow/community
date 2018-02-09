@@ -72,13 +72,10 @@ Meeting ID: 799 749 911
 International numbers available: https://zoom.us/zoomconference?m=Os1EjlUlpb2_XUMaQ6dX1azqMK5CkfWH
 ```
 
-
-
-
 ## Running the meeting
 
 Start the Zoom meeting 5 minutes before its assigned time.  The meeting should
-be configured that new arrivals are muted by default, to save noise.  Usually,
+be configured that new arrivals are muted by default, to reduce noise.  Usually,
 you'll need to tell people at the start time that you'll wait a couple of
 minutes to allow everybody 
 to arrive.
@@ -134,9 +131,3 @@ Ensure that action items that people have agreed to are clearly noted.
 
 If you have suggestions or improvements, please submit a PR to this
 documentation or discuss it on the group mailing list.
-
-
-  
-
-
-
