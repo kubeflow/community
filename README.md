@@ -43,3 +43,8 @@ race, religion, or sexual identity and orientation.
 The Kubeflow community is guided by our [Code of
 Conduct](https://github.com/kubeflow/community/blob/master/CODE_OF_CONDUCT.md),
 which we encourage everybody to read before participating.
+
+## About this repository
+
+* [proposals](https://github.com/kubeflow/community/tree/master/proposals): Kubeflow design proposals
+* [how-to](https://github.com/kubeflow/community/tree/master/how-to): for documenting community and other project processes
