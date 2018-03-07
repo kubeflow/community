@@ -1,5 +1,8 @@
 # Contributing
 
+Our PR workflow is nearly identical to Kubernetes'. This doc is a lightly modified
+version of [Kubernetes' owners.md](https://github.com/kubernetes/community/blob/master/contributors/guide/owners.md#code-review-using-owners-files).
+
 ## Overview
 
 OWNERS files are used to designate responsibility over different parts of the Kubeflow codebase.
