@@ -6,6 +6,8 @@ Welcome to Kubeflow! We're glad to have you here.
 
 [**Meeting calendar**](https://calendar.google.com/calendar/embed?src=kubeflow.org_7l5vnbn8suj2se10sen81d9428%40group.calendar.google.com&ctz=America%2FLos_Angeles) ([iCal version](https://calendar.google.com/calendar/ical/kubeflow.org_7l5vnbn8suj2se10sen81d9428%40group.calendar.google.com/public/basic.ics)).
 
+[Meeting notes](http://bit.ly/kf-meeting-notes/).
+
 If your group has a regular meeting, talk to
 [@ewilderj](https://github.com/ewilderj) about getting it added to the calendar.
 
