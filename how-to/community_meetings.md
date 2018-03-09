@@ -76,12 +76,16 @@ Ensure that action items that people have agreed to are clearly noted.
   easiest way to do this is highlight and add a comment tagging their email
   address with a `+` sign.
   
-* When Zoom emails you to say the audio recording is available, get the share
-  link for the audio recording and insert it at the top of the doc. (If there is
-  a video recording, I usually delete this as it's not a lot of use and takes up
-  space.)
+* For Zoom owners: when Zoom emails you to say the audio recording is available,
+  get the share link for the audio recording and insert it at the top of the
+  doc. (If there is a video recording, I usually delete this as it's not a lot
+  of use and takes up space.)
   
-* Circulate the notes link to the mailing list. 
+* Ask the Zoom owner to add the link if they haven't done already.
+  
+* Circulate the notes link to the mailing list, and include some highlights in
+  the message so people can figure out if they want to read the notes or listen
+  to the recording.
   
 ## That's it!
 
