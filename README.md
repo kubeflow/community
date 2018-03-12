@@ -46,6 +46,10 @@ The Kubeflow community is guided by our [Code of
 Conduct](https://github.com/kubeflow/community/blob/master/CODE_OF_CONDUCT.md),
 which we encourage everybody to read before participating.
 
+## Contributing
+
+The [Contributor Guide](./CONTRIBUTING.md) provides a starting point for contributing ideas and bug fixes to the Kubeflow project.
+
 ## About this repository
 
 * [proposals](https://github.com/kubeflow/community/tree/master/proposals): Kubeflow design proposals

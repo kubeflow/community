@@ -1,9 +1,75 @@
-# Contributing
+# Kubeflow Contributor Guide
 
-Our PR workflow is nearly identical to Kubernetes'. This doc is a lightly modified
-version of [Kubernetes' owners.md](https://github.com/kubernetes/community/blob/master/contributors/guide/owners.md#code-review-using-owners-files).
+Our PR workflow is nearly identical to Kubernetes'. Much of this doc is a
+modified version of Kubernetes' [contributors](https://github.com/kubernetes/community/blob/master/contributors/guide/README.md)
+and [owners](https://github.com/kubernetes/community/blob/master/contributors/guide/owners.md#code-review-using-owners-files)
+guides.
 
-## Overview
+## Welcome
+
+Welcome to the Kubeflow project! This document is the single source of truth
+for how to contribute to the code base. Please leave comments / suggestions if
+you find something is missing or incorrect.
+
+-   [Before you get started](#before-you-get-started)
+    -   [Sign the CLA](#sign-the-cla)
+    -   [Code of Conduct](#code-of-conduct)
+-   [Your First Contribution](#your-first-contribution)
+    -   [Find something to work on](#find-something-to-work-on)
+    -   [Starter issues](#starter-issues)
+-   [Owners](#owners)
+    -   [Overview of OWNERS files](#overview-of-owners-files)
+        -   [OWNERS](#owners-1)
+        -   [OWNERS_ALIASES](#owners_aliases)
+    -   [The code review process](#the-code-review-process)
+        -   [Quirks of the process](#quirks-of-the-process)
+    -   [Automation using OWNERS files](#automation-using-owners-files)
+    -   [Maintaining OWNERS files](#maintaining-owners-files)
+
+# Before you get started
+
+We'd love to accept your patches and contributions to this project. There are
+just a few small guidelines you need to follow.
+
+## Sign the CLA
+
+Contributions to this project must be accompanied by a Contributor License
+Agreement. You (or your employer) retain the copyright to your contribution,
+this simply gives us permission to use and redistribute your contributions as
+part of the project. Head over to <https://cla.developers.google.com/> to see
+your current agreements on file or to sign a new one.
+
+You generally only need to submit a CLA once, so if you've already submitted one
+(even if it was for a different project), you probably don't need to do it
+again.
+
+## Code of Conduct
+
+Please make sure to read and observe our [Code of Conduct](./CODE_OF_CONDUCT.md).
+
+# Your first contribution
+
+## Find something to work on
+
+Help is always welcome! For example, documentation (like the text you are reading
+now) can always use improvement. There's always code that can be clarified and
+variables or functions that can be renamed or commented. There's always a need
+for more test coverage. You get the idea - if you ever see something you think
+should be fixed, you should own it. Here is how you get started.
+
+## Starter issues
+
+Kubeflow issues that would make good entry points can be found by looking at
+the following tags:
+
+* [`good first issue`](https://github.com/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+org%3Akubeflow+archived%3Afalse+label%3A%22good+first+issue%22)
+* [`help wanted`](https://github.com/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+org%3Akubeflow+archived%3Afalse+label%3A%22help+wanted%22)
+* [`starter`](https://github.com/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+org%3Akubeflow+archived%3Afalse+label%3A%22starter%22)
+
+
+# Owners
+
+## Overview of OWNERS files
 
 OWNERS files are used to designate responsibility over different parts of the Kubeflow codebase.
 Today, we use them to assign the **reviewer** and **approver** roles used in our two-phase code
@@ -16,7 +82,7 @@ reviewing code. The quality of a person's code review is limited by their famili
 under review. Our goal is to address both of these concerns through the prudent use and maintenance
 of OWNERS files
 
-### OWNERS
+### OWNERS  <a name="owners-1"></a>
 
 Each directory that contains a unit of independent code or content may also contain an OWNERS file.
 This file applies to everything within the directory, including the OWNERS file itself, sibling
@@ -196,7 +262,8 @@ pieces of prow are used to implement the code review process above.
 
 OWNERS files should be regularly maintained.
 
-We encourage people to self-nominate or self-remove from OWNERS files via PR's. Ideally in the future we could use metrics-driven automation to assist in this process.
+We encourage people to self-nominate or self-remove from OWNERS files via PR's. Ideally in the future
+we could use metrics-driven automation to assist in this process.
 
 We should strive to:
 
@@ -218,3 +285,4 @@ Good examples of OWNERS usage:
 - there are more `reviewers` than `approvers`
 - the `approvers` are not in the `reviewers` section
 - OWNERS files that are regularly updated (at least once per release)
+
