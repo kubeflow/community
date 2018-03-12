@@ -42,7 +42,7 @@ GitHub Issues are tagged with a standard set of labels across all kubeflow repos
 |             | security
 | status      | icebox
 |             | backlog
-|             | in progress
+|             | in-progress
 |             | done
 |             | lgtm
 |             | approved
