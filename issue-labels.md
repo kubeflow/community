@@ -9,7 +9,7 @@ GitHub Issues are tagged with a standard set of labels across all kubeflow repos
 | *none*      | do-not-merge
 |             | duplicate
 |             | high-impact
-|             | starter
+|             | good first issue
 |             | testing
 |             | wont-fix
 | addition    | feature
