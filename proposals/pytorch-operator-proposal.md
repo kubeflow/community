@@ -120,9 +120,11 @@ spec:
 The worker spec generates a pod. They will communicate to the master through the master's service name.
 
 ## Design
-This is an implementaion of the PyTorch distributed design patterns, found [here](http://pytorch.org/tutorials/intermediate/dist_tuto.html), via the lense of TFJob found [here](https://github.com/kubeflow/tf-operator).
+This is an implementaion of the PyTorch distributed design patterns, found [here](http://pytorch.org/tutorials/intermediate/dist_tuto.html), via the lense of TFJob found [here](https://github.com/kubeflow/tf-operator). In the case of Kubernetes, because the operator is able to easily apply configurations to each process, we will use the environment variable initialization method found [here](http://pytorch.org/tutorials/intermediate/dist_tuto.html#initialization-methods).
 
-Diagram pending
+In most training examples, the pods will communicate via the all-reduce function in order to average the gradients.
+![All-Reduce Pytorch](diagrams/all-reduce-pytorch-operator.jpeg)
+
 
 ## Alternatives Considered
 One alternative considered for the CRD spec is shown below:
