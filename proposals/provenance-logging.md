@@ -124,5 +124,3 @@ The disadvantage of this approach is that you have to know ahead of time what in
 ### Use logging
 
 We could treat the objects as text and log them using existing logging support in Kubernetes.
-
-I think
