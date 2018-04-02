@@ -1,13 +1,16 @@
 ## Motivation
 Reproducible ML is a [big problem](https://petewarden.com/2018/03/19/the-machine-learning-reproducibility-crisis/). 
-Kubeflow could add a lot of values to users by making it easy for users to track how datasets and models were produced.
-A lot of valuable information is available in K8s resource specifications. Resources like K8s Jobs, TFJobs, ConfigMaps, and Argo workflows
-often contain information (e.g. via command line arguments) about inputs and outputs and the code (docker image) used. There are
-two major problems to using this information to track provenance of models and data today:
+In order to address requirements in key scenarios, Kubeflow must provide an easy way to track how datasets and models were produced.
+This would go beyond just job specification; we should also capture the valuable information in resources such as K8s Jobs, TFJobs, ConfigMaps, and Argo workflows.
+These resources often contain information (e.g. via command line arguments) about inputs and outputs and the code (docker image) used that enable tracking how data and models are produced and consumed. 
+
+Today this information is often lost and/or inaccessible due to two primary issues:
 
 1. The information is not durable
 
 	* I should not rely on the K8s APIServer as a persistent, historical data store for resources.
+	* Ideally an immutable datastore with hashing and other features required for audit
+	  logging would be used
 
 1. The schema is not convenient
 
@@ -25,7 +28,8 @@ The purpose of this proposal is to solve these problems to facilitate tools to t
 ## Non-Goals
 
 1. Building a comprehensive set of tools to surface provenance information.
-
+1. Providing security components to prevent alteration of logs/provenance.
+1. Data provenance and auditing for container building
 
 ## Design
 
