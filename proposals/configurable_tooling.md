@@ -9,7 +9,7 @@
   1. An ad-hoc set of commands that do not compose well, may overlap or provide redundant or non-standard arguments.
   1. Supporting commands that need to be installed on a data scientist's client machine (often with upgrade constraints).
   1. Lack of command completion or command completion that does not integrate well with other commands or within a pipeline of commands.
-  1. Lack of an ability to integration data scientist customizations or integrate third party commands   
+  1. Lack of an ability to integration data scientist customizations or integrate third party commands required by third party components.  
 
 ## Goals
 - Provide a data scientist's CLI that:
@@ -47,7 +47,7 @@ The CLI subcommands suggested do not proscribe against defining additional subco
    1. Runs in a container that includes requisite tooling and dependencies ks, kubeclt, kubeless, python2.7|python3.6
 
 ## Design
-A data scientist's CLI is a flexible set of commands that are executed against a cluster of DL components. Within kubeflow, this set of components will vary and is configurable using `ks` environments that are parameterized. A static CLI can not accommodate a configurable set of runtime components found in kubeflow, of which many may be provided by open source contributors. The kubeflow component design mandates a matching CLI design where subcommands can be provided by component authors or contributors that, for example, pair a subcommand with a component. Subcommands may require specific runtime contexts and are best met by executing subcommands as serverless Functions. This creates a CLI ecosystem where specific functionalities not possible within a fixed CLI deliverable are possible.  
+A data scientist's CLI is a flexible set of commands that are executed against a cluster of DL components. Within kubeflow, this set of components will vary and will likely be configurable using `ks` environments that are parameterized. A static CLI can not accommodate a configurable set of runtime components found in kubeflow, of which many may be provided by open source contributors. The kubeflow component design mandates a matching CLI design where subcommands can be provided by component authors or contributors that, for example, pair a subcommand with a component. For example adding the pytorch component should also add a pytorch CLI perhaps parameterized by where the user is running it (minikube, gce, azure, ...). Subcommands will require specific runtime contexts and are best met by executing subcommands as serverless Functions. This design enables a CLI ecosystem where specific functionalities not possible within a fixed CLI deliverable are possible.  
 
 ### Implementation
 1. Create a base container that includes needed tools `ks, kubectl, python2.7, python3.6`
