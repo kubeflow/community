@@ -1,10 +1,8 @@
-> Note to proposers: Please keep this document as brief as possible, preferably not more than two pages.
 
 ## Motivation
-Data scientists share a K8s cluster while working on multiple separate projects. Each project must enforce user permissions for the contained data and workloads to ensure privacy and integrity.
-Project = sandbox of data and assets like models, weights, logs etc.
+Kubeflow uses a namespace to isolate resources created to run components and also provides a single-signon authentication using GCP's IAP (identity aware proxy). However the mapping of the authentication user with both data and processes isn't well defined and in general roles requiring elevated privileges are used in most scenarios including those where a data scientist is creating processes within containers, mounting volumes, etc.
 
-Due to the complexity associated with creating isolated project sandboxes, in many situations, cluster operators grant all the data scientists "admin" access. This creates downstream issues like data privacy, data corruption, data leakage etc.
+Providing different authentication providers beyond IAP, setting RBAC bindings for these users and aligning these users with service accounts (via subjects) will allow better resource tracking at the user level, less opportunity to inadvertently remove or update resources within shared kubeflow environments and establish a reasonable threat model.
 
 Data scientist are used to working with authorities like GitHub and use it for managing the models/assets of a project by assigning appropriate privileges to the repos. It would greatly simplify the UX for data scientist to model k8s project on the associated GitHub repos as it does not require ramp-up on k8s concepts.
 
@@ -190,14 +188,14 @@ https://github.com/kminehart/ambassador-auth-jwt
 * K8 API are authorized with RBAC and rolebindings – project member role or roles
 * Access to services hosted on K8 done via a gateway implemented with ambassador component which would use to authentication and authorization auth service. Authorization would be done based on permissions in K8 API.
 
-The following roles would be proposed: 
+The following roles would be proposed:
 K8 admin
 - creates PVs
 - creates namespace
 - creates POD policies
 - creates roles and rolesbindings in the namespace
 - creates PVC for new namespace
- 
+
 Project member:
 - has role bindings in a given namespace
 - has Pod policy assigned
@@ -208,4 +206,3 @@ Project member:
 - can add rolebindings in assigned namespaces (add users)
 
 ## Alternatives Considered
-
