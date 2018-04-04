@@ -11,14 +11,14 @@ Kubeflow enables a DL environment for data scientists deployed in a number of ph
 | serving | tf-serving | ks | data scientist |
 | training | tf-job | ks | data scientist |
 
-From the table it's clear that some of the phases should be handled by someone with elevated privileges in the cluster and other phases are intended to be run by data scientist. It's somewhat less clear that a data scientist may have particular ways of configuring training, notebooks or serving that may not be easily satisfied by existing ksonnet libraries. Exposing all of the above to the data scientist muddles a clean and concise CLI by exposing:
+From the table it's clear that some of the phases should be handled by someone with elevated privileges in the cluster and other phases are intended to be run by data scientists. It's somewhat less clear that a data scientist may have particular ways of configuring training, notebooks or serving that may not be easily satisfied by existing ksonnet libraries. Exposing all of the above to the data scientist muddles the possibility of a clean and concise CLI by exposing:
   1. Lengthy setup instructions to create a DL project
   1. Configurations and other setup requiring devops support
   1. Exposure of the underlying cloud platform
   1. An ad-hoc set of commands that do not compose well, may overlap or provide redundant or non-standard arguments.
   1. Supporting commands that need to be installed on a data scientist's client machine (often with upgrade constraints).
   1. Lack of command completion or command completion (ks) that does not integrate well with other commands or within a pipeline of commands.
-  1. Lack of an ability to integrate a data scientist customizations or integrate third party commands required by third party components.  
+  1. Lack of an ability to integrate a data scientist customizations or integrate new CLI subcommands required by new kubeflow components.  
 
 ## Goals
 - Provide a data scientist's CLI that:
@@ -56,7 +56,7 @@ The CLI subcommands suggested do not proscribe against defining additional subco
    1. Runs in a container that includes requisite tooling and dependencies ks, kubeclt, kubeless, python2.7|python3.6
 
 ## Design
-A data scientist's CLI is a flexible set of commands that are executed against a cluster of DL components. Within kubeflow, this set of components will vary and will likely be configurable using `ks` environments that are parameterized. A static CLI can not accommodate a configurable set of runtime components found in kubeflow, of which many may be provided by open source contributors. The kubeflow flexible component design mandates a matching CLI design where subcommands can be provided by component authors or contributors that, for example, bundle subcommands against a component. For example adding the pytorch component should also add a pytorch CLI perhaps parameterized by where the user is running it (minikube, gce, azure, ...). Subcommands will require specific runtime contexts and are best met by executing subcommands as serverless Functions. This design enables a CLI ecosystem where specific functionalities not possible within a fixed CLI deliverable are possible.  
+A data scientist's CLI is a flexible set of commands that are executed against a cluster of DL components. Within kubeflow, this set of components will vary and will likely be configurable using `ks` environments that are parameterized. A static CLI can not accommodate a configurable set of runtime components found in kubeflow, of which many may be provided by open source contributors. The kubeflow flexible component design mandates a matching CLI design where subcommands can be provided by component authors or contributors that, for example, bundle one or more subcommands for a component. For example adding the pytorch component could include a pytorch CLI perhaps parameterized by where the user is running it (minikube, gce, azure, ...). The CLI for a component may be provided independently of the component ksonnet package. Subcommands will require specific runtime contexts and are implemented as serverless Functions. This design enables a CLI ecosystem where specific functionalities not possible within a fixed CLI deliverable are possible.  
 
 ### Implementation
 1. Create a base container that includes needed tools `ks, kubectl, python2.7, python3.6`
@@ -111,65 +111,3 @@ spec:
 ## Alternatives Considered
 1. A static set of subcommands that prescribes all available actions a data scientist would do.
 1. Using a different client framework other than spf13/cobra. Given that kubectl, kubeless and ks also use this framework there is an opportunity to leverage their subcommands.
-
-
-
-### User stories
-| An admin wants to configure the cluster for projects by using an authority (GitHub). This may require updating the API server. |
-| :--- |
-|`kf configure --provider <providername> --APIServerConfig <configtemplate> --org <name>`|
-|&nbsp;&nbsp;&nbsp;→ API server can discover the public signing keys using a discovery URL https://kubernetes.io/docs/admin/authentication/#openid-connect-tokens|
-|&nbsp;&nbsp;&nbsp;→ This is a one time process for each authentication provider and needs to be done with an admin user on the cluster.|
-|&nbsp;&nbsp;&nbsp;→ The org name will be used to discover the org owner to assign appropriate privileges (read/write)|
-|&nbsp;&nbsp;&nbsp;→ The org owner will have a clusterwide role with edit privileges over all projects. The clusterrolebindings are created using the admin role during the discovery process for the org.|
-|&nbsp;&nbsp;&nbsp;→ We assign to the system:authenticated group the ability to create namespaces so that any authenticated used can create a namespace.|
-|&nbsp;&nbsp;&nbsp;→   https://docs.openshift.com/container-platform/3.4/admin_solutions/user_role_mgmt.html|
-|&nbsp;&nbsp;&nbsp;→ Authenticator uses the org name to allow access.|
-
-| A data scientist wants to authenticate once and then work on a variety of projects |
-| :--- |
-|`kf login`|
-|&nbsp;&nbsp;&nbsp;→ Token is stored locally on the client.|
-
-|A data scientist wants to create a project for his/her team (using an authentication provider of GitHub from above)|
-| :--- |
-|`kf create project`|
-|&nbsp;&nbsp;&nbsp;→ When a request is made to create a project(namespace), the authentication and authorization passes.|
-|&nbsp;&nbsp;&nbsp;→ The admission controller does the rolebinding for the namespace giving the user "admin" privileges for the namespace.|
-|&nbsp;&nbsp;&nbsp;→ This is done one time at the point of creation of project.|  
-|&nbsp;&nbsp;&nbsp;→ Additionally the user is given the privileges to create Custom PV by the admission controller.|
-
-|A data scientist wants to provision the custom volumes to be shared within the cluster.|
-| :--- |  
-|`kf provisiondatasets --type <name ex: AmazonEBS> ID <ID> mode <RWO/ROX/RWX> instances <number of volumes>  namespaces <list of namespaces> typeparams <additional params> ` |
-|&nbsp;&nbsp;&nbsp;→ This is executed by any project owner|
-|&nbsp;&nbsp;&nbsp;→ Note, PV instance creation is done in a way that we can share the storage across namespaces.|
-|&nbsp;&nbsp;&nbsp;→ Custom PV to PVC (namespaced) are exclusive. We need to create multiple PVs to use the underlying storage for sharing.|
-|&nbsp;&nbsp;&nbsp;→ The creator of the custom PV specifies the namespaces which can bind to it. This will be checked by the admission controller during binding.|
-
-|A data scientist may be a member of multiple projects. |
-| :--- |
-|`kf project`|
-|&nbsp;&nbsp;&nbsp;→ Finds the current project he is bound to|
-
-|A data scientist wants a listing of projects where he/she has a role.|
-| :--- |
-|`kf projects --owner`|
-|&nbsp;&nbsp;&nbsp;→ Filters can be applied like --owner|
-
-|A data scientist (owner of the project) wants to add/modify/delete user|
-| :--- |
-|`kf user --add/--modify/--delete <user /template name>`|
-
-|A data scientist (owner of the project) wants to add/modify/delete group|
-| :--- |
-|`kf group <group template name> --add/--delete <username>`|
-
-| A data scientist wants to validate the environment.|
-| :--- |
-|`kf validate`|
-|&nbsp;&nbsp;&nbsp;→ Validates the security configuration of the current project.|
-|&nbsp;&nbsp;&nbsp;→ Checks rolebindings outside of the project and flags anamolies.|
-
-Note: All operations on the namespace configuration would be done via k8 API and the commands kf in the examples above would be just wrappers to simplify the usage.
-Alternatively standart call could be used to have full flexibility.
