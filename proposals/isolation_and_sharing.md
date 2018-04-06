@@ -1,16 +1,16 @@
 
 ## Motivation
-Kubeflow uses a namespace to isolate resources created to run components and also provides a single-signon authentication using GCP's IAP (identity aware proxy). However the mapping of the authentication user with both data and processes isn't well defined and in general roles requiring elevated privileges are used in most scenarios including those where a data scientist is creating processes within containers, mounting volumes, etc.
+Kubeflow uses a namespace to isolate resources created for a DL environment and also can provide single sign-on authentication using GCP's IAP (identity aware proxy). However the mapping of the authenticated user with both data (PV creation) and processes (running under a ServiceAccount) isn't well defined and in general roles requiring elevated privileges are used in most scenarios with no differentiation between a role that *deploys* kubeflow and a role that *uses* kubeflow (data scientist).
 
-Providing different authentication providers beyond IAP, setting RBAC bindings for these users and aligning these users with service accounts (via subjects) will allow better resource tracking at the user level, less opportunity to inadvertently remove or update resources within shared kubeflow environments and establish a reasonable threat model.
+Providing different authentication providers beyond IAP, setting RBAC bindings for these users and aligning these users with service accounts (via subjects) will allow better resource tracking at the user level, less opportunity to inadvertently remove or update resources within shared kubeflow environments and establish a reasonable threat model where spoofing, tampering, repudiation, etc can be enumerated and mitigated.
 
-Data scientist are used to working with authorities like GitHub and use it for managing the models/assets of a project by assigning appropriate privileges to the repos. It would greatly simplify the UX for data scientist to model k8s project on the associated GitHub repos as it does not require ramp-up on k8s concepts.
+Sharing kubeflow instances among data scientists can leverage different authentication providers that provide a natural mapping for authentication and authorization. One such example is github. Data scientist are used to working with authorities like GitHub and use it for managing the models/assets of a project by assigning appropriate privileges to the repos. It would greatly simplify the kubeflow UX for data scientists to model k8s project on the associated GitHub repos as it does not require ramp-up on k8s concepts.
 
 A solution which is self-serving is highly desired as a data scientist would not like to go through an approving entity like an admin operator/IT support which causes unnecessary delays.
 
-To address the pain points above, we propose the project ML Authorization Toolkit.
+To address the pain points above, we offer this proposal.
 
-![sequence diagram](problem.jpg)
+![sequence diagram](diagrams/problem.jpg)
 
 **Configuration Stage:**
    Configuring a k8s cluster to provide project sandboxes and consistent authentication requires knowledge of:
@@ -129,32 +129,16 @@ To address the pain points above, we propose the project ML Authorization Toolki
 |&nbsp;&nbsp;&nbsp;→ Validates the security configuration of the current project.|
 |&nbsp;&nbsp;&nbsp;→ Checks rolebindings outside of the project and flags anamolies.|
 
-| A data scientist wants to execute the training jobs.|
-| :--- |
-|`kf train`|
-|&nbsp;&nbsp;&nbsp;→ It would be equivalent of creating pods with mounted volumes, copying the training script and executing the training|
-|&nbsp;&nbsp;&nbsp;→ Data scientists could use also kubectl commands directly like connect to the pods and inspect all the logs.|
-
-| A data scientist wants to create notebook session or connect ot existing session.|
-| :--- |
-|`kf notebook`|
-|&nbsp;&nbsp;&nbsp;→ Creating new session or listing running sessions|
-|&nbsp;&nbsp;&nbsp;→ Data scientists is authenticated and authorized in the browser by the ambassador gateway and redirected to the notebook session.|
-
-| A data scientist wants to open tensorboard frontend to inspect the training progress.|
-| :--- |
-|`kf tensorboard`|
-|&nbsp;&nbsp;&nbsp;→ CLI is creating or listing a tensorboard instances with mounted volumes of associated namespace.|
-|&nbsp;&nbsp;&nbsp;→ Data scientists is authenticated and authorized in the browser by the ambassador gateway and redirected to the notebook session.|
-
-
-Note: All operations on the namespace configuration would be done via k8 API and the commands kf in the examples above would be just wrappers to simplify the usage.
-Alternatively standart call could be used to have full flexibility.
+Note: All operations on the namespace configuration would be done using kubernetes and ksonnet API's.
 
 ## Design
 - Develop templates for typical API server configuration, DL projects, groups, roles, rolebindings and pod security policies (new ferature in K8 1.10)
 
-- Introduce a CLI that provides an extensible set of subcommands that do common operations on projects and teams.
+- Introduce a CLI that provides an extensible set of subcommands that do common operations on projects and teams. These subcommands would be differentiated by roles
+  - `kf` subcommands for kubeflow deployer/creator
+    - configure, provisiondatasets
+  - `kf` subcommands for kubeflow data scientists
+    - login, create, project, projects, validate
 
 - Develop/Integrate SSO for providers like GitHub, Atlassian, LDAP etc.
 
@@ -182,7 +166,7 @@ https://github.com/kminehart/ambassador-auth-jwt
 
 - kubernetes should be with 1.10 version with pods policies enabled, RBAC and API server adjusted for openid authentication
 
-![architecture](architecture.jpg)
+![architecture](diagrams/architecture.jpg)
 
 * All calls to K8 are authenticated via auth service which connects with dex and external IDP
 * K8 API are authorized with RBAC and rolebindings – project member role or roles
