@@ -29,11 +29,11 @@ To address the pain points above, we offer this proposal.
  - Service Accounts used to perform user actions do not represent the actual privileges of the user creating
    vulnerabilities in the cluster. In most scenarios, service accounts have excessive permissions. Ex: jupyter-hub, tf-job-operator service accounts
 
- - Isolating [data](https://github.com/NervanaSystems/dls-features/issues/22) from [projects and users](https://github.com/NervanaSystems/dls-features/issues/58) is not often easily possible.
+ - Isolating data from projects and users is not often easily possible.
    Importing or gaining access to this data presents challenges most often solved by copying data from the source or
    granting access to a general population of users or a 'default' ServiceAccount.
 
-- [Sharing](https://github.com/NervanaSystems/dls-features/issues/20) a data scientist's data with peers or external parties
+- Sharing a data scientist's data with peers or external parties
   is difficult or impossible. This data may reside in a number of places outside a cluster such as github, laptop, or distributed
   file systems such as S3 or NFS. Ownership of data many vary in each place along with differing authorization models such
   as tokens, trusted certificates or external proxy.
