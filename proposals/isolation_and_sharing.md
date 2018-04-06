@@ -74,7 +74,7 @@ To address the pain points above, we offer this proposal.
 
 ## UI or API
 
-Note: All operations on the namespace configuration would be done using kubernetes and ksonnet API's. The CLI suggested below could be implemented as part of the [configurable tooling proposal]( https://github.com/kubeflow/community/pull/54) in order to gain more experience in this regard.
+Note: All operations within a kubeflow namespace would be done using kubernetes and ksonnet API's. The CLI suggested below could be implemented as part of the [configurable tooling proposal]( https://github.com/kubeflow/community/pull/54) in order to gain more experience in this regard. However there is no hard dependency on any given CLI. For example we could leverage the POC in [PR 595](https://github.com/kubeflow/kubeflow/pull/595) which executes bootstraps kubeflow within an isolated container that has kubectl, ksonnet preinstalled. Additional actions in addition to bootstrapping could be added to this container. 
 
 | An admin wants to configure the cluster for projects by using an external identity provider (ex GitHub). This may require updating the API server. |
 | :--- |
