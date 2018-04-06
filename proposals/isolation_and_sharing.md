@@ -4,7 +4,7 @@ Kubeflow uses a namespace to isolate resources created for a DL environment and 
 
 Providing different authentication providers beyond IAP, setting RBAC bindings for these users and aligning these users with service accounts (via subjects) will allow better resource tracking at the user level, less opportunity to inadvertently remove or update resources within shared kubeflow environments and establish a reasonable threat model where spoofing, tampering, repudiation, etc can be enumerated and mitigated.
 
-Sharing kubeflow instances among data scientists can leverage different authentication providers that provide a natural mapping for authentication and authorization. One such example is github. Data scientist are used to working with authorities like GitHub and use it for managing the models/assets of a project by assigning appropriate privileges to the repos. It would greatly simplify the kubeflow UX for data scientists to model k8s project on the associated GitHub repos as it does not require ramp-up on k8s concepts.
+Sharing kubeflow instances among data scientists can leverage different authentication providers that provide a natural mapping for authentication and authorization. One such example is github. Data scientists are used to working with authorities like GitHub and use it for managing the models/assets of a project by assigning appropriate privileges to the repos. It would greatly simplify the kubeflow UX for data scientists to model k8s project on the associated GitHub repos as it does not require ramp-up on k8s concepts.
 
 A solution which is self-serving is highly desired as a data scientist would not like to go through an approving entity like an admin operator/IT support which causes unnecessary delays.
 
@@ -74,7 +74,7 @@ To address the pain points above, we offer this proposal.
 
 ## UI or API
 
-Note: All operations on the namespace configuration would be done using kubernetes and ksonnet API's. The CLI suggested below could be implemented as part of the [configurable tooling proposal]( https://github.com/kubeflow/community/pull/54) in order to gain more experience in this regard. 
+Note: All operations on the namespace configuration would be done using kubernetes and ksonnet API's. The CLI suggested below could be implemented as part of the [configurable tooling proposal]( https://github.com/kubeflow/community/pull/54) in order to gain more experience in this regard.
 
 | An admin wants to configure the cluster for projects by using an external identity provider (ex GitHub). This may require updating the API server. |
 | :--- |
