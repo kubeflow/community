@@ -73,6 +73,9 @@ To address the pain points above, we offer this proposal.
 
 
 ## UI or API
+
+Note: All operations on the namespace configuration would be done using kubernetes and ksonnet API's. The CLI suggested below could be implemented as part of the [configurable tooling proposal]( https://github.com/kubeflow/community/pull/54) in order to gain more experience in this regard. 
+
 | An admin wants to configure the cluster for projects by using an external identity provider (ex GitHub). This may require updating the API server. |
 | :--- |
 |`kf configure --provider <providername> --APIServerConfig <configtemplate> --org <name>`|
@@ -129,7 +132,6 @@ To address the pain points above, we offer this proposal.
 |&nbsp;&nbsp;&nbsp;→ Validates the security configuration of the current project.|
 |&nbsp;&nbsp;&nbsp;→ Checks rolebindings outside of the project and flags anamolies.|
 
-Note: All operations on the namespace configuration would be done using kubernetes and ksonnet API's.
 
 ## Design
 - Develop templates for typical API server configuration, DL projects, groups, roles, rolebindings and pod security policies (new ferature in K8 1.10)
