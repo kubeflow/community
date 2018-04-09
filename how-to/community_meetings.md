@@ -80,8 +80,15 @@ Ensure that action items that people have agreed to are clearly noted.
   Download the video file (or audio file if there are no demos) and upload it
   into the `Recordings` folder of the [team
   drive](https://drive.google.com/drive/u/2/folders/150C-v6Hb8gtPZMucyd_65ozyCiY50zFD).
-  Then copy the share link for this file and add the link into the notes doc.
+  Then copy the share link for this file and add the link into the notes doc. Process:
   
+  - Right click, `Share...`. 
+  - Click `WHO HAS ACCESS`. 
+  - Click the down arrow near `Link sharing on`
+  - Click `Allow external access` (this might take a few seconds to activate)
+  - Click `COPY` to get the link
+  - Click `DONE`
+   
 * Ask the Zoom owner to add the link if they haven't done already.
   
 * Circulate the notes link to the mailing list, and include some highlights in
