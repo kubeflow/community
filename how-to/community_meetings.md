@@ -76,10 +76,11 @@ Ensure that action items that people have agreed to are clearly noted.
   easiest way to do this is highlight and add a comment tagging their email
   address with a `+` sign.
   
-* For Zoom owners: when Zoom emails you to say the audio recording is available,
-  get the share link for the audio recording and insert it at the top of the
-  doc. (If there is a video recording, I usually delete this as it's not a lot
-  of use and takes up space.)
+* For Zoom owners: when Zoom emails you to say the audio recording is available.
+  Download the video file (or audio file if there are no demos) and upload it
+  into the `Recordings` folder of the [team
+  drive](https://drive.google.com/drive/u/2/folders/150C-v6Hb8gtPZMucyd_65ozyCiY50zFD).
+  Then copy the share link for this file and add the link into the notes doc.
   
 * Ask the Zoom owner to add the link if they haven't done already.
   
