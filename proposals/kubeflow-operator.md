@@ -39,6 +39,13 @@ By creating an environment, operator effectively spawn whole set of Kubeflow res
 
 Namespace, in which ksonnet app will run, should follow predefined (and configurable) name schema for easier tracking (for example kubeflow-%envname).
 
+### Configuring environments
+
+Each environment can have separate configuration based on template. Configuration will contain things like:
+* Storage backend - How to provide persistency to files. For example storage set to S3 would also contain access API url and pointers to secrets
+* Selected framework - Since kubeflow supports multiple frameworks (tensorflow, PyTorch, ...), environment can be focused on one. That will also determine available commands (for example, `kf tensorboard` could spawn tensorboard instance, but that's only relevant to tensorflow environment).
+* Infrastructure details - which monitoring tool is used, how logs should be maintainer etc.
+
 ### Environment as context for CLI
 
 With CLI we can provide mechanisms to set default environment (for example `kf env use foo`). "Using" environment would be default way of how data scientist would interact with Kubeflow.
