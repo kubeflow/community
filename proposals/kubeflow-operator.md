@@ -1,79 +1,58 @@
 
-## Motivation
+# Motivation
 As Kubeflow supports more than one framework, there would be use for overarching control plane to help with common machine learning
 steps like uploading code or training model. This control plane then could expose API that can be leveraged by various programming languages, CLI,
 plugins etc.
 
-## Goals
+# Goals
 Create service deployed as part of kubeflow-core that would expose API that then could be consumed by swagger to generate client libs and CLI tool.
 
-## Proposed API
+# Use cases
 
-### Model
+## Easy start
 
-Model would be main control structure - a model would be collection of different versions of code that would use same monitoring/comparison infrastructure, serving mechanism etc.
+I am data scientist. I want to setup Kubeflow easily without a lot of Kubernetes experience required. I would like to use easily replicable and well documented method to deploy Kubeflow on existing cluster. After that I want to have fully featured environment to help me with model development and deployment.
 
-```
-POST /model - create new model
-GET /model - list all models
-GET /model/<<name>> - describe model <<name>>
-DELETE /model/<<name>> - remove model
-```
+## Production data science
 
-### Model version
+We are team of data scientists and we need to have access to fully featured environment that will help us with production use cases. We need tools that will allow us to work on multiple models, develop them (manually and automatically like with auto hyperparameter tuning), compare their performance and ultimately deploy to production (including rolling, no-ping-lost upgrade).
 
-Model version would be one instance of code that we want to train or serve. Model version corresponds to single code blob (revision).
+## Multi tenant environment
 
-```
-POST /model/<<name>>/version/<<version>> - create new model version, version can be numerical autoincrement or named. That also includes saving code blob somewhere or pointing to specific revision in git etc.
-GET /model/<<name>>/version - list all available versions of model
-GET /model/<<name>>/version/<<version>> - describe model <<version>>
-DELETE /model/<<name>>/version/<<version>> - delete model version
-```
+I am cloud operator and I need to provide multiple, fully featured, kubeflow environments for various teams dealing with different ML problems. Teams should have access restricted (with RBAC) to their environments.
 
-### Trainer
+# Design
 
-Trainer is endpoint for running training job for particular model version and given configuration. Each trainer job set will result in saved model checkpoint (or multiple of them) to set storage backend.
+## Environment
 
-```
-POST /model/<<name>>/train/<<version>> - create training jobs for particular model version and given config. Returns unique id. Multiple calls creates multiple job sets.
-GET /model/<<name>>/train/<<version>> - list all ongoing jobsets for particular version
-GET /model/<<name>>/train/<<version>>/<<job_id>> - detailed info of particular jobset
-GET /model/<<name>>/train/<<version>>/<<job_id>>/logs - logs of jobs in <<job_id>>
-GET /model/<<name>>/train/<<version>>/<<job_id>>/checkpoint - point to saved checkpoints of given model (like S3 url or NAS path).
-DELETE /model/<<name>>/train/<<version>>/<<job_id>> - terminate given job
-```
+Environment is main, overarching resource in Kubeflow. It would contain configuration like common storage backend. One environment would correspond to one Kubernetes namespace and one KSonnet app. Environment operations would be superuser-level operations.
 
-### Server
+### Multitenancy over environments
 
-Run inference service for given model version (like tf-serving).
+Environment will be main user permission separator. While creating environment, because every environment resources would live in dedicated namespace, operator will be able to create RBAC role bindings that limits users to access only this namespace.
 
-```
-POST /model/<<name>>/serve/<<version>> - create server instance for newest checkpoint of given version or specify checkpoint_id.
-GET /model/<<name>>/serve/<<version>> - list all servers running for given version
-DELETE /model/<<name>>/serve/<<version>>/<<server_id>> - terminate server
-```
+At the same time, users with access to this namespace would be able to manage resources within it, like spawning TFJobs within it.
 
-### Monitor
+### Each environment is separate ksonnet app
 
-Monitor is endpoint to spawn monitoring tool instance for given model (like tensorboard) and compare performance of multiple versions.
+By creating an environment, operator effectively spawn whole set of Kubeflow resources that can are tracked as CRD. This CRD would hold all environment-specific variables like common S3/GS bucket for all the resources. Operator can prepare template environment to hold all configuration which is common to all environments on this setup, like basic storage or network infrastructure.
 
-```
-POST /model/<<name>>/monitor - run instance of monitoring tool, including service
-GET /model/<<name>>/monitor - get url to monitoring tool service
-DELETE /model/<<name>>/monitor - terminage monitoring tool
-```
+Namespace, in which ksonnet app will run, should follow predefined (and configurable) name schema for easier tracking (for example kubeflow-%envname).
 
-## Design
+### Environment as context for CLI
 
-Central point to all this would be running http server + service that would provide endpoint to API. Spawning this service would be part of ksonnet apply.
+With CLI we can provide mechanisms to set default environment (for example `kf env use foo`). "Using" environment would be default way of how data scientist would interact with Kubeflow.
+After setting active environment, shortcut commands becomes available, like `kf jupyer` would create port-forwarding to jupyterhub within this environment and output direct link to access it.
+We could also provide toolset to quickly access things like pachyderm pipelines or tensorboard instance specific to all models within same environment.
 
-* Storage backend will be required - whether it's PV-based or S3, service will need persistent file backend for things like code, logs or trained model checkpoints.
-* User would specify backend framework on spawn (multi-backend is tbd). Depending on which backend is chosen, control-service would wrap given framework operator and make decision regarding tooling (like "if tensorflow then monitoring=tensorboard).
-* API would be declared in swagger to allow automatic client bindings
-* Control-service would use ETCD and other parts of kubernetes infrastructure for internal state persistence.
-* We need to decide on language used for control-service. Python or Golang seems to be most obvious choices, and both viable.
+### Benefits of using environment
 
-## Alternatives Considered
+Main benefit for separating kubeflow into environments managed by cloud operators will be abstracting knowledge of underlying infrastructure from data scientists. Expectation would be that cloud operator would define user access rights, infrastructure setup etc and provide easy-to-configure setup for data scientists to use from their machines (just wget kf binary and put this file in your home directory and you're done!).
 
-CLI tool can be just a wrapper of kubectl/ks, but that wouldn't have any potential state persistence and made several of use cases impossible.
+We could also provide low-requirement environment template for new users to quickly bootstrap their first Kubeflow. We could use things like bootsrapper application to inspect existing environment and draft this template, that could then be edited (`kubectl edit configmap kubeflow-evironment-template`?) before calling kf env create.
+
+# Implementation
+
+## Using kubeless functions
+
+One of ideas how to implement API is to provide set of kubeless functions that would perform required actions. All these function definitions would be gathered in one (or many) yaml file hosted in kubeflow repository. That would make installation of kubeflow logic as easy as `kubectl create -f https://url-to-yaml`. Another step would be to download pre-compiled kf binary that would provide easy way to interact with these functions.
