@@ -1,10 +1,5 @@
 # Kubeflow Contributor Guide
 
-Our PR workflow is nearly identical to Kubernetes'. Much of this doc is a
-modified version of Kubernetes' [contributors](https://github.com/kubernetes/community/blob/master/contributors/guide/README.md)
-and [owners](https://github.com/kubernetes/community/blob/master/contributors/guide/owners.md#code-review-using-owners-files)
-guides.
-
 ## Welcome
 
 Welcome to the Kubeflow project! This document is the single source of truth
@@ -17,7 +12,7 @@ you find something is missing or incorrect.
 -   [Your First Contribution](#your-first-contribution)
     -   [Find something to work on](#find-something-to-work-on)
     -   [Starter issues](#starter-issues)
--   [Owners](#owners)
+-   [Owners files and PR workflow](#owners)
     -   [Overview of OWNERS files](#overview-of-owners-files)
         -   [OWNERS](#owners-1)
         -   [OWNERS_ALIASES](#owners_aliases)
@@ -66,8 +61,34 @@ the following tags:
 * [`help wanted`](https://github.com/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+org%3Akubeflow+archived%3Afalse+label%3A%22help+wanted%22)
 * [`starter`](https://github.com/issues?utf8=%E2%9C%93&q=is%3Aopen+is%3Aissue+org%3Akubeflow+archived%3Afalse+label%3A%22starter%22)
 
+# Joining the community
 
-# Owners
+Follow these instructions if
+
+* You want to become a member of the Kubeflow GitHub org (so you can trigger tests)
+* Become part of the Kubeflow build cop or release teams
+* Be recognized as an individual or organization as contributing to Kubeflow
+
+## Individual contributors
+
+Please send a PR adding yourself to [members](https://github.com/kubeflow/community/blob/master/members.yaml)
+
+  * The only **required** field is your GitHub id
+  * This is a **prerequisite** for joining the GitHub org
+
+## Companies/Organizations
+
+If you would like your company or organization to be acknowledged for contributing to
+Kubeflow or participatng in the community (being a user counts) please send a PR
+adding the relevant info to[member_organizations.yaml](https://github.com/kubeflow/community/blob/master/member_organizations.yaml).
+
+
+# Owners files and PR workflow
+
+Our PR workflow is nearly identical to Kubernetes'. Most of these instructions are a
+modified version of Kubernetes' [contributors](https://github.com/kubernetes/community/blob/master/contributors/guide/README.md)
+and [owners](https://github.com/kubernetes/community/blob/master/contributors/guide/owners.md#code-review-using-owners-files)
+guides.
 
 ## Overview of OWNERS files
 

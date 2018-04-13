@@ -1,0 +1,27 @@
+# This file provides information about companies/organizations
+# that would like to be acknowledged as contributing/participating in
+# Kubeflow.
+#
+# Required fields:
+#   name - The name of the company or organization.
+#   contacts - A list of email addresses for the primary contacts for
+#     the organization.
+#
+# Optional fields
+#    url - Url for the organization 
+#    hiringForKubeflow - true/false whether the orgniazation is hiring for Kubeflow related
+#      positions
+#    hiringUrl - A URL for potential job applicants.
+#
+# We do not infer organizations based on affiliation in members.yaml because
+# some members may be contributing as individuals and not part of a deeper involvement
+# with Kubeflow for their company/organization.
+
+- name: Google
+  contacts:
+    - aronchick@google.com
+    - ewj@google.com
+    - jlewi@google.com
+  url: https://cloud.google.com/products/machine-learning/
+  hiringForKubeflow: true
+  hiringUrl: https://goo.gl/Q85pzF
