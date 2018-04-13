@@ -25,3 +25,12 @@
   url: https://cloud.google.com/products/machine-learning/
   hiringForKubeflow: true
   hiringUrl: https://goo.gl/Q85pzF
+  
+  - name: Weaveworks
+  contacts:
+    - alexis@weave.works
+    - tamao@weave.works
+    - ilya@weave.works
+  url: https://www.weave.works/blog/kubeflow-and-weave-cloud
+  hiringForKubeflow: true
+  hiringUrl: https://www.weave.works/company/hiring/
