@@ -34,3 +34,11 @@
   url: https://www.weave.works/blog/kubeflow-and-weave-cloud
   hiringForKubeflow: true
   hiringUrl: https://www.weave.works/company/hiring/
+
+- name: Cisco
+  contacts:
+    - dedutta@cisco.com
+    - xinyuahu@cisco.com
+  url: https://www.cisco.com
+  hiringForKubeflow: true
+  hiringUrl: https://jobs.cisco.com/jobs
