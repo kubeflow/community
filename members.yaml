@@ -15,14 +15,12 @@
   lastName: Lewi
   affiliation: Google
   email: jlewi@google.com
-
 - github: kkasravi
   slack: kam
   firstName: Kam
   lastName: Kasravi
   affiliation: Intel
   email: kam.d.kasravi@intel.com
-
 - github: willb
   slack: willb
   firstName: William
