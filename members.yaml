@@ -15,3 +15,10 @@
   lastName: Lewi
   affiliation: Google
   email: jlewi@google.com
+
+- github: ddutta
+  slack: debo
+  firstName: Debo
+  lastName: Dutta
+  affiliation: Cisco
+  email: dedutta@cisco.com
