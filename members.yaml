@@ -21,3 +21,9 @@
   lastName: Kasravi
   affiliation: Intel
   email: kam.d.kasravi@intel.com
+- github: willb
+  slack: willb
+  firstName: William
+  lastName: Benton
+  affiliation: Red Hat
+  email: willb@redhat.com
