@@ -26,6 +26,14 @@
   hiringForKubeflow: true
   hiringUrl: https://goo.gl/Q85pzF
   
+- name: Red Hat
+  contacts:
+    - matt@redhat.com
+    - mhausenb@redhat.com
+    - tmckay@redhat.com
+    - willb@redhat.com
+  url: https://www.redhat.com
+  
   - name: Weaveworks
   contacts:
     - alexis@weave.works
