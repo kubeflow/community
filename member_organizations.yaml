@@ -16,6 +16,8 @@
 # We do not infer organizations based on affiliation in members.yaml because
 # some members may be contributing as individuals and not part of a deeper involvement
 # with Kubeflow for their company/organization.
+#
+# Please keep this file alphabetized by name.
 
 - name: Google
   contacts:
@@ -34,7 +36,7 @@
     - willb@redhat.com
   url: https://www.redhat.com
   
-  - name: Weaveworks
+- name: Weaveworks
   contacts:
     - alexis@weave.works
     - tamao@weave.works
