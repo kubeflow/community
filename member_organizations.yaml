@@ -8,7 +8,7 @@
 #     the organization.
 #
 # Optional fields
-#    url - Url for the organization 
+#    url - Url for the organization
 #    hiringForKubeflow - true/false whether the orgniazation is hiring for Kubeflow related
 #      positions
 #    hiringUrl - A URL for potential job applicants.
@@ -25,7 +25,7 @@
   url: https://cloud.google.com/products/machine-learning/
   hiringForKubeflow: true
   hiringUrl: https://goo.gl/Q85pzF
-  
+
 - name: Red Hat
   contacts:
     - matt@redhat.com
@@ -33,8 +33,8 @@
     - tmckay@redhat.com
     - willb@redhat.com
   url: https://www.redhat.com
-  
-  - name: Weaveworks
+
+- name: Weaveworks
   contacts:
     - alexis@weave.works
     - tamao@weave.works
@@ -42,3 +42,12 @@
   url: https://www.weave.works/blog/kubeflow-and-weave-cloud
   hiringForKubeflow: true
   hiringUrl: https://www.weave.works/company/hiring/
+
+- name: Caicloud
+  contacts:
+    - deyuan@caicloud.io
+    - gaoce@caicloud.io
+    - pengjigntian@caicloud.io
+  url: https://caicloud.io
+  hiringForKubeflow: true
+  hiringUrl: https://caicloud.io/jobs
