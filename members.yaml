@@ -1,0 +1,36 @@
+# This file is used to provide a mapping between various ids of members
+# in the community.
+# It is entirely opt in. The only required field is github id.
+#
+# Please keep sorted by github id.
+# For slack please use the id on kubeflow.slack.com
+# For email corporate/professional email addresses are preferred.
+#
+# Individuals should only add their information and not that of other
+# people.
+
+- github: gaocegege
+  slack: gaocegege
+  firstName: Ce
+  LastName: Gao
+  affiliation: Caicloud
+  email: gaoce@caicloud.io
+
+- github: jlewi
+  slack: jlewi
+  firstName: Jeremy
+  lastName: Lewi
+  affiliation: Google
+  email: jlewi@google.com
+- github: kkasravi
+  slack: kam
+  firstName: Kam
+  lastName: Kasravi
+  affiliation: Intel
+  email: kam.d.kasravi@intel.com
+- github: willb
+  slack: willb
+  firstName: William
+  lastName: Benton
+  affiliation: Red Hat
+  email: willb@redhat.com
