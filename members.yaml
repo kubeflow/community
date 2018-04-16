@@ -9,6 +9,13 @@
 # Individuals should only add their information and not that of other
 # people.
 
+- github: gaocegege
+  slack: gaocegege
+  firstName: Ce
+  LastName: Gao
+  affiliation: Caicloud
+  email: gaoce@caicloud.io
+
 - github: jlewi
   slack: jlewi
   firstName: Jeremy
