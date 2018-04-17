@@ -28,6 +28,12 @@
   hiringForKubeflow: true
   hiringUrl: https://caicloud.io/jobs
 
+- name: Canonical
+  contacts:
+  - stephan.fabel@canonical.com
+  - tim.van.steenburgh@canonical.com
+  url: https://www.ubuntu.com/kubernetes 
+  
 - name: Github
   contacts:
     - hamelsmu@github.com
