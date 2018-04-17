@@ -28,6 +28,13 @@
   hiringForKubeflow: true
   hiringUrl: https://caicloud.io/jobs
 
+- name: Intel
+  contacts:
+    - michal.jastrzebski@intel.com
+    - jose.g.aguirre@intel.com
+    - balaji.subramaniam@intel.com
+  url: https://www.intel.com
+
 - name: Github
   contacts:
     - hamelsmu@github.com
@@ -61,10 +68,3 @@
   url: https://www.weave.works/blog/kubeflow-and-weave-cloud
   hiringForKubeflow: true
   hiringUrl: https://www.weave.works/company/hiring/
-
-- name: Intel
-  contacts:
-    - michal.jastrzebski@intel.com
-    - jose.g.aguirre@intel.com
-    - balaji.subramaniam@intel.com
-  url: https://www.intel.com
