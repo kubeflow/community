@@ -30,6 +30,12 @@
   lastName: Kasravi
   affiliation: Intel
   email: kam.d.kasravi@intel.com
+- github: wbuchwalter
+  slack: wbuchwalter
+  firstName: William
+  lastName: Buchwalter
+  affiliation: Microsoft
+  email: wibuch@microsoft.com
 - github: willb
   slack: willb
   firstName: William
