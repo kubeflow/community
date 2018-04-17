@@ -17,7 +17,12 @@
   LastName: Gao
   affiliation: Caicloud
   email: gaoce@caicloud.io
-
+- github: inc0
+  slack: inc0
+  firstName: Michal
+  lastName: Jastrzebski
+  affiliation: Intel
+  email: michal.jastrzebski@intel.com
 - github: jlewi
   slack: jlewi
   firstName: Jeremy
@@ -36,9 +41,3 @@
   lastName: Benton
   affiliation: Red Hat
   email: willb@redhat.com
-- github: inc0
-  slack: inc0
-  firstName: Michal
-  lastName: Jastrzebski
-  affiliation: Intel
-  email: michal.jastrzebski@intel.com
