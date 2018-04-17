@@ -9,16 +9,37 @@
 # Individuals should only add their information and not that of other
 # people.
 
-- github: jlewi
-  slack: jlewi
-  firstName: Jeremy
-  lastName: Lewi
-  affiliation: Google
-  email: jlewi@google.com
-
 - github: ddutta
   slack: debo
   firstName: Debo
   lastName: Dutta
   affiliation: Cisco
   email: dedutta@cisco.com
+
+- github: gaocegege
+  slack: gaocegege
+  firstName: Ce
+  LastName: Gao
+  affiliation: Caicloud
+  email: gaoce@caicloud.io
+
+- github: jlewi
+  slack: jlewi
+  firstName: Jeremy
+  lastName: Lewi
+  affiliation: Google
+  email: jlewi@google.com
+  
+- github: kkasravi
+  slack: kam
+  firstName: Kam
+  lastName: Kasravi
+  affiliation: Intel
+  email: kam.d.kasravi@intel.com
+  
+- github: willb
+  slack: willb
+  firstName: William
+  lastName: Benton
+  affiliation: Red Hat
+  email: willb@redhat.com
