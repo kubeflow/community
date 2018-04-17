@@ -66,6 +66,13 @@
   hiringForKubeflow: true
   hiringUrl: https://goo.gl/Q85pzF
 
+- name: Pachyderm
+  contacts:
+    - datadan@pachyderm.io
+    - joey@pachyderm.io
+    - jdoliner@pachyderm.io
+  url: http://pachyderm.io/
+
 - name: Red Hat
   contacts:
     - matt@redhat.com
