@@ -11,13 +11,18 @@
 #
 # Please keep this file alphabetized by github id.
 
+- github: ewilderj
+  slack: ewj
+  firstName: Edd
+  LastName: Wilder-James
+  affiliation: Google
+  email: ewj@google.com
 - github: gaocegege
   slack: gaocegege
   firstName: Ce
   LastName: Gao
   affiliation: Caicloud
   email: gaoce@caicloud.io
-
 - github: jlewi
   slack: jlewi
   firstName: Jeremy
