@@ -43,6 +43,12 @@
     - balaji.subramaniam@intel.com
   url: https://www.intel.com
 
+- name: Canonical
+  contacts:
+  - stephan.fabel@canonical.com
+  - tim.van.steenburgh@canonical.com
+  url: https://www.ubuntu.com/kubernetes 
+  
 - name: Github
   contacts:
     - hamelsmu@github.com
