@@ -62,6 +62,7 @@
     - aronchick@google.com
     - ewj@google.com
     - jlewi@google.com
+    - chasm@google.com
   url: https://cloud.google.com/products/machine-learning/
   hiringForKubeflow: true
   hiringUrl: https://goo.gl/Q85pzF
