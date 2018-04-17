@@ -27,6 +27,14 @@
   url: https://caicloud.io
   hiringForKubeflow: true
   hiringUrl: https://caicloud.io/jobs
+  
+- name: Cisco
+  contacts:
+    - dedutta@cisco.com
+    - xinyuahu@cisco.com
+  url: https://www.cisco.com
+  hiringForKubeflow: true
+  hiringUrl: https://jobs.cisco.com/jobs
 
 - name: Github
   contacts:
