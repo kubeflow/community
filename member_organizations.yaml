@@ -17,6 +17,31 @@
 # some members may be contributing as individuals and not part of a deeper involvement
 # with Kubeflow for their company/organization.
 
+- name: Caicloud
+  contacts:
+    - deyuan@caicloud.io
+    - gaoce@caicloud.io
+    - pengjigntian@caicloud.io
+  url: https://caicloud.io
+  hiringForKubeflow: true
+  hiringUrl: https://caicloud.io/jobs
+  
+- name: Cisco
+  contacts:
+    - dedutta@cisco.com
+    - xinyuahu@cisco.com
+  url: https://cisco.com
+  hiringForKubeflow: true
+  hiringUrl: https://jobs.cisco.com
+
+- name: Github
+  contacts:
+    - hamelsmu@github.com
+    - rand@github.com
+  url: http://gh-demo.kubeflow.org/
+  hiringForKubeflow: true
+  hiringUrl: https://github.com/about/careers
+
 - name: Google
   contacts:
     - aronchick@google.com
@@ -25,8 +50,16 @@
   url: https://cloud.google.com/products/machine-learning/
   hiringForKubeflow: true
   hiringUrl: https://goo.gl/Q85pzF
-  
-  - name: Weaveworks
+
+- name: Red Hat
+  contacts:
+    - matt@redhat.com
+    - mhausenb@redhat.com
+    - tmckay@redhat.com
+    - willb@redhat.com
+  url: https://www.redhat.com
+
+- name: Weaveworks
   contacts:
     - alexis@weave.works
     - tamao@weave.works
