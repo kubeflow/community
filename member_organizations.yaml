@@ -36,6 +36,13 @@
   hiringForKubeflow: true
   hiringUrl: https://jobs.cisco.com/jobs
 
+- name: Intel
+  contacts:
+    - michal.jastrzebski@intel.com
+    - jose.g.aguirre@intel.com
+    - balaji.subramaniam@intel.com
+  url: https://www.intel.com
+
 - name: Github
   contacts:
     - hamelsmu@github.com
