@@ -11,13 +11,20 @@
 #
 # Please keep this file alphabetized by github id.
 
- - github: ddutta
-   slack: debo
-   firstName: Debo
-   lastName: Dutta
-   affiliation: Cisco
-   email: dedutta@cisco.com
-    
+- github: amygdala
+  slack: amy
+  firstName: Amy
+  lastName: Unruh
+  affiliation: Google
+  email: amyu@google.com
+
+- github: ddutta
+  slack: debo
+  firstName: Debo
+  lastName: Dutta
+  affiliation: Cisco
+  email: dedutta@cisco.com
+
 - github: gaocegege
   slack: gaocegege
   firstName: Ce
@@ -38,14 +45,14 @@
   lastName: Lewi
   affiliation: Google
   email: jlewi@google.com
-  
+
 - github: kkasravi
   slack: kam
   firstName: Kam
   lastName: Kasravi
   affiliation: Intel
   email: kam.d.kasravi@intel.com
-  
+
 - github: texasmichelle
   slack: michelle
   firstName: Michelle
