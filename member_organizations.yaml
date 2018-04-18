@@ -68,6 +68,13 @@
   hiringForKubeflow: true
   hiringUrl: https://goo.gl/Q85pzF
 
+- name: Momenta
+  contacts:
+    - xuelei@momenta.ai
+  url: https://momenta.ai
+  hiringForKubeflow: true
+  hiringUrl: https://www.momenta.ai/en/careers
+
 - name: Pachyderm
   contacts:
     - datadan@pachyderm.io
