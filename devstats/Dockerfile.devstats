@@ -1,0 +1,38 @@
+# Dockerfile for devstats
+FROM golang:1.8
+
+RUN go get -u github.com/golang/lint/golint && \
+	go get golang.org/x/tools/cmd/goimports && \
+	go get github.com/jgautheron/goconst/cmd/goconst && \
+	go get github.com/jgautheron/usedexports && \
+	go get github.com/kisielk/errcheck && \
+	go get github.com/influxdata/influxdb/client/v2 && \
+	go get github.com/lib/pq && \
+	go get golang.org/x/text/transform && \
+	go get golang.org/x/text/unicode/norm && \
+	go get gopkg.in/yaml.v2 && \
+	go get github.com/google/go-github/github && \
+	go get golang.org/x/oauth2 && \
+	go get github.com/mattn/go-sqlite3
+
+RUN cd ${GOPATH}/src && \
+	git clone https://github.com/cncf/devstats.git devstats
+
+RUN cd ${GOPATH}/src/devstats && \
+	git checkout v0.4.0 && \
+	make
+
+# Install influx so we have the CLI
+# https://www.influxdata.com/blog/package-repository-for-linux/
+RUN curl -sL https://repos.influxdata.com/influxdb.key | apt-key add - 
+
+RUN apt-get update -y && \
+	apt-get install -y apt-transport-https
+
+RUN echo "deb https://repos.influxdata.com/debian jessie stable" | tee -a /etc/apt/sources.list && \
+	apt-get update && \
+	apt-get install influxdb -y
+
+# Add /go/src/devstats to the path so that all the binaries will be on the path.
+# This is needed by the devstats binary.
+ENV PATH $PATH:/go/src/devstats

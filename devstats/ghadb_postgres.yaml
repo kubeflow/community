@@ -1,0 +1,58 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ghadb
+  namespace: devstats
+  labels:
+    app:  postgre
+spec:
+  ports:
+  - port: 5432
+  clusterIP: None
+  selector:
+    app: postgre
+
+---
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgre
+  namespace: devstats
+spec:
+  serviceName: ghadb
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgre
+  template:
+    metadata:
+      labels:
+        app: postgre
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:10.1-alpine
+        env:
+        # For a list of POSTGRES environment variables see
+        # https://hub.docker.com/_/postgres/
+        - name: POSTGRES_USER
+          value: gha_admin
+        - name: POSTGRES_PASSWORD
+          value: password
+        - name: POSTGRES_DB
+          value: gha
+        # PGDATA controls where the data for the DB is stored. We want to
+        # store it on our PD.
+        - name: PGDATA
+          value: /var/lib/postgresql/data/ghadb-postgre
+        ports:
+        - containerPort: 5432
+        volumeMounts:
+        - name: ghadb
+          mountPath: /var/lib/postgresql/data
+      volumes:
+        - name: ghadb
+          gcePersistentDisk:
+            pdName: ghadb-data
+            fsType: ext4

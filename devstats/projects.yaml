@@ -1,0 +1,14 @@
+projects:
+  kubeflow:
+    order: 1
+    command_line:
+      - kubeflow
+    # TODO(jlewi): Move the start date back in time once we are done doing some initial testing
+    start_date: 2018-04-16T00:00:00Z
+    # Can we get rid of join date since we aren't part of CNCF yet?
+    join_date: 2018-04-16T00:00:00Z
+    psql_db: gha
+    influx_db: kubeflow
+    main_repo: kubeflow/kubeflow
+    annotation_regexp: '^v((0\.\d+)|(\d+\.\d+\.0))$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'

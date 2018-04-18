@@ -1,0 +1,57 @@
+# Run the devstats container forever.
+# This is useful for being able to run commands interactively
+# via kubectl exec.
+# e.g. initializing the database.
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: devstats-cli
+  namespace: devstats
+spec:
+  selector:
+    matchLabels:
+      app: devstats-cli
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: devstats-cli
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: ndevstats
+        image: gcr.io/kubeflow-ci/devstats:latest
+        command:
+          - tail
+          - -f
+          - /dev/null        
+        env:
+        # Host will follow statefulset conventions
+        - name: PG_HOST
+          value: postgre-0.ghadb.devstats.svc.cluster.local
+        #  Keep in sync with the values on postgress container
+        #  Also some values presumably can't be changed without recreating the DB.
+        - name: PG_DB
+          value: gha
+        - name: PG_PASS
+          value: password
+
+        # Influx DB environment variables
+        #  Keep in sync with the values on postgress container
+        #  Also some values presumably can't be changed without recreating the DB.
+        - name: IDB_PASS
+          value: password
+        - name: IDB_PASS_RO
+          value: password_ro 
+        - name: IDB_HOST
+          value: influxdb-set-0.influxdb.devstats.svc.cluster.local
+        volumeMounts:
+        - name: projects-volume
+          # devstats binary seems to be hardcoded to this location. 
+          # The environment variable GHA2DB_PROJECT_YAML appears to modify 
+          # the name of the file but not the path.
+          mountPath: /etc/gha2db
+      volumes:
+      - name: projects-volume
+        configMap:        
+          name: projects

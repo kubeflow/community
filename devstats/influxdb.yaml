@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: influxdb
+  namespace: devstats
+  labels:
+    app:  influx
+spec:
+  ports:
+  - port: 8086
+    name: http
+  - port: 8083
+    name: administrator
+  - port: 2003
+    name: graphite
+  clusterIP: None
+  selector:
+    app: influx
+
+---
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  # I think the name needs to be different from the service but I could be wrong.
+  name: influxdb-set
+  namespace: devstats
+spec:
+  serviceName: influxdb
+  replicas: 1
+  selector:
+    matchLabels:
+      app: influx
+  template:
+    metadata:
+      labels:
+        app: influx
+    spec:
+      containers:
+      - name: influx
+        image: influxdb:1.5.2
+        ports:
+        # HTTP API Port
+        - containerPort: 8086
+        # Administrator interface port
+        - containerPort: 8083 
+        # Graphite port if enabled
+        - containerPort: 2003 
+        volumeMounts:
+        - name: influxdb
+          mountPath: /var/lib/influxdb
+      volumes:
+        - name: influxdb
+          gcePersistentDisk:
+            pdName: influxdb-data
+            fsType: ext4
