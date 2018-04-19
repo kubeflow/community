@@ -73,3 +73,9 @@
   lastName: Benton
   affiliation: Red Hat
   email: willb@redhat.com
+
+- github: fxue
+  firstName: Fei
+  lastName: Xue
+  affiliation: Google
+  email: feixue@google.com
