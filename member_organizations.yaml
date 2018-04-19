@@ -28,6 +28,15 @@
   hiringForKubeflow: true
   hiringUrl: https://caicloud.io/jobs
   
+- name: Heptio
+  contacts:
+    - kevin@heptio.com
+    - knova@heptio.com
+    - joe@heptio.com
+  url: https://www.heptio.com
+  hiringForKubeflow: false
+  hiringUrl: https://heptio.com/about/careers/
+  
 - name: Cisco
   contacts:
     - dedutta@cisco.com
@@ -58,7 +67,7 @@
   - stephan.fabel@canonical.com
   - tim.van.steenburgh@canonical.com
   url: https://www.ubuntu.com/kubernetes 
-  
+ 
 - name: Github
   contacts:
     - hamelsmu@github.com
