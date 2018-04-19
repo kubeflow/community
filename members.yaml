@@ -32,6 +32,13 @@
   affiliation: Cisco
   email: dedutta@cisco.com
 
+- github: ewilderj
+  slack: ewj
+  firstName: Edd
+  LastName: Wilder-James
+  affiliation: Google
+  email: ewj@google.com
+
 - github: gaocegege
   slack: gaocegege
   firstName: Ce
