@@ -36,6 +36,15 @@
   hiringForKubeflow: true
   hiringUrl: https://jobs.cisco.com/jobs
 
+- name: Datawire
+  contacts:
+    - richard@datawire.io
+    - flynn@datawire.io
+    - kelsey@datawire.io
+  url: https://www.datawire.io
+  hiringForKubeflow: false
+  hiringUrl: https://www.datawire.io/careers
+
 - name: Intel
   contacts:
     - michal.jastrzebski@intel.com
