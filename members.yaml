@@ -11,6 +11,13 @@
 #
 # Please keep this file alphabetized by github id.
 
+- github: ankushagarwal
+  slack: ankushagarwal
+  firstName: Ankush
+  lastName: Agarwal
+  affiliation: Google
+  email: agwl@google.com
+
 - github: amygdala
   slack: amy
   firstName: Amy
