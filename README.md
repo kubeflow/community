@@ -33,6 +33,8 @@ mailing list.
 
 Slack server: [kubeflow.slack.com](https://kubeflow.slack.com/)
 
+[Join Slack Channel](https://join.slack.com/t/kubeflow/shared_invite/enQtMjgyMzMxNDgyMTQ5LWUwMTIxNmZlZTk2NGU0MmFiNDE4YWJiMzFiOGNkZGZjZmRlNTExNmUwMmQ2NzMwYzk5YzQxOWQyODBlZGY2OTg)
+
 ## Code of conduct
 
 In the interest of fostering an open and welcoming environment, we as
