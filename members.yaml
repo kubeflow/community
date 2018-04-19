@@ -53,6 +53,13 @@
   affiliation: Google
   email: chasm@google.com
 
+- github: wbuchwalter
+  slack: wbuchwalter
+  firstName: William
+  lastName: Buchwalter
+  affiliation: Microsoft
+  email: wibuch@microsoft.com
+
 - github: willb
   slack: willb
   firstName: William
