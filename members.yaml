@@ -94,3 +94,10 @@
   lastName: Benton
   affiliation: Red Hat
   email: willb@redhat.com
+
+- github: willingc
+  slack: willingc
+  firstName: Carol
+  lastName: Willing
+  affiliation: Project Jupyter
+  email: cawillin@calpoly.edu
