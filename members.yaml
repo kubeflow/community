@@ -59,6 +59,13 @@
   lastName: Hausenblas
   affiliation: Red Hat
   email: mhausenb@redhat.com
+  
+- github: pdmack
+  slack: pdmack
+  firstName: Pete
+  lastName: MacKinnon
+  affiliation: Red Hat
+  email: pmackinn@redhat.com
 
 - github: texasmichelle
   slack: michelle
