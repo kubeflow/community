@@ -28,15 +28,6 @@
   hiringForKubeflow: true
   hiringUrl: https://caicloud.io/jobs
   
-- name: Heptio
-  contacts:
-    - kevin@heptio.com
-    - knova@heptio.com
-    - joe@heptio.com
-  url: https://www.heptio.com
-  hiringForKubeflow: false
-  hiringUrl: https://heptio.com/about/careers/
-  
 - name: Cisco
   contacts:
     - dedutta@cisco.com
@@ -54,6 +45,15 @@
   hiringForKubeflow: false
   hiringUrl: https://www.datawire.io/careers
 
+- name: Heptio
+  contacts:
+    - kevin@heptio.com
+    - knova@heptio.com
+    - joe@heptio.com
+  url: https://www.heptio.com
+  hiringForKubeflow: false
+  hiringUrl: https://heptio.com/about/careers/
+  
 - name: Intel
   contacts:
     - michal.jastrzebski@intel.com
