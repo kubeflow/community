@@ -81,7 +81,7 @@ DB_NAME=kubeflow
 ### Connecting to postgres
 
 ```
-psql -h postgre-0.ghadb.devstats.svc.cluster.local -W ${PG_PASSWORD} -U gha_admin -d gha
+psql -h ${PG_HOST} -W ${PG_PASSWORD} -U gha_admin -d gha
 ```
 
 ### Loading data into the db
@@ -129,4 +129,23 @@ A simple query to look at events
 
 ```
 select created_at, type from gha_events;
+```
+
+## Using Influx DB
+
+To connect from influxdb pod
+
+```
+influx -precision rfc3339 -host localhost -username gha_admin -password ${PG_PASSWORD} -database gha 
+```
+
+To see a list of time series
+```
+show series
+```
+
+To select data
+
+```
+select * from new_prs_all_d3
 ```
