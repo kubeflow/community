@@ -53,6 +53,13 @@
   affiliation: Intel
   email: kam.d.kasravi@intel.com
 
+- github: mhausenblas
+  slack: mhausenblas
+  firstName: Michael
+  lastName: Hausenblas
+  affiliation: Red Hat
+  email: mhausenb@redhat.com
+
 - github: texasmichelle
   slack: michelle
   firstName: Michelle
