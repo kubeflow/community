@@ -73,3 +73,9 @@
   lastName: Benton
   affiliation: Red Hat
   email: willb@redhat.com
+- github: mhausenblas
+  slack: mhausenblas
+  firstName: Michael
+  lastName: Hausenblas
+  affiliation: Red Hat
+  email: mhausenb@redhat.com
