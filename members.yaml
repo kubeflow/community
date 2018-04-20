@@ -10,6 +10,12 @@
 # people.
 #
 # Please keep this file alphabetized by github id.
+- github: ahousley
+  slack: ahousley
+  firstName: Alex
+  lastName: Housley
+  affiliation: Seldon
+  email: ah@seldon.io
 
 - github: ankushagarwal
   slack: ankushagarwal
