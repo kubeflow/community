@@ -53,7 +53,14 @@
   url: https://www.heptio.com
   hiringForKubeflow: false
   hiringUrl: https://heptio.com/about/careers/
-  
+
+- name: Huawei
+  contacts:
+    - huangzhipeng@huawei.com
+    - baixiaolong1@huawei.com
+    - linjian4@huawei.com
+  url: https://www.huawei.com
+
 - name: Intel
   contacts:
     - michal.jastrzebski@intel.com
