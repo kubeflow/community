@@ -93,6 +93,13 @@
     - elson.o.rodriguez@intel.com
   url: https://www.intel.com
 
+- name: Microsoft
+  contacts:
+    - wibuch@microsoft.com
+    - lachlan.evenson@microsoft.com
+  url: https://www.microsoft.com
+  hiringForKubeflow: false
+  
 - name: Momenta
   contacts:
     - xuelei@momenta.ai
