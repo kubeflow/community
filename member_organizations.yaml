@@ -28,6 +28,12 @@
   hiringForKubeflow: true
   hiringUrl: https://caicloud.io/jobs
   
+- name: Canonical
+  contacts:
+  - stephan.fabel@canonical.com
+  - tim.van.steenburgh@canonical.com
+  url: https://www.ubuntu.com/kubernetes 
+ 
 - name: Cisco
   contacts:
     - dedutta@cisco.com
@@ -44,6 +50,24 @@
   url: https://www.datawire.io
   hiringForKubeflow: false
   hiringUrl: https://www.datawire.io/careers
+
+- name: Github
+  contacts:
+    - hamelsmu@github.com
+    - rand@github.com
+  url: http://gh-demo.kubeflow.org/
+  hiringForKubeflow: true
+  hiringUrl: https://github.com/about/careers
+
+- name: Google
+  contacts:
+    - aronchick@google.com
+    - ewj@google.com
+    - jlewi@google.com
+    - chasm@google.com
+  url: https://cloud.google.com/products/machine-learning/
+  hiringForKubeflow: true
+  hiringUrl: https://goo.gl/Q85pzF
 
 - name: Heptio
   contacts:
@@ -69,30 +93,6 @@
     - elson.o.rodriguez@intel.com
   url: https://www.intel.com
 
-- name: Canonical
-  contacts:
-  - stephan.fabel@canonical.com
-  - tim.van.steenburgh@canonical.com
-  url: https://www.ubuntu.com/kubernetes 
- 
-- name: Github
-  contacts:
-    - hamelsmu@github.com
-    - rand@github.com
-  url: http://gh-demo.kubeflow.org/
-  hiringForKubeflow: true
-  hiringUrl: https://github.com/about/careers
-
-- name: Google
-  contacts:
-    - aronchick@google.com
-    - ewj@google.com
-    - jlewi@google.com
-    - chasm@google.com
-  url: https://cloud.google.com/products/machine-learning/
-  hiringForKubeflow: true
-  hiringUrl: https://goo.gl/Q85pzF
-
 - name: Momenta
   contacts:
     - xuelei@momenta.ai
@@ -117,6 +117,15 @@
   contacts:
     - matt@redhat.com
   url: https://www.redhat.com
+
+- name: Seldon
+  contacts:
+    - ah@seldon.io
+    - cc@seldon.io
+    - gs@seldon.io
+  url: https://www.seldon.io
+  hiringForKubeflow: true
+  hiringUrl: https://www.seldon.io/careers/
 
 - name: Weaveworks
   contacts:
