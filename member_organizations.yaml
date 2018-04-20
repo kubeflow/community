@@ -51,6 +51,13 @@
   hiringForKubeflow: false
   hiringUrl: https://www.datawire.io/careers
 
+- name: Dell
+  contacts:
+    - bhavesh_a_patel@dell.com
+  url: http://www.dell.com
+  hiringForKubeflow: false
+  hiringUrl: http://www.dell.com/learn/us/en/uscorp1/careers?~ck=mn
+  
 - name: Github
   contacts:
     - hamelsmu@github.com
