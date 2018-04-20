@@ -108,3 +108,11 @@
   lastName: Willing
   affiliation: Project Jupyter
   email: cawillin@calpoly.edu
+
+- github: yuvipanda
+  slack: yuvipanda
+  firstName: Yuvi
+  lastName: Panda
+  affiliation: Project Jupyter
+  email: yuvipanda@gmail.com
+
