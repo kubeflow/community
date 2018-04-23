@@ -19,6 +19,12 @@
 #
 # Please keep this file alphabetized by name.
 
+- name: Alibaba Cloud
+  contacts:
+    - zk131586@alibaba-inc.com
+    - cheyang.cy@alibaba-inc.com
+  url: https://www.alibabacloud.com
+
 - name: Caicloud
   contacts:
     - deyuan@caicloud.io
