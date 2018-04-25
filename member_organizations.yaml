@@ -9,7 +9,7 @@
 #
 # Optional fields
 #    url - Url for the organization
-#    hiringForKubeflow - true/false whether the orgniazation is hiring for Kubeflow related
+#    hiringForKubeflow - true/false whether the organization is hiring for Kubeflow related
 #      positions
 #    hiringUrl - A URL for potential job applicants.
 #
@@ -25,6 +25,11 @@
     - cheyang.cy@alibaba-inc.com
   url: https://www.alibabacloud.com
 
+- name: Ant Financial
+  contacts:
+    - kubo.cph@alibaba-inc.com
+  url: https://www.antfin.com
+
 - name: Caicloud
   contacts:
     - deyuan@caicloud.io
@@ -33,13 +38,13 @@
   url: https://caicloud.io
   hiringForKubeflow: true
   hiringUrl: https://caicloud.io/jobs
-  
+
 - name: Canonical
   contacts:
   - stephan.fabel@canonical.com
   - tim.van.steenburgh@canonical.com
-  url: https://www.ubuntu.com/kubernetes 
- 
+  url: https://www.ubuntu.com/kubernetes
+
 - name: Cisco
   contacts:
     - dedutta@cisco.com
@@ -63,7 +68,7 @@
   url: http://www.dell.com
   hiringForKubeflow: false
   hiringUrl: http://www.dell.com/learn/us/en/uscorp1/careers?~ck=mn
-  
+
 - name: Github
   contacts:
     - hamelsmu@github.com
@@ -112,7 +117,7 @@
     - lachlan.evenson@microsoft.com
   url: https://www.microsoft.com
   hiringForKubeflow: false
-  
+
 - name: Momenta
   contacts:
     - xuelei@momenta.ai
