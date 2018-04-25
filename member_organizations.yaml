@@ -25,6 +25,11 @@
     - cheyang.cy@alibaba-inc.com
   url: https://www.alibabacloud.com
 
+- name: Ant Financial
+  contacts:
+    - kubo.cph@alibaba-inc.com
+  url: https://www.antfin.com
+
 - name: Caicloud
   contacts:
     - deyuan@caicloud.io
