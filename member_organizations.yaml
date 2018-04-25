@@ -147,6 +147,14 @@
   hiringForKubeflow: true
   hiringUrl: https://www.seldon.io/careers/
 
+- name: Uber
+  contacts:
+    - asergeev@uber.com
+    - jiez@uber.com
+  url: https://eng.uber.com/michelangelo/
+  hiringForKubeflow: false
+  hiringUrl: https://www.uber.com/careers/
+
 - name: Weaveworks
   contacts:
     - alexis@weave.works
