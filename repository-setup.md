@@ -1,17 +1,44 @@
 # Repository Setup
 
-## Adding your tests to Prow
+Here are the steps involved in setting up a new repository; there is more information in the sections below.
 
-For triggering and running tests from github, the Kubeflow org uses Prow, K8s' continuous integration tool.
+1. Create an OWNERS file at the root of the repository
 
-Instructions for [setting up Prow](https://github.com/kubeflow/testing#adding-an-e2e-test-for-a-new-repository) and for [adding basic e2e tests](https://github.com/kubeflow/testing#adding-an-e2e-test-for-a-new-repository) can be found in the `kubeflow/testing` repo.
+	* For more info on OWNERS files see [CONTRIBUTING.md](https://github.com/kubeflow/community/blob/master/CONTRIBUTING.md)
+
+1. Configure the repository in GitHub following the instructions [below](#repository-configuration)
+
+1. Setup prow for the repository by following the instructions [below](#setup-prow)
+
+
+## Setting up prow for your repository
+
+We use [Prow](https://github.com/kubernetes/test-infra)
+
+	* Continuous integration
+	* Automatic merging of PRs (tide)
+	* Manage PRs using bots
+
+
+1. Configure prow for the repository by following these [instructions](https://github.com/kubeflow/testing#setting-up-a-kubeflow-repository-to-use-prow-)
+
+1. Follow [adding basic e2e tests](https://github.com/kubeflow/testing#adding-an-e2e-test-for-a-new-repository) to add a basic E2E test
+   for your repository 
+
+   * See kubeflow/testing#11
+
+1. Allow tide to automatically merge PRs by submitting a PR like [kubernetes/test-infra#7802](https://github.com/kubernetes/test-infra/pull/7802/files) to kubernetes/test-infra/prow/config.yaml to enable).
 
 ## Repository configuration
 
 ### Repository Permissions
 When setting up permissions for a repository there a few things to note:
 - When providing permissions for `Collaborators and teams`, only teams should be used.
-- Teams that should be added by default, with write access, are `ci-bots` and `core-approvers`. Additional teams can be added as necessary.
+- Teams that should be added by default, with write access, are `ci-bots` and `core-approvers`. 
+
+	* Additional teams can be added as necessary but
+	* Most operations should be done via the ci-bots and adding folks to the owners files
+	* So the number of folks with direct access to a repository should be small (<5)
 
 ### Third Party Apps
 Make sure to enable the third-party apps used by the Kubeflow community.
@@ -33,3 +60,4 @@ A few things to note when setting up branch protection:
 - Be sure not to enable `Require pull request reviews before merging`. This setting conflicts with Tide as seen in this [issue](https://github.com/kubeflow/tf-operator/issues/433).
 - Don't enable `Require branches to be up to date before merging`
 - Enable `Require status checks to pass before merging`
+
