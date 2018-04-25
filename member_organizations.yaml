@@ -9,7 +9,7 @@
 #
 # Optional fields
 #    url - Url for the organization
-#    hiringForKubeflow - true/false whether the orgniazation is hiring for Kubeflow related
+#    hiringForKubeflow - true/false whether the organization is hiring for Kubeflow related
 #      positions
 #    hiringUrl - A URL for potential job applicants.
 #
