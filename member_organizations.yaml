@@ -33,13 +33,13 @@
   url: https://caicloud.io
   hiringForKubeflow: true
   hiringUrl: https://caicloud.io/jobs
-  
+
 - name: Canonical
   contacts:
   - stephan.fabel@canonical.com
   - tim.van.steenburgh@canonical.com
-  url: https://www.ubuntu.com/kubernetes 
- 
+  url: https://www.ubuntu.com/kubernetes
+
 - name: Cisco
   contacts:
     - dedutta@cisco.com
@@ -63,7 +63,7 @@
   url: http://www.dell.com
   hiringForKubeflow: false
   hiringUrl: http://www.dell.com/learn/us/en/uscorp1/careers?~ck=mn
-  
+
 - name: Github
   contacts:
     - hamelsmu@github.com
@@ -112,7 +112,7 @@
     - lachlan.evenson@microsoft.com
   url: https://www.microsoft.com
   hiringForKubeflow: false
-  
+
 - name: Momenta
   contacts:
     - xuelei@momenta.ai
