@@ -8,6 +8,42 @@
 #
 # Individuals should only add their information and not that of other
 # people.
+#
+# Please keep this file alphabetized by github id.
+- github: ahousley
+  slack: ahousley
+  firstName: Alex
+  lastName: Housley
+  affiliation: Seldon
+  email: ah@seldon.io
+
+- github: ankushagarwal
+  slack: ankushagarwal
+  firstName: Ankush
+  lastName: Agarwal
+  affiliation: Google
+  email: agwl@google.com
+
+- github: amygdala
+  slack: amy
+  firstName: Amy
+  lastName: Unruh
+  affiliation: Google
+  email: amyu@google.com
+
+- github: ddutta
+  slack: debo
+  firstName: Debo
+  lastName: Dutta
+  affiliation: Cisco
+  email: dedutta@cisco.com
+
+- github: ewilderj
+  slack: ewj
+  firstName: Edd
+  LastName: Wilder-James
+  affiliation: Google
+  email: ewj@google.com
 
 - github: gaocegege
   slack: gaocegege
@@ -16,21 +52,72 @@
   affiliation: Caicloud
   email: gaoce@caicloud.io
 
+- github: inc0
+  slack: inc0
+  firstName: Michal
+  lastName: Jastrzebski
+  affiliation: Intel
+  email: michal.jastrzebski@intel.com
+
 - github: jlewi
   slack: jlewi
   firstName: Jeremy
   lastName: Lewi
   affiliation: Google
   email: jlewi@google.com
+
 - github: kkasravi
   slack: kam
   firstName: Kam
   lastName: Kasravi
   affiliation: Intel
   email: kam.d.kasravi@intel.com
+
+- github: mhausenblas
+  slack: mhausenblas
+  firstName: Michael
+  lastName: Hausenblas
+  affiliation: Red Hat
+  email: mhausenb@redhat.com
+  
+- github: pdmack
+  slack: pdmack
+  firstName: Pete
+  lastName: MacKinnon
+  affiliation: Red Hat
+  email: pmackinn@redhat.com
+
+- github: songole
+  slack: osm1c
+  firstName: Subramanyam
+  lastName: Ongole
+  affiliation: One Convergence
+  email: songole@oneconvergence.com
+  
+- github: texasmichelle
+  slack: michelle
+  firstName: Michelle
+  lastName: Casbon
+  affiliation: Google
+  email: chasm@google.com
+
+- github: wbuchwalter
+  slack: wbuchwalter
+  firstName: William
+  lastName: Buchwalter
+  affiliation: Microsoft
+  email: wibuch@microsoft.com
+
 - github: willb
   slack: willb
   firstName: William
   lastName: Benton
   affiliation: Red Hat
   email: willb@redhat.com
+
+- github: willingc
+  slack: willingc
+  firstName: Carol
+  lastName: Willing
+  affiliation: Project Jupyter
+  email: cawillin@calpoly.edu

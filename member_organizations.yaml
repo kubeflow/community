@@ -9,13 +9,26 @@
 #
 # Optional fields
 #    url - Url for the organization
-#    hiringForKubeflow - true/false whether the orgniazation is hiring for Kubeflow related
+#    hiringForKubeflow - true/false whether the organization is hiring for Kubeflow related
 #      positions
 #    hiringUrl - A URL for potential job applicants.
 #
 # We do not infer organizations based on affiliation in members.yaml because
 # some members may be contributing as individuals and not part of a deeper involvement
 # with Kubeflow for their company/organization.
+#
+# Please keep this file alphabetized by name.
+
+- name: Alibaba Cloud
+  contacts:
+    - zk131586@alibaba-inc.com
+    - cheyang.cy@alibaba-inc.com
+  url: https://www.alibabacloud.com
+
+- name: Ant Financial
+  contacts:
+    - kubo.cph@alibaba-inc.com
+  url: https://www.antfin.com
 
 - name: Caicloud
   contacts:
@@ -26,22 +39,126 @@
   hiringForKubeflow: true
   hiringUrl: https://caicloud.io/jobs
 
+- name: Canonical
+  contacts:
+  - stephan.fabel@canonical.com
+  - tim.van.steenburgh@canonical.com
+  url: https://www.ubuntu.com/kubernetes
+
+- name: Cisco
+  contacts:
+    - dedutta@cisco.com
+    - xinyuahu@cisco.com
+  url: https://www.cisco.com
+  hiringForKubeflow: true
+  hiringUrl: https://jobs.cisco.com/jobs
+
+- name: Datawire
+  contacts:
+    - richard@datawire.io
+    - flynn@datawire.io
+    - kelsey@datawire.io
+  url: https://www.datawire.io
+  hiringForKubeflow: false
+  hiringUrl: https://www.datawire.io/careers
+
+- name: Dell
+  contacts:
+    - bhavesh_a_patel@dell.com
+  url: http://www.dell.com
+  hiringForKubeflow: false
+  hiringUrl: http://www.dell.com/learn/us/en/uscorp1/careers?~ck=mn
+
+- name: Github
+  contacts:
+    - hamelsmu@github.com
+    - rand@github.com
+  url: http://gh-demo.kubeflow.org/
+  hiringForKubeflow: true
+  hiringUrl: https://github.com/about/careers
+
 - name: Google
   contacts:
     - aronchick@google.com
     - ewj@google.com
     - jlewi@google.com
+    - chasm@google.com
   url: https://cloud.google.com/products/machine-learning/
   hiringForKubeflow: true
   hiringUrl: https://goo.gl/Q85pzF
 
+- name: Heptio
+  contacts:
+    - kevin@heptio.com
+    - knova@heptio.com
+    - joe@heptio.com
+  url: https://www.heptio.com
+  hiringForKubeflow: false
+  hiringUrl: https://heptio.com/about/careers/
+
+- name: Huawei
+  contacts:
+    - huangzhipeng@huawei.com
+    - baixiaolong1@huawei.com
+    - linjian4@huawei.com
+  url: https://www.huawei.com
+
+- name: Intel
+  contacts:
+    - michal.jastrzebski@intel.com
+    - jose.g.aguirre@intel.com
+    - balaji.subramaniam@intel.com
+    - elson.o.rodriguez@intel.com
+  url: https://www.intel.com
+
+- name: Microsoft
+  contacts:
+    - wibuch@microsoft.com
+    - lachlan.evenson@microsoft.com
+  url: https://www.microsoft.com
+  hiringForKubeflow: false
+
+- name: Momenta
+  contacts:
+    - xuelei@momenta.ai
+  url: https://momenta.ai
+  hiringForKubeflow: true
+  hiringUrl: https://www.momenta.ai/en/careers
+
+- name: Pachyderm
+  contacts:
+    - datadan@pachyderm.io
+    - joey@pachyderm.io
+    - jdoliner@pachyderm.io
+  url: http://pachyderm.io/
+
+- name: Project Jupyter
+  contacts:
+    - cawillin@calpoly.edu
+  url: https://jupyter.org
+  hiringForKubeflow: false
+
 - name: Red Hat
   contacts:
     - matt@redhat.com
-    - mhausenb@redhat.com
-    - tmckay@redhat.com
-    - willb@redhat.com
   url: https://www.redhat.com
+
+- name: Seldon
+  contacts:
+    - ah@seldon.io
+    - cc@seldon.io
+    - gs@seldon.io
+  url: https://www.seldon.io
+  hiringForKubeflow: true
+  hiringUrl: https://www.seldon.io/careers/
+
+- name: Uber
+  contacts:
+    - asergeev@uber.com
+    - jiez@uber.com
+  url: https://eng.uber.com/michelangelo/
+  hiringForKubeflow: false
+  hiringUrl: https://www.uber.com/careers/
 
 - name: Weaveworks
   contacts:
@@ -51,11 +168,11 @@
   url: https://www.weave.works/blog/kubeflow-and-weave-cloud
   hiringForKubeflow: true
   hiringUrl: https://www.weave.works/company/hiring/
-
-  - name: Github
+  
+- name: One Convergence
   contacts:
-    - hamelsmu@github.com
-    - rand@github.com
-  url: http://gh-demo.kubeflow.org/
-  hiringForKubeflow: true
-  hiringUrl: https://github.com/about/careers
+    - songole@oneconvergence.com
+    - ahmed.khan@oneconvergence.com
+  url: https://www.oneconvergence.com
+  hiringForKubeflow: false
+  
