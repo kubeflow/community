@@ -8,6 +8,7 @@
       $.parts(params, env).influxdbService,
       $.parts(params, env).influxdbStatefulSet,
       $.parts(params, env).projectsConfigMap,
+      $.parts(params, env).grafanaIngress,
       $.parts(params, env).grafanaService,
       $.parts(params, env).grafanaDeploy,
       $.parts(params, env).grafanaServiceAccount,
@@ -467,6 +468,35 @@
       },
     },
 
+    grafanaIngress:: {
+      apiVersion: "extensions/v1beta1",
+      kind: "Ingress",
+      metadata: {
+        name: "grafana",
+        namespace: namespace,          
+        annotations: {
+          "kubernetes.io/ingress.global-static-ip-name": "devstats",
+        },
+      },
+      spec: {
+        rules: [
+          {
+            http: {
+              paths: [
+                {
+                  backend: {
+                    serviceName: "grafana",
+                    servicePort: 3000,
+                  },
+                  path: "/*",
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },  // ingress
+
     grafanaService:: {
       apiVersion: "v1",
       kind: "Service",
@@ -485,6 +515,7 @@
         selector: {
           app: "grafana",
         },
+        type: "NodePort",
       },
     },
 
@@ -596,6 +627,23 @@
                     name: "GF_PATHS_PROVISIONING",
                     value: "/conf/grafana/provisioning",
                   },
+
+                  // Override the admin password
+                  {
+                    name: "GF_SECURITY_ADMIN_PASSWORD",
+                    valueFrom: {
+                      secretKeyRef: {
+                          name: "grafana",
+                          key: "admin_password",
+                      },
+                    },
+                  },
+
+                  // Allow anyonmous access
+                  {
+                    name: "GF_AUTH_ANONYMOUS_ENABLED",
+                    value: "true",
+                  }
                 ],
                 image: "grafana/grafana",
                 imagePullPolicy: "IfNotPresent",
