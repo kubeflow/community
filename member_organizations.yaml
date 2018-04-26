@@ -168,3 +168,11 @@
   url: https://www.weave.works/blog/kubeflow-and-weave-cloud
   hiringForKubeflow: true
   hiringUrl: https://www.weave.works/company/hiring/
+  
+- name: One Convergence
+  contacts:
+    - songole@oneconvergence.com
+    - ahmed.khan@oneconvergence.com
+  url: https://www.oneconvergence.com
+  hiringForKubeflow: false
+  
