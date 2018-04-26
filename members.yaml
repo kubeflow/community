@@ -87,6 +87,13 @@
   affiliation: Red Hat
   email: pmackinn@redhat.com
 
+- github: songole
+  slack: osm1c
+  firstName: Subramanyam
+  lastName: Ongole
+  affiliation: One Convergence
+  email: songole@oneconvergence.com
+  
 - github: texasmichelle
   slack: michelle
   firstName: Michelle
