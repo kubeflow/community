@@ -78,7 +78,7 @@ kubectl create secret generic grafana --from-literal=admin_password=${GRAFANA_PA
 If you need the password to login
 
 ```
-kubectl get secrets grafana -o json | jq -r .data.admin_password | base64 -d 
+kubectl get secrets grafana -o json | jq -r .data.admin_password | base64 -d  && echo
 ```
 
 ** Important** Once created the password is stored in the database so changing 
