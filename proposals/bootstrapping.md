@@ -3,32 +3,31 @@
 ## Motivation
 
 ### Current Kubeflow bootstrapper requires cluster-admin privileges
-The current bootstrapper will create cluster level resources which are typically one time activities. The bootstrapper will then create a namespace and namespace scoped resources required to run kubeflow jobs and operators. Finally, the bootstrapper will optionally create single-signon to GCP using IAP that is also a one time activity.
+The current bootstrapper creates cluster level resources which are typically one time activities. The bootstrapper also creates a namespace and namespace scoped resources required to run kubeflow jobs and operators. The bootstrapper will optionally create single-signon using IAP/GCP that is a one time activity. Not all activities need to be run with cluster wide admin privileges.  
 
 ### RBAC for data scientists isn't defined
-The authenticated user's authorization is not used when creating Persistent Volumes or running processes. In general elevated privileges are used in most scenarios with no differentiation between a role that *deploys* kubeflow and a role that *uses* kubeflow (data scientist).
+A data scientist is authenticated either as an admin or a google user but service account RBAC is used when running processes. In general elevated privileges are used in most scenarios with no differentiation between a role that *deploys* kubeflow and a role that *uses* kubeflow (data scientist).
 
 ## Goals
-RBAC roles should be created to distinguish between cluster level operations and namespace scoped operations. The initial bootstrapping phases should create cluster roles and cluster rolebindings for data scientists. These bindings should allow a data scientist to create a namespace and deploy kubeflow to that namespace.
+RBAC roles should be created to distinguish between cluster level operations and namespace scoped operations. The initial bootstrapping phases should create cluster roles for kubeflow admins, writers and readers. These bindings should allow a data scientist to create a namespace and deploy kubeflow to that namespace.
 
 
 ## Non-Goals
 - Authentication of a data scientist (provider setup)
-- Creating members
-- Adding members to RBAC Organization and Team ClusterRoleBindings
+- Adding data scientists to RBAC Organization and Team ClusterRoleBindings
 
-## UI or API
+## UX
 
 | An admin wants to initialize a cluster for subsequent kubeflow deployments |
 | :--- |
 |`/opt/kubeflow/bootstrapper init --org <organization> --team[<team> <team> ...] --provider <gcp┃github>`|
 |&nbsp;&nbsp;&nbsp;→ bootstrapper will check and see if you have appropriate role bindings|
-|&nbsp;&nbsp;&nbsp;→ bootstrapper will create ClusterRole, ClusterRoleBindngs|
-|&nbsp;&nbsp;&nbsp;→ the org name will be used to define an org owner ClusterRole|
+|&nbsp;&nbsp;&nbsp;→ bootstrapper will create ClusterRoles for kubeflow admin, write and read|
+|&nbsp;&nbsp;&nbsp;→ the org name will be used to define an admin  ClusterRole|
 |&nbsp;&nbsp;&nbsp;→ the team names will be used to define a team owner ClusterRole|
 |&nbsp;&nbsp;&nbsp;→ members will be mapped to ClusterRoles that allow access to kubeflow namespaces based on team membership|
 
-|An admin wants to provision custom volumes that can be used by kubeflow deployments.|
+|An admin wants to provision persistent volumes that can be used by kubeflow deployments.|
 | :--- |  
 |`/opt/kubeflow/bootstrapper init --vol <name ex: AmazonEBS> --id <ID> --mode <RWO/ROX/RWX> --num <number of volumes> --team[<team> <team> ...] typeparams <additional params> ` |
 |&nbsp;&nbsp;&nbsp;→ bootstrapper will check and see if you have appropriate role bindings|
@@ -58,7 +57,6 @@ Member:
 - can add rolebindings in assigned namespaces (add users)
 
 ## Alternatives Considered
-
 
 ## References
 https://engineering.opsgenie.com/advanced-kubernetes-objects-53f5e9bc0c28
