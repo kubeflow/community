@@ -3,7 +3,13 @@
 ## Motivation
 
 ### Current Kubeflow bootstrapper requires cluster-admin privileges
-The current bootstrapper creates cluster level resources which are typically one time activities. The bootstrapper also creates a namespace and namespace scoped resources required to run kubeflow jobs and operators. The bootstrapper will optionally create single-signon using IAP/GCP that is a one time activity. Not all activities need to be run with cluster wide admin privileges and RBAC bindings should be changed to be namespace specific and include the user as the subject.
+The current bootstrapper generates a kubeflow application in a PersistentVolume and will optionally deploy it to the API server. The bootstrapper uses ksonnet to generate the kubernetes manifests that define the kubeflow runtime. The manifests are ordered within phases:
+- optional creation of a Namespace
+- creation of ClusterRoles and ClusterRoleBindings
+- creation of namespace scoped resources
+- creation of IAP/GCP single signon
+
+The bootstrapper is run as cluster-admin although not all manifests require cluster-admin privileges.
 
 ### RBACs for data scientists aren't defined
 A data scientist is authenticated either as an admin or a google user but service account RBACs are used when running processes.
@@ -14,7 +20,12 @@ Current RBAC Rules
 | :---: | :---: | :---: | :---: |
 | train | tf-job-operator | tf-job-operator | tf-job-operator |
 | job-dashboard | tj-job-dashboard | tf-job-dashboard | tf-job-dashboard |
-| nfs | system:persistent-volume-provisioner | tf-job-dashboard | tf-job-dashboard |
+| central-ui | centraldashboard | centraldashboard | centraldashboard |
+| nfs | system:persistent-volume-provisioner | nfsnfs-provisioner | kubeflow:nfs |
+| bootstrap | kube-metacontroller | kube-metacontroller | kubeflow:kube-metacontroller |
+| bootstrap | cloud-endpoints-controller | cloud-endpoints-controller | kubeflow:cloud-endpoints-controller |
+
+
 
 
 
@@ -51,11 +62,11 @@ RBAC roles should be created to distinguish between cluster level operations and
 
 #### Changes to Existing Components
 
-Modify bootstrapper to include the init subcommand:
-- creates PVs
-- creates Pod Security Context policies
-- creates ClusterRoles for Organization, Team and Member
-- creates CRDs for Organization, Team and Member
+1. ##### Modify bootstrapper to include the init subcommand:
+  - creates PVs
+  - creates Pod Security Context policies
+  - creates ClusterRoles for Organization owner (admin), Team owner (write) and Member (write|read)
+  - creates CRDs for Organization, Team and Member
 
 ```
 apiVersion: apiextensions.k8s.io/v1beta1
@@ -101,6 +112,8 @@ spec:
     shortNames: ["mbr"]
 ---
 ```
+1. ##### Modify bootstrapper so the deployment does not require cluster-admin and is run by the active user:
+
 
 ## Alternatives Considered
 
