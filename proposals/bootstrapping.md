@@ -41,14 +41,12 @@ Divide bootstrapper into a set of phases, each phase bound by a ClusterRole. Mov
 | delete | kubeflow-admin | delete |
 
 
-RBAC roles will be created to enable actions on resources at the cluster level and actions on resources scoped by a namespace. The bootstrap/authn phases will perform actions at the cluster level. The existing ClusterRoles, ClusterRoleBindings should be removed. The existing ServiceAccounts should use a RoleBinding of the user rather than the existing ClusterRoleBinding. The authz/deployment phases will perform actions within a namespace. 
-
-
+RBAC roles will be created to enable actions on resources at the cluster level and actions on resources scoped by a namespace. The bootstrap/authn phases will perform actions at the cluster level. The existing ClusterRoles, ClusterRoleBindings should be removed. The existing ServiceAccounts should use a RoleBinding of the user rather than the existing ClusterRoleBinding. The authz/deployment phases will perform actions within a namespace.
 
 
 ## Non-Goals
-- Authentication of a data scientist (provider setup)
-- Adding data scientists to RBAC Organization and Team ClusterRoleBindings
+- Authentication of a data scientist. See the provider proposal.
+- Adding data scientists to an Organization Custom Resource and creating RoleBindings for members. See the RBAC proposal.
 - Deployment of kubeflow
 
 ## UX
