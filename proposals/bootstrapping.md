@@ -30,12 +30,25 @@ Current RBAC Rules
 
 
 ## Goals
-RBAC roles should be created to distinguish between cluster level operations and namespace scoped operations. The initial bootstrapping phases should create cluster roles for kubeflow admins, writers and readers. These bindings should allow a data scientist to create a namespace and deploy kubeflow to that namespace. ServiceAccounts should use a RoleBinding of the user rather than the existing ClusterRoleBinding.
+Divide bootstrapper into a set of phases, each phase bound by a ClusterRole
+
+| phase | clusterrole |
+| :---: | :---: |
+| bootstrap | cluster-admin |
+| authn | cluster-admin |
+| authz | kubeflow-admin |
+| deploy | kubeflow-write |
+
+RBAC roles should be created to distinguish between cluster level operations and namespace scoped operations. The bootstrap phase should create cluster roles for kubeflow admins, writers and readers.
+The existing ClusterRoles, ClusterRoleBindings should be removed. The existing ServiceAccounts should use a RoleBinding of the user rather than the existing ClusterRoleBinding. The deployment of kubeflow to a namespace should be done using the user's RoleBinding and within a deployment phase rather than this bootstrap phase.
+
+
 
 
 ## Non-Goals
 - Authentication of a data scientist (provider setup)
 - Adding data scientists to RBAC Organization and Team ClusterRoleBindings
+- Deployment of kubeflow
 
 ## UX
 
@@ -44,10 +57,10 @@ RBAC roles should be created to distinguish between cluster level operations and
 |`/opt/kubeflow/bootstrapper init --provider <provider> --org <organization> [--team <team> <team> ...]`|
 |&nbsp;&nbsp;&nbsp;→ bootstrapper will check and see if the user has appropriate authorization|
 |&nbsp;&nbsp;&nbsp;→ bootstrapper will create ClusterRoles for kubeflow admin, write and read|
-|&nbsp;&nbsp;&nbsp;→ the org name will be used to define an admin  ClusterRole|
-|&nbsp;&nbsp;&nbsp;→ the team names will be used to define team  ClusterRoles |
+|&nbsp;&nbsp;&nbsp;→ the org name will be used for the admin RoleBinding during deployment |
+|&nbsp;&nbsp;&nbsp;→ the team names will be used for the team  ClusterRoles |
 |&nbsp;&nbsp;&nbsp;→ members will be mapped to RoleBindings that allow access to kubeflow namespaces based on team membership|
-|&nbsp;&nbsp;&nbsp;→ these definitions and logic will be in a `<provider>.libsonnet`|
+|&nbsp;&nbsp;&nbsp;→ these ClusterRoles will be in `<provider>.libsonnet`|
 
 |An admin wants to provision persistent volumes that can be used by kubeflow deployments.|
 | :--- |  
@@ -62,10 +75,10 @@ RBAC roles should be created to distinguish between cluster level operations and
 
 #### Changes to Existing Components
 
-1. ##### Modify bootstrapper to include the init subcommand:
+** 1. Modify bootstrapper to include the init subcommand:**
   - creates PVs
   - creates Pod Security Context policies
-  - creates ClusterRoles for Organization owner (admin), Team owner (write) and Member (write|read)
+  - creates ClusterRoles for Organization (admin), Team (write) and Member (write|read)
   - creates CRDs for Organization, Team and Member
 
 ```
@@ -111,8 +124,59 @@ spec:
     kind: Member
     shortNames: ["mbr"]
 ---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRole
+metadata:
+  name: kubeflow:admin,
+rules:
+- apiGroups:
+  - *
+  resources:
+  - *
+  verbs:
+  - *
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRole
+metadata:
+  name: kubeflow:write,
+rules:
+- apiGroups:
+  - *
+  resources:
+  - configmaps,
+    pods,
+    services,
+    endpoints,
+    persistentvolumeclaims,
+    events
+  verbs:
+  - *
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRole
+metadata:
+  name: kubeflow:read,
+rules:
+- apiGroups:
+  - *
+  resources:
+  - configmaps,
+    pods,
+    services,
+    endpoints,
+    persistentvolumeclaims,
+    events
+  verbs:
+  - get,
+    watch,
+    list
 ```
-1. ##### Modify bootstrapper so the deployment does not require cluster-admin and is run by the active user:
+** 2. Modify bootstrapper so it doesn't do deployment but only writes to the Persistent Volume. Deployment is executed by a different golang cmd run by the active user and described in the Deployment section **
+
+#### New Components
+
+** 1. Create a deployer golang cmd that deploys the kubeflow application generated to the Persistent Volume:**
 
 
 ## Alternatives Considered
