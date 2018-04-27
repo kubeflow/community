@@ -25,6 +25,31 @@ CLUSTER=kubeflow-testing
 NAMESPACE=devstats
 ```
 
+### Setup the project with deployment manager.
+
+```
+gcloud deployment-manager --project=${PROJECT} deployments create devstats --config=devstats.yaml
+```
+
+This will reserve a static IP
+
+```
+gcloud --project=${PROJECT} compute addresses list
+```
+
+```
+IPADDRESS=<..address from above...>
+HOST=devstats
+gcloud --project=kubeflow-dns dns record-sets transaction start -z=kubeflowdev
+gcloud --project=kubeflow-dns dns record-sets transaction add -z=kubeflowdev \
+    --name="${HOST}.kubeflow.dev." \
+   --type=A \
+   --ttl=300 "${IPADDRESS}"
+gcloud --project=kubeflow-dns dns record-sets transaction execute -z=kubeflowdev  
+```
+
+	* This uses domain kubeflow.dev which is managed by Cloud DNS zone kubeflowdev
+	* 
 ### Create the PDs
 
 This step needs to only run once
@@ -32,7 +57,9 @@ This step needs to only run once
 ```
 gcloud --project=${PROJECT} compute disks create --size=200GB --zone=${ZONE} influxdb-data
 gcloud --project=${PROJECT} compute disks create --size=400GB --zone=${ZONE} devstatsdb-data
+gcloud --project=${PROJECT} compute disks create --size=400GB --zone=${ZONE} grafana-data
 ```
+	* TODO(jlewi): We should add the disks to our deployment manager config.
 
 ### Create a secret with a GITHUB OAuth token
 
@@ -40,6 +67,22 @@ This token is only for rate quota so it doesn't need access to any services.
 
 kubectl create secret generic github-oauth --from-literal=github-oauth=${GITHUB_TOKEN}
 
+
+### Create a secret for the Grafna admin password
+
+```
+GRAFANA_PASSWORD=`< /dev/urandom tr -dc A-Za-z0-9 | head -c14; echo`
+kubectl create secret generic grafana --from-literal=admin_password=${GRAFANA_PASSWORD}
+```
+
+If you need the password to login
+
+```
+kubectl get secrets grafana -o json | jq -r .data.admin_password | base64 -d  && echo
+```
+
+** Important** Once created the password is stored in the database so changing 
+the secret won't change the password.
 
 ### Initialize the db
 
@@ -115,14 +158,42 @@ Run in the devstats-cli-0 container
 
 ```
 ./runq util_sql/top_unknowns.sql {{ago}} '1 month' {{lim}} 10
+
 ```
+
+## Grafana
+
+To access the admin ui port-forward to port `3000` and use the default admin account
+which has username admin and password admin.
+
+```
+kubectl port-forward `kubectl get pods --selector=app=grafana -o jsonpath='{.items[0].metadata.name}'` 3000:3000
+```
+
+###
+
+Dashboards are defined inside the directory 
+
+```
+components/grafana/dashboards
+```
+
+These are loaded into a configmap and provided to the grafana 
+instance.
+
 
 ## Miscellaneous
 
 Using psql from the CLI container (although you can also run from the postgre container and then you don't have to do a remote connect)
 
 ```
-psql -h ${PG_HOST} -W ${PG_PASSWORD} -U gha_admin -d devstats
+psql -h ${PG_HOST} -W ${PG_PASSWORD} -U gha_admin -d gha
+```
+
+List tables
+
+```
+SELECT * FROM pg_catalog.pg_tables order by tablename;
 ```
 
 A simple query to look at events
@@ -136,7 +207,7 @@ select created_at, type from gha_events;
 To connect from influxdb pod
 
 ```
-influx -precision rfc3339 -host localhost -username gha_admin -password ${PG_PASSWORD} -database gha 
+influx -precision rfc3339 -host ${IDB_HOST} -username gha_admin -password ${IDB_PASS} -database ${IDB_DB} 
 ```
 
 To see a list of time series
