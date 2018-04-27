@@ -41,8 +41,7 @@ Divide bootstrapper into a set of phases, each phase bound by a ClusterRole. Mov
 | delete | kubeflow-admin | delete |
 
 
-RBAC roles should be created to distinguish between cluster level operations and namespace scoped operations. The bootstrap phase should create cluster roles for kubeflow admins, writers and readers.
-The existing ClusterRoles, ClusterRoleBindings should be removed. The existing ServiceAccounts should use a RoleBinding of the user rather than the existing ClusterRoleBinding. The deployment of kubeflow to a namespace should be done using the user's RoleBinding and within the deployment phase rather than this bootstrap phase.
+RBAC roles will be created to enable actions on resources at the cluster level and actions on resources scoped by a namespace. The bootstrap/authn phases will perform actions at the cluster level. The existing ClusterRoles, ClusterRoleBindings should be removed. The existing ServiceAccounts should use a RoleBinding of the user rather than the existing ClusterRoleBinding. The authz/deployment phases will perform actions within a namespace. 
 
 
 
