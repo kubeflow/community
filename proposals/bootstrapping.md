@@ -30,17 +30,19 @@ Current RBAC Rules
 
 
 ## Goals
-Divide bootstrapper into a set of phases, each phase bound by a ClusterRole
+Divide bootstrapper into a set of phases, each phase bound by a ClusterRole. Move authz, deploy phases into a different command.
 
-| phase | clusterrole |
-| :---: | :---: |
-| bootstrap | cluster-admin |
-| authn | cluster-admin |
-| authz | kubeflow-admin |
-| deploy | kubeflow-write |
+| phase | clusterrole | command |
+| :---: | :---: | :---: |
+| init | cluster-admin | bootstrapper |
+| authn | cluster-admin | bootstrapper |
+| authz | kubeflow-write | deployer |
+| deploy | kubeflow-write | deployer |
+| delete | kubeflow-admin | delete |
+
 
 RBAC roles should be created to distinguish between cluster level operations and namespace scoped operations. The bootstrap phase should create cluster roles for kubeflow admins, writers and readers.
-The existing ClusterRoles, ClusterRoleBindings should be removed. The existing ServiceAccounts should use a RoleBinding of the user rather than the existing ClusterRoleBinding. The deployment of kubeflow to a namespace should be done using the user's RoleBinding and within a deployment phase rather than this bootstrap phase.
+The existing ClusterRoles, ClusterRoleBindings should be removed. The existing ServiceAccounts should use a RoleBinding of the user rather than the existing ClusterRoleBinding. The deployment of kubeflow to a namespace should be done using the user's RoleBinding and within the deployment phase rather than this bootstrap phase.
 
 
 
@@ -77,7 +79,6 @@ The existing ClusterRoles, ClusterRoleBindings should be removed. The existing S
 
 ** 1. Modify bootstrapper to include the init subcommand:**
   - creates PVs
-  - creates Pod Security Context policies
   - creates ClusterRoles for Organization (admin), Team (write) and Member (write|read)
   - creates CRDs for Organization, Team and Member
 
@@ -172,11 +173,13 @@ rules:
     watch,
     list
 ```
-** 2. Modify bootstrapper so it doesn't do deployment but only writes to the Persistent Volume. Deployment is executed by a different golang cmd run by the active user and described in the Deployment section **
+** 2. Modify bootstrapper so it doesn't do deployment but only writes the kubeflow application to the Persistent Volume. Deployment is executed by a different golang cmd run by the active user and described in the Deployment section **
 
 #### New Components
 
-** 1. Create a deployer golang cmd that deploys the kubeflow application generated to the Persistent Volume:**
+** 1. Create a deployer golang cmd that:**
+- runs the authn phase (see the rbac proposal)
+- deploys the kubeflow application generated in the Persistent Volume
 
 
 ## Alternatives Considered
