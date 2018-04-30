@@ -14,7 +14,7 @@ The bootstrapper is run as cluster-admin although not all manifests require clus
 ### RBACs for data scientists aren't defined
 A data scientist is authenticated either as an admin or a google user but service account RBACs are used when running processes.
 
-Current RBAC Rules
+Current RBAC related resources
 
 | Action | ClusterRole | ClusterRoleBinding | ServiceAccount |
 | :---: | :---: | :---: | :---: |
