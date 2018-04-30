@@ -72,7 +72,7 @@ RBAC roles will be created to enable actions on resources at the cluster level a
 
 |An admin wants to provision persistent volumes that can be used by kubeflow deployments.|
 | :--- |  
-|`/opt/kubeflow/bootstrapper init --vol <name ex: AmazonEBS> --id <ID> --mode <RWO/ROX/RWX> --num <number of volumes> --team[<team> <team> ...] typeparams <additional params> ` |
+|`/opt/kubeflow/bootstrapper --vol <name ex: AmazonEBS> --id <ID> --mode <RWO/ROX/RWX> --num <number of volumes> --team[<team> <team> ...] typeparams <additional params> ` |
 |&nbsp;&nbsp;&nbsp;→ bootstrapper will check and see if you have appropriate role bindings|
 |&nbsp;&nbsp;&nbsp;→ Note, PV instance creation is done in a way that we can share the storage across namespaces.|
 |&nbsp;&nbsp;&nbsp;→ Custom PV to PVC (namespaced) are exclusive. We need to create multiple PVs to use the underlying storage for sharing.|
