@@ -32,28 +32,37 @@ Current RBAC Rules
 ## Goals
 Divide bootstrapper into a set of phases, each phase bound by a ClusterRole. Move authz, deploy phases into a different command.
 
-| phase | clusterrole | command |
-| :---: | :---: | :---: |
-| init | cluster-admin | bootstrapper |
-| authn | cluster-admin | bootstrapper |
-| authz | kubeflow-write | deployer |
-| deploy | kubeflow-write | deployer |
-| delete | kubeflow-admin | delete |
+| phase | clusterrole | command | Description |
+| :---: | :---: | :---: | :--- |
+| init | cluster-admin | bootstrapper | Creates cluster level resources:<br/>ClusterRoles (kubeflow:admin, kubeflow:write, kubeflow:read), PersistentVolume, ManagedNamespace CRD, Controllers |
+| authn | cluster-admin | bootstrapper | Sets up auth provider |
+| authz | cluster-admin | deployer | Generates namespace scoped resources:<br/>ManagedNamespace, Namespace, RoleBindings
+| deploy | kubeflow-write | deployer | Submits generated resources to API-server |
+| delete | kubeflow-admin | delete | Removes ManagedNamespace and dependencies |
 
 
 RBAC roles will be created to enable actions on resources at the cluster level and actions on resources scoped by a namespace. The bootstrap/authn phases will perform actions at the cluster level. The existing ClusterRoles, ClusterRoleBindings should be removed. The existing ServiceAccounts should use a RoleBinding of the user rather than the existing ClusterRoleBinding. The authz/deployment phases will perform actions within a namespace.
 
 
 ## Non-Goals
-- Authentication of a data scientist. See the provider proposal.
+- Authentication of a data scientist. See the Provider proposal.
 - Adding data scientists to an Organization Custom Resource and creating RoleBindings for members. See the RBAC proposal.
-- Deployment of kubeflow
 
 ## UX
 
-| An admin wants to initialize a cluster for subsequent kubeflow deployments specific to a team within an organization |
+| An admin wants to initialize a cluster for kubeflow using a provider  |
 | :--- |
-|`/opt/kubeflow/bootstrapper init --provider <provider> --org <organization> [--team <team> <team> ...]`|
+|`/opt/kubeflow/bootstrapper --provider <provider> `|
+|&nbsp;&nbsp;&nbsp;→ bootstrapper will check and see if the user has appropriate authorization|
+|&nbsp;&nbsp;&nbsp;→ bootstrapper will create ClusterRoles for kubeflow admin, write and read|
+|&nbsp;&nbsp;&nbsp;→ the org name will be used for the admin RoleBinding during deployment |
+|&nbsp;&nbsp;&nbsp;→ the team names will be used for the team  ClusterRoles |
+|&nbsp;&nbsp;&nbsp;→ members will be mapped to RoleBindings that allow access to kubeflow namespaces based on team membership|
+|&nbsp;&nbsp;&nbsp;→ these ClusterRoles will be in `<provider>.libsonnet`|
+
+| A data scientist wants to deploy kubeflow using his github org / team  |
+| :--- |
+|`/opt/kubeflow/deployer --org <organization> --team [<team>]`|
 |&nbsp;&nbsp;&nbsp;→ bootstrapper will check and see if the user has appropriate authorization|
 |&nbsp;&nbsp;&nbsp;→ bootstrapper will create ClusterRoles for kubeflow admin, write and read|
 |&nbsp;&nbsp;&nbsp;→ the org name will be used for the admin RoleBinding during deployment |
@@ -74,10 +83,11 @@ RBAC roles will be created to enable actions on resources at the cluster level a
 
 #### Changes to Existing Components
 
-** 1. Modify bootstrapper to include the init subcommand:**
-  - creates PVs
-  - creates ClusterRoles for Organization (admin), Team (write) and Member (write|read)
-  - creates CRDs for Organization, Team and Member
+** 1. Modify bootstrapper to:**
+  - Generate a PV
+  - Generate ClusterRoles for Organization (admin), Team (write) and Member (write|read)
+  - Generate CRDs for Organization, Team and Member
+  - Add authprovider to ambassador
 
 ```
 apiVersion: apiextensions.k8s.io/v1beta1
@@ -170,13 +180,6 @@ rules:
     watch,
     list
 ```
-** 2. Modify bootstrapper so it doesn't do deployment but only writes the kubeflow application to the Persistent Volume. Deployment is executed by a different golang cmd run by the active user and described in the Deployment section **
-
-#### New Components
-
-** 1. Create a deployer golang cmd that:**
-- runs the authn phase (see the rbac proposal)
-- deploys the kubeflow application generated in the Persistent Volume
 
 
 ## Alternatives Considered
