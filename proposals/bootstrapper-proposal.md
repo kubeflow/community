@@ -30,18 +30,18 @@ Current RBAC related resources
 
 
 ## Goals
-Divide bootstrapper into a set of phases, each phase bound by a ClusterRole. Move authz, deploy phases into a different command.
+Divide bootstrapper into 2 phases, each phase bound by a ClusterRole. Introduce a ManagedNamespace CRD which is used by data scientists to do the actual kubeflow deployment.
 
-| phase | clusterrole | command | Description |
+| phase | clusterrole | execution | description |
 | :---: | :---: | :---: | :--- |
-| init | cluster-admin | bootstrapper | Creates cluster level resources:<br/>ClusterRoles (kubeflow:admin, kubeflow:write, kubeflow:read), PersistentVolume, ManagedNamespace CRD, Controllers |
-| authn | cluster-admin | bootstrapper | Sets up auth provider |
-| authz | cluster-admin | deployer | Generates namespace scoped resources:<br/>ManagedNamespace, Namespace, RoleBindings
-| deploy | kubeflow-write | deployer | Submits generated resources to API-server |
-| delete | kubeflow-admin | delete | Removes ManagedNamespace and dependencies |
+| init | cluster-admin | bootstrapper | Creates cluster level resources:<br/>ClusterRoles (kubeflow:admin, kubeflow:write, kubeflow:read), PersistentVolume, ManagedNamespace CRD and Controller |
+| authn | cluster-admin | bootstrapper | Sets up auth provider under ambassador |
+| authz | cluster-admin | controller | Generates namespace scoped resources:<br/>ManagedNamespace, Namespace, RoleBindings
+| deploy | kubeflow-write | controller | Submits generated resources to API-server |
+| delete | kubeflow-admin | controller | Removes ManagedNamespace and dependencies |
 
 
-RBAC roles will be created to enable actions on resources at the cluster level and actions on resources scoped by a namespace. The bootstrap/authn phases will perform actions at the cluster level. The existing ClusterRoles, ClusterRoleBindings should be removed. The existing ServiceAccounts should use a RoleBinding of the user rather than the existing ClusterRoleBinding. The authz/deployment phases will perform actions within a namespace.
+RBAC rules will be created to enable actions on resources at the cluster level and actions on resources scoped by a namespace. The bootstrap/authn phases will perform actions at the cluster level. The authz/deploy phases will perform actions within a namespace.
 
 
 ## Non-Goals
@@ -55,9 +55,6 @@ RBAC roles will be created to enable actions on resources at the cluster level a
 |`/opt/kubeflow/bootstrapper --provider <provider> `|
 |&nbsp;&nbsp;&nbsp;→ bootstrapper will check and see if the user has appropriate authorization|
 |&nbsp;&nbsp;&nbsp;→ bootstrapper will create ClusterRoles for kubeflow admin, write and read|
-|&nbsp;&nbsp;&nbsp;→ the org name will be used for the admin RoleBinding during deployment |
-|&nbsp;&nbsp;&nbsp;→ the team names will be used for the team  ClusterRoles |
-|&nbsp;&nbsp;&nbsp;→ members will be mapped to RoleBindings that allow access to kubeflow namespaces based on team membership|
 |&nbsp;&nbsp;&nbsp;→ these ClusterRoles will be in `<provider>.libsonnet`|
 
 | A data scientist wants to deploy kubeflow using his github org / team  |
