@@ -24,43 +24,66 @@ A data scientist is authenticated either as an admin or a google user (via IAP) 
 
 
 ## Goals
-Divide bootstrapper into 2 phases: an initialization phase and a deployment phase. Each phase will run with different authorizations/users. Introduce a ManagedNamespace CRD and controller. Submitting a ManagedNamespace CR will execute the deployment phase without requiring the data scientist to have cluster-admin privileges.
+Divide bootstrapper into 2 phases: an initialization phase and a deployment phase. Each phase will run with different authorizations/users.
+
+Introduce a ManagedNamespace CRD and controllers. Submitting a ManagedNamespace CR will execute the deployment phase without requiring the data scientist to have cluster-admin privileges.
 
 | phase | user | executed by | description |
 | :---: | :---: | :---: | :--- |
-| initialization | cluster-admin | bootstrapper | Creates cluster level resources:<br/>ClusterRoles (kubeflow:admin, kubeflow:write, kubeflow:read), PersistentVolume, ManagedNamespace CRD and Controller |
-| initialization<br/>(authentication) | cluster-admin | bootstrapper | Sets up auth provider under ambassador<br/>(separate proposal) |
-| deployment<br/>(authorization) | data scientist | controller | Creates Namespace<br/>Adds namespace scoped manifests:<br/>ManagedNamespace CR, Namespace, RoleBindings
-| deployment | data scientist | controller | Submits generated manifests to API-server |
+| initialization | cluster-admin | bootstrapper | Create cluster level resources:<br/>ClusterRoles (kubeflow:admin, kubeflow:write, kubeflow:read), PersistentVolume, ManagedNamespace CRD and Controller |
+| initialization<br/>(authentication) | cluster-admin | bootstrapper | Configure auth provider under ambassador<br/>(separate proposal) |
+| deployment<br/>(authorization) | data scientist | controller | Process ManagedNamespace CR<br/>Create RoleBindings for users in Organization
+| deployment | data scientist | controller | Continue with normal deployment processing normally done in [Server.Run](https://github.com/kubeflow/kubeflow/blob/master/bootstrap/cmd/bootstrap/app/server.go) |
 
 
 RBAC rules will be created to enable actions on resources at the cluster level and actions on resources scoped by a namespace. The initialization phases will perform actions at the cluster level. The deployment phases will perform actions within a namespace.
 
 
 ## Non-Goals
-- Authentication of a data scientist. Will be described in an **authn** proposal.
-- Adding data scientists to the ManagedNamespace CR and creating RoleBindings for members. Will be described in an **authz** proposal.
+Authentication of a data scientist using an auth provider. This will be described in a subsequent **authn** proposal that also adds github as an auth provider.
 
 ## UX
 
 | An admin wants to initialize a cluster for kubeflow using a provider  |
 | :--- |
-|`kubectl run --image=gcr.io/kubeflow-images-staging/bootstrap:latest -- /opt/kubeflow/bootstrapper --provider <provider>`|
+|`kubectl run --image=gcr.io/kubeflow-images-public/bootstrap:latest --command -- /opt/kubeflow/bootstrapper --provider <provider>`|
 |&nbsp;&nbsp;&nbsp;→ bootstrapper will check and see if the user has appropriate authorization|
-|&nbsp;&nbsp;&nbsp;→ bootstrapper will apply `<provider>.libsonnet`. See below|
+|&nbsp;&nbsp;&nbsp;→ bootstrapper will apply `<provider>.libsonnet`.|
+|&nbsp;&nbsp;&nbsp;→ See [Design](#design) for details.|
+
+| A data scientist wants to deploy kubeflow for herself and a few others  |
+| :--- |
+|`kubectl create -f kubeflow.yaml`|
+|&nbsp;&nbsp;&nbsp;→ the controller will check and see if the user has appropriate authorization|
+|&nbsp;&nbsp;&nbsp;→ members will be mapped to RoleBindings that allow access to kubeflow namespaces based on team membership|
+|&nbsp;&nbsp;&nbsp;→ See [Design](#design) for details.|
 
 
 ## Design
 
 #### Changes to Existing Components
 
-** 1. Modify bootstrapper to:**
-- Use a `<provider>.libsonnet` which includes resources:
-  - ManagedNamespace CRD, CompositeController, DecoratorController
+** 1. Modify bootstrapper to: **
+- Use a `<provider>.libsonnet` which includes:
+  - ManagedNamespace, Organization, Team, Member CRDs<br/>
+  - CompositeController, DecoratorController from metacontroller
   - ClusterRoles for kubeflow (admin, write, read)
-  - Authprovider for ambassador
 
-```
+``` yaml
+apiVersion: apiextensions.k8s.io/v1beta
+kind: CustomResourceDefinition
+metadata:
+  name: member.kubeflow.org
+spec:
+  group: kubeflow.org
+  version: v1alpha1
+  scope: Namespaced
+  names:
+    plural: managednamespaces
+    singular: managednamespace
+    kind: ManagedNamespace
+    shortNames: ["mns"]
+---
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
@@ -102,20 +125,6 @@ spec:
     singular: members
     kind: Member
     shortNames: ["mbr"]
----
-apiVersion: apiextensions.k8s.io/v1beta
-kind: CustomResourceDefinition
-metadata:
-  name: member.kubeflow.org
-spec:
-  group: kubeflow.org
-  version: v1alpha1
-  scope: Namespaced
-  names:
-    plural: managednamespaces
-    singular: managednamespace
-    kind: ManagedNamespace
-    shortNames: ["mns"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRole
@@ -168,7 +177,7 @@ rules:
 apiVersion: metacontroller.k8s.io/v1alpha1
 kind: DecoratorController
 metadata:
-  name: kubeflow-namespace-create
+  name: kubeflow-bootstrapper
 spec:
   resources:
   - apiVersion: v1alpha1
@@ -179,7 +188,7 @@ spec:
   hooks:
     sync:
       webhook:
-        url: http://kubeflow-namespace-create.metacontroller/create
+        url: http://kubeflow-bootstrapper.metacontroller/bootstrap
 ---
 apiVersion: metacontroller.k8s.io/v1alpha1
 kind: CompositeController
@@ -193,21 +202,44 @@ spec:
   - apiVersion: kubeflow.org/v1alpha1
     resource: organization
     updateStrategy:
-      method: RollingInPlace
-      statusChecks:
-        conditions:
-        - type: Ready
-          status: "True"
-        - type: Updated
-          status: "True"
+      method: InPlace
   hooks:
     sync:
       webhook:
-        url: http://vitess-operator.metacontroller/deploy
+        url: http://kubeflow-deployer.metacontroller/deploy
+```
+
+** 2. Deploy using kubectl **
+``` yaml
+apiVersion: kubeflow.org/v1alpha1
+kind: ManagedNamespace
+metadata:
+  name: kubeflow-jdoe
+organization:
+  name: Acme
+  teams:
+  - name: ds-delta
+    members:
+    - member:
+      github: jdoe
+      slack: jdoe
+      firstName: Jane
+      lastName: Doe
+      affiliation: Doe Inc
+      email: jdoe@doeinc.com
+    - member:
+      github: msmith
+      slack: msmith
+      firstName: Mike
+      lastName: Smith
+      affiliation: Doe Inc
+      email: msmith@doeinc.com
 ```
 
 
+
 ## Alternatives Considered
+Using [kubeless](https://kubeless.io/) functions rather than [metacontroller](https://github.com/GoogleCloudPlatform/metacontroller) controllers
 
 ## References
 https://engineering.opsgenie.com/advanced-kubernetes-objects-53f5e9bc0c28
