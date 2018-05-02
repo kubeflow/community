@@ -9,7 +9,7 @@ The current bootstrapper generates a kubeflow application into a PersistentVolum
 - creation of namespace scoped resources (services, serviceaccounts, ...)
 - creation of IAP/GCP single signon
 
-The bootstrapper is run as cluster-admin although not all manifests require cluster-admin privileges.
+The bootstrapper is run as cluster-admin although not all phases above require cluster-admin privileges.
 
 ### RBAC rules for data scientists aren't utilized
 A data scientist is authenticated either as an admin or a google user (via IAP) but service account RBACs are used when running processes. Actions and their RBACs are shown below:
@@ -36,7 +36,7 @@ Introduce a ManagedNamespace CRD and controllers. Submitting a ManagedNamespace 
 | deployment | data scientist | controller | Continue with normal deployment processing normally done in [Server.Run](https://github.com/kubeflow/kubeflow/blob/master/bootstrap/cmd/bootstrap/app/server.go) |
 
 
-RBAC rules will be created to enable actions on resources at the cluster level and actions on resources scoped by a namespace. The initialization phases will perform actions at the cluster level. The deployment phases will perform actions within a namespace.
+RBAC rules will be created to enable actions on resources at the cluster level and actions on resources scoped by a namespace. The initialization phases will perform actions at the cluster level. The deployment phases will perform actions within a namespace. ServiceAccounts will be modified to use RoleBindings of the active user.
 
 
 ## Non-Goals
@@ -209,7 +209,13 @@ spec:
         url: http://kubeflow-deployer.metacontroller/deploy
 ```
 
-** 2. Deploy using kubectl **
+** 2. Deploy using kubectl create -f `<kubeflow>.yaml` **
+- Use a `<kubeflow>.yaml` which includes:
+  - PersistentVolume (from kubeflow_toolkit.yaml)<br/>
+  - ManagedNamespace CR (shown below)
+  - The metacontrollers noted in Section 1. above will create resources
+  - The metacontrollers hooks are still **WIP**
+
 ``` yaml
 apiVersion: kubeflow.org/v1alpha1
 kind: ManagedNamespace
