@@ -247,7 +247,7 @@ organization:
 ## Alternatives Considered
 Using [kubeless](https://kubeless.io/) functions rather than [metacontroller](https://github.com/GoogleCloudPlatform/metacontroller) controllers
 
-Using the [Application CRD](https://github.com/kubernetes-sigs/application) instead of the ManagedNamespace CRD.
+Using the [Application CRD](https://github.com/kubernetes-sigs/application#what-is-the-application-crd) instead of the ManagedNamespace CRD.
 
 ## References
 https://engineering.opsgenie.com/advanced-kubernetes-objects-53f5e9bc0c28
