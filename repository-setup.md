@@ -22,10 +22,18 @@ We use [Prow](https://github.com/kubernetes/test-infra)
 
 1. Configure prow for the repository by following these [instructions](https://github.com/kubeflow/testing#setting-up-a-kubeflow-repository-to-use-prow-)
 
-1. Follow [adding basic e2e tests](https://github.com/kubeflow/testing#adding-an-e2e-test-for-a-new-repository) to add a basic E2E test
+  * Create a prow_config.yaml file with the following contents
+
+  ```
+  workflows: []
+  ```
+
+  * This file is sufficient to ensure the prow jobs pass but doesn't run any actual tests.
+
+  * When you are ready to actually add E2E tests you can follow [adding basic e2e tests](https://github.com/kubeflow/testing#adding-an-e2e-test-for-a-new-repository) to add a basic E2E test
    for your repository 
 
-   * See kubeflow/testing#11
+  * See kubeflow/testing#11 for work creating generating tests for things like lint.
 
 1. Allow tide to automatically merge PRs by submitting a PR like [kubernetes/test-infra#7802](https://github.com/kubernetes/test-infra/pull/7802/files) to kubernetes/test-infra/prow/config.yaml to enable).
 
