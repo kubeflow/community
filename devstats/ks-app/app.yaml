@@ -7,6 +7,13 @@ environments:
     k8sVersion: v1.7.0
     path: default
 kind: ksonnet.io/app
+libraries:
+  core:
+    gitVersion:
+      commitSha: e2c2c7c49e578472ba57f91f3b2a5f4d1a2d0289
+      refSpec: master
+    name: core
+    registry: kubeflow
 name: ks-app
 registries:
   incubator:
@@ -15,4 +22,10 @@ registries:
       refSpec: master
     protocol: github
     uri: github.com/ksonnet/parts/tree/master/incubator
+  kubeflow:
+    gitVersion:
+      commitSha: e2c2c7c49e578472ba57f91f3b2a5f4d1a2d0289
+      refSpec: master
+    protocol: github
+    uri: github.com/kubeflow/kubeflow/tree/master/kubeflow
 version: 0.0.1

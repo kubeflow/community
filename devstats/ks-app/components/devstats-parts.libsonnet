@@ -9,6 +9,7 @@
       $.parts(params, env).influxdbStatefulSet,
       $.parts(params, env).projectsConfigMap,
       $.parts(params, env).grafanaIngress,
+      $.parts(params, env).certificate,
       $.parts(params, env).grafanaService,
       $.parts(params, env).grafanaDeploy,
       $.parts(params, env).grafanaServiceAccount,
@@ -30,6 +31,8 @@
 
     // Where to mount the projects config map
     local projectsMountPoint = "/etc/projects-volume",
+
+    local fqdn = params.fqdn,
 
     // Environment variables to be set on various pods.
     // These control the devstats tools
@@ -468,19 +471,56 @@
       },
     },
 
+    certificate:: {
+      apiVersion: "certmanager.k8s.io/v1alpha1",
+      kind: "Certificate",
+      metadata: {
+        name: params.tlsSecretName,
+        namespace: namespace,
+      },
+
+      spec: {
+        secretName: params.tlsSecretName,
+        issuerRef: {
+          name: params.issuer,
+        },
+        commonName: params.fqdn,
+        dnsNames: [
+          params.fqdn,
+        ],
+        acme: {
+          config: [
+            {
+              http01: {
+                ingress: "grafana",
+              },
+              domains: [
+                params.fqdn,
+              ],
+            },
+          ],
+        },
+      },
+    },  // certificate
+
     grafanaIngress:: {
       apiVersion: "extensions/v1beta1",
       kind: "Ingress",
       metadata: {
         name: "grafana",
-        namespace: namespace,          
+        namespace: namespace,
         annotations: {
           "kubernetes.io/ingress.global-static-ip-name": "devstats",
+          "kubernetes.io/tls-acme": "true",          
+          // TODO(jlewi): We should automatically redirect users
+          // to the https site. We could do this by using a custom default
+          // backend.          
         },
       },
       spec: {
         rules: [
           {
+            host: params.fqdn,
             http: {
               paths: [
                 {
@@ -492,6 +532,14 @@
                 },
               ],
             },
+          },
+        ],
+        tls: [
+          {
+            hosts: [
+              params.fqdn,
+            ],
+            secretName: params.tlsSecretName,
           },
         ],
       },
@@ -542,47 +590,47 @@
       },
 
       // You can use the script print_imports.sh to generate text that
-      // can be copy pasted here.      
+      // can be copy pasted here.
       data: {
-"activity-repository-groups.json": importstr "grafana/dashboards/activity-repository-groups.json",
-"approvers-in-repository-groups-table.json": importstr "grafana/dashboards/approvers-in-repository-groups-table.json",
-"approvers-repository-groups.json": importstr "grafana/dashboards/approvers-repository-groups.json",
-"blocked-prs-repository-groups.json": importstr "grafana/dashboards/blocked-prs-repository-groups.json",
-"bot-commands-repository-groups.json": importstr "grafana/dashboards/bot-commands-repository-groups.json",
-"commenters-in-repository-groups.json": importstr "grafana/dashboards/commenters-in-repository-groups.json",
-"comments-in-repository-groups.json": importstr "grafana/dashboards/comments-in-repository-groups.json",
-"commits-repository-groups.json": importstr "grafana/dashboards/commits-repository-groups.json",
-"community-stats-repositories.json": importstr "grafana/dashboards/community-stats-repositories.json",
-"companies-contributing-in-repository-groups.json": importstr "grafana/dashboards/companies-contributing-in-repository-groups.json",
-"companies-statistics-repository-groups.json": importstr "grafana/dashboards/companies-statistics-repository-groups.json",
-"companies-table.json": importstr "grafana/dashboards/companies-table.json",
-"companies-velocity-repository-groups.json": importstr "grafana/dashboards/companies-velocity-repository-groups.json",
-"dashboards.json": importstr "grafana/dashboards/dashboards.json",
-"developers-table.json": importstr "grafana/dashboards/developers-table.json",
-"first-non-author-activity-repository-groups.json": importstr "grafana/dashboards/first-non-author-activity-repository-groups.json",
-"issues-repository-group.json": importstr "grafana/dashboards/issues-repository-group.json",
-"new-and-episodic-contributors-repository-groups.json": importstr "grafana/dashboards/new-and-episodic-contributors-repository-groups.json",
-"new-and-episodic-issues-repository-groups.json": importstr "grafana/dashboards/new-and-episodic-issues-repository-groups.json",
-"new-prs-repository-groups.json": importstr "grafana/dashboards/new-prs-repository-groups.json",
-"opened-to-merged-repository-groups.json": importstr "grafana/dashboards/opened-to-merged-repository-groups.json",
-"open-issues-prs-by-milestone-and-repository.json": importstr "grafana/dashboards/open-issues-prs-by-milestone-and-repository.json",
-"pr-comments.json": importstr "grafana/dashboards/pr-comments.json",
-"project-statistics-table.json": importstr "grafana/dashboards/project-statistics-table.json",
-"prs-age-repository-groups.json": importstr "grafana/dashboards/prs-age-repository-groups.json",
-"prs-approval-repository-groups.json": importstr "grafana/dashboards/prs-approval-repository-groups.json",
-"prs-approval-repository-groups-stacked.json": importstr "grafana/dashboards/prs-approval-repository-groups-stacked.json",
-"prs-authors-companies-table.json": importstr "grafana/dashboards/prs-authors-companies-table.json",
-"prs-authors-repository-groups.json": importstr "grafana/dashboards/prs-authors-repository-groups.json",
-"prs-authors-repository-groups-table.json": importstr "grafana/dashboards/prs-authors-repository-groups-table.json",
-"prs-labels-repository-groups.json": importstr "grafana/dashboards/prs-labels-repository-groups.json",
-"prs-merged-repository-groups.json": importstr "grafana/dashboards/prs-merged-repository-groups.json",
-"prs-merged-repos.json": importstr "grafana/dashboards/prs-merged-repos.json",
-"reviewers-in-repository-groups-table.json": importstr "grafana/dashboards/reviewers-in-repository-groups-table.json",
-"reviewers-repository-groups.json": importstr "grafana/dashboards/reviewers-repository-groups.json",
-"suggested-approvers-repository-groups.json": importstr "grafana/dashboards/suggested-approvers-repository-groups.json",
-"time-metrics-by-repository-groups.json": importstr "grafana/dashboards/time-metrics-by-repository-groups.json",
-"top-commenters-in-repository-groups-table.json": importstr "grafana/dashboards/top-commenters-in-repository-groups-table.json",
-"user-reviews-repository-groups.json": importstr "grafana/dashboards/user-reviews-repository-groups.json",
+        "activity-repository-groups.json": importstr "grafana/dashboards/activity-repository-groups.json",
+        "approvers-in-repository-groups-table.json": importstr "grafana/dashboards/approvers-in-repository-groups-table.json",
+        "approvers-repository-groups.json": importstr "grafana/dashboards/approvers-repository-groups.json",
+        "blocked-prs-repository-groups.json": importstr "grafana/dashboards/blocked-prs-repository-groups.json",
+        "bot-commands-repository-groups.json": importstr "grafana/dashboards/bot-commands-repository-groups.json",
+        "commenters-in-repository-groups.json": importstr "grafana/dashboards/commenters-in-repository-groups.json",
+        "comments-in-repository-groups.json": importstr "grafana/dashboards/comments-in-repository-groups.json",
+        "commits-repository-groups.json": importstr "grafana/dashboards/commits-repository-groups.json",
+        "community-stats-repositories.json": importstr "grafana/dashboards/community-stats-repositories.json",
+        "companies-contributing-in-repository-groups.json": importstr "grafana/dashboards/companies-contributing-in-repository-groups.json",
+        "companies-statistics-repository-groups.json": importstr "grafana/dashboards/companies-statistics-repository-groups.json",
+        "companies-table.json": importstr "grafana/dashboards/companies-table.json",
+        "companies-velocity-repository-groups.json": importstr "grafana/dashboards/companies-velocity-repository-groups.json",
+        "dashboards.json": importstr "grafana/dashboards/dashboards.json",
+        "developers-table.json": importstr "grafana/dashboards/developers-table.json",
+        "first-non-author-activity-repository-groups.json": importstr "grafana/dashboards/first-non-author-activity-repository-groups.json",
+        "issues-repository-group.json": importstr "grafana/dashboards/issues-repository-group.json",
+        "new-and-episodic-contributors-repository-groups.json": importstr "grafana/dashboards/new-and-episodic-contributors-repository-groups.json",
+        "new-and-episodic-issues-repository-groups.json": importstr "grafana/dashboards/new-and-episodic-issues-repository-groups.json",
+        "new-prs-repository-groups.json": importstr "grafana/dashboards/new-prs-repository-groups.json",
+        "opened-to-merged-repository-groups.json": importstr "grafana/dashboards/opened-to-merged-repository-groups.json",
+        "open-issues-prs-by-milestone-and-repository.json": importstr "grafana/dashboards/open-issues-prs-by-milestone-and-repository.json",
+        "pr-comments.json": importstr "grafana/dashboards/pr-comments.json",
+        "project-statistics-table.json": importstr "grafana/dashboards/project-statistics-table.json",
+        "prs-age-repository-groups.json": importstr "grafana/dashboards/prs-age-repository-groups.json",
+        "prs-approval-repository-groups.json": importstr "grafana/dashboards/prs-approval-repository-groups.json",
+        "prs-approval-repository-groups-stacked.json": importstr "grafana/dashboards/prs-approval-repository-groups-stacked.json",
+        "prs-authors-companies-table.json": importstr "grafana/dashboards/prs-authors-companies-table.json",
+        "prs-authors-repository-groups.json": importstr "grafana/dashboards/prs-authors-repository-groups.json",
+        "prs-authors-repository-groups-table.json": importstr "grafana/dashboards/prs-authors-repository-groups-table.json",
+        "prs-labels-repository-groups.json": importstr "grafana/dashboards/prs-labels-repository-groups.json",
+        "prs-merged-repository-groups.json": importstr "grafana/dashboards/prs-merged-repository-groups.json",
+        "prs-merged-repos.json": importstr "grafana/dashboards/prs-merged-repos.json",
+        "reviewers-in-repository-groups-table.json": importstr "grafana/dashboards/reviewers-in-repository-groups-table.json",
+        "reviewers-repository-groups.json": importstr "grafana/dashboards/reviewers-repository-groups.json",
+        "suggested-approvers-repository-groups.json": importstr "grafana/dashboards/suggested-approvers-repository-groups.json",
+        "time-metrics-by-repository-groups.json": importstr "grafana/dashboards/time-metrics-by-repository-groups.json",
+        "top-commenters-in-repository-groups-table.json": importstr "grafana/dashboards/top-commenters-in-repository-groups-table.json",
+        "user-reviews-repository-groups.json": importstr "grafana/dashboards/user-reviews-repository-groups.json",
       },
     },
 
@@ -614,7 +662,7 @@
                   // see http://docs.grafana.org/administration/provisioning/
                   //
                   // Override the location used for data so we can use a location
-                  // that corresponds to a PD. 
+                  // that corresponds to a PD.
                   {
                     name: "GF_PATHS_DATA",
                     value: "/data/grafana",
@@ -633,8 +681,8 @@
                     name: "GF_SECURITY_ADMIN_PASSWORD",
                     valueFrom: {
                       secretKeyRef: {
-                          name: "grafana",
-                          key: "admin_password",
+                        name: "grafana",
+                        key: "admin_password",
                       },
                     },
                   },
@@ -643,7 +691,7 @@
                   {
                     name: "GF_AUTH_ANONYMOUS_ENABLED",
                     value: "true",
-                  }
+                  },
                 ],
                 image: "grafana/grafana",
                 imagePullPolicy: "IfNotPresent",
@@ -679,18 +727,19 @@
                   pdName: "grafana-data",
                 },
                 name: "grafana-data",
-              },              
+              },
               {
                 configMap: {
                   name: "grafana-dashboards",
                 },
                 name: "grafana-dashboards",
               },
-{             configMap: {
+              {
+                configMap: {
                   name: "grafana-providers",
                 },
                 name: "grafana-providers",
-              },   
+              },
             ],
           },
         },
