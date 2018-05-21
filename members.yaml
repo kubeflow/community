@@ -10,6 +10,13 @@
 # people.
 #
 # Please keep this file alphabetized by github id.
+- github: abhi-g
+  slack: abhishek
+  firstName: Abhishek
+  lastName: Gupta
+  affiliation: Google
+  email: abhishek@google.com
+
 - github: ahousley
   slack: ahousley
   firstName: Alex
