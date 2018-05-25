@@ -3,7 +3,9 @@ Kubeflow currently supports distributed training of TensorFlow models using
 [tf-operator](https://github.com/kubeflow/tf-operator), which relies on
 centralized parameter servers for coordination between workers. An alternative
 is a decentralized approach in which workers communicate with each other
-directly via the MPI `allreduce` primitive, without using parameter servers.
+directly via the MPI
+[`allreduce`](http://mpitutorial.com/tutorials/mpi-reduce-and-allreduce/)
+primitive, without using parameter servers.
 NVIDIA's [NCCL](https://developer.nvidia.com/nccl) library has implemented most
 of the MPI primitives efficiently on GPUs, and Uber's
 [Horovod](https://github.com/uber/horovod) makes it simple to do multi-gpu and
