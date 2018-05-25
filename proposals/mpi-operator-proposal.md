@@ -12,7 +12,9 @@ multi-node training using TensorFlow; the TensorFlow team is also working on an
 [implementation](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/distribute).
 Compared to parameter servers, this approach arguably is more
 [bandwidth optimal](http://www.cs.fsu.edu/~xyuan/paper/09jpdc.pdf) and
-[scales better](https://eng.uber.com/horovod/).
+[scales better](https://eng.uber.com/horovod/). For a detailed survey of
+distributed deep learning, see
+[this paper](https://arxiv.org/abs/1802.09941).
 
 However, right now there is no easy way to launch this type of training jobs on
 Kubernetes. By providing a CRD and a custom controller, we can make
@@ -26,7 +28,9 @@ and reconcile the desired states.
 * The cross-pod communication should be secure, without granting unnecessary
 permissions to any pod.
 * Though the initial version focuses on TensorFlow/Horovod, the approach can be
-applied to other frameworks with MPI support, such as CNTK.
+applied to other frameworks with MPI support, such as
+[ChainerMN](https://github.com/chainer/chainermn) or
+[CNTK](https://docs.microsoft.com/en-us/cognitive-toolkit/multiple-gpus-and-machines).
 
 ## Non-Goals
 In theory, this operator can be used to run arbitrary MPI jobs (e.g.
@@ -65,7 +69,8 @@ spec:
         image: rongou/tensorflow_benchmarks:latest
 ```
 
-For more flexibility, user can choose to specify the resources explicitly:
+For more flexibility, user can choose to specify the resources explicitly (this
+example also shows the full `mpirun` command line):
 ```yaml
 apiVersion: kubeflow.org/v1alpha1
 kind: MPIJob
@@ -78,6 +83,15 @@ spec:
       containers:
       - name: tensorflow-benchmarks
         image: rongou/tensorflow_benchmarks:latest
+        command: ["mpirun"]
+        args: [
+          "-bind-to", "none",
+          "-map-by", "slot"",
+          "python", "scripts/tf_cnn_benchmarks/tf_cnn_benchmarks.py",
+          "--model", "resnet101",
+          "--batch_size", "64",
+          "--variable_update", "horovod",
+        ]
         resources:
           limits:
             nvidia.com/gpu: 8
