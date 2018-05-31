@@ -32,10 +32,11 @@ spec:
   # only "mpi" is supported in the first scope
   # "gloo", or custom backend will be supported in the future.
   backend: mpi
-  replicaSpecs:
-  - replicas: 1
-    ReplicaType: MASTER
-    # In 'MASTER', only backoffLimit/activeDeadlineSeconds
+  # chief would be better like TfJorb?
+  master:  
+    # replicas of master can be ommitted but must be 1 in master.
+    replicas: 1
+    # In master, only backoffLimit/activeDeadlineSeconds
     # are supported for customizing resulting master `Job` behavior
     backoffLimit: 5
     activeDeadlineSeconds: 100
@@ -51,8 +52,8 @@ spec:
               "python3", "/train_mnist.py", "-e", "2", "-b", "100", "-g"
             ]
         restartPolicy: OnFailure
-  - replicas: 3
-    ReplicaType: WORKER
+  worker:
+    replicas: 3
     template:
       spec:
         containers:
@@ -61,7 +62,7 @@ spec:
         restartPolicy: OnFailure
 ```
 
-This `ChainerJob` resembles the existing `PyTorchJob`.  The main differences are being the omission of `masterPort` options.
+This `ChainerJob` resembles the existing `TfJob`/`PyTorchJob`.  The main differences are being the omission of `masterPort` options.
 
 `backend` defines the protocol the [ChainerMN][ChainerMN] processes will use to communicate when initializing the worker group.  As stated above, [ChainerMN][ChainerMN] currently support MPI only for backend.  But they are now planning to extend the support to other communication backend (e.g. [gloo][gloo] or other custom ones).
 
