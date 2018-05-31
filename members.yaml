@@ -45,6 +45,13 @@
   affiliation: Cisco
   email: dedutta@cisco.com
 
+- github: elsonrodriguez
+  slack: elsonrodriguez
+  firstName: Elson
+  LastName: Rodriguez
+  affiliation: None
+  email: elson.rodriguez@gmail.com
+
 - github: ewilderj
   slack: ewj
   firstName: Edd
