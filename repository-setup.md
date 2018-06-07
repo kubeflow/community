@@ -2,14 +2,25 @@
 
 Here are the steps involved in setting up a new repository; there is more information in the sections below.
 
-1. Create an OWNERS file at the root of the repository
+Step 1-3 should be performed by admin for the Kubeflow org
 
-	* For more info on OWNERS files see [CONTRIBUTING.md](https://github.com/kubeflow/community/blob/master/CONTRIBUTING.md)
+1. Create the repository
 
 1. Configure the repository in GitHub following the instructions [below](#repository-configuration)
 
+   * Grant ci-bots write permission
+   * enable branch protections
+
+1. Create an OWNERS file at the root of the repository
+
+    * Anyone can create the PR
+    * PR will need to be merged manually by Kubeflow org administrator
+	  * For more info on OWNERS files see [CONTRIBUTING.md](https://github.com/kubeflow/community/blob/master/CONTRIBUTING.md)
+    * After the OWNERs file is merged subsequent PRs can be automatically merged by Tide
+
 1. Setup prow for the repository by following the instructions [below](#setup-prow)
 
+    * This step can be performed by anyone; doesn't need to be a Kubeflow org admin
 
 ## Setting up prow for your repository
 
@@ -17,6 +28,9 @@ We use [Prow](https://github.com/kubernetes/test-infra)
 
 	* Continuous integration
 	* Automatic merging of PRs (tide)
+
+    * Tide should automatically be enabled for all repositories in the Kubeflow org 
+
 	* Manage PRs using bots
 
 
@@ -35,7 +49,6 @@ We use [Prow](https://github.com/kubernetes/test-infra)
 
   * See kubeflow/testing#11 for work creating generating tests for things like lint.
 
-1. Allow tide to automatically merge PRs by submitting a PR like [kubernetes/test-infra#7802](https://github.com/kubernetes/test-infra/pull/7802/files) to kubernetes/test-infra/prow/config.yaml to enable).
 
 ## Repository configuration
 
