@@ -8,19 +8,19 @@ Step 1-3 should be performed by admin for the Kubeflow org
 
 1. Configure the repository in GitHub following the instructions [below](#repository-configuration)
 
-  * Grant ci-bots write permission
-  * enable branch protections
+   * Grant ci-bots write permission
+   * enable branch protections
 
 1. Create an OWNERS file at the root of the repository
 
-  * Anyone can create the PR
-  * PR will need to be merged manually by Kubeflow org administrator
-	* For more info on OWNERS files see [CONTRIBUTING.md](https://github.com/kubeflow/community/blob/master/CONTRIBUTING.md)
-  * After the OWNERs file is merged subsequent PRs can be automatically merged by Tide
+    * Anyone can create the PR
+    * PR will need to be merged manually by Kubeflow org administrator
+	  * For more info on OWNERS files see [CONTRIBUTING.md](https://github.com/kubeflow/community/blob/master/CONTRIBUTING.md)
+    * After the OWNERs file is merged subsequent PRs can be automatically merged by Tide
 
 1. Setup prow for the repository by following the instructions [below](#setup-prow)
 
-  * This step can be performed by anyone; doesn't need to be a Kubeflow org admin
+    * This step can be performed by anyone; doesn't need to be a Kubeflow org admin
 
 ## Setting up prow for your repository
 
