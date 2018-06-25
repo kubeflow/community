@@ -34,7 +34,6 @@
   contacts:
     - deyuan@caicloud.io
     - gaoce@caicloud.io
-    - pengjigntian@caicloud.io
   url: https://caicloud.io
   hiringForKubeflow: true
   hiringUrl: https://caicloud.io/jobs
@@ -167,11 +166,10 @@
   url: https://www.weave.works/blog/kubeflow-and-weave-cloud
   hiringForKubeflow: true
   hiringUrl: https://www.weave.works/company/hiring/
-  
+
 - name: One Convergence
   contacts:
     - songole@oneconvergence.com
     - ahmed.khan@oneconvergence.com
   url: https://www.oneconvergence.com
   hiringForKubeflow: false
-  
