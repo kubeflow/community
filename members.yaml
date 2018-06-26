@@ -49,7 +49,7 @@
   slack: Pengyu Chen
   firstName: Pengyu
   lastName: Chen
-  affiliation: caicloud
+  affiliation: Caicloud
   email: chenpengyu@caicloud.io
 
 - github: elsonrodriguez
@@ -149,3 +149,10 @@
   lastName: Willing
   affiliation: Project Jupyter
   email: cawillin@calpoly.edu
+
+- github: yph152
+  slack: yph152
+  firstName: Penghui
+  lastName: Yan
+  affiliation: Caicloud
+  email: yanpenghui@caicloud.io
