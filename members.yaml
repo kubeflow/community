@@ -52,6 +52,13 @@
   affiliation: None
   email: elson.rodriguez@gmail.com
 
+- github: everpeace
+  slack: everpeace
+  firstName: Shingo
+  LastName: Omura
+  affiliation: Preferred Networks
+  email: everpeace@gmail.com
+
 - github: ewilderj
   slack: ewj
   firstName: Edd
