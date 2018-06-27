@@ -45,6 +45,13 @@
   affiliation: Cisco
   email: dedutta@cisco.com
 
+- github: codeflitting
+  slack: Pengyu Chen
+  firstName: Pengyu
+  lastName: Chen
+  affiliation: Caicloud
+  email: chenpengyu@caicloud.io
+
 - github: elsonrodriguez
   slack: elsonrodriguez
   firstName: Elson
@@ -100,7 +107,7 @@
   lastName: Hausenblas
   affiliation: Red Hat
   email: mhausenb@redhat.com
-  
+
 - github: pdmack
   slack: pdmack
   firstName: Pete
@@ -121,7 +128,7 @@
   lastName: Ongole
   affiliation: One Convergence
   email: songole@oneconvergence.com
-  
+
 - github: texasmichelle
   slack: michelle
   firstName: Michelle
@@ -149,3 +156,10 @@
   lastName: Willing
   affiliation: Project Jupyter
   email: cawillin@calpoly.edu
+
+- github: yph152
+  slack: yph152
+  firstName: Penghui
+  lastName: Yan
+  affiliation: Caicloud
+  email: yanpenghui@caicloud.io
