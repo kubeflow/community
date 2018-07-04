@@ -18,6 +18,7 @@ _Status_
 
 * 2018-03-20 - Accepted
 * 2018-03-15 - Implementation Started
+* 2018-07-02 - v1alpha1 is released in 0.2
 
 ## Motivation
 PyTorch is a popular machine learning framework which currently does not have an operator/controller for Kubernetes. This proposal is aimed at defining what that operator should look like, and adding it to Kubeflow.

@@ -19,6 +19,7 @@ _Status_
 
 * 2018-05-25 - Accepted
 * 2018-06-02 - Implementation Started
+* 2018-07-02 - v1alpha1 is released in 0.2
 
 ## Motivation
 Kubeflow currently supports distributed training of TensorFlow models using
