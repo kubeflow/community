@@ -40,7 +40,7 @@ This structure is also exemplified by a [template](proposals/proposal-template.m
 The workflow for submitting and reviewing a new proposal is as follows:
 
 1. A Markdown file (`*.md`) will be drafted for the proposal.
-1. A pull request (PR) will be filed against [this repository](https://github.com/kubeflow/community) (`kubeflow/community`), which adds this Markdown file to the `proposals` directory. This PR will also include adding a link to the proposal from the [accepted-proposals.md](accepted-proposals.md) file. The PR title should match the proposal title.
+1. A pull request (PR) will be filed against [this repository](https://github.com/kubeflow/community) (`kubeflow/community`), which adds this Markdown file to the `proposals` directory.
 1. The proposal will be announced on the [kubeflow-discuss](https://groups.google.com/forum/#!forum/kubeflow-discuss) group, and at one of the weekly meetings, so that community members will be aware of it.
 1. There will be a **two week** period for comment and review.  Review and feedback take place on the PR, in standard PR review fashion.
 1. At the end of the review period, a vote will be held. This vote will also take place on the PR. If a proposal receives 3 binding `+1` votes from Kubeflow project Approvers, and no binding `-1` votes, the proposal will be accepted, and added to the community repo. The PR will be merged, and the label `accepted-proposal` will be added to the PR.

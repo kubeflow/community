@@ -1,3 +1,26 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Motivation](#motivation)
+- [Goals](#goals)
+- [Non-Goals](#non-goals)
+- [API](#api)
+  - [Container Image](#container-image)
+  - [Custom Resource Definition](#custom-resource-definition)
+  - [Resulting Worker](#resulting-worker)
+  - [Resulting Launcher](#resulting-launcher)
+- [Design](#design)
+- [Alternatives Considered](#alternatives-considered)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+_Status_
+
+* 2018-05-25 - Accepted
+* 2018-06-02 - Implementation Started
+* 2018-07-02 - v1alpha1 is released in 0.2
+
 ## Motivation
 Kubeflow currently supports distributed training of TensorFlow models using
 [tf-operator](https://github.com/kubeflow/tf-operator), which relies on

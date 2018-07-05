@@ -1,3 +1,26 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Motivation](#motivation)
+- [Goals](#goals)
+- [Non-Goals](#non-goals)
+- [API (CRD and resulting objects)](#api-crd-and-resulting-objects)
+  - [Custom Resource Definition](#custom-resource-definition)
+  - [Container Image](#container-image)
+  - [Resulting Master/Workers](#resulting-masterworkers)
+    - [Master](#master)
+  - [Resulting Workers](#resulting-workers)
+- [Design](#design)
+- [Alternatives Considered](#alternatives-considered)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+_Status_
+
+* 2018-06-01 - Accepted
+* 2018-06-14 - Implementation Started
+
 ## Motivation
 
 [Chainer][Chainer] is a Python-based, standalone open source framework for deep learning models. Chainer provides a flexible, intuitive, and high-performance means of implementing a full range of deep learning models, including state-of-the-art models such as recurrent neural networks and variational autoencoders.  
