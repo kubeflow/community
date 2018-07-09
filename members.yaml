@@ -122,6 +122,13 @@
   affiliation: NVIDIA
   email: rou@nvidia.com
 
+- github: sarahmaddox
+  slack: sarahmaddox
+  firstName: Sarah
+  lastName: Maddox
+  affiliation: Google
+  email: sarahmaddox@google.com
+
 - github: songole
   slack: osm1c
   firstName: Subramanyam
