@@ -24,12 +24,12 @@
   affiliation: Seldon
   email: ah@seldon.io
 
-- github: ankushagarwal
-  slack: ankushagarwal
-  firstName: Ankush
-  lastName: Agarwal
-  affiliation: Google
-  email: agwl@google.com
+- github: amsaha
+  slack: amsaha
+  firstName: Amit
+  lastName: Saha
+  affiliation: Cisco
+  email: amisaha@google.com
 
 - github: amygdala
   slack: amy
@@ -37,6 +37,13 @@
   lastName: Unruh
   affiliation: Google
   email: amyu@google.com
+
+- github: ankushagarwal
+  slack: ankushagarwal
+  firstName: Ankush
+  lastName: Agarwal
+  affiliation: Google
+  email: agwl@google.com
 
 - github: ddutta
   slack: debo
