@@ -24,12 +24,12 @@
   affiliation: Seldon
   email: ah@seldon.io
 
-- github: ankushagarwal
-  slack: ankushagarwal
-  firstName: Ankush
-  lastName: Agarwal
-  affiliation: Google
-  email: agwl@google.com
+- github: amsaha
+  slack: amsaha
+  firstName: Amit
+  lastName: Saha
+  affiliation: Cisco
+  email: amisaha@cisco.com
 
 - github: amygdala
   slack: amy
@@ -38,12 +38,12 @@
   affiliation: Google
   email: amyu@google.com
 
-- github: ddutta
-  slack: debo
-  firstName: Debo
-  lastName: Dutta
-  affiliation: Cisco
-  email: dedutta@cisco.com
+- github: ankushagarwal
+  slack: ankushagarwal
+  firstName: Ankush
+  lastName: Agarwal
+  affiliation: Google
+  email: agwl@google.com
 
 - github: codeflitting
   slack: Pengyu Chen
@@ -51,6 +51,13 @@
   lastName: Chen
   affiliation: Caicloud
   email: chenpengyu@caicloud.io
+
+- github: ddutta
+  slack: debo
+  firstName: Debo
+  lastName: Dutta
+  affiliation: Cisco
+  email: dedutta@cisco.com
 
 - github: elsonrodriguez
   slack: elsonrodriguez
