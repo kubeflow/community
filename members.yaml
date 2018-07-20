@@ -108,6 +108,13 @@
   affiliation: Intel
   email: kam.d.kasravi@intel.com
 
+- github: lluunn
+  slack: lunkai
+  firstName: Lun-Kai
+  lastName: Hsu
+  affiliation: Google
+  email: lunkai@google.com
+
 - github: mhausenblas
   slack: mhausenblas
   firstName: Michael
