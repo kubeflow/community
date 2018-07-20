@@ -143,6 +143,13 @@
   affiliation: One Convergence
   email: songole@oneconvergence.com
 
+- github: swiftdiaries
+  slack: adhita
+  firstName: Adhita
+  lastName: Selvaraj
+  affiliation: Cisco
+  email: adselvar@cisco.com
+
 - github: texasmichelle
   slack: michelle
   firstName: Michelle
