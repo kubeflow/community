@@ -66,6 +66,13 @@
   affiliation: Cisco
   email: dedutta@cisco.com
 
+- github: dsdinter
+  slack: dsdinter
+  firstName: David
+  lastName: Sabater
+  affiliation: Google
+  email: davidsabater@google.com
+  
 - github: elsonrodriguez
   slack: elsonrodriguez
   firstName: Elson
