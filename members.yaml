@@ -72,7 +72,7 @@
   lastName: Sabater
   affiliation: Google
   email: davidsabater@google.com
-  
+
 - github: elsonrodriguez
   slack: elsonrodriguez
   firstName: Elson
@@ -205,3 +205,10 @@
   lastName: Yan
   affiliation: Caicloud
   email: yanpenghui@caicloud.io
+
+- github: jinxingwang
+  slack: willWang
+  firstName: Will
+  lastName: Wang
+  affiliation: Salesforce
+  email: wjx101220@hotmail.com
