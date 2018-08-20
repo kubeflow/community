@@ -45,19 +45,19 @@
   affiliation: Google
   email: agwl@google.com
 
-- github: ChanYiLin
-  slack: JackLin
-  firstName: Chan Yi
-  lastName: Lin
-  affiliation: None
-  email: j5111261112@gmail.com
-
 - github: carmine
   slack: carmine
   firstName: Carmine
   lastName: Rimi
   affiliation: Canonical
   email: carmine.rimi@canonical.com
+
+- github: ChanYiLin
+  slack: JackLin
+  firstName: Chan Yi
+  lastName: Lin
+  affiliation: None
+  email: j5111261112@gmail.com
 
 - github: codeflitting
   slack: Pengyu Chen
