@@ -45,6 +45,13 @@
   affiliation: Google
   email: agwl@google.com
 
+- github: ChanYiLin
+  slack: JackLin
+  firstName: Chan Yi
+  lastName: Lin
+  affiliation: None
+  email: j5111261112@gmail.com
+
 - github: carmine
   slack: carmine
   firstName: Carmine
@@ -58,13 +65,6 @@
   lastName: Chen
   affiliation: Caicloud
   email: chenpengyu@caicloud.io
-
-- github: ChanYiLin
-  slack: JackLin
-  firstName: Chan Yi
-  lastName: Lin
-  affiliation: None
-  email: j5111261112@gmail.com
 
 - github: ddutta
   slack: debo
