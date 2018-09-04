@@ -115,12 +115,26 @@
   affiliation: Intel
   email: michal.jastrzebski@intel.com
 
+- github: jinxingwang
+  slack: willWang
+  firstName: Will
+  lastName: Wang
+  affiliation: Salesforce
+  email: wjx101220@hotmail.com
+
 - github: jlewi
   slack: jlewi
   firstName: Jeremy
   lastName: Lewi
   affiliation: Google
   email: jlewi@google.com
+
+- github: jzp1025 
+  slack: jzp1025
+  firstName: Zongpei
+  LastName: Jiang
+  affiliation: Tusimple
+  email: zongpei.jiang@tusimple.com
 
 - github: kkasravi
   slack: kam
@@ -171,6 +185,13 @@
   affiliation: One Convergence
   email: songole@oneconvergence.com
 
+- github: suleisl2000 
+  slack: suleisl2000
+  firstName: Lei
+  LastName: Su
+  affiliation: Tusimple
+  email: lei.su@tusimple.com
+
 - github: swiftdiaries
   slack: adhita
   firstName: Adhita
@@ -212,24 +233,3 @@
   lastName: Yan
   affiliation: Caicloud
   email: yanpenghui@caicloud.io
-
-- github: jinxingwang
-  slack: willWang
-  firstName: Will
-  lastName: Wang
-  affiliation: Salesforce
-  email: wjx101220@hotmail.com
-
-- github: suleisl2000 
-  slack: suleisl2000
-  firstName: Lei
-  LastName: Su
-  affiliation: Tusimple
-  email: lei.su@tusimple.com
-
-- github: jzp1025 
-  slack: jzp1025
-  firstName: Zongpei
-  LastName: Jiang
-  affiliation: Tusimple
-  email: zongpei.jiang@tusimple.com
