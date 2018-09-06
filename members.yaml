@@ -24,6 +24,13 @@
   affiliation: Seldon
   email: ah@seldon.io
 
+- github: akado2009
+  slack: akado2009
+  firstName: Kirill
+  lastName: Prosvirov
+  affiliation: Cisco
+  email: kprosvir@cisco.com
+ 
 - github: amsaha
   slack: amsaha
   firstName: Amit
