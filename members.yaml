@@ -44,7 +44,7 @@
   lastName: Agarwal
   affiliation: Google
   email: agwl@google.com
-
+  
 - github: carmine
   slack: carmine
   firstName: Carmine
@@ -108,6 +108,13 @@
   affiliation: Caicloud
   email: gaoce@caicloud.io
 
+- github: garganubhav
+  slack: anubhav
+  firstName: Anubhav
+  lastName: Garg
+  affiliation: Cisco
+  email: anubhgar@cisco.com
+  
 - github: inc0
   slack: inc0
   firstName: Michal
