@@ -72,6 +72,13 @@
   lastName: Dutta
   affiliation: Cisco
   email: dedutta@cisco.com
+  
+- github: deepermind
+  slack: jinanzhou
+  firstName: Jinan
+  lastName: Zhou
+  affiliation: Cisco
+  emial: jinazhou@cisco.com
 
 - github: dsdinter
   slack: dsdinter
