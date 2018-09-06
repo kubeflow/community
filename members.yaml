@@ -37,6 +37,13 @@
   lastName: Unruh
   affiliation: Google
   email: amyu@google.com
+  
+- github: andreyvelich  
+  slack: andreyvelich
+  firstName: Andrey
+  lastName: Velichkevich
+  affiliation: Cisco
+  email: avelichk@cisco.com
 
 - github: ankushagarwal
   slack: ankushagarwal
