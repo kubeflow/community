@@ -192,6 +192,13 @@
   affiliation: Red Hat
   email: pmackinn@redhat.com
 
+- github: ramdootp
+  slack: ramdoot
+  firstName: Ramdoot
+  lastName: Pydipaty
+  affiliation: Cisco
+  email: rapydipa@cisco.com
+
 - github: rongou
   slack: rongou
   firstName: Rong
