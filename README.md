@@ -2,36 +2,11 @@
 
 Welcome to Kubeflow! We're glad to have you here.
 
-## Community meetings
+## Join us in discussions, forums, and meetings
 
-[**Meeting calendar**](https://calendar.google.com/calendar/embed?src=kubeflow.org_7l5vnbn8suj2se10sen81d9428%40group.calendar.google.com&ctz=America%2FLos_Angeles) ([iCal version](https://calendar.google.com/calendar/ical/kubeflow.org_7l5vnbn8suj2se10sen81d9428%40group.calendar.google.com/public/basic.ics)).
-
-[Meeting notes](http://bit.ly/kf-meeting-notes).
-
-If your group has a regular meeting, talk to
-[@ewilderj](https://github.com/ewilderj) about getting it added to the calendar.
-
-### Kubeflow community call
-
-The project team holds a weekly community call on Tuesdays. This call alternates
-weekly between US East/EMEA and US West/APAC friendly times. Joining the
-[kubeflow-discuss](https://groups.google.com/forum/#!forum/kubeflow-discuss)
-mailing list will automatically send you calendar invitations for the meetings, or you can subscribe to the community meeting calendar above.
-
-
-Agenda, notes, and a reminder of the next call are sent to the kubeflow-discuss
-mailing list.
-
-
-## Forums and discussion
-
-| Topic                                                           | Mailing list                                                                      | Slack                                                                                             |
-| :----                                                           | :------------                                                                     | :-------------                                                                                    |
-| General discussion                                       | [kubeflow-discuss](https://groups.google.com/forum/#!forum/kubeflow-discuss)      | [#general](https://kubeflow.slack.com/messages/C7REE0EHK)                                         |
-| TF Operator ([Github](https://github.com/kubeflow/tf-operator)) | [tf-operator](https://groups.google.com/a/kubeflow.org/forum/#!forum/tf-operator) | [#tf-operator](https://kubeflow.slack.com/messages/https://kubeflow.slack.com/messages/C985VJN9F) |
-| Community meeting chat                                          | n/a                                                                               | [#community](https://kubeflow.slack.com/messages/C8Q0QJYNB)                                       |
-
-Slack server: [kubeflow.slack.com](https://kubeflow.slack.com/)
+Visit the
+[community page in our docs](https://master.kubeflow.org/docs/about/community/) 
+to see where you can chat with the community and share your ideas.
 
 ## Code of conduct
 
@@ -48,7 +23,9 @@ which we encourage everybody to read before participating.
 
 ## Contributing
 
-The [Contributor Guide](./CONTRIBUTING.md) provides a starting point for contributing ideas and bug fixes to the Kubeflow project.
+The [contributor's guide](https://master.kubeflow.org/docs/about/contributing/) 
+provides a starting point for contributing ideas and bug fixes to the Kubeflow 
+project.
 
 ## About this repository
 
