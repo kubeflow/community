@@ -2,7 +2,7 @@
 
 Welcome to the Kubeflow project! We'd love to accept your patches and 
 contributions to this project. Please read the 
-[contributor's guide in our docs](https://master.kubeflow.org/docs/about/contributing/).
+[contributor's guide in our docs](https://www.kubeflow.org/docs/about/contributing/).
 
 The contributor's guide
 

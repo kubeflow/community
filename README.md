@@ -5,7 +5,7 @@ Welcome to Kubeflow! We're glad to have you here.
 ## Join us in discussions, forums, and meetings
 
 Visit the
-[community page in our docs](https://master.kubeflow.org/docs/about/community/) 
+[community page in our docs](https://www.kubeflow.org/docs/about/community/) 
 to see where you can chat with the community and share your ideas.
 
 ## Code of conduct
@@ -23,7 +23,7 @@ which we encourage everybody to read before participating.
 
 ## Contributing
 
-The [contributor's guide](https://master.kubeflow.org/docs/about/contributing/) 
+The [contributor's guide](https://www.kubeflow.org/docs/about/contributing/) 
 provides a starting point for contributing ideas and bug fixes to the Kubeflow 
 project.
 
