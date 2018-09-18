@@ -30,6 +30,15 @@
     - kubo.cph@alibaba-inc.com
   url: https://www.antfin.com
 
+- name: Arrikto
+  contacts:
+    - vkoukis@arrikto.com
+    - cven@arrikto.com
+    - iliastsi@arrikto.com
+    - dimara@arrikto.com
+    - ioannis@arrikto.com
+  url: https://www.arrikto.com
+
 - name: Caicloud
   contacts:
     - deyuan@caicloud.io
