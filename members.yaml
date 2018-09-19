@@ -213,6 +213,13 @@
   affiliation: Google
   email: sarahmaddox@google.com
 
+- github: sambaiz
+  slack: sambaiz
+  firstName: Taiki
+  lastName: Sakamoto
+  affiliation: CyberAgent
+  email: godgourd@gmail.com
+
 - github: songole
   slack: osm1c
   firstName: Subramanyam
