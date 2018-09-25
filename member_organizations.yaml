@@ -30,6 +30,12 @@
     - kubo.cph@alibaba-inc.com
   url: https://www.antfin.com
 
+- name: Argo Project
+  contacts:
+    - mukulika_kapas@intuit.com
+    - edward_lee@intuit.com
+  url: https://argoproj.github.io
+
 - name: Arrikto
   contacts:
     - vkoukis@arrikto.com
