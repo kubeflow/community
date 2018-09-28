@@ -1,6 +1,5 @@
 approvers:
   - abhi-g
-  - ankushagarwal
   - aronchick
   - DjangoPeng
   - ewilderj
@@ -8,7 +7,6 @@ approvers:
   - mattf
   - texasmichelle
 reviewers:
-  - ankushagarwal
   - aronchick
   - DjangoPeng
   - erikerlandson
