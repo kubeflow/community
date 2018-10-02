@@ -135,6 +135,13 @@
   lastName: Garg
   affiliation: Cisco
   email: anubhgar@cisco.com
+
+- github: ironpan
+  slack: yangpa
+  firstName: Yang
+  lastName: Pan
+  affiliation: Google
+  email: yangpa@google.com
   
 - github: inc0
   slack: inc0
