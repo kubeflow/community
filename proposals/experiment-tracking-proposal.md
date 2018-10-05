@@ -23,6 +23,7 @@ Another feature commonly asked for is model provenance. It's crucial to be able 
 * Dataset used for training
 * Dataset used for testing
 * Feature engineering pipeline used
+* Katib study id
 * Model architecture (code used)
 * Hyperparameters
 
@@ -47,6 +48,10 @@ For best model, we should easily spawn inference cluster. We should support tf-s
 
 It should be very easy, even automatic, to make entry to experiment tracking from TFJob. TF operator should be tightly integrated with it
 and Katib should be able to both read models and write new ones.
+
+Katib workflow could look like this:
+
+Get study hyperparameter space -> select all existing model for study_id -> find out which hyperparameter combination is missing -> create relevant training jobs and add records to experiment tracking.
 
 ## UI
 
