@@ -68,6 +68,7 @@ It's very important to provide good UI that allows easy model navigation and mos
 * Tensorboard - Wasn't meant for large number of models. It's better for very detailed examination of smaller number of models. Uses tf.Event files
 * MLFlow - One of big cons for this is using files as storage for models. That would require something like dask or spark to query them efficiently. Can store files in multiple backends (S3 and GCS among other things)
 * ModelDB - Requires mongodb which is problematic
+* StudioML - Also uses FS/object store as backend, which have same querying considerations as MLFlow
 
 All 3 have some subset of features, but none of them seems to be designed for scale we're aiming for. They don't have integration with Kubeflow as well.
 
