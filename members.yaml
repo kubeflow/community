@@ -192,6 +192,13 @@
   affiliation: Red Hat
   email: pmackinn@redhat.com
 
+- github: r2d4
+  slack: mrick
+  firstName: Matt
+  lastName: Rickard
+  affiliation: Google
+  email: mrick@google.com
+
 - github: ramdootp
   slack: ramdoot
   firstName: Ramdoot
