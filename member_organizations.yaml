@@ -138,12 +138,25 @@
   hiringForKubeflow: true
   hiringUrl: https://www.momenta.ai/en/careers
 
+- name: One Convergence
+  contacts:
+    - songole@oneconvergence.com
+    - ahmed.khan@oneconvergence.com
+  url: https://www.oneconvergence.com
+  hiringForKubeflow: false
+
 - name: Pachyderm
   contacts:
     - datadan@pachyderm.io
     - joey@pachyderm.io
     - jdoliner@pachyderm.io
   url: http://pachyderm.io/
+
+- name: Primer
+  contacts:
+    - bohannon@primer.ai
+    - william@primer.ai
+  url: http://primer.ai/
 
 - name: Project Jupyter
   contacts:
@@ -165,6 +178,12 @@
   hiringForKubeflow: true
   hiringUrl: https://www.seldon.io/careers/
 
+- name: Tusimple
+  contacts:
+    - lei.su@tusimple.com
+    - jiangming.jin@tusimple.com
+  url: https://www.tusimple.com
+
 - name: Uber
   contacts:
     - asergeev@uber.com
@@ -182,15 +201,3 @@
   hiringForKubeflow: true
   hiringUrl: https://www.weave.works/company/hiring/
 
-- name: One Convergence
-  contacts:
-    - songole@oneconvergence.com
-    - ahmed.khan@oneconvergence.com
-  url: https://www.oneconvergence.com
-  hiringForKubeflow: false
-
-- name: Tusimple
-  contacts:
-    - lei.su@tusimple.com
-    - jiangming.jin@tusimple.com
-  url: https://www.tusimple.com
