@@ -10,6 +10,13 @@ If training jobs are generated automatically (for example via hyperparameter tun
 thousands of models. It's important to be able to navigate this, select those with best performance, examine them in detail and setup inference cluster
 out of them. We need to track things like model location (on S3, GS or disk), model metrics (end accuracy, P1 score, whatever experiment requires) or logs location.
 
+## Example user stories
+
+* I'm a data scientist working on a problem. I'm looking for easy way to compare multiple training jobs with multiple sets of hyperparameters. I would like to be able to select top 5 jobs measured with P1 score and examine which model architecture, hyperparameters, dataset and initial state contributed to this score. I would want to compare these 5 together in highly detailed way (for example via tensorboard). I would like rich UI to navigate models without need to interact with infrastructure.
+* I'm part of big ML team in company. Our whole team works on single problem (for example search) and every person builds their models. I'd like to be able to compare my models with others. I want to be safe that nobody will accidentally delete model I'm working on.
+* I'm cloud operator in ML team. I would like to take current production model (architecture+hyperparams+training state) and retrain it with new data as it becomes available. I would want to run suite of tests and determine if new model performs better. If it does, I'd like to spawn tf-serving (or seldon) cluster and perform rolling upgrade to new model.
+* I'm part of highly sophisticated ML team. I'd like to automate retraining->testing->rollout for models so they can be upgraded nightly without supervision. 
+
 ## Scale considerations
 
 We need to support scale in tens of thousands of models. Potentially adding garbage collection above this. Within this scale we need to be able to quickly select best models
