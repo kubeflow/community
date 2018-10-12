@@ -58,7 +58,14 @@
   lastName: Agarwal
   affiliation: Google
   email: agwl@google.com
-  
+
+- github: bharaththiruveedula
+  slack: tbh
+  firstName: Bharath
+  lastName: Thiruveedula
+  affiliation: None
+  email: bharath_ves@hotmail.com
+
 - github: carmine
   slack: carmine
   firstName: Carmine
