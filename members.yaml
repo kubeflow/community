@@ -142,7 +142,7 @@
   lastName: Garg
   affiliation: Cisco
   email: anubhgar@cisco.com
-  
+
 - github: inc0
   slack: inc0
   firstName: Michal
@@ -150,6 +150,13 @@
   affiliation: Intel
   email: michal.jastrzebski@intel.com
 
+- github: ironpan
+  slack: yangpa
+  firstName: Yang
+  lastName: Pan
+  affiliation: Google
+  email: yangpa@google.com
+  
 - github: jinxingwang
   slack: willWang
   firstName: Will
