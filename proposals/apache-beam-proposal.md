@@ -46,6 +46,9 @@ We may have to consider how will this integrate with the jupyterhub integration
 - [Explore usage of the spark-operator within kubeflow](https://github.com/kubeflow/kubeflow/issues/155) 
 - [Pachyderm and Kubeflow integration](https://github.com/kubeflow/kubeflow/issues/151)
 
+# Author
+
+- Zak Hassan <zak.hassan@redhat.com> 
 
 
 
