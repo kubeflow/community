@@ -296,3 +296,10 @@
   lastName: Yan
   affiliation: Caicloud
   email: yanpenghui@caicloud.io
+
+- github: jwwandy
+  slack: ajwwei
+  firstName: Andy
+  lastName: Wei
+  affiliation: None
+  email: jwwandy@gmail.com
