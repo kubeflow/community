@@ -171,6 +171,13 @@
   affiliation: Google
   email: jlewi@google.com
 
+- github: jwwandy
+  slack: ajwwei
+  firstName: Andy
+  lastName: Wei
+  affiliation: None
+  email: jwwandy@gmail.com
+
 - github: jzp1025 
   slack: jzp1025
   firstName: Zongpei
