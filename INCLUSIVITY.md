@@ -7,7 +7,7 @@ to an inclusive environment where Kubeflow members feel safe to collaborate.
 The Kubeflow community is a global group of contributors with a wide variety of
 backgrounds. As such, leaders are expected to take purposeful steps to ensure
 sustainability of the collaborative space. This is essential for project health
-and future growth. Expectations of community leaders are as follows:
+and future growth. We expect all community members, and especially leaders, to practice and grow in the areas covered in this document.  
 
 ## Carve out space
 
