@@ -74,14 +74,15 @@ group is open to everyone.
 
 ## Follow up on complaints
 
-When you observe a [code of conduct](CODE_OF_CONDUCT.md) violation or become
-aware of one, follow through on enforcing community standards. Do this with
-care, showing respect and kindness for everyone involved. These instances have a
-broader impact than just the involved parties, since they set downstream
-expectations for the entire community.
+When you observe a
+[code of conduct](https://github.com/kubeflow/community/blob/master/CODE_OF_CONDUCT.md)
+violation or become aware of one, follow through on enforcing community
+standards. Do this with care, showing respect and kindness for everyone
+involved. These instances have a broader impact than just the involved parties,
+since they set downstream expectations for the entire community.
 
-This is a responsibility that the Kubeflow project does not take lightly, since it
-directly impacts the ability of members to feel safe in the community.
+This is a responsibility that the Kubeflow project does not take lightly, since
+it directly impacts the ability of members to feel safe in the community.
 
 ## Indicators of success
 
