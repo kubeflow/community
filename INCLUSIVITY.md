@@ -101,7 +101,7 @@ indicators are:
 
 The origins of this document are an enumeration of efforts by project cofounder
 [David Aronchick](https://github.com/aronchick). This was not a solo effort and
-included support from [Jeremy Lewi](https://github.com/jlewi),
+included support from [Jeremy Lewi](https://github.com/jlewi), [Michelle Casbon](https://github.com/texasmichelle),
 [Edd Wilder-James](https://github.com/ewilderj), and other members of the team.
 
 
