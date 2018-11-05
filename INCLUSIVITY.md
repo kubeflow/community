@@ -40,6 +40,15 @@ Rather than making assumptions and assigning tasks, ask people where they want
 to contribute and help them figure out how to make the most impact. Stretch them
 just enough that they can see progress and sustained growth.
 
+## Empower members to say no
+
+Make it clear that members are empowered to turn down opportunities. Encourage
+them to define their own boundaries and give them space to assert those
+boundaries. Communicate that it is their responsibility to balance their
+commitments and that they will be supported in doing so. Before presenting a
+specific opportunity to an individual, provide a disclaimer that it is
+perfectly acceptable to say no.
+
 ## Encourage members to ask for what they want
 
 Encourage members of the community to make requests. That could be for
@@ -52,13 +61,15 @@ about.
 ## Explicitly call out challenges
 
 Name specific challenges that affect members of the community and state your
-position on how to resolve them.
-
-Make statements such as, "I understand how difficult it must be to X," and "I
-wish you didn't have to face such blatant challenges doing Y." Simply
-acknowledging the struggle is an act of empathy that makes it easier to face
-these challenges. Offer advice on how to deal with them or just be there to
+position on how to resolve them. Make statements such as, "I understand how
+difficult it must be to X," and "I wish you didn't have to face such blatant
+challenges doing Y." Offer advice on how to deal with them or just be there to
 commiserate.
+
+Simply acknowledging the struggle is an act of empathy that makes it easier to
+face these challenges. This is a means of lightening the load on
+underrepresented groups by not requiring them to shoulder these burdens
+silently.
 
 ## Give clear, specific, and actionable feedback
 
