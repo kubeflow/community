@@ -255,6 +255,13 @@
   affiliation: One Convergence
   email: songole@oneconvergence.com
 
+- github: stevencasey
+  slack: Steven Casey
+  firstName: Steven
+  lastName: Casey
+  affiliation: Groupon
+  email: scasey@groupon.com
+
 - github: suleisl2000 
   slack: suleisl2000
   firstName: Lei
