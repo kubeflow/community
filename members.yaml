@@ -206,6 +206,13 @@
   affiliation: Red Hat
   email: mhausenb@redhat.com
 
+- github: netankit  
+  slack: ankit
+  firstName: Ankit
+  lastName: Bahuguna
+  affiliation: Cliqz
+  email: ankit@cliqz.com
+
 - github: pdmack
   slack: pdmack
   firstName: Pete
