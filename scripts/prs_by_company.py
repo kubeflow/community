@@ -15,6 +15,11 @@ import collections
 import os
 import yaml
 
+# To do some simple rectification if we see any of these words in the
+# company field we just map the company to this file
+known_companies = ["google", "red hat", "cisco",]
+
+
 if __name__ == "__main__":
   logging.getLogger().setLevel(logging.INFO)
   parser = argparse.ArgumentParser(
@@ -57,11 +62,27 @@ if __name__ == "__main__":
   for u in users:
     company = u.get("company")
     login = u.get("login")
+
+    if not company:
+      email = u.get("email")
+      logging.info("Users %s company not set trying to infer from email: %s", login, email)
+      # gitdm seems to replace @ with !
+      domain = email.split("!", 1)[1]
+      company = domain.split(".", 1)[0]
+      if company == "gmail":
+        company = ""
+
     if not company:
       logging.info("Skipping user %s no company", login)
       continue
     company = company.lower().strip()
     company = company.strip("!")
+
+    for c in known_companies:
+      if c in company:
+        logging.info("Mapping %s to %s", company, c)
+        company = c
+        break
     login_to_company[login] = company
 
   counts = collections.Counter()
@@ -80,5 +101,6 @@ if __name__ == "__main__":
 
   logging.info("Writing output to %s", args.output)
   with open(args.output, "w") as hf:
+    writer = csv.writer(hf)
     for k, v in counts.iteritems():
-      hf.write("{0}, {1}\n".format(k, v))
+      writer.writerow([k, v])
