@@ -19,6 +19,16 @@ import yaml
 # company field we just map the company to this file
 known_companies = ["google", "red hat", "cisco",]
 
+def get_company_from_email(email):
+  domain = email.split("!", 1)[1]
+  if domain == "users.noreply.github.com":
+    return ""
+
+  company = domain.split(".", 1)[0]
+  if company == "gmail":
+    return ""
+
+  return company
 
 if __name__ == "__main__":
   logging.getLogger().setLevel(logging.INFO)
@@ -67,10 +77,7 @@ if __name__ == "__main__":
       email = u.get("email")
       logging.info("Users %s company not set trying to infer from email: %s", login, email)
       # gitdm seems to replace @ with !
-      domain = email.split("!", 1)[1]
-      company = domain.split(".", 1)[0]
-      if company == "gmail":
-        company = ""
+      company = get_company_from_email(email)
 
     if not company:
       logging.info("Skipping user %s no company", login)
