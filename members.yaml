@@ -324,3 +324,10 @@
   lastName: Yan
   affiliation: Caicloud
   email: yanpenghui@caicloud.io
+
+- github: yupbank
+  slack: yupbank
+  firstName: Peng
+  lastName: Yu
+  affiliation: Shopify
+  email: peng.yu@shopify.com
