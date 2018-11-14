@@ -171,6 +171,13 @@
   affiliation: Google
   email: jlewi@google.com
 
+- github: jpza
+  slack: jpza
+  firstName: Justin
+  lastName: Potts
+  affiliation: None
+  email: jgpotts.ny@gmail.com
+
 - github: jwwandy
   slack: ajwwei
   firstName: Andy
