@@ -30,7 +30,7 @@
   lastName: Prosvirov
   affiliation: Cisco
   email: kprosvir@cisco.com
- 
+
 - github: amsaha
   slack: amsaha
   firstName: Amit
@@ -44,8 +44,8 @@
   lastName: Unruh
   affiliation: Google
   email: amyu@google.com
-  
-- github: andreyvelich  
+
+- github: andreyvelich
   slack: andreyvelich
   firstName: Andrey
   lastName: Velichkevich
@@ -58,6 +58,13 @@
   lastName: Agarwal
   affiliation: Google
   email: agwl@google.com
+
+- github: ashahba
+  slack: ashahba
+  firstName: Ebi
+  lastName: Shahbazi
+  affiliation: Intel
+  email: abolfazl.shahbazi@intel.com
 
 - github: bharaththiruveedula
   slack: tbh
@@ -93,7 +100,7 @@
   lastName: Dutta
   affiliation: Cisco
   email: dedutta@cisco.com
-  
+
 - github: deepermind
   slack: jinanzhou
   firstName: Jinan
@@ -156,7 +163,7 @@
   lastName: Pan
   affiliation: Google
   email: yangpa@google.com
-  
+
 - github: jinxingwang
   slack: willWang
   firstName: Will
@@ -185,7 +192,7 @@
   affiliation: None
   email: jwwandy@gmail.com
 
-- github: jzp1025 
+- github: jzp1025
   slack: jzp1025
   firstName: Zongpei
   LastName: Jiang
@@ -213,7 +220,7 @@
   affiliation: Red Hat
   email: mhausenb@redhat.com
 
-- github: netankit  
+- github: netankit
   slack: ankit
   firstName: Ankit
   lastName: Bahuguna
@@ -276,7 +283,7 @@
   affiliation: Groupon
   email: scasey@groupon.com
 
-- github: suleisl2000 
+- github: suleisl2000
   slack: suleisl2000
   firstName: Lei
   LastName: Su

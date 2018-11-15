@@ -120,8 +120,9 @@
 - name: Intel
   contacts:
     - michal.jastrzebski@intel.com
-    - jose.g.aguirre@intel.com
+    - kam.d.kasravi@intel.com
     - balaji.subramaniam@intel.com
+    - abolfazl.shahbazi@intel.com
   url: https://www.intel.com
 
 - name: Microsoft
