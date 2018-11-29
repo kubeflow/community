@@ -150,6 +150,13 @@
   affiliation: Cisco
   email: anubhgar@cisco.com
 
+- github: hougangliu
+  slack: liuhoug
+  firstName: HouGang
+  lastName: Liu
+  affiliation: IBM
+  email: liuhoug@cn.ibm.com
+
 - github: inc0
   slack: inc0
   firstName: Michal
