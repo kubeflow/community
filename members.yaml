@@ -150,6 +150,13 @@
   affiliation: Cisco
   email: anubhgar@cisco.com
 
+- github: gyliu513
+  slack: gyliu513
+  firstName: Guang Ya
+  lastName: Liu
+  affiliation: IBM
+  email: liugya@cn.ibm.com
+
 - github: hougangliu
   slack: liuhoug
   firstName: HouGang
