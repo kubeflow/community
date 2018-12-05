@@ -316,7 +316,14 @@
   firstName: Michelle
   lastName: Casbon
   affiliation: Google
-  email: chasm@google.com
+  email: chasm@google.com  
+ 
+- github: wangkeqiang123
+  slack: carter
+  firstName: Wang
+  lastName: Keqiang
+  affiliation: ZTE
+  email: wang.keqiang@zte.com.cn 
 
 - github: wbuchwalter
   slack: wbuchwalter
