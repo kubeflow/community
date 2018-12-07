@@ -248,6 +248,13 @@
   affiliation: Red Hat
   email: pmackinn@redhat.com
 
+- github: pineking
+  slack: pineking
+  firstName: Qingsong
+  lastName: Liu
+  affiliation: Unisound
+  email: liuqingsong@unisound.com
+
 - github: r2d4
   slack: mrick
   firstName: Matt
@@ -338,6 +345,13 @@
   lastName: Willing
   affiliation: Project Jupyter
   email: cawillin@calpoly.edu
+
+- github: xieydd
+  slack: xieydd
+  firstName: Yuandong
+  lastName: Xie
+  affiliation: Unisound
+  email: xieyuandong@unisound.com
 
 - github: yph152
   slack: yph152

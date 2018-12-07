@@ -206,6 +206,14 @@
   hiringForKubeflow: false
   hiringUrl: https://www.uber.com/careers/
 
+- name: Unisound
+  contacts:
+    - xieyuandong@unisound.com
+    - liuqingsong@unisound.com
+  url: https://www.unisound.com/
+  hiringForKubeflow: true
+  hiringUrl: https://www.unisound.com/join-us.html
+
 - name: Weaveworks
   contacts:
     - alexis@weave.works
