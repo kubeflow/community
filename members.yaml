@@ -304,6 +304,13 @@
   affiliation: Groupon
   email: scasey@groupon.com
 
+- github: suensummit
+  slack: suensummit
+  firstName: Summit
+  LastName: Suen
+  affiliation: None
+  email: summit.suen@gmail.com
+
 - github: suleisl2000
   slack: suleisl2000
   firstName: Lei
