@@ -24,6 +24,12 @@ _Authors:_
 
 * @ScorpioCPH - Penghao Cen &lt;cenph@caicloud.io&gt;
 
+_Status_
+
+* 2018-03-18 - Accepted
+* 2018-04-10 - Implementation Started
+* 2018-07-02 - v1alpha2 released in 0.2
+
 # TF-Operator Design (v1alpha2)
 
 ## Motivation

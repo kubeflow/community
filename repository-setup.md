@@ -1,17 +1,65 @@
 # Repository Setup
 
-## Adding your tests to Prow
+Here are the steps involved in setting up a new repository; there is more information in the sections below.
 
-For triggering and running tests from github, the Kubeflow org uses Prow, K8s' continuous integration tool.
+Step 1-3 should be performed by admin for the Kubeflow org
 
-Instructions for [setting up Prow](https://github.com/kubeflow/testing#adding-an-e2e-test-for-a-new-repository) and for [adding basic e2e tests](https://github.com/kubeflow/testing#adding-an-e2e-test-for-a-new-repository) can be found in the `kubeflow/testing` repo.
+1. Create the repository
+
+1. Configure the repository in GitHub following the instructions [below](#repository-configuration)
+
+   * Grant ci-bots write permission
+   * enable branch protections
+
+1. Create an OWNERS file at the root of the repository
+
+    * Anyone can create the PR
+    * PR will need to be merged manually by Kubeflow org administrator
+	  * For more info on OWNERS files see [CONTRIBUTING.md](https://github.com/kubeflow/community/blob/master/CONTRIBUTING.md)
+    * After the OWNERs file is merged subsequent PRs can be automatically merged by Tide
+
+1. Setup prow for the repository by following the instructions [below](#setup-prow)
+
+    * This step can be performed by anyone; doesn't need to be a Kubeflow org admin
+
+## Setting up prow for your repository
+
+We use [Prow](https://github.com/kubernetes/test-infra)
+
+	* Continuous integration
+	* Automatic merging of PRs (tide)
+
+    * Tide should automatically be enabled for all repositories in the Kubeflow org 
+
+	* Manage PRs using bots
+
+
+1. Configure prow for the repository by following these [instructions](https://github.com/kubeflow/testing#setting-up-a-kubeflow-repository-to-use-prow-)
+
+  * Create a prow_config.yaml file with the following contents
+
+  ```
+  workflows: []
+  ```
+
+  * This file is sufficient to ensure the prow jobs pass but doesn't run any actual tests.
+
+  * When you are ready to actually add E2E tests you can follow [adding basic e2e tests](https://github.com/kubeflow/testing#adding-an-e2e-test-for-a-new-repository) to add a basic E2E test
+   for your repository 
+
+  * See kubeflow/testing#11 for work creating generating tests for things like lint.
+
 
 ## Repository configuration
 
 ### Repository Permissions
 When setting up permissions for a repository there a few things to note:
 - When providing permissions for `Collaborators and teams`, only teams should be used.
-- Teams that should be added by default, with write access, are `ci-bots` and `core-approvers`. Additional teams can be added as necessary.
+- Teams that should be added by default, with write access, are `ci-bots` and `core-approvers`. 
+
+	* Additional teams can be added as necessary but
+	* Most operations should be done via the ci-bots and adding folks to the owners files
+	* So the number of folks with direct access to a repository should be small (<5)
 
 ### Third Party Apps
 Make sure to enable the third-party apps used by the Kubeflow community.
@@ -33,3 +81,4 @@ A few things to note when setting up branch protection:
 - Be sure not to enable `Require pull request reviews before merging`. This setting conflicts with Tide as seen in this [issue](https://github.com/kubeflow/tf-operator/issues/433).
 - Don't enable `Require branches to be up to date before merging`
 - Enable `Require status checks to pass before merging`
+

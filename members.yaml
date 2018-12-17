@@ -10,13 +10,33 @@
 # people.
 #
 # Please keep this file alphabetized by github id.
-
-- github: ankushagarwal
-  slack: ankushagarwal
-  firstName: Ankush
-  lastName: Agarwal
+- github: abhi-g
+  slack: abhishek
+  firstName: Abhishek
+  lastName: Gupta
   affiliation: Google
-  email: agwl@google.com
+  email: abhishek@google.com
+
+- github: ahousley
+  slack: ahousley
+  firstName: Alex
+  lastName: Housley
+  affiliation: Seldon
+  email: ah@seldon.io
+
+- github: akado2009
+  slack: akado2009
+  firstName: Kirill
+  lastName: Prosvirov
+  affiliation: Cisco
+  email: kprosvir@cisco.com
+
+- github: amsaha
+  slack: amsaha
+  firstName: Amit
+  lastName: Saha
+  affiliation: Cisco
+  email: amisaha@cisco.com
 
 - github: amygdala
   slack: amy
@@ -25,12 +45,89 @@
   affiliation: Google
   email: amyu@google.com
 
+- github: andreyvelich
+  slack: andreyvelich
+  firstName: Andrey
+  lastName: Velichkevich
+  affiliation: Cisco
+  email: avelichk@cisco.com
+
+- github: ankushagarwal
+  slack: ankushagarwal
+  firstName: Ankush
+  lastName: Agarwal
+  affiliation: Google
+  email: agwl@google.com
+
+- github: ashahba
+  slack: ashahba
+  firstName: Ebi
+  lastName: Shahbazi
+  affiliation: Intel
+  email: abolfazl.shahbazi@intel.com
+
+- github: bharaththiruveedula
+  slack: tbh
+  firstName: Bharath
+  lastName: Thiruveedula
+  affiliation: None
+  email: bharath_ves@hotmail.com
+
+- github: carmine
+  slack: carmine
+  firstName: Carmine
+  lastName: Rimi
+  affiliation: Canonical
+  email: carmine.rimi@canonical.com
+
+- github: ChanYiLin
+  slack: JackLin
+  firstName: Chan Yi
+  lastName: Lin
+  affiliation: None
+  email: j5111261112@gmail.com
+
+- github: codeflitting
+  slack: Pengyu Chen
+  firstName: Pengyu
+  lastName: Chen
+  affiliation: Caicloud
+  email: chenpengyu@caicloud.io
+
 - github: ddutta
   slack: debo
   firstName: Debo
   lastName: Dutta
   affiliation: Cisco
   email: dedutta@cisco.com
+
+- github: deepermind
+  slack: jinanzhou
+  firstName: Jinan
+  lastName: Zhou
+  affiliation: Cisco
+  email: jinazhou@cisco.com
+
+- github: dsdinter
+  slack: dsdinter
+  firstName: David
+  lastName: Sabater
+  affiliation: Google
+  email: davidsabater@google.com
+
+- github: elsonrodriguez
+  slack: elsonrodriguez
+  firstName: Elson
+  LastName: Rodriguez
+  affiliation: None
+  email: elson.rodriguez@gmail.com
+
+- github: everpeace
+  slack: everpeace
+  firstName: Shingo
+  LastName: Omura
+  affiliation: Preferred Networks
+  email: everpeace@gmail.com
 
 - github: ewilderj
   slack: ewj
@@ -46,12 +143,47 @@
   affiliation: Caicloud
   email: gaoce@caicloud.io
 
+- github: garganubhav
+  slack: anubhav
+  firstName: Anubhav
+  lastName: Garg
+  affiliation: Cisco
+  email: anubhgar@cisco.com
+
+- github: gyliu513
+  slack: gyliu513
+  firstName: Guang Ya
+  lastName: Liu
+  affiliation: IBM
+  email: liugya@cn.ibm.com
+
+- github: hougangliu
+  slack: liuhoug
+  firstName: HouGang
+  lastName: Liu
+  affiliation: IBM
+  email: liuhoug@cn.ibm.com
+
 - github: inc0
   slack: inc0
   firstName: Michal
   lastName: Jastrzebski
   affiliation: Intel
   email: michal.jastrzebski@intel.com
+
+- github: ironpan
+  slack: yangpa
+  firstName: Yang
+  lastName: Pan
+  affiliation: Google
+  email: yangpa@google.com
+
+- github: jinxingwang
+  slack: willWang
+  firstName: Will
+  lastName: Wang
+  affiliation: Salesforce
+  email: wjx101220@hotmail.com
 
 - github: jlewi
   slack: jlewi
@@ -60,6 +192,27 @@
   affiliation: Google
   email: jlewi@google.com
 
+- github: jpza
+  slack: jpza
+  firstName: Justin
+  lastName: Potts
+  affiliation: None
+  email: jgpotts.ny@gmail.com
+
+- github: jwwandy
+  slack: ajwwei
+  firstName: Andy
+  lastName: Wei
+  affiliation: None
+  email: jwwandy@gmail.com
+
+- github: jzp1025
+  slack: jzp1025
+  firstName: Zongpei
+  LastName: Jiang
+  affiliation: Tusimple
+  email: zongpei.jiang@tusimple.com
+
 - github: kkasravi
   slack: kam
   firstName: Kam
@@ -67,19 +220,110 @@
   affiliation: Intel
   email: kam.d.kasravi@intel.com
 
+- github: lluunn
+  slack: lunkai
+  firstName: Lun-Kai
+  lastName: Hsu
+  affiliation: Google
+  email: lunkai@google.com
+
 - github: mhausenblas
   slack: mhausenblas
   firstName: Michael
   lastName: Hausenblas
   affiliation: Red Hat
   email: mhausenb@redhat.com
-  
+
+- github: netankit
+  slack: ankit
+  firstName: Ankit
+  lastName: Bahuguna
+  affiliation: Cliqz
+  email: ankit@cliqz.com
+
 - github: pdmack
   slack: pdmack
   firstName: Pete
   lastName: MacKinnon
   affiliation: Red Hat
   email: pmackinn@redhat.com
+
+- github: pineking
+  slack: pineking
+  firstName: Qingsong
+  lastName: Liu
+  affiliation: Unisound
+  email: liuqingsong@unisound.com
+
+- github: r2d4
+  slack: mrick
+  firstName: Matt
+  lastName: Rickard
+  affiliation: Google
+  email: mrick@google.com
+
+- github: ramdootp
+  slack: ramdoot
+  firstName: Ramdoot
+  lastName: Pydipaty
+  affiliation: Cisco
+  email: rapydipa@cisco.com
+
+- github: rongou
+  slack: rongou
+  firstName: Rong
+  lastName: Ou
+  affiliation: NVIDIA
+  email: rou@nvidia.com
+
+- github: sarahmaddox
+  slack: sarahmaddox
+  firstName: Sarah
+  lastName: Maddox
+  affiliation: Google
+  email: sarahmaddox@google.com
+
+- github: sambaiz
+  slack: sambaiz
+  firstName: Taiki
+  lastName: Sakamoto
+  affiliation: CyberAgent
+  email: godgourd@gmail.com
+
+- github: songole
+  slack: osm1c
+  firstName: Subramanyam
+  lastName: Ongole
+  affiliation: One Convergence
+  email: songole@oneconvergence.com
+
+- github: stevencasey
+  slack: Steven Casey
+  firstName: Steven
+  lastName: Casey
+  affiliation: Groupon
+  email: scasey@groupon.com
+
+- github: suensummit
+  slack: suensummit
+  firstName: Summit
+  LastName: Suen
+  affiliation: None
+  email: summit.suen@gmail.com
+
+- github: suleisl2000
+  slack: suleisl2000
+  firstName: Lei
+  LastName: Su
+  affiliation: Tusimple
+  email: lei.su@tusimple.com
+
+- github: swiftdiaries
+  slack: adhita
+  firstName: Adhita
+  lastName: Selvaraj
+  affiliation: Cisco
+  email: adselvar@cisco.com
 
 - github: texasmichelle
   slack: michelle
@@ -109,10 +353,30 @@
   affiliation: Project Jupyter
   email: cawillin@calpoly.edu
 
+- github: xieydd
+  slack: xieydd
+  firstName: Yuandong
+  lastName: Xie
+  affiliation: Unisound
+  email: xieyuandong@unisound.com
+
+- github: yph152
+  slack: yph152
+  firstName: Penghui
+  lastName: Yan
+  affiliation: Caicloud
+  email: yanpenghui@caicloud.io
+
+- github: yupbank
+  slack: yupbank
+  firstName: Peng
+  lastName: Yu
+  affiliation: Shopify
+  email: peng.yu@shopify.com
+  
 - github: yuvipanda
   slack: yuvipanda
   firstName: Yuvi
   lastName: Panda
   affiliation: Project Jupyter
   email: yuvipanda@gmail.com
-

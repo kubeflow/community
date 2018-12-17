@@ -1,3 +1,25 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Motivation](#motivation)
+- [Goals](#goals)
+- [Non-Goals](#non-goals)
+- [API (CRD and resulting objects)](#api-crd-and-resulting-objects)
+  - [Custom Resource Definition](#custom-resource-definition)
+  - [Resulting Master](#resulting-master)
+  - [Resulting Worker](#resulting-worker)
+- [Design](#design)
+- [Alternatives Considered](#alternatives-considered)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+_Status_
+
+* 2018-03-20 - Accepted
+* 2018-03-15 - Implementation Started
+* 2018-07-02 - v1alpha1 is released in 0.2
+
 ## Motivation
 PyTorch is a popular machine learning framework which currently does not have an operator/controller for Kubernetes. This proposal is aimed at defining what that operator should look like, and adding it to Kubeflow.
 

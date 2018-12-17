@@ -1,0 +1,93 @@
+# Dockerfile for devstats
+# Based on https://github.com/cncf/devstats/blob/master/INSTALL_UBUNTU17.md
+FROM ubuntu:17.10
+
+RUN apt-get update -y && \
+	apt-get install -y apt-transport-https \
+	golang git psmisc jsonlint yamllint gcc
+
+RUN mkdir -p /go/src 
+
+ENV GOPATH /go
+
+RUN go get -u github.com/golang/lint/golint && \
+	go get golang.org/x/tools/cmd/goimports && \
+	go get github.com/jgautheron/goconst/cmd/goconst && \
+	go get github.com/jgautheron/usedexports && \
+	go get github.com/kisielk/errcheck && \
+	go get github.com/influxdata/influxdb/client/v2 && \
+	go get github.com/lib/pq && \
+	go get golang.org/x/text/transform && \
+	go get golang.org/x/text/unicode/norm && \
+	go get gopkg.in/yaml.v2 && \
+	go get github.com/google/go-github/github && \
+	go get golang.org/x/oauth2 && \
+	go get github.com/mattn/go-sqlite3
+
+
+RUN cd ${GOPATH}/src && \
+	git clone https://github.com/cncf/devstats.git devstats
+
+
+# Add /go/src/devstats to the path so that all the binaries will be on the path.
+# This is needed by the devstats binary.
+ENV PATH $PATH:/etc/gha2db:/${GOPATH}/bin
+
+# TODO(jlewi): Switch to v0.5.0 of devstats when it is cut.
+RUN cd ${GOPATH}/src/devstats && \
+	git checkout ca534c7 && \
+	make
+
+RUN  mkdir /etc/gha2db && \
+	 chmod 777 /etc/gha2db && \
+	 cd ${GOPATH}/src/devstats && \
+	 make install
+
+# Install influx so we have the CLI
+# https://www.influxdata.com/blog/package-repository-for-linux/
+RUN apt-get install -y curl
+RUN curl -sL https://repos.influxdata.com/influxdb.key | apt-key add - 
+
+# We need influxdb
+RUN echo "deb https://repos.influxdata.com/debian jessie stable" | tee -a /etc/apt/sources.list && \
+	apt-get update && \
+	apt-get install influxdb -y 
+
+# TODO(jlewi): Do we need to fix the userid of postgres so we can run as that user?
+
+# Create postgres user and group with fixed userid and groupid so we can run container as that user.
+# 
+RUN groupadd -g 1000 postgres && \
+	useradd -r -u 1000 -g postgres --create-home --shell=/bin/bash postgres
+
+# Install postgress
+#
+# This is based on 
+# https://github.com/docker-library/postgres/blob/master
+RUN apt-get install -y postgresql-client postgresql sudo gosu
+
+# Keep this in sync with whatever package apt installs; maybe we should pin apt-install?
+ENV PG_MAJOR 9.6
+
+# make the sample config easier to munge (and "correct by default")
+RUN mv -v "/usr/share/postgresql/$PG_MAJOR/postgresql.conf.sample" /usr/share/postgresql/ \
+	&& ln -sv ../postgresql.conf.sample "/usr/share/postgresql/$PG_MAJOR/" \
+	&& sed -ri "s!^#?(listen_addresses)\s*=\s*\S+.*!\1 = '*'!" /usr/share/postgresql/postgresql.conf.sample
+
+RUN mkdir -p /var/run/postgresql && chown -R postgres:postgres /var/run/postgresql && chmod 2777 /var/run/postgresql
+
+ENV PATH $PATH:/usr/lib/postgresql/$PG_MAJOR/bin
+
+RUN mkdir -p /home/
+COPY postgre-docker-entrypoint.sh /usr/local/bin/
+RUN chmod a+x /usr/local/bin/postgre-docker-entrypoint.sh
+
+# Add postgres to the sudoers group because some of the devstats scripts require it
+RUN adduser postgres sudo
+
+RUN ln -sf /go/src/devstats/util_sql /etc/gha2db/util_sql && \
+	ln -sf /go/src/devstats/metrics /etc/gha2db/metrics && \
+	# /etc/projects-volume will be volume mounted into the pod.
+	ln -sf /etc/projects-volume/projects.yaml /etc/gha2db/projects.yaml
+
+# TODO(jlewi): Per the instructions for devstats we should increase the number of default connections for postgres

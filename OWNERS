@@ -1,5 +1,5 @@
 approvers:
-  - ankushagarwal
+  - abhi-g
   - aronchick
   - DjangoPeng
   - ewilderj
@@ -7,7 +7,6 @@ approvers:
   - mattf
   - texasmichelle
 reviewers:
-  - ankushagarwal
   - aronchick
   - DjangoPeng
   - erikerlandson
@@ -15,7 +14,7 @@ reviewers:
   - gaocegege
   - Jimexist
   - jlewi
-  - llunn
+  - lluunn
   - ScorpioCPH
   - texasmichelle
   - willingc

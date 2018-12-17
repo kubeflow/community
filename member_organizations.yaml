@@ -9,7 +9,7 @@
 #
 # Optional fields
 #    url - Url for the organization
-#    hiringForKubeflow - true/false whether the orgniazation is hiring for Kubeflow related
+#    hiringForKubeflow - true/false whether the organization is hiring for Kubeflow related
 #      positions
 #    hiringUrl - A URL for potential job applicants.
 #
@@ -19,15 +19,46 @@
 #
 # Please keep this file alphabetized by name.
 
+- name: Alibaba Cloud
+  contacts:
+    - zk131586@alibaba-inc.com
+    - cheyang.cy@alibaba-inc.com
+  url: https://www.alibabacloud.com
+
+- name: Ant Financial
+  contacts:
+    - kubo.cph@alibaba-inc.com
+  url: https://www.antfin.com
+
+- name: Argo Project
+  contacts:
+    - mukulika_kapas@intuit.com
+    - edward_lee@intuit.com
+  url: https://argoproj.github.io
+
+- name: Arrikto
+  contacts:
+    - vkoukis@arrikto.com
+    - cven@arrikto.com
+    - iliastsi@arrikto.com
+    - dimara@arrikto.com
+    - ioannis@arrikto.com
+  url: https://www.arrikto.com
+
 - name: Caicloud
   contacts:
     - deyuan@caicloud.io
     - gaoce@caicloud.io
-    - pengjigntian@caicloud.io
   url: https://caicloud.io
   hiringForKubeflow: true
   hiringUrl: https://caicloud.io/jobs
-  
+
+- name: Canonical
+  contacts:
+  - stephan.fabel@canonical.com
+  - tim.van.steenburgh@canonical.com
+  url: https://www.ubuntu.com/kubernetes
+
 - name: Cisco
   contacts:
     - dedutta@cisco.com
@@ -45,29 +76,13 @@
   hiringForKubeflow: false
   hiringUrl: https://www.datawire.io/careers
 
-- name: Heptio
+- name: Dell
   contacts:
-    - kevin@heptio.com
-    - knova@heptio.com
-    - joe@heptio.com
-  url: https://www.heptio.com
+    - bhavesh_a_patel@dell.com
+  url: http://www.dell.com
   hiringForKubeflow: false
-  hiringUrl: https://heptio.com/about/careers/
-  
-- name: Intel
-  contacts:
-    - michal.jastrzebski@intel.com
-    - jose.g.aguirre@intel.com
-    - balaji.subramaniam@intel.com
-    - elson.o.rodriguez@intel.com
-  url: https://www.intel.com
+  hiringUrl: http://www.dell.com/learn/us/en/uscorp1/careers?~ck=mn
 
-- name: Canonical
-  contacts:
-  - stephan.fabel@canonical.com
-  - tim.van.steenburgh@canonical.com
-  url: https://www.ubuntu.com/kubernetes 
- 
 - name: Github
   contacts:
     - hamelsmu@github.com
@@ -86,6 +101,43 @@
   hiringForKubeflow: true
   hiringUrl: https://goo.gl/Q85pzF
 
+- name: Heptio
+  contacts:
+    - kevin@heptio.com
+    - knova@heptio.com
+    - joe@heptio.com
+  url: https://www.heptio.com
+  hiringForKubeflow: false
+  hiringUrl: https://heptio.com/about/careers/
+
+- name: Huawei
+  contacts:
+    - huangzhipeng@huawei.com
+    - baixiaolong1@huawei.com
+    - linjian4@huawei.com
+  url: https://www.huawei.com
+
+- name: IBM
+  contacts:
+    - liugya@cn.ibm.com
+    - liuhoug@cn.ibm.com
+  url: https://www.ibm.com
+
+- name: Intel
+  contacts:
+    - michal.jastrzebski@intel.com
+    - kam.d.kasravi@intel.com
+    - balaji.subramaniam@intel.com
+    - abolfazl.shahbazi@intel.com
+  url: https://www.intel.com
+
+- name: Microsoft
+  contacts:
+    - wibuch@microsoft.com
+    - lachlan.evenson@microsoft.com
+  url: https://www.microsoft.com
+  hiringForKubeflow: false
+
 - name: Momenta
   contacts:
     - xuelei@momenta.ai
@@ -93,12 +145,25 @@
   hiringForKubeflow: true
   hiringUrl: https://www.momenta.ai/en/careers
 
+- name: One Convergence
+  contacts:
+    - songole@oneconvergence.com
+    - ahmed.khan@oneconvergence.com
+  url: https://www.oneconvergence.com
+  hiringForKubeflow: false
+
 - name: Pachyderm
   contacts:
     - datadan@pachyderm.io
     - joey@pachyderm.io
     - jdoliner@pachyderm.io
   url: http://pachyderm.io/
+
+- name: Primer
+  contacts:
+    - bohannon@primer.ai
+    - william@primer.ai
+  url: http://primer.ai/
 
 - name: Project Jupyter
   contacts:
@@ -112,6 +177,44 @@
     - matt@redhat.com
   url: https://www.redhat.com
 
+- name: Seldon
+  contacts:
+    - ah@seldon.io
+    - cc@seldon.io
+    - gs@seldon.io
+  url: https://www.seldon.io
+  hiringForKubeflow: true
+  hiringUrl: https://www.seldon.io/careers/
+
+- name: Shopify
+  contacts:
+    - peng.yu@shopify.com
+  url: https://www.shopify.com
+  hiringForKubeflow: true
+  hiringUrl: https://www.shopify.ca/careers
+
+- name: Tusimple
+  contacts:
+    - lei.su@tusimple.com
+    - jiangming.jin@tusimple.com
+  url: https://www.tusimple.com
+
+- name: Uber
+  contacts:
+    - asergeev@uber.com
+    - jiez@uber.com
+  url: https://eng.uber.com/michelangelo/
+  hiringForKubeflow: false
+  hiringUrl: https://www.uber.com/careers/
+
+- name: Unisound
+  contacts:
+    - xieyuandong@unisound.com
+    - liuqingsong@unisound.com
+  url: https://www.unisound.com/
+  hiringForKubeflow: true
+  hiringUrl: https://www.unisound.com/join-us.html
+
 - name: Weaveworks
   contacts:
     - alexis@weave.works
@@ -120,3 +223,4 @@
   url: https://www.weave.works/blog/kubeflow-and-weave-cloud
   hiringForKubeflow: true
   hiringUrl: https://www.weave.works/company/hiring/
+
