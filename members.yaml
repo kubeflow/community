@@ -373,3 +373,10 @@
   lastName: Yu
   affiliation: Shopify
   email: peng.yu@shopify.com
+  
+- github: yuvipanda
+  slack: yuvipanda
+  firstName: Yuvi
+  lastName: Panda
+  affiliation: Project Jupyter
+  email: yuvipanda@gmail.com

@@ -168,6 +168,7 @@
 - name: Project Jupyter
   contacts:
     - cawillin@calpoly.edu
+    - yuvipanda@gmail.com
   url: https://jupyter.org
   hiringForKubeflow: false
 
