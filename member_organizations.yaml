@@ -117,6 +117,12 @@
     - linjian4@huawei.com
   url: https://www.huawei.com
 
+- name: IBM
+  contacts:
+    - liugya@cn.ibm.com
+    - liuhoug@cn.ibm.com
+  url: https://www.ibm.com
+
 - name: Intel
   contacts:
     - michal.jastrzebski@intel.com
@@ -162,6 +168,7 @@
 - name: Project Jupyter
   contacts:
     - cawillin@calpoly.edu
+    - yuvipanda@gmail.com
   url: https://jupyter.org
   hiringForKubeflow: false
 
@@ -199,6 +206,14 @@
   url: https://eng.uber.com/michelangelo/
   hiringForKubeflow: false
   hiringUrl: https://www.uber.com/careers/
+
+- name: Unisound
+  contacts:
+    - xieyuandong@unisound.com
+    - liuqingsong@unisound.com
+  url: https://www.unisound.com/
+  hiringForKubeflow: true
+  hiringUrl: https://www.unisound.com/join-us.html
 
 - name: Weaveworks
   contacts:

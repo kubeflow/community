@@ -150,6 +150,20 @@
   affiliation: Cisco
   email: anubhgar@cisco.com
 
+- github: gyliu513
+  slack: gyliu513
+  firstName: Guang Ya
+  lastName: Liu
+  affiliation: IBM
+  email: liugya@cn.ibm.com
+
+- github: hougangliu
+  slack: liuhoug
+  firstName: HouGang
+  lastName: Liu
+  affiliation: IBM
+  email: liuhoug@cn.ibm.com
+
 - github: inc0
   slack: inc0
   firstName: Michal
@@ -234,6 +248,13 @@
   affiliation: Red Hat
   email: pmackinn@redhat.com
 
+- github: pineking
+  slack: pineking
+  firstName: Qingsong
+  lastName: Liu
+  affiliation: Unisound
+  email: liuqingsong@unisound.com
+
 - github: r2d4
   slack: mrick
   firstName: Matt
@@ -283,12 +304,19 @@
   affiliation: Groupon
   email: scasey@groupon.com
 
+- github: suensummit
+  slack: suensummit
+  firstName: Summit
+  LastName: Suen
+  affiliation: None
+  email: summit.suen@gmail.com
+  
 - github: suibinz
   slack: Benz
   firstName: Ben
   lastName: Zhang
   email: suibinzh@gmail.com
-  
+
 - github: suleisl2000
   slack: suleisl2000
   firstName: Lei
@@ -331,6 +359,13 @@
   affiliation: Project Jupyter
   email: cawillin@calpoly.edu
 
+- github: xieydd
+  slack: xieydd
+  firstName: Yuandong
+  lastName: Xie
+  affiliation: Unisound
+  email: xieyuandong@unisound.com
+
 - github: yph152
   slack: yph152
   firstName: Penghui
@@ -344,3 +379,10 @@
   lastName: Yu
   affiliation: Shopify
   email: peng.yu@shopify.com
+  
+- github: yuvipanda
+  slack: yuvipanda
+  firstName: Yuvi
+  lastName: Panda
+  affiliation: Project Jupyter
+  email: yuvipanda@gmail.com
