@@ -136,6 +136,13 @@
   affiliation: Google
   email: ewj@google.com
 
+- github: gabrielwen
+  slack: gabrielwen
+  firstName: Hung-Ting
+  LastName: Wen
+  affiliation: Google
+  email: gabrielwen@google.com
+
 - github: gaocegege
   slack: gaocegege
   firstName: Ce
