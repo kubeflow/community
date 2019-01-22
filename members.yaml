@@ -325,6 +325,13 @@
   affiliation: Tusimple
   email: lei.su@tusimple.com
 
+- github: svalleru
+  slack: svalleru
+  firstName: Shan
+  LastName: Valleru
+  affiliation: LinkedIn
+  email: svalleru@linkedin.com
+
 - github: swiftdiaries
   slack: adhita
   firstName: Adhita
