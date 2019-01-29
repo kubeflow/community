@@ -3,12 +3,8 @@
 Uses GitHub's API v4 which uses graphql
 https://developer.github.com/v4/
 
-You will need an OAuth token to access GitHub with scopes:
-   repo
-   read:org
-
-TODO(jlewi): We should fetch labels to identify priority of the issues.
-
+For more instructions see the the corresponding Jupyter notebook:
+project_stats.ipynb
 """
 import argparse
 import datetime
@@ -59,6 +55,8 @@ class ProjectStats(object):
                                               index=['time'],
                                        columns=['priority'], fill_value=0)
     self.stats = self.stats.cumsum()
+    self.stats = self.stats.rename(mapper={"delta": "open", "total_delta":"total"},
+                                   axis='columns')
 
   def fetch_data(self):
     logging.getLogger().setLevel(logging.INFO)
