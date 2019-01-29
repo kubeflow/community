@@ -35,7 +35,7 @@ class ProjectStats(object):
     return pd.DataFrame({
         "time": [datetime.datetime.now()] * size,
         "delta": np.zeros(size),
-        "priority": [""] * size,
+        "label": [""] * size,
     })
 
   def grow_df(self, df, size=300):
@@ -53,7 +53,8 @@ class ProjectStats(object):
 
     self.stats = self.data.pivot_table(values=["delta", "total_delta"],
                                               index=['time'],
-                                       columns=['priority'], fill_value=0)
+                                       columns=['label'], fill_value=0,
+                                       aggfunc=np.sum)
     self.stats = self.stats.cumsum()
     self.stats = self.stats.rename(mapper={"delta": "open", "total_delta":"total"},
                                    axis='columns')
@@ -192,10 +193,6 @@ class ProjectStats(object):
           if not c:
             continue
 
-          if num_items + 2  > data.shape[0]:
-            # Grow the dataframe
-            data = self.grow_df(data)
-
           labels_connections = c["labels"]
 
           if labels_connections["totalCount"] > 15:
@@ -204,12 +201,18 @@ class ProjectStats(object):
 
           labels = labels_connections["edges"]
 
-          priority = ""
+          label_names = []
 
           for l in labels:
-            if l["node"]["name"].startswith("priority"):
-              priority = l["node"]["name"]
-              break
+            label_names.append(l["node"]["name"])
+
+          if not label_names:
+            label_names.append("nolabels")
+
+          num_entries = len(label_names) * 2
+          if num_items + num_entries  > data.shape[0]:
+            # Grow the dataframe
+            data = self.grow_df(data)
 
           for f in ["createdAt", "closedAt"]:
             if not c[f]:
@@ -218,10 +221,12 @@ class ProjectStats(object):
             delta = 1
             if f == "closedAt":
               delta = -1
-            data["time"].at[num_items] = date_parser.parse(c["createdAt"])
-            data["delta"].at[num_items] = delta
-            data["priority"].at[num_items] = priority
-            num_items += 1
+
+            for l in label_names:
+              data["time"].at[num_items] = date_parser.parse(c["createdAt"])
+              data["delta"].at[num_items] = delta
+              data["label"].at[num_items] = l
+              num_items += 1
 
     self.data = data[:num_items]
 
