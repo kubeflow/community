@@ -107,6 +107,15 @@ class ProjectStats(object):
                           number
                           createdAt
                           closedAt
+
+                          labels(last:15) {{
+                              totalCount
+                              edges {{
+                                node {{
+                                  name
+                                }}
+                              }}
+                          }}
                         }}
                       }}
                     }}
@@ -189,14 +198,31 @@ class ProjectStats(object):
             # Grow the dataframe
             data = self.grow_df(data)
 
-          if c["createdAt"]:
-            data["time"][num_items] = date_parser.parse(c["createdAt"])
-            data["delta"][num_items] = 1
-            num_items += 1
+          labels_connections = c["labels"]
 
-          if c["closedAt"]:
-            data["time"][num_items] = date_parser.parse(c["closedAt"])
-            data["delta"][num_items] = -1
+          if labels_connections["totalCount"] > 15:
+            raise ValueError("Number of total labels exceeds the number "
+                             "fetched; need to add pagination")
+
+          labels = labels_connections["edges"]
+
+          priority = ""
+
+          for l in labels:
+            if l["node"]["name"].startswith("priority"):
+              priority = l["node"]["name"]
+              break
+
+          for f in ["createdAt", "closedAt"]:
+            if not c[f]:
+              continue
+
+            delta = 1
+            if f == "closedAt":
+              delta = -1
+            data["time"].at[num_items] = date_parser.parse(c["createdAt"])
+            data["delta"].at[num_items] = delta
+            data["priority"].at[num_items] = priority
             num_items += 1
 
     self.data = data[:num_items]
