@@ -17,7 +17,7 @@ import yaml
 
 # To do some simple rectification if we see any of these words in the
 # company field we just map the company to this file
-known_companies = ["google", "red hat", "cisco",]
+known_companies = ["google", "red hat", "cisco", "datawire", "teradata"]
 
 def get_company_from_email(email):
   domain = email.split("!", 1)[1]
