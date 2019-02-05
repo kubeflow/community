@@ -30,16 +30,16 @@ class ProjectStats(object):
   def __init__(self):
     self.query_template = None
 
-  def init_df(self, size=300):
+  def init_df(self, offset=0, size=300):
     """Initialize a dataframe of the specified size."""
     return pd.DataFrame({
         "time": [datetime.datetime.now()] * size,
         "delta": np.zeros(size),
         "label": [""] * size,
-    })
+    }, index=offset + np.arange(size))
 
-  def grow_df(self, df, size=300):
-    return pd.concat([df, self.init_df(size)])
+  def grow_df(self, df, offset=0, size=300):
+    return pd.concat([df, self.init_df(offset, size)])
 
   def main(self):
     self.fetch_data()
@@ -212,7 +212,7 @@ class ProjectStats(object):
           num_entries = len(label_names) * 2
           if num_items + num_entries  > data.shape[0]:
             # Grow the dataframe
-            data = self.grow_df(data)
+            data = self.grow_df(data, offset=data.shape[0])
 
           for f in ["createdAt", "closedAt"]:
             if not c[f]:
