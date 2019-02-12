@@ -1,20 +1,37 @@
 {
+  // The base directory where projects.yaml etc... can be found.
+  // This should be a directory in a git repo that is cloned onto an NFS mounted volume.
+  local configRepoRoot = "/mount/data/src/git_kubeflow-community/devstats/config",
+
+  // Volumes and volumeMounts for nfs
+  local volumeMounts = [
+    {
+      mountPath: "/mount/data",
+      name: "nfs",
+    },
+  ],
+
+  local volumes = [
+    {
+      name: "nfs",
+      persistentVolumeClaim: {
+        claimName: "devstats-nfs",
+      },
+    },
+  ],
+
   // Prototypes
   all(params, env)::
     // The devstats DB is one of two postgress databases that we need. Its used for logs and other information.
-    $.parts(params, env).postgreDb("devstatsdb", "devstatsdb-data") +
+
+    $.parts(params, env).postgreDb("devstatsdb", "devstats-postgres") +
     [
       $.parts(params, env).cli,
-      $.parts(params, env).influxdbService,
-      $.parts(params, env).influxdbStatefulSet,
-      $.parts(params, env).projectsConfigMap,
       $.parts(params, env).grafanaIngress,
       $.parts(params, env).certificate,
       $.parts(params, env).grafanaService,
       $.parts(params, env).grafanaDeploy,
       $.parts(params, env).grafanaServiceAccount,
-      $.parts(params, env).grafanaProvidersConfigMap,
-      $.parts(params, env).grafanaDashboardsConfigMap,
     ],
 
   backfilljob(params, env)::
@@ -26,7 +43,7 @@
   parts(params, env):: {
     local namespace = env.namespace,
 
-    local devstatsImage = "gcr.io/kubeflow-ci/devstats:latest",
+    local devstatsImage = "gcr.io/devstats/devstats:v20190215-82f0a9b-dirty-9ecdc2",
     local devStatsDbName = "devstatsdb",
 
     // Where to mount the projects config map
@@ -37,43 +54,52 @@
     // Environment variables to be set on various pods.
     // These control the devstats tools
     local devstatsEnv = [
+      // The devstats scripts use variables with prefix "PG_"
       {
         name: "PG_HOST",
         value: devStatsDbName + "-0." + devStatsDbName + "." + namespace + ".svc.cluster.local",
       },
       {
         name: "PG_DB",
-        value: "gha",
+        value: "kubeflow",
       },
       {
         name: "PG_PASS",
         value: "password",
       },
       {
-        name: "IDB_PASS",
-        value: "password",
+        name: "PG_PASS_ROLE",
+        value: "ro_user",
+      },
+      // Postgres uses slightly different variable names
+      // https://www.postgresql.org/docs/9.5/libpq-envars.html
+      // Keep these in sync with PG_values.
+      {
+        name: "PGHOST",
+        value: devStatsDbName + "-0." + devStatsDbName + "." + namespace + ".svc.cluster.local",
       },
       {
-        name: "IDB_DB",
+        name: "PGDATABASE",
         value: "kubeflow",
       },
+      {
+        name: "PGUSER",
+        value: "gha_admin",
+      },
+      {
+        name: "PGPASSWORD",
+        value: "password",
+      },
+      // More environment variables used by devstats scripts
       {
         // TODO(jlewi): Is this supposed to match the name in projects.yaml?
         name: "GHA2DB_PROJECT",
         value: "kubeflow",
       },
       {
-        name: "IDB_PASS_RO",
-        value: "password_ro",
-      },
-      {
-        name: "IDB_HOST",
-        value: "influxdb-set-0.influxdb.devstats.svc.cluster.local",
-      },
-      {
-        // Used by some of the devstats scripts to affect which dbs we modify.
-        name: "ONLY",
-        value: "devstats gha",
+        // Location of projects.yaml file. This will be mounted from NFS
+        name: "GHA2DB_PROJECTS_YAML",
+        value: "projects.yaml",
       },
       {
         name: "GHA2DB_GITHUB_OAUTH",
@@ -139,9 +165,14 @@
                 // The postgres container DB.
                 {
                   env: [
+                    // POSTGRES_USER" and "POSTGRES_PASSWORD" are  used
+                    // by the startup script postgre-docker-entrypoint.sh.
+                    //
+                    // Looks like post gres uses different values; see
+                    // https://www.postgresql.org/docs/9.5/libpq-envars.html.
                     {
                       name: "POSTGRES_USER",
-                      value: "gha_admin",
+                      value: "postgres",
                     },
                     {
                       name: "POSTGRES_PASSWORD",
@@ -149,15 +180,19 @@
                     },
                     {
                       // This is the default DB; it is created on container startup if it doesn't
-                      // exist.
+                      // exist by postgre-docker-entrypint.
+                      // I(jlewi@) think postgres might need some sort of default DB to exist.
+                      // But this is not the DB used with Kubeflow.
+                      // That db is named kubeflow.
                       name: "POSTGRES_DB",
-                      value: "gha",
+                      value: "postgres",
                     },
+                    // https://www.postgresql.org/docs/9.0/app-postgres.html
                     {
                       name: "PGDATA",
-                      value: "/var/lib/postgresql/data/ghadb-postgre",
+                      value: "/mount/data/postgresql/",
                     },
-                  ] + devstatsEnv,
+                  ],
                   image: devstatsImage,
                   name: "postgres",
                   command: [
@@ -175,41 +210,10 @@
                     runAsUser: 1000,
                     runAsGrou: 1000,
                   },
-                  volumeMounts: [
-                    {
-                      mountPath: "/var/lib/postgresql/data",
-                      name: "db",
-                    },
-                  ],
+                  volumeMounts: volumeMounts,
                 },  // Postgres container
-                // A CLI container that runs as root.
-                // This is for manual modification of the PD.
-                {
-                  command: [
-                    "tail",
-                    "-f",
-                    "/dev/null",
-                  ],
-                  env: devstatsEnv,
-                  image: devstatsImage,
-                  name: "cli",
-                  volumeMounts: [
-                    {
-                      mountPath: "/var/lib/postgresql/data",
-                      name: "db",
-                    },
-                  ],
-                },  // cli
               ],  // containers
-              volumes: [
-                {
-                  gcePersistentDisk: {
-                    fsType: "ext4",
-                    pdName: diskName,
-                  },
-                  name: "db",
-                },
-              ],
+              volumes: volumes,
             },
           },
         },
@@ -219,13 +223,16 @@
     // Create a pod running as a stateful set that we can use
     // to execute commands manually.
     //
-    // TODO(jlewi): We could probably get rid of this now that we run it in a sidecar.
+    // We use a PVC for /home so that data will persist across reboots.
     cli:: {
       apiVersion: "apps/v1",
       kind: "StatefulSet",
       metadata: {
         name: "devstats-cli",
         namespace: namespace,
+        labels: {
+          app: "devstats-cli",
+        },
       },
       spec: {
         replicas: 1,
@@ -251,21 +258,23 @@
                 env: devstatsEnv,
                 image: devstatsImage,
                 name: "devstats",
+                workingDir: configRepoRoot,
                 volumeMounts: [
                   {
-                    mountPath: projectsMountPoint,
-                    name: "projects-volume",
+                    mountPath: "/home",
+                    name: "cli-home",
                   },
-                ],
+                ] + volumeMounts,
               },
             ],
             terminationGracePeriodSeconds: 10,
-            volumes: [
+            volumes: volumes + [
+              // Use a PD for /home.
               {
-                configMap: {
-                  name: "projects",
+                name: "cli-home",
+                persistentVolumeClaim: {
+                  claimName: "cli-home",
                 },
-                name: "projects-volume",
               },
             ],
           },
@@ -297,24 +306,12 @@
                 env: devstatsEnv,
                 image: devstatsImage,
                 name: "devstats",
-                volumeMounts: [
-                  {
-                    mountPath: projectsMountPoint,
-                    name: "projects-volume",
-                  },
-                ],
+                volumeMounts: volumeMounts,
               },
             ],
             restartPolicy: "OnFailure",
             terminationGracePeriodSeconds: 10,
-            volumes: [
-              {
-                configMap: {
-                  name: "projects",
-                },
-                name: "projects-volume",
-              },
-            ],
+            volumes: volumes,
           },
         },  // template
       },
@@ -342,134 +339,19 @@
                     env: devstatsEnv,
                     image: devstatsImage,
                     name: "devstats",
-                    volumeMounts: [
-                      {
-                        mountPath: projectsMountPoint,
-                        name: "projects-volume",
-                      },
-                    ],
+                    workingDir: configRepoRoot,
+                    volumeMounts: volumeMounts,
                   },
                 ],
                 restartPolicy: "OnFailure",
                 terminationGracePeriodSeconds: 10,
-                volumes: [
-                  {
-                    configMap: {
-                      name: "projects",
-                    },
-                    name: "projects-volume",
-                  },
-                ],
+                volumes: volumes,
               },
             },
           },
         },  // template
       },
     },  // syncCronJob
-
-    influxdbService:: {
-      apiVersion: "v1",
-      kind: "Service",
-      metadata: {
-        labels: {
-          app: "influx",
-        },
-        name: "influxdb",
-        namespace: namespace,
-      },
-      spec: {
-        clusterIP: "None",
-        ports: [
-          {
-            name: "http",
-            port: 8086,
-          },
-          {
-            name: "administrator",
-            port: 8083,
-          },
-          {
-            name: "graphite",
-            port: 2003,
-          },
-        ],
-        selector: {
-          app: "influx",
-        },
-      },
-    },
-
-    influxdbStatefulSet:: {
-      apiVersion: "apps/v1",
-      kind: "StatefulSet",
-      metadata: {
-        name: "influxdb-set",
-        namespace: namespace,
-      },
-      spec: {
-        replicas: 1,
-        selector: {
-          matchLabels: {
-            app: "influx",
-          },
-        },
-        serviceName: "influxdb",
-        template: {
-          metadata: {
-            labels: {
-              app: "influx",
-            },
-          },
-          spec: {
-            containers: [
-              {
-                image: "influxdb:1.5.2",
-                name: "influx",
-                ports: [
-                  {
-                    containerPort: 8086,
-                  },
-                  {
-                    containerPort: 8083,
-                  },
-                  {
-                    containerPort: 2003,
-                  },
-                ],
-                volumeMounts: [
-                  {
-                    mountPath: "/var/lib/influxdb",
-                    name: "influxdb",
-                  },
-                ],
-              },
-            ],
-            volumes: [
-              {
-                gcePersistentDisk: {
-                  fsType: "ext4",
-                  pdName: "influxdb-data",
-                },
-                name: "influxdb",
-              },
-            ],
-          },
-        },
-      },
-    },  // influxdbserviceStatefulSet
-
-    projectsConfigMap:: {
-      apiVersion: "v1",
-      kind: "ConfigMap",
-      metadata: {
-        name: "projects",
-        namespace: namespace,
-      },
-
-      data: {
-        "projects.yaml": importstr "projects.yaml",
-      },
-    },
 
     certificate:: {
       apiVersion: "certmanager.k8s.io/v1alpha1",
@@ -511,10 +393,10 @@
         namespace: namespace,
         annotations: {
           "kubernetes.io/ingress.global-static-ip-name": "devstats",
-          "kubernetes.io/tls-acme": "true",          
+          "kubernetes.io/tls-acme": "true",
           // TODO(jlewi): We should automatically redirect users
           // to the https site. We could do this by using a custom default
-          // backend.          
+          // backend.
         },
       },
       spec: {
@@ -567,73 +449,6 @@
       },
     },
 
-    grafanaProvidersConfigMap:: {
-      apiVersion: "v1",
-      kind: "ConfigMap",
-      metadata: {
-        name: "grafana-providers",
-        namespace: namespace,
-      },
-
-      data: {
-        "providers_config.yaml": importstr "grafana/providers.yaml",
-      },
-    },
-
-    // This config map provides all the dashboards.
-    grafanaDashboardsConfigMap:: {
-      apiVersion: "v1",
-      kind: "ConfigMap",
-      metadata: {
-        name: "grafana-dashboards",
-        namespace: namespace,
-      },
-
-      // You can use the script print_imports.sh to generate text that
-      // can be copy pasted here.
-      data: {
-        "activity-repository-groups.json": importstr "grafana/dashboards/activity-repository-groups.json",
-        "approvers-in-repository-groups-table.json": importstr "grafana/dashboards/approvers-in-repository-groups-table.json",
-        "approvers-repository-groups.json": importstr "grafana/dashboards/approvers-repository-groups.json",
-        "blocked-prs-repository-groups.json": importstr "grafana/dashboards/blocked-prs-repository-groups.json",
-        "bot-commands-repository-groups.json": importstr "grafana/dashboards/bot-commands-repository-groups.json",
-        "commenters-in-repository-groups.json": importstr "grafana/dashboards/commenters-in-repository-groups.json",
-        "comments-in-repository-groups.json": importstr "grafana/dashboards/comments-in-repository-groups.json",
-        "commits-repository-groups.json": importstr "grafana/dashboards/commits-repository-groups.json",
-        "community-stats-repositories.json": importstr "grafana/dashboards/community-stats-repositories.json",
-        "companies-contributing-in-repository-groups.json": importstr "grafana/dashboards/companies-contributing-in-repository-groups.json",
-        "companies-statistics-repository-groups.json": importstr "grafana/dashboards/companies-statistics-repository-groups.json",
-        "companies-table.json": importstr "grafana/dashboards/companies-table.json",
-        "companies-velocity-repository-groups.json": importstr "grafana/dashboards/companies-velocity-repository-groups.json",
-        "dashboards.json": importstr "grafana/dashboards/dashboards.json",
-        "developers-table.json": importstr "grafana/dashboards/developers-table.json",
-        "first-non-author-activity-repository-groups.json": importstr "grafana/dashboards/first-non-author-activity-repository-groups.json",
-        "issues-repository-group.json": importstr "grafana/dashboards/issues-repository-group.json",
-        "new-and-episodic-contributors-repository-groups.json": importstr "grafana/dashboards/new-and-episodic-contributors-repository-groups.json",
-        "new-and-episodic-issues-repository-groups.json": importstr "grafana/dashboards/new-and-episodic-issues-repository-groups.json",
-        "new-prs-repository-groups.json": importstr "grafana/dashboards/new-prs-repository-groups.json",
-        "opened-to-merged-repository-groups.json": importstr "grafana/dashboards/opened-to-merged-repository-groups.json",
-        "open-issues-prs-by-milestone-and-repository.json": importstr "grafana/dashboards/open-issues-prs-by-milestone-and-repository.json",
-        "pr-comments.json": importstr "grafana/dashboards/pr-comments.json",
-        "project-statistics-table.json": importstr "grafana/dashboards/project-statistics-table.json",
-        "prs-age-repository-groups.json": importstr "grafana/dashboards/prs-age-repository-groups.json",
-        "prs-approval-repository-groups.json": importstr "grafana/dashboards/prs-approval-repository-groups.json",
-        "prs-approval-repository-groups-stacked.json": importstr "grafana/dashboards/prs-approval-repository-groups-stacked.json",
-        "prs-authors-companies-table.json": importstr "grafana/dashboards/prs-authors-companies-table.json",
-        "prs-authors-repository-groups.json": importstr "grafana/dashboards/prs-authors-repository-groups.json",
-        "prs-authors-repository-groups-table.json": importstr "grafana/dashboards/prs-authors-repository-groups-table.json",
-        "prs-labels-repository-groups.json": importstr "grafana/dashboards/prs-labels-repository-groups.json",
-        "prs-merged-repository-groups.json": importstr "grafana/dashboards/prs-merged-repository-groups.json",
-        "prs-merged-repos.json": importstr "grafana/dashboards/prs-merged-repos.json",
-        "reviewers-in-repository-groups-table.json": importstr "grafana/dashboards/reviewers-in-repository-groups-table.json",
-        "reviewers-repository-groups.json": importstr "grafana/dashboards/reviewers-repository-groups.json",
-        "suggested-approvers-repository-groups.json": importstr "grafana/dashboards/suggested-approvers-repository-groups.json",
-        "time-metrics-by-repository-groups.json": importstr "grafana/dashboards/time-metrics-by-repository-groups.json",
-        "top-commenters-in-repository-groups-table.json": importstr "grafana/dashboards/top-commenters-in-repository-groups-table.json",
-        "user-reviews-repository-groups.json": importstr "grafana/dashboards/user-reviews-repository-groups.json",
-      },
-    },
-
     grafanaDeploy:: {
       apiVersion: "extensions/v1beta1",
       kind: "Deployment",
@@ -665,7 +480,7 @@
                   // that corresponds to a PD.
                   {
                     name: "GF_PATHS_DATA",
-                    value: "/data/grafana",
+                    value: "/mount/data/grafana",
                   },
 
                   // Override the location used for provisioning so we
@@ -673,7 +488,8 @@
                   // See http://docs.grafana.org/administration/provisioning/#dashboards
                   {
                     name: "GF_PATHS_PROVISIONING",
-                    value: "/conf/grafana/provisioning",
+                    // Should be a directory containing providers.yaml
+                    value: configRepoRoot + "/grafana/provisioning",
                   },
 
                   // Override the admin password
@@ -701,46 +517,10 @@
                     containerPort: 3000,
                   },
                 ],
-                volumeMounts: [
-                  {
-                    mountPath: "/data/grafana",
-                    name: "grafana-data",
-                  },
-                  {
-                    mountPath: "/conf/grafana/provisioning/dashboards",
-                    name: "grafana-providers",
-                  },
-
-                  {
-                    mountPath: "/conf/grafana/dashboards",
-                    name: "grafana-dashboards",
-                  },
-                ],
-              },
-            ],
-            volumes: [
-              {
-                // We use a PD because we want the data to be preserved. Futhermore, even if the app is taken down
-                // we don't want the data to be lost so we don't use dynamic PV.
-                gcePersistentDisk: {
-                  fsType: "ext4",
-                  pdName: "grafana-data",
-                },
-                name: "grafana-data",
-              },
-              {
-                configMap: {
-                  name: "grafana-dashboards",
-                },
-                name: "grafana-dashboards",
-              },
-              {
-                configMap: {
-                  name: "grafana-providers",
-                },
-                name: "grafana-providers",
-              },
-            ],
+                volumeMounts: volumeMounts,
+              },  // grafana
+            ],  // containers
+            volumes: volumes,
           },
         },
       },
