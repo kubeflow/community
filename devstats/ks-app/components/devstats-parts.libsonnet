@@ -3,10 +3,12 @@
   // This should be a directory in a git repo that is cloned onto an NFS mounted volume.
   local configRepoRoot = "/mount/data/src/git_kubeflow-community/devstats/config",
 
+  local nfsMountPath = "/mount/data",
+  
   // Volumes and volumeMounts for nfs
   local volumeMounts = [
     {
-      mountPath: "/mount/data",
+      mountPath: nfsMountPath,
       name: "nfs",
     },
   ],
@@ -100,6 +102,12 @@
         // Location of projects.yaml file. This will be mounted from NFS
         name: "GHA2DB_PROJECTS_YAML",
         value: "projects.yaml",
+      },
+      {
+        // The directory where ./get_repos will check out Kubeflow repos to
+        // We put this on NFS so its resilient.
+        name: "GHA2DB_REPOS_DIR",
+        value: nfsMountPath + "/devstats_repos",
       },
       {
         name: "GHA2DB_GITHUB_OAUTH",
