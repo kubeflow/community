@@ -1,0 +1,3 @@
+7 * * * * PATH=$PATH:/data/dev/bin net_tcp_config.sh
+8 * * * * PATH=$PATH:/data/dev/bin DEVSTATS_DIR="/data/dev/src/devstats-example" PG_PASS=... devstats.sh 2>> /tmp/devstats.err 1>> /tmp/devstats.log
+#45 3 * * * PATH=$PATH:/data/dev/bin cron_db_backup.sh homebrew 2>> /tmp/backup.err 1>> /tmp/backup.log

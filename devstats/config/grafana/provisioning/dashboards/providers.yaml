@@ -1,0 +1,18 @@
+# See http://docs.grafana.org/administration/provisioning/#dashboards
+#
+# Grafana allows us to povide a YAML file that configures where
+# to load dashboards from. We specify a config that will allow us to
+# load dashboards from a volume
+apiVersion: 1
+
+providers:
+- name: 'default'
+  orgId: 1
+  folder: ''
+  type: file
+  disableDeletion: false
+  # Don't want dashboards to be editable because changes will be overwritten.
+  editable: false
+  options:
+    # This should point to a volume. containing the dashboards    
+    path: /mount/data/src/git_kubeflow-community/devstats/config/grafana/dashboards/kubeflow

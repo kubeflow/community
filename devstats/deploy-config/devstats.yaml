@@ -22,4 +22,38 @@ resources:
 - name: devstats
   type: devstats.jinja
   properties:
-    # Deployment manager complains if properties isn't defined.
+    # You need to use a zone with Broadwell because that's what TFServing requires.
+    zone: us-central1-a
+    # "1.X": picks the highest valid patch+gke.N patch in the 1.X version
+    # https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.zones.clusters
+    cluster-version: "1.11"
+    # Set this to v1beta1 to use beta features such as private clusterss
+    # and the Kubernetes stackdriver agents.
+    gkeApiVersion: v1beta1
+    # An arbitrary string appending to name of nodepools
+    # bump this if you want to modify the node pools.
+    # This will cause existing node pools to be deleted and new ones to be created.
+    # Use prefix v so it will be treated as a string.
+    pool-version: v1
+    # Two is small enough to fit within default quota.
+    cpu-pool-initialNodeCount: 2
+    gpu-pool-initialNodeCount: 0
+    # Autoscaling parameters
+    cpu-pool-enable-autoscaling: true
+    cpu-pool-min-nodes: 0
+    cpu-pool-max-nodes: 10
+    securityConfig:
+      # Use private IPs to make this more secure.
+      privatecluster: false
+      # masterIpv4CidrBlock for private clusters, if enabled
+      # Use v1beta1 api
+      masterIpv4CidrBlock: 172.16.0.16/28
+      # Protect worker node metadata from pods
+      # Use v1beta1 api
+      secureNodeMetadata: false
+      # Whether to enable Pod Security Policy Admission Controller
+      # Use v1beta1 api
+      podSecurityPolicy: false
+      masterAuthorizedNetworksConfigEnabled: false
+      masterAuthorizedNetworksConfigCidr:
+      - cidrBlock: 1.2.3.4/32
