@@ -1,0 +1,17 @@
+---
+projects:
+  kubeflow:
+    order: 1
+    name: kubeflow
+    status: "-"
+    command_line:
+      - "kubeflow"
+    start_date: 2018-01-01T00:00:00Z
+    join_date: null
+    psql_db: kubeflow
+    main_repo: kubeflow/kubeflow
+    annotation_regexp: '^v((0\.\d+)|(\d+\.\d+\.0))$'
+    files_skip_pattern: '(^|/)_?(vendor|Godeps|_workspace)/'
+    env:
+      GHA2DB_EXCLUDE_REPOS:
+        "kubeflow/homebrew-cask,kubeflow/homebrew-core"

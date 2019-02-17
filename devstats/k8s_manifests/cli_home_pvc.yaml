@@ -1,0 +1,13 @@
+---
+# Create a PVC to use for the home directory of the CLI. This way data will be persistent across restarts.
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: cli-home
+  namespace: devstats
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50Gi

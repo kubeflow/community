@@ -14,6 +14,14 @@ limitations under the License.
 
 {% set NAME_PREFIX = env['deployment'] + '-' + env['name'] %}
 
+{% set CLUSTER_NAME = NAME_PREFIX %}
+{% set CPU_POOL = NAME_PREFIX + '-cpu-pool-' + properties['pool-version'] %}
+{% set VM_OAUTH_SCOPES = ['https://www.googleapis.com/auth/logging.write', 
+                          'https://www.googleapis.com/auth/monitoring',
+                          'https://www.googleapis.com/auth/devstorage.read_only'] %}
+
+{% macro diskName(diskObj) -%}{{ env["deployment"]}}-{{ diskObj["name"] }}{%- endmacro %}
+
 resources:
 # Reserve a static IP.
 - name: devstats
@@ -22,3 +30,52 @@ resources:
     project: {{ properties['project'] }}
     name: {{ CLUSTER_NAME }}
     description: "Static IP for the devstats server."
+- name: {{ CLUSTER_NAME }}
+  {% if properties['gkeApiVersion'] == 'v1beta1' %}
+  type: gcp-types/container-v1beta1:projects.locations.clusters
+  {% else %}
+  type: container.v1.cluster
+  {% endif %}
+  properties:
+    parent: projects/{{ env['project'] }}/locations/{{ properties['zone'] }}
+    zone: {{ properties['zone'] }}
+    cluster:
+      name: {{ CLUSTER_NAME }}
+      initialClusterVersion: "{{ properties['cluster-version'] }}"
+      {% if properties['gkeApiVersion'] == 'v1beta1' %}
+      # We need 1.10.2 to support Stackdriver GKE.
+      loggingService: logging.googleapis.com/kubernetes
+      monitoringService: monitoring.googleapis.com/kubernetes
+      podSecurityPolicyConfig:
+        enabled: {{ properties['securityConfig']['podSecurityPolicy'] }}
+      {% endif %}
+      {% if properties['securityConfig']['privatecluster'] %}
+      ipAllocationPolicy:
+        createSubnetwork: true
+        useIpAliases: true
+      privateClusterConfig:
+        masterIpv4CidrBlock: {{ properties['securityConfig']['masterIpv4CidrBlock'] }}
+        enablePrivateNodes: true
+      masterAuthorizedNetworksConfig:
+        enabled: {{ properties['securityConfig']['masterAuthorizedNetworksConfigEnabled'] }}
+        {% if properties['securityConfig']['masterAuthorizedNetworksConfigEnabled'] %}
+        cidrBlocks:
+          {{ properties['securityConfig']['masterAuthorizedNetworksConfigCidr'] }}
+        {% endif %}
+      {% endif %}
+      nodePools:
+      - name: default-pool
+        initialNodeCount: {{ properties['cpu-pool-initialNodeCount'] }}
+        autoscaling:
+          enabled: {{ properties['cpu-pool-enable-autoscaling'] }}
+          {% if properties['cpu-pool-enable-autoscaling'] %}
+          minNodeCount: {{ properties['cpu-pool-min-nodes'] }}
+          maxNodeCount: {{ properties['cpu-pool-max-nodes'] }}
+          {% endif %}
+        config:
+          {% if properties['securityConfig']['secureNodeMetadata'] %}
+          workloadMetadataConfig:
+            nodeMetadata: SECURE
+          {% endif %}
+          machineType: n1-standard-8
+          oauthScopes: {{ VM_OAUTH_SCOPES }}

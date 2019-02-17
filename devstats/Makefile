@@ -17,7 +17,7 @@
 #   pip install jinja2-clie
 # Update the Airflow deployment
 
-IMG = gcr.io/kubeflow-ci/devstats
+IMG = gcr.io/devstats/devstats
 
 TAG := $(shell date +v%Y%m%d)-$(shell git describe --tags --always --dirty)-$(shell git diff | sha256sum | cut -c -6)
 DIR := ${CURDIR}
