@@ -192,6 +192,9 @@ class ProjectStats(object):
 
           if not c:
             continue
+          # Cards can contain pull requests and these may not have labels
+          if not "labels" in c:
+            continue
 
           labels_connections = c["labels"]
 
