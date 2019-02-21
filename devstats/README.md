@@ -383,6 +383,152 @@ A simple query to look at events
 select created_at, type from gha_events;
 ```
 
+### Company Affilitations
+
+We need to create a json file containing company affiliations for each user in order to get company stats.
+
+These instructions are based on [sync.md](https://github.com/cncf/gitdm/blob/master/SYNC.md)
+
+All commands should be run in the `devstats-cli-0` pod.
+
+1. Make sure the repos are checked out on NFS
+
+   * Directory is set in ${GHA2DB_REPOS_DIR}
+
+   * To manually update
+
+     ```
+     cd /mount/data/src/git_kubeflow-community/devstats/config
+	 GHA2DB_PROCESS_REPOS=1 ./get_repos
+     ```
+
+1. Generate a list of all repos and the command to generate the repo log
+
+   ```
+    cd /mount/data/src/git_kubeflow-community/devstats/config
+	GHA2DB_PROCESS_REPOS=1 GHA2DB_EXTERNAL_INFO=1 ./get_repos
+   ```
+
+1. Update `/mount/data/src/git_cncf-gitdm/src/repos.txt` with the list of repos outputted by the previous command
+
+1. Setup gitdm
+
+   ```
+   cd /mount/data/src/git_cncf-gitdm/src
+   gem install pry
+   gem install octokit
+   ```
+
+   * TODO(jlewi): Should we do gem install in the image?
+
+1. Generate a git log.
+
+   ```
+   ./all_repos_log.sh /mount/data/devstats_repos/kubeflow/*
+   ```
+
+   * This should create a git log `/mount/data/src/git_cncf-gitdm/src/git.log`
+
+ 1. To run cncf/gitdm on a generated git.log file do: 
+
+    ```
+ 	cd /mount/data/src/git_cncf-gitdm/src 
+ 	./cncfdm.py -i git.log -r "^vendor/|/vendor/|^Godeps/" -R -n -b ./ -t -z -d -D -A -U -u -o all.txt -x all.csv -a all_affs.csv > all.out 	
+    ```
+ 1. Generate actors
+
+    ```
+    cd /mount/data/src/git_kubeflow-community/devstats
+    bash -x ./scripts/generate_actors.sh /mount/data/src/git_cncf-gitdm/src/actors.txt 
+    ```
+
+    * TODO(jlewi): Should we store the actors file someplace other than git_cncf-gitdm? We currently put it there
+      because all the gitdm scripts make assumptions about the locations of the files
+
+ 
+ 1. Create a secret containing 
+
+    * A GitHub OAuth API token
+      * Can use the same token as before
+    * A GitHub OAuth client secret
+    * A GitHub client id
+
+    ```
+    kubectl create secret generic gitdm-github-oauth --from-literal=oauth=${GITDM_GITHUB_OAUTH_TOKEN} --from-literal=client_id=${GITDM_GITHUB_CLIENT_ID}  --from-literal=client_secret=${GITDM_GITHUB_CLIENT_SECRET}
+    ```
+ 1. Pull GitHub users
+
+    ```   
+    cd /mount/data/src/git_cncf-gitdm/src/
+    echo [] > github_users.json
+    ruby ghusers.rb
+	./encode_emails.rb github_users.json temp
+	mv temp github_users.json
+    ```
+    * Ensure repos.txt doesn't include any repos that shouldn't count as contributors
+    	* In particular ensure [kubeflow/homebrew-cask](https://github.com/kubeflow/homebrew-cask) and 
+    	  [homebrew-core](https://github.com/kubeflow/homebrew-core) are excluded
+    * TODO(jlewi): I'm not sure we want to zero out github_users.json on each successive run
+    	* I think we only wanted to do that once because github_users.json was originally for the CNCF projects
+    	* ghusers.rb has to make API requests for each user so if we don't cache results we hit API limits.
+    * ghusers.rb appears to crash if github_users.json doesn't exist and doesn't have at least a json list
+ 	* See also these [instructions](https://github.com/cncf/gitdm/blob/master/README.md#github-users-can-be-pulled-using-octokit-gihub-api)
+
+ 	* The processing of repos.txt is very brittle
+ 	  * I had to modify the code ala Ran into https://github.com/cncf/gitdm/issues/104 
+ 	  * I also had to remove the quotes around the repo names
+
+ 	* TODO(jlewi): Could we just use ghusesrs.sh? The reason I didn't was because it didn't seem to handle things
+ 	  like the file github_users.json not existing
+
+ 1.  Update github_users.json
+
+     ```
+     cd /mount/data/src/git_cncf-gitdm/src/
+     ./enhance_json.sh
+     ```
+
+     * Output is
+       ```
+
+	  Found 1, not found 420 from 425 additional actors
+      Processed 425 users, enchanced: 306, not found in CSV: 4, unknowns not found in JSON: 13614.
+      ```
+
+     * I think this script sets affiliation field in `github_users.json`
+
+     * Check in `github_users.json` to `kubeflow/community/devststats/data`
+       * This makes it easy for people to check their affiliation.
+
+1. See https://github.com/cncf/gitdm/blob/master/SYNC.md; there are a whole bunhch of steps that seem like they might be semi optional
+
+   * TODO(jlewi): We should create a script or something to run all the steps.
+
+1. Import affiliations
+
+   ```
+   cd /mount/data/src/git_kubeflow-community/devstats/config
+   ./import_affs /mount/data/src/git_cncf-gitdm/src/github_users.json 
+	2019-02-20 21:40:30 kubeflow/import_affs: Processing non-empty: 566 names, 707 emails lists and 116 affiliations lists
+	2019-02-20 21:40:30 kubeflow/import_affs: Empty/Not found: names: 142, emails: 0, affiliations: 612
+	2019-02-20 21:40:32 kubeflow/import_affs: 566 non-empty names, added actors: 0, updated actors: 314
+	2019-02-20 21:40:34 kubeflow/import_affs: 707 emails lists, added actors: 0, all emails: 735
+	2019-02-20 21:40:35 kubeflow/import_affs: 566 names lists, all names: 566
+	2019-02-20 21:40:35 kubeflow/import_affs: 116 affiliations, unique: 112, non-unique: 4, all user-company connections: 153
+	2019-02-20 21:40:35 kubeflow/import_affs: Processed 64 companies
+	2019-02-20 21:40:36 kubeflow/import_affs: Processed 153 affiliations, added 0 actors, cache hit: 153, miss: 0
+	2019-02-20 21:40:36 kubeflow/import_affs: Non-acquired companies: checked all regexp: 64, cache hit: 153
+	2019-02-20 21:40:36 kubeflow/import_affs: Time: 5.621040111s
+   ```
+
+   * Verify there are companies
+
+     ```
+     psql -c "select * from gha_companies;"
+     ```
+
+1. TODO: Do we need to run devstats to compute various metrics?
+
 ### Deleting the Kubeflow database
 
 If you want to delete the kubeflow database in the devstats cli pod run

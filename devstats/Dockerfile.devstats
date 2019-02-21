@@ -61,6 +61,14 @@ RUN apt-get install -y postgresql-client postgresql sudo gosu
 # Install emacs
 RUN apt-get install -y emacs
 
+# Install Ruby this is used by gitdm
+# We set the environment because of this issue
+# https://stackoverflow.com/questions/17031651/invalid-byte-sequence-in-us-ascii-argument-error-when-i-run-rake-dbseed-in-ra
+ENV RUBYOPT "-KU -E utf-8:utf-8"
+
+RUN apt-get install -y ruby gem
+RUN gem install bundle pry octokit
+
 # Keep this in sync with whatever package apt installs; maybe we should pin apt-install?
 ENV PG_MAJOR 9.6
 

@@ -11,6 +11,10 @@
       mountPath: nfsMountPath,
       name: "nfs",
     },
+    {
+      mountPath: "/etc/github",
+      name: "gitdm-github-oauth",
+    },
   ],
 
   local volumes = [
@@ -18,6 +22,12 @@
       name: "nfs",
       persistentVolumeClaim: {
         claimName: "devstats-nfs",
+      },
+    },
+    {
+      name: "gitdm-github-oauth",
+      secret: {
+        secretName: "gitdm-github-oauth",
       },
     },
   ],
@@ -45,7 +55,7 @@
   parts(params, env):: {
     local namespace = env.namespace,
 
-    local devstatsImage = "gcr.io/devstats/devstats:v20190215-82f0a9b-dirty-9ecdc2",
+    local devstatsImage = "gcr.io/devstats/devstats:v20190217-ed3e9c1-dirty-fdc649",
     local devStatsDbName = "devstatsdb",
 
     // Where to mount the projects config map
@@ -110,6 +120,7 @@
         value: nfsMountPath + "/devstats_repos",
       },
       {
+        // TODO(jlewi): We could probably use the other secret that contains the client id and secret in addition to oauth.
         name: "GHA2DB_GITHUB_OAUTH",
         valueFrom: {
           secretKeyRef: {
@@ -117,6 +128,12 @@
             key: "github-oauth",
           },
         },
+      },
+      # We set the environment because of this issue
+      # https://stackoverflow.com/questions/17031651/invalid-byte-sequence-in-us-ascii-argument-error-when-i-run-rake-dbseed-in-ra
+      { 
+        name: "RUBYOPT"
+        value: "-KU -E utf-8:utf-8",
       },
     ],
 
