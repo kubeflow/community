@@ -58,6 +58,13 @@
   lastName: Agarwal
   affiliation: Google
   email: agwl@google.com
+ 
+- github: animeshsingh
+  slack: animeshsingh
+  firstName: Animesh
+  lastName: Singh
+  affiliation: IBM
+  email: singhan@us.ibm.com
 
 - github: ashahba
   slack: ashahba
