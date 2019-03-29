@@ -324,6 +324,12 @@
   LastName: Suen
   affiliation: None
   email: summit.suen@gmail.com
+  
+- github: suibinz
+  slack: Benz
+  firstName: Ben
+  lastName: Zhang
+  email: suibinzh@gmail.com
 
 - github: suleisl2000
   slack: suleisl2000
