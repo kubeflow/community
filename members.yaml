@@ -101,6 +101,13 @@
   affiliation: Caicloud
   email: chenpengyu@caicloud.io
 
+- github: cliveseldon
+  slack: cc
+  firstName: Clive
+  lastName: Cox
+  affiliation: Seldon
+  email: cc@seldon.io
+
 - github: ddutta
   slack: debo
   firstName: Debo
