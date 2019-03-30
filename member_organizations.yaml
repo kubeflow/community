@@ -46,6 +46,13 @@
     - kimwnasptd@arrikto.com
   url: https://www.arrikto.com
 
+- name: Bloomberg
+  contacts:
+    - dsun20@bloomberg.net
+    - klaban1@bloomeberg.net
+    - ifilonenko@bloomberg.net
+  url: http://www.bloomberg.com
+
 - name: Caicloud
   contacts:
     - deyuan@caicloud.io
