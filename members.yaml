@@ -407,3 +407,10 @@
   lastName: Panda
   affiliation: Project Jupyter
   email: yuvipanda@gmail.com
+
+- github: yuzisun
+  slack: dsun
+  firstName: Dan
+  lastName: Sun
+  affiliation: Bloomberg
+  email: dsun20@bloomberg.net
