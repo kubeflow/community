@@ -414,3 +414,10 @@
   lastName: Sun
   affiliation: Bloomberg
   email: dsun20@bloomberg.net
+
+- github: joeliedtke
+  slack: joeliedtke
+  firstName: Joe
+  lastName: Liedtke
+  affiliation: Google
+  email: joeliedtke@google.com
