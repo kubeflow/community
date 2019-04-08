@@ -226,7 +226,11 @@ class ProjectStats(object):
               delta = -1
 
             for l in label_names:
-              data["time"].at[num_items] = date_parser.parse(c["createdAt"])
+              if delta > 0:
+                data["time"].at[num_items] = date_parser.parse(c["createdAt"])
+              else:
+                data["time"].at[num_items] = date_parser.parse(c["closedAt"])
+
               data["delta"].at[num_items] = delta
               data["label"].at[num_items] = l
               num_items += 1
