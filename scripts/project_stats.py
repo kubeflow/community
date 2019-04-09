@@ -17,8 +17,6 @@ import pandas as pd
 import pprint
 import requests
 
-PROJECT_NAME = "0.5.0"
-
 def run_query(query, headers): # A simple function to use requests.post to make the API call. Note the json= section.
   request = requests.post('https://api.github.com/graphql', json={'query': query}, headers=headers)
   if request.status_code == 200:
@@ -27,8 +25,9 @@ def run_query(query, headers): # A simple function to use requests.post to make 
     raise Exception("Query failed to run by returning code of {}. {}".format(request.status_code, query))
 
 class ProjectStats(object):
-  def __init__(self):
+  def __init__(self, project):
     self.query_template = None
+    self.project = project
 
   def init_df(self, offset=0, size=300):
     """Initialize a dataframe of the specified size."""
@@ -76,7 +75,7 @@ class ProjectStats(object):
     # TODO(jlewi): Take project as an argument
     self.query_template="""{{
     organization(login:"kubeflow") {{
-    projects(last:1 search:"0.5.0") {{
+    projects(last:1 search:"{project}") {{
       totalCount
       edges {{
         node {{
@@ -163,7 +162,8 @@ class ProjectStats(object):
         if cards_cursor:
           cards_cursor_text = "after:\"{0}\"".format(cards_cursor)
 
-        query = self.query_template.format(columns_cursor=columns_cursor_text,
+        query = self.query_template.format(project=self.project,
+                                           columns_cursor=columns_cursor_text,
                                            cards_cursor=cards_cursor_text)
 
         result = run_query(query, headers=headers) # Execute the query
