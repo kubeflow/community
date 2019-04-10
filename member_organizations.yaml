@@ -46,6 +46,11 @@
     - kimwnasptd@arrikto.com
   url: https://www.arrikto.com
 
+- name: Amazon Web Services (AWS)
+  contacts:
+    - shjiaxin@amazon.com
+  url: https://aws.amazon.com/
+
 - name: Bloomberg
   contacts:
     - dsun20@bloomberg.net

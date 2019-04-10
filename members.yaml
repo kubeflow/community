@@ -192,6 +192,13 @@
   affiliation: Google
   email: yangpa@google.com
 
+- github: Jeffwan
+  slack: Jiaxin Shan
+  firstName: Jiaxin
+  lastName: Shan
+  affiliation: Amazon
+  email: shjiaxin@amazon.com
+
 - github: jinxingwang
   slack: willWang
   firstName: Will
