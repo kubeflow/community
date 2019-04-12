@@ -234,7 +234,14 @@
   affiliation: Tusimple
   email: zongpei.jiang@tusimple.com
 
-- github: kkasravi
+- github: kevinbache
+  slack: kevinbache
+  firstName: Kevin
+  lastName: Bache
+  affiliation: Google
+  email: bache@google.com
+
+-- github: kkasravi
   slack: kam
   firstName: Kam
   lastName: Kasravi
