@@ -199,6 +199,13 @@
   affiliation: Amazon
   email: shjiaxin@amazon.com
 
+- github: jingzhang36
+  slack: jingzhang36
+  firstName: Jing
+  lastName: Zhang
+  affiliation: Google
+  email: jingzhangjz@google.com  
+
 - github: jinxingwang
   slack: willWang
   firstName: Will
