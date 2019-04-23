@@ -145,6 +145,13 @@
     - abolfazl.shahbazi@intel.com
   url: https://www.intel.com
 
+- name: LinkedIn
+  contacts:
+    - ashahab@linkedin.com
+    - svalleru@linkedin.com
+    - tenmu@linkedin.com
+  url: https://www.linkedin.com
+
 - name: Microsoft
   contacts:
     - wibuch@microsoft.com
