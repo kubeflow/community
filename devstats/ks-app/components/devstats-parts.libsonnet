@@ -132,7 +132,7 @@
       # We set the environment because of this issue
       # https://stackoverflow.com/questions/17031651/invalid-byte-sequence-in-us-ascii-argument-error-when-i-run-rake-dbseed-in-ra
       { 
-        name: "RUBYOPT"
+        name: "RUBYOPT",
         value: "-KU -E utf-8:utf-8",
       },
     ],

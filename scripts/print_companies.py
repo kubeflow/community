@@ -14,4 +14,5 @@ if __name__ == "__main__":
   names = [m["name"] for m in members]
   names.sort()
   
+  print("Number of companies={0}".format(len(names)))
   print(", ".join(names))
