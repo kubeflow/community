@@ -139,6 +139,12 @@
     - liuhoug@cn.ibm.com
   url: https://www.ibm.com
 
+- name: Iguazio
+  contacts:
+    - yaronh@iguazio.com
+    - adih@iguazio.com
+  url: https://www.iguazio.com
+  
 - name: Intel
   contacts:
     - michal.jastrzebski@intel.com
