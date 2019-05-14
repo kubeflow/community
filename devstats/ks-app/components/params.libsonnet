@@ -4,7 +4,7 @@
     // Component-level parameters, defined initially from 'ks prototype use ...'
     // Each object below should correspond to a component in the components/ directory
     backfill: {
-      end_day: '2019-02-21',
+      end_day: '2019-05-12',
       start_day: '2018-01-01',
     },
     devstats: {
