@@ -211,6 +211,7 @@
     - ah@seldon.io
     - cc@seldon.io
     - gs@seldon.io
+    - rd@seldon.io
   url: https://www.seldon.io
   hiringForKubeflow: true
   hiringUrl: https://www.seldon.io/careers/
