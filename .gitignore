@@ -1,3 +1,4 @@
 flymd.*
 **.pyc
 **/.ipynb_checkpoints
+**/.cache
