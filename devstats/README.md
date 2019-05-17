@@ -527,6 +527,14 @@ All commands should be run in the `devstats-cli-0` pod.
      psql -c "select * from gha_companies;"
      ```
 
+1. If affiliations are changed on a deployed setup, run
+
+    ```
+    cd /mount/data/src/git_kubeflow-community/devstats/config
+    ./shared/reinit.sh
+    ```
+    This will regenerate the precomputed data for grafana without altering GH tables data.    
+
 1. TODO: Do we need to run devstats to compute various metrics?
 
 ### Deleting the Kubeflow database
