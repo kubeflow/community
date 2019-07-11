@@ -2,3 +2,4 @@ flymd.*
 **.pyc
 **/.ipynb_checkpoints
 **/.cache
+.DS_Store
