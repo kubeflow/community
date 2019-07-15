@@ -33,7 +33,7 @@ WIP
 
 THe beam operator will run the pipeline for preprocessing and will connect to spark  cluster to run on the backend. 
 
-![MPI Operator](diagrams/beam-operator.png)
+![Beam Operator](diagrams/beam-operator.png)
 
 # Alternatives Considered
 
