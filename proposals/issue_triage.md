@@ -38,6 +38,10 @@ The following are necessary and sufficient conditions for an issue to be conside
 
   * Cards will be setup to monitor various issues; e.g. issues requiring discussion by various WG's
 
+* The [triage notebook](https://github.com/kubeflow/code-intelligence/blob/master/py/code_intelligence/triage.ipynb) can be used to generate reports about number of untriaged issues
+
+ * The [triage notebook](https://github.com/kubeflow/code-intelligence/blob/master/py/code_intelligence/triage.ipynb) can be used to identify issues needing triage and add them to the Kanban board
+
 * Automated tooling will be used to automatically add issues to the Kanban board if they don't meet the above criterion and remove them once the criterion have
   been satisfied and the issues can be considered triaged
 
