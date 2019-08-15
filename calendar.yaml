@@ -46,11 +46,44 @@
 
 - id: kf003
   name: Kubeflow On-premise Working Group
-  date: 08/08/2019
+  date: 08/22/2019
   time: 10:00am-10:45am
   frequency: weekly
   video: https://zoom.us/j/669751921
   description:
     - |
       Meeting Logs: https://bit.ly/2LyTh14
+  organizer: theadactyl
+
+- id: kf004
+  name: Kubeflow Serving Working Group
+  date: 08/21/2019
+  time: 9:00am-10:00am
+  frequency: weekly
+  video: https://meet.google.com/bhe-aqdx-iag
+  description:
+    - |
+      Meeting Logs: https://docs.google.com/document/d/1KZUURwr9MnHXqHA08TFbfVbM8EAJSJjmaMhnvstvi-k/
+  organizer: theadactyl
+
+- id: kf005
+  name: Kubeflow Product Management Working Group
+  date: 08/20/2019
+  time: 10:00am-11:00am
+  frequency: bi-weekly
+  video: https://zoom.us/j/512655157
+  description:
+    - |
+      Meeting Logs: https://bit.ly/kf-pm-meeting-notes
+  organizer: theadactyl
+
+- id: kf006
+  name: Kubeflow Outreach
+  date: 08/27/2019
+  time: 10:00am-11:00am
+  frequency: bi-weekly
+  video: https://zoom.us/j/512655157
+  description:
+    - |
+      Meeting Logs: http://bit.ly/kf-outreach-meeting-notes
   organizer: theadactyl

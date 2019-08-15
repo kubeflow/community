@@ -5,6 +5,7 @@
 # https://developers.google.com/resources/api-libraries/documentation/calendar/v3/python/latest/calendar_v3.events.html#insert
 
 from datetime import datetime
+import logging
 import os.path
 import yaml
 import googleapiclient.errors
@@ -14,6 +15,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 SCOPES = ['https://www.googleapis.com/auth/calendar.events']
 
 def main():
+  logging.getLogger().setLevel(logging.INFO)
   flow = InstalledAppFlow.from_client_secrets_file('credentials.json', SCOPES)
   creds = flow.run_local_server(port=0)
   service = build('calendar', 'v3', credentials=creds)
@@ -71,12 +73,12 @@ def main():
 
       try:
         event = service.events().insert(calendarId='primary', body=event).execute()
-        print("Event created: {}".format(event.get('htmlLink')))
+        logging.info("Event created: {}".format(event.get('htmlLink')))
       except googleapiclient.errors.HttpError:
         event= service.events().update(calendarId='primary', eventId=meeting['id'], body=event).execute()
-        print("Event updated: {}".format(event.get('htmlLink')))
+        logging.info("Event updated: {}".format(event.get('htmlLink')))
       else:
-        print("Error occurred creating the event")
+        logging.error("Error occurred creating the event")
 
 if __name__ == '__main__':
     main()
