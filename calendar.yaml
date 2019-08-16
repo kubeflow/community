@@ -1,0 +1,89 @@
+# This file lists all the meetings to be listed on the Kubeflow
+# Community Calendar (https://calendar.google.com/calendar/embed?src=kubeflow.org_7l5vnbn8suj2se10sen81d9428@group.calendar.google.com).
+#
+# Required fields:
+#   id - A unique ID to give the meeting (add 1 to the previous meeting ID in the list).
+#   name - The name of the meeting.
+#   date - The date of the first meeting (month/day/year).
+#   time - The start and end of the meeting in PST time zone.
+#   frequency - How often the meeting takes place.
+#   video - Zoom or Hangouts meeting link.
+#   description - Any other information about the meeting such
+#   as the meeting agenda link. 
+#   organizer - Github username of the meeting organizer.
+
+- id: kf001
+  name: Kubeflow Community Call
+  date: 08/13/2019
+  time: 8:00AM-8:55AM
+  frequency: bi-weekly
+  video: https://zoom.us/j/799749911
+  description: 
+    - |
+      Notes & agenda: https://bit.ly/kf-meeting-notes
+
+      Join from PC, Mac, Linux, iOS or Android: https://zoom.us/j/799749911
+
+      Join from phone in the US: +1 669 900 6833 or +1 646 558 8656 
+      International numbers available: https://zoom.us/zoomconference?m=Os1EjlUlpb2_XUMaQ6dX1azqMK5CkfWH
+  organizer: theadactyl
+
+- id: kf002
+  name: Kubeflow Community Call
+  date: 08/20/2019
+  time: 5:30PM-6:25PM
+  frequency: bi-weekly
+  video: https://zoom.us/j/799749911
+  description: 
+    - |
+      Notes & agenda: https://bit.ly/kf-meeting-notes
+
+      Join from PC, Mac, Linux, iOS or Android: https://zoom.us/j/799749911
+
+      Join from phone in the US: +1 669 900 6833 or +1 646 558 8656 
+      International numbers available: https://zoom.us/zoomconference?m=Os1EjlUlpb2_XUMaQ6dX1azqMK5CkfWH
+  organizer: theadactyl
+
+- id: kf003
+  name: Kubeflow On-premise Working Group
+  date: 08/22/2019
+  time: 10:00am-10:45am
+  frequency: weekly
+  video: https://zoom.us/j/669751921
+  description:
+    - |
+      Meeting Logs: https://bit.ly/2LyTh14
+  organizer: theadactyl
+
+- id: kf004
+  name: Kubeflow Serving Working Group
+  date: 08/21/2019
+  time: 9:00am-10:00am
+  frequency: weekly
+  video: https://meet.google.com/bhe-aqdx-iag
+  description:
+    - |
+      Meeting Logs: https://docs.google.com/document/d/1KZUURwr9MnHXqHA08TFbfVbM8EAJSJjmaMhnvstvi-k/
+  organizer: theadactyl
+
+- id: kf005
+  name: Kubeflow Product Management Working Group
+  date: 08/20/2019
+  time: 10:00am-11:00am
+  frequency: bi-weekly
+  video: https://zoom.us/j/512655157
+  description:
+    - |
+      Meeting Logs: https://bit.ly/kf-pm-meeting-notes
+  organizer: theadactyl
+
+- id: kf006
+  name: Kubeflow Outreach
+  date: 08/27/2019
+  time: 10:00am-11:00am
+  frequency: bi-weekly
+  video: https://zoom.us/j/512655157
+  description:
+    - |
+      Meeting Logs: http://bit.ly/kf-outreach-meeting-notes
+  organizer: theadactyl
