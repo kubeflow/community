@@ -4,23 +4,22 @@ Authors: chasm@google.com, jlewi@google.com, kam.d.kasravi@intel.com
 
 ## Objective
 
-Define requirements and recommendations aimed at graduating applications (e.g. controller and web apps) in Kubeflow to 1.0.
+The purpose of this doc is to define requirements and recommendations aimed at graduating applications (e.g. controller and web apps) in Kubeflow to 1.0.
+
+The main goals are to:
+
+1. Establish criteria for graduating a Kubeflow application to a supported Kubeflow application; i.e. 1.0
+1. Set clear expectations for users regarding Kubeflow applications that are 1.0
 
 ## Scope
 
-This document is intended to cover applications that are deployed in the Kubernetes cluster and in particular:
+This document is intended to cover applications that are deployed in the
+Kubernetes cluster as part of Kubeflow and in particular:
 
 1. Custom resources and controllers
 1. Web applications
 
 This document is not intended to cover SDKs (e.g. fairing) or client side tools (like kfctl).
-
-## Goals
-
-The purpose of this doc is to:
-
-1. Establish criterion for graduating a Kubeflow application to a supported Kubeflow application; i.e. 1.0
-1. Set clear expectations for users regarding Kubeflow applications that are 1.0
 
 ## Requirements
 
@@ -30,7 +29,7 @@ The purpose of this doc is to:
 |-------------|----------|-------------|
 | Kustomize package  | Required  | <ul><li>Kubeflow has standardized on Kustomize for configuring and deploying packages </ul> |
 | Application CR  | Required  | <ul><li>Kubeflow has standardized on using the Kubernetes Application CR to provide consistent metadata and monitoring about applications <li> Application CR should be an owner of all resources so that deleting the application CR uninstalls the application </ul> |
-| ```app.kubernetes.io``` labels on every resource | Required  | <ul><li>Every resource that is part of the application should include the [labels](https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/#labels) recommended by Kubernetes </ul> |
+| ```app.kubernetes.io``` labels on every resource | Required  | <ul><li>Every resource that is part of the application should include the [labels](https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/#labels) recommended by Kubernetes, currently: <ul><li>`app.kubernetes.io/name` <li>`app.kubernetes.io/instance` <li>`app.kubernetes.io/version` <li>`app.kubernetes.io/component` <li>`app.kubernetes.io/part-of` <li>`app.kubernetes.io/managed-by`</ul> <li>See example [here](https://github.com/kubeflow/manifests/blob/v0.6.1/tf-training/tf-job-operator/overlays/application/application.yaml#L8-L13) </ul> |
 | Images listed in kustomization.yaml | Required  | <ul><li>All docker images used by the application should be listed in one or more kustomization.yaml files <li>This facilitates mirroring the images to different docker registries </ul> |
 | Upgradeability | Required  | <ul><li>Applications must support upgrading between consecutive major and minor releases </ul> |
 | Separate cluster scoped and namespace scoped resources | Recommended  | <ul><li>To the extent possible cluster scoped resources should be installable separately (e.g. via a separate kustomize package) <li> This allows cluster admins to install only the cluster scoped resources </ul> |
@@ -79,6 +78,6 @@ The purpose of this doc is to:
 * TFJob and PyTorch 1.0 [exit criterion](http://bit.ly/operators-exit-criterion)
 * [CNCF Graduation Criteria](https://github.com/cncf/toc/blob/master/process/graduation_criteria.adoc)
 * [Core Infrastructure Best Practices](https://github.com/coreinfrastructure/best-practices-badge)
-* [v1.0 Docs and Processes](https://docs.google.com/document/d/1v06QmjIms3z-uoW-waS7S9IzMA6n4CVrXOwQQ9N0do4)
+* [Kubeflow v1.0 Docs and Processes](https://docs.google.com/document/d/1v06QmjIms3z-uoW-waS7S9IzMA6n4CVrXOwQQ9N0do4)
 * [Application CR Issue](https://github.com/kubernetes-sigs/application/issues/6) related to dependencies and health monitoring 
 
