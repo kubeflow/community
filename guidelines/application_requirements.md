@@ -35,6 +35,16 @@ This document is not intended to cover SDKs (e.g. fairing) or client side tools 
 | Separate cluster scoped and namespace scoped resources | Recommended  | <ul><li>To the extent possible cluster scoped resources should be installable separately (e.g. via a separate kustomize package) <li> This allows cluster admins to install only the cluster scoped resources </ul> |
 | Kustomize package should be deployable on its own | Recommended  | <ul><li>To the extent possible users should be able to run kustomize build | kubectl apply inside the kustomize package to deploy the application stand alone </ul> |
 
+### Custom Resources
+
+| Description | Category | Explanation |
+|-------------|----------|-------------|
+| Version stability | Required  | <ul><li>No deprecative API changes </ul> |
+| Backward compatibility | Required  | <ul><li>Serves multiple versions </ul> |
+| Supports status subresource | Required  | <ul><li>Status subresource documented [here](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/#status-subresource) </ul> |
+| CRD schema validation | Required  | <ul><li>Validation documented [here](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/#validation) <li>Example: [TFJob](https://github.com/kubeflow/kubeflow/blob/v0.6.1/kubeflow/tf-training/tf-job-operator.libsonnet#L81) </ul> |
+| Training operators follow kubeflow/common conventions | Required  | <ul><li>Conventions defined [here](https://github.com/kubeflow/common/blob/master/job_controller/api/v1/types.go) <li>Examples: [TFJob](https://github.com/kubeflow/kubeflow/blob/v0.6.1/kubeflow/tf-training/tf-job-operator.libsonnet) and [PyTorchJob](https://github.com/kubeflow/kubeflow/blob/v0.6.1/kubeflow/pytorch-job/pytorch-operator.libsonnet) </ul> |
+
 ### Logging and monitoring
 
 | Description | Category | Explanation |
