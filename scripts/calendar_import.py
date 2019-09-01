@@ -18,7 +18,7 @@ from googleapiclient.discovery import build
 from oauth2client.service_account import ServiceAccountCredentials
 
 SERVICE_ACCOUNT_FILE = 'kubeflow_calendar_sa.json'
-CALENDAR_ID = 'kubeflow@kubeflow.org'
+CALENDAR_ID = 'kubeflow.org_7l5vnbn8suj2se10sen81d9428@group.calendar.google.com'
 SCOPES = ['https://www.googleapis.com/auth/calendar.events']
 
 def main():
