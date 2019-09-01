@@ -4,20 +4,26 @@
 # For modifications please refer to the Google Calendar Python API:
 # https://developers.google.com/resources/api-libraries/documentation/calendar/v3/python/latest/calendar_v3.events.html#insert
 
+# Requires the following packages: oauth2client, pyyaml, google-api-python-client
+
+# Uses a service account -- the calendar must be shared with the service account
+# email and given permission: "Make changes to events"
+
 from datetime import datetime
 import logging
 import os.path
 import yaml
 import googleapiclient.errors
 from googleapiclient.discovery import build
-from google_auth_oauthlib.flow import InstalledAppFlow
+from oauth2client.service_account import ServiceAccountCredentials
 
+SERVICE_ACCOUNT_FILE = 'kubeflow_calendar_sa.json'
+CALENDAR_ID = 'kubeflow@kubeflow.org'
 SCOPES = ['https://www.googleapis.com/auth/calendar.events']
 
 def main():
   logging.getLogger().setLevel(logging.INFO)
-  flow = InstalledAppFlow.from_client_secrets_file('credentials.json', SCOPES)
-  creds = flow.run_local_server(port=0)
+  creds = ServiceAccountCredentials.from_json_keyfile_name(SERVICE_ACCOUNT_FILE, SCOPES)
   service = build('calendar', 'v3', credentials=creds)
 
   this_file = __file__
@@ -72,13 +78,13 @@ def main():
       }
 
       try:
-        event = service.events().insert(calendarId='primary', body=event).execute()
+        event = service.events().insert(calendarId='CALENDAR_ID', body=event).execute()
         logging.info("Event created: {}".format(event.get('htmlLink')))
       except googleapiclient.errors.HttpError:
-        event= service.events().update(calendarId='primary', eventId=meeting['id'], body=event).execute()
+        event = service.events().update(calendarId='CALENDAR_ID', eventId=meeting['id'], body=event).execute()
         logging.info("Event updated: {}".format(event.get('htmlLink')))
-      else:
-        logging.error("Error occurred creating the event")
+      except Exception as e:
+        logging.error("Error occurred creating the event: ", e)
 
 if __name__ == '__main__':
     main()

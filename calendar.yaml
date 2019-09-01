@@ -1,8 +1,9 @@
-# This file lists all the meetings to be listed on the Kubeflow
-# Community Calendar (https://calendar.google.com/calendar/embed?src=kubeflow.org_7l5vnbn8suj2se10sen81d9428@group.calendar.google.com).
+# This file lists all the meetings to be listed on the Kubeflow Community
+# Calendar (https://calendar.google.com/calendar/embed?src=kubeflow.org_7l5vnbn8suj2se10sen81d9428@group.calendar.google.com).
 #
 # Required fields:
-#   id - A unique ID to give the meeting (add 1 to the previous meeting ID in the list).
+#   id - A unique ID to give the meeting (add 1 to the previous meeting ID in
+#   the list).
 #   name - The name of the meeting.
 #   date - The date of the first meeting (month/day/year).
 #   time - The start and end of the meeting in PST time zone.
