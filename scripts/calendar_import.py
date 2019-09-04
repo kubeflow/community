@@ -11,13 +11,13 @@
 
 from datetime import datetime
 import logging
-import os.path
+import os
 import yaml
 import googleapiclient.errors
 from googleapiclient.discovery import build
 from oauth2client.service_account import ServiceAccountCredentials
 
-SERVICE_ACCOUNT_FILE = 'kubeflow_calendar_sa.json'
+SERVICE_ACCOUNT_FILE = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS')
 CALENDAR_ID = 'kubeflow.org_7l5vnbn8suj2se10sen81d9428@group.calendar.google.com'
 SCOPES = ['https://www.googleapis.com/auth/calendar.events']
 
