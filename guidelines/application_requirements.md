@@ -40,7 +40,7 @@ This document is not intended to cover SDKs (e.g. fairing) or client side tools 
 | Description | Category | Explanation |
 |-------------|----------|-------------|
 | Version stability | Required  | <ul><li>No deprecative API changes </ul> |
-| Backward compatibility | Required  | <ul><li>Serves multiple versions </ul> |
+| Multi Version Support | Required  | <ul><li>Serves multiple versions of the [CR per K8s docs](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definition-versioning/#specify-multiple-versions) </ul> |
 | Supports status subresource | Required  | <ul><li>Status subresource documented [here](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/#status-subresource) </ul> |
 | CRD schema validation | Required  | <ul><li>Validation documented [here](https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/#validation) <li>Example: [TFJob](https://github.com/kubeflow/kubeflow/blob/v0.6.1/kubeflow/tf-training/tf-job-operator.libsonnet#L81) </ul> |
 | Training operators follow kubeflow/common conventions | Required  | <ul><li>Conventions defined [here](https://github.com/kubeflow/common/blob/master/job_controller/api/v1/types.go) <li>Examples: [TFJob](https://github.com/kubeflow/kubeflow/blob/v0.6.1/kubeflow/tf-training/tf-job-operator.libsonnet) and [PyTorchJob](https://github.com/kubeflow/kubeflow/blob/v0.6.1/kubeflow/pytorch-job/pytorch-operator.libsonnet) </ul> |
@@ -52,6 +52,13 @@ This document is not intended to cover SDKs (e.g. fairing) or client side tools 
 | Liveness/Readiness signals | Required  | <ul><li>The application should expose liveness and/or readiness signals as appropriate for the application </ul> |
 | Prometheus metrics | Required  | <ul><li>Applications should export suitable application level metrics (e.g. number of jobs) using prometheus  </ul> |
 | Json logging | Recommended  | <ul><li>Applications should optionally emit structured logs with suitable metadata to facilitate debugging <li>e.g. CR controllers should annotate log messages with the name of the resource involved so it's easy to filter logs to all messages about a resource </ul> |
+
+### Docker Images
+
+| Description | Category | Explanation |
+|-------------|----------|-------------|
+| Vulnerability Scanning | Required  | <ul><li>Docker images must be scanned for vulnerabilities and known vulnerabilities published </ul> |
+| Licensing | Required  | <ul><li>Docker images must provide a list of all OSS licensces used by the image and its transitive dependencies  </ul> |
 
 ### CI/CD
 
