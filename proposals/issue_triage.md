@@ -16,21 +16,27 @@ The following are necessary and sufficient conditions for an issue to be conside
 
 * The issue must have a label indicating which one of the following kinds of issues it is
   
-  * bug
-  * question
-  * enhancement
-  * process
+  * **bug**
+    * Something is not working as intended in general.
+  * **question**
+    * Clear question statement
+    * Something is not working as intended in author's specific use case and he/she doesn't know why.
+  * **enhancement**
+    * everything is working as intended, but could be better (i.e more user friendly)
+  * **process**
 
 * The issue must have at least one area label indicating the WG/SIG that should own it
 
 * The issue must have a priority attached to it. Here is a guideline for priority
 
-   * P0 - Urgent - Work must begin immediately to fix with a patch release.
-   * P1 - Rush - Work must be scheduled to assure issue will be fixed in the next release.
-   * P2 - High - Never blocks a release, but should be scheduled for a specific expected release in the future rather than left unscheduled. 
-   * P3 - Medium - Non-critical or cosmetic issues that could and probably should eventually be fixed but have no specific schedule and so are not necessarily assigned to a given release.
+  * **P0** - Urgent - Work must begin immediately to fix with a patch release:
+    * Bugs that state that something is really broken and not working as intended.
+    * Features/improvements that are blocking the next release.
+  * **P1** - Rush - Work must be scheduled to assure issue will be fixed in the next release.
+  * **P2** - High - Never blocks a release, but should be scheduled for a specific expected release in the future rather than left unscheduled.
+  * **P3** - Medium - Non-critical or cosmetic issues that could and probably should eventually be fixed but have no specific schedule and so are not necessarily assigned to a given release.
 
-* P0 & P1 issues must be attached to a Kanban board corresponding to the release it is targeting
+* **P0** & **P1** issues must be attached to a Kanban board corresponding to the release it is targeting
 
 ## Process
 
@@ -48,6 +54,11 @@ The following are necessary and sufficient conditions for an issue to be conside
 * A weekly rotation will be established to designate a primary person to apply initial triage
 
   * The oncall will attempt to satisfy the above criterion or reassign to an appropriate WG if there is some question
+
+## Become a contributor
+
+* Make sure that you have enough permissions to assign labels to an issue and add it to a project.
+* In order to get permissions, open a PR to add yourself to [project-maintainers](https://github.com/kubeflow/internal-acls/blob/4e44f623ea4df32132b2e8a973ed0f0dce4f4139/github-orgs/kubeflow/org.yaml#L389) group.
 
 ## Triage guideline
 
