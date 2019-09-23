@@ -40,7 +40,7 @@ The following are necessary and sufficient conditions for an issue to be conside
 
 * The [triage notebook](https://github.com/kubeflow/code-intelligence/blob/master/py/code_intelligence/triage.ipynb) can be used to generate reports about number of untriaged issues
 
- * The [triage notebook](https://github.com/kubeflow/code-intelligence/blob/master/py/code_intelligence/triage.ipynb) can be used to identify issues needing triage and add them to the Kanban board
+* The [triage notebook](https://github.com/kubeflow/code-intelligence/blob/master/py/code_intelligence/triage.ipynb) can be used to identify issues needing triage and add them to the Kanban board
 
 * Automated tooling will be used to automatically add issues to the Kanban board if they don't meet the above criterion and remove them once the criterion have
   been satisfied and the issues can be considered triaged
@@ -48,6 +48,16 @@ The following are necessary and sufficient conditions for an issue to be conside
 * A weekly rotation will be established to designate a primary person to apply initial triage
 
   * The oncall will attempt to satisfy the above criterion or reassign to an appropriate WG if there is some question
+
+## Triage guideline
+
+* Take an issue from "Needs Triage" project and open it in a new tab.
+* Carefully read the description.
+* Carefully read all comments below. (Some issues might be already resolved).
+* Make sure that issue is still relevant. (Some issues might be open for months and still be relevant to current Kubeflow release whereas some might be outdated and can be closed).
+* Ping one of the issue repliers if he/she is not replying for a while.
+* Make sure that all triage conditions are satisfied.
+* Remove issue from "Needs Triage" Project.
 
 ## Metrics
 
