@@ -33,8 +33,8 @@ The following are necessary and sufficient conditions for an issue to be conside
     * Bugs that state that something is really broken and not working as intended.
     * Features/improvements that are blocking the next release.
   * **P1** - Rush - Work must be scheduled to assure issue will be fixed in the next release.
-  * **P2** - High - Never blocks a release, but should be scheduled for a specific expected release in the future rather than left unscheduled.
-  * **P3** - Medium - Non-critical or cosmetic issues that could and probably should eventually be fixed but have no specific schedule and so are not necessarily assigned to a given release.
+  * **P2** - Low - Never blocks a release, assigned to a relevant project backlog if applicable.
+  * **P3** - Very Low - Non-critical or cosmetic issues that could and probably should eventually be fixed but have no specific schedule, assigned to a relavant project backlog if applicable.
 
 * **P0** & **P1** issues must be attached to a Kanban board corresponding to the release it is targeting
 
@@ -68,7 +68,6 @@ The following are necessary and sufficient conditions for an issue to be conside
 * Make sure that issue is still relevant. (Some issues might be open for months and still be relevant to current Kubeflow release whereas some might be outdated and can be closed).
 * Ping one of the issue repliers if he/she is not replying for a while.
 * Make sure that all triage conditions are satisfied.
-* Remove issue from "Needs Triage" Project.
 
 ## Metrics
 
