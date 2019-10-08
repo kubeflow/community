@@ -22,8 +22,9 @@ The following are necessary and sufficient conditions for an issue to be conside
     * Clear question statement
     * Something is not working as intended in author's specific use case and he/she doesn't know why.
   * **enhancement**
-    * everything is working as intended, but could be better (i.e more user friendly)
+    * Everything is working as intended, but could be better (i.e more user friendly)
   * **process**
+    * Typically used to leave a paper trail for updating Kubeflow infrastructure. It helps to track the changes to infrastructure for easy debugging in the future.
 
 * The issue must have at least one area label indicating the WG/SIG that should own it
 
