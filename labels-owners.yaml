@@ -49,6 +49,7 @@ labels:
       - vkoukis
   area/katib:
       - andreyvelich
+      - gaocegege
       - hougangliu
       - johnugeorge
   area/kubebench:
