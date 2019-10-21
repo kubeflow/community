@@ -2,156 +2,154 @@
 # This file provides information about labels and owners behind them
 #
 # Please keep this file alphabetized by label name and owner name
-
-repositories:
-    kubeflow:
-        area/airgapped:
-          owners:
-            - krishnadurai
-            - swiftdiaries
-        area/applications:
-          owners:
-            - kkasravi
-        area/centraldashboard:
-          owners:
-            - avdaredevil
-            - prodonjs
-        area/docs:
-          owners:
-            - sarahmaddox
-        area/example:
-          owners:
-            - dansanche
-            - jinchihe
-            - lluunn
-            - texasmichelle
-        area/gcp:
-          owners:
-            - gabrielwen
-            - jlewi
-            - kunmingg
-            - lluunn
-            - richardsliu
-            - zhenghuiwang
-        area/inference:
-          owners:
-            - animeshsingh
-            - cliveseldon
-            - ellis-bigelow
-            - rakelkar
-            - yuzisun
-        area/istio:
-          owners:
-            - krishnadurai
-            - kunmingg
-            - lluunn
-        area/jupyter:
-          owners:
-            - avdaredevil
-            - ioandr
-            - kimwnasptd
-            - pdmack
-            - prodonjs
-            - vkoukis
-        area/kubebench:
-          owners:
-            - andreyvelich
-            - swiftdiaries
-            - xyhuang
-        area/kustomize:
-          owners:
-            - jinchihe
-            - kkasravi
-            - swiftdiaries
-        area/logging:
-          owners:
-            - jlewi
-            - kunmingg
-        area/mxnet:
-          owners:
-            - gaocegege
-            - suleisl2000
-            - wackxu
-        area/openmpi:
-          owners:
-            - alsrgv
-            - jiezhang
-            - jlewi
-        area/openvino:
-          owners:
-            - kkasravi
-        area/pipelines:
-          owners:
-            - ark-kun
-            - ironPan
-            - neuromage
-            - paveldournov
-        area/sdk:
-          owners:
-            - animeshsinghj
-            - jlewi
-            - jinchihe
-        area/seldon:
-          owners:
-            - cliveseldon
-        area/testing:
-          owners:
-            - gabrielwen
-            - jlewi
-            - kunmingg
-            - lluunn
-            - richardsliu
-            - zhenghuiwang
-        area/tfjob:
-          owners:
-            - gaocegege
-            - johnugeorge
-            - ichardsliu
-            - scorpioCPH
-        area/training:
-          owners:
-            - johnugeorge
-            - richardsliu
-        platform/arm:
-          owners:
-            - animeshsingh
-            - mrXinWang
-        platform/aws:
-          owners:
-            - jeffwan
-        platform/azure:
-          owners:
-            - aronchick
-            - rakelkar
-        platform/gcp:
-          owners:
-            - gabrielwen
-            - jlewi
-            - kunmingg
-            - lluunn
-            - richardsliu
-            - zhenghuiwang
-        platform/microk8s:
-          owners:
-            - carmine
-        platform/minikf:
-          owners:
-            - jbottum
-            - vkoukis
-            - yanniszark
-        platform/minikube:
-          owners:
-            - lluunn
-        platform/onprem:
-          owners:
-            - elviraux
-            - krishnadurai
-            - swiftdiaries
-            - vkoukis
-            - yanniszark
-        platform/openshift:
-          owners:
-            - pdmack
-        platform/power:
-          owners:
-            - animeshsingh
+labels:
+  area/airgapped:
+    owners:
+      - krishnadurai
+      - swiftdiaries
+  area/applications:
+    owners:
+      - kkasravi
+  area/centraldashboard:
+    owners:
+      - avdaredevil
+      - prodonjs
+  area/docs:
+    owners:
+      - sarahmaddox
+  area/example:
+    owners:
+      - dansanche
+      - jinchihe
+      - lluunn
+      - texasmichelle
+  area/gcp:
+    owners:
+      - gabrielwen
+      - jlewi
+      - kunmingg
+      - lluunn
+      - richardsliu
+      - zhenghuiwang
+  area/inference:
+    owners:
+      - animeshsingh
+      - cliveseldon
+      - ellis-bigelow
+      - rakelkar
+      - yuzisun
+  area/istio:
+    owners:
+      - krishnadurai
+      - kunmingg
+      - lluunn
+  area/jupyter:
+    owners:
+      - kimwnasptd
+      - vkoukis
+  area/katib:
+      - andreyvelich
+      - hougangliu
+      - johnugeorge
+  area/kubebench:
+    owners:
+      - andreyvelich
+      - swiftdiaries
+      - xyhuang
+  area/kustomize:
+    owners:
+      - jinchihe
+      - kkasravi
+      - swiftdiaries
+  area/logging:
+    owners:
+      - jlewi
+      - kunmingg
+  area/mxnet:
+    owners:
+      - gaocegege
+      - suleisl2000
+      - wackxu
+  area/openmpi:
+    owners:
+      - alsrgv
+      - jiezhang
+      - jlewi
+  area/openvino:
+    owners:
+      - kkasravi
+  area/pipelines:
+    owners:
+      - ark-kun
+      - jessiezcc
+      - ironPan
+      - neuromage
+      - paveldournov
+  area/sdk:
+    owners:
+      - animeshsinghj
+      - jlewi
+      - jinchihe
+  area/seldon:
+    owners:
+      - cliveseldon
+  area/testing:
+    owners:
+      - gabrielwen
+      - jlewi
+      - kunmingg
+      - lluunn
+      - richardsliu
+      - zhenghuiwang
+  area/tfjob:
+    owners:
+      - gaocegege
+      - johnugeorge
+      - richardsliu
+  area/training:
+    owners:
+      - johnugeorge
+      - richardsliu
+  platform/arm:
+    owners:
+      - animeshsingh
+      - mrXinWang
+  platform/aws:
+    owners:
+      - jeffwan
+  platform/azure:
+    owners:
+      - aronchick
+      - rakelkar
+  platform/gcp:
+    owners:
+      - gabrielwen
+      - jlewi
+      - kunmingg
+      - lluunn
+      - richardsliu
+      - zhenghuiwang
+  platform/microk8s:
+    owners:
+      - carmine
+  platform/minikf:
+    owners:
+      - jbottum
+      - vkoukis
+      - yanniszark
+  platform/minikube:
+    owners:
+      - lluunn
+  platform/onprem:
+    owners:
+      - elviraux
+      - krishnadurai
+      - swiftdiaries
+      - vkoukis
+      - yanniszark
+  platform/openshift:
+    owners:
+      - pdmack
+  platform/power:
+    owners:
+      - animeshsingh
