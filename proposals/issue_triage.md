@@ -26,7 +26,7 @@ The following are necessary and sufficient conditions for an issue to be conside
   * **process**
     * Typically used to leave a paper trail for updating Kubeflow infrastructure. It helps to track the changes to infrastructure for easy debugging in the future.
 
-* The issue must have at least one [area label](https://github.com/kubeflow/community/blob/master/labels-owners.yaml) indicating the WG/SIG that should own it.
+* The issue must have at least one [area label](https://github.com/kubeflow/community/blob/master/labels-owners.yaml) grouping related issues and relevant owners.
 
 * The issue must have a priority attached to it. Here is a guideline for priority
 
