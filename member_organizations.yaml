@@ -109,8 +109,8 @@
 
 - name: Gojek
   contacts:
-    - willem@gojek.com
     - pradithya.pura@gojek.com
+    - willem@gojek.com
   url: https://www.gojek.io/
   hiringForKubeflow: true
   hiringUrl: https://www.gojek.io/careers/
