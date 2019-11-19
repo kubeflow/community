@@ -110,8 +110,10 @@
 - name: Gojek
   contacts:
     - arief.rahmansyah@gojek.com
+    - grace.christina@gojek.com
     - pradithya.pura@gojek.com
     - willem@gojek.com
+    - zhiling.c@gojek.com
   url: https://www.gojek.io/
   hiringForKubeflow: true
   hiringUrl: https://www.gojek.io/careers/
