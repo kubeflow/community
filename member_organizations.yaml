@@ -107,6 +107,13 @@
   hiringForKubeflow: true
   hiringUrl: https://github.com/about/careers
 
+- name: Gojek
+  contacts:
+    - willem@gojek.com
+  url: https://www.gojek.io/
+  hiringForKubeflow: true
+  hiringUrl: https://www.gojek.io/careers/
+
 - name: Google
   contacts:
     - aronchick@google.com
