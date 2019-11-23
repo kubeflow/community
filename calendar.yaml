@@ -248,3 +248,14 @@
       Room 11AB - San Diego Convention Center Upper Level
       https://sched.co/Uada
   organizer: jlewi
+
+
+- id: kf023
+  name: "Book Signing for Oreilly's Kubeflow Operations Guide"
+  date: 11/20/2019
+  time: 10:30am-11:30am
+  description:
+    - |
+      San Diego Convention Center – Sails Pavilion – O'Reilly Booth–S25
+  organizer: jpatanooga
+  
