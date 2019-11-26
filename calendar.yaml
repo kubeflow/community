@@ -16,7 +16,7 @@
 - id: kf001
   name: Kubeflow Community Call
   date: 08/13/2019
-  time: 8:00AM-8:55AM
+  time: 5:30PM-6:25PM
   frequency: bi-weekly
   video: https://zoom.us/j/799749911
   description:
@@ -32,7 +32,7 @@
 - id: kf002
   name: Kubeflow Community Call
   date: 08/20/2019
-  time: 5:30PM-6:25PM
+  time: 8:00AM-8:55AM
   frequency: bi-weekly
   video: https://zoom.us/j/799749911
   description:
