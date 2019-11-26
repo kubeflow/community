@@ -39,18 +39,18 @@ The following are necessary and sufficient conditions for an issue to be conside
 
 * **P0** & **P1** issues must be attached to a Kanban board corresponding to the release it is targeting
 
-## Process
+## Process & Tooling
 
 * The [Needs Triage](https://github.com/orgs/kubeflow/projects/26) Kanban board will be used to track issues that need triage
 
   * Cards will be setup to monitor various issues; e.g. issues requiring discussion by various WG's
 
-* The [triage notebook](https://github.com/kubeflow/code-intelligence/blob/master/py/code_intelligence/triage.ipynb) can be used to generate reports about number of untriaged issues
+* The [GitHub Issue Triage action](https://github.com/kubeflow/code-intelligence/tree/master/Issue_Triage/action) can be used to
+  automatically add/remove issues from the Kanban board depending on whether they need triage or not
 
-* The [triage notebook](https://github.com/kubeflow/code-intelligence/blob/master/py/code_intelligence/triage.ipynb) can be used to identify issues needing triage and add them to the Kanban board
+  * Follow the [instructions](https://github.com/kubeflow/code-intelligence/tree/master/Issue_Triage/action#installing-the-action-on-a-repository) to install the GitHub action on a repository
 
-* Automated tooling will be used to automatically add issues to the Kanban board if they don't meet the above criterion and remove them once the criterion have
-  been satisfied and the issues can be considered triaged
+* The [triage notebook](https://github.com/kubeflow/code-intelligence/blob/master/py/code_intelligence/triage.ipynb) can be used to generate reports about number of untriaged issues as well as find issues needing triage
 
 * A weekly rotation will be established to designate a primary person to apply initial triage
 
