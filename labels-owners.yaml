@@ -88,7 +88,7 @@ labels:
       - paveldournov
   area/sdk:
     owners:
-      - animeshsinghj
+      - animeshsingh
       - jlewi
       - jinchihe
   area/seldon:
@@ -130,6 +130,10 @@ labels:
       - lluunn
       - richardsliu
       - zhenghuiwang
+  platform/ibmcloud:
+    owners:
+      - animeshsingh
+      - tomcli  
   platform/microk8s:
     owners:
       - carmine
@@ -150,7 +154,9 @@ labels:
       - yanniszark
   platform/openshift:
     owners:
+      - animeshsingh
       - pdmack
   platform/power:
     owners:
       - animeshsingh
+      - jinchihe
