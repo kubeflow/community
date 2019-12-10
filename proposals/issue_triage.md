@@ -21,12 +21,12 @@ The following are necessary and sufficient conditions for an issue to be conside
   * **question**
     * Clear question statement
     * Something is not working as intended in author's specific use case and he/she doesn't know why.
-  * **enhancement**
+  * **feature**
     * Everything is working as intended, but could be better (i.e more user friendly)
   * **process**
     * Typically used to leave a paper trail for updating Kubeflow infrastructure. It helps to track the changes to infrastructure for easy debugging in the future.
 
-* The issue must have at least one [area label](https://github.com/kubeflow/community/blob/master/labels-owners.yaml) grouping related issues and relevant owners.
+* The issue must have at least one [area or platform label](https://github.com/kubeflow/community/blob/master/labels-owners.yaml) grouping related issues and relevant owners.
 
 * The issue must have a priority attached to it. Here is a guideline for priority
 
@@ -41,20 +41,30 @@ The following are necessary and sufficient conditions for an issue to be conside
 
 ## Process
 
+1. Global triagers are responsible for ensuring new issues have an area or platform label
+
+   * A weekly rotation will be established to designate a primary person to apply initial triage
+
+   * Once issues have an area/platform label they should be moved into the appropriate [column "Assigned to Area Owners"](https://github.com/orgs/kubeflow/projects/26#column-7382310) in the Needs Triage Kanban board
+
+      * There is an open issue [kubeflow/code-intelligence#72](https://github.com/kubeflow/code-intelligence/issues/72) to do this automatically
+
+1. Area/Platform owners are responsible for ensuring issues in their area are triaged
+
+   * The oncall will attempt to satisfy the above criterion or reassign to an appropriate WG if there is some question
+
+## Tooling
+
 * The [Needs Triage](https://github.com/orgs/kubeflow/projects/26) Kanban board will be used to track issues that need triage
 
   * Cards will be setup to monitor various issues; e.g. issues requiring discussion by various WG's
 
-* The [triage notebook](https://github.com/kubeflow/code-intelligence/blob/master/py/code_intelligence/triage.ipynb) can be used to generate reports about number of untriaged issues
+* The [GitHub Issue Triage action](https://github.com/kubeflow/code-intelligence/tree/master/Issue_Triage/action) can be used to
+  automatically add/remove issues from the Kanban board depending on whether they need triage or not
 
-* The [triage notebook](https://github.com/kubeflow/code-intelligence/blob/master/py/code_intelligence/triage.ipynb) can be used to identify issues needing triage and add them to the Kanban board
+  * Follow the [instructions](https://github.com/kubeflow/code-intelligence/tree/master/Issue_Triage/action#installing-the-action-on-a-repository) to install the GitHub action on a repository
 
-* Automated tooling will be used to automatically add issues to the Kanban board if they don't meet the above criterion and remove them once the criterion have
-  been satisfied and the issues can be considered triaged
-
-* A weekly rotation will be established to designate a primary person to apply initial triage
-
-  * The oncall will attempt to satisfy the above criterion or reassign to an appropriate WG if there is some question
+* The [triage notebook](https://github.com/kubeflow/code-intelligence/blob/master/py/code_intelligence/triage.ipynb) can be used to generate reports about number of untriaged issues as well as find issues needing triage
 
 ## Become a contributor
 
