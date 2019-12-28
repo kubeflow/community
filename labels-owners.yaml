@@ -7,6 +7,7 @@ labels:
     owners:
       - krishnadurai
       - swiftdiaries
+      - yanniszark
   area/applications:
     owners:
       - kkasravi
@@ -35,6 +36,7 @@ labels:
     owners:
       - animeshsingh
       - cliveseldon
+      - cvenets
       - ellis-bigelow
       - rakelkar
       - yuzisun
@@ -43,8 +45,11 @@ labels:
       - krishnadurai
       - kunmingg
       - lluunn
+      - yanniszark
   area/jupyter:
     owners:
+      - elikatsis
+      - ioandr
       - kimwnasptd
       - vkoukis
   area/katib:
@@ -59,9 +64,11 @@ labels:
       - xyhuang
   area/kustomize:
     owners:
+      - ioandr
       - jinchihe
       - kkasravi
       - swiftdiaries
+      - yanniszark
   area/logging:
     owners:
       - jlewi
@@ -82,6 +89,7 @@ labels:
   area/pipelines:
     owners:
       - ark-kun
+      - elikatsis
       - jessiezcc
       - ironPan
       - neuromage
@@ -91,6 +99,10 @@ labels:
       - animeshsingh
       - jlewi
       - jinchihe
+  area/security:
+    owners:
+      - krishnadurai
+      - yanniszark
   area/seldon:
     owners:
       - cliveseldon
@@ -139,6 +151,8 @@ labels:
       - carmine
   platform/minikf:
     owners:
+      - elikatsis
+      - ioandr
       - jbottum
       - vkoukis
       - yanniszark
