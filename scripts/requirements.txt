@@ -1,0 +1,4 @@
+altair
+google-cloud-bigquery
+pandas
+pandas-gbq
