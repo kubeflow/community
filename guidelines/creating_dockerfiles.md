@@ -1,5 +1,4 @@
-
-# Guidelines for creating docker images for Kubeflow applications
+# Guidelines for creating Docker images for Kubeflow applications
 
 Authors: duselvar@cisco.com, jlewi@google.com, adselvaraj@cisco, jtf.github@gmail.com
 
@@ -41,9 +40,9 @@ If your language or framework is not covered within these above recommendations,
 
 #### Recommendation for Golang images
 
-- It is recommended to use golang 1.13+ images while builing docker images as it contains critical security fixes for the packages net/http, crypto/dsa and net/textproto.
+- It is recommended to use Golang 1.13+ images while building docker images as it contains critical security fixes for the packages net/http, crypto/dsa and net/textproto.
 
-- While building golang binaries in the build docker file, it is recommended to build with the below flags to ensure that the binary runs without needing to use `libc` based packages. This facilitates the use of distroless' `static` image as opposed to `base` image.
+- While building Golang binaries in the build docker file, it is recommended to build with the below flags to ensure that the binary runs without needing to use `libc` based packages. This facilitates the use of distroless' `static` image as opposed to `base` image.
 ```
 RUN CGO_ENABLED=0 GOOS=linux go build -o <output_binary> -ldflags "-w" -a .
 ```
@@ -52,7 +51,7 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o <output_binary> -ldflags "-w" -a .
 
 Kubeflow community recommends the usage of [distroless images](https://github.com/GoogleContainerTools/distroless) for building images for Kubeflow Applications.
 
-This approach reduces the image's size to only what is required to run the application therby reducing sercurity risks.
+This approach reduces the image's size to only what is required to run the application thereby reducing security risks.
 
 The preference of distroless images to be chosen according to language is given by the table below:
 
@@ -69,4 +68,4 @@ The preference of distroless images to be chosen according to language is given 
 
 ## Best Practices
 
-It is recommended to use a CVE scanning tool to report vulnerabilities in image being replaced and compare it with the report of the newer image. This is to ensure that the CVE count reduces with each update to an image.
+It is recommended to use a CVE scanning tool to report vulnerabilities in the image being replaced and compare it with the report of the newer image. This is to ensure that the CVE count reduces with each update to an image.
