@@ -5,7 +5,7 @@ Authors: duselvar@cisco.com, jlewi@google.com, adselvaraj@cisco, jtf.github@gmai
 
 ## Objective
 
-The purpose of this document is to outline a process of creating docker images maintained by our community for Kubeflow Applications.
+The purpose of this document is to outline a process for creating docker images maintained by our community for Kubeflow Applications.
 
 The main goals are to: 
 
@@ -41,20 +41,20 @@ If your language or framework is not covered within these above recommendations,
 
 #### Recommendation for Golang images
 
-- It is recommended to use golang 1.13+ images while builing docker images as it contains critical security fixes net/http, crypto/dsa and net/textproto packages.
+- It is recommended to use golang 1.13+ images while builing docker images as it contains critical security fixes for the packages net/http, crypto/dsa and net/textproto.
 
-- While building golang binaries in the build docker file, it is recommended to build with the below flags to ensure that the binary runs without needing to use libc based packages. This facilitates the use of distroless' `static` image as opposed to `base` image.
+- While building golang binaries in the build docker file, it is recommended to build with the below flags to ensure that the binary runs without needing to use `libc` based packages. This facilitates the use of distroless' `static` image as opposed to `base` image.
 ```
 RUN CGO_ENABLED=0 GOOS=linux go build -o <output_binary> -ldflags "-w" -a .
 ```
 
 ### Selection of actual image
 
-Kubeflow community recommends the usage of [distroless images](https://github.com/GoogleContainerTools/distroless) for shipping images for Kubeflow Applications.
+Kubeflow community recommends the usage of [distroless images](https://github.com/GoogleContainerTools/distroless) for building images for Kubeflow Applications.
 
-This approach reduces the image's size to only what is required to run the application.
+This approach reduces the image's size to only what is required to run the application therby reducing sercurity risks.
 
-The preference of distroless images to be chosen according to language:
+The preference of distroless images to be chosen according to language is given by the table below:
 
 
 | Programming Language or Framework  | Docker Image |
