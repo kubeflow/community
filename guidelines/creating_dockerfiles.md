@@ -1,15 +1,15 @@
 # Guidelines for creating Docker images for Kubeflow applications
 
-Authors: duselvar@cisco.com, jlewi@google.com, adselvaraj@cisco, jtf.github@gmail.com
+Authors: duselvar@cisco.com, jlewi@google.com, adselvaraj@cisco.com, jtf.github@gmail.com
 
 ## Objective
 
-The purpose of this document is to outline a process for creating docker images maintained by our community for Kubeflow Applications.
+The purpose of this document is to outline a process for creating docker images maintained by our community for Kubeflow applications.
 
 The main goals are to: 
 
-1. Establish a process around creating images for Kubeflow Applications.
-1. Improve security of the images built for running Kubeflow Applications.
+1. Establish a process around creating images for Kubeflow applications.
+1. Improve security of the images built for running Kubeflow applications.
 
 ## Scope
 
@@ -49,7 +49,7 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o <output_binary> -ldflags "-w" -a .
 
 ### Selection of actual image
 
-Kubeflow community recommends the usage of [distroless images](https://github.com/GoogleContainerTools/distroless) for building images for Kubeflow Applications.
+Kubeflow community recommends the usage of [distroless images](https://github.com/GoogleContainerTools/distroless) for building images for Kubeflow applications.
 
 This approach reduces the image's size to only what is required to run the application thereby reducing security risks.
 
@@ -64,7 +64,7 @@ The preference of distroless images to be chosen according to language is given 
 
 #### Example image for Kubeflow
 
-[Tf-operator distroless image](https://github.com/kubeflow/tf-operator/blob/master/build/images/tf_operator/Dockerfile) for Golang based binary serves as an example image for Kubeflow.
+[tf-operator distroless image](https://github.com/kubeflow/tf-operator/blob/master/build/images/tf_operator/Dockerfile) for Golang based binary serves as an example image for Kubeflow.
 
 ## Best Practices
 
