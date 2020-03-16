@@ -73,6 +73,7 @@
   contacts:
   - stephan.fabel@canonical.com
   - tim.van.steenburgh@canonical.com
+  - eduardo.aguilar.pelaez@canonical.com
   url: https://www.ubuntu.com/kubernetes
 
 - name: Cisco
