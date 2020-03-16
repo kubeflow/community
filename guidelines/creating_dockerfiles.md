@@ -44,7 +44,7 @@ If your language or framework is not covered within these above recommendations,
 
 - While building Golang binaries in the build docker file, it is recommended to build with the below flags to ensure that the binary runs without needing to use `libc` based packages. This facilitates the use of distroless' `static` image as opposed to `base` image.
 ```
-RUN CGO_ENABLED=0 GOOS=linux go build -o <output_binary> -ldflags "-w" -a .
+RUN CGO_ENABLED=0 GOOS=linux go build -o <output_binary> -a .
 ```
 
 ### Selection of actual image
