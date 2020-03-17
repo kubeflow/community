@@ -62,6 +62,8 @@ The preference of distroless images to be chosen according to language is given 
 | Python3  | [gcr.io/distroless/python3-debian10](gcr.io/distroless/python3-debian10) |
 | NodeJS  | [gcr.io/distroless/nodejs](gcr.io/distroless/nodejs) |
 
+*Note*: Distroless NodeJS is yet to publish a 'debian10' version of the image. We are tracking this change here: https://github.com/GoogleContainerTools/distroless/issues/485
+
 #### Example image for Kubeflow
 
 [tf-operator distroless image](https://github.com/kubeflow/tf-operator/blob/master/build/images/tf_operator/Dockerfile) for Golang based binary serves as an example image for Kubeflow.
