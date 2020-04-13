@@ -58,7 +58,7 @@ This document is not intended to cover SDKs (e.g. fairing) or client side tools 
 | Description | Category | Explanation |
 |-------------|----------|-------------|
 | Vulnerability Scanning | Required  | <ul><li>Docker images must be scanned for vulnerabilities and known vulnerabilities published </ul> |
-| Licensing | Required  | <ul><li>Docker images must provide a list of all OSS licensces used by the image and its transitive dependencies, e.g. you can follow [these instructions](https://github.com/kubeflow/testing/tree/master/py/kubeflow/testing/go-license-tools) to get licenses of dependencies for Golang images </ul> |
+| Licensing | Required  | <ul><li>Docker images must provide a list of all OSS licenses used by the image and its transitive dependencies, e.g. you can follow [these instructions](https://github.com/kubeflow/testing/tree/master/py/kubeflow/testing/go-license-tools) to get licenses of dependencies for Golang images </ul> |
 
 ### CI/CD
 
