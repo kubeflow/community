@@ -18,5 +18,3 @@ You should be a member of the [kubeflow-discuss](https://groups.google.com/forum
 - [@chensun](http://github.com/chensun)
 - [@jessiezcc](http://github.com/jessiezcc)
 - [@kweinmeister](http://github.com/kweinmeister)
-- [@sarahmaddox](http://github.com/sarahmaddox)
-

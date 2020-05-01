@@ -16,7 +16,8 @@ labels:
       - prodonjs
   area/docs:
     owners:
-      - sarahmaddox
+      - jlewi
+      - joeliedtke
   area/example:
     owners:
       - dansanche
