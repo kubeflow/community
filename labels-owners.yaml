@@ -7,9 +7,12 @@ labels:
     owners:
       - krishnadurai
       - swiftdiaries
+      - yanniszark
   area/applications:
     owners:
       - kkasravi
+  area/auth:
+      - yanniszark
   area/centraldashboard:
     owners:
       - avdaredevil
@@ -44,6 +47,7 @@ labels:
       - krishnadurai
       - kunmingg
       - lluunn
+      - yanniszark
   area/jupyter:
     owners:
       - kimwnasptd
@@ -63,10 +67,13 @@ labels:
       - jinchihe
       - kkasravi
       - swiftdiaries
+      - yanniszark
   area/logging:
     owners:
       - jlewi
       - kunmingg
+  area/multiuser:
+      - yanniszark
   area/mxnet:
     owners:
       - gaocegege
@@ -92,6 +99,10 @@ labels:
       - animeshsingh
       - jlewi
       - jinchihe
+  area/enterprise_readiness:
+    owners:
+      - jbottum
+      - yanniszark
   area/seldon:
     owners:
       - cliveseldon
@@ -140,6 +151,8 @@ labels:
       - carmine
   platform/minikf:
     owners:
+      - cspavlou
+      - elikatsis
       - jbottum
       - vkoukis
       - yanniszark
@@ -149,6 +162,7 @@ labels:
   platform/onprem:
     owners:
       - elviraux
+      - jbottum
       - krishnadurai
       - swiftdiaries
       - vkoukis
