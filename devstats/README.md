@@ -1,6 +1,6 @@
 # Devstats
 
-Instructions for deploying [cncf/devstats]https://github.com/cncf/devstats)
+Instructions for deploying [cncf/devstats](https://github.com/cncf/devstats).
 
 
 ## Deploying on Kubernetes
