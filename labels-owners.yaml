@@ -12,6 +12,7 @@ labels:
     owners:
       - kkasravi
   area/auth:
+    owners:
       - yanniszark
   area/centraldashboard:
     owners:
@@ -53,6 +54,7 @@ labels:
       - kimwnasptd
       - vkoukis
   area/katib:
+    owners:
       - andreyvelich
       - gaocegege
       - hougangliu
@@ -73,6 +75,7 @@ labels:
       - jlewi
       - kunmingg
   area/multiuser:
+    owners:
       - yanniszark
   area/mxnet:
     owners:
