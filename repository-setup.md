@@ -7,8 +7,7 @@ Step 1-3 should be performed by admin for the Kubeflow org
 1. Create the repository
 
 1. Configure the repository in GitHub following the instructions [below](#repository-configuration)
-
-   * Grant ci-bots write permission
+   
    * enable branch protections
 
 1. Create an OWNERS file at the root of the repository
@@ -21,6 +20,10 @@ Step 1-3 should be performed by admin for the Kubeflow org
 1. Setup prow for the repository by following the instructions [below](#setup-prow)
 
     * This step can be performed by anyone; doesn't need to be a Kubeflow org admin
+
+
+1. Open a PR to [org.yaml](https://github.com/kubeflow/internal-acls/blob/master/github-orgs/kubeflow/org.yaml)
+   granting write permssion to the `ci-bots` team.
 
 ## Setting up prow for your repository
 
