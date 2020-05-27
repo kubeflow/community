@@ -1,7 +1,7 @@
 # Kubeflow Assets
 
 This doc is intended to provide an overview of the different assets 
-which are used by the Kubeflow community and highlight the respective owners.
+which are used by the Kubeflow community and identify the respective owners.
 
 ## GitHub Org: kubeflow
 
@@ -78,6 +78,23 @@ TODO(jlewi): Are there owners/admins with higher privileges then editors?
 
 For more info see: https://github.com/kubeflow/community/issues/316
 
+## Netlify
+
+We have the following netlify sites
+
+* https://app.netlify.com/sites/competent-brattain-de2d6d/overview
+  * This should be our main site
+  * Prior to 1.0 we were creating new sites for every release see https://github.com/kubeflow/website/issues/1581
+  * Refer to [releasing.md](https://github.com/kubeflow/kubeflow/blob/master/docs_dev/releasing.md#version-the-website) for
+    more instructions
+
+
+Access is granted through the Netlify kubeflow-team; current owners are
+
+* jeremy@lewi.us
+* ricliu@google.com
+* saramaddoxmail@gmail.com
+
 ## Twitter
 
 https://twitter.com/kubeflow
@@ -98,9 +115,39 @@ The following twitter accounts are linked as teammebers
 
 ## Mailing List
 
+https://groups.google.com/forum/#!members/kubeflow-discuss
+
+Owners:
+
+* abhishek@google.com
+* ewj@google.com
+* jlewi@google.com
+* thealamkin@google.com
 
 ## Slack
 
+kubeflow.slack.com
+
+
+Workspace Owners:
+
+* abhishek@google.com
+* aronchick@gmail.com
+* sarahmaddox@gmail.com
+* thealamkin@google.com
+* vishnuk@google.com
+
+
+## Zoom
+
+Owner:
+
+* ewj@google.com
+
+Admins 
+
+* jlewi@google.com
+* thealamkin@google.com
 
 ## DNS Domains
 
