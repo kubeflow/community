@@ -11,19 +11,35 @@
         -   [FATECluster](#fatecluster)
         -   [FateJob](#fatejob)
     -   [Controller design](#controller-design)
+-   [Reference](#reference)
 
 _Status_
+* 2020-5-28 - Draft v2
 * 2020-5-14 – Draft v1
 
 ## Background
 Federated machine learning (FML) is a machine learning setting where many clients (e.g. mobile devices or organizations) collaboratively train a model under the coordination of a central server while keeping the training data decentralized. Only the encrypted mediate parameters are exchanged between clients with MPC or homomorphic encryption.
 ![Federated Machine Learning](diagrams/fate-operator-fl.png)
 
-FML has received significant interest recently, because of its effectiveness to solve data silos and data privacy preserving problems. Companies participated in federated machine learning include 4Paradigm, ANT Financial, Data Republic, Google, Huawei, Intel, JD.com, Microsoft, Nvidia, OpenMind, Pingan Technology, Sharemind, Tencent, VMware, Webank etc.
+FML has received significant interest recently, because of its effectiveness to solve data silos and data privacy preserving problems. Companies participated in federated machine learning include 4Paradigm, ANT Financial, Data Republic, Google, Huawei, Intel, JD.com, Microsoft, Nvidia, OpenMind, Pingan Technology, Sharemind, Tencent, VMware, Webank etc. 
 
-Depending on the differences in features and sample data space, federated machine learning can be classified into horizontally federated machine learning, vertically federated machine learning and federated transfer learning. Horizontally federated machine learning also is called sample-based federated machine learning, means data sets share the same feature space but different in samples. With horizontally federated machine learning, we can gather the relatively small or partial data set into a big one to in-crease the performance of trained models. Vertical federated machine learning is applicable to the cases that two data set with different feature space but share same sample ID. With vertical federated machine learning we can trained a model with attributes from different organizations for a full profile. Vertical federated machine learning is required to redesign most of machine learning algorithms. Federated transfer learning applies to scenarios that two data set with different features space but also different samples. 
+Depending on the differences in features and sample data space, federated machine learning can be classified into horizontally federated machine learning, vertically federated machine learning and federated transfer learning. Horizontally federated machine learning also is called sample-based federated machine learning, means data sets share the same feature space but different in samples. With horizontally federated machine learning, we can gather the relatively small or partial data set into a big one to in-crease the performance of trained models. Vertical federated machine learning is applicable to the cases that two data set with different feature space but share same sample ID. With vertical federated machine learning we can train a model with attributes from different organizations for a full profile. Vertical federated machine learning is required to redesign most of machine learning algorithms. Federated transfer learning applies to scenarios that two data set with different features space but also different samples. 
 
-[FATE (Federated AI Technology Enabler)](https://fate.fedai.org) is an open source project initialized by Webank, now hosted at the Linux Foundation. FATE is the only open source FML framework that supports both horizontal and vertical FML currently. The architecture design of FATE is focused on providing FML platform for enterprises. [KubeFATE](https://github.com/FederatedAI/KubeFATE) is an open source project to deploy FATE on Kubernetes, and is a proven effective solution for FML use cases. 
+[FATE (Federated AI Technology Enabler)](https://fate.fedai.org) is an open source project initialized by Webank, [now hosted at the Linux Foundation](https://fate.fedai.org/2019/09/18/first-digital-only-bank-in-china-joins-linux-foundation/). FATE is the only open source FML framework that supports both horizontal and vertical FML currently. The architecture design of FATE is focused on providing FML platform for enterprises. [KubeFATE](https://github.com/FederatedAI/KubeFATE) is an open source project to deploy FATE on Kubernetes and is a proven effective solution for FML use cases. 
+
+More technologies of Federated machine learning, please refer to [Reference section](#reference)
+
+## Use cases
+The FATE's use cases can refer to [Cases](https://www.fedai.org/cases/). Some highlights:
+1. [Utilization of FATE in Risk Management of Credit in Small and Micro Enterprises](https://www.fedai.org/cases/utilization-of-fate-in-risk-management-of-credit-in-small-and-micro-enterprises/)
+2. [Computer vision Platform powered by Federated Learning](https://www.fedai.org/cases/computer-vision-platform-powered-by-federated-learning/)
+3. [A case of traffic violations insurance-using federated learning](https://www.fedai.org/cases/a-case-of-traffic-violations-insurance-using-federated-learning/)
+4. [Utilization of FATE in Anti Money Laundering Through Multiple Banks](https://www.fedai.org/cases/utilization-of-fate-in-anti-money-laundering-through-multiple-banks/)
+
+Other Federated Machine Learning cases:
+1. [Federated Learning for Mobile Keyboard Prediction](https://research.google/pubs/pub47586/)
+2. [Federated Learning powered by NVIDIA Clara](https://devblogs.nvidia.com/federated-learning-clara/): hospitals and medical institutions collaboratively share and combine their local knowledge
+3. [Owkin Launches the Collaborative COVID-19 Open AI Consortium (COAI)](https://www.unite.ai/covid-19-open-ai-consortium/)
 
 ## Motivation
 Kubeflow provides a toolset for end-to-end machine learning workflow on Kubernetes. Introducing the capability of federated learning to Kubeflow helps FML users and researchers leverage existing Kubeflow toolkits in their workflows and help them more efficiently build FML solutions. 
@@ -33,14 +49,14 @@ A FATE-Operator is a start of supporting FML in Kubeflow. This proposal is aimed
 ## Goals
 A Kubeflow user should be able to run training using FATE as easily as they can using PyTorch, Tensorflow. This proposal is centered around a Kubernetes Operator for FATE. With the FATE-Operator, a user can:
 1.	Provision and manage a FATE cluster;
-2.	Submit a FML job to FATE.
+2.	Submit an FML job to FATE.
 
 This proposal defines the following:
 1.	A FATE operator with three CRDs: 
-   * FateJob: create a FML job;
+   * FateJob: create an FML job;
    * FateCluster: create a FATE cluster to serve FML jobs;
    * Kubefate: the resource management component of FATE cluster.
-2.	Example of full lifecycle to create KubeFATE component, deploy FATE cluster and submit a FML job to created FATE and get the result. Note that, KubeFATE and FATE cluster only needs to be deployed once, and can handle multiple jobs.
+2.	Example of full lifecycle to create KubeFATE component, deploy FATE cluster and submit an FML job to created FATE and get the result. Note that, KubeFATE and FATE cluster only needs to be deployed once, and can handle multiple jobs.
 
 ## Non-Goals
 For the scope of this proposal, we won’t be addressing the method of serving the model.
@@ -98,7 +114,8 @@ spec:
     partyPort: "30010"
   egg:
 replica: 1
-  # Points to KubeFATE created by CRD “Kubefate”
+  
+  # KubeFATE service deployed in Org.
   kubefate:
     name: kubefate-sample
     namespace:  kube-fate
@@ -106,7 +123,7 @@ replica: 1
 The FateCluster defines a deployment of FATE on Kubernetes. 
 * version defines the FATE version deployed in Kubernetes;
 * partyId defines the FML party’s ID;
-* proxyPort defines the exposed port for exchanging models and parameters between different parties in a FML training. It will be exposed as a node port;
+* proxyPort defines the exposed port for exchanging models and parameters between different parties in an FML training. It will be exposed as a node port;
 * partyList defines the parties in a federation which take part in collaboratively learning;
 * egg is the worker nodes of FATE.
 
@@ -118,7 +135,7 @@ metadata:
   name: fatejob-sample
   namespace: fate-9999
 spec:
-  # fateClusterRef points to the FATE cluster resource created by FateCluster
+  # FATE cluster deployed in the Org.
   fateClusterRef: fatecluster-sample
   jobConf:
     pipeline: |-
@@ -172,7 +189,7 @@ spec:
 ```
 FateJob defines the job sent to FATE cluster:
 * fateClusterRef defines the cluster of FATE deployed on Kubernetes. Its value is resource name of FATE cluster created by CRD “FateCluster”;
-* jobConf defines the details of a FML job. It includes:
+* jobConf defines the details of an FML job. It includes:
    * pipeline: the workflow pipeline of FATE. In FATE, there are many prebuilt algorithm components (ref: https://github.com/FederatedAI/FATE/tree/master/federatedml and https://github.com/FederatedAI/FATE/tree/master/federatedrec), which can be used to train models. The pipeline defines how data are passed through and processed in the whole training flow;
    * moduleConf: the detail configuration of each algorithm component, e.g. the optimizers, the batch size etc.
 
@@ -190,10 +207,14 @@ Process 2. Creating FATE cluster. In one party, only one Kubefate instance needs
 
 ![Process 2](diagrams/fate-operator-2.png)
 
-Process 3. Submitting a FML job to FATE cluster. (1) The custom FATE controller listens for FateJob CRD, and sends the job to FATE cluster, which includes the pipeline and modules configuration. (3) The FATE controller waits for the job results from FATE cluster.  
+Process 3. Submitting an FML job to FATE cluster. (1) The custom FATE controller listens for FateJob CRD, and sends the job to FATE cluster, which includes the pipeline and modules configuration. (3) The FATE controller waits for the job results from FATE cluster.  
 
 ![Process 3](diagrams/fate-operator-3.png)
 
 The overall architecture of the federated learning can be presented as following diagram, the FATE cluster will handle the communication and return to FATE controller once the job is done.
 
 ![Overall](diagrams/fate-operator-overall.png)
+
+## Reference
+1. Qiang Yang, Yang Liu, Tianjian Chen, and Yongxin Tong. Federated machine learning: Concept and applications. CoRR, abs/1902.04885, 2019. URL http://arxiv.org/abs/1902.04885
+2. Peter Kairouz et al. Advances and open problems in federated learning. arXiv preprint arXiv:1912.04977
