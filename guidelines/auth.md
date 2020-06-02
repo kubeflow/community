@@ -1,11 +1,12 @@
 # Authentication and Authorization Guideline
 
 This guideline documents the current best practices for authentication and
-authorization in Kubeflow.
-* Kubeflow Application Developers should use this guide to effectively integrate
-  their applications with Kubeflow.
-* Kubeflow Cluster Administrators should use this guide to understand Kubeflow's
-  auth architecture.
+authorization in Kubeflow. Kubeflow Application Developers should use this guide
+to effectively integrate their applications with Kubeflow. This document answers
+the following questions:
+* Authentication: How do application know the identity of the user making a
+  request?
+* Authorization: How do applications act on behalf of the user?
 
 
 ## Introduction
@@ -48,7 +49,7 @@ Kubeflow wants to build on top of the functionality provided by its controllers.
 To provide a better UX, Kubeflow started building Web Apps to ease the use of
 its controllers. However, the story for authentication and authorization
 changes:
-* Authentication is performed by the Istio Gateway, not the K8s API Server.
+* Authentication is performed by a proxy, not the K8s API Server.
 * Authorization is performed by the Web App Backend, not the K8s API Server.
 
 However, we still want to make sure that the user has the same identity and the
@@ -59,8 +60,9 @@ same RBAC permissions are consulted.
 
 ### Authentication
 
-Authentication is done at the Istio Gateway and the result is propagated to web
-apps in a header, in a way similar to the [authenticating proxy](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#authenticating-proxy)
+Authentication is done at a proxy (e.g., the Istio Gateway, Google IAP) in front
+of the web app and the result is propagated to the web app in a header, in a way
+similar to the [authenticating proxy](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#authenticating-proxy)
 method. The authenticated entity can be a user (OIDC, Google IAP) or a
 ServiceAccount (TokenReview).
 
@@ -78,11 +80,19 @@ Every web app should accept the following headers for user identity:
     * Some IdPs (like Google) add a prefix to this header (e.g.,
       `accounts.google.com:`). If the Web App wants to support stripping that
       prefix, it should expose a `KUBEFLOW_USERID_PREFIX` setting).
-* A group header, configurable via the `KUBEFLOW_GROUPS_HEADER` setting.
+* A groups header, configurable via the `KUBEFLOW_GROUPS_HEADER` setting. The
+  value is a comma-separated list.
 * A prefix for headers containing extra identity information (e.g., scopes),
   configurable via the `KUBEFLOW_EXTRAS_HEADER_PREFIX` setting. The prefix is
   removed, the remainder header name is percent decoded and becomes the key, the
   header value becomes the value. ([see also](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#authenticating-proxy)).
+
+
+#### Examples
+
+* [Central Dashboard](https://github.com/kubeflow/kubeflow/blob/e0d7b2edd3df2ee4c06d59d2cf59bcaa2326fcfd/components/centraldashboard/app/server.ts#L29-L30)
+* [Jupyter Web App](https://github.com/kubeflow/kubeflow/blob/0c496710150553784f7ebbbd3070cc9c26bfb39c/components/jupyter-web-app/backend/kubeflow_jupyter/common/utils.py#L21-L22)
+* [Profile Controller](https://github.com/kubeflow/kubeflow/blob/960587ac9025b6a4ba7facaabc8aa1769fb01dc8/components/profile-controller/main.go#L33-L34)
 
 
 ### Authorization
@@ -124,3 +134,9 @@ giving excessive permissions to the Web App.
 For special cases where the Web App is privileged anyway (e.g., an RBAC
 dashboard that has to create Roles/RoleBindings), **Impersonation** can be used
 if it makes more sense.
+
+#### Examples
+
+* [Jupyter Web App](https://github.com/kubeflow/kubeflow/blob/0c496710150553784f7ebbbd3070cc9c26bfb39c/components/jupyter-web-app/backend/kubeflow_jupyter/common/api.py#L80)
+  uses decorators to transparently perform a SubjectAccessReview on every API
+  access.
