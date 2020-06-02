@@ -14,6 +14,7 @@
 -   [Reference](#reference)
 
 _Status_
+* 2020-6-3  - Draft v3
 * 2020-5-28 - Draft v2
 * 2020-5-14 – Draft v1
 
@@ -21,16 +22,16 @@ _Status_
 Federated machine learning (FML) is a machine learning setting where many clients (e.g. mobile devices or organizations) collaboratively train a model under the coordination of a central server while keeping the training data decentralized. Only the encrypted mediate parameters are exchanged between clients with MPC or homomorphic encryption.
 ![Federated Machine Learning](diagrams/fate-operator-fl.png)
 
-FML has received significant interest recently, because of its effectiveness to solve data silos and data privacy preserving problems. Companies participated in federated machine learning include 4Paradigm, ANT Financial, Data Republic, Google, Huawei, Intel, JD.com, Microsoft, Nvidia, OpenMind, Pingan Technology, Sharemind, Tencent, VMware, Webank etc. 
+FML has received significant interest recently, because of its effectiveness to solve data silos and data privacy preserving problems. Companies participated in federated machine learning include 4Paradigm, Ant Financial, Data Republic, Google, Huawei, Intel, JD.com, Microsoft, Nvidia, OpenMind, Pingan Technology, Sharemind, Tencent, VMware, Webank etc. 
 
-Depending on the differences in features and sample data space, federated machine learning can be classified into horizontally federated machine learning, vertically federated machine learning and federated transfer learning. Horizontally federated machine learning also is called sample-based federated machine learning, means data sets share the same feature space but different in samples. With horizontally federated machine learning, we can gather the relatively small or partial data set into a big one to in-crease the performance of trained models. Vertical federated machine learning is applicable to the cases that two data set with different feature space but share same sample ID. With vertical federated machine learning we can train a model with attributes from different organizations for a full profile. Vertical federated machine learning is required to redesign most of machine learning algorithms. Federated transfer learning applies to scenarios that two data set with different features space but also different samples. 
+Depending on the differences in features and sample data space, federated machine learning can be classified into _horizontal federated machine learning_, _vertical federated machine learning_ and _federated transfer learning_. Horizontal federated machine learning is also called sample-based federated machine learning, which means data sets share the same feature space but have different samples. With horizontal federated machine learning, we can gather the relatively small or partial datasets into a big one to increase the performance of trained models. Vertical federated machine learning is applicable to the cases where there are two datasets with different feature space but share same sample ID. With vertical federated machine learning we can train a model with attributes from different organizations for a full profile. Vertical federated machine learning is required to redesign most of machine learning algorithms. Federated transfer learning applies to scenarios where there are two datasets with different features space but also different samples. 
 
 [FATE (Federated AI Technology Enabler)](https://fate.fedai.org) is an open source project initialized by Webank, [now hosted at the Linux Foundation](https://fate.fedai.org/2019/09/18/first-digital-only-bank-in-china-joins-linux-foundation/). FATE is the only open source FML framework that supports both horizontal and vertical FML currently. The architecture design of FATE is focused on providing FML platform for enterprises. [KubeFATE](https://github.com/FederatedAI/KubeFATE) is an open source project to deploy FATE on Kubernetes and is a proven effective solution for FML use cases. 
 
 More technologies of Federated machine learning, please refer to [Reference section](#reference)
 
-## Use cases
-The FATE's use cases can refer to [Cases](https://www.fedai.org/cases/). Some highlights:
+## Case studies
+There are 130+ enterprises and organizations, 150+ colleges participating in FATE project. FATE case studies refer to [Cases](https://www.fedai.org/cases/):
 1. [Utilization of FATE in Risk Management of Credit in Small and Micro Enterprises](https://www.fedai.org/cases/utilization-of-fate-in-risk-management-of-credit-in-small-and-micro-enterprises/)
 2. [Computer vision Platform powered by Federated Learning](https://www.fedai.org/cases/computer-vision-platform-powered-by-federated-learning/)
 3. [A case of traffic violations insurance-using federated learning](https://www.fedai.org/cases/a-case-of-traffic-violations-insurance-using-federated-learning/)
@@ -79,23 +80,37 @@ metadata:
   name: kubefate-sample
   namespace: kube-fate
 spec:
-  # kubefate image tag
-  imageVersion: v1.0.2
-  # ingress host
-  ingressDomain: kubefate.net
+  imageVersion: v1.0.3
+  host: kubefate.net
   # kubefate config
   config:
-    FATECLOUD_MONGO_USERNAME: "root"
-    FATECLOUD_MONGO_PASSWORD: "root"
-    FATECLOUD_MONGO_DATABASE: "KubeFate"
-    FATECLOUD_REPO_NAME: "kubefate"
-    FATECLOUD_REPO_URL: "https://federatedai.github.io/KubeFATE/"
-    FATECLOUD_USER_USERNAME: "admin"
-    FATECLOUD_USER_PASSWORD: "admin"
-    FATECLOUD_LOG_LEVEL: "debug"
+    - name: FATECLOUD_MONGO_URL
+      value: "mongo:27017"
+    - name: FATECLOUD_MONGO_USERNAME
+      valueFrom:
+        secretKeyRef:
+          name: kubefate-secret
+          key: mongoUsername
+    - name: FATECLOUD_MONGO_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: kubefate-secret
+          key: mongoPassword
+    - name: FATECLOUD_MONGO_DATABASE
+      value: "KubeFate"
+    - name: FATECLOUD_USER_USERNAME
+      valueFrom:
+        secretKeyRef:
+          name: kubefate-secret
+          key: kubefateUsername
+    - name: FATECLOUD_USER_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: kubefate-secret
+          key: kubefatePassword
 ```
 KubeFATE is a core component to manage and coordinate FATE clusters in one FML party. The above CRD defines the KubeFATE component. 
-* ingressDomain defines other components how to access the service ingress of KubeFATE exposed.
+* host defines other components how to access the service service gateway of KubeFATE exposed.
 
 #### FATECluster
 ```
