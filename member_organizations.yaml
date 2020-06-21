@@ -84,6 +84,12 @@
   hiringForKubeflow: true
   hiringUrl: https://jobs.cisco.com/jobs
 
+- name: D2iQ
+  contacts:
+    - akirillov@d2iq.com
+    - gilbert@d2iq.com
+  url: https://www.d2iq.com/
+
 - name: Datawire
   contacts:
     - richard@datawire.io
