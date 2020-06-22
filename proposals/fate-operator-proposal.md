@@ -128,7 +128,7 @@ spec:
     partyIp: "192.168.1.10"
     partyPort: "30010"
   egg:
-replica: 1
+    replica: 1
   
   # KubeFATE service deployed in Org.
   kubefate:
