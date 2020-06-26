@@ -56,7 +56,7 @@ WGs are responsible for setting up and administering the following communication
 
 ## [Retirement]
 (merging or disbandment)
-Sometimes it might be necessary to sunset a SIG or Working Group. SIGs/WGs may also merge with an existing SIG/WG if deemed appropriate, and would save project overhead in the long run. SIGs in particular are more ephemeral than WGs, so this process should be followed when the SIG has accomplished it's mission.
+Sometimes it might be necessary to sunset a SIG or Working Group. SIGs/WGs may also merge with an existing SIG/WG if deemed appropriate, and would save project overhead in the long run. SIGs in particular are more ephemeral than WGs, so this process should be followed when the SIG has accomplished its mission.
 
 ### Prerequisites for WG Retirement
 - [ ] Have completed the mission of the WG or have another reason as outlined in [wg-governance.md]
