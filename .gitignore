@@ -3,3 +3,6 @@ flymd.*
 **/.ipynb_checkpoints
 **/.cache
 .DS_Store
+
+# IntelliJ
+.idea/
