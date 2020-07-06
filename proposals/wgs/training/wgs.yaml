@@ -16,6 +16,19 @@ wgs:
     - github: terrytangyuan
       name: Tuan Tang
       company: Ant Group
+    tech_leads:
+    - github: andreyvelich
+      name: Andrey Velichkevich
+      company: Cisco
+    - github: gaocegege
+      name: Ce Gao
+      company: Caicloud
+    - github: johnugeorge
+      name: Johnu George
+      company: Cisco
+    - github: terrytangyuan
+      name: Tuan Tang
+      company: Ant Group
   meetings:
   - description: Project 1 Meeting
     day: Wednesday
