@@ -20,11 +20,14 @@ This proposal aims to formalize the governance of WGs. The proposal
 is based on how Kubernetes SIGs operate. In particular, the following
 docs were used as starting points and then adopted to fit Kubeflow:
 
-  * [Lifecycle of SIGs and Working Groups](https://github.com/kubernetes/community/blob/master/sig-wg-lifecycle.md)
-  * [SIG Governance](https://github.com/kubernetes/community/blob/master/committee-steering/governance/sig-governance.md)
-  * [SIG Charter Guide](https://github.com/kubernetes/community/blob/master/committee-steering/governance/README.md)
-  * [SIG Governance Requirements](https://github.com/kubernetes/community/blob/master/committee-steering/governance/sig-governance-requirements.md)
-  * [SIG Charter Template](https://github.com/kubernetes/community/blob/master/committee-steering/governance/sig-charter-template.md)
+Original(Kubernetes) | Kubeflow |
+--- | --- |
+[Lifecycle of SIGs and Working Groups](https://github.com/kubernetes/community/blob/master/sig-wg-lifecycle.md) | [Lifecycle](wg-lifcyle.md)
+[SIG Governance](https://github.com/kubernetes/community/blob/master/committee-steering/governance/sig-governance.md) | [WG Governance](wg-governance.md)
+[SIG Charter Guide](https://github.com/kubernetes/community/blob/master/committee-steering/governance/README.md) | [WG Charter Guide](wg-charter.md)
+[SIG Governance Requirements](https://github.com/kubernetes/community/blob/master/committee-steering/governance/sig-governance-requirements.md) | [WG Governance Requirements](wg-governance-requirements.md)
+[SIG Charter Template](https://github.com/kubernetes/community/blob/master/committee-steering/governance/sig-charter-template.md) | [WG Charter Template](templates/wg-charter-template.md)
+[Community membership](https://github.com/kubernetes/community/blob/master/community-membership.md) | [Community membership](community-membership.md)
 
 ## References
 

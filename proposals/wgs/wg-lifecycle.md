@@ -46,7 +46,7 @@ WGs are responsible for setting up and administering the following communication
 
 ### Engage:
 ...as a chair/tech lead with other chairs/tech leads
-- [ ] Subscribe to the kubeflow-sig-leads@googlegroups.com group
+- [ ] Subscribe to the kubeflow-wg-leads@googlegroups.com group
 - [ ] Join the #chairs-and-techleads slack channel
 
 ...with the community as part of [wg-governance.md]
@@ -70,12 +70,13 @@ Sometimes it might be necessary to sunset a SIG or Working Group. SIGs/WGs may a
    - [ ] Move all appropriate github repositories to an appropriate archive or a repo outside of the Kubernetes org
    - [ ] Each subproject a WG owns must transfer ownership to a new WG, outside the project, or be retired
    - [ ] File an issue with kubernetes/org if there are multiple repos
-   - [ ] Retire or transfer any test-infra jobs or testgrid dashboards, if applicable, owned by the SIG. Work with SIG-Testing on this.
+   - [ ] Retire or transfer any test-infra jobs or testgrid dashboards, if applicable, owned by the WG.
    - [ ] Migrate/Remove/Deprecate any SIG/WG labels in labels.yaml
    - [ ] Remove or rename any GitHub teams that refer to the WG
-   - [ ] Update sigs.yaml to remove or rename
+   - [ ] Update wgs.yaml to remove or rename
 
 
+[community members]: community-membership.md
 [governance doc]: https://bit.ly/kf-governance
 [subproject]: /governance.md#subprojects
 [Creation]: #Creation

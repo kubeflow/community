@@ -56,15 +56,11 @@ WG should use [the template][Short Template] as a starting point. This document 
 
 The primary goal of the charters is to define the scope of the SIG within Kubernetes and how the SIG leaders exercise ownership of these areas by taking care of their responsibilities. A majority of the effort should be spent on these concerns.
 
-## FAQ
-
-See [frequently asked questions]
 
 [OARP]: https://stumblingabout.com/tag/oarp/
 [Recommendations and requirements]: wg-governance-requirements.md
 [wg-governance]: wg-governance.md
 [Short Template]: /templates/wg-charter-template.md
-[frequently asked questions]: FAQ.md
 [wgs.yaml]: /templates/wgs.yaml
 [sig-architecture example]: ../../sig-architecture/charter.md
 [steering@kubeflow.org]: mailto:steering@kubeflow.org
