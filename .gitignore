@@ -6,3 +6,4 @@ flymd.*
 
 # IntelliJ
 .idea/
+.vscode/

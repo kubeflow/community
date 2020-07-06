@@ -1,0 +1,68 @@
+wgs:
+- dir: wg-training
+  name: Training
+  mission_statement: >
+    WG Training covers developing, deploying, and operating training jobs on Kubeflow.
+  charter_link: charter.md
+  label: area/wg-training
+  leadership:
+    chairs:
+    - github: gaocegege
+      name: Ce Gao
+      company: Caicloud
+    - github: johnugeorge
+      name: Johnu George
+      company: Cisco
+    - github: terrytangyuan
+      name: Tuan Tang
+      company: Ant Group
+  meetings:
+  - description: Project 1 Meeting
+    day: Wednesday
+    time: "10:00"
+    tz: PT (Pacific Time)
+    frequency: monthly - second Wednesday every month
+    archive_url: https://docs.google.com/document/d/1Ih-2cgg1bUrLwLVTB9tADlPcVdgnuMNBGbUl4D-0TIk/edit?usp=sharing
+  - description: Regular WG Meeting
+    day: Wednesday
+    time: "11:00"
+    tz: PT (Pacific Time)
+    frequency: biweekly
+    url: https://zoom.us/my/apimachinery
+    archive_url: https://goo.gl/0lbiM9
+    recordings_url: https://www.youtube.com/playlist?list=PL69nYSiGNLP21oW3hbLyjjj4XhrwKxH2R
+  contact:
+    slack: wg-training
+    mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
+    teams:
+    - name: wg-training-reviews
+      description: API Changes and Reviews (API Machinery APIs, NOT all APIs)
+    - name: wg-training-bugs
+      description: Bug Triage and Troubleshooting
+    - name: wg-training-machinery-misc
+      description: General Discussion    
+  subprojects:
+  - name: tf-operator
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/tf-operator/master/OWNERS
+  - name: pytorch-operator
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/pytorch-operator/master/OWNERS
+  - name: mpi-operator
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/mpi-operator/master/OWNERS
+  - name: xgboost-operator
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/xgboost-operator/master/OWNERS
+  - name: mxnet-operator
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/mxnet-operator/master/OWNERS
+  - name: chainer-operator
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/chainer-operator/master/OWNERS
+  - name: fate-operator
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/fate-operator/master/OWNERS
+  - name: caffe2-operator
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/caffe2-operator/master/OWNERS
