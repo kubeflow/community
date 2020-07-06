@@ -23,6 +23,9 @@ wgs:
     - github: gaocegege
       name: Ce Gao
       company: Caicloud
+    - github: Jeffwan
+      name: Jiaxin Shan
+      company: Amazon Web Services
     - github: johnugeorge
       name: Johnu George
       company: Cisco
@@ -79,3 +82,6 @@ wgs:
   - name: caffe2-operator
     owners:
     - https://raw.githubusercontent.com/kubeflow/caffe2-operator/master/OWNERS
+  - name: common
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/common/master/OWNERS
