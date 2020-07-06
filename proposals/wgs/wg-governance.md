@@ -1,4 +1,4 @@
-# Work Group(WG) Roles and Organizational Governance
+# Working Group(WG) Roles and Organizational Governance
 
 This charter adheres to the conventions described in the [Kubeflow Charter doc](wg-charter.md).
 It will be updated as needed to meet the current needs of the Kubeflow project.
