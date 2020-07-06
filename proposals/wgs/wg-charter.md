@@ -12,7 +12,7 @@ All Kubeflow WGs must define a charter defining the scope and governance of the 
 2. Read the [Recommendations and requirements] so you have context for the template
 3. Fill out the template for your WG
 4. Update [wgs.yaml] with the individuals holding the roles as defined in the template.
-5. Add subprojects owned by your SIG in the [wgs.yaml]
+5. Add subprojects owned by your WG in the [wgs.yaml]
 5. Create a pull request with a draft of your charter.md and wgs.yaml changes.  Communicate it within your WG
    and get feedback as needed.
 6. Send the WG Charter out for review to steering@kubeflow.org.  Include the subject "WG Charter Proposal: YOURWG"
@@ -41,7 +41,7 @@ As part of this we will define roles for the [OARP] process (Owners, Approvers, 
 - Work with the steering committee (Approvers) to gain approval.
   This can simply be submitting a PR and sending mail to [steering@kubeflow.org].
   If more substantial changes are desired it is advisable to socialize those before drafting a PR.
-    - The steering committee will be looking to ensure the scope of the SIG as represented in the charter is reasonable (and within the scope of Kubeflow) and that processes are fair.
+    - The steering committee will be looking to ensure the scope of the WG as represented in the charter is reasonable (and within the scope of Kubeflow) and that processes are fair.
 - For large changes alert the rest of the Kubeflow community (Participants) as the scope of the changes becomes clear.
   Sending mail to [kubeflow-discuss@googlegroups.com] and/or announcing at the community meeting are a good ways to do this.
 
@@ -54,7 +54,7 @@ WG should use [the template][Short Template] as a starting point. This document 
 
 ## Goals
 
-The primary goal of the charters is to define the scope of the SIG within Kubernetes and how the SIG leaders exercise ownership of these areas by taking care of their responsibilities. A majority of the effort should be spent on these concerns.
+The primary goal of the charters is to define the scope of the WG within Kubeflow and how the WG leaders exercise ownership of these areas by taking care of their responsibilities. A majority of the effort should be spent on these concerns.
 
 
 [OARP]: https://stumblingabout.com/tag/oarp/

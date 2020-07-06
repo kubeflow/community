@@ -32,7 +32,7 @@ Outline of things that could be confused as falling into this WG but don't or do
 
 ## Roles and Organization Management
 
-This WG follows adheres to the Roles and Organization Management outlined in [wg-governance]
+This WG adheres to the Roles and Organization Management outlined in [wg-governance]
 and opts-in to updates and modifications to [wg-governance].
 
 ### Additional responsibilities of Chairs
