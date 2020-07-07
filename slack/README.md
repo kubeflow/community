@@ -22,8 +22,7 @@ project, and includes all communication mediums.
 ## Admins
 
 (by Slack ID)\
-@Igor Mameshin\
-@Jeremy Lewi
+@Igor Mameshin
 
 To connect: please reach out in the #admins channel, mention one of us in the specific channel where you have a question, or DM (Direct Message) one of us privately.
 
