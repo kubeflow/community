@@ -14,7 +14,7 @@ wgs:
       name: Johnu George
       company: Cisco
     - github: terrytangyuan
-      name: Tuan Tang
+      name: Yuan Tang
       company: Ant Group
     tech_leads:
     - github: andreyvelich
@@ -30,7 +30,7 @@ wgs:
       name: Johnu George
       company: Cisco
     - github: terrytangyuan
-      name: Tuan Tang
+      name: Yuan Tang
       company: Ant Group
   meetings:
   - description: Project 1 Meeting
