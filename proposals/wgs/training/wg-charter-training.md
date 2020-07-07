@@ -17,6 +17,7 @@ WG Training covers developing, deploying, and operating training jobs on Kubeflo
 
 - Coordinating with WG Pipeline to make sure distributed training jobs can interact well with pipelines
 - Coordinating with release teams to ensure that the distributed training features can be released properly
+- Coordinating with WG AutoML to integrate with AutoML systems (e.g. Katib)
 
 ### Out of scope
 
