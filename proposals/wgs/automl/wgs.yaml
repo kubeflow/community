@@ -23,9 +23,6 @@ wgs:
         - github: gaocegege
           name: Ce Gao
           company: Caicloud
-        - github: hougangliu
-          name: Hougang Liu
-          company: IBM
         - github: johnugeorge
           name: Johnu George
           company: Cisco
