@@ -8,17 +8,24 @@
 #   date - The date of the first meeting (month/day/year).
 #   time - The start and end of the meeting in PST time zone.
 #   frequency - How often the meeting takes place.
+#   until - Optional the last day to repeat until
+#   attendees: See: https://developers.google.com/calendar/v3/reference/events/insert#python
 #   video - Zoom or Hangouts meeting link.
 #   description - Any other information about the meeting such
 #   as the meeting agenda link.
 #   organizer - Github username of the meeting organizer.
-
+#
 - id: kf001
   name: Kubeflow Community Call
   date: 08/13/2019
   time: 5:30PM-6:25PM
   frequency: bi-weekly
+  # TODO*https://github.com/kubeflow/community/issues/341): Need to find additional
+  # hosts for after 07/28
+  until: 07/30/2020
   video: https://zoom.us/j/799749911
+  attendees:
+    - email: kubeflow-discuss@googlegroups.com
   description:
     - |
       Notes & agenda: https://bit.ly/kf-meeting-notes
@@ -34,7 +41,12 @@
   date: 08/20/2019
   time: 8:00AM-8:55AM
   frequency: bi-weekly
+  # TODO*https://github.com/kubeflow/community/issues/341): Need to find additional
+  # hosts for after 07/28
+  until: 07/30/2020
   video: https://zoom.us/j/799749911
+  attendees:
+    - email: kubeflow-discuss@googlegroups.com
   description:
     - |
       Notes & agenda: https://bit.ly/kf-meeting-notes
@@ -51,6 +63,8 @@
   time: 10:00am-10:45am
   frequency: bi-weekly
   video: https://zoom.us/j/669751921
+  attendees:
+    - email: kubeflow-discuss@googlegroups.com
   description:
     - |
       Meeting Logs: https://bit.ly/2LyTh14
@@ -62,6 +76,8 @@
   time: 9:00am-10:00am
   frequency: weekly
   video: https://meet.google.com/bhe-aqdx-iag
+  attendees:
+    - email: kubeflow-discuss@googlegroups.com
   description:
     - |
       Meeting Logs: https://docs.google.com/document/d/1KZUURwr9MnHXqHA08TFbfVbM8EAJSJjmaMhnvstvi-k/
@@ -72,6 +88,7 @@
   date: 08/20/2019
   time: 10:00am-11:00am
   frequency: bi-weekly
+  until: 07/14/2020
   video: https://zoom.us/j/512655157
   description:
     - |
@@ -83,6 +100,7 @@
   date: 08/27/2019
   time: 10:00am-11:00am
   frequency: bi-weekly
+  until: 07/14/2020
   video: https://zoom.us/j/512655157
   description:
     - |
@@ -266,6 +284,8 @@
   time: 8:00am-9:00am
   frequency: bi-weekly
   video: https://meet.google.com/dxz-zthy-xjn
+  attendees:
+    - email: kubeflow-discuss@googlegroups.com
   description:
     - |
       Notes & agenda: https://docs.google.com/document/d/1R2r1z5O4USpn3BW29-4blCoPueB3p2LAjvdKa97fT7U/edit?usp=sharing
