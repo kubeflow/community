@@ -13,37 +13,6 @@
 #   as the meeting agenda link.
 #   organizer - Github username of the meeting organizer.
 
-- id: kf001
-  name: Kubeflow Community Call
-  date: 08/13/2019
-  time: 5:30PM-6:25PM
-  frequency: bi-weekly
-  video: https://zoom.us/j/799749911
-  description:
-    - |
-      Notes & agenda: https://bit.ly/kf-meeting-notes
-
-      Join from PC, Mac, Linux, iOS or Android: https://zoom.us/j/799749911
-
-      Join from phone in the US: +1 669 900 6833 or +1 646 558 8656
-      International numbers available: https://zoom.us/zoomconference?m=Os1EjlUlpb2_XUMaQ6dX1azqMK5CkfWH
-  organizer: theadactyl
-
-- id: kf002
-  name: Kubeflow Community Call
-  date: 08/20/2019
-  time: 8:00AM-8:55AM
-  frequency: bi-weekly
-  video: https://zoom.us/j/799749911
-  description:
-    - |
-      Notes & agenda: https://bit.ly/kf-meeting-notes
-
-      Join from PC, Mac, Linux, iOS or Android: https://zoom.us/j/799749911
-
-      Join from phone in the US: +1 669 900 6833 or +1 646 558 8656
-      International numbers available: https://zoom.us/zoomconference?m=Os1EjlUlpb2_XUMaQ6dX1azqMK5CkfWH
-  organizer: theadactyl
 
 - id: kf003
   name: Kubeflow On-premise Working Group
