@@ -14,6 +14,7 @@ References:
   https://developers.google.com/calendar/auth
 """
 from datetime import datetime
+from dateutil import parser as date_parser
 import fire
 import logging
 import os
@@ -31,6 +32,81 @@ import json
 CALENDAR_ID = 'kubeflow.org_7l5vnbn8suj2se10sen81d9428@group.calendar.google.com'
 
 SCOPES = ['https://www.googleapis.com/auth/calendar.events']
+
+def update_meeting(service, meeting):
+  date = meeting['date']
+  time_start, time_end = meeting['time'].split('-')
+  day_of_week = datetime.strptime("{} {}".format(date, time_start), '%m/%d/%Y %I:%M%p').strftime('%A').upper()[0:2]
+  start_datetime = datetime.strptime("{} {}".format(date, time_start), '%m/%d/%Y %I:%M%p').strftime('%Y-%m-%dT%H:%M:%S%z')
+  end_datetime = datetime.strptime("{} {}".format(date, time_end), '%m/%d/%Y %I:%M%p').strftime('%Y-%m-%dT%H:%M:%S%z')
+
+  event = {
+    'summary': meeting['name'],
+    'id': meeting['id'],
+    'location': meeting.get("video"),
+    'description': meeting['description'],
+          'start': {
+              'dateTime': start_datetime,
+              'timeZone': 'America/Los_Angeles',
+              },
+            'end': {
+              'dateTime': end_datetime,
+              'timeZone': 'America/Los_Angeles',
+              },
+            'guestsCanSeeOtherGuests': 'false',
+            'reminders': {
+              'useDefault': False,
+                    'overrides': [
+                  {'method': 'popup', 'minutes': 10},
+                ],
+                },
+            "creator": {
+                    "displayName": "Kubeflow",
+                "email": "kubeflow-discuss@googlegroups.com",
+              },
+                  "organizer": {
+                "displayName": meeting['organizer'],
+              },
+  }
+
+
+  if meeting.get("frequency"):
+    rec = 'RRULE:FREQ={};BYDAY={}'.format(meeting['frequency'].upper(), day_of_week)
+
+    if meeting['frequency'] == "bi-weekly":
+      rec += ';INTERVAL=2'
+      rec = rec.replace('BI-WEEKLY', 'WEEKLY')
+    if meeting['frequency'] == "monthly":
+      rec = rec.replace('WEEKLY', 'MONTHLY')
+
+    if meeting.get("until"):
+      until_day = date_parser.parse(meeting.get("until"))
+      until_time = date_parser.parse(end_datetime)
+      until = datetime.combine(until_day.date(), until_time.time())
+      # TODO(jlewi): Do we need to include a time zone correction?
+      rec += ";UNTIL=" + until.strftime("%Y%m%dT%H%M%SZ")
+    event["recurrence"] = [rec]
+
+  if meeting.get("attendees"):
+    event["attendees"] = meeting["attendees"]
+
+  try:
+    event = service.events().insert(calendarId=CALENDAR_ID, body=event).execute()
+    logging.info("Event created: {}".format(event.get('htmlLink')))
+  except googleapiclient.errors.HttpError as e:
+    content = json.loads(e.content)
+
+    if (content.get("error", {}).get("code") ==
+        requests.requests.codes.CONFLICT):
+      # It already exists so issue an update instead
+      event = service.events().update(calendarId=CALENDAR_ID, eventId=meeting['id'],
+                                      body=event).execute()
+      logging.info("Event updated: {}".format(event.get('htmlLink')))
+    else:
+      logging.error("Exception occurred trying to insert event:\n%s",
+                    content)
+  except Exception as e:
+    logging.error("Error occurred creating the event: ", e)
 
 class CalendarUpdater:
   """Class to update the calendar"""
@@ -100,67 +176,12 @@ class CalendarUpdater:
       meetings = yaml.safe_load(cal)
 
       for meeting in meetings:
-        date = meeting['date']
-        time_start, time_end = meeting['time'].split('-')
-        day_of_week = datetime.strptime("{} {}".format(date, time_start), '%m/%d/%Y %I:%M%p').strftime('%A').upper()[0:2]
-        start_datetime = datetime.strptime("{} {}".format(date, time_start), '%m/%d/%Y %I:%M%p').strftime('%Y-%m-%dT%H:%M:%S%z')
-        end_datetime = datetime.strptime("{} {}".format(date, time_end), '%m/%d/%Y %I:%M%p').strftime('%Y-%m-%dT%H:%M:%S%z')
-
-        event = {
-          'summary': meeting['name'],
-          'id': meeting['id'],
-          'location': meeting.get("video"),
-          'description': meeting['description'],
-                'start': {
-                    'dateTime': start_datetime,
-                    'timeZone': 'America/Los_Angeles',
-                    },
-                  'end': {
-                    'dateTime': end_datetime,
-                    'timeZone': 'America/Los_Angeles',
-                    },
-                  'guestsCanSeeOtherGuests': 'false',
-                  'reminders': {
-                    'useDefault': False,
-                          'overrides': [
-                        {'method': 'popup', 'minutes': 10},
-                      ],
-                      },
-                  "creator": {
-                          "displayName": "Kubeflow",
-                      "email": "kubeflow-discuss@googlegroups.com",
-                    },
-                        "organizer": {
-                      "displayName": meeting['organizer'],
-                    },
-        }
-
-
-        if meeting.get("frequency"):
-          rec = 'RRULE:FREQ={};BYDAY={}'.format(meeting['frequency'].upper(), day_of_week)
-
-          if meeting['frequency'] == "bi-weekly":
-            rec += ';INTERVAL=2'
-            rec = rec.replace('BI-WEEKLY', 'WEEKLY')
-          if meeting['frequency'] == "monthly":
-            rec = rec.replace('WEEKLY', 'MONTHLY')
-
-          event["recurrence"] = [rec]
-
         try:
-          event = service.events().insert(calendarId=CALENDAR_ID, body=event).execute()
-          logging.info("Event created: {}".format(event.get('htmlLink')))
-        except googleapiclient.errors.HttpError as e:
-          content = json.loads(e.content)
-
-          if (content.get("error", {}).get("code") ==
-              requests.requests.codes.CONFLICT):
-            # It already exists so issue an update instead
-            event = service.events().update(calendarId=CALENDAR_ID, eventId=meeting['id'],
-                                            body=event).execute()
-          logging.info("Event updated: {}".format(event.get('htmlLink')))
+          update_meeting(service, meeting)
         except Exception as e:
-          logging.error("Error occurred creating the event: ", e)
+          logging.error("Could not update meeting %s; Error:\n%s",
+                        meeting.get("id"), e)
+          continue
 
 if __name__ == "__main__":
   logging.basicConfig(level=logging.INFO,
