@@ -33,13 +33,13 @@ wgs:
       name: Yuan Tang
       company: Ant Group
   meetings:
-  - description: Regular WG Meeting (Asia & Europe)
+  - description: Regular WG Meeting (Asia & Europe friendly)
     day: Wednesday
     time: "03:00"
     tz: PT (Pacific Time)
     frequency: monthly - first Wednesday every month
     archive_url: https://docs.google.com/document/d/1K0Qfr0zTuARtAg7ETg9hsMZPh0MT2QUxqGAYvM1Vpec/edit
-  - description: Regular WG Meeting (US)
+  - description: Regular WG Meeting (US friendly)
     day: Wednesday
     time: "10:00"
     tz: PT (Pacific Time)
