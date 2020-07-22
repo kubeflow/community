@@ -8,11 +8,11 @@ All Kubeflow WGs must define a charter defining the scope and governance of the 
 
 ## Steps to create a WG charter
 
-1. Copy [the template][Short Template] into a new file under community/wg-*YOURWG*/charter.md ([sig-architecture example])
+1. Copy [the template](templates/wg-charter-template.md) into a new file under community/wg-*YOURWG*/charter.md ([sig-architecture example])
 2. Read the [Recommendations and requirements] so you have context for the template
 3. Fill out the template for your WG
-4. Update [wgs.yaml] with the individuals holding the roles as defined in the template.
-5. Add subprojects owned by your WG in the [wgs.yaml]
+4. Update [wgs.yaml](templates/wgs.yaml) with the individuals holding the roles as defined in the template.
+5. Add subprojects owned by your WG in the [wgs.yaml](templates/wgs.yaml)
 5. Create a pull request with a draft of your charter.md and wgs.yaml changes.  Communicate it within your WG
    and get feedback as needed.
 6. Send the WG Charter out for review to steering@kubeflow.org.  Include the subject "WG Charter Proposal: YOURWG"
@@ -49,7 +49,7 @@ If there are questions about this process please reach out to the steering commi
 
 ## How to use the templates
 
-WG should use [the template][Short Template] as a starting point. This document links to the recommended [WG Governance][wg-governance] but WGs may optionally record deviations from these defaults in their charter.
+WG should use [the template](templates/wg-charter-template.md) as a starting point. This document links to the recommended [WG Governance][wg-governance] but WGs may optionally record deviations from these defaults in their charter.
 
 
 ## Goals
