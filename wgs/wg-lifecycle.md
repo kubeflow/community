@@ -17,15 +17,16 @@ Out of scope for this document: [subproject] creation.
 
 ### [GitHub]
 
-- [ ] Submit a PR that:
-      * adds rows to [wgs.yaml]
-      * add rows to [owner_aliases.yaml]
-        * See https://github.com/kubernetes/community/blob/master/contributors/guide/owners.md#owners_aliases
-      * Create directory `wgs/wg-<YOUR WG>` with 
-           * README.md
-             * See [kubeflow/community#372](https://github.com/kubeflow/community/issues/372)
-           * charter.md
-           * [OWNERS](https://github.com/kubernetes/community/blob/master/contributors/guide/owners.md)
+- Submit a PR that:
+      
+   * adds rows to [wgs.yaml]
+   * add rows to [owner_aliases.yaml]
+     * See https://github.com/kubernetes/community/blob/master/contributors/guide/owners.md#owners_aliases
+   * Create directory `wgs/wg-<YOUR WG>` with 
+        * README.md
+          * See [kubeflow/community#372](https://github.com/kubeflow/community/issues/372)
+        * charter.md
+        * [OWNERS](https://github.com/kubernetes/community/blob/master/contributors/guide/owners.md)
            
 - You’ll need:
   - WG Name
@@ -36,32 +37,36 @@ Out of scope for this document: [subproject] creation.
   - Contact Methods
   - Any WG Stakeholders
   - Any Subproject Stakeholders
-- [ ] Add WG-related docs like charter.md, schedules, roadmaps, etc. to your new kubeflow/community/wg-foo directory once the above PR is merged.
-- [ ] File a [kubeflow/testing] Issue  and PR for a label; read about our [GitHub management] services
+- Add WG-related docs like charter.md, schedules, roadmaps, etc. to your new kubeflow/community/wg-foo directory once the above PR is merged.
+- File a [kubeflow/testing] Issue  and PR for a label; read about our [GitHub management] services
 
 ### Communicate:
 
 WGs are responsible for setting up and administering the following communication channels
-- [ ] Mailing lists 
-      * foo@googlegroups.com
-      * foo-leads@googlegroups.com
-- [ ] Calendar for WG related meetings
-- [ ] Video conferencing (zoom, meet, etc...) 
-- [ ] Hosting for meeting notes, recordings etc...
-- [ ] Slack channels (if desired)
+- Mailing lists 
+      
+  * foo@googlegroups.com
+  * foo-leads@googlegroups.com
+
+- Calendar for WG related meetings
+- Video conferencing (zoom, meet, etc...) 
+- Hosting for meeting notes, recordings etc...
+- Slack channels (if desired)
 
 ### Engage:
 ...as a chair/tech lead with other chairs/tech leads
-- [ ] Subscribe to the kubeflow-wg-leads@googlegroups.com group
-- [ ] Join the #chairs-and-techleads slack channel
+- Subscribe to the kubeflow-wg-leads@googlegroups.com group
+- Join the #chairs-and-techleads slack channel
 
 ...with the community as part of [wg-governance.md]
-- [ ] Get on the Kubeflow community meeting agenda to provide WG updates
-- [ ] Create a shared calendar and schedule your weekly/biweekly/triweekly weeks [update meetings]
+- Get on the Kubeflow community meeting agenda to provide WG updates
+- Create a shared calendar and schedule your weekly/biweekly/triweekly weeks [update meetings]
 - This calendar creation process will allow all of your leads to edit SIG/WG Meetings. This is important as we all change jobs, email addresses, and take breaks from the project. Shared calendars will also provide consistency with contributors looking for your subproject meetings, office hours, and anything else that the SIG/WGs contributors should know about.
 
 ## [Retirement]
+
 (merging or disbandment)
+
 Sometimes it might be necessary to sunset a SIG or Working Group. SIGs/WGs may also merge with an existing SIG/WG if deemed appropriate, and would save project overhead in the long run. SIGs in particular are more ephemeral than WGs, so this process should be followed when the SIG has accomplished its mission.
 
 ### Prerequisites for WG Retirement
