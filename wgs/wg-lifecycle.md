@@ -10,17 +10,23 @@ Out of scope for this document: [subproject] creation.
 ### Prerequisites for a WG
 - [ ] Read [wg-governance.md]
 - [ ] Ensure all WG Chairs, Technical Leads, and other leadership roles are [community members]
-- [ ] Send an email to the Steering Committee <steering@kubeflow.org> to scope the WG and get provisional approval.
+- [ ] Send an email to <kubeflow-discuss@googlegroups.com> to scope the WG and get provisional approval.
 - [ ] Look at the checklist below for processes and tips that you will need to do while this is going on. It's best to collect this information upfront so you have a smoother process to launch
 - [ ] Follow the [WG charter process] to propose and obtain approval for a charter
 - [ ] Announce new WG on kubeflow-discuss@googlegroups.com
 
 ### [GitHub]
 
-TODO: This section needs to be added for KF. In particular do we want to use [generator doc] which is what Kubernetes uses or is that
-too heavy weight?
-
-- [ ] Submit a PR that will add rows to [wgs.yaml] using the [generator doc]; this will create README files and OWNERS_ALIASES files for your new directory in `kubernetes/community`
+- [ ] Submit a PR that:
+      * adds rows to [wgs.yaml]
+      * add rows to [owner_aliases.yaml]
+        * See https://github.com/kubernetes/community/blob/master/contributors/guide/owners.md#owners_aliases
+      * Create directory `wgs/wg-<YOUR WG>` with 
+           * README.md
+             * See [kubeflow/community#372](https://github.com/kubeflow/community/issues/372)
+           * charter.md
+           * [OWNERS](https://github.com/kubernetes/community/blob/master/contributors/guide/owners.md)
+           
 - You’ll need:
   - WG Name
   - Directory URL
