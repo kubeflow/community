@@ -32,6 +32,9 @@ wgs:
     - github: terrytangyuan
       name: Yuan Tang
       company: Ant Group
+    - github: ChanYiLin
+      name: Jack Lin
+      company: InfuseAI
   meetings:
   - description: Regular WG Meeting (Asia & Europe friendly)
     day: Wednesday
