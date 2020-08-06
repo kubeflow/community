@@ -227,6 +227,11 @@
 - name: Red Hat
   contacts:
     - matt@redhat.com
+    - pmackinn@redhat.com
+    - vasek@redhat.com
+    - jnakfour@redhat.com
+    - croberts@redhat.com
+    - llasmith@redhat.com
   url: https://www.redhat.com
 
 - name: Seldon
