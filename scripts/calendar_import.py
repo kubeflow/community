@@ -76,7 +76,10 @@ def update_meeting(service, meeting):
     if meeting['frequency'] == "bi-weekly":
       rec += ';INTERVAL=2'
       rec = rec.replace('BI-WEEKLY', 'WEEKLY')
-    if meeting['frequency'] == "monthly":
+    elif meeting['frequency'] == "every-4-weeks":
+      rec += ';INTERVAL=4'
+      rec = rec.replace('EVERY-4-WEEKS', 'WEEKLY')
+    elif meeting['frequency'] == "monthly":
       rec = rec.replace('WEEKLY', 'MONTHLY')
 
     if meeting.get("until"):
