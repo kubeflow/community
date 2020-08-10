@@ -1,0 +1,55 @@
+wgs:
+  - dir: wg-automl
+    name: AutoML
+    mission_statement: >
+      WG AutoML is responsible for all aspects of Automated Machine Learning technologies on Kubeflow.
+    charter_link: charter.md
+    label: area/wg-automl
+    leadership:
+      chairs:
+        - github: andreyvelich
+          name: Andrey Velichkevich
+          company: Cisco
+        - github: gaocegege
+          name: Ce Gao
+          company: Caicloud
+        - github: johnugeorge
+          name: Johnu George
+          company: Cisco
+      tech_leads:
+        - github: andreyvelich
+          name: Andrey Velichkevich
+          company: Cisco
+        - github: gaocegege
+          name: Ce Gao
+          company: Caicloud
+        - github: johnugeorge
+          name: Johnu George
+          company: Cisco
+    meetings:
+      - description: Regular Katib Meeting (Asia & Europe friendly)
+        day: Wednesday
+        time: 10:00 am
+        tz: UTC (Coordinated Universal Time)
+        frequency: monthly - second Wednesday every month
+        archive_url: https://docs.google.com/document/d/1MChKfzrKAeFRtYqypFbMXL6ZIc_OgijjkvbqmwRV-64
+      - description: Regular Katib Meeting (US friendly)
+        day: Wednesday
+        time: 4:00 pm
+        tz: UTC (Coordinated Universal Time)
+        frequency: monthly - fourth Wednesday every month
+        archive_url: https://docs.google.com/document/d/1MChKfzrKAeFRtYqypFbMXL6ZIc_OgijjkvbqmwRV-64
+    contact:
+      slack: wg-automl
+      mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
+      teams:
+        - name: wg-automl-reviews
+          description: API Changes and Reviews (API Machinery APIs, NOT all APIs)
+        - name: wg-automl-bugs
+          description: Bug Triage and Troubleshooting
+        - name: wg-automl-machinery-misc
+          description: General Discussion
+    subprojects:
+      - name: katib
+        owners:
+          - https://raw.githubusercontent.com/kubeflow/katib/master/OWNERS
