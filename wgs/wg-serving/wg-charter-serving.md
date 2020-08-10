@@ -6,12 +6,12 @@ This charter adheres to the conventions, roles and organization management outli
 
 WG Serving covers deploying models in production on Kubeflow. The scope of the problems we are trying to cover are
 
-- Cost: Is the model over or under scaled? Are resources being used efficiently?
-- Monitoring:Are the endpoints healthy? What is the performance profile and request trace? 
-- Rollouts:Is this rollout safe? How do I roll back? Can I test a change without swapping traffic?
-- Protocol Standards:How do I make a prediction? GRPC? HTTP? Kafka?
-- Frameworks:How do I serve on Tensorflow? XGBoost? Scikit Learn? Pytorch? Custom Code? 
-- Features:How do I explain the predictions? What about detecting outliers and skew? Bias detection? Adversarial Detection
+- Cost: Is the model over or under scaled? Are resources being used efficiently?
+- Monitoring: Are the endpoints healthy? What is the performance profile and request trace? 
+- Rollouts: Is this rollout safe? How do I roll back? Can I test a change without swapping traffic?
+- Protocol Standards: How do I make a prediction? GRPC? HTTP? Kafka?
+- Frameworks: How do I serve on Tensorflow? XGBoost? Scikit Learn? Pytorch? Custom Code? 
+- Features: How do I explain the predictions? What about detecting outliers and skew? Bias detection? Adversarial Detection
 - Batch: How do I handle batch predictions? 
 - Data Plane: How do I leverage standardized Data Plane protocol so that I can move my model across MLServing platforms?
 - Custom Processors: How do I wire up custom pre and post processing
