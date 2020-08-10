@@ -1,5 +1,5 @@
 """
-Imports meetings in 'calendar.yaml' to the Kubeflow Community Calendar
+Imports meetings in 'caldendar/calendar.yaml' to the Kubeflow Community Calendar
 For modifications please refer to the Google Calendar Python API:
 https://developers.google.com/resources/api-libraries/documentation/calendar/v3/python/latest/calendar_v3.events.html#insert
 
@@ -76,7 +76,10 @@ def update_meeting(service, meeting):
     if meeting['frequency'] == "bi-weekly":
       rec += ';INTERVAL=2'
       rec = rec.replace('BI-WEEKLY', 'WEEKLY')
-    if meeting['frequency'] == "monthly":
+    elif meeting['frequency'] == "every-4-weeks":
+      rec += ';INTERVAL=4'
+      rec = rec.replace('EVERY-4-WEEKS', 'WEEKLY')
+    elif meeting['frequency'] == "monthly":
       rec = rec.replace('WEEKLY', 'MONTHLY')
 
     if meeting.get("until"):
@@ -170,7 +173,7 @@ class CalendarUpdater:
 
     this_file = __file__
     repo_root = os.path.abspath(os.path.join(os.path.dirname(this_file), ".."))
-    cal_yaml = os.path.join(repo_root, "calendar.yaml")
+    cal_yaml = os.path.join(repo_root, "calendar/calendar.yaml")
 
     with open(cal_yaml) as cal:
       meetings = yaml.safe_load(cal)

@@ -1,4 +1,6 @@
 wgs:
+# TODO(jlewi): This is just a placeholder get rid of this when the first
+# entry is merged.
 - dir: wg-foo
   name: Foo
   mission_statement: >
