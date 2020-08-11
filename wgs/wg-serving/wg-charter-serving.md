@@ -26,13 +26,12 @@ WG Serving covers deploying models in production on Kubeflow. The scope of the p
 - Pluggable pre-processor/post-processor via Transformer: Gives capabilities to plug in pre-processing/post-processing - - implementation, control routing and placement (e.g. pre-processor on CPU, predictor on GPU)
 - Pluggable analysis algorithms: Explainability, Drift Detection, Anomaly Detection, Adversarial Detection enabled by Payload Logging (built using CloudEvents standardized eventing protocol) 
 - Batch Predictions: Batch prediction support for ML frameworks (TensorFlow, PyTorch, ...)
-- Integration with existing monitoring stack around Knative/Istio ecosystem: Kiali (Service placements, traffic and graphs), Jaeger (request tracing), Grafana/Prometheus plug-ins for Knative)
+- Monitoring: Integration with existing monitoring stack around Knative/Istio ecosystem: Kiali (Service placements, traffic and graphs), Jaeger (request tracing), Grafana/Prometheus plug-ins for Knative)
 - Multiple clients: kubectl, Python SDK, Kubeflow Pipelines SDK
-- Standardized Data Plane V2 protocol for prediction/explainability
-- MMS: Multi-Model-Serving for serving multiple models per custom KFService instance
-- Multi-Model-Graphs and Pipelines: Support chaining multiple models together in a Pipelines
-- gRPC Support for all Model Servers
-- Support for multi-armed-bandits
+- Data Plane: Standardized Data Plane V2 protocol for prediction/explainability
+- Multi Model Serving: Serving multiple models per custom KFService instance
+- Ensembles and composable inference graphs: Support chaining multiple models together
+- Multiple protocols: streaming, gRPC Support for Model Servers
 
 #### Cross-cutting and Externally Facing Processes
 
