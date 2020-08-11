@@ -37,7 +37,7 @@ WG Serving covers deploying models in production on Kubeflow. The scope of the p
 #### Cross-cutting and Externally Facing Processes
 
 - Coordinating with WG Pipeline to make sure models can be deployed and rolled out  with pipelines
-- Coordinating with release teams to ensure that the serving features can be released properly (e.g. integration and testing Istio versions supported by Kubeflow community)
+- Coordinating with Kubeflow release teams to ensure that the serving features can be released properly (e.g. integration and testing Istio versions supported by Kubeflow community, providing kustomization manifests etc.)
 - Coordinating with various cloud providers to ensure KFServing can be deployed and operated at their end.
 
 ### Out of scope
