@@ -35,15 +35,9 @@ wgs:
     - github: yuzisun
       name: Dan Sun
       company: Bloomberg
-    - github: deadeyegoodwin
-      name: David Goodwin 
-      company: Nvidia  
     - github: ellistarn
       name: Ellis Tarn
       company: AWS
-    - github: rakelkar
-      name: Rakesh Kalekar
-      company: Microsoft
     - github: iamlovingit
       name: Qingshan Chen
       company: Inspur
