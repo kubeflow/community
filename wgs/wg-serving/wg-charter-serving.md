@@ -20,24 +20,24 @@ WG Serving covers deploying models in production on Kubeflow. The scope of the p
 
 #### Code, Binaries and Services
 
-- APIs used for deploying models with multiple runtimes pre-integrated (TFServing, Nvdia Triton (GPU optimization), ONNX Runtime, SKLearn, PyTorch, XGBoost, Custom models)
+- APIs: For deploying models with multiple runtimes pre-integrated (TFServing, Nvdia Triton (GPU optimization), ONNX Runtime, SKLearn, PyTorch, XGBoost, Custom models)
 - Serverless ML Inference and Autoscaling: Scale to zero (with no incoming traffic) and Request queue based autoscaling 
 - Canary and Pinned rollouts: Control traffic percentage and direction, pinned rollouts
 - Pluggable pre-processor/post-processor via Transformer: Gives capabilities to plug in pre-processing/post-processing - - implementation, control routing and placement (e.g. pre-processor on CPU, predictor on GPU)
-- Pluggable analysis algorithms: Explainability, Drift Detection, Anomaly Detection, Adversarial Detection enabled by Payload Logging (built using CloudEvents standardized eventing protocol) 
+- Pluggable analysis algorithms: Explainability, Drift Detection, Anomaly Detection, Adversarial Detection enabled by Payload Logging (built using CloudEvents standardized eventing protocol), Multi-armed bandits
 - Batch Predictions: Batch prediction support for ML frameworks (TensorFlow, PyTorch, ...)
 - Monitoring: Integration with existing monitoring stack around Knative/Istio ecosystem: Kiali (Service placements, traffic and graphs), Jaeger (request tracing), Grafana/Prometheus plug-ins for Knative)
 - Multiple clients: kubectl, Python SDK, Kubeflow Pipelines SDK
 - Data Plane: Standardized Data Plane V2 protocol for prediction/explainability
 - Multi Model Serving: Serving multiple models per custom KFService instance
-- Ensembles and composable inference graphs: Support chaining multiple models together
+- Ensembles: For composable inference graphs and support chaining multiple models together
 - Multiple protocols: streaming, gRPC Support for Model Servers
 
 #### Cross-cutting and Externally Facing Processes
 
-- Coordinating with WG Pipeline to make sure models can be deployed and rolled out  with pipelines
-- Coordinating with Kubeflow release teams to ensure that the serving features can be released properly (e.g. integration and testing Istio versions supported by Kubeflow community, providing kustomization manifests etc.)
-- Coordinating with various cloud providers to ensure KFServing can be deployed and operated at their end.
+- Kubeflow Pipelines Integration: Coordinating with WG Pipeline to make sure models can be deployed and rolled out  with pipelines
+- Kubeflow Integration: Coordinating with Kubeflow release teams to ensure that the serving features can be released properly (e.g. integration and testing Istio versions supported by Kubeflow community, providing kustomization manifests etc.)
+- Cloud Providers: Coordinating with various cloud providers to ensure KFServing can be deployed and operated at their end.
 
 ### Out of scope
 
