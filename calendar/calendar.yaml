@@ -16,41 +16,43 @@
 #   organizer - Github username of the meeting organizer.
 #
 - id: kf001
-  name: Kubeflow Community Call
-  date: 08/13/2019
+  name: Kubeflow Community Call (US West/APAC)
+  date: 08/11/2020
   time: 5:30PM-6:25PM
   frequency: bi-weekly
-  # TODO*https://github.com/kubeflow/community/issues/341): Need to find additional
-  # hosts for after 07/28
-  until: 07/30/2020
-  video: https://zoom.us/j/799749911
+  until: 07/12/2022
+  video: https://us02web.zoom.us/j/83583392870?pwd=Q3lYQlAxbVYrdVZQNlp5cktIY2JmUT09
   attendees:
     - email: kubeflow-discuss@googlegroups.com
   description:
     - |
       Notes & agenda: https://bit.ly/kf-meeting-notes
 
-      Join from PC, Mac, Linux, iOS or Android: https://zoom.us/j/799749911
+      Join from PC, Mac, Linux, iOS or Android: https://us02web.zoom.us/j/83583392870?pwd=Q3lYQlAxbVYrdVZQNlp5cktIY2JmUT09
+      Meeting ID: 835 8339 2870
+      Passcode: 499845
 
       Join from phone in the US: +1 669 900 6833 or +1 646 558 8656
       International numbers available: https://zoom.us/zoomconference?m=Os1EjlUlpb2_XUMaQ6dX1azqMK5CkfWH
   organizer: theadactyl
 
 - id: kf002
-  name: Kubeflow Community Call
-  date: 08/20/2019
+  name: Kubeflow Community Call (US East/EMEA)
+  date: 08/18/2020
   time: 8:00AM-8:55AM
   frequency: bi-weekly
-  until: 02/02/2021
-  video: https://us02web.zoom.us/j/81759654415?pwd=N3NHV3ViN0FxSjkwTWNMUlFvMTQvZz09
+  until: 07/05/2022
+  video: https://us02web.zoom.us/j/83469905816?pwd=aWM5clpLOTNTMU9udFpkZmV0L01VQT09
   attendees:
     - email: kubeflow-discuss@googlegroups.com
   description:
     - |
       Notes & agenda: https://bit.ly/kf-meeting-notes
 
-      Join from PC, Mac, Linux, iOS or Android: https://us02web.zoom.us/j/81759654415?pwd=N3NHV3ViN0FxSjkwTWNMUlFvMTQvZz09
-      Passcode: kubeflow
+      Join from PC, Mac, Linux, iOS or Android: https://us02web.zoom.us/j/83469905816?pwd=aWM5clpLOTNTMU9udFpkZmV0L01VQT09
+      Meeting ID: 834 6990 5816
+      Passcode: 683429
+
       Join from phone in the US: +1 669 900 6833 or +1 646 558 8656
       International numbers available: https://zoom.us/zoomconference?m=Os1EjlUlpb2_XUMaQ6dX1azqMK5CkfWH
   organizer: theadactyl
