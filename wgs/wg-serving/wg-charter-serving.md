@@ -30,7 +30,7 @@ WG Serving covers deploying models in production on Kubeflow. The scope of the p
 - Multiple clients: kubectl, Python SDK, Kubeflow Pipelines SDK
 - Data Plane: Standardized Data Plane V2 protocol for prediction/explainability
 - Multi Model Serving: Serving multiple models per custom KFService instance
-- Ensembles: For composable inference graphs and support chaining multiple models together
+- Ensembles: For composable inference graphs and support for chaining multiple models together
 - Multiple protocols: streaming, gRPC Support for Model Servers
 - Feature Store Integration: Integrate with feature store like Feast
 
