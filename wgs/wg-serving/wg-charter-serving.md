@@ -23,7 +23,7 @@ WG Serving covers deploying models in production on Kubeflow. The scope of the p
 - APIs: For deploying models with multiple runtimes pre-integrated (TFServing, Nvdia Triton (GPU optimization), ONNX Runtime, SKLearn, PyTorch, XGBoost, Custom models)
 - Serverless ML Inference and Autoscaling: Scale to zero (with no incoming traffic) and Request queue based autoscaling 
 - Canary and Pinned rollouts: Control traffic percentage and direction, pinned rollouts
-- Pluggable pre-processor/post-processor via Transformer: Gives capabilities to plug in pre-processing/post-processing - - implementation, control routing and placement (e.g. pre-processor on CPU, predictor on GPU)
+- Pluggable pre-processor/post-processor via Transformer: Gives capabilities to plug in pre-processing/post-processing implementation, control routing and placement (e.g. pre-processor on CPU, predictor on GPU)
 - Pluggable analysis algorithms: Explainability, Drift Detection, Anomaly Detection, Adversarial Detection enabled by Payload Logging (built using CloudEvents standardized eventing protocol), Multi-armed bandits
 - Batch Predictions: Batch prediction support for ML frameworks (TensorFlow, PyTorch, ...)
 - Monitoring: Integration with existing monitoring stack around Knative/Istio ecosystem: Kiali (Service placements, traffic and graphs), Jaeger (request tracing), Grafana/Prometheus plug-ins for Knative)
@@ -32,6 +32,7 @@ WG Serving covers deploying models in production on Kubeflow. The scope of the p
 - Multi Model Serving: Serving multiple models per custom KFService instance
 - Ensembles: For composable inference graphs and support chaining multiple models together
 - Multiple protocols: streaming, gRPC Support for Model Servers
+- Feature Store Integration: Integrate with feature store like Feast
 
 #### Cross-cutting and Externally Facing Processes
 
@@ -41,7 +42,7 @@ WG Serving covers deploying models in production on Kubeflow. The scope of the p
 
 ### Out of scope
 
-- APIs used for running distributed training, hyper parameter optimization, neural architecture search etc.
+- APIs used for running distributed training, hyper parameter optimization, neural architecture search, feature store etc.
 
 ## Roles and Organization Management
 
