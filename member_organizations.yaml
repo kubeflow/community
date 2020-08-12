@@ -62,13 +62,13 @@
     - ifilonenko@bloomberg.net
   url: http://www.bloomberg.com
 
-- name: Caicloud
+- name: Bytedance
   contacts:
-    - deyuan@caicloud.io
-    - gaoce@caicloud.io
-  url: https://caicloud.io
+    - dengdeyuan.dengdy@bytedance.com
+    - gaoce.gaoc@bytedance.com
+  url: https://www.bytedance.com/en/
   hiringForKubeflow: true
-  hiringUrl: https://caicloud.io/jobs
+  hiringUrl: https://job.bytedance.com/en/
 
 - name: Canonical
   contacts:
