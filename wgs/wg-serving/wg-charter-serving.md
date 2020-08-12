@@ -20,7 +20,7 @@ WG Serving covers deploying models in production on Kubeflow. The scope of the p
 
 #### Code, Binaries and Services
 
-- APIs: For deploying models with multiple runtimes pre-integrated (TFServing, Nvdia Triton (GPU optimization), ONNX Runtime, SKLearn, PyTorch, XGBoost, Custom models)
+- APIs: For deploying models with multiple runtimes pre-integrated (TFServing, Nvidia Triton (GPU optimization), ONNX Runtime, SKLearn, PyTorch, XGBoost, Custom models)
 - Serverless ML Inference and Autoscaling: Scale to zero (with no incoming traffic) and Request queue based autoscaling 
 - Canary and Pinned rollouts: Control traffic percentage and direction, pinned rollouts
 - Pluggable pre-processor/post-processor via Transformer: Gives capabilities to plug in pre-processing/post-processing implementation, control routing and placement (e.g. pre-processor on CPU, predictor on GPU)
@@ -39,7 +39,7 @@ WG Serving covers deploying models in production on Kubeflow. The scope of the p
 - Kubeflow Pipelines Integration: Coordinating with WG Pipeline to make sure models can be deployed and rolled out with pipelines
 - Kubeflow Integration: Coordinating with Kubeflow release teams to ensure that the serving features can be released properly (e.g. integration and testing Istio versions supported by Kubeflow community, providing kustomization manifests etc.)
 - Cloud Providers: Coordinating with various cloud providers to ensure KFServing can be deployed and operated at their end.
-- Model Serving Platforms: Explore integration oppurtinities with other model serving platforms like Seldon, BentoML etc.
+- Model Serving Platforms: Explore integration opportunities with other model serving platforms like Seldon, BentoML etc.
 
 ### Out of scope
 
