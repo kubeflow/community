@@ -23,13 +23,13 @@
 *  github-ml-projects - Build Examples Using Public GitHub Data
 *  gsoc - Welcome to Kubeflow GSoC! Please visit this page for instructions: https://www.kubeflow.org/docs/about/gsoc/
 *  help
-*  hyperparameter-tuning
+*  hyperparameter-tuning - Deprecated channel for Katib (Moved to wg-automl)
 *  installing-kubeflow
 *  issues - Use this channel for all communications as they relate to the GitHub issues posted on the Kubeflow GitHub page .
 *  jobs
 *  jupyter - jupyter integration
 *  kale - https://github.com/kubeflow-kale/kale
-*  katib
+*  katib - Deprecated channel for Katib (Moved to wg-automl)
 *  kdd - Discuss Kubeflow @ KDD 2019
 *  kfctl - Conversation devoted to kfctl and deployment
 *  kfp-tekton - Channel to work on KFP-Tekton integration
@@ -74,4 +74,6 @@
 *  transfer-kubeflow-org
 *  triage
 *  website - Work on the Kubeflow docs
+*  wg-automl - AutoML Working Group discussion
+*  wg-training - Training Working Group discussion
 *  xgboost-operator
