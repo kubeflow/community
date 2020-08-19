@@ -299,7 +299,7 @@
   date: 08/05/2020
   time: 5:30pm-6:10pm
   frequency: every-4-weeks
-  video: https://meet.google.com/phd-ixfj-kcr
+  video: https://meet.google.com/vsc-kzfx-cmv
   attendees:
     - email: kubeflow-discuss@googlegroups.com
     - email: kubeflow-pipelines@google.com
@@ -309,7 +309,7 @@
   description:
     - |
       Notes & Agenda: http://bit.ly/kfp-meeting-notes
-      Join at: https://meet.google.com/phd-ixfj-kcr
+      Join at: https://meet.google.com/vsc-kzfx-cmv
   organizer: james-jwu
 
 - id: kf026
@@ -317,7 +317,7 @@
   date: 08/19/2020
   time: 10:00am-10:40am
   frequency: every-4-weeks
-  video: https://meet.google.com/bfp-ynxk-bfj
+  video: https://meet.google.com/ybz-rtuw-pdt
   attendees:
     - email: kubeflow-discuss@googlegroups.com
     - email: kubeflow-pipelines@google.com
@@ -327,5 +327,5 @@
   description:
     - |
       Notes & Agenda: http://bit.ly/kfp-meeting-notes
-      Join at: https://meet.google.com/bfp-ynxk-bfj
+      Join at: https://meet.google.com/ybz-rtuw-pdt
   organizer: james-jwu
