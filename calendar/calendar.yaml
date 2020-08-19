@@ -334,7 +334,7 @@
   name: Kubeflow AutoML Working Group Meeting (Asia & Europe friendly)
   date: 09/09/2020
   time: 3:00am-4:00am
-  frequency: every-4-weeks
+  frequency: monthly
   video: https://us04web.zoom.us/j/8394435453?pwd=SHo4QXJhdHltb043NGxnMkZmU1l0UT09
   attendees:
     - email: kubeflow-discuss@googlegroups.com
@@ -351,7 +351,7 @@
   name: Kubeflow AutoML Working Group Meeting (US friendly)
   date: 09/23/2020
   time: 9:00am-10:00am
-  frequency: every-4-weeks
+  frequency: monthly
   video: https://us04web.zoom.us/j/8394435453?pwd=SHo4QXJhdHltb043NGxnMkZmU1l0UT09
   attendees:
     - email: kubeflow-discuss@googlegroups.com

@@ -80,7 +80,11 @@ def update_meeting(service, meeting):
       rec += ';INTERVAL=4'
       rec = rec.replace('EVERY-4-WEEKS', 'WEEKLY')
     elif meeting['frequency'] == "monthly":
-      rec = rec.replace('WEEKLY', 'MONTHLY')
+      # In monthly meetings start date defines week number
+      # e.g. if start date is 09/09/2020 meetings are on every 2nd Wednesday
+      start_datetime = datetime.strptime("{} {}".format(date, time_start), '%m/%d/%Y %I:%M%p')
+      week_number = start_datetime.isocalendar()[1] - start_datetime.replace(day=1).isocalendar()[1] + 1
+      rec = rec.replace(day_of_week, "{}{}".format(week_number, day_of_week))
 
     if meeting.get("until"):
       until_day = date_parser.parse(meeting.get("until"))
