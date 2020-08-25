@@ -16,7 +16,7 @@ When the need arises, a [new WG can be created](wgs/wg-lifecycle.md)
 | Name | Label | Chairs | Contact | Meetings |
 |------|-------|--------|---------|----------|
 {{- range .WorkingGroups}}
-|[{{.Name}}]({{.Dir}}/README.md)|{{.Label}}|{{range .Leadership.Chairs}}* [{{.Name}}](https://github.com/{{.GitHub}}){{if .Company}}, {{.Company}}{{end}}<br>{{end}}|* [Slack](https://kubernetes.slack.com/messages/{{.Contact.Slack}})<br>* [Mailing List]({{.Contact.MailingList}})|{{- range .Meetings -}}
+|[{{.Name}}]({{.Dir}}/README.md)|{{.Label}}|{{range .Leadership.Chairs}}* [{{.Name}}](https://github.com/{{.GitHub}}){{if .Company}}, {{.Company}}{{end}}<br>{{end}}|* [Slack](https://kubeflow.slack.com/messages/{{.Contact.Slack}})<br>* [Mailing List]({{.Contact.MailingList}})|{{- range .Meetings -}}
   * {{.Description}}: [{{.Day}}s at {{.Time}} {{.TZ}} ({{.Frequency}})]({{.URL}})<br>
 {{- end -}}
 {{- range .Subprojects -}}
@@ -32,7 +32,7 @@ When the need arises, a [new WG can be created](wgs/wg-lifecycle.md)
 | Name | Organizers | Contact | Meetings |
 |------|------------------|-----------|---------|
 {{- range .WorkingGroups}}
-|[{{.Name}}]({{.Dir}}/README.md)|{{range .Leadership.Chairs}}* [{{.Name}}](https://github.com/{{.GitHub}}){{if .Company}}, {{.Company}}{{end}}<br>{{end}}|* [Slack](https://kubernetes.slack.com/messages/{{.Contact.Slack}})<br>* [Mailing List]({{.Contact.MailingList}})|{{range .Meetings}}* {{.Description}}: [{{.Day}}s at {{.Time}} {{.TZ}} ({{.Frequency}})]({{.URL}})<br>{{end}}
+|[{{.Name}}]({{.Dir}}/README.md)|{{range .Leadership.Chairs}}* [{{.Name}}](https://github.com/{{.GitHub}}){{if .Company}}, {{.Company}}{{end}}<br>{{end}}|* [Slack](https://kubeflow.slack.com/messages/{{.Contact.Slack}})<br>* [Mailing List]({{.Contact.MailingList}})|{{range .Meetings}}* {{.Description}}: [{{.Day}}s at {{.Time}} {{.TZ}} ({{.Frequency}})]({{.URL}})<br>{{end}}
 {{- end }}
 
 ### Master User Group List
@@ -40,7 +40,7 @@ When the need arises, a [new WG can be created](wgs/wg-lifecycle.md)
 | Name | Label |Organizers | Contact | Meetings |
 |------|-------|------------|--------|----------|
 {{- range .UserGroups}}
-|[{{.Name}}]({{.Dir}}/README.md)|{{.Label}}|{{range .Leadership.Chairs}}* [{{.Name}}](https://github.com/{{.GitHub}}){{if .Company}}, {{.Company}}{{end}}<br>{{end}}|* [Slack](https://kubernetes.slack.com/messages/{{.Contact.Slack}})<br>* [Mailing List]({{.Contact.MailingList}})|{{range .Meetings}}* {{.Description}}: [{{.Day}}s at {{.Time}} {{.TZ}} ({{.Frequency}})]({{.URL}})<br>{{end}}
+|[{{.Name}}]({{.Dir}}/README.md)|{{.Label}}|{{range .Leadership.Chairs}}* [{{.Name}}](https://github.com/{{.GitHub}}){{if .Company}}, {{.Company}}{{end}}<br>{{end}}|* [Slack](https://kubeflow.slack.com/messages/{{.Contact.Slack}})<br>* [Mailing List]({{.Contact.MailingList}})|{{range .Meetings}}* {{.Description}}: [{{.Day}}s at {{.Time}} {{.TZ}} ({{.Frequency}})]({{.URL}})<br>{{end}}
 {{- end }}
 
 ### Master Committee List
@@ -48,5 +48,5 @@ When the need arises, a [new WG can be created](wgs/wg-lifecycle.md)
 | Name |  Label | Members | Contact |
 |------|--------|---------|---------|
 {{- range .Committees}}
-|[{{.Name}}]({{.Dir}}/README.md)|{{.Label}}|{{range .Leadership.Chairs}}* [{{.Name}}](https://github.com/{{.GitHub}}){{if .Company}}, {{.Company}}{{end}}<br>{{end}}|{{ if .Contact.Slack }}* [Slack](https://kubernetes.slack.com/messages/{{.Contact.Slack}})<br>{{ end }}{{ if .Contact.MailingList }}* [Mailing List]({{.Contact.MailingList}})<br>{{ end }}{{ if .Contact.PrivateMailingList }}* [Private Mailing List]({{.Contact.PrivateMailingList}}){{ end }}
+|[{{.Name}}]({{.Dir}}/README.md)|{{.Label}}|{{range .Leadership.Chairs}}* [{{.Name}}](https://github.com/{{.GitHub}}){{if .Company}}, {{.Company}}{{end}}<br>{{end}}|{{ if .Contact.Slack }}* [Slack](https://kubeflow.slack.com/messages/{{.Contact.Slack}})<br>{{ end }}{{ if .Contact.MailingList }}* [Mailing List]({{.Contact.MailingList}})<br>{{ end }}{{ if .Contact.PrivateMailingList }}* [Private Mailing List]({{.Contact.PrivateMailingList}}){{ end }}
 {{- end }}
