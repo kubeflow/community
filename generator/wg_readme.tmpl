@@ -1,0 +1,55 @@
+{{- template "header" }}
+# {{.Name}} Working Group
+
+{{ .MissionStatement }}
+{{- if .CharterLink }}
+The [charter]({{.CharterLink}}) defines the scope and governance of the {{.Name}} Working Group.
+{{ end }}
+{{- if .StakeholderSIGs }}
+## Stakeholder SIGs
+{{- range .StakeholderSIGs }}
+* SIG {{.}}
+{{- end }}
+{{ end }}
+{{ if .Meetings -}}
+## Meetings
+{{- range .Meetings }}
+* {{.Description}}: [{{.Day}}s at {{.Time}} {{.TZ}}]({{.URL}}) ({{.Frequency}}). [Convert to your timezone](http://www.thetimezoneconverter.com/?t={{.Time}}&tz={{.TZ | tzUrlEncode}}).
+{{- if .ArchiveURL }}
+  * [Meeting notes and Agenda]({{.ArchiveURL}}).
+{{- end }}
+{{- if .RecordingsURL }}
+  * [Meeting recordings]({{.RecordingsURL}}).
+{{- end }}
+{{- end }}
+
+{{- end }}
+{{- if .Leadership }}
+{{- if .Leadership.Chairs }}
+
+## Organizers
+{{ range .Leadership.Chairs }}
+* {{.Name}} (**[@{{.GitHub}}](https://github.com/{{.GitHub}})**){{if .Company}}, {{.Company}}{{end}}
+{{- end }}
+{{- end }}
+{{- if .Leadership.EmeritusLeads }}
+
+## Emeritus Organizers
+{{ range .Leadership.EmeritusLeads }}
+* {{.Name}} (**[@{{.GitHub}}](https://github.com/{{.GitHub}})**)
+{{- end }}
+{{- end }}
+{{- end }}
+
+## Contact
+- Slack: [#{{.Contact.Slack}}](https://kubernetes.slack.com/messages/{{.Contact.Slack}})
+- [Mailing list]({{.Contact.MailingList}})
+{{- if .Label }}
+- [Open Community Issues/PRs](https://github.com/kubernetes/community/labels/wg%2F{{.Label}})
+{{- end }}
+{{- if .Contact.GithubTeams }}
+- GitHub Teams:
+{{- range .Contact.GithubTeams }}
+    - [@kubernetes/{{.Name}}](https://github.com/orgs/kubernetes/teams/{{.Name}}) {{- if .Description }} - {{.Description}} {{- end}}
+{{- end }}
+{{- end }}
