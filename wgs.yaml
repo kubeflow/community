@@ -32,7 +32,7 @@ workinggroups:
   meetings:
   - description: Regular Katib Meeting (Asia & Europe friendly)
     day: Wednesday
-    time: 10:00 am
+    time: 10:00am
     tz: UTC (Coordinated Universal Time)
     frequency: monthly - second Wednesday every month
     archive_url: https://docs.google.com/document/d/1MChKfzrKAeFRtYqypFbMXL6ZIc_OgijjkvbqmwRV-64
