@@ -3,12 +3,12 @@
 This folder contains scripts to automatically generate documentation about the
 different Special Interest Groups (SIGs), Working Groups (WGs),
 User Groups (UGs) and Committees of Kubernetes. The authoritative
-source for SIG information is the [`sigs.yaml`](/sigs.yaml) file in the project root.
+source for SIG information is the [`wgs.yaml`](/wgs.yaml) file in the project root.
 All updates must be done there.
 
 The schema for this file should be self explanatory. However, if you need to see all the options, check out the generator code in `app.go`.
 
-The documentation follows a template and uses the values from [`sigs.yaml`](/sigs.yaml):
+The documentation follows a template and uses the values from [`wgs.yaml`](/wgs.yaml):
 
 - Header: [`header.tmpl`](header.tmpl)
 - List: [`list.tmpl`](list.tmpl)
@@ -36,12 +36,12 @@ committee-<committee-name>/README.md
 sig-list.md
 ```
 
-For example, if a contributor has updated `sig-cluster-lifecycle`, the
+For example, if a contributor has updated `wg-serving`, the
 following files will be generated:
 
 ```
-sig-cluster-lifecycle/README.md
-sig-list.md
+wg-serving/README.md
+wg-list.md
 ```
 
 ## How to use
@@ -59,10 +59,8 @@ make generate-dockerized
 To build docs for one SIG, run one of these commands:
 
 ```bash
-make WHAT=sig-apps
-make WHAT=cluster-lifecycle
-make WHAT=wg-resource-management
-make WHAT=container-identity
+make WHAT=ug-onprem
+make WHAT=wg-serving
 ```
 
 where the `WHAT` var refers to the directory being built.
