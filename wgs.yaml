@@ -71,9 +71,6 @@ workinggroups:
     - github: cliveseldon
       name: Clive Cox
       company: Seldon
-    - github: deadeyegoodwin
-      name: David Goodwin
-      company: Nvidia
     - github: ellistarn
       name: Ellis Tarn
       company: AWS

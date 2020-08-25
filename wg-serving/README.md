@@ -20,7 +20,6 @@ The [charter](charter.md) defines the scope and governance of the Serving Workin
 
 * Animesh Singh (**[@animeshsingh](https://github.com/animeshsingh)**), IBM
 * Clive Cox (**[@cliveseldon](https://github.com/cliveseldon)**), Seldon
-* David Goodwin (**[@deadeyegoodwin](https://github.com/deadeyegoodwin)**), Nvidia
 * Ellis Tarn (**[@ellistarn](https://github.com/ellistarn)**), AWS
 * Rakesh Kalekar (**[@rakelkar](https://github.com/rakelkar)**), Microsoft
 * Dan Sun (**[@yuzisun](https://github.com/yuzisun)**), Bloomberg
