@@ -1,0 +1,208 @@
+sigs: []
+workinggroups:
+- dir: wg-automl
+  name: AutoML
+  mission_statement: >
+    WG AutoML is responsible for all aspects of Automated Machine Learning technologies
+    on Kubeflow.
+
+  charter_link: charter.md
+  label: area/wg-automl
+  leadership:
+    chairs:
+    - github: andreyvelich
+      name: Andrey Velichkevich
+      company: Cisco
+    - github: gaocegege
+      name: Ce Gao
+      company: Caicloud
+    - github: johnugeorge
+      name: Johnu George
+      company: Cisco
+    tech_leads:
+    - github: andreyvelich
+      name: Andrey Velichkevich
+      company: Cisco
+    - github: gaocegege
+      name: Ce Gao
+      company: Caicloud
+    - github: johnugeorge
+      name: Johnu George
+      company: Cisco
+  meetings:
+  - description: Regular Katib Meeting (Asia & Europe friendly)
+    day: Wednesday
+    time: 10:00 am
+    tz: UTC (Coordinated Universal Time)
+    frequency: monthly - second Wednesday every month
+    archive_url: https://docs.google.com/document/d/1MChKfzrKAeFRtYqypFbMXL6ZIc_OgijjkvbqmwRV-64
+  - description: Regular Katib Meeting (US friendly)
+    day: Wednesday
+    time: 4:00 pm
+    tz: UTC (Coordinated Universal Time)
+    frequency: monthly - fourth Wednesday every month
+    archive_url: https://docs.google.com/document/d/1MChKfzrKAeFRtYqypFbMXL6ZIc_OgijjkvbqmwRV-64
+  contact:
+    slack: wg-automl
+    mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
+    teams:
+    - name: wg-automl-bugs
+      description: Bug Triage and Troubleshooting
+    - name: wg-automl-machinery-misc
+      description: General Discussion
+    - name: wg-automl-reviews
+      description: API Changes and Reviews (API Machinery APIs, NOT all APIs)
+  subprojects:
+  - name: katib
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/katib/master/OWNERS
+- dir: wg-serving
+  name: Serving
+  mission_statement: >
+    WG Serving covers developing, deploying, and operating serving jobs on Kubeflow.
+
+  charter_link: charter.md
+  label: area/wg-serving
+  leadership:
+    chairs:
+    - github: animeshsingh
+      name: Animesh Singh
+      company: IBM
+    - github: cliveseldon
+      name: Clive Cox
+      company: Seldon
+    - github: deadeyegoodwin
+      name: David Goodwin
+      company: Nvidia
+    - github: ellistarn
+      name: Ellis Tarn
+      company: AWS
+    - github: rakelkar
+      name: Rakesh Kalekar
+      company: Microsoft
+    - github: yuzisun
+      name: Dan Sun
+      company: Bloomberg
+    tech_leads:
+    - github: animeshsingh
+      name: Animesh Singh
+      company: IBM
+    - github: cliveseldon
+      name: Clive Cox
+      company: Seldon
+    - github: ellistarn
+      name: Ellis Tarn
+      company: AWS
+    - github: iamlovingit
+      name: Qingshan Chen
+      company: Inspur
+    - github: yuzisun
+      name: Dan Sun
+      company: Bloomberg
+  meetings:
+  - description: Regular WG Meeting
+    day: Wednesday
+    time: "09:00"
+    tz: PT (Pacific Time)
+    frequency: biweekly
+    archive_url: https://docs.google.com/document/d/1KZUURwr9MnHXqHA08TFbfVbM8EAJSJjmaMhnvstvi-k/edit
+  contact:
+    slack: kfserving
+    mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
+    teams:
+    - name: wg-serving
+      description: KFServing Development and roadmap
+  subprojects:
+  - name: kfserving
+    owners:
+    - https://github.com/kubeflow/kfserving/blob/master/OWNERS
+- dir: wg-training
+  name: Training
+  mission_statement: >
+    WG Training covers developing, deploying, and operating training jobs on Kubeflow.
+
+  charter_link: charter.md
+  label: area/wg-training
+  leadership:
+    chairs:
+    - github: gaocegege
+      name: Ce Gao
+      company: Caicloud
+    - github: johnugeorge
+      name: Johnu George
+      company: Cisco
+    - github: terrytangyuan
+      name: Yuan Tang
+      company: Ant Group
+    tech_leads:
+    - github: ChanYiLin
+      name: Jack Lin
+      company: InfuseAI
+    - github: Jeffwan
+      name: Jiaxin Shan
+      company: Amazon Web Services
+    - github: andreyvelich
+      name: Andrey Velichkevich
+      company: Cisco
+    - github: gaocegege
+      name: Ce Gao
+      company: Caicloud
+    - github: johnugeorge
+      name: Johnu George
+      company: Cisco
+    - github: terrytangyuan
+      name: Yuan Tang
+      company: Ant Group
+  meetings:
+  - description: Regular WG Meeting (Asia & Europe friendly)
+    day: Wednesday
+    time: "03:00"
+    tz: PT (Pacific Time)
+    frequency: monthly - first Wednesday every month
+    archive_url: https://docs.google.com/document/d/1K0Qfr0zTuARtAg7ETg9hsMZPh0MT2QUxqGAYvM1Vpec/edit
+  - description: Regular WG Meeting (US friendly)
+    day: Wednesday
+    time: "10:00"
+    tz: PT (Pacific Time)
+    frequency: monthly - third Wednesday every month
+    archive_url: https://docs.google.com/document/d/1K0Qfr0zTuARtAg7ETg9hsMZPh0MT2QUxqGAYvM1Vpec/edit
+  contact:
+    slack: wg-training
+    mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
+    teams:
+    - name: wg-training-bugs
+      description: Bug Triage and Troubleshooting
+    - name: wg-training-machinery-misc
+      description: General Discussion
+    - name: wg-training-reviews
+      description: API Changes and Reviews (API Machinery APIs, NOT all APIs)
+  subprojects:
+  - name: caffe2-operator
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/caffe2-operator/master/OWNERS
+  - name: chainer-operator
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/chainer-operator/master/OWNERS
+  - name: common
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/common/master/OWNERS
+  - name: fate-operator
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/fate-operator/master/OWNERS
+  - name: mpi-operator
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/mpi-operator/master/OWNERS
+  - name: mxnet-operator
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/mxnet-operator/master/OWNERS
+  - name: pytorch-operator
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/pytorch-operator/master/OWNERS
+  - name: tf-operator
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/tf-operator/master/OWNERS
+  - name: xgboost-operator
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/xgboost-operator/master/OWNERS
+usergroups: []
+committees: []
