@@ -25,11 +25,11 @@ The [charter](charter.md) defines the scope and governance of the Serving Workin
 * Dan Sun (**[@yuzisun](https://github.com/yuzisun)**), Bloomberg
 
 ## Contact
-- Slack: [#kfserving](https://kubernetes.slack.com/messages/kfserving)
+- Slack: [#kfserving](https://kubeflow.slack.com/messages/kfserving)
 - [Mailing list](https://groups.google.com/forum/#!forum/kubeflow-discuss)
-- [Open Community Issues/PRs](https://github.com/kubernetes/community/labels/wg%2Farea/wg-serving)
+- [Open Community Issues/PRs](https://github.com/kubeflow/community/labels/wg%2Farea/wg-serving)
 - GitHub Teams:
-    - [@kubernetes/wg-serving](https://github.com/orgs/kubernetes/teams/wg-serving) - KFServing Development and roadmap
+    - [@kubeflow/wg-serving](https://github.com/orgs/kubeflow/teams/wg-serving) - KFServing Development and roadmap
 <!-- BEGIN CUSTOM CONTENT -->
 
 <!-- END CUSTOM CONTENT -->

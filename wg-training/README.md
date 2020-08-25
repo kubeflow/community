@@ -25,13 +25,13 @@ The [charter](charter.md) defines the scope and governance of the Training Worki
 * Yuan Tang (**[@terrytangyuan](https://github.com/terrytangyuan)**), Ant Group
 
 ## Contact
-- Slack: [#wg-training](https://kubernetes.slack.com/messages/wg-training)
+- Slack: [#wg-training](https://kubeflow.slack.com/messages/wg-training)
 - [Mailing list](https://groups.google.com/forum/#!forum/kubeflow-discuss)
-- [Open Community Issues/PRs](https://github.com/kubernetes/community/labels/wg%2Farea/wg-training)
+- [Open Community Issues/PRs](https://github.com/kubeflow/community/labels/wg%2Farea/wg-training)
 - GitHub Teams:
-    - [@kubernetes/wg-training-bugs](https://github.com/orgs/kubernetes/teams/wg-training-bugs) - Bug Triage and Troubleshooting
-    - [@kubernetes/wg-training-machinery-misc](https://github.com/orgs/kubernetes/teams/wg-training-machinery-misc) - General Discussion
-    - [@kubernetes/wg-training-reviews](https://github.com/orgs/kubernetes/teams/wg-training-reviews) - API Changes and Reviews (API Machinery APIs, NOT all APIs)
+    - [@kubeflow/wg-training-bugs](https://github.com/orgs/kubeflow/teams/wg-training-bugs) - Bug Triage and Troubleshooting
+    - [@kubeflow/wg-training-machinery-misc](https://github.com/orgs/kubeflow/teams/wg-training-machinery-misc) - General Discussion
+    - [@kubeflow/wg-training-reviews](https://github.com/orgs/kubeflow/teams/wg-training-reviews) - API Changes and Reviews (API Machinery APIs, NOT all APIs)
 <!-- BEGIN CUSTOM CONTENT -->
 
 <!-- END CUSTOM CONTENT -->

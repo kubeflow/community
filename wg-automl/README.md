@@ -13,7 +13,7 @@ WG AutoML is responsible for all aspects of Automated Machine Learning technolog
 The [charter](charter.md) defines the scope and governance of the AutoML Working Group.
 
 ## Meetings
-* Regular Katib Meeting (Asia & Europe friendly): [Wednesdays at 10:00 am UTC (Coordinated Universal Time)]() (monthly - second Wednesday every month). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=10:00 am&tz=UTC%20%28Coordinated%20Universal%20Time%29).
+* Regular Katib Meeting (Asia & Europe friendly): [Wednesdays at 10:00am UTC (Coordinated Universal Time)]() (monthly - second Wednesday every month). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=10:00am&tz=UTC%20%28Coordinated%20Universal%20Time%29).
   * [Meeting notes and Agenda](https://docs.google.com/document/d/1MChKfzrKAeFRtYqypFbMXL6ZIc_OgijjkvbqmwRV-64).
 * Regular Katib Meeting (US friendly): [Wednesdays at 4:00 pm UTC (Coordinated Universal Time)]() (monthly - fourth Wednesday every month). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=4:00 pm&tz=UTC%20%28Coordinated%20Universal%20Time%29).
   * [Meeting notes and Agenda](https://docs.google.com/document/d/1MChKfzrKAeFRtYqypFbMXL6ZIc_OgijjkvbqmwRV-64).
@@ -25,13 +25,13 @@ The [charter](charter.md) defines the scope and governance of the AutoML Working
 * Johnu George (**[@johnugeorge](https://github.com/johnugeorge)**), Cisco
 
 ## Contact
-- Slack: [#wg-automl](https://kubernetes.slack.com/messages/wg-automl)
+- Slack: [#wg-automl](https://kubeflow.slack.com/messages/wg-automl)
 - [Mailing list](https://groups.google.com/forum/#!forum/kubeflow-discuss)
-- [Open Community Issues/PRs](https://github.com/kubernetes/community/labels/wg%2Farea/wg-automl)
+- [Open Community Issues/PRs](https://github.com/kubeflow/community/labels/wg%2Farea/wg-automl)
 - GitHub Teams:
-    - [@kubernetes/wg-automl-bugs](https://github.com/orgs/kubernetes/teams/wg-automl-bugs) - Bug Triage and Troubleshooting
-    - [@kubernetes/wg-automl-machinery-misc](https://github.com/orgs/kubernetes/teams/wg-automl-machinery-misc) - General Discussion
-    - [@kubernetes/wg-automl-reviews](https://github.com/orgs/kubernetes/teams/wg-automl-reviews) - API Changes and Reviews (API Machinery APIs, NOT all APIs)
+    - [@kubeflow/wg-automl-bugs](https://github.com/orgs/kubeflow/teams/wg-automl-bugs) - Bug Triage and Troubleshooting
+    - [@kubeflow/wg-automl-machinery-misc](https://github.com/orgs/kubeflow/teams/wg-automl-machinery-misc) - General Discussion
+    - [@kubeflow/wg-automl-reviews](https://github.com/orgs/kubeflow/teams/wg-automl-reviews) - API Changes and Reviews (API Machinery APIs, NOT all APIs)
 <!-- BEGIN CUSTOM CONTENT -->
 
 <!-- END CUSTOM CONTENT -->
