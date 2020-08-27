@@ -4,10 +4,8 @@ This charter adheres to the conventions, roles and organization management outli
 
 ## Scope
 
-
-Include a 2-3 sentence summary of what work WG TODO does. Imagine trying to
-explain your work to a colleague who is familiar with Kubeflow but not
-necessarily all of the internals.
+Manage manifests for deploying and operating Kubeflow.
+Develop and maintain tools like kfctl (CLI + operator) for using the manifests to deploy Kubeflow.
 
 ### In scope
 
