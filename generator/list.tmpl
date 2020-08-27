@@ -1,0 +1,52 @@
+{{- template "header" }}
+# SIGs and Working Groups
+
+Most community activity is organized into Special Interest Groups (WGs),
+time bounded Working Groups.
+
+WGs follow these [guidelines](wgs/wg-governance.md) although each of these groups may operate a little differently
+depending on their needs and workflow.
+
+Each group's material is in its subdirectory in this project.
+
+When the need arises, a [new WG can be created](wgs/wg-lifecycle.md)
+
+### Master WG List
+
+| Name | Label | Chairs | Contact | Meetings |
+|------|-------|--------|---------|----------|
+{{- range .WorkingGroups}}
+|[{{.Name}}]({{.Dir}}/README.md)|{{.Label}}|{{range .Leadership.Chairs}}* [{{.Name}}](https://github.com/{{.GitHub}}){{if .Company}}, {{.Company}}{{end}}<br>{{end}}|* [Slack](https://kubeflow.slack.com/messages/{{.Contact.Slack}})<br>* [Mailing List]({{.Contact.MailingList}})|{{- range .Meetings -}}
+  * {{.Description}}: [{{.Day}}s at {{.Time}} {{.TZ}} ({{.Frequency}})]({{.URL}})<br>
+{{- end -}}
+{{- range .Subprojects -}}
+  {{ $name := .Name }}
+  {{- range .Meetings -}}
+    * ({{ $name }}) {{.Description}}: [{{.Day}}s at {{.Time}} {{.TZ}} ({{.Frequency}})]({{.URL}})<br>
+  {{- end -}}
+{{- end -}}
+{{- end }}
+
+### Master Working Group List
+
+| Name | Organizers | Contact | Meetings |
+|------|------------------|-----------|---------|
+{{- range .WorkingGroups}}
+|[{{.Name}}]({{.Dir}}/README.md)|{{range .Leadership.Chairs}}* [{{.Name}}](https://github.com/{{.GitHub}}){{if .Company}}, {{.Company}}{{end}}<br>{{end}}|* [Slack](https://kubeflow.slack.com/messages/{{.Contact.Slack}})<br>* [Mailing List]({{.Contact.MailingList}})|{{range .Meetings}}* {{.Description}}: [{{.Day}}s at {{.Time}} {{.TZ}} ({{.Frequency}})]({{.URL}})<br>{{end}}
+{{- end }}
+
+### Master User Group List
+
+| Name | Label |Organizers | Contact | Meetings |
+|------|-------|------------|--------|----------|
+{{- range .UserGroups}}
+|[{{.Name}}]({{.Dir}}/README.md)|{{.Label}}|{{range .Leadership.Chairs}}* [{{.Name}}](https://github.com/{{.GitHub}}){{if .Company}}, {{.Company}}{{end}}<br>{{end}}|* [Slack](https://kubeflow.slack.com/messages/{{.Contact.Slack}})<br>* [Mailing List]({{.Contact.MailingList}})|{{range .Meetings}}* {{.Description}}: [{{.Day}}s at {{.Time}} {{.TZ}} ({{.Frequency}})]({{.URL}})<br>{{end}}
+{{- end }}
+
+### Master Committee List
+
+| Name |  Label | Members | Contact |
+|------|--------|---------|---------|
+{{- range .Committees}}
+|[{{.Name}}]({{.Dir}}/README.md)|{{.Label}}|{{range .Leadership.Chairs}}* [{{.Name}}](https://github.com/{{.GitHub}}){{if .Company}}, {{.Company}}{{end}}<br>{{end}}|{{ if .Contact.Slack }}* [Slack](https://kubeflow.slack.com/messages/{{.Contact.Slack}})<br>{{ end }}{{ if .Contact.MailingList }}* [Mailing List]({{.Contact.MailingList}})<br>{{ end }}{{ if .Contact.PrivateMailingList }}* [Private Mailing List]({{.Contact.PrivateMailingList}}){{ end }}
+{{- end }}

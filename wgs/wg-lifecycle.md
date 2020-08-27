@@ -20,14 +20,8 @@ Out of scope for this document: [subproject] creation.
 - Submit a PR that:
       
    * adds rows to [wgs.yaml]
-   * add rows to [owner_aliases.yaml]
-     * See https://github.com/kubernetes/community/blob/master/contributors/guide/owners.md#owners_aliases
-   * Create directory `wgs/wg-<YOUR WG>` with 
-        * README.md
-          * See [kubeflow/community#372](https://github.com/kubeflow/community/issues/372)
-        * charter.md
-        * [OWNERS](https://github.com/kubernetes/community/blob/master/contributors/guide/owners.md)
-           
+   * run `make WHAT=wg-foo` to autogenerate docs
+
 - You’ll need:
   - WG Name
   - Directory URL

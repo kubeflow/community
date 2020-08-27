@@ -36,4 +36,4 @@ and opts-in to updates and modifications to [wg-governance].
 
 WG Technical Leads.
 
-[wg-governance]: ../wg-governance.md
+[wg-governance]: ../wgs/wg-governance.md

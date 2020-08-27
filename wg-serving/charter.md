@@ -54,6 +54,4 @@ and opts-in to updates and modifications to [wg-governance].
 
 WG Technical Leads
 
-[wg-governance]: ../wg-governance.md
-[wg-subprojects]: https://github.com/Kubeflow/community/blob/master/wg-YOURWG/README.md#subprojects
-[Kubeflow Charter README]: https://github.com/Kubeflow/community/blob/master/committee-steering/governance/README.md
+[wg-governance]: ../wgs/wg-governance.md
