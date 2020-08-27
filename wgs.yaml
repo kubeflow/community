@@ -56,6 +56,64 @@ workinggroups:
   - name: katib
     owners:
     - https://raw.githubusercontent.com/kubeflow/katib/master/OWNERS
+- dir: wg-deployment
+  name: Deployment
+  mission_statement: >
+    WG Deployment covers developing, maintaining artifacts to deploy and operate Kubeflow.
+
+  charter_link: charter.md
+  label: area/wg-deployment
+  leadership:
+    chairs:
+    - github: Jeffwan
+      name: Jiaxin Shan
+      company: Amazon Web Services
+    - github: animeshsingh
+      name: Animesh Singh
+      company: IBM
+    - github: swiftdiaries
+      name: Adhita Selvaraj
+      company: Cisco
+    tech_leads:
+    - github: Jeffwan
+      name: Jiaxin Shan
+      company: Amazon Web Services
+    - github: animeshsingh
+      name: Animesh Singh
+      company: IBM
+    - github: swiftdiaries
+      name: Adhita Selvaraj
+      company: Cisco
+  meetings:
+  - description: Regular WG Meeting (Pacific AM)
+    day: Tuesday
+    time: "08:00"
+    tz: PT (Pacific Time)
+    frequency: biweekly - every other Tuesday
+    archive_url: http://bit.ly/kf-meeting-notes
+  - description: Regular WG Meeting (Pacific PM)
+    day: Wednesday
+    time: "17:30"
+    tz: PT (Pacific Time)
+    frequency: biweekly - every other Tuesday
+    archive_url: http://bit.ly/kf-meeting-notes
+  contact:
+    slack: wg-deployment
+    mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
+    teams:
+    - name: wg-deployment-bugs
+      description: Bug Triage and Troubleshooting
+    - name: wg-deployment-misc
+      description: General Discussion
+    - name: wg-deployment-reviews
+      description: Changes and Reviews
+  subprojects:
+  - name: kfctl
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/kfctl/master/OWNERS
+  - name: manifests
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/manifests/master/OWNERS
 - dir: wg-serving
   name: Serving
   mission_statement: >
