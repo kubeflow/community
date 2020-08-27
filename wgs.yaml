@@ -30,13 +30,13 @@ workinggroups:
       name: Johnu George
       company: Cisco
   meetings:
-  - description: Regular Katib Meeting (Asia & Europe friendly)
+  - description: Kubeflow AutoML Working Group Meeting (Asia & Europe friendly)
     day: Wednesday
     time: 10:00am
     tz: UTC (Coordinated Universal Time)
     frequency: monthly - second Wednesday every month
     archive_url: https://docs.google.com/document/d/1MChKfzrKAeFRtYqypFbMXL6ZIc_OgijjkvbqmwRV-64
-  - description: Regular Katib Meeting (US friendly)
+  - description: Kubeflow AutoML Working Group Meeting (US friendly)
     day: Wednesday
     time: 4:00pm
     tz: UTC (Coordinated Universal Time)
