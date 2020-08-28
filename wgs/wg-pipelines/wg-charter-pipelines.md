@@ -54,7 +54,7 @@ ML Pipeline projects may have dependencies on the following projects managed by 
  
 #### Initial set of subprojects governed by ML Pipelines WG
 - KFP Backend (mainline), incl. all backend servers
-- KFP Tekton Backend (fork)
+- KFP Tekton Backend (fork, with long term intent of merging in mainstream pipelines repo)
 - KFP UI
 - KFP SDK/DSL/CLI, including samples
 - Metadata Backend, API and UI 
