@@ -69,6 +69,8 @@ ML Pipelines WG defines the following processes for the included projects:
 - Release and validation processes 
 - Issue triaging and prioritization (focusing on decision making process)
 - Feature and roadmap planning
+- Integration process with other external projects
+- Extensibility points and extension development by the community. (e.g pipeline components, system extensions such as schedulers, metadata stores, etc)
 
 
 ## Roles and Organization Management
@@ -84,4 +86,4 @@ New [wg-subprojects] need to be reviewed and approved by the WG Tech Leads.
 
 
 [wg-governance]: ../wg-governance.md
-[wg-subprojects]: https://github.com/Kubeflow/community/blob/master/wg-YOURWG/README.md#subprojects
+[wg-subprojects]: https://github.com/Kubeflow/community/blob/master/wgs/wg-pipelines/README.md#subprojects
