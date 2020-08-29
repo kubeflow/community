@@ -53,12 +53,18 @@ ML Pipeline projects may have dependencies on the following projects managed by 
 - TF Job and other training controllers
  
 #### Initial set of subprojects governed by ML Pipelines WG
+
+##### github.com/kubeflow/pipelines
 - KFP Backend (mainline), incl. all backend servers
-- KFP Tekton Backend (fork, with long term intent of merging in mainstream pipelines repo)
 - KFP UI
 - KFP SDK/DSL/CLI, including samples
-- Metadata Backend, API and UI 
 - Components and pipelines content in KF repo
+
+##### github.com/kubeflow/kfp-tekton
+- KFP Tekton Backend (fork, with long term intent of merging in mainstream pipelines repo)
+
+##### github.com/kubeflow/metadata
+- Metadata Backend, API and UI 
 
 
 #### Cross-cutting and Externally Facing Processes
