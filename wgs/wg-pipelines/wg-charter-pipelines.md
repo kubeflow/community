@@ -11,7 +11,7 @@ The goal of the Kubeflow Pipelines project is to build a Kubernetes optimized st
 
 #### Code, Binaries and Services
 
-Backend Servers
+##### Backend Servers
 - ML Pipelines user facing APIs 
 - Storage abstraction and integration components for pipelines
 - Pipelines Orchestration Engine
@@ -19,26 +19,26 @@ Includes Argo and Tekton based forks, as well as new versions of orchestrators
 - Metadata Store that tracks pipeline artifacts, their lineage and dependencies as well as the ML Metadata Service exposing the Metadata APIs, and the Metadata collection agent
 - Pipeline job scheduling controller, and continuous pipeline execution services
 
-FE and UI
+##### FE and UI
 - Pipelines Templates UI
 - Experiment tracking and run exploration UI
 - Metadata Tracking and Lineage Exploration UI
 - Metadata metric visualization 
 
-Tools
+##### Tools
 - Authoring SDK for components and pipelines
 - Tools for pipeline creation and deployment
 - CLI for interacting with Pipelines API
 
-Deployment
+##### Deployment
 - Deployment scripts and tools for deploying ML Pipeline service components on Kubernetes engines of various cloud providers and on-prem deployments
 
-Pipeline Content
+##### Pipeline Content
 - Cloud specific integration components
 - HW and SW vendor specific components
 - Pipeline examples for different ML use cases
 
-Documentation
+##### Documentation
 - Concepts documentation 
 - Cloud provider specific documentation
 - Documentation for the SDK and REST API
@@ -46,6 +46,7 @@ Documentation
 
 
 #### Dependencies
+
 ML Pipeline projects may have dependencies on the following projects managed by other KF work groups:
 - KF User Profiles Controller
 - KF Central UI Console
@@ -54,22 +55,22 @@ ML Pipeline projects may have dependencies on the following projects managed by 
  
 #### Initial set of subprojects governed by ML Pipelines WG
 
-##### github.com/kubeflow/pipelines
+>github.com/kubeflow/pipelines
 - KFP Backend (mainline), incl. all backend servers
 - KFP UI
 - KFP SDK/DSL/CLI, including samples
 - Components and pipelines content in KF repo
 
-##### github.com/kubeflow/kfp-tekton
+>github.com/kubeflow/kfp-tekton
 - KFP Tekton Backend (fork, with long term intent of merging in mainstream pipelines repo)
 
-##### github.com/kubeflow/metadata
+>github.com/kubeflow/metadata
 - Metadata Backend, API and UI 
 
 
 #### Cross-cutting and Externally Facing Processes
 
-ML Pipelines WG defines the following processes for the included projects:
+##### ML Pipelines WG defines the following processes for the included projects:
 
 - Community meetings
 - Release and validation processes 
