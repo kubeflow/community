@@ -201,5 +201,66 @@ workinggroups:
   - name: xgboost-operator
     owners:
     - https://raw.githubusercontent.com/kubeflow/xgboost-operator/master/OWNERS
+- dir: wg-notebooks
+  name: Noteboks
+  mission_statement: >
+    WG Notebooks is responsible for the user experience around Notebooks and other IDEs and their integrations with Kubeflow
+
+  charter_link: charter.md
+  label: area/wg-notebooks
+  leadership:
+    chairs:
+    - github: elikatsis
+      name: Ilias Katsakioris
+      company: Arrikto
+    - github: kimwnasptd
+      name: Kimonas Sotirchos
+      company: Arrikto
+    - github: StefanoFioravanzo
+      name: Stefano Fioravanzo
+      company: Arrikto
+    tech_leads:
+    - github: elikatsis
+      name: Ilias Katsakioris
+      company: Arrikto
+    - github: kimwnasptd
+      name: Kimonas Sotirchos
+      company: Arrikto
+    - github: StefanoFioravanzo
+      name: Stefano Fioravanzo
+      company: Arrikto
+  meetings:
+  - description: Regular Notebooks Meeting (Asia & Europe friendly)
+    day: Thursday
+    time: 10:00 am
+    tz: UTC (Coordinated Universal Time)
+    frequency: monthly - second Thursday every month
+    archive_url: https://docs.google.com/document/d/10YCWL1l81B_uD1oWYGlbKPKhWugxcRnMUxcdCOZgHRs/edit
+  - description: Regular Notebooks Meeting (US friendly)
+    day: Thursday
+    time: 4:00 pm
+    tz: UTC (Coordinated Universal Time)
+    frequency: monthly - fourth Thursday every month
+    archive_url: https://docs.google.com/document/d/10YCWL1l81B_uD1oWYGlbKPKhWugxcRnMUxcdCOZgHRs/edit
+  contact:
+    slack: wg-notebooks
+    mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
+    teams:
+      - name: wg-notebooks-reviews
+        description: Notebooks Componentσ changes and Reviews (CRs, web apps)
+      - name: wg-notebooks-bugs
+        description: Bug Triage and Troubleshooting
+      - name: wg-notebooks-machinery-misc
+        description: General Discussion
+  subprojects:
+    - name: jupyter-web-app
+      owners:
+        - https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/jupyter-web-app/OWNERS
+    - name: notebooks-controller
+      owners:
+        - https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/notebook-controller/OWNERS
+    - name: crud-web-apps
+      owners:
+        - https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/crud-web-apps/OWNERS
 usergroups: []
 committees: []
