@@ -74,6 +74,9 @@ workinggroups:
     - github: swiftdiaries
       name: Adhita Selvaraj
       company: Cisco
+    - github: yanniszark
+      name: Yannis Zarkadas
+      company: Arritko
     tech_leads:
     - github: Jeffwan
       name: Jiaxin Shan
@@ -81,9 +84,9 @@ workinggroups:
     - github: animeshsingh
       name: Animesh Singh
       company: IBM
-    - github: swiftdiaries
-      name: Adhita Selvaraj
-      company: Cisco
+    - github: yanniszark
+      name: Yannis Zarkadas
+      company: Arritko
   meetings:
   - description: Regular WG Meeting (Pacific AM)
     day: Tuesday
