@@ -3,7 +3,7 @@ google-cloud-bigquery
 pandas
 pandas-gbq
 
-# needed by calendary_import.py
+# needed by calendar_import.py
 fire
 dateutils
 pyyaml
