@@ -2,3 +2,10 @@ altair
 google-cloud-bigquery
 pandas
 pandas-gbq
+
+# needed by calendary_import.py
+fire
+dateutils
+pyyaml
+google-api-python-client
+oauth2client
