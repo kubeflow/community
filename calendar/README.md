@@ -15,3 +15,17 @@ To add new meeting to the Kubeflow calendar follow these steps:
    Kubeflow calendar.
 
 1. Then you should be able to see your new meeting in the calendar.
+
+## Before running `calendar_import.py`
+
+1. You need to be calendar admin in kubeflow.org.
+
+1. You need a Google Cloud project (not sure whether it must be in kubeflow.org).
+
+1. Go to https://console.cloud.google.com/apis/credentials, create an OAuth 2.0 Client ID choosing `Desktop app` type.
+
+1. Visit the newly created OAuth 2.0 Client ID and click "Download JSON" button on top.
+
+1. Move the json file to `~/secrest/kf-calendar.oauth_client.json`.
+
+1. `pip install -r scripts/requirements.txt`
