@@ -56,6 +56,42 @@ workinggroups:
   - name: katib
     owners:
     - https://raw.githubusercontent.com/kubeflow/katib/master/OWNERS
+- dir: wg-feature-store
+  name: Feature Store
+  mission_statement: >
+    WG Feature Store covers the definition, management, storage, discovery, and serving
+    of features to models.
+
+  charter_link: charter.md
+  label: area/wg-feature-store
+  leadership:
+    chairs:
+    - github: pyalex
+      name: Oleksii Moskalenko
+      company: Gojek
+    - github: woop
+      name: Willem Pienaar
+      company: Gojek
+    tech_leads:
+    - github: pyalex
+      name: Oleksii Moskalenko
+      company: Gojek
+    - github: woop
+      name: Willem Pienaar
+      company: Gojek
+  meetings:
+  - description: Monthly WG Meeting
+    day: Wednesday
+    time: "18:00"
+    tz: PT (Pacific Time)
+    frequency: monthly
+    archive_url: https://docs.google.com/document/d/1h2BMuN6V6cGFQrSRk7msmYVmZdrouLRV_EPR_tphZrU/edit#
+  contact:
+    slack: feast
+    mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
+    teams:
+    - name: wg-feature-store
+      description: Feature store development and roadmap
 - dir: wg-serving
   name: Serving
   mission_statement: >

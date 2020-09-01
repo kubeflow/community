@@ -3,6 +3,9 @@ aliases:
     - andreyvelich
     - gaocegege
     - johnugeorge
+  wg-feature-store-leads:
+    - pyalex
+    - woop
   wg-serving-leads:
     - animeshsingh
     - cliveseldon
