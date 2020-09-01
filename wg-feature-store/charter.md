@@ -11,10 +11,10 @@ WG Feature Store covers the definition, management, storage, discovery, and serv
 #### Code, Binaries and Services
 
 - Provide a unified feature serving layer for both model training and online serving.
-- Provide a registry for users to define and manage features and their related metadata.
-- Provide job management for both batch dataset and streaming ingestion and storage of features for both training and serving.
+- Provide a registry for users to define and manage features, entity types, data sources, and their related metadata.
+- Provide job management for the ingestion and persistence of both datasets and streams.
 - Allow for feature statistic generation and for the validation of features in production.
-- Provide operational instrumentation and integrations to safely run a feature store in production.
+- Provide the operational instrumentation necessary to safely run a feature store in production.
 - Provide APIs, SDKs, and a user interface for all of the above.
 - Documentation and tutorials on using a feature store in different Kubeflow use cases.
 
