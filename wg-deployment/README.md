@@ -20,10 +20,10 @@ The [charter](charter.md) defines the scope and governance of the Deployment Wor
 
 ## Organizers
 
-* Jiaxin Shan (**[@Jeffwan](https://github.com/Jeffwan)**), Amazon Web Services
+* Jiaxin Shan (**[@Jeffwan](https://github.com/Jeffwan)**), AWS
 * Animesh Singh (**[@animeshsingh](https://github.com/animeshsingh)**), IBM
 * Adhita Selvaraj (**[@swiftdiaries](https://github.com/swiftdiaries)**), Cisco
-* Yannis Zarkadas (**[@yanniszark](https://github.com/yanniszark)**), Arritko
+* Yannis Zarkadas (**[@yanniszark](https://github.com/yanniszark)**), Arrikto
 
 ## Contact
 - Slack: [#wg-deployment](https://kubeflow.slack.com/messages/wg-deployment)

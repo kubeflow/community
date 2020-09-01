@@ -67,7 +67,7 @@ workinggroups:
     chairs:
     - github: Jeffwan
       name: Jiaxin Shan
-      company: Amazon Web Services
+      company: AWS
     - github: animeshsingh
       name: Animesh Singh
       company: IBM
@@ -76,17 +76,17 @@ workinggroups:
       company: Cisco
     - github: yanniszark
       name: Yannis Zarkadas
-      company: Arritko
+      company: Arrikto
     tech_leads:
     - github: Jeffwan
       name: Jiaxin Shan
-      company: Amazon Web Services
+      company: AWS
     - github: animeshsingh
       name: Animesh Singh
       company: IBM
     - github: yanniszark
       name: Yannis Zarkadas
-      company: Arritko
+      company: Arrikto
   meetings:
   - description: Regular WG Meeting (Pacific AM)
     day: Tuesday
@@ -198,7 +198,7 @@ workinggroups:
       company: InfuseAI
     - github: Jeffwan
       name: Jiaxin Shan
-      company: Amazon Web Services
+      company: AWS
     - github: andreyvelich
       name: Andrey Velichkevich
       company: Cisco
