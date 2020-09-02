@@ -56,6 +56,63 @@ workinggroups:
   - name: katib
     owners:
     - https://raw.githubusercontent.com/kubeflow/katib/master/OWNERS
+- dir: wg-pipelines
+  name: Pipelines
+  mission_statement: >
+    The goal of the Kubeflow Pipelines project is to build a Kubernetes optimized stack for creating and deploying ML Pipelines and enabling a rich ecosystem of pipelines components and tools. ML Pipelines project has the goal of enabling simple and reliable productionalization of autonomous ML workflows, advancing the standards of ML Engineering and making them available to a large community of users across various Kubernetes deployment options.
+
+  charter_link: charter.md
+  label: area/wg-pipelines
+  leadership:
+    chairs:
+    - github: paveldournov
+      name: Pavel Dournov
+      company: Google
+    - github: karkumar
+      name: Karthik Ramachandran
+      company: Google
+    - github: james-jwu
+      name: James Wu
+      company: Google
+    tech_leads:
+    - github: neuromage
+      name: Ajay
+      company: Google
+    - github: rmgogogo
+      name: Renmin
+      company: Google
+    - github: Bobgy
+      name: Yuan Gong
+      company: Google
+  meetings:
+  # < Needs to be added>
+  # - description: Kubeflow AutoML Working Group Meeting (Asia & Europe friendly)
+  #   day: Wednesday
+  #   time: 10:00am
+  #   tz: UTC (Coordinated Universal Time)
+  #   frequency: monthly - second Wednesday every month
+  #   archive_url: https://docs.google.com/document/d/1MChKfzrKAeFRtYqypFbMXL6ZIc_OgijjkvbqmwRV-64
+  # - description: Kubeflow AutoML Working Group Meeting (US friendly)
+  #   day: Wednesday
+  #   time: 4:00pm
+  #   tz: UTC (Coordinated Universal Time)
+  #   frequency: monthly - fourth Wednesday every month
+  #   archive_url: https://docs.google.com/document/d/1MChKfzrKAeFRtYqypFbMXL6ZIc_OgijjkvbqmwRV-64
+  contact:
+    #slack:
+    mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
+    teams:
+    - name: wg-pipelines-bugs
+      description: Bug Triage and Troubleshooting    
+    - name: wg-pipelines-reviews
+      description: API Changes and Reviews (API Machinery APIs, NOT all APIs)
+  subprojects:
+  - name: metadata
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/metadata/master/OWNERS
+  - name: pipelines
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/pipelines/master/OWNERS  
 - dir: wg-serving
   name: Serving
   mission_statement: >
