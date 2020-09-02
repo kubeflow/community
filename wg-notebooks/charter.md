@@ -22,6 +22,7 @@ The WG covers launching and managing different types of Notebooks on Kubeflow as
 - Coordinating with Control Plane WG to ensure that Notebooks manifests are properly deployed with Kubeflow.
 - Coordinating with Central Dashboard WG to ensure the integration with the Notebook Manager UI is up-to-date.
 - Coordinating with release teams to ensure that the Notebooks features can be released properly.
+- Coordinating with Training and AutoML WG to ensure that corresponding SDK is properly working in Kubeflow Notebooks
 - Ensuring that Kubeflow's Notebook images are continuously build and released.
 
 ### Out of scope
