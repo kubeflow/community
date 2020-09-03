@@ -37,6 +37,6 @@ and opts-in to updates and modifications to [wg-governance].
 
 ### Subproject Creation
 
-WG Technical Leads.
+SIG Technical Leads.
 
 [wg-governance]: ../wgs/wg-governance.md
