@@ -1,4 +1,7 @@
 aliases:
+  sig-feature-store-leads:
+    - pyalex
+    - woop
   wg-automl-leads:
     - andreyvelich
     - gaocegege
