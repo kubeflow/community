@@ -56,6 +56,8 @@ ML Pipeline projects may have dependencies on the following projects managed by 
   - Used by fullset Kubeflow deployment
 - TF Job and other training controllers
   - Used by user's codes, e.x. certain pipeline component (one node in DAG) uses TF Job for training.
+- Katib
+  - Used by user's codes, e.x. certain pipeline component (one node in DAG) uses Katib for HP tuning etc.
  
 #### Initial set of subprojects governed by ML Pipelines WG
 
