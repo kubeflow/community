@@ -109,6 +109,7 @@ workinggroups:
   subprojects:
   - name: kfp-tekton
     owners:
+    - animeshsingh
     - https://raw.githubusercontent.com/kubeflow/kfp-tekton/master/OWNERS
   - name: metadata
     owners:
