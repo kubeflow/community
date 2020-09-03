@@ -49,9 +49,13 @@ Includes Argo and Tekton based forks, as well as new versions of orchestrators
 
 ML Pipeline projects may have dependencies on the following projects managed by other KF work groups:
 - KF User Profiles Controller
+  - Used by multi-user feature in fullset Kubeflow deployement
 - KF Central UI Console
+  - Used by fullset Kubeflow deployment
 - Notebook and KF integration of Notebooks
+  - Used by fullset Kubeflow deployment
 - TF Job and other training controllers
+  - Used by user's codes, e.x. certain pipeline component (one node in DAG) uses TF Job for training.
  
 #### Initial set of subprojects governed by ML Pipelines WG
 
