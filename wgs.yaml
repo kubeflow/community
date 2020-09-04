@@ -74,6 +74,9 @@ workinggroups:
     - github: swiftdiaries
       name: Adhita Selvaraj
       company: Cisco
+    - github: vpavlin
+      name: Vaclav Pavlin
+      company: Red Hat
     - github: yanniszark
       name: Yannis Zarkadas
       company: Arrikto
@@ -84,6 +87,9 @@ workinggroups:
     - github: animeshsingh
       name: Animesh Singh
       company: IBM
+    - github: vpavlin
+      name: Vaclav Pavlin
+      company: Red Hat
     - github: yanniszark
       name: Yannis Zarkadas
       company: Arrikto

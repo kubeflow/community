@@ -23,6 +23,7 @@ The [charter](charter.md) defines the scope and governance of the Deployment Wor
 * Jiaxin Shan (**[@Jeffwan](https://github.com/Jeffwan)**), AWS
 * Animesh Singh (**[@animeshsingh](https://github.com/animeshsingh)**), IBM
 * Adhita Selvaraj (**[@swiftdiaries](https://github.com/swiftdiaries)**), Cisco
+* Vaclav Pavlin (**[@vpavlin](https://github.com/vpavlin)**), Red Hat
 * Yannis Zarkadas (**[@yanniszark](https://github.com/yanniszark)**), Arrikto
 
 ## Contact
