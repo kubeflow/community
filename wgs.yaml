@@ -60,7 +60,7 @@ workinggroups:
   name: Notebooks
   mission_statement: >
     WG Notebooks is responsible for the user experience around Notebooks and other
-    IDEs and their integrations with Kubeflow
+    web IDEs and their integrations with Kubeflow
 
   charter_link: charter.md
   label: area/wg-notebooks
