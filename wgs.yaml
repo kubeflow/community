@@ -66,24 +66,24 @@ workinggroups:
   label: area/wg-notebooks
   leadership:
     chairs:
-    - github: StefanoFioravanzo
-      name: Stefano Fioravanzo
-      company: Arrikto
     - github: elikatsis
       name: Ilias Katsakioris
       company: Arrikto
     - github: kimwnasptd
       name: Kimonas Sotirchos
+      company: Arrikto
+    - github: StefanoFioravanzo
+      name: Stefano Fioravanzo
       company: Arrikto
     tech_leads:
-    - github: StefanoFioravanzo
-      name: Stefano Fioravanzo
-      company: Arrikto
     - github: elikatsis
       name: Ilias Katsakioris
       company: Arrikto
     - github: kimwnasptd
       name: Kimonas Sotirchos
+      company: Arrikto
+    - github: StefanoFioravanzo
+      name: Stefano Fioravanzo
       company: Arrikto
   meetings:
   - description: Regular Notebooks Meeting (Asia & Europe friendly)
