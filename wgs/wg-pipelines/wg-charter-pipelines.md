@@ -95,7 +95,7 @@ The positions of the Chairs and TLs are granted to the organizations and compani
 
 ### Subproject Creation
 
-New [wg-subprojects] need to be reviewed and approved by the WG Tech Leads.
+New [wg-subprojects] need to be reviewed and approved by the WG Leads.
 
 
 [wg-governance]: ../wg-governance.md
