@@ -84,6 +84,9 @@ workinggroups:
     - github: Bobgy
       name: Yuan Gong
       company: Google
+    - github: animeshsingh
+      name: Animesh Singh
+      company: IBM
   meetings:
   # < Needs to be added>
   # - description: Kubeflow AutoML Working Group Meeting (Asia & Europe friendly)
