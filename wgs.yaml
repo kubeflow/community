@@ -118,6 +118,9 @@ workinggroups:
   - name: notebooks-controller
     owners:
     - https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/notebook-controller/OWNERS
+  - name: notebook-images
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/tensorflow-notebook-image/OWNERS
 - dir: wg-serving
   name: Serving
   mission_statement: >
