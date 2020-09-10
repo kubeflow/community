@@ -33,7 +33,7 @@ A proposal is a Markdown (`*.md`) file and will be expected to have the followin
 * **Design:** Description of new software design and any major changes to existing software. Should include figures or diagrams where appropriate
 * **Alternatives Considered:** Description of possible alternative solutions and the reasons they were not chosen.
 
-This structure is also exemplified by a [template](proposals/proposal-template.md). In order to support the goal of keeping the proposal process lightweight, proposals will have a **recommended 2-page limit.**
+This structure is also exemplified by a [template](/proposals/TEMPLATE.md). In order to support the goal of keeping the proposal process lightweight, proposals will have a **recommended 2-page limit.**
 
 ## Proposal Workflow
 
