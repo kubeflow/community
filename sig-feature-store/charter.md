@@ -8,15 +8,17 @@ SIG Feature Store covers the definition, management, storage, discovery, and ser
 
 ### In scope
 
-#### Code, Binaries and Services
+#### Product Functionality
 
-- Provide a unified feature serving layer for both model training and online serving.
-- Provide a registry for users to define and manage features and their related metadata.
-- Provide job management for both batch dataset and streaming ingestion and storage of features for both training and serving.
-- Allow for feature statistic generation and for the validation of features in production.
-- Provide operational instrumentation and integrations to safely run a feature store in production.
-- Provide APIs, SDKs, and a user interface for all of the above.
-- Documentation and tutorials on using a feature store in different Kubeflow use cases.
+This SIG aims to coordinate projects and technologies necessary to enable the core functionality required to deploy and operate a feature store in Kubeflow.
+
+- Ensure that users have a registry to define and manage features and their related metadata.
+- Ensure that users have a means of data ingestion, management, and storage for the purposes of model training and online serving.
+- Ensure that users have a unified feature serving layer for both model training and online serving.
+- Ensure that users have the ability to both generate and validate feature statistics.
+- Ensure that users have operational instrumentation necessary to safely run a feature store in production.
+- Ensure that users have the documentation and tutorials necessary to both deploy, operate, and use a feature store.
+- Ensure that Kubeflow maintains a cohesive data tooling vision with respect to feature stores.
 
 #### Cross-cutting and Externally Facing Processes
 
