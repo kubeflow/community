@@ -32,20 +32,19 @@ subprojects, and resolve cross-subproject technical issues and decisions.
 * Willem Pienaar (**[@woop](https://github.com/woop)**), Gojek
 
 ## Contact
-- Slack: [#feast](https://kubernetes.slack.com/messages/feast)
+- Slack: [#feast](https://kubeflow.slack.com/messages/feast)
 - [Mailing list](https://groups.google.com/forum/#!forum/kubeflow-discuss)
-- [Open Community Issues/PRs](https://github.com/kubernetes/community/labels/sig%2Farea/sig-feature-store)
+- [Open Community Issues/PRs](https://github.com/kubeflow/community/labels/sig%2Farea/sig-feature-store)
 - GitHub Teams:
-    - [@kubernetes/sig-feature-store](https://github.com/orgs/kubernetes/teams/sig-feature-store) - Feature store development and roadmap
+    - [@kubeflow/sig-feature-store](https://github.com/orgs/kubeflow/teams/sig-feature-store) - Feature store development and roadmap
 
 ## Subprojects
 
-The following [subprojects][subproject-definition] are owned by sig-area/sig-feature-store:
+The following subproject(s) are owned by sig-area/sig-feature-store:
 ### feast
 - **Owners:**
   - https://github.com/feast-dev/feast/blob/master/OWNERS
 
-[subproject-definition]: https://github.com/kubernetes/community/blob/master/governance.md#subprojects
 <!-- BEGIN CUSTOM CONTENT -->
 
 <!-- END CUSTOM CONTENT -->
