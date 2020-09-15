@@ -8,7 +8,9 @@ sigs:
   charter_link: charter.md
   label: area/sig-feature-store
   leadership:
-    chairs:
+    chairs:    
+    - github: kevinstumpf
+      name: Kevin Stumpf
     - github: pyalex
       name: Oleksii Moskalenko
       company: Gojek
@@ -16,6 +18,8 @@ sigs:
       name: Willem Pienaar
       company: Gojek
     tech_leads:
+    - github: kevinstumpf
+      name: Kevin Stumpf
     - github: pyalex
       name: Oleksii Moskalenko
       company: Gojek
