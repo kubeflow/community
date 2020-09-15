@@ -21,6 +21,7 @@ The [charter](charter.md) defines the scope and governance of the Feature Store 
 ### Chairs
 The Chairs of the SIG run operations and processes governing the SIG.
 
+* Kevin Stumpf (**[@kevinstumpf](https://github.com/kevinstumpf)**)
 * Oleksii Moskalenko (**[@pyalex](https://github.com/pyalex)**), Gojek
 * Willem Pienaar (**[@woop](https://github.com/woop)**), Gojek
 
@@ -28,6 +29,7 @@ The Chairs of the SIG run operations and processes governing the SIG.
 The Technical Leads of the SIG establish new subprojects, decommission existing
 subprojects, and resolve cross-subproject technical issues and decisions.
 
+* Kevin Stumpf (**[@kevinstumpf](https://github.com/kevinstumpf)**)
 * Oleksii Moskalenko (**[@pyalex](https://github.com/pyalex)**), Gojek
 * Willem Pienaar (**[@woop](https://github.com/woop)**), Gojek
 
