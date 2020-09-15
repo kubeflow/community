@@ -99,7 +99,8 @@ def update_meeting(service, meeting):
 
   try:
     event = service.events().insert(calendarId=CALENDAR_ID, body=event).execute()
-    logging.info("Event created: {}".format(event.get('htmlLink')))
+    logging.info("Craeted Event: {}".format(meeting['name'][:100]))
+    logging.info(event.get('htmlLink'))
   except googleapiclient.errors.HttpError as e:
     content = json.loads(e.content)
 
@@ -108,7 +109,8 @@ def update_meeting(service, meeting):
       # It already exists so issue an update instead
       event = service.events().update(calendarId=CALENDAR_ID, eventId=meeting['id'],
                                       body=event).execute()
-      logging.info("Event updated: {}".format(event.get('htmlLink')))
+      logging.info("Updated Event: {}".format(meeting['name'][:100]))
+      logging.info(event.get('htmlLink'))
     else:
       logging.error("Exception occurred trying to insert event:\n%s",
                     content)
