@@ -31,7 +31,7 @@ The [charter](charter.md) defines the scope and governance of the Notebooks Work
 - GitHub Teams:
     - [@kubeflow/wg-notebooks-bugs](https://github.com/orgs/kubeflow/teams/wg-notebooks-bugs) - Bug Triage and Troubleshooting
     - [@kubeflow/wg-notebooks-machinery-misc](https://github.com/orgs/kubeflow/teams/wg-notebooks-machinery-misc) - General Discussion
-    - [@kubeflow/wg-notebooks-reviews](https://github.com/orgs/kubeflow/teams/wg-notebooks-reviews) - Notebooks Componentσ changes and Reviews (CRs, web apps)
+    - [@kubeflow/wg-notebooks-reviews](https://github.com/orgs/kubeflow/teams/wg-notebooks-reviews) - Notebooks Components changes and Reviews (CRs, web apps)
 <!-- BEGIN CUSTOM CONTENT -->
 
 <!-- END CUSTOM CONTENT -->

@@ -107,7 +107,7 @@ workinggroups:
     - name: wg-notebooks-machinery-misc
       description: General Discussion
     - name: wg-notebooks-reviews
-      description: Notebooks Componentσ changes and Reviews (CRs, web apps)
+      description: Notebooks Components changes and Reviews (CRs, web apps)
   subprojects:
   - name: crud-web-apps
     owners:
