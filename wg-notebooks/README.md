@@ -20,9 +20,9 @@ The [charter](charter.md) defines the scope and governance of the Notebooks Work
 
 ## Organizers
 
-* Stefano Fioravanzo (**[@StefanoFioravanzo](https://github.com/StefanoFioravanzo)**), Arrikto
 * Ilias Katsakioris (**[@elikatsis](https://github.com/elikatsis)**), Arrikto
 * Kimonas Sotirchos (**[@kimwnasptd](https://github.com/kimwnasptd)**), Arrikto
+* Stefano Fioravanzo (**[@StefanoFioravanzo](https://github.com/StefanoFioravanzo)**), Arrikto
 
 ## Contact
 - Slack: [#wg-notebooks](https://kubeflow.slack.com/messages/wg-notebooks)
