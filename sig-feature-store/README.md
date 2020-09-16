@@ -40,13 +40,6 @@ subprojects, and resolve cross-subproject technical issues and decisions.
 - GitHub Teams:
     - [@kubeflow/sig-feature-store](https://github.com/orgs/kubeflow/teams/sig-feature-store) - Feature store development and roadmap
 
-## Subprojects
-
-The following subproject(s) are owned by sig-area/sig-feature-store:
-### feast
-- **Owners:**
-  - https://github.com/feast-dev/feast/blob/master/OWNERS
-
 <!-- BEGIN CUSTOM CONTENT -->
 
 <!-- END CUSTOM CONTENT -->
