@@ -9,10 +9,26 @@ Develop and maintain tools like kfctl (CLI + operator) for using the manifests t
 
 ### In scope
 
+#### Responsibilities
+
+##### Application Owners
+
+- Ensure application manifests are up to date with the latest changes.
+
+##### Platform Owners
+
+- Ensure platform-specific deployment artifacts (manifests, KFDefs, kpt functions) are up-to-date.
+
+##### Deployment Working Group Owners
+
+- Work with Application Owners and Platform Owners to make the integration and release process easier.
+
 #### Code, Binaries and Services
 
 - kfctl
 - kfdef for each platform
+- Testing
+- Infrastructure for testing
 
 #### Cross-cutting and Externally Facing Processes
 
