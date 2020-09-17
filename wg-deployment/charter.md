@@ -9,20 +9,32 @@ Develop and maintain tools like kfctl (CLI + operator) for using the manifests t
 
 ### In scope
 
+#### Responsibilities
+
+- Provide a catalog of Kubeflow application manifests.
+- Provide tooling to deploy Kubeflow applications from the catalog.
+- Work with Application Owners and Platform Owners to make the integration and release process easier.
+
 #### Code, Binaries and Services
 
 - kfctl
-- kfdef for each platform
+- Kubeflow Operator
+- Testing suite for application catalogs
+- Infrastructure for testing application catalogs
 
 #### Cross-cutting and Externally Facing Processes
 
-- Cutting releases on both the manifests and kfctl repos
-- Qualifying a Kubeflow release for each platform
+##### With Application Owners
 - Co-ordinating with application OWNERs before a release to qualify application releases
+- Ensure application manifests are up to date with the latest changes.
+
+##### With Platform Owners
+- Ensure platform-specific deployment artifacts (manifests, KFDefs, kpt functions) are up-to-date.
 
 ### Out of scope
 
-- Maintaining or bug fixes to the individual applications themselves.
+- Maintaining or bug fixes to the individual applications catalogs or the applications.
+- Maintain or fix bugs in the platform specific distributions (KFDefs, kpt functions).
 
 ## Roles and Organization Management
 
