@@ -19,6 +19,7 @@ Develop and maintain tools like kfctl (CLI + operator) for using the manifests t
 
 - kfctl
 - Kubeflow Operator
+- Kubeflow deploy configurations on "generic" Kubernetes
 - Testing suite for application catalogs
 - Infrastructure for testing application catalogs
 
