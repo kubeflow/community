@@ -10,16 +10,14 @@ This charter adheres to the conventions, roles and organization management outli
 
 #### Responsibilities
 
-- Provide a catalog of Kubeflow application manifests.
+- Host a catalog of 3rd party contributed opinionated distributions of Kubeflow
 - Provide tooling to deploy Kubeflow applications from the catalog.
 - Work with Working Group / Application Owners and Platform Owners to make the integration and release process easier.
 
 #### Code, Binaries and Services
 
-- kfctl
-- Kubeflow Operator
-- Testing suite for application catalogs
-- Infrastructure for testing application catalogs
+- kfctl (including operator)
+- manifests
 
 #### Cross-cutting and Externally Facing Processes
 
