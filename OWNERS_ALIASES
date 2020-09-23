@@ -12,11 +12,17 @@ aliases:
     - elikatsis
     - kimwnasptd
     - thesuperzapper
+  wg-deployment-leads:
+    - Jeffwan
+    - animeshsingh
+    - swiftdiaries
+    - vpavlin
+    - yanniszark
   wg-pipelines-leads:
     - Bobgy
     - animeshsingh
     - james-jwu
-    - kramachandran
+    - karkumar
     - neuromage
     - paveldournov
     - rmgogogo
