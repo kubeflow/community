@@ -39,10 +39,6 @@ sigs:
     teams:
     - name: sig-feature-store
       description: Feature store development and roadmap
-  subprojects:
-  - name: feast
-    owners:
-    - https://raw.githubusercontent.com/feast-dev/feast/master/OWNERS
 workinggroups:
 - dir: wg-automl
   name: AutoML
