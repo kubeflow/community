@@ -49,11 +49,13 @@ https://hub.docker.com/u/kubeflow
 
 owners (docker ids):
 
+* andreyvelichkevich@
 * carmark@
 * gaocege@
 * jlewigoogle@
 * k82cn@
 * seedjeffwan@
+* terrytangyuan@
 
 ### DockerHub Robot Accounts
 
