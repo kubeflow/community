@@ -4,8 +4,7 @@ This charter adheres to the conventions, roles and organization management outli
 
 ## Scope
 
-WG Notebooks is responsible for the user experience around Notebooks and other IDEs and their integrations with Kubeflow.
-The WG covers launching and managing different types of Notebooks on Kubeflow as well as workflows that Notebook extensions enable.
+WG Notebooks is responsible for the user experience around Notebooks and their integrations with Kubeflow. The WG covers launching and managing Notebooks on Kubeflow as well as workflows that Notebook extensions enable.
 
 ### In scope
 
@@ -23,6 +22,8 @@ The WG covers launching and managing different types of Notebooks on Kubeflow as
 - Coordinating with Central Dashboard WG to ensure the integration with the Notebook Manager UI is up-to-date.
 - Coordinating with Training and AutoML WG to ensure that corresponding SDK is properly working in Kubeflow Notebooks
 - Ensuring that Kubeflow's Notebook images are continuously built and released.
+- Ensuring that the Notebook Manager UI images are continuously built and released.
+- Ensuring that the Notebook Controller images are continuously built and released.
 
 ### Out of scope
 
