@@ -287,8 +287,8 @@ func (c *Context) Validate() []error {
 				if group.MissionStatement == "" {
 					errors = append(errors, fmt.Errorf("%s: has no mission statement", group.Dir))
 				}
-				if len(group.Subprojects) == 0 {
-					errors = append(errors, fmt.Errorf("%s: has no subprojects", group.Dir))
+				if len(group.Subprojects) != 0 {
+					errors = append(errors, fmt.Errorf("%s: must not own any subprojects", group.Dir))
 				}
 			}
 		}
