@@ -7,15 +7,16 @@ aliases:
     - andreyvelich
     - gaocegege
     - johnugeorge
- wg-notebooks-leads:
+  wg-notebooks-leads:
+    - StefanoFioravanzo
     - elikatsis
     - kimwnasptd
-    - StefanoFioravanzo
+    - thesuperzapper
   wg-pipelines-leads:
     - Bobgy
     - animeshsingh
     - james-jwu
-    - kramachandran
+    - karkumar
     - neuromage
     - paveldournov
     - rmgogogo
