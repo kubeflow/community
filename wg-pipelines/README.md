@@ -17,7 +17,7 @@ The [charter](charter.md) defines the scope and governance of the Pipelines Work
 ## Organizers
 
 * James Wu (**[@james-jwu](https://github.com/james-jwu)**), Google
-* Karthik Ramachandran (**[@karkumar](https://github.com/karkumar)**), Google
+* Karthik Ramachandran (**[@kramachandran](https://github.com/kramachandran)**), Google
 * Pavel Dournov (**[@paveldournov](https://github.com/paveldournov)**), Google
 
 ## Contact
