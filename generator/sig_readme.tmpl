@@ -48,15 +48,15 @@ subprojects, and resolve cross-subproject technical issues and decisions.
 {{- end }}
 
 ## Contact
-- Slack: [#{{.Contact.Slack}}](https://kubernetes.slack.com/messages/{{.Contact.Slack}})
+- Slack: [#{{.Contact.Slack}}](https://kubeflow.slack.com/messages/{{.Contact.Slack}})
 - [Mailing list]({{.Contact.MailingList}})
 {{- if .Label }}
-- [Open Community Issues/PRs](https://github.com/kubernetes/community/labels/sig%2F{{.Label}})
+- [Open Community Issues/PRs](https://github.com/kubeflow/community/labels/sig%2F{{.Label}})
 {{- end }}
 {{- if .Contact.GithubTeams }}
 - GitHub Teams:
 {{- range .Contact.GithubTeams }}
-    - [@kubernetes/{{.Name}}](https://github.com/orgs/kubernetes/teams/{{.Name}}) {{- if .Description }} - {{.Description}} {{- end}}
+    - [@kubeflow/{{.Name}}](https://github.com/orgs/kubeflow/teams/{{.Name}}) {{- if .Description }} - {{.Description}} {{- end}}
 {{- end }}
 {{- end }}
 
@@ -78,7 +78,7 @@ The following [subprojects][subproject-definition] are owned by sig-{{.Label}}:
 {{- if .Contact }}
 - **Contact:**
 {{- if .Contact.Slack }}
-  - Slack: [#{{.Contact.Slack}}](https://kubernetes.slack.com/messages/{{.Contact.Slack}})
+  - Slack: [#{{.Contact.Slack}}](https://kubeflow.slack.com/messages/{{.Contact.Slack}})
 {{- end }}
 {{- if .Contact.MailingList }}
   - [Mailing List]({{.Contact.MailingList}})
@@ -86,7 +86,7 @@ The following [subprojects][subproject-definition] are owned by sig-{{.Label}}:
 {{- if .Contact.GithubTeams }}
   - GitHub Teams: 
 {{- range .Contact.GithubTeams }}
-    - [@kubernetes/{{.Name}}](https://github.com/orgs/kubernetes/teams/{{.Name}}) {{- if .Description }} - {{.Description}}{{- end}}
+    - [@kubeflow/{{.Name}}](https://github.com/orgs/kubeflow/teams/{{.Name}}) {{- if .Description }} - {{.Description}}{{- end}}
 {{- end }}
 {{- end }}
 {{- end }}
@@ -105,4 +105,4 @@ The following [subprojects][subproject-definition] are owned by sig-{{.Label}}:
 {{- end }}
 {{- end }}
 
-[subproject-definition]: https://github.com/kubernetes/community/blob/master/governance.md#subprojects
+[subproject-definition]: https://github.com/kubeflow/community/blob/master/governance.md#subprojects
