@@ -8,7 +8,7 @@ To understand how this file is generated, see https://github.com/kubeflow/commun
 --->
 # Notebooks Working Group
 
-WG Notebooks is responsible for the user experience around Notebooks and other web IDEs and their integrations with Kubeflow
+WG Notebooks is responsible for the user experience around Notebooks and their integrations with Kubeflow.
 
 The [charter](charter.md) defines the scope and governance of the Notebooks Working Group.
 
@@ -20,9 +20,10 @@ The [charter](charter.md) defines the scope and governance of the Notebooks Work
 
 ## Organizers
 
+* Stefano Fioravanzo (**[@StefanoFioravanzo](https://github.com/StefanoFioravanzo)**), Arrikto
 * Ilias Katsakioris (**[@elikatsis](https://github.com/elikatsis)**), Arrikto
 * Kimonas Sotirchos (**[@kimwnasptd](https://github.com/kimwnasptd)**), Arrikto
-* Stefano Fioravanzo (**[@StefanoFioravanzo](https://github.com/StefanoFioravanzo)**), Arrikto
+* Mathew Wicks (**[@thesuperzapper](https://github.com/thesuperzapper)**)
 
 ## Contact
 - Slack: [#wg-notebooks](https://kubeflow.slack.com/messages/wg-notebooks)

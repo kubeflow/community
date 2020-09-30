@@ -99,13 +99,16 @@ workinggroups:
 - dir: wg-notebooks
   name: Notebooks
   mission_statement: >
-    WG Notebooks is responsible for the user experience around Notebooks and
-    their integrations with Kubeflow.
+    WG Notebooks is responsible for the user experience around Notebooks and their
+    integrations with Kubeflow.
 
   charter_link: charter.md
   label: area/wg-notebooks
   leadership:
     chairs:
+    - github: StefanoFioravanzo
+      name: Stefano Fioravanzo
+      company: Arrikto
     - github: elikatsis
       name: Ilias Katsakioris
       company: Arrikto
@@ -114,10 +117,10 @@ workinggroups:
       company: Arrikto
     - github: thesuperzapper
       name: Mathew Wicks
-    - github: StefanoFioravanzo
-      name: Stefano Fioravanzo
-      company: Arrikto
     tech_leads:
+    - github: StefanoFioravanzo
+      name: Stefano Fioravanzo
+      company: Arrikto
     - github: elikatsis
       name: Ilias Katsakioris
       company: Arrikto
@@ -126,9 +129,6 @@ workinggroups:
       company: Arrikto
     - github: thesuperzapper
       name: Mathew Wicks
-    - github: StefanoFioravanzo
-      name: Stefano Fioravanzo
-      company: Arrikto
   meetings:
   - description: Regular Notebooks Meeting (Asia & Europe friendly)
     day: Thursday
@@ -159,12 +159,12 @@ workinggroups:
   - name: jupyter-web-app
     owners:
     - https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/jupyter-web-app/OWNERS
-  - name: notebooks-controller
-    owners:
-    - https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/notebook-controller/OWNERS
   - name: notebook-images
     owners:
     - https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/tensorflow-notebook-image/OWNERS
+  - name: notebooks-controller
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/notebook-controller/OWNERS
 - dir: wg-pipelines
   name: Pipelines
   mission_statement: >
