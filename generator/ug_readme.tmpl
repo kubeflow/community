@@ -36,14 +36,14 @@ The [charter]({{.CharterLink}}) defines the scope and governance of the {{.Name}
 {{- end }}
 
 ## Contact
-- Slack: [#{{.Contact.Slack}}](https://kubernetes.slack.com/messages/{{.Contact.Slack}})
+- Slack: [#{{.Contact.Slack}}](https://kubeflow.slack.com/messages/{{.Contact.Slack}})
 - [Mailing list]({{.Contact.MailingList}})
 {{- if .Label }}
-- [Open Community Issues/PRs](https://github.com/kubernetes/community/labels/ug%2F{{.Label}})
+- [Open Community Issues/PRs](https://github.com/kubeflow/community/labels/ug%2F{{.Label}})
 {{- end }}
 {{- if .Contact.GithubTeams }}
 - GitHub Teams:
 {{- range .Contact.GithubTeams }}
-    - [@kubernetes/{{.Name}}](https://github.com/orgs/kubernetes/teams/{{.Name}}) {{- if .Description }} - {{.Description}} {{- end}}
+    - [@kubeflow/{{.Name}}](https://github.com/orgs/kubeflow/teams/{{.Name}}) {{- if .Description }} - {{.Description}} {{- end}}
 {{- end }}
 {{- end }}
