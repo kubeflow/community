@@ -8,7 +8,7 @@ sigs:
   charter_link: charter.md
   label: area/sig-feature-store
   leadership:
-    chairs:    
+    chairs:
     - github: kevinstumpf
       name: Kevin Stumpf
     - github: pyalex
@@ -113,7 +113,7 @@ workinggroups:
     - github: james-jwu
       name: James Wu
       company: Google
-    - github: karkumar
+    - github: kramachandran
       name: Karthik Ramachandran
       company: Google
     - github: paveldournov
