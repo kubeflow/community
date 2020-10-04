@@ -363,3 +363,16 @@
       Meeting ID: 839 443 5453
       Passcode: R3ScM7
   organizer: andreyvelich
+  
+- id: kf029
+  name: Kubeflow Feature Store SIG Meeting (US/Asia friendly)
+  date: 10/28/2020
+  time: 6:00pm-6:30pm
+  frequency: monthly
+  attendees:
+    - email: kubeflow-discuss@googlegroups.com
+  description:
+    - |
+      Notes & Agenda: https://docs.google.com/document/d/1GHi-NFHmDA2TnH1pDrs4O7OyIQdZRtKatGAdedxte4w
+      Zoom: Provided in meeting notes directly before meeting
+  organizer: woop
