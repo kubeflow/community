@@ -277,6 +277,57 @@ workinggroups:
   - name: kfserving
     owners:
     - https://github.com/kubeflow/kfserving/blob/master/OWNERS
+- dir: wg-testing
+  name: Testing
+  mission_statement: >
+    WG Testing covers developing, maintaining, and managing of Kubeflow shared test-infra
+
+  charter_link: charter.md
+  label: area/wg-testing
+  leadership:
+    chairs:
+    - github: Jeffwan
+      name: Jiaxin Shan
+      company: Amazon Web Services
+    - github: PatrickXYS
+      name: Yao Xiao
+      company: Amazon Web Services
+    - github: andreyvelich
+      name: Andrey Velichkevich
+      company: Cisco
+    - github: jinchihe
+      name: Jinchi He
+      company: IBM
+    tech_leads:
+    - github: Jeffwan
+      name: Jiaxin Shan
+      company: Amazon Web Services
+    - github: PatrickXYS
+      name: Yao Xiao
+      company: Amazon Web Services
+    - github: andreyvelich
+      name: Andrey Velichkevich
+      company: Cisco
+    - github: jinchihe
+      name: Jinchi He
+      company: IBM
+  meetings:
+  - description: Regular WG Meeting
+    day: Wednesday
+    time: "10:00"
+    tz: PT (Pacific Time)
+    frequency: monthly
+    archive_url: https://docs.google.com/document/d/1WjRh9LU5u8zDpje85TsrqbKq_LubgJ5fpGEOpTf5Mjk/edit#
+  contact:
+    slack: wg-testing
+    mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
+    teams:
+    - name: wg-testing-general
+      description: General Discussion
+  subprojects:
+  - name: testing
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/testing/master/OWNERS
 - dir: wg-training
   name: Training
   mission_statement: >
