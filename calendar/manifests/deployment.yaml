@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: calendar-sync
+  labels:
+    app: calendar-sync
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: calendar-sync
+  template:
+    metadata:
+      labels:
+        app: calendar-sync
+    spec:
+      containers:
+      - name: calendar-sync
+        image: calendar
+        env:
+        - name: GOOGLE_APPLICATION_CREDENTIALS
+          value: /secrets/gsa.json
+        command:
+          - python3.7
+          - /opt/kubeflow/calendar_import.py
+          - periodic-sync
+          - --config=/data/community.git/calendar/calendar.yaml
+        volumeMounts:
+        - name: data
+          mountPath: /data
+        - name: gsa
+          mountPath: "/secrets"
+          readOnly: true
+      - name: sync
+        image: k8s.gcr.io/git-sync:v3.1.6
+        args:
+        - --repo=https://github.com/kubeflow/community.git
+        - --branch=master
+        - --root=/data
+        # In seconds
+        - --wait=30
+        volumeMounts:
+        - name: data
+          mountPath: /data
+      volumes:
+        - name: data
+          emptyDir: {}
+        - name: gsa
+          secret:
+            secretName: calendar-gsa

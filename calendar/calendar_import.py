@@ -18,6 +18,8 @@ from dateutil import parser as date_parser
 import fire
 import logging
 import os
+import subprocess
+import time
 import yaml
 import googleapiclient.errors
 from googleapiclient.discovery import build
@@ -32,6 +34,12 @@ import json
 CALENDAR_ID = 'kubeflow.org_7l5vnbn8suj2se10sen81d9428@group.calendar.google.com'
 
 SCOPES = ['https://www.googleapis.com/auth/calendar.events']
+
+# This is owned project kf-infra-gitops
+# It is the unique id of the service account.
+# TODO(jlewi): Do we need to set it when using a service account or does
+# it get filled in automatically from the service account key?
+#DEFAULT_OAUTH_CLIENT_ID = "105316821451047170130"
 
 def update_meeting(service, meeting):
   date = meeting['date']
@@ -117,31 +125,66 @@ def update_meeting(service, meeting):
   except Exception as e:
     logging.error("Error occurred creating the event: ", e)
 
+def get_user_credentials(oauth_client_secret=None):
+  """Obtain user credentials through the web flow.
+
+  oauth_client_secret: Path to the json file containing an OAuth client id
+        for an OAuth application to use the Calendar API. Only required if
+        not using a service account
+  """
+  home = str(Path.home())
+  config_dir = os.path.join(home, ".config", "kubeflow", "calendar_import")
+  if not os.path.exists(config_dir):
+    os.makedirs(config_dir)
+
+  # File to store credentials
+  # Only used with the personal login flow.
+  credentials_file = os.path.join(config_dir, "token.pickle")
+
+  # TODO(jlewi): Don't hardcode this
+  if not oauth_client_secret:
+    raise ValueError("An oauth_client_secret is required when using end user "
+                     "credentials")
+  # The file token.pickle stores the user's access and refresh tokens, and is
+  # created automatically when the authorization flow completes for the first
+  # time.
+  if os.path.exists(credentials_file):
+    with open(credentials_file, 'rb') as token:
+      creds = pickle.load(token)
+  # If there are no (valid) credentials available, let the user log in.
+  if not creds or not creds.valid:
+    if creds and creds.expired and creds.refresh_token:
+      creds.refresh(requests.Request())
+    else:
+      web_flow = flow.InstalledAppFlow.from_client_secrets_file(oauth_client_secret,
+                                                                SCOPES)
+      creds = web_flow.run_local_server(port=0)
+
+      # Save the credentials for the next run
+      with open(credentials_file, 'wb') as token:
+        pickle.dump(creds, token)
+
+  return creds
+
+def _get_default_config():
+  this_file = __file__
+  repo_root = os.path.abspath(os.path.join(os.path.dirname(this_file), ".."))
+  config = os.path.join(repo_root, "calendar/calendar.yaml")
+  return config
+
 class CalendarUpdater:
   """Class to update the calendar"""
 
-  def sync(self, oauth_client_secret=None):
+  @staticmethod
+  def sync(config=None, oauth_client_secret=None):
     """Sync the events in the YAML file to the calendar
 
     Args:
+      config: Path to the YAML file containing the calendar data.
       oauth_client_secret: Path to the json file containing an OAuth client id
-        for an OAuth application to use the Calendar API.
+        for an OAuth application to use the Calendar API. Only required if
+        not using a service account
     """
-    home = str(Path.home())
-    config_dir = os.path.join(home, ".config", "kubeflow", "calendar_import")
-    if not os.path.exists(config_dir):
-      os.makedirs(config_dir)
-
-    # File to store credentials
-    credentials_file = os.path.join(config_dir, "token.pickle")
-
-    # TODO(jlewi): Don't hardcode this
-    if not oauth_client_secret:
-      oauth_client_secret = os.path.join(home, "secrets",
-                                         "kf-calendar.oauth_client.json")
-      logging.info("Oauth_client_secret not set trying default: %s",
-                   oauth_client_secret)
-
     # Since we are using the Google calendar API which isn't a Google Cloud API
     # we can't use Google Cloud Platform Default Application credentials.
     # There are two modes we want to support
@@ -150,38 +193,27 @@ class CalendarUpdater:
     # TODO(jlewi): Can we use Workload Identity with the calendar API or do
     # we have to use a service account
     creds = None
-    # The file token.pickle stores the user's access and refresh tokens, and is
-    # created automatically when the authorization flow completes for the first
-    # time.
-    if os.path.exists(credentials_file):
-      with open(credentials_file, 'rb') as token:
-        creds = pickle.load(token)
-    # If there are no (valid) credentials available, let the user log in.
-    if not creds or not creds.valid:
-      if creds and creds.expired and creds.refresh_token:
-        creds.refresh(requests.Request())
-      else:
-        if os.environ.get("GOOGLE_APPLICATION_CREDENTIALS"):
-          # TODO(jlewi): How do we obtain credentials with a service account?
-          SERVICE_ACCOUNT_FILE = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS')
-          creds = service_account.ServiceAccountCredentials.from_json_keyfile_name(
-            SERVICE_ACCOUNT_FILE, SCOPES)
-        else:
-          web_flow = flow.InstalledAppFlow.from_client_secrets_file(oauth_client_secret,
-                                                                    SCOPES)
-          creds = web_flow.run_local_server(port=0)
 
-        # Save the credentials for the next run
-        with open(credentials_file, 'wb') as token:
-          pickle.dump(creds, token)
+    if config is None:
+      config = _get_default_config()
+      logging.info("config file not set resorting to default default")
+
+    if os.environ.get("GOOGLE_APPLICATION_CREDENTIALS"):
+      logging.info("GOOGLE_APPLICATION_CREDENTIALS is set using service "
+                   "account")
+      # TODO(jlewi): How do we obtain credentials with a service account?
+      SERVICE_ACCOUNT_FILE = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS')
+      creds = service_account.ServiceAccountCredentials.from_json_keyfile_name(
+        SERVICE_ACCOUNT_FILE, SCOPES)
+
+      creds = creds.create_delegated("autobot@kubeflow.org")
+    else:
+      creds = get_user_credentials(oauth_client_secret=oauth_client_secret)
 
     service = build('calendar', 'v3', credentials=creds)
 
-    this_file = __file__
-    repo_root = os.path.abspath(os.path.join(os.path.dirname(this_file), ".."))
-    cal_yaml = os.path.join(repo_root, "calendar/calendar.yaml")
-
-    with open(cal_yaml) as cal:
+    logging.info("Loading calendar data from %s", config)
+    with open(config) as cal:
       meetings = yaml.safe_load(cal)
 
       for meeting in meetings:
@@ -191,6 +223,50 @@ class CalendarUpdater:
           logging.error("Could not update meeting %s; Error:\n%s",
                         meeting.get("id"), e)
           continue
+
+  @staticmethod
+  def periodic_sync(config=None, period_seconds=15):
+    """Run the sync periodically at the desired interval.
+
+    The sync only runs when the commit changes
+
+    Args:
+      period_seconds: How frequently to check for changes to the file.
+        This should be pretty frequent since the sync only runs when changes
+        are detected.
+    """
+    last_tag = None
+
+    if not config:
+      logging.info("Using default config file")
+      config = _get_default_config()
+
+    logging.info("Config: %s", config)
+    git_dir = os.path.dirname(config)
+
+    while True:
+      # This is a bit of a hack. When relying on a side car (e.g. git-sync)
+      # to synchronize the config the file may not be available when the
+      # script first runs because the git sync hasn't completed yet.
+      if not os.path.exists(config):
+        logging.error("Config %s doesn't exist")
+        time.sleep(period_seconds)
+        continue
+
+      latest = subprocess.check_output(["git", "describe", "--dirty",
+                                        "--always"], cwd=git_dir)
+      latest = latest.strip()
+
+      logging.info("Current tag=%s; last run=%s", latest, last_tag)
+
+      if latest != last_tag:
+        logging.info("Running sync")
+        CalendarUpdater.sync(config=config)
+      else:
+        logging.info("No changes; not syncing")
+
+      last_tag = latest
+      time.sleep(period_seconds)
 
 if __name__ == "__main__":
   logging.basicConfig(level=logging.INFO,
