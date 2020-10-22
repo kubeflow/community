@@ -27,6 +27,8 @@ To add new meeting to the Kubeflow calendar follow these steps:
 ### Where it Runs
 
 * Project: kf-infra-gitops
+* Cluster: kf-org-admin
+* Namespace: kf-autobot
 
 * Project configs [kubeflow/community-infra/tree/master/prod/namespaces/kf-infra-gitops](https://github.com/kubeflow/community-infra/tree/master/prod/namespaces/kf-infra-gitops)
 

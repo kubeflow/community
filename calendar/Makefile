@@ -9,8 +9,10 @@ SHELL = sh -xv
 
 LATESTIMAGES=latest_image.yaml
 
+CONTEXT:=kf-autobot
+
 build-submit:
-	gcloud --project=$(PROJECT) builds submit --tag=$(IMAGE) ./
+	gcloud --project=$(PROJECT) builds submit --machine-type=n1-highcpu-32 --tag=$(IMAGE) ./
 
 build-output:
 	yq w -i latest_image.yaml $(PROJECT).calendar.image \
