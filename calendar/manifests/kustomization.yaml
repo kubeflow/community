@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: calendar-sync
+resources:
+- deployment.yaml
+images:
+- digest: sha256:a0669afe42c156609d0e2d152c40d6cd68eec7de4ef35a2153cd21e076de4589
+  name: calendar
+  newName: gcr.io/kf-infra-gitops/calendar-sync:c0ec5d7-dirty

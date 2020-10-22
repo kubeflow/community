@@ -16,6 +16,31 @@ To add new meeting to the Kubeflow calendar follow these steps:
 
 1. Then you should be able to see your new meeting in the calendar.
 
+## Automating calendar_import.py
+
+`calendar_import.py` is designed to run automatically using a robot account. 
+
+* We deploy it on Kubernetes
+* We run [git-sync](https://github.com/kubernetes/git-sync) in a side car to synchronize the repo to a volume mount
+* When calendar_import.py detects a change it runs the sync
+
+### Where it Runs
+
+* Project: kf-infra-gitops
+
+* Project configs [kubeflow/community-infra/tree/master/prod/namespaces/kf-infra-gitops](https://github.com/kubeflow/community-infra/tree/master/prod/namespaces/kf-infra-gitops)
+
+
+### Using a Google Service Account with the Calendar API
+
+* We need to enable [Domain Delegation](https://developers.google.com/identity/protocols/oauth2/service-account)
+  for the service account
+
+  * Without this the GSA can add events to the calendar but not invite attendees to the meeting
+  * Domain wide configuration is restricted to the calendar scope to minimize the damage this can do
+
+* In order to use domain wide configuration the GSA needs to impersonate a user; we have created the account "autobot.kubeflow.org" for this
+
 ## Before running `calendar_import.py`
 
 1. You need to be calendar admin in kubeflow.org.
