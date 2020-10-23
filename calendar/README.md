@@ -33,15 +33,47 @@ To add new meeting to the Kubeflow calendar follow these steps:
 * Project configs [kubeflow/community-infra/tree/master/prod/namespaces/kf-infra-gitops](https://github.com/kubeflow/community-infra/tree/master/prod/namespaces/kf-infra-gitops)
 
 
-### Using a Google Service Account with the Calendar API
+### Credentials and Permissions
 
-* We need to enable [Domain Delegation](https://developers.google.com/identity/protocols/oauth2/service-account)
-  for the service account
+* The script runs using the gsuite account `autobot@kubeflow.org`
 
-  * Without this the GSA can add events to the calendar but not invite attendees to the meeting
+  * Password and recovery codes are stored in secret manager
+    
+    * **secret**: [projects/kf-infra-gitops/secret/kf-autobot-kubeflow-org-password](https://console.cloud.google.com/security/secret-manager/secret/autobot-kubeflow-org-password?project=kf-infra-gitops)
+
+      ```
+      gcloud --project=kf-infra-gitops secrets versions access latest --secret="autobot-kubeflow-org-password"
+      ```
+
+* An OAuth2 refresh token is stored in secret manager to allow the script to run without human intervention
+
+  * **secret** [projects/kf-infra-gitops/secret/autobot-at-kubeflow-oauth](https://console.cloud.google.com/security/secret-manager/secret/autobot-at-kubeflow-oauth?project=kf-infra-gitops)
+
+
+* When `calendar_import.py` runs it uses a GSA to read the OAuth2 refresh token from secret manager and then uses it
+  to authenticate as `autorobt@kubeflow.org` to the calendar API
+
+* To update the refresh token run
+
+  ```
+  python calendar_import.py mint-credentials
+  ```
+
+  * This will direct you through the OAuth2 Web Login flow
+  * You will need to login as `autobot@kubeflow.org` using the password/recovery codes stored in secret manager
+  * The script will save the refresh token to secret manager
+  * The person running the script needs to be able to modify the secret
+
+* We can't use a Google Service Account (GSA) to directly authenticate to the calendar API 
+  because the calendar API requires [Domain Delegation](https://developers.google.com/identity/protocols/oauth2/service-account)
+
+  * Without domain wide configuration the GSA can add events to the calendar but not invite attendees to the meeting
   * Domain wide configuration is restricted to the calendar scope to minimize the damage this can do
+  * Domain wide delegation makes it very difficult to reason about the blast radius as the GSA could impersonate
+    any user
+    * The only restriction is via OAuth scopes
 
-* In order to use domain wide configuration the GSA needs to impersonate a user; we have created the account "autobot.kubeflow.org" for this
+  * By impersonating `autobot@kubeflow.org` we know automation is limited to the privileges assigned to that account.   
 
 ## Before running `calendar_import.py`
 
