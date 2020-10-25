@@ -96,6 +96,73 @@ workinggroups:
   - name: katib
     owners:
     - https://raw.githubusercontent.com/kubeflow/katib/master/OWNERS
+- dir: wg-manifests
+  name: Manifests
+  mission_statement: >
+    WG Manifests maintains a centralized repository of manifests.
+
+  charter_link: charter.md
+  label: area/wg-manifests
+  leadership:
+    chairs:
+    - github: PatrickXYS
+      name: Yao Xiao
+      company: AWS
+    - github: vkoukis
+      name: Vangelis Koukis
+      company: Arrikto
+    - github: yanniszark
+      name: Yannis Zarkadas
+      company: Arrikto
+    tech_leads:
+    - github: Jeffwan
+      name: Jiaxin Shan
+      company: Amazon Web Services
+    - github: PatrickXYS
+      name: Yao Xiao
+      company: AWS
+    - github: StefanoFioravanzo
+      name: Stefano Fioravanzo
+      company: Arrikto
+    - github: elikatsis
+      name: Ilias Katsakioris
+      company: Arrikto
+    - github: vkoukis
+      name: Vangelis Koukis
+      company: Arrikto
+    - github: yanniszark
+      name: Yannis Zarkadas
+      company: Arrikto
+  meetings:
+  - description: Regular WG Meeting (Pacific AM)
+    day: Tuesday
+    time: "08:00"
+    tz: PT (Pacific Time)
+    frequency: biweekly - every other Tuesday
+    archive_url: http://bit.ly/kf-meeting-notes
+  contact:
+    slack: wg-manifests
+    mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
+    teams:
+    - name: wg-manifests-bugs
+      description: Bug Triage and Troubleshooting
+    - name: wg-manifests-misc
+      description: General Discussion
+    - name: wg-manifests-reviews
+      description: Changes and Reviews
+  subprojects:
+  - name: central-dashboard
+    owners:
+    - https://github.com/kubeflow/kubeflow/blob/master/components/centraldashboard/OWNERS
+  - name: manifests
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/manifests/master/OWNERS
+  - name: poddefaults-webhook
+    owners:
+    - https://github.com/kubeflow/kubeflow/blob/master/components/admission-webhook/OWNERS
+  - name: profile-controller
+    owners:
+    - https://github.com/kubeflow/kubeflow/blob/master/components/profile-controller/OWNERS
 - dir: wg-notebooks
   name: Notebooks
   mission_statement: >
