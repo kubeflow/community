@@ -40,6 +40,7 @@ subprojects, and resolve cross-subproject technical issues and decisions.
 - GitHub Teams:
     - [@kubeflow/sig-feature-store](https://github.com/orgs/kubeflow/teams/sig-feature-store) - Feature store development and roadmap
 
+[subproject-definition]: https://github.com/kubeflow/community/blob/master/governance.md#subprojects
 <!-- BEGIN CUSTOM CONTENT -->
 
 <!-- END CUSTOM CONTENT -->

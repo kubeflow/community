@@ -25,7 +25,7 @@ This SIG aims to coordinate projects and technologies necessary to enable the co
 - Coordinating with Pipelines/KFData WG to ensure both datasets and streams can be ingested, persisted, and served.
 - Coordinating with Training WG to make sure that its possible to create training datasets using the feature store.
 - Coordinating with Serving WG to make sure that its possible to retrieve online feature data from the feature store.
-- Coordinating with Control Plane WG to ensure that feature store manifests are properly deployed with Kubeflow.
+- Coordinating with Manifests WG to ensure that feature store manifests are properly deployed with Kubeflow.
 - Coordinating with release teams to ensure that the feature store functionality can be released properly.
 
 ### Out of scope
