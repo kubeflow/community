@@ -19,7 +19,7 @@ The WG covers researching, developing and operating various targets of ML automa
 #### Cross-cutting and Externally Facing Processes
 
 - Coordinating with Training WG to make sure that all distributed training jobs can be used in AutoML experiments.
-- Coordinating with Control Plane WG to ensure that AutoML manifests are properly deployed with Kubeflow.
+- Coordinating with Manifests WG to ensure that AutoML manifests are properly deployed with Kubeflow.
 - Coordinating with Central Dashboard WG to correct integration with AutoML UI.
 - Coordinating with release teams to ensure that the AutoML features can be released properly.
 
