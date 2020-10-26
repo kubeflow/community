@@ -15,6 +15,14 @@ WG Notebooks is responsible for the user experience around Notebooks and their i
 - SDKs and integrations from inside the Notebooks (e.g. Git inside Notebooks)
 - Documentation for detailed description of using Notebooks in Kubeflow.
 - Notebook images that will be working out of the box with Kubeflow.
+- Code for Central Dashboard, the UI that ties Kubeflow applications together.
+- Code for the PodDefaults controller and its integrations with the Notebook
+  Manager UI. In the future, we may consider continuing development of the
+  controller out of Kubeflow, as it's not specific to ML.
+- Maintenance of the following deprecated components, until dependant
+  applications have moved off of them:
+    - Profile Controller
+    - KFAM
 
 #### Cross-cutting and Externally Facing Processes
 
@@ -24,6 +32,10 @@ WG Notebooks is responsible for the user experience around Notebooks and their i
 - Ensuring that Kubeflow's Notebook images are continuously built and released.
 - Ensuring that the Notebook Manager UI images are continuously built and released.
 - Ensuring that the Notebook Controller images are continuously built and released.
+- Communicate the following APIs to WGs that want to integrate their web apps
+  with them:
+    - The PodDefault API to integrate closely with the Notebooks UI.
+    - The CentralDashboard API to get the selected namespace from Javascript.
 
 ### Out of scope
 
