@@ -17,9 +17,6 @@ spec:
       containers:
       - name: calendar-sync
         image: calendar
-        env:
-        - name: GOOGLE_APPLICATION_CREDENTIALS
-          value: /secrets/gsa.json
         command:
           - python3.7
           - /opt/kubeflow/calendar_import.py
@@ -28,9 +25,6 @@ spec:
         volumeMounts:
         - name: data
           mountPath: /data
-        - name: gsa
-          mountPath: "/secrets"
-          readOnly: true
       - name: sync
         image: k8s.gcr.io/git-sync:v3.1.6
         args:
@@ -42,9 +36,7 @@ spec:
         volumeMounts:
         - name: data
           mountPath: /data
+      serviceAccount: kf-autobot
       volumes:
         - name: data
           emptyDir: {}
-        - name: gsa
-          secret:
-            secretName: calendar-gsa

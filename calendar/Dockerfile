@@ -7,6 +7,7 @@ RUN python3.7 -m pip install \
 	fire==0.3.1 \
 	google-api-python-client==1.12.4 \
 	google-auth-oauthlib==0.4.1 \
+	google-cloud-secret-manager==2.0.0 \
 	oauth2client==4.1.3 \	
 	python-dateutil==2.8.1 \
 	pyyaml==5.3.1 \
