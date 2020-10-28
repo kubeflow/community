@@ -3,35 +3,25 @@
 This charter adheres to the conventions, roles and organization management outlined in [wg-governance].
 
 ## Scope
-* Provide a catalog (centralized repository) of Kubeflow application manifests
-* Provide tooling to deploy apps from the catalog (e.g kfctl)
+
+WG Deployment is responsible for tools to deploy apps from the catalog (e.g kfctl).
 
 ### In scope
 
 #### Responsibilities
 
-- Host a catalog of 3rd party contributed opinionated distributions of Kubeflow
 - Provide tooling to deploy Kubeflow applications from the catalog.
-- Work with Working Group / Application Owners and Platform Owners to make the integration and release process easier.
 
 #### Code, Binaries and Services
 
 - kfctl (including operator)
-- manifests
-
-#### Cross-cutting and Externally Facing Processes
-
-##### With Application Owners
-- Co-ordinating with application OWNERs before a release to qualify application releases
-- Ensure application manifests are up to date with the latest changes.
-
-##### With Platform Owners
-- Ensure platform-specific deployment artifacts (manifests, KFDefs, kpt functions) are up-to-date.
 
 ### Out of scope
 
 - Maintaining or bug fixes to the individual applications catalogs or the applications.
 - Maintain or fix bugs in the platform specific distributions (KFDefs, kpt functions).
+- Defining or maintaining a Kubeflow distribution
+- Deciding which applications or versions of applications should be included in KF distributions
 
 ## Roles and Organization Management
 

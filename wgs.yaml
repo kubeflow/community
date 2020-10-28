@@ -111,9 +111,9 @@ workinggroups:
     - github: animeshsingh
       name: Animesh Singh
       company: IBM
-    - github: swiftdiaries
-      name: Adhita Selvaraj
-      company: Cisco
+    - github: mameshini
+      name: Igor Mameshin
+      company: Agile Stacks
     - github: vpavlin
       name: Vaclav Pavlin
       company: Red Hat
@@ -127,6 +127,9 @@ workinggroups:
     - github: animeshsingh
       name: Animesh Singh
       company: IBM
+    - github: mameshini
+      name: Igor Mameshin
+      company: Agile Stacks
     - github: vpavlin
       name: Vaclav Pavlin
       company: Red Hat

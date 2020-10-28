@@ -19,10 +19,9 @@ The [charter](charter.md) defines the scope and governance of the Deployment Wor
   * [Meeting notes and Agenda](http://bit.ly/kf-meeting-notes).
 
 ## Organizers
-
-* Jiaxin Shan (**[@Jeffwan](https://github.com/Jeffwan)**), AWS
 * Animesh Singh (**[@animeshsingh](https://github.com/animeshsingh)**), IBM
-* Adhita Selvaraj (**[@swiftdiaries](https://github.com/swiftdiaries)**), Cisco
+* Igor Mameshin (**[@mameshini](https://github.com/mameshini)**), Agile Stacks
+* Jiaxin Shan (**[@Jeffwan](https://github.com/Jeffwan)**), AWS
 * Vaclav Pavlin (**[@vpavlin](https://github.com/vpavlin)**), Red Hat
 * Yannis Zarkadas (**[@yanniszark](https://github.com/yanniszark)**), Arrikto
 
