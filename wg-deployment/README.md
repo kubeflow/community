@@ -13,16 +13,13 @@ WG Deployment covers developing, maintaining artifacts to deploy and operate Kub
 The [charter](charter.md) defines the scope and governance of the Deployment Working Group.
 
 ## Meetings
-* Regular WG Meeting (Pacific AM): [Tuesdays at 08:00 PT (Pacific Time)]() (biweekly - every other Tuesday). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=08:00&tz=PT%20%28Pacific%20Time%29).
-  * [Meeting notes and Agenda](http://bit.ly/kf-meeting-notes).
-* Regular WG Meeting (Pacific PM): [Wednesdays at 17:30 PT (Pacific Time)]() (biweekly - every other Tuesday). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=17:30&tz=PT%20%28Pacific%20Time%29).
+* Regular WG Meeting (Pacific PM): [Wednesdays at 17:30 PT (Pacific Time)]() (biweekly - every other Wednesday). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=17:30&tz=PT%20%28Pacific%20Time%29).
   * [Meeting notes and Agenda](http://bit.ly/kf-meeting-notes).
 
 ## Organizers
-
-* Jiaxin Shan (**[@Jeffwan](https://github.com/Jeffwan)**), AWS
 * Animesh Singh (**[@animeshsingh](https://github.com/animeshsingh)**), IBM
-* Adhita Selvaraj (**[@swiftdiaries](https://github.com/swiftdiaries)**), Cisco
+* Igor Mameshin (**[@mameshini](https://github.com/mameshini)**), Agile Stacks
+* Jiaxin Shan (**[@Jeffwan](https://github.com/Jeffwan)**), AWS
 * Vaclav Pavlin (**[@vpavlin](https://github.com/vpavlin)**), Red Hat
 * Yannis Zarkadas (**[@yanniszark](https://github.com/yanniszark)**), Arrikto
 

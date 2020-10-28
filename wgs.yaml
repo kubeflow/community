@@ -137,17 +137,11 @@ workinggroups:
       name: Yannis Zarkadas
       company: Arrikto
   meetings:
-  - description: Regular WG Meeting (Pacific AM)
-    day: Tuesday
-    time: "08:00"
-    tz: PT (Pacific Time)
-    frequency: biweekly - every other Tuesday
-    archive_url: http://bit.ly/kf-meeting-notes
   - description: Regular WG Meeting (Pacific PM)
     day: Wednesday
     time: "17:30"
     tz: PT (Pacific Time)
-    frequency: biweekly - every other Tuesday
+    frequency: biweekly - every other Wednesday
     archive_url: http://bit.ly/kf-meeting-notes
   contact:
     slack: wg-deployment
