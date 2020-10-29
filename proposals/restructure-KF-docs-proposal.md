@@ -1,0 +1,109 @@
+This is an initial proposal, to be iterated on, following the discussion in #2293.
+
+### Kubeflow documentation structure
+
+- **About**
+  - Kubeflow
+  - Use Cases
+  - Contributing to Kubeflow
+  - Community
+  - Google Summer of Code
+  - Docs
+  - Style Guide for Kubeflow docs
+  
+- **Getting Started**
+  - Kubeflow Overview
+  - Installing Kubeflow
+  - Cloud Installation
+    - AWS
+    - Azure
+    - Google Cloud
+    - IBM Cloud
+  - Kubernetes installation
+    - Overview of Deployment on Existing Clusters
+    - Kubeflow Deployment with kfctl_k8s_istio
+    - Multi-user, auth-enabled Kubeflow with kfctl_existing_arrikto
+    - Multi-user, auth-enabled Kubeflow with kfctl_istio_dex
+  - Workstation Installation
+    - Kubeflow on Linux
+    - Kubeflow on macOS
+    - Kubeflow on Windows
+    - MiniKF
+    - Deploy using MiniKF on GCP
+    - Deploying with minikube on a single node
+    - Kubeflow on MicroK8s
+- **Components of Kubeflow**
+  - Central Dashboard
+    - Central Dashboard 
+    - Registration Flow
+  - Metadata
+  - Jupyter Notebooks
+  - Fairing 
+    - Overview of Kubeflow Fairing
+    - Install Kubeflow Fairing
+    - Configure Kubeflow Fairing
+    - Fairing on Azure
+    - Fairing on GCP
+    - Tutorials
+    - Reference
+  - Feature Store
+    - Introduction to Feast
+    - Getting started with Feast
+  - Frameworks for Training
+    - Chainer Training
+    - MPI Training
+    - MXNet Training
+    - PyTorch Training
+    - TensorFlow Training (TFJob)
+  - Hyperparameter Tuning
+    - Introduction to Katib
+    - Getting started with Katib
+    - Running an experiment
+    - Katib Configuration Overview
+    - Environment Variables for Katib Components
+  - Pipelines
+    - Pipelines
+  - Tools for Serving
+    - Overview
+    - KFServing
+    - Seldon Core Serving
+    - BentoML
+    - NVIDIA Triton Inference Server
+    - TensorFlow Serving
+    - TensorFlow Batch Prediction
+  - Multi-Tenancy in Kubeflow
+    - Introduction to Multi-user Isolation
+    - Design for Multi-user Isolation
+    - Getting Started with Multi-user Isolation
+  - Miscellaneous
+    - Nuclio functions
+- **Jupyter Notebooks**
+  - Overview of Jupyter Notebooks in Kubeflow
+  - Set Up Your Notebooks
+  - Create a Custom Jupyter Image
+  - Submit Kubernetes Resources
+  - Build a Docker Image on GCP
+  - Troubleshooting Guide
+- **Pipelines**
+  - Pipelines Quickstart
+  - Installing Pipelines
+  - Understanding Pipelines
+  - Building Pipelines with the SDK
+  - Multi-user Isolation for Pipelines
+  - Caching
+  - Upgrading
+  - Samples and Tutorials
+  - Troubleshooting
+  - Reference
+- **Kubeflow on AWS**
+- **Kubeflow on Azure**
+- **Kubeflow on GCP**
+- **Kubeflow on IBM Cloud**
+- **Kubeflow Operator**
+- **Kubeflow on OpenShift**
+- **Tutorials, Samples, and Shared Resources**
+- **Further Setup and Troubleshooting**
+- **Upgrading Kubeflow**
+- **Reference**
+
+
