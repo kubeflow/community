@@ -87,23 +87,140 @@ This is an initial proposal, to be iterated on, following the discussion in #229
 - **Pipelines**
   - Pipelines Quickstart
   - Installing Pipelines
+    - Installation Options for Kubeflow Pipelines
+    - Kubeflow Pipelines Standalone Deployment
+    - Deploying Kubeflow Pipelines on a local cluster
   - Understanding Pipelines
+    - Overview of Kubeflow Pipelines
+    - Introduction to the Pipelines Interfaces
+    - Concepts
   - Building Pipelines with the SDK
+    - Introduction to the Pipelines SDK
+    - Install the Kubeflow Pipelines SDK
+    - Build Components and Pipelines
+    - Create Reusable Components
+    - Building Python function-based components
+    - Best Practices for Designing Components
+    - Pipeline Parameters
+    - Python Based Visualizations
+    - Visualize Results in the Pipelines UI
+    - Pipeline Metrics
+    - DSL Static Type Checking
+    - DSL Recursion
+    - Using environment variables in pipelines
+    - GCP-specific Uses of the SDK
+    - Manipulate Kubernetes Resources as Part of a Pipeline
   - Multi-user Isolation for Pipelines
   - Caching
   - Upgrading
   - Samples and Tutorials
+    - Using the Kubeflow Pipelines Benchmark Scripts
+    - Using the Kubeflow Pipelines SDK
+    - Experiment with the Kubeflow Pipelines API
+    - Experiment with the Pipelines Samples
+    - Run a Cloud-specific Pipelines Tutorial
   - Troubleshooting
   - Reference
+    - Component Specification
+    - Pipelines API Reference
+    - Pipelines SDK Reference
 - **Kubeflow on AWS**
+  - Deployment
+    - Install Kubeflow
+    - Uninstall Kubeflow
+  - Customizing Kubeflow on AWS
+  - AWS IAM Role for Service Account
+  - Logging
+  - Private Access
+  - Authentication and Authorization
+  - Authentication using OIDC
+  - Configure Kubeflow Pipelines on AWS
+  - Custom Domain
+  - Optimized Jupyter Notebooks on AWS
+  - Storage Options
+  - Configure External Database Using Amazon RDS
+  - Troubleshooting Deployments on Amazon EKS
+  - Kubeflow on AWS Features
+  - End-to-end Kubeflow on AWS
 - **Kubeflow on Azure**
+  - Deployment
+    - Install Kubeflow
+    - Initial cluster setup for existing cluster
+    - Uninstall Kubeflow
+  - Authentication using OIDC in Azure
+  - End-to-End Pipeline Example on Azure
+  - Access Control for Azure Deployment
+  - Troubleshooting Deployments on Azure AKS
 - **Kubeflow on GCP**
+  - Deploying Kubeflow
+    - Set up a Google Cloud Project
+    - Set up OAuth for Cloud IAP
+    - Management cluster setup
+    - Deploy using kubectl and kpt
+    - Monitor Cloud IAP Setup
+    - Delete using CLI
+    - Features of Kubeflow on GCP
+    - Deploy using UI
+  - Kubeflow On-premises on Anthos GKE
+  - Pipelines on GCP
+    - Connecting to Kubeflow Pipelines on Google Cloud using the SDK
+    - Authenticating Pipelines to GCP
+    - Upgrading
+    - Enabling GPU and TPU
+    - Using Preemptible VMs and GPUs on GCP
+  - Customizing Kubeflow on GKE
+  - Using Your Own Domain
+  - Authenticating Kubeflow to GCP
+  - Using Cloud Filestore
+  - Securing Your Clusters
+  - Troubleshooting Deployments on GKE
+  - Tutorial: End-to-end Kubeflow on GCP
+  - Logging and monitoring
 - **Kubeflow on IBM Cloud**
+  - Deployment
+    - Install Kubeflow
+    - Securing the Kubeflow authentication with HTTPS
+    - Uninstall Kubeflow
+  - Create an IBM Cloud cluster
+  - Initial cluster setup for existing cluster
+  - Using IBM Cloud Container Registry (ICR)
+  - Pipelines on IBM Cloud Kubernetes Service (IKS)
+  - End-to-end Kubeflow on IBM Cloud
 - **Kubeflow Operator**
+  - Introduction
+  - Installing Kubeflow Operator
+  - Installing Kubeflow
+  - Uninstalling Kubeflow
+  - Uninstalling Kubeflow Operator
+  - Troubleshooting
 - **Kubeflow on OpenShift**
+  - Install Kubeflow on OpenShift
+  - Uninstall Kubeflow
 - **Tutorials, Samples, and Shared Resources**
+  - Kubeflow Samples
+  - Codelabs, Workshops, and Tutorials
+  - Blog Posts
+  - Videos
+  - Shared Resources and Components
 - **Further Setup and Troubleshooting**
-- **Upgrading Kubeflow**
+  - Configuring Kubeflow with kfctl and kustomize
+  - Kubeflow On-prem in a Multi-node Kubernetes Cluster
+  - Usage Reporting
+  - Istio Usage in Kubeflow
+  - Job Scheduling
+  - Troubleshooting
+  - Frequently Asked Questions
+  - Support
+  - Integrations
+- **Upgrading Kubeflow** (to be removed)
 - **Reference**
+  - Reference Overview
+  - Kubeflow Versioning Policies
+  - Dockerfile Locations
+  - Katib Reference
+  - MPIJob Reference
+  - Notebook CRD Reference
+  - PyTorchJob Reference
+  - TFJob Reference
 
 
