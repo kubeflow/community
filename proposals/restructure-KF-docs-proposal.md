@@ -1,4 +1,4 @@
-This is an initial proposal, to be iterated on, following the discussion in #2293.
+This is an initial proposal, to be iterated on, following the discussion in [#2293](https://github.com/kubeflow/website/issues/2293).
 
 ### Kubeflow documentation structure
 
