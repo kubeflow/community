@@ -112,7 +112,7 @@ def update_meeting(service, meeting):
 
   try:
     event = service.events().insert(calendarId=CALENDAR_ID, body=event).execute()
-    logging.info("Craeted Event: {}".format(meeting['name'][:100]))
+    logging.info("Created Event: {}".format(meeting['name'][:100]))
     logging.info(event.get('htmlLink'))
   except googleapiclient.errors.HttpError as e:
     content = json.loads(e.content)
