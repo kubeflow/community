@@ -58,17 +58,17 @@
   organizer: theadactyl
 
 - id: kf003
-  name: Kubeflow On-premise Working Group
-  date: 08/22/2019
-  time: 10:00am-10:45am
+  name: Kubeflow On-Premise Special Interest Group
+  date: 11/06/2020
+  time: 9:00am-9:45am
   frequency: weekly
-  video: https://meet.google.com/dcw-fafu-arr
+  video: https://us02web.zoom.us/j/87159010361?pwd=c09wTXk2dmJPNmpkTDFTb0o0cnY2Zz09
   attendees:
     - email: kubeflow-discuss@googlegroups.com
   description:
     - |
-      Meeting Logs: https://bit.ly/2LyTh14
-  organizer: theadactyl
+      Meeting Working Document: https://bit.ly/2LyTh14
+  organizer: jtfogarty
 
 - id: kf004
   name: Kubeflow Serving Working Group
