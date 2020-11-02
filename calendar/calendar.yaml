@@ -48,7 +48,7 @@
       International numbers available: https://zoom.us/zoomconference?m=Os1EjlUlpb2_XUMaQ6dX1azqMK5CkfWH
   organizer: theadactyl
 
-- id: kf030
+- id: kf031
   name: Kubeflow Community Call (US East/EMEA)
   date: 08/18/2020
   time: 8:00AM-8:55AM
@@ -67,7 +67,7 @@
 
       Join from phone in the US: +1 669 900 6833 or +1 646 558 8656
       International numbers available: https://zoom.us/zoomconference?m=Os1EjlUlpb2_XUMaQ6dX1azqMK5CkfWH
-  organizer: theadactyl
+  organizer: autobot@kubeflow.org
 
 - id: kf003
   name: Kubeflow On-premise Working Group
