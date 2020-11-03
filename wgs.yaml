@@ -117,6 +117,9 @@ workinggroups:
       company: Arrikto
     - github: thesuperzapper
       name: Mathew Wicks
+    - github: yanniszark
+      name: Yannis Zarkadas
+      company: Arrikto
     tech_leads:
     - github: StefanoFioravanzo
       name: Stefano Fioravanzo
@@ -129,6 +132,9 @@ workinggroups:
       company: Arrikto
     - github: thesuperzapper
       name: Mathew Wicks
+    - github: yanniszark
+      name: Yannis Zarkadas
+      company: Arrikto
   meetings:
   - description: Regular Notebooks Meeting (Asia & Europe friendly)
     day: Thursday

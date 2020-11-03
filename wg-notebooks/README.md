@@ -24,6 +24,7 @@ The [charter](charter.md) defines the scope and governance of the Notebooks Work
 * Ilias Katsakioris (**[@elikatsis](https://github.com/elikatsis)**), Arrikto
 * Kimonas Sotirchos (**[@kimwnasptd](https://github.com/kimwnasptd)**), Arrikto
 * Mathew Wicks (**[@thesuperzapper](https://github.com/thesuperzapper)**)
+* Yannis Zarkadas (**[@yanniszark](https://github.com/yanniszark)**), Arrikto
 
 ## Contact
 - Slack: [#wg-notebooks](https://kubeflow.slack.com/messages/wg-notebooks)
