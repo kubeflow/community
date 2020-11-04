@@ -178,7 +178,7 @@ workinggroups:
     tech_leads:
     - github: Jeffwan
       name: Jiaxin Shan
-      company: Amazon Web Services
+      company: AWS
     - github: PatrickXYS
       name: Yao Xiao
       company: AWS
@@ -212,18 +212,9 @@ workinggroups:
     - name: wg-manifests-reviews
       description: Changes and Reviews
   subprojects:
-  - name: central-dashboard
-    owners:
-    - https://github.com/kubeflow/kubeflow/blob/master/components/centraldashboard/OWNERS
   - name: manifests
     owners:
     - https://raw.githubusercontent.com/kubeflow/manifests/master/OWNERS
-  - name: poddefaults-webhook
-    owners:
-    - https://github.com/kubeflow/kubeflow/blob/master/components/admission-webhook/OWNERS
-  - name: profile-controller
-    owners:
-    - https://github.com/kubeflow/kubeflow/blob/master/components/profile-controller/OWNERS
 - dir: wg-notebooks
   name: Notebooks
   mission_statement: >
@@ -287,18 +278,30 @@ workinggroups:
     - name: wg-notebooks-reviews
       description: Notebooks Components changes and Reviews (CRs, web apps)
   subprojects:
+  - name: central-dashboard
+    owners:
+    - https://github.com/kubeflow/kubeflow/blob/master/components/centraldashboard/OWNERS
   - name: crud-web-apps
     owners:
     - https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/crud-web-apps/OWNERS
   - name: jupyter-web-app
     owners:
     - https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/jupyter-web-app/OWNERS
+  - name: kfam
+    owners:
+    - https://github.com/kubeflow/kubeflow/blob/master/components/access-management/OWNERS
   - name: notebook-images
     owners:
     - https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/tensorflow-notebook-image/OWNERS
   - name: notebooks-controller
     owners:
     - https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/notebook-controller/OWNERS
+  - name: poddefaults-webhook
+    owners:
+    - https://github.com/kubeflow/kubeflow/blob/master/components/admission-webhook/OWNERS
+  - name: profile-controller
+    owners:
+    - https://github.com/kubeflow/kubeflow/blob/master/components/profile-controller/OWNERS
 - dir: wg-pipelines
   name: Pipelines
   mission_statement: >
@@ -435,7 +438,7 @@ workinggroups:
       company: InfuseAI
     - github: Jeffwan
       name: Jiaxin Shan
-      company: Amazon Web Services
+      company: AWS
     - github: andreyvelich
       name: Andrey Velichkevich
       company: Cisco
