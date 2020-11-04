@@ -178,7 +178,7 @@ workinggroups:
     tech_leads:
     - github: Jeffwan
       name: Jiaxin Shan
-      company: Amazon Web Services
+      company: AWS
     - github: PatrickXYS
       name: Yao Xiao
       company: AWS
@@ -435,7 +435,7 @@ workinggroups:
       company: InfuseAI
     - github: Jeffwan
       name: Jiaxin Shan
-      company: Amazon Web Services
+      company: AWS
     - github: andreyvelich
       name: Andrey Velichkevich
       company: Cisco
