@@ -7,6 +7,12 @@ aliases:
     - andreyvelich
     - gaocegege
     - johnugeorge
+  wg-deployment-leads:
+    - Jeffwan
+    - animeshsingh
+    - mameshini
+    - vpavlin
+    - yanniszark
   wg-manifests-leads:
     - Jeffwan
     - PatrickXYS
@@ -19,12 +25,6 @@ aliases:
     - elikatsis
     - kimwnasptd
     - thesuperzapper
-    - yanniszark
-  wg-deployment-leads:
-    - animeshsingh
-    - Jeffwan
-    - mameshini
-    - vpavlin
     - yanniszark
   wg-pipelines-leads:
     - Bobgy
