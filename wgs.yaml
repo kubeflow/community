@@ -287,6 +287,9 @@ workinggroups:
   - name: jupyter-web-app
     owners:
     - https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/jupyter-web-app/OWNERS
+  - name: kfam
+    owners:
+    - https://github.com/kubeflow/kubeflow/blob/master/components/access-management/OWNERS
   - name: notebook-images
     owners:
     - https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/tensorflow-notebook-image/OWNERS
