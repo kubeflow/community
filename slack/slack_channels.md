@@ -76,6 +76,8 @@
 *  triage
 *  website - Work on the Kubeflow docs
 *  wg-automl - AutoML Working Group discussion
+*  wg-deployment - Deployment Working Group discussion
+*  wg-manifests - Manifests Working Group discussion
 *  wg-notebooks - Notebooks Working Group discussion
 *  wg-training - Training Working Group discussion
 *  xgboost-operator
