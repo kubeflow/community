@@ -4,5 +4,6 @@ approvers:
   - james-jwu
   - jlewi
   - richardsliu
-  - rmgogogo
   - theadactyl
+reviewers:
+  - Bobgy
