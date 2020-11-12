@@ -380,7 +380,7 @@
   
 - id: kf029
   name: Kubeflow Feature Store SIG Meeting (US/Asia friendly)
-  date: 10/28/2020
+  date: 11/25/2020
   time: 6:00pm-6:30pm
   frequency: monthly
   attendees:
@@ -388,5 +388,5 @@
   description:
     - |
       Notes & Agenda: https://docs.google.com/document/d/1GHi-NFHmDA2TnH1pDrs4O7OyIQdZRtKatGAdedxte4w
-      Zoom: Provided in meeting notes directly before meeting
+      Zoom: Provided in meeting notes
   organizer: woop
