@@ -10,6 +10,7 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
   - Google Summer of Code
   - Docs
   - Style Guide for Kubeflow docs
+  - Events Calendar
   
 - **Getting Started**
   - Kubeflow Overview
