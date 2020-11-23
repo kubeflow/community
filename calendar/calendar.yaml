@@ -69,19 +69,6 @@
       International numbers available: https://zoom.us/zoomconference?m=Os1EjlUlpb2_XUMaQ6dX1azqMK5CkfWH
   organizer: autobot@kubeflow.org
 
-- id: kf003
-  name: Kubeflow On-premise Working Group
-  date: 08/22/2019
-  time: 10:00am-10:45am
-  frequency: weekly
-  video: https://meet.google.com/dcw-fafu-arr
-  attendees:
-    - email: kubeflow-discuss@googlegroups.com
-  description:
-    - |
-      Meeting Logs: https://bit.ly/2LyTh14
-  organizer: theadactyl
-
 - id: kf004
   name: Kubeflow Serving Working Group
   date: 08/21/2019
