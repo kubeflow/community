@@ -2,18 +2,10 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
 
 ### Kubeflow documentation structure
 
-- **About**
-  - Kubeflow
-  - Use Cases
-  - Contributing to Kubeflow
-  - Community
-  - Google Summer of Code
-  - Docs
-  - Style Guide for Kubeflow docs
-  - Events Calendar
-  
 - **Getting Started**
-  - Kubeflow Overview
+  - Introduction (current About/Kubeflow)
+  - Overview (current Kubeflow Overview)
+  - Use Cases (current About/Use Cases)
   - Installing Kubeflow
   - Cloud Installation
     - AWS
@@ -33,6 +25,15 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
     - Deploy using MiniKF on GCP
     - Deploying with minikube on a single node
     - Kubeflow on MicroK8s
+    
+- **Community**
+  - About (current About/Community)
+  - Contributing (current About/Contributing to Kubeflow)
+  - Documentation (merge current About/Docs + About/Style Guide for Kubeflow docs)
+  - Events (current About/Events Calendar)
+  - Google Summer of Code (keep)
+  - Working Groups (new)
+    
 - **Components of Kubeflow**
   - Central Dashboard
     - Central Dashboard 
