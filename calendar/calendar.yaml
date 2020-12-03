@@ -377,3 +377,20 @@
       Notes & Agenda: https://docs.google.com/document/d/1GHi-NFHmDA2TnH1pDrs4O7OyIQdZRtKatGAdedxte4w
       Zoom: Provided in meeting notes
   organizer: woop
+
+- id: kf034
+  name: Kubeflow Notebooks WG Call
+  date: 09/12/2020
+  time: 11:00PM-11:55PM
+  frequency: weekly
+  until: 09/12/2022
+  video: https://us02web.zoom.us/j/84163578926?pwd=RC9vNkNXYndUMGQxd2VxY2hLNUFCZz09
+  attendees:
+    - email: kubeflow-discuss@googlegroups.com
+  description:
+    - |
+      Notes & agenda: https://bit.ly/kf-notebooks-wg-meeting
+
+      Join from PC, Mac, Linux, iOS or Android: https://us02web.zoom.us/j/84163578926?pwd=RC9vNkNXYndUMGQxd2VxY2hLNUFCZz09
+      Meeting ID: 841 6357 8926
+      Passcode: 549019
