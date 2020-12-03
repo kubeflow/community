@@ -105,8 +105,8 @@ workinggroups:
   label: area/wg-deployment
   leadership:
     chairs:
-    - github: Jeffwan
-      name: Jiaxin Shan
+    - github: PatrickXYS
+      name: Yao Xiao
       company: AWS
     - github: animeshsingh
       name: Animesh Singh
@@ -121,8 +121,8 @@ workinggroups:
       name: Yannis Zarkadas
       company: Arrikto
     tech_leads:
-    - github: Jeffwan
-      name: Jiaxin Shan
+    - github: PatrickXYS
+      name: Yao Xiao
       company: AWS
     - github: animeshsingh
       name: Animesh Singh
@@ -176,9 +176,6 @@ workinggroups:
       name: Yannis Zarkadas
       company: Arrikto
     tech_leads:
-    - github: Jeffwan
-      name: Jiaxin Shan
-      company: AWS
     - github: PatrickXYS
       name: Yao Xiao
       company: AWS
@@ -438,7 +435,7 @@ workinggroups:
       company: InfuseAI
     - github: Jeffwan
       name: Jiaxin Shan
-      company: AWS
+      company: ByteDance
     - github: andreyvelich
       name: Andrey Velichkevich
       company: Cisco

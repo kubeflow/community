@@ -132,7 +132,7 @@ labels:
       - mrXinWang
   platform/aws:
     owners:
-      - jeffwan
+      - PatrickXYS
   platform/azure:
     owners:
       - aronchick
