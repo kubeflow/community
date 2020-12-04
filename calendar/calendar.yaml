@@ -69,19 +69,6 @@
       International numbers available: https://zoom.us/zoomconference?m=Os1EjlUlpb2_XUMaQ6dX1azqMK5CkfWH
   organizer: autobot@kubeflow.org
 
-- id: kf004
-  name: Kubeflow Serving Working Group
-  date: 08/21/2019
-  time: 9:00am-10:00am
-  frequency: weekly
-  video: https://meet.google.com/bhe-aqdx-iag
-  attendees:
-    - email: kubeflow-discuss@googlegroups.com
-  description:
-    - |
-      Meeting Logs: https://docs.google.com/document/d/1KZUURwr9MnHXqHA08TFbfVbM8EAJSJjmaMhnvstvi-k/
-  organizer: theadactyl
-
 - id: kf005
   name: Kubeflow Product Management Working Group
   date: 08/20/2019
