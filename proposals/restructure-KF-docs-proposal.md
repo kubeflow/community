@@ -28,11 +28,10 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
     
 - **Community**
   - About (current About/Community)
-  - Contributing (current About/Contributing to Kubeflow)
+  - Contributing (current About/Contributing to Kubeflow + details on Working Groups)
   - Documentation (merge current About/Docs + About/Style Guide for Kubeflow docs)
   - Events (current About/Events Calendar)
   - Google Summer of Code (keep)
-  - Working Groups (new)
     
 - **Components of Kubeflow**
   - Central Dashboard
