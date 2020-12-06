@@ -34,7 +34,7 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
   - Google Summer of Code (current About/Google Summer of Code)
     
 - **Components** (remove "of Kubeflow")
-  - Jupyter Notebooks
+  - Jupyter Notebooks (moved to under components)
     - Overview of Jupyter Notebooks in Kubeflow
     - Set Up Your Notebooks
     - Create a Custom Jupyter Image
@@ -85,7 +85,7 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
   - Miscellaneous
     - Nuclio functions
     
-- **Kubeflow Pipelines**
+- **Kubeflow Pipelines** (add "Kubeflow")
   - Pipelines Quickstart
   - Installing Pipelines
     - Installation Options for Kubeflow Pipelines
