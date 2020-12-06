@@ -197,7 +197,7 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
 - **Kubeflow on OpenShift**
   - Install Kubeflow on OpenShift
   - Uninstall Kubeflow
-- **Tutorials, Samples, and Shared Resources**
+- **Resources** (remove "Tutorials, Samples, and Shared")
   - Kubeflow Samples
   - Codelabs, Workshops, and Tutorials
   - Blog Posts
