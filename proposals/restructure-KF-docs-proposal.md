@@ -203,16 +203,17 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
   - Blog Posts
   - Videos
   - Shared Resources and Components
-- **Further Setup and Troubleshooting**
+- **Setups** (rename of current section "Further Setup and Troubleshooting", needs alphabetization)
   - Configuring Kubeflow with kfctl and kustomize
-  - Kubeflow On-prem in a Multi-node Kubernetes Cluster
-  - Usage Reporting
+  - Integrations
   - Istio Usage in Kubeflow
   - Job Scheduling
-  - Troubleshooting
+  - Kubeflow On-prem in a Multi-node Kubernetes Cluster
+- **Troubleshooting** (created with files from current section "Further Setup and Troubleshooting")
   - Frequently Asked Questions
+  - Troubleshooting
+  - Usage Reporting
   - Support
-  - Integrations
 - **Upgrading Kubeflow** (to be removed)
 - **Reference**
   - Reference Overview
