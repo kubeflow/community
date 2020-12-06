@@ -31,7 +31,7 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
   - Contributing (current About/Contributing to Kubeflow + details on Working Groups)
   - Documentation (merge current About/Docs + About/Style Guide for Kubeflow docs)
   - Events (current About/Events Calendar)
-  - Google Summer of Code (keep)
+  - Google Summer of Code (current About/Google Summer of Code)
     
 - **Components** (remove "of Kubeflow")
   - Jupyter Notebooks
