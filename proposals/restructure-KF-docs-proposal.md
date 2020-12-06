@@ -85,7 +85,7 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
   - Miscellaneous
     - Nuclio functions
     
-- **Pipelines**
+- **Kubeflow Pipelines**
   - Pipelines Quickstart
   - Installing Pipelines
     - Installation Options for Kubeflow Pipelines
