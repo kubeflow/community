@@ -33,7 +33,7 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
   - Events (current About/Events Calendar)
   - Google Summer of Code (keep)
     
-- **Components of Kubeflow**
+- **Components** (remove "of Kubeflow")
   - Central Dashboard
     - Central Dashboard 
     - Registration Flow
@@ -78,6 +78,7 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
     - Getting Started with Multi-user Isolation
   - Miscellaneous
     - Nuclio functions
+    
 - **Jupyter Notebooks**
   - Overview of Jupyter Notebooks in Kubeflow
   - Set Up Your Notebooks
