@@ -187,6 +187,9 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
   - Using IBM Cloud Container Registry (ICR)
   - Pipelines on IBM Cloud Kubernetes Service (IKS)
   - End-to-end Kubeflow on IBM Cloud
+- **Kubeflow on OpenShift** (move up to follow all other "Kubeflow on")
+  - Install Kubeflow on OpenShift
+  - Uninstall Kubeflow
 - **Kubeflow Operator**
   - Introduction
   - Installing Kubeflow Operator
@@ -194,9 +197,6 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
   - Uninstalling Kubeflow
   - Uninstalling Kubeflow Operator
   - Troubleshooting
-- **Kubeflow on OpenShift**
-  - Install Kubeflow on OpenShift
-  - Uninstall Kubeflow
 - **Resources** (remove "Tutorials, Samples, and Shared")
   - Kubeflow Samples
   - Codelabs, Workshops, and Tutorials
