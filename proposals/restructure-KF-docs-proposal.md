@@ -34,11 +34,17 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
   - Google Summer of Code (keep)
     
 - **Components** (remove "of Kubeflow")
+  - Jupyter Notebooks
+    - Overview of Jupyter Notebooks in Kubeflow
+    - Set Up Your Notebooks
+    - Create a Custom Jupyter Image
+    - Submit Kubernetes Resources
+    - Build a Docker Image on GCP
+    - Troubleshooting Guide
   - Central Dashboard
     - Central Dashboard 
     - Registration Flow
   - Metadata
-  - Jupyter Notebooks
   - Fairing 
     - Overview of Kubeflow Fairing
     - Install Kubeflow Fairing
@@ -79,13 +85,6 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
   - Miscellaneous
     - Nuclio functions
     
-- **Jupyter Notebooks**
-  - Overview of Jupyter Notebooks in Kubeflow
-  - Set Up Your Notebooks
-  - Create a Custom Jupyter Image
-  - Submit Kubernetes Resources
-  - Build a Docker Image on GCP
-  - Troubleshooting Guide
 - **Pipelines**
   - Pipelines Quickstart
   - Installing Pipelines
