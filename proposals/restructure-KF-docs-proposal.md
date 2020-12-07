@@ -126,84 +126,80 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
     - Pipelines API Reference
     - Pipelines SDK Reference
     
-- **Kubeflow on AWS**
-  - Deployment
-    - Install Kubeflow
-    - Uninstall Kubeflow
-  - Customizing Kubeflow on AWS
-  - AWS IAM Role for Service Account
-  - Logging
-  - Private Access
-  - Authentication and Authorization
-  - Authentication using OIDC
-  - Configure Kubeflow Pipelines on AWS
-  - Custom Domain
-  - Optimized Jupyter Notebooks on AWS
-  - Storage Options
-  - Configure External Database Using Amazon RDS
-  - Troubleshooting Deployments on Amazon EKS
-  - Kubeflow on AWS Features
-  - End-to-end Kubeflow on AWS
-  
-- **Kubeflow on Azure**
-  - Deployment
-    - Install Kubeflow
+- **Deployment**
+  - Kubeflow on AWS
+    - Deployment
+      - Install Kubeflow
+      - Uninstall Kubeflow
+    - Customizing Kubeflow on AWS
+    - AWS IAM Role for Service Account
+    - Logging
+    - Private Access
+    - Authentication and Authorization
+    - Authentication using OIDC
+    - Configure Kubeflow Pipelines on AWS
+    - Custom Domain
+    - Optimized Jupyter Notebooks on AWS
+    - Storage Options
+    - Configure External Database Using Amazon RDS
+    - Troubleshooting Deployments on Amazon EKS
+    - Kubeflow on AWS Features
+    - End-to-end Kubeflow on AWS
+  - Kubeflow on Azure
+    - Deployment
+      - Install Kubeflow
+      - Initial cluster setup for existing cluster
+      - Uninstall Kubeflow
+    - Authentication using OIDC in Azure
+    - End-to-End Pipeline Example on Azure
+    - Access Control for Azure Deployment
+    - Troubleshooting Deployments on Azure AKS
+  - Kubeflow on GCP
+    - Deploying Kubeflow
+      - Set up a Google Cloud Project
+      - Set up OAuth for Cloud IAP
+      - Management cluster setup
+      - Deploy using kubectl and kpt
+      - Monitor Cloud IAP Setup
+      - Delete using CLI
+      - Features of Kubeflow on GCP
+      - Deploy using UI
+    - Kubeflow On-premises on Anthos GKE
+    - Pipelines on GCP
+      - Connecting to Kubeflow Pipelines on Google Cloud using the SDK
+      - Authenticating Pipelines to GCP
+      - Upgrading
+      - Enabling GPU and TPU
+      - Using Preemptible VMs and GPUs on GCP
+    - Customizing Kubeflow on GKE
+    - Using Your Own Domain
+    - Authenticating Kubeflow to GCP
+    - Using Cloud Filestore
+    - Securing Your Clusters
+    - Troubleshooting Deployments on GKE
+    - Tutorial: End-to-end Kubeflow on GCP
+    - Logging and monitoring
+  - Kubeflow on IBM Cloud
+    - Deployment
+      - Install Kubeflow
+      - Securing the Kubeflow authentication with HTTPS
+      - Uninstall Kubeflow
+    - Create an IBM Cloud cluster
     - Initial cluster setup for existing cluster
+    - Using IBM Cloud Container Registry (ICR)
+    - Pipelines on IBM Cloud Kubernetes Service (IKS)
+    - End-to-end Kubeflow on IBM Cloud
+  - Kubeflow on OpenShift (move up to follow all other "Kubeflow on")
+    - Install Kubeflow on OpenShift
     - Uninstall Kubeflow
-  - Authentication using OIDC in Azure
-  - End-to-End Pipeline Example on Azure
-  - Access Control for Azure Deployment
-  - Troubleshooting Deployments on Azure AKS
-  
-- **Kubeflow on GCP**
-  - Deploying Kubeflow
-    - Set up a Google Cloud Project
-    - Set up OAuth for Cloud IAP
-    - Management cluster setup
-    - Deploy using kubectl and kpt
-    - Monitor Cloud IAP Setup
-    - Delete using CLI
-    - Features of Kubeflow on GCP
-    - Deploy using UI
-  - Kubeflow On-premises on Anthos GKE
-  - Pipelines on GCP
-    - Connecting to Kubeflow Pipelines on Google Cloud using the SDK
-    - Authenticating Pipelines to GCP
-    - Upgrading
-    - Enabling GPU and TPU
-    - Using Preemptible VMs and GPUs on GCP
-  - Customizing Kubeflow on GKE
-  - Using Your Own Domain
-  - Authenticating Kubeflow to GCP
-  - Using Cloud Filestore
-  - Securing Your Clusters
-  - Troubleshooting Deployments on GKE
-  - Tutorial: End-to-end Kubeflow on GCP
-  - Logging and monitoring
-  
-- **Kubeflow on IBM Cloud**
-  - Deployment
-    - Install Kubeflow
-    - Securing the Kubeflow authentication with HTTPS
-    - Uninstall Kubeflow
-  - Create an IBM Cloud cluster
-  - Initial cluster setup for existing cluster
-  - Using IBM Cloud Container Registry (ICR)
-  - Pipelines on IBM Cloud Kubernetes Service (IKS)
-  - End-to-end Kubeflow on IBM Cloud
-  
-- **Kubeflow on OpenShift** (move up to follow all other "Kubeflow on")
-  - Install Kubeflow on OpenShift
-  - Uninstall Kubeflow
-  
-- **Kubeflow Operator**
-  - Introduction
-  - Installing Kubeflow Operator
-  - Installing Kubeflow
-  - Uninstalling Kubeflow
-  - Uninstalling Kubeflow Operator
-  - Troubleshooting
-  
+  - Kubeflow Operator
+    - Introduction
+    - Installing Kubeflow Operator
+    - Installing Kubeflow
+    - Uninstalling Kubeflow
+    - Uninstalling Kubeflow Operator
+    - Troubleshooting
+
 - **Resources** (remove "Tutorials, Samples, and Shared")
   - Kubeflow Samples
   - Codelabs, Workshops, and Tutorials
