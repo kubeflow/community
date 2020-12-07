@@ -125,6 +125,7 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
     - Component Specification
     - Pipelines API Reference
     - Pipelines SDK Reference
+    
 - **Kubeflow on AWS**
   - Deployment
     - Install Kubeflow
@@ -143,6 +144,7 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
   - Troubleshooting Deployments on Amazon EKS
   - Kubeflow on AWS Features
   - End-to-end Kubeflow on AWS
+  
 - **Kubeflow on Azure**
   - Deployment
     - Install Kubeflow
@@ -152,6 +154,7 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
   - End-to-End Pipeline Example on Azure
   - Access Control for Azure Deployment
   - Troubleshooting Deployments on Azure AKS
+  
 - **Kubeflow on GCP**
   - Deploying Kubeflow
     - Set up a Google Cloud Project
@@ -177,6 +180,7 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
   - Troubleshooting Deployments on GKE
   - Tutorial: End-to-end Kubeflow on GCP
   - Logging and monitoring
+  
 - **Kubeflow on IBM Cloud**
   - Deployment
     - Install Kubeflow
@@ -187,9 +191,11 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
   - Using IBM Cloud Container Registry (ICR)
   - Pipelines on IBM Cloud Kubernetes Service (IKS)
   - End-to-end Kubeflow on IBM Cloud
+  
 - **Kubeflow on OpenShift** (move up to follow all other "Kubeflow on")
   - Install Kubeflow on OpenShift
   - Uninstall Kubeflow
+  
 - **Kubeflow Operator**
   - Introduction
   - Installing Kubeflow Operator
@@ -197,24 +203,29 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
   - Uninstalling Kubeflow
   - Uninstalling Kubeflow Operator
   - Troubleshooting
+  
 - **Resources** (remove "Tutorials, Samples, and Shared")
   - Kubeflow Samples
   - Codelabs, Workshops, and Tutorials
   - Blog Posts
   - Videos
   - Shared Resources and Components
+  
 - **Setups** (rename of current section "Further Setup and Troubleshooting", needs alphabetization)
   - Configuring Kubeflow with kfctl and kustomize
   - Integrations
   - Istio Usage in Kubeflow
   - Job Scheduling
   - Kubeflow On-prem in a Multi-node Kubernetes Cluster
+  
 - **Troubleshooting** (created with files from current section "Further Setup and Troubleshooting")
   - Frequently Asked Questions
   - Troubleshooting
   - Usage Reporting
   - Support
+  
 - **Upgrading Kubeflow** (to be removed)
+
 - **Reference**
   - Reference Overview
   - Kubeflow Versioning Policies
