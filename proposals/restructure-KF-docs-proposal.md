@@ -2,29 +2,12 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
 
 ### Kubeflow documentation structure
 
-- **Getting Started**
+- **Getting started**
   - Introduction (current About/Kubeflow)
-  - Overview (current Kubeflow Overview)
+  - Concepts (current Kubeflow Overview)
   - Use Cases (current About/Use Cases)
-  - Installing Kubeflow
-  - Cloud Installation
-    - AWS
-    - Azure
-    - Google Cloud
-    - IBM Cloud
-  - Kubernetes installation
-    - Overview of Deployment on Existing Clusters
-    - Kubeflow Deployment with kfctl_k8s_istio
-    - Multi-user, auth-enabled Kubeflow with kfctl_existing_arrikto
-    - Multi-user, auth-enabled Kubeflow with kfctl_istio_dex
-  - Workstation Installation
-    - Kubeflow on Linux
-    - Kubeflow on macOS
-    - Kubeflow on Windows
-    - MiniKF
-    - Deploy using MiniKF on GCP
-    - Deploying with minikube on a single node
-    - Kubeflow on MicroK8s
+  - Install Kubeflow (current `Installing Kubeflow`, to redirect to `Deployment` homepage)
+  - [delete] Cloud Installation
     
 - **Community**
   - About (current About/Community)
@@ -127,6 +110,20 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
     - Pipelines SDK Reference
     
 - **Deployment**
+  - Overview (current `Getting started/Installing Kubeflow`
+  - Workstation (remove "Installation")
+    - Kubeflow on Linux
+    - Kubeflow on macOS
+    - Kubeflow on Windows
+    - MiniKF
+    - Deploy using MiniKF on GCP
+    - Deploying with minikube on a single node
+    - Kubeflow on MicroK8s
+  - Vanilla Kubernetes (current `Getting Started/Kubernetes installation`)
+    - Overview of Deployment on Existing Clusters
+    - Kubeflow Deployment with kfctl_k8s_istio
+    - Multi-user, auth-enabled Kubeflow with kfctl_existing_arrikto
+    - Multi-user, auth-enabled Kubeflow with kfctl_istio_dex
   - Kubeflow on AWS
     - Deployment
       - Install Kubeflow
