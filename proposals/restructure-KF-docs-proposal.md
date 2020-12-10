@@ -9,13 +9,6 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
   - Install Kubeflow (current `Installing Kubeflow`, to redirect to `Deployment` homepage)
   - [delete] Cloud Installation
     
-- **Community**
-  - About (current About/Community)
-  - Contributing (current About/Contributing to Kubeflow + details on Working Groups)
-  - Documentation (merge current About/Docs + About/Style Guide for Kubeflow docs)
-  - Events (current About/Events Calendar)
-  - Google Summer of Code (current About/Google Summer of Code)
-    
 - **Components** (remove "of Kubeflow")
   - Jupyter Notebooks (moved to under components)
     - Overview of Jupyter Notebooks in Kubeflow
@@ -200,6 +193,13 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
     - Uninstalling Kubeflow Operator
     - Troubleshooting
 
+- **Community** 
+  - About (current About/Community)
+  - Contributing (current About/Contributing to Kubeflow + details on Working Groups)
+  - Documentation (merge current About/Docs + About/Style Guide for Kubeflow docs)
+  - Events (current About/Events Calendar)
+  - Google Summer of Code (current About/Google Summer of Code)
+  
 - **Resources** (remove "Tutorials, Samples, and Shared")
   - Kubeflow Samples
   - Codelabs, Workshops, and Tutorials
