@@ -51,8 +51,48 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
     - Running an experiment
     - Katib Configuration Overview
     - Environment Variables for Katib Components
-  - Pipelines
-    - Pipelines
+  - [remove redirect] Pipelines
+    - [remove redirect] Pipelines
+  - Kubeflow Pipelines (add "Kubeflow")
+    - Pipelines Quickstart
+    - Installing Pipelines
+      - Installation Options for Kubeflow Pipelines
+      - Kubeflow Pipelines Standalone Deployment
+      - Deploying Kubeflow Pipelines on a local cluster
+    - Understanding Pipelines
+      - Overview of Kubeflow Pipelines
+      - Introduction to the Pipelines Interfaces
+      - Concepts
+    - Building Pipelines with the SDK
+      - Introduction to the Pipelines SDK
+      - Install the Kubeflow Pipelines SDK
+      - Build Components and Pipelines
+      - Create Reusable Components
+      - Building Python function-based components
+      - Best Practices for Designing Components
+      - Pipeline Parameters
+      - Python Based Visualizations
+      - Visualize Results in the Pipelines UI
+      - Pipeline Metrics
+      - DSL Static Type Checking
+      - DSL Recursion
+      - Using environment variables in pipelines
+      - GCP-specific Uses of the SDK
+      - Manipulate Kubernetes Resources as Part of a Pipeline
+    - Multi-user Isolation for Pipelines
+    - Caching
+    - Upgrading
+    - Samples and Tutorials
+      - Using the Kubeflow Pipelines Benchmark Scripts
+      - Using the Kubeflow Pipelines SDK
+      - Experiment with the Kubeflow Pipelines API
+      - Experiment with the Pipelines Samples
+      - Run a Cloud-specific Pipelines Tutorial
+    - Troubleshooting
+    - Reference
+      - Component Specification
+      - Pipelines API Reference
+      - Pipelines SDK Reference
   - Tools for Serving
     - Overview
     - KFServing
@@ -67,47 +107,6 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
     - Getting Started with Multi-user Isolation
   - Miscellaneous
     - Nuclio functions
-    
-- **Kubeflow Pipelines** (add "Kubeflow")
-  - Pipelines Quickstart
-  - Installing Pipelines
-    - Installation Options for Kubeflow Pipelines
-    - Kubeflow Pipelines Standalone Deployment
-    - Deploying Kubeflow Pipelines on a local cluster
-  - Understanding Pipelines
-    - Overview of Kubeflow Pipelines
-    - Introduction to the Pipelines Interfaces
-    - Concepts
-  - Building Pipelines with the SDK
-    - Introduction to the Pipelines SDK
-    - Install the Kubeflow Pipelines SDK
-    - Build Components and Pipelines
-    - Create Reusable Components
-    - Building Python function-based components
-    - Best Practices for Designing Components
-    - Pipeline Parameters
-    - Python Based Visualizations
-    - Visualize Results in the Pipelines UI
-    - Pipeline Metrics
-    - DSL Static Type Checking
-    - DSL Recursion
-    - Using environment variables in pipelines
-    - GCP-specific Uses of the SDK
-    - Manipulate Kubernetes Resources as Part of a Pipeline
-  - Multi-user Isolation for Pipelines
-  - Caching
-  - Upgrading
-  - Samples and Tutorials
-    - Using the Kubeflow Pipelines Benchmark Scripts
-    - Using the Kubeflow Pipelines SDK
-    - Experiment with the Kubeflow Pipelines API
-    - Experiment with the Pipelines Samples
-    - Run a Cloud-specific Pipelines Tutorial
-  - Troubleshooting
-  - Reference
-    - Component Specification
-    - Pipelines API Reference
-    - Pipelines SDK Reference
     
 - **Deployment**
   - Overview (current `Getting started/Installing Kubeflow`
