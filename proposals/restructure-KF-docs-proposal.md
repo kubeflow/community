@@ -115,8 +115,9 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
     - Kubeflow on Linux
     - Kubeflow on macOS
     - Kubeflow on Windows
-    - MiniKF
-    - Deploy using MiniKF on GCP
+    - MiniKF on Vagrant (add "on Vagrant")
+    - MiniKF on GCP (rename "Deploy using MiniKF on GCP")
+    - MiniKF on AWS (new!)
     - Deploying with minikube on a single node
     - Kubeflow on MicroK8s
   - Vanilla Kubernetes (current `Getting Started/Kubernetes installation`)
