@@ -45,10 +45,13 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
     - MXNet Training
     - PyTorch Training
     - TensorFlow Training (TFJob)
-  - Hyperparameter Tuning
+  - Katib
     - Introduction to Katib
-    - Getting started with Katib
-    - Running an experiment
+    - Getting Started with Katib
+    - Running an Experiment
+    - Resuming an Experiment
+    - Overview of Trial Templates
+    - Using Early Stopping
     - Katib Configuration Overview
     - Environment Variables for Katib Components
   - [remove redirect] Pipelines
