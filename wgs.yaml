@@ -197,17 +197,13 @@ workinggroups:
     time: "08:00"
     tz: PT (Pacific Time)
     frequency: biweekly - every other Tuesday
-    archive_url: http://bit.ly/kf-meeting-notes
+    archive_url: https://arrik.to/kf-wg-manifests-notes
   contact:
     slack: wg-manifests
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
     teams:
-    - name: wg-manifests-bugs
-      description: Bug Triage and Troubleshooting
-    - name: wg-manifests-misc
-      description: General Discussion
-    - name: wg-manifests-reviews
-      description: Changes and Reviews
+    - name: wg-manifests-leads
+      description: Tech leads of wg-manifests
   subprojects:
   - name: manifests
     owners:
