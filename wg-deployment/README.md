@@ -18,7 +18,7 @@ The [charter](charter.md) defines the scope and governance of the Deployment Wor
 
 ## Organizers
 
-* Jiaxin Shan (**[@Jeffwan](https://github.com/Jeffwan)**), AWS
+* Yao Xiao (**[@PatrickXYS](https://github.com/PatrickXYS)**), AWS
 * Animesh Singh (**[@animeshsingh](https://github.com/animeshsingh)**), IBM
 * Igor Mameshin (**[@mameshini](https://github.com/mameshini)**), Agile Stacks
 * Vaclav Pavlin (**[@vpavlin](https://github.com/vpavlin)**), Red Hat
