@@ -14,7 +14,7 @@ The [charter](charter.md) defines the scope and governance of the Manifests Work
 
 ## Meetings
 * Regular WG Meeting (Pacific AM): [Tuesdays at 08:00 PT (Pacific Time)]() (biweekly - every other Tuesday). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=08:00&tz=PT%20%28Pacific%20Time%29).
-  * [Meeting notes and Agenda](http://bit.ly/kf-meeting-notes).
+  * [Meeting notes and Agenda](https://arrik.to/kf-wg-manifests-notes).
 
 ## Organizers
 
@@ -27,9 +27,7 @@ The [charter](charter.md) defines the scope and governance of the Manifests Work
 - [Mailing list](https://groups.google.com/forum/#!forum/kubeflow-discuss)
 - [Open Community Issues/PRs](https://github.com/kubeflow/community/labels/wg%2Farea/wg-manifests)
 - GitHub Teams:
-    - [@kubeflow/wg-manifests-bugs](https://github.com/orgs/kubeflow/teams/wg-manifests-bugs) - Bug Triage and Troubleshooting
-    - [@kubeflow/wg-manifests-misc](https://github.com/orgs/kubeflow/teams/wg-manifests-misc) - General Discussion
-    - [@kubeflow/wg-manifests-reviews](https://github.com/orgs/kubeflow/teams/wg-manifests-reviews) - Changes and Reviews
+    - [@kubeflow/wg-manifests-leads](https://github.com/orgs/kubeflow/teams/wg-manifests-leads) - Tech leads of wg-manifests
 <!-- BEGIN CUSTOM CONTENT -->
 
 <!-- END CUSTOM CONTENT -->

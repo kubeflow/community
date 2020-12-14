@@ -13,10 +13,8 @@ WG Notebooks is responsible for the user experience around Notebooks and their i
 The [charter](charter.md) defines the scope and governance of the Notebooks Working Group.
 
 ## Meetings
-* Regular Notebooks Meeting (Asia & Europe friendly): [Thursdays at 10:00 am UTC (Coordinated Universal Time)]() (monthly - second Thursday every month). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=10:00 am&tz=UTC%20%28Coordinated%20Universal%20Time%29).
-  * [Meeting notes and Agenda](https://docs.google.com/document/d/10YCWL1l81B_uD1oWYGlbKPKhWugxcRnMUxcdCOZgHRs/edit).
-* Regular Notebooks Meeting (US friendly): [Thursdays at 4:00 pm UTC (Coordinated Universal Time)]() (monthly - fourth Thursday every month). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=4:00 pm&tz=UTC%20%28Coordinated%20Universal%20Time%29).
-  * [Meeting notes and Agenda](https://docs.google.com/document/d/10YCWL1l81B_uD1oWYGlbKPKhWugxcRnMUxcdCOZgHRs/edit).
+* Regular Notebooks Meeting (Australia & Europe friendly): [Thursdays at 11:00 pm PT (Pacific Time)]() (weekly). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=11:00 pm&tz=PT%20%28Pacific%20Time%29).
+  * [Meeting notes and Agenda](https://arrik.to/kf-wg-notebooks-notes).
 
 ## Organizers
 
@@ -31,9 +29,7 @@ The [charter](charter.md) defines the scope and governance of the Notebooks Work
 - [Mailing list](https://groups.google.com/forum/#!forum/kubeflow-discuss)
 - [Open Community Issues/PRs](https://github.com/kubeflow/community/labels/wg%2Farea/wg-notebooks)
 - GitHub Teams:
-    - [@kubeflow/wg-notebooks-bugs](https://github.com/orgs/kubeflow/teams/wg-notebooks-bugs) - Bug Triage and Troubleshooting
-    - [@kubeflow/wg-notebooks-machinery-misc](https://github.com/orgs/kubeflow/teams/wg-notebooks-machinery-misc) - General Discussion
-    - [@kubeflow/wg-notebooks-reviews](https://github.com/orgs/kubeflow/teams/wg-notebooks-reviews) - Notebooks Components changes and Reviews (CRs, web apps)
+    - [@kubeflow/wg-notebooks-leads](https://github.com/orgs/kubeflow/teams/wg-notebooks-leads) - Tech leads of wg-notebooks
 <!-- BEGIN CUSTOM CONTENT -->
 
 <!-- END CUSTOM CONTENT -->
