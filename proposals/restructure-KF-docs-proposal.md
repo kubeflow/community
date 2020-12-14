@@ -206,7 +206,7 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
   - Videos
   - Shared Resources and Components
   
-- **Setups** (rename of current section "Further Setup and Troubleshooting", needs alphabetization)
+- **Config** (created with files from of current section "Further Setup and Troubleshooting" alphabetized)
   - Configuring Kubeflow with kfctl and kustomize
   - Integrations
   - Istio Usage in Kubeflow
