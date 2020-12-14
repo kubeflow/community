@@ -2,6 +2,8 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
 
 ### Kubeflow documentation structure
 
+- **Home** (tab to be added)
+
 - **Getting started**
   - Introduction (current About/Kubeflow)
   - Concepts (current Kubeflow Overview)
