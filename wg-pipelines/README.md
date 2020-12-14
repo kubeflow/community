@@ -19,6 +19,7 @@ The [charter](charter.md) defines the scope and governance of the Pipelines Work
 * James Wu (**[@james-jwu](https://github.com/james-jwu)**), Google
 * Karthik Ramachandran (**[@kramachandran](https://github.com/kramachandran)**), Google
 * Pavel Dournov (**[@paveldournov](https://github.com/paveldournov)**), Google
+* Animesh Singh (**[@animeshsingh](https://github.com/animeshsingh)**), IBM ([KFP-Tekton](https://github.com/kubeflow/kfp-tekton))
 
 ## Contact
 - Slack: [#](https://kubeflow.slack.com/messages/)
