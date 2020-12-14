@@ -10,7 +10,14 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
   - Use Cases (current About/Use Cases)
   - Install Kubeflow (current `Installing Kubeflow`, to redirect to `Deployment` homepage)
   - [delete] Cloud Installation
-    
+
+- **Community** 
+  - About (current About/Community)
+  - Contributing (current About/Contributing to Kubeflow + details on Working Groups)
+  - Documentation (merge current About/Docs + About/Style Guide for Kubeflow docs)
+  - Events (current About/Events Calendar)
+  - Google Summer of Code (current About/Google Summer of Code)
+
 - **Components** (remove "of Kubeflow", components reordered as per user journey)
   - Central Dashboard
     - Central Dashboard 
@@ -187,22 +194,8 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
     - Uninstalling Kubeflow
     - Uninstalling Kubeflow Operator
     - Troubleshooting
-
-- **Community** 
-  - About (current About/Community)
-  - Contributing (current About/Contributing to Kubeflow + details on Working Groups)
-  - Documentation (merge current About/Docs + About/Style Guide for Kubeflow docs)
-  - Events (current About/Events Calendar)
-  - Google Summer of Code (current About/Google Summer of Code)
   
-- **Resources** (remove "Tutorials, Samples, and Shared")
-  - Kubeflow Samples
-  - Codelabs, Workshops, and Tutorials
-  - Blog Posts
-  - Videos
-  - Shared Resources and Components
-  
-- **Config** (created with files from of current section "Further Setup and Troubleshooting" alphabetized)
+- **Configuration** (created with files from of current section "Further Setup and Troubleshooting" alphabetized)
   - Configuring Kubeflow with kfctl and kustomize
   - Integrations
   - Istio Usage in Kubeflow
@@ -212,7 +205,14 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
     - Introduction to Multi-user Isolation
     - Design for Multi-user Isolation
     - Getting Started with Multi-user Isolation
-  
+
+- **Resources** (remove "Tutorials, Samples, and Shared")
+  - Kubeflow Samples
+  - Codelabs, Workshops, and Tutorials
+  - Blog Posts
+  - Videos
+  - Shared Resources and Components
+ 
 - **Troubleshooting** (created with files from current section "Further Setup and Troubleshooting")
   - Frequently Asked Questions
   - Troubleshooting
