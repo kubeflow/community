@@ -101,8 +101,7 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
     - Introduction to Multi-user Isolation
     - Design for Multi-user Isolation
     - Getting Started with Multi-user Isolation
-  - Miscellaneous
-    - Nuclio functions
+  - Nuclio functions (remove "Miscellaneous" layer)
     
 - **Deployment**
   - Overview (current `Getting started/Installing Kubeflow`
