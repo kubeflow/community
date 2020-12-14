@@ -10,7 +10,7 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
   - [delete] Cloud Installation
     
 - **Components** (remove "of Kubeflow")
-  - Jupyter Notebooks (moved to under components)
+  - Notebook Servers (moved to under components, renamed from "Jupyter Notebooks")
     - Overview of Jupyter Notebooks in Kubeflow
     - Set Up Your Notebooks
     - Create a Custom Jupyter Image
