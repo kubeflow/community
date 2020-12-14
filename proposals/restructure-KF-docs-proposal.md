@@ -11,7 +11,10 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
   - Install Kubeflow (current `Installing Kubeflow`, to redirect to `Deployment` homepage)
   - [delete] Cloud Installation
     
-- **Components** (remove "of Kubeflow")
+- **Components** (remove "of Kubeflow", components reordered as per user journey)
+  - Central Dashboard
+    - Central Dashboard 
+    - Registration Flow
   - Notebook Servers (moved to under components, renamed from "Jupyter Notebooks")
     - Overview of Jupyter Notebooks in Kubeflow
     - Set Up Your Notebooks
@@ -19,39 +22,7 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
     - Submit Kubernetes Resources
     - Build a Docker Image on GCP
     - Troubleshooting Guide
-  - Central Dashboard
-    - Central Dashboard 
-    - Registration Flow
-  - Metadata
-  - Fairing 
-    - Overview of Kubeflow Fairing
-    - Install Kubeflow Fairing
-    - Configure Kubeflow Fairing
-    - Fairing on Azure
-    - Fairing on GCP
-    - Tutorials
-    - Reference
-  - Feature Store
-    - Introduction to Feast
-    - Getting started with Feast
-  - Frameworks for Training
-    - Chainer Training
-    - MPI Training
-    - MXNet Training
-    - PyTorch Training
-    - TensorFlow Training (TFJob)
-  - Katib
-    - Introduction to Katib
-    - Getting Started with Katib
-    - Running an Experiment
-    - Resuming an Experiment
-    - Overview of Trial Templates
-    - Using Early Stopping
-    - Katib Configuration Overview
-    - Environment Variables for Katib Components
-  - [remove redirect] Pipelines
-    - [remove redirect] Pipelines
-  - Kubeflow Pipelines (add "Kubeflow")
+  - Kubeflow Pipelines (add "Kubeflow", remove redirects)
     - Pipelines Quickstart
     - Installing Pipelines
       - Installation Options for Kubeflow Pipelines
@@ -91,6 +62,12 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
       - Component Specification
       - Pipelines API Reference
       - Pipelines SDK Reference
+  - Frameworks for Training
+    - Chainer Training
+    - MPI Training
+    - MXNet Training
+    - PyTorch Training
+    - TensorFlow Training (TFJob)
   - Tools for Serving
     - Overview
     - KFServing
@@ -99,10 +76,27 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
     - NVIDIA Triton Inference Server
     - TensorFlow Serving
     - TensorFlow Batch Prediction
-  - Multi-Tenancy in Kubeflow
-    - Introduction to Multi-user Isolation
-    - Design for Multi-user Isolation
-    - Getting Started with Multi-user Isolation
+  - Katib
+    - Introduction to Katib
+    - Getting Started with Katib
+    - Running an Experiment
+    - Resuming an Experiment
+    - Overview of Trial Templates
+    - Using Early Stopping
+    - Katib Configuration Overview
+    - Environment Variables for Katib Components
+  - Metadata
+  - Fairing 
+    - Overview of Kubeflow Fairing
+    - Install Kubeflow Fairing
+    - Configure Kubeflow Fairing
+    - Fairing on Azure
+    - Fairing on GCP
+    - Tutorials
+    - Reference
+  - Feature Store
+    - Introduction to Feast
+    - Getting started with Feast
   - Nuclio functions (remove "Miscellaneous" layer)
     
 - **Deployment**
@@ -214,6 +208,10 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
   - Istio Usage in Kubeflow
   - Job Scheduling
   - Kubeflow On-prem in a Multi-node Kubernetes Cluster
+  - Multi-Tenancy in Kubeflow
+    - Introduction to Multi-user Isolation
+    - Design for Multi-user Isolation
+    - Getting Started with Multi-user Isolation
   
 - **Troubleshooting** (created with files from current section "Further Setup and Troubleshooting")
   - Frequently Asked Questions
