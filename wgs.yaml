@@ -86,12 +86,8 @@ workinggroups:
     slack: wg-automl
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
     teams:
-    - name: wg-automl-bugs
-      description: Bug Triage and Troubleshooting
-    - name: wg-automl-machinery-misc
-      description: General Discussion
-    - name: wg-automl-reviews
-      description: API Changes and Reviews (API Machinery APIs, NOT all APIs)
+    - name: wg-automl-leads
+      description: AutoML WG Tech Leads
   subprojects:
   - name: katib
     owners:

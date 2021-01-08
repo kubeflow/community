@@ -29,9 +29,7 @@ The [charter](charter.md) defines the scope and governance of the AutoML Working
 - [Mailing list](https://groups.google.com/forum/#!forum/kubeflow-discuss)
 - [Open Community Issues/PRs](https://github.com/kubeflow/community/labels/wg%2Farea/wg-automl)
 - GitHub Teams:
-    - [@kubeflow/wg-automl-bugs](https://github.com/orgs/kubeflow/teams/wg-automl-bugs) - Bug Triage and Troubleshooting
-    - [@kubeflow/wg-automl-machinery-misc](https://github.com/orgs/kubeflow/teams/wg-automl-machinery-misc) - General Discussion
-    - [@kubeflow/wg-automl-reviews](https://github.com/orgs/kubeflow/teams/wg-automl-reviews) - API Changes and Reviews (API Machinery APIs, NOT all APIs)
+    - [@kubeflow/wg-automl-leads](https://github.com/orgs/kubeflow/teams/wg-automl-leads) - AutoML WG Tech Leads
 <!-- BEGIN CUSTOM CONTENT -->
 
 <!-- END CUSTOM CONTENT -->
