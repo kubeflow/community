@@ -191,7 +191,7 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
     - Multi-user, auth-enabled Kubeflow with kfctl_existing_arrikto
     - Multi-user, auth-enabled Kubeflow with kfctl_istio_dex
     - Configuring Kubeflow with kfctl and kustomize
-    - Minkube (Deploying with minikube on a single node)
+    - kfctl on Minikube (current "Deploying with minikube on a single node")
   - Charmed Kubeflow
     - Kubeflow on MicroK8s
   - MiniKF
