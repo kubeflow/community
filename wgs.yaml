@@ -228,6 +228,9 @@ workinggroups:
     - github: yanniszark
       name: Yannis Zarkadas
       company: Arrikto
+    - github: jinchihe
+      name: Jin Chi He
+      company: IBM
     tech_leads:
     - github: StefanoFioravanzo
       name: Stefano Fioravanzo
@@ -243,6 +246,9 @@ workinggroups:
     - github: yanniszark
       name: Yannis Zarkadas
       company: Arrikto
+    - github: jinchihe
+      name: Jin Chi He
+      company: IBM
   meetings:
   - description: Regular Notebooks Meeting (Australia & Europe friendly)
     day: Thursday
@@ -281,6 +287,9 @@ workinggroups:
   - name: profile-controller
     owners:
     - https://github.com/kubeflow/kubeflow/blob/master/components/profile-controller/OWNERS
+  - name: fairing
+    owners:
+    - https://github.com/kubeflow/fairing/blob/master/OWNERS
 - dir: wg-pipelines
   name: Pipelines
   mission_statement: >
