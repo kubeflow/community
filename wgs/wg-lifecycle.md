@@ -12,7 +12,7 @@ Out of scope for this document: [subproject] creation.
 - [ ] Ensure all WG Chairs, Technical Leads, and other leadership roles are [community members]
 - [ ] Send an email to <kubeflow-discuss@googlegroups.com> to scope the WG and get provisional approval.
 - [ ] Look at the checklist below for processes and tips that you will need to do while this is going on. It's best to collect this information upfront so you have a smoother process to launch
-- [ ] Follow the [WG charter process](charter.md) to propose and obtain approval for a charter
+- [ ] Follow the [WG charter process](wg-charter.md) to propose and obtain approval for a charter
 - [ ] Announce new WG on kubeflow-discuss@googlegroups.com
 
 ### [GitHub]
