@@ -184,7 +184,7 @@ This is an initial proposal, to be iterated on, following the discussion in [#22
     - Pipelines on IBM Cloud Kubernetes Service (IKS)
     - End-to-end Kubeflow on IBM Cloud
 
-- **Methods & Distributions**
+- **Distributions**
   - kfctl (current `Getting Started/Kubernetes installation`)
     - Overview of Deployment on Existing Clusters
     - Kubeflow Deployment with kfctl_k8s_istio
