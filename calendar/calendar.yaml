@@ -15,17 +15,6 @@
 #   as the meeting agenda link.
 #   organizer - Github username of the meeting organizer.
 #
-- id: kf703
-  name: Test Meeting
-  date: 11/01/2020
-  time: 5:00am-5:30pm
-  frequency: monthly
-  attendees:
-    - email: kf-calendar-test@googlegroups.com
-  description:
-    - |
-      Test to fix https://github.com/kubeflow/community/issues/438
-  organizer: autobot@kubeflow.org
 
 - id: kf001
   name: Kubeflow Community Call (US West/APAC)
