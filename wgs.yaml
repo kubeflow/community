@@ -304,6 +304,9 @@ workinggroups:
     - github: paveldournov
       name: Pavel Dournov
       company: Google
+    - github: animeshsingh
+      name: Animesh Singh
+      company: IBM
     tech_leads:
     - github: Bobgy
       name: Yuan Gong
