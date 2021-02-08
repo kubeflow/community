@@ -13,9 +13,9 @@ WG AutoML is responsible for all aspects of Automated Machine Learning technolog
 The [charter](charter.md) defines the scope and governance of the AutoML Working Group.
 
 ## Meetings
-* Kubeflow AutoML Working Group Meeting (Asia & Europe friendly): [Wednesdays at 10:00am UTC (Coordinated Universal Time)]() (monthly - second Wednesday every month). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=10:00am&tz=UTC%20%28Coordinated%20Universal%20Time%29).
+* Kubeflow AutoML Working Group Meeting (Asia & Europe friendly): [Wednesdays at 11:00am UTC (Coordinated Universal Time)](https://calendar.google.com/calendar/u/0/r?cid=ZDQ5bnNpZWZzbmZna2Y5MW8wdThoMmpoazRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ) (monthly - first Wednesday every month). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=11:00am&tz=UTC%20%28Coordinated%20Universal%20Time%29).
   * [Meeting notes and Agenda](https://docs.google.com/document/d/1MChKfzrKAeFRtYqypFbMXL6ZIc_OgijjkvbqmwRV-64).
-* Kubeflow AutoML Working Group Meeting (US friendly): [Wednesdays at 4:00pm UTC (Coordinated Universal Time)]() (monthly - fourth Wednesday every month). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=4:00pm&tz=UTC%20%28Coordinated%20Universal%20Time%29).
+* Kubeflow AutoML Working Group Meeting (US friendly): [Wednesdays at 5:00pm UTC (Coordinated Universal Time)](https://calendar.google.com/calendar/u/0/r?cid=ZDQ5bnNpZWZzbmZna2Y5MW8wdThoMmpoazRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ) (monthly - third Wednesday every month). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=5:00pm&tz=UTC%20%28Coordinated%20Universal%20Time%29).
   * [Meeting notes and Agenda](https://docs.google.com/document/d/1MChKfzrKAeFRtYqypFbMXL6ZIc_OgijjkvbqmwRV-64).
 
 ## Organizers

@@ -72,15 +72,17 @@ workinggroups:
   meetings:
   - description: Kubeflow AutoML Working Group Meeting (Asia & Europe friendly)
     day: Wednesday
-    time: 10:00am
+    time: 11:00am
     tz: UTC (Coordinated Universal Time)
-    frequency: monthly - second Wednesday every month
+    frequency: monthly - first Wednesday every month
+    url: https://calendar.google.com/calendar/u/0/r?cid=ZDQ5bnNpZWZzbmZna2Y5MW8wdThoMmpoazRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ
     archive_url: https://docs.google.com/document/d/1MChKfzrKAeFRtYqypFbMXL6ZIc_OgijjkvbqmwRV-64
   - description: Kubeflow AutoML Working Group Meeting (US friendly)
     day: Wednesday
-    time: 4:00pm
+    time: 5:00pm
     tz: UTC (Coordinated Universal Time)
-    frequency: monthly - fourth Wednesday every month
+    frequency: monthly - third Wednesday every month
+    url: https://calendar.google.com/calendar/u/0/r?cid=ZDQ5bnNpZWZzbmZna2Y5MW8wdThoMmpoazRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ
     archive_url: https://docs.google.com/document/d/1MChKfzrKAeFRtYqypFbMXL6ZIc_OgijjkvbqmwRV-64
   contact:
     slack: wg-automl
