@@ -1,9 +1,7 @@
 approvers:
-  - abhi-g
   - Bobgy
   - james-jwu
-  - jlewi
-  - richardsliu
   - theadactyl
 reviewers:
   - Bobgy
+  - theadactyl
