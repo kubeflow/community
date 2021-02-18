@@ -74,14 +74,14 @@ workinggroups:
     day: Wednesday
     time: 11:00am
     tz: UTC (Coordinated Universal Time)
-    frequency: monthly - first Wednesday every month
+    frequency: every 4 weeks on Wednesday from the 10th of March 2021
     url: https://calendar.google.com/calendar/u/0/r?cid=ZDQ5bnNpZWZzbmZna2Y5MW8wdThoMmpoazRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ
     archive_url: https://docs.google.com/document/d/1MChKfzrKAeFRtYqypFbMXL6ZIc_OgijjkvbqmwRV-64
   - description: Kubeflow AutoML Working Group Meeting (US friendly)
     day: Wednesday
     time: 5:00pm
     tz: UTC (Coordinated Universal Time)
-    frequency: monthly - third Wednesday every month
+    frequency: every 4 weeks on Wednesday from the 24th of March 2021
     url: https://calendar.google.com/calendar/u/0/r?cid=ZDQ5bnNpZWZzbmZna2Y5MW8wdThoMmpoazRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ
     archive_url: https://docs.google.com/document/d/1MChKfzrKAeFRtYqypFbMXL6ZIc_OgijjkvbqmwRV-64
   contact:
