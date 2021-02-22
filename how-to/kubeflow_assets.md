@@ -28,10 +28,7 @@ https://github.com/kubeflow-bot
 
 Admins
 
-* chrisheecho@kubeflow.org
 * ewj@kubeflow.org
-* jlewi@kubeflow.org
-* sarahmaddox@kubeflow.org
 * thea@kubeflow.org
 
 ## Kubeflow GCP org
@@ -40,8 +37,7 @@ This should be tied to the gsuite domain.
 
 Admins
 
-* jlewi@google.com
-* ricliu@google.com
+* gongyuan@google.com
 
 ## DockerHub:
 
@@ -76,7 +72,7 @@ Editors
 * @edd
 * @thealamkin
 
-TODO(jlewi): Are there owners/admins with higher privileges then editors?
+TODO(thealamkin): Are there owners/admins with higher privileges then editors?
 
 For more info see: https://github.com/kubeflow/community/issues/316
 
@@ -93,9 +89,7 @@ We have the following netlify sites
 
 Access is granted through the Netlify kubeflow-team; current owners are
 
-* jeremy@lewi.us
-* ricliu@google.com
-* saramaddoxmail@gmail.com
+* gongyuan@google.com
 
 ## Twitter
 
@@ -124,7 +118,6 @@ Owners:
 
 * abhishek@google.com
 * ewj@google.com
-* jlewi@google.com
 * thealamkin@google.com
 
 ## Slack
@@ -136,7 +129,6 @@ Workspace Owners:
 
 * abhishek@google.com
 * aronchick@gmail.com
-* sarahmaddox@gmail.com
 * thealamkin@google.com
 * vishnuk@google.com
 
@@ -149,7 +141,6 @@ Owner:
 
 Admins 
 
-* jlewi@google.com
 * thealamkin@google.com
 
 ## DNS Domains
