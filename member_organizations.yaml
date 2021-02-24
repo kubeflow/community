@@ -168,7 +168,7 @@
     - yaronh@iguazio.com
     - adih@iguazio.com
   url: https://www.iguazio.com
-  
+
 - name: Intel
   contacts:
     - michal.jastrzebski@intel.com
@@ -211,12 +211,6 @@
     - joey@pachyderm.io
     - jdoliner@pachyderm.io
   url: http://pachyderm.io/
-
-- name: Primer
-  contacts:
-    - bohannon@primer.ai
-    - william@primer.ai
-  url: http://primer.ai/
 
 - name: Project Jupyter
   contacts:
