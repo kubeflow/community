@@ -6,6 +6,7 @@ is itself a work in progress, and is not a comprehensive list. It was last updat
 List of work items acknowledged or identified by the PSG where work has not yet started, with tracking issues
 where possible. Not currently listed in order of priority. Do not open PRs against these items unless you have 
 an approved proposal.
+- Convert this doc to GitHub Project
 - Clearer process for submitting and tracking community proposals
 - Updated list of owners of various Kubeflow assets
 - Clearer instructions for managing community assets & shared files across GitHub and Kubeflow's gSuite
