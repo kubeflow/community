@@ -1,6 +1,6 @@
 # Kubeflow Blog Guidelines
 
-The Knative blog is owned by $group and run by the $other_group. 
+The Kubeflow blog is owned by $group and run by the $other_group. 
 
 This section covers documentation, processes, and roles for the [Kubeflow blog](https://blog.kubeflow.org/).
 
