@@ -217,12 +217,6 @@
     - jdoliner@pachyderm.io
   url: http://pachyderm.io/
 
-- name: Primer
-  contacts:
-    - bohannon@primer.ai
-    - william@primer.ai
-  url: http://primer.ai/
-
 - name: Project Jupyter
   contacts:
     - cawillin@calpoly.edu
