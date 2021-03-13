@@ -233,6 +233,13 @@
     - llasmith@redhat.com
   url: https://www.redhat.com
 
+  - name: Riiid
+  contacts:
+    - wansoo.kim@riiid.co
+  url: https://www.riiid.co
+  hiringForKubeflow: true
+  hiringUrl: https://www.riiid.co/en/career
+
 - name: Seldon
   contacts:
     - ah@seldon.io
