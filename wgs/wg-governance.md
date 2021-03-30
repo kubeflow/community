@@ -187,7 +187,7 @@ they have defined.
   - Follow [KEP] decision making process
 
 - Test health
-  - Canonical health of code published to [dashboard]
+  - Canonical health of code.
   - Consistently broken tests automatically send an alert to their google group.
   - WG contributors are responsible for responding to broken tests alert. PRs that break tests should be rolled back if not fixed within 24 hours (business hours).
   - Test dashboard checked and reviewed at start of each WG meeting.  Owners assigned for any broken tests and followed up during the next WG meeting.
