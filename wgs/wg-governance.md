@@ -205,14 +205,14 @@ Issues impacting multiple subprojects in the WG should be resolved by either:
   - after 6 or more months it *MUST* be retired
 
 [k/enhancements]: https://github.com/kubeflow/community/tree/master/proposals
-[forums provided]: /communication/README.md
+[forums provided]: https://www.kubeflow.org/docs/about/community/#community-discussions
 [lazy-consensus]: http://en.osswiki.info/concepts/lazy_consensus
 [super-majority]: https://en.wikipedia.org/wiki/Supermajority#Two-thirds_vote
 [KEP]: https://github.com/kubeflow/community/blob/master/proposals/TEMPLATE.md
 [wgs.yaml]: templates/wgs.yaml
-[WG Charter process]: /wg-charter.md
+[WG Charter process]: wg-charter.md
 [Kubeflow Charter README]: /wg-charter.md
-[wg-lifecycle]: /sig-wg-lifecycle.md
+[wg-lifecycle]: wg-lifecycle.md
 ["member" on our contributor ladder]: https://docs.google.com/document/d/1HKB662Ju6URVdzw0Neq9OFnxM6RMXFu4Dd04q9E3kGk/edit#heading=h.5p9yntdhi7yr
 [contributor guide]: https://www.kubeflow.org/docs/about/contributing/
 [Google group]: https://groups.google.com/forum/#!forum/kubeflow-discuss
