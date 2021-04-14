@@ -13,7 +13,7 @@ Responsibilities for most roles are scoped to these subprojects.
 | Reviewer | Review contributions from other members | History of review and authorship in a subproject | [OWNERS] file reviewer entry. |
 | Approver | Approve accepting contributions | Hghly experienced and active reviewer | [OWNERS] file approver entry|
 | Working Group Technical Lead | Set priorities for a functional area and approve proposals | ? | [wgs.yaml] subproject [OWNERS] file *OWNERS* entry |
-| Working Group Co-chair | Run their working group: Meetings, notes, roadmap, report | ? | [wgs.yaml] subproject [OWNERS] file *OWNERS* entry | 
+| Working Group Co-chair | Run their working group: meetings, notes, roadmap, report | ? | [wgs.yaml] subproject [OWNERS] file *OWNERS* entry | 
 
 ## New contributors
 
