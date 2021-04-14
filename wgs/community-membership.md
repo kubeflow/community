@@ -8,10 +8,12 @@ Responsibilities for most roles are scoped to these subprojects.
 
 | Role | Responsibilities | Requirements | Defined by |
 | -----| ---------------- | ------------ | -------|
-| member | active contributor in the community | sponsored by 2 reviewers.  multiple contributions to the project. | Kubernetes GitHub org member. |
-| reviewer | review contributions from other members | history of review and authorship in a subproject | [OWNERS] file reviewer entry. |
-| approver | approve accepting contributions | highly experienced and active reviewer + contributor to a subproject | [OWNERS] file approver entry|
-| subproject owner | set direction and priorities for a subproject | demonstrated responsibility and excellent technical judgement for the subproject | [wgs.yaml] subproject [OWNERS] file *owners* entry |
+| Member | Active contributor in the community | Sponsored by 2 reviewers.  Multiple contributions to the project. | GitHub org member. |
+| Scribe | Ensure important information is represented in working group notes | Membership | Write access to WG documentation | 
+| Reviewer | Review contributions from other members | History of review and authorship in a subproject | [OWNERS] file reviewer entry. |
+| Approver | Approve accepting contributions | Hghly experienced and active reviewer | [OWNERS] file approver entry|
+| Working Group Technical Lead | Set priorities for a functional area and approve proposals | ? | [wgs.yaml] subproject [OWNERS] file *OWNERS* entry |
+| Working Group Co-chair | Run their working group: Meetings, notes, roadmap, report | ? | [wgs.yaml] subproject [OWNERS] file *OWNERS* entry | 
 
 ## New contributors
 
@@ -31,8 +33,15 @@ below.
 
 Members are continuously active contributors in the community.  They can have
 issues and PRs assigned to them, participate in WGs through GitHub teams, and
-pre-submit tests are automatically run for their PRs. Members are expected to
-remain active contributors to the community.
+pre-submit tests are automatically run for their PRs. 
+Members are expected to remain active contributors to the community.
+
+All members are encouraged to help with the code review burden, although each PR
+must be reviewed by an official [Approver](#approver).
+
+When reviewing, members should focus on code quality and correctness, including
+testing and factoring. 
+Members might also review for more holistic issues, but this is not a requirement.
 
 **Defined by:** Member of the Kubeflow GitHub organization
 
@@ -42,14 +51,12 @@ remain active contributors to the community.
 - Have made multiple contributions to the project or community.  Contribution may include, but is not limited to:
     - Authoring or reviewing PRs on GitHub
     - Filing or commenting on issues on GitHub
-    - Contributing to SIG, subproject, or community discussions (e.g. meetings, Slack, email discussion
-      forums, Stack Overflow)
+    - Contributing to WG, subproject, or community discussions (e.g. meetings, Slack, email discussion forums, Stack Overflow, etc)
 - Subscribed to [Kubeflow-dev@googlegroups.com]
 - Have read the [contributor guide]
 - Actively contributing to 1 or more subprojects.
 - Sponsored by 2 reviewers. **Note the following requirements for sponsors**:
-    - Sponsors must have close interactions with the prospective member - e.g. code/design/proposal review, coordinating
-      on issues, etc.
+    - Sponsors must have close interactions with the prospective member - e.g. code/design/proposal review, coordinating on issues, etc.
     - Sponsors must be reviewers or approvers in at least 1 OWNERS file either in any repo in the [Kubeflow org],          
 - **[Open an issue][membership request] against the Kubeflow/internal-acls repo**
    - Ensure your sponsors are @mentioned on the issue
@@ -61,8 +68,8 @@ remain active contributors to the community.
 
 ### Responsibilities and privileges
 
-- Responsive to issues and PRs assigned to them
-- Responsive to mentions of WG teams they are members of
+- Responsive to issues and PRs assigned to them.
+- Responsive to mentions of WG teams they are members of. 
 - Active owner of code they have contributed (unless ownership is explicitly transferred)
   - Code is well tested
   - Tests consistently pass
@@ -75,6 +82,28 @@ remain active contributors to the community.
 **Note:** members who frequently contribute code are expected to proactively
 perform code reviews and work towards becoming a primary *reviewer* for the
 subproject that they are active in.
+
+## Scribe
+
+One of the most underrated roles in open source projects is the role of note
+taker. 
+The importance and value of this role is frequently overlooked and
+underestimated. 
+Since one of the core project values is transparency, we have an explicit scribe role to recognize these types of contributions. 
+Working group scribes assist the Working Group leads with the mechanical processes around
+Working Group meetings.
+
+### Requirements
+
+- Participant in the working group for at least 1 month.
+- Pattern of attendance and note-taking during working group meetings and one-offs.
+- Sponsored by a working group execution or technical lead.
+
+### Responsibilities and privileges
+
+- Attend working group meetings and one-offs whenever possible.
+- Ensure that important information from meetings makes it into the WG notes.
+- Post WG recordings to the team drive.
 
 ## Reviewer
 
@@ -159,52 +188,87 @@ in an [OWNERS] file (for repos using the bot).
 - Mentor contributors and reviewers
 - May approve code contributions for acceptance
 
-## Subproject Owner
+# Leadership Roles
 
-**Note:** This is a generalized high-level description of the role, and the
-specifics of the subproject owner role's responsibilities and related
-processes *MUST* be defined for individual WGs or subprojects.
+## Working Group Technical Lead
 
-Subproject Owners are the technical authority for a subproject in the Kubeflow
-project.  They *MUST* have demonstrated both good judgement and responsibility
-towards the health of that subproject.  Subproject Owners *MUST* set technical
-direction and make or approve design decisions for their subproject - either
-directly or through delegation of these responsibilities.
-
-**Defined by:** *owners* entry in subproject [OWNERS] files as defined by [sigs.yaml]  *subproject.owners*
+Working group technical leads, or just ‘tech leads’, are approvers of an entire
+area that have demonstrated good judgement and responsibility. 
+Tech leads accept design proposals and approve design decisions for their area of ownership, and are responsible for the overall technical health of their functional area.
 
 ### Requirements
 
-The process for becoming an subproject Owner should be defined in the SIG
-charter of the SIG owning the subproject.  Unlike the roles outlined above, the
-Owners of a subproject are typically limited to a relatively small group of
-decision makers and updated as fits the needs of the subproject.
+Getting to be a tech lead of an existing working group:
 
-The following apply to the subproject for which one would be an owner.
+- Recognized as having expertise in the group’s subject matter.
+- Approver for a relevant part of the codebase for at least 3 months.
+- Member for at least 6 months.
+- Primary reviewer for 20 substantial PRs.
+- Reviewed or merged at least 50 PRs.
+- Sponsored by the technical oversight committee.
 
-- Deep understanding of the technical goals and direction of the subproject
-- Deep understanding of the technical domain of the subproject
-- Sustained contributions to design and direction by doing all of:
-  - Authoring and reviewing proposals
-  - Initiating, contributing and resolving discussions (emails, GitHub issues, meetings)
-  - Identifying subtle or complex issues in designs and implementation PRs
-- Directly contributed to the subproject through implementation and / or review
+Additional requirements for leads of a new working group:
+
+- Originally authored or contributed major functionality to the group's area.
 
 ### Responsibilities and privileges
 
-The following apply to the subproject for which one would be an owner.
+The following apply to the area / component for which one would be an owner.
 
-- Make and approve technical design decisions for the subproject.
-- Set technical direction and priorities for the subproject.
-- Define milestones and releases.
-- Mentor and guide approvers, reviewers, and contributors to the subproject.
-- Ensure continued health of subproject
-  - Adequate test coverage to confidently release
-  - Tests are passing reliably (i.e. not flaky) and are fixed when they fail
-- Ensure a healthy process for discussion and decision making is in place.
-- Work with other subproject owners to maintain the project's overall health and success holistically
+- Design/proposal approval authority over the area / component, though
+  escalation to the technical oversight committee is possible.
+- Technical review of new features and design proposals
+- Perform issue triage on GitHub.
+- Apply/remove/create/delete GitHub labels and milestones.
+- Write access to repo (assign issues/PRs, add/remove labels and milestones,
+  edit issues and PRs, edit wiki, create/delete labels and milestones).
+- Capable of directly applying lgtm + approve labels for any PR.
+  - Expected to respect OWNERS files approvals and use
+    standard procedure for merging code..
+- Expected to work to holistically maintain the health of the project through:
+  - Reviewing PRs.
+  - Fixing bugs.
+  - Identifying needed enhancements / areas for improvement / etc.
+  - Execute pay-down of technical debt.
+- Mentoring and guiding approvers, members, and new contributors.
 
+## Working Group Co-Chair
 
+Working Group co-chairs, or just ‘co-chairs’, are responsible for
+the overall health and execution of the working group itself. 
+Co-chairs work with tech leads to ensure that the working group is making progress toward
+its goals, is aligned with the project roadmap, etc. 
+The co-chair may also be the tech lead in a smaller working group, but they are distinct roles.
+
+### Requirements
+
+- Participant in the working group for at least 3 months, for example as scribe
+  or approver.
+- Recognized as having expertise in the group’s subject matter.
+- Sponsored by the technical oversight committee.
+
+### Responsibilities and privileges
+
+- Run their working group as explained in the
+  [Working Group Processes](./mechanics/WORKING-GROUP-PROCESSES.md).
+  - Meetings. Prepare the agenda and run the regular working group meetings.
+  - Notes. Ensure that meeting notes are kept up to date. Provide a link to the
+    recorded meeting in the notes. The lead may delegate note-taking duties to
+    the scribe.
+  - Roadmap. Establish and maintain a roadmap for the working group outlining
+    the areas of focus for the working group over the next 6 months.
+  - Report. Report current status to the TOC meeting every 6 weeks.
+- Holistic responsibility for their working group's [feature
+  tracks](./mechanics/FEATURE-TRACKS.md): tracking, health, and execution.
+- Perform issue triage on GitHub.
+- Apply/remove/create/delete GitHub labels and milestones.
+- Write access to repo (assign issues/PRs, add/remove labels and milestones,
+  edit project, issues, and PRs, edit wiki, create/delete labels and milestones).
+- Expected to work to holistically maintain the health of the working through:
+  - Being a good role model
+  - Be an advocate for the working group inside and outside of the community
+  - Foster a welcoming and collegial environment
+  - Mentoring and guiding approvers, members, and new contributors.
 
 [code reviews]: https://github.com/kubernetes/community/blob/master//contributors/guide/expectations.md#code-review
 [community expectations]: https://github.com/kubernetes/community/blob/master/contributors/guide/expectations.md
