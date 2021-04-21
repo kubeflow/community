@@ -8,7 +8,8 @@ To understand how this file is generated, see https://github.com/kubeflow/commun
 --->
 # Working Groups
 
-Most community activity is organized into Working Groups (WGs).
+Most community activity is organized into Working Groups (WGs), and WGs may also sponsor Special
+Interest Groups (SIGs) on topics they are invested in.
 
 WGs follow these [guidelines](wgs/wg-governance.md) although each of these groups may operate a little differently
 depending on their needs and workflow.
@@ -28,6 +29,13 @@ When the need arises, a [new WG can be created](wgs/wg-lifecycle.md)
 |[Pipelines](wg-pipelines/README.md)|area/wg-pipelines|* [James Wu](https://github.com/james-jwu), Google<br>* [Karthik Ramachandran](https://github.com/kramachandran), Google<br>* [Pavel Dournov](https://github.com/paveldournov), Google<br>|* [Slack](https://kubeflow.slack.com/messages/)<br>* [Mailing List](https://groups.google.com/forum/#!forum/kubeflow-discuss)|
 |[Serving](wg-serving/README.md)|area/wg-serving|* [Animesh Singh](https://github.com/animeshsingh), IBM<br>* [Clive Cox](https://github.com/cliveseldon), Seldon<br>* [Ellis Tarn](https://github.com/ellistarn), AWS<br>* [Rakesh Kalekar](https://github.com/rakelkar), Microsoft<br>* [Dan Sun](https://github.com/yuzisun), Bloomberg<br>|* [Slack](https://kubeflow.slack.com/messages/kfserving)<br>* [Mailing List](https://groups.google.com/forum/#!forum/kubeflow-discuss)|* Regular WG Meeting: [Wednesdays at 09:00 PT (Pacific Time) (biweekly)]()<br>
 |[Training](wg-training/README.md)|area/wg-training|* [Ce Gao](https://github.com/gaocegege), Caicloud<br>* [Johnu George](https://github.com/johnugeorge), Cisco<br>* [Yuan Tang](https://github.com/terrytangyuan), Ant Group<br>|* [Slack](https://kubeflow.slack.com/messages/wg-training)<br>* [Mailing List](https://groups.google.com/forum/#!forum/kubeflow-discuss)|* Regular WG Meeting (Asia & Europe friendly): [Wednesdays at 03:00 PT (Pacific Time) (monthly - first Wednesday every month)]()<br>* Regular WG Meeting (US friendly): [Wednesdays at 10:00 PT (Pacific Time) (monthly - third Wednesday every month)]()<br>
+
+### Special Interest Group List
+
+| Name | Label | Chairs | Contact | Meetings |
+|------|-------|--------|---------|----------|
+|[Feature Store](sig-feature-store/README.md)|area/sig-feature-store|* [Kevin Stumpf](https://github.com/kevinstumpf)<br>* [Oleksii Moskalenko](https://github.com/pyalex), Gojek<br>* [Willem Pienaar](https://github.com/woop), Gojek<br>|* [Slack](https://kubeflow.slack.com/messages/feast)<br>* [Mailing List](https://groups.google.com/forum/#!forum/kubeflow-discuss)|* Monthly SIG Meeting: [Wednesdays at 18:00 PT (Pacific Time) (monthly)]()<br>
+|[OnPrem](sig-onprem/README.md)|area/sig-onprem|* [Jeff Fogarty](https://github.com/jtfogarty), US Bank<br>* [Michael Tanenbaum](https://github.com/tbaums), Arrikto<br>|* [Slack](https://kubeflow.slack.com/messages/sig-onprem)<br>* [Mailing List](https://groups.google.com/forum/#!forum/kubeflow-discuss)|* SIG Onprem Community Meeting - (US East/EMEA): [Thursdays at 10:30 ET (Eastern Time) (biweekly)](https://us02web.zoom.us/j/87159010361?pwd=c09wTXk2dmJPNmpkTDFTb0o0cnY2Zz09)<br>* SIG Onprem Community Meeting - (US West): [Fridays at 15:00 ET (Eastern Time) (biweekly)](https://us02web.zoom.us/j/87159010361?pwd=c09wTXk2dmJPNmpkTDFTb0o0cnY2Zz09)<br>
 <!-- BEGIN CUSTOM CONTENT -->
 
 <!-- END CUSTOM CONTENT -->
