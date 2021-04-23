@@ -22,13 +22,11 @@ The [charter](charter.md) defines the scope and governance of the OnPrem Special
 The Chairs of the SIG run operations and processes governing the SIG.
 
 * Jeff Fogarty (**[@jtfogarty](https://github.com/jtfogarty)**), US Bank
-* Michael Tanenbaum (**[@tbaums](https://github.com/tbaums)**), Arrikto
 
 ### Technical Leads
 The Technical Leads of the SIG establish new subprojects, decommission existing
 subprojects, and resolve cross-subproject technical issues and decisions.
 
-* Marlow Weston (**[@catblade](https://github.com/catblade)**), Intel
 * Jeff Fogarty (**[@jtfogarty](https://github.com/jtfogarty)**), US Bank
 * Igor Mameshin (**[@mameshini](https://github.com/mameshini)**), Agile Stacks
 

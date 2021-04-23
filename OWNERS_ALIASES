@@ -4,10 +4,8 @@ aliases:
     - pyalex
     - woop
   sig-onprem-leads:
-    - catblade
     - jtfogarty
     - mameshini
-    - tbaums
   wg-automl-leads:
     - andreyvelich
     - gaocegege

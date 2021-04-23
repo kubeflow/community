@@ -51,13 +51,7 @@ sigs:
     - github: jtfogarty
       name: Jeff Fogarty
       company: US Bank
-    - github: tbaums
-      name: Michael Tanenbaum
-      company: Arrikto
     tech_leads:
-    - github: catblade
-      name: Marlow Weston
-      company: Intel
     - github: jtfogarty
       name: Jeff Fogarty
       company: US Bank
