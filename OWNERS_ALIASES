@@ -3,6 +3,9 @@ aliases:
     - kevinstumpf
     - pyalex
     - woop
+  sig-onprem-leads:
+    - jtfogarty
+    - mameshini
   wg-automl-leads:
     - andreyvelich
     - gaocegege

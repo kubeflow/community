@@ -39,24 +39,19 @@ sigs:
     teams:
     - name: sig-feature-store
       description: Feature store development and roadmap
-- dir: sig-on-premises
-  name: On Premises
+- dir: sig-onprem
+  name: OnPrem
   mission_statement: >
     Serve as a community resource for advising with on premises installation of Kubeflow.
+
   charter_link: charter.md
-  label: area/sig-on-premises
+  label: area/sig-onprem
   leadership:
     chairs:
     - github: jtfogarty
       name: Jeff Fogarty
       company: US Bank
-    - github: tbaums
-      name: Michael Tanenbaum
-      company: Arrikto
     tech_leads:
-    - github: catblade
-      name: Marlow Weston
-      company: Intel
     - github: jtfogarty
       name: Jeff Fogarty
       company: US Bank
@@ -75,7 +70,7 @@ sigs:
     time: "15:00"
     tz: ET (Eastern Time)
     frequency: biweekly
-    url: https://us02web.zoom.us/j/87159010361?pwd=c09wTXk2dmJPNmpkTDFTb0o0cnY2Zz09  
+    url: https://us02web.zoom.us/j/87159010361?pwd=c09wTXk2dmJPNmpkTDFTb0o0cnY2Zz09
   contact:
     slack: sig-onprem
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
