@@ -21,7 +21,7 @@ The [charter](charter.md) defines the scope and governance of the Training Worki
 ## Organizers
 
 * Ce Gao (**[@gaocegege](https://github.com/gaocegege)**), Caicloud
-* Johnu George (**[@johnugeorge](https://github.com/johnugeorge)**), Cisco
+* Johnu George (**[@johnugeorge](https://github.com/johnugeorge)**), Nutanix
 * Yuan Tang (**[@terrytangyuan](https://github.com/terrytangyuan)**), Ant Group
 
 ## Contact
