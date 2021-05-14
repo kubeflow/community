@@ -22,7 +22,7 @@ The [charter](charter.md) defines the scope and governance of the AutoML Working
 
 * Andrey Velichkevich (**[@andreyvelich](https://github.com/andreyvelich)**), Cisco
 * Ce Gao (**[@gaocegege](https://github.com/gaocegege)**), Caicloud
-* Johnu George (**[@johnugeorge](https://github.com/johnugeorge)**), Cisco
+* Johnu George (**[@johnugeorge](https://github.com/johnugeorge)**), Nutanix
 
 ## Contact
 - Slack: [#wg-automl](https://kubeflow.slack.com/messages/wg-automl)

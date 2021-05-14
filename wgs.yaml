@@ -96,7 +96,7 @@ workinggroups:
       company: Caicloud
     - github: johnugeorge
       name: Johnu George
-      company: Cisco
+      company: Nutanix
     tech_leads:
     - github: andreyvelich
       name: Andrey Velichkevich
@@ -106,7 +106,7 @@ workinggroups:
       company: Caicloud
     - github: johnugeorge
       name: Johnu George
-      company: Cisco
+      company: Nutanix
   meetings:
   - description: Kubeflow AutoML Working Group Meeting (Asia & Europe friendly)
     day: Wednesday
@@ -447,7 +447,7 @@ workinggroups:
       company: Caicloud
     - github: johnugeorge
       name: Johnu George
-      company: Cisco
+      company: Nutanix
     - github: terrytangyuan
       name: Yuan Tang
       company: Ant Group
@@ -466,7 +466,7 @@ workinggroups:
       company: Caicloud
     - github: johnugeorge
       name: Johnu George
-      company: Cisco
+      company: Nutanix
     - github: terrytangyuan
       name: Yuan Tang
       company: Ant Group
