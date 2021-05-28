@@ -205,8 +205,8 @@ workinggroups:
     - github: PatrickXYS
       name: Yao Xiao
       company: AWS
-    - github: vkoukis
-      name: Vangelis Koukis
+    - github: kimwnasptd
+      name: Kimonas Sotirchos
       company: Arrikto
     - github: yanniszark
       name: Yannis Zarkadas
@@ -221,8 +221,8 @@ workinggroups:
     - github: elikatsis
       name: Ilias Katsakioris
       company: Arrikto
-    - github: vkoukis
-      name: Vangelis Koukis
+    - github: kimwnasptd
+      name: Kimonas Sotirchos
       company: Arrikto
     - github: yanniszark
       name: Yannis Zarkadas
