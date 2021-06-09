@@ -19,7 +19,7 @@ The [charter](charter.md) defines the scope and governance of the Manifests Work
 ## Organizers
 
 * Yao Xiao (**[@PatrickXYS](https://github.com/PatrickXYS)**), AWS
-* Vangelis Koukis (**[@vkoukis](https://github.com/vkoukis)**), Arrikto
+* Kimonas Sotirchos (**[@kimwnasptd](https://github.com/kimwnasptd)**), Arrikto
 * Yannis Zarkadas (**[@yanniszark](https://github.com/yanniszark)**), Arrikto
 
 ## Contact
