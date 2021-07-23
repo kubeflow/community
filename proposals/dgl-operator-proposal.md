@@ -1,3 +1,5 @@
+Updated on 2021/07/23
+
 ## Motivation
 
 > Deep Graph Library ([DGL](https://github.com/dmlc/dgl)) is a Python package built for easy implementation of graph neural network model family, on top of existing DL frameworks (currently supporting PyTorch, MXNet and TensorFlow). It offers a versatile control of message passing, speed optimization via auto-batching and highly tuned sparse matrix kernels, and multi-GPU/CPU training to scale to graphs of hundreds of millions of nodes and edges. —— DGL team @ [dgl.ai](https://www.dgl.ai/)
@@ -6,9 +8,12 @@ More recently, there are a lot of new deep learning researches based on graph-st
 
 [Native DGL distributed training](https://docs.dgl.ai/guide/distributed.html) is based on data parallelism, and we (360 AI Infra team) applied this fully distributed approach on operator/controller philosophy for Kubernetes. This proposal is aimed at defining what the DGL Operator should behave, and add it to Kubeflow.
 
-## Terminology
+## Explanation of Terms
 
-1. Partition: A phase in DGL workflow, used to do partitioning on a large graph and then generate sub-graphs.
+1. Partition: A phase in DGL workflow, used to do partitioning on a large graph and then generate sub-graphs. DGL has 2 approaches to partition, one is single-thread (DGL built-in API), the other one is multi-process (ParMETIS, not in DGL). In the K8s & Operator context, DGL Operator wants to apply these and support 3 partition modes
+    1. Single-Pod, single-thread partitioning, _will call SSP or `DGL-API` later_
+    2. Single-Pod, multi-process partitioning (native ParMETIS version), _will call SMP or `ParMETIS` later_
+    3. Multi-Pod, single-thread partitioning (may need some adoptions in ParMETIS), _will call MSP or `DistParMETIS` later_
 2. Working Pod definitions:
     1. Launcher: A very light weight Pod traces the whole DGL workflow on the Pod level.
     2. Partitioner: A Pod does the graph partitioning.
@@ -21,7 +26,7 @@ More recently, there are a lot of new deep learning researches based on graph-st
 
 ## Goals
 
-A Kubeflow user should be able to run training using DGL as easily as then can using Tensorflow or PyTorch. This proposal is centered around a Kubernetes operator for DGL. A user should be able to run single worker job with DGL (1 launcher, 1 partitioner and 1 worker), distributed training jobs with DGL and `DGL-API` partitioning mode (1 launcher, 1 partitioner and multiple workers) and distributed training jobs with DGL and `ParMETIS` partitioning mode (1 launcher and multiple workers).
+A Kubeflow user should be able to run training using DGL as easily as then can using Tensorflow or PyTorch. This proposal is centered around a Kubernetes operator for DGL. A user should be able to run single worker job with DGL (1 launcher, 1 partitioner and 1 worker), distributed training jobs with DGL and `DGL-API` partitioning mode (1 launcher, 1 partitioner and multiple workers), distributed training jobs with DGL and `ParMETIS` partitioning mode (1 launcher, 1 partitioner and multiple workers), and distributed training jobs with DGL and `DistParMETIS` partitioning mode (1 launcher and multiple workers).
 
 This proposal defines the following:
 
@@ -30,6 +35,7 @@ This proposal defines the following:
 - A single worker DGL example
 - A distributed DGL example with `DGL-API` partitioning mode
 - A distributed DGL example with `ParMETIS` partitioning mode
+- A distributed DGL example with `DistParMETIS` partitioning mode
 
 ## Non-Goals
 
@@ -92,7 +98,10 @@ spec:
 
 - The content of `Launcher` and `Worker` are followed the `PodTemplateSpec`. Users can be free to add more native key-values according to the spec.
 
-- The `partitionMode` can be configured as `ParMETIS` / `DGL-API`, indicating how to partition the graph. `DGL-API` uses DGL API `dgl.distributed.partition_graph`, while `ParMETIS` uses DGL recommended work-around solution [ParMETIS](https://docs.dgl.ai/guide/distributed-preprocessing.html#distributed-partitioning). `DGL-API` is default, because of the better precision.
+- The `partitionMode` can be configured as `DGL-API` / `ParMETIS` / `DistParMETIS`, indicating how to partition the graph. `DGL-API` is default, because of the better precision.
+    1. `DGL-API` uses DGL API `dgl.distributed.partition_graph`
+    2. `ParMETIS` uses DGL recommended work-around solution [ParMETIS](https://docs.dgl.ai/guide/distributed-preprocessing.html#distributed-partitioning).
+    3. `DistParMETIS` uses multi-Pod version of `ParMETIS`, still in research.
 
 ### Resulting Launcher
 
@@ -296,31 +305,31 @@ spec:
 
 *This part is mainly about operator-wise workflow on the Pod level*
 
-#### `DGL-API` partitioning and distributed training
+#### `DGL-API` or `ParMETIS` partitioning and distributed training
 
 1. Create a `ConfigMap` that contains `kubexec.sh` and `ipconfig`.
 2. Create the RBAC resources (`Role`, `ServiceAccount`, `RoleBinding`) to allow remote execution (`pods/exec`).
 3. Create `kubectl-download` (an `initContainer` of **Partitioner Pod**). It takes the responsibility to download `kubectl` binary, and move it to an `emptyDir` volume.
-4. Create **Partitioner Pod** to do the `DGL-API` partitioning.
+4. Create **Partitioner Pod** to do the `DGL-API` or `ParMETIS` partitioning.
 5. Create `watcher-loop-partitioner` (an `initContainer` of **Partitioner Pod**). It takes the responsibility to wait for **Partitioner Pod** is finished, and continue.
 6. Create **Worker Pods** that reaches the desired replicas. The command is set to sleep forever.
 7. Create `watcher-loop-worker` (an `initContainer` of **Partitioner Pod**). It takes the responsibility to wait for all **Worker Pods** are ready.
 8. Take off main container of the **Launcher Pod**, and run the `dglrun` command and arguments.
 9. When `DGLJob` finishes, it will clean all workers.
 
-![DGL Operator-wise Diagram for DGL-API partitioning and distributed training](diagrams/dgl-operator-1.png)
+![DGL Operator-wise Diagram for DGL-API or ParMETIS partitioning and distributed training](diagrams/dgl-operator-1.png)
 
-#### `ParMETIS` partitioning and distributed training
+#### `DistParMETIS` partitioning and distributed training
 
 1. Create a `ConfigMap` that contains `kubexec.sh` and `ipconfig`.
 2. Create the RBAC resources (`Role`, `ServiceAccount`, `RoleBinding`) to allow remote execution (`pods/exec`).
 3. Create `kubectl-download` (an `initContainer` of **Partitioner Pod**). It takes the responsibility to download `kubectl` binary, and move it to an `emptyDir` volume.
 4. Create **Worker Pods** that reaches the desired replicas. The command is set to sleep forever.
 5. Create `watcher-loop-worker` (an `initContainer` of **Partitioner Pod**). It takes the responsibility to wait for all **Worker Pods** are ready.
-6. Take off main container of the **Launcher Pod**, and run the `dglrun` command and arguments. `ParMETIS` partitioning will be executed in `dglrun` scope.
+6. Take off main container of the **Launcher Pod**, and run the `dglrun` command and arguments. `DistParMETIS` partitioning will be executed in `dglrun` scope.
 7. When `DGLJob` finishes, it will clean all workers.
 
-![DGL Operator-wise Diagram for ParMETIS partitioning and training](diagrams/dgl-operator-2.png)
+![DGL Operator-wise Diagram for DistParMETIS partitioning and training](diagrams/dgl-operator-2.png)
 
 ### Training-wise
 
@@ -333,12 +342,12 @@ spec:
 - data parallelism: partitioned sub-graph is like the divided data
 - the allreduce way: updating dense parameters is used `DDP` in PyTorch
 
-**How do we leverage DGL to run `DGL-API` partitioning and distributed training on Kubernetes**
+**How do we leverage DGL to run `DGL-API` or `ParMETIS` partitioning and distributed training on Kubernetes**
 
 Prerequisite: the raw dataset must be included in **Partitioner Pod** image, like [OGB](https://github.com/snap-stanford/ogb).
 
 1. In the main container of **Partitioner Pod**,
-    1. `dglrun` runs user-defined partioning code, and saves the partitioned sub-graphs.
+    1. `dglrun` runs user-defined partioning code or [`ParMETIS` commond](https://docs.dgl.ai/guide/distributed-preprocessing.html#distributed-partitioning), and saves the partitioned sub-graphs.
     2. `dglrun` invokes a `kubectl cp` commond to copy all sub-graphs from **Partitioner Pod** to the **Launcher Pod**.
 2. And then **Partitioner Pod** will be completed.
 3. In the main container of **Launcher Pod**,
@@ -346,20 +355,20 @@ Prerequisite: the raw dataset must be included in **Partitioner Pod** image, lik
     2. After finished graph dispatching, `dglrun` invokes distributed training on every **Worker Pod**. Guide [here](https://github.com/dmlc/dgl/tree/master/examples/pytorch/graphsage/experimental#step-3-launch-distributed-jobs).
 4. Finally, **Launcher Pod** will be completed and **Worker Pods** will be deleted.
 
-**How do we leverage DGL to run `ParMETIS` partitioning and training on Kubernetes**
+**How do we leverage DGL to run `DistParMETIS` partitioning and training on Kubernetes**
 
 Prerequisite: the dataset must be included in **Worker Pod** image, like [OGB](https://github.com/snap-stanford/ogb).
 
 1. In the main container of **Launcher Pod**,
-    1. `dglrun` invokes a partition commond to do `ParMETIS` partitioning on every **Worker Pod**. Dive in [this approach](https://docs.dgl.ai/guide/distributed-preprocessing.html#distributed-partitioning).
-    2. After finished `ParMETIS` partitioning, `dglrun` invokes distributed training on every **Worker Pod**. Guide [here](https://github.com/dmlc/dgl/tree/master/examples/pytorch/graphsage/experimental#step-3-launch-distributed-jobs).
+    1. `dglrun` invokes a partition commond to do `DistParMETIS` partitioning on every **Worker Pod**.
+    2. After finished `DistParMETIS` partitioning, `dglrun` invokes distributed training on every **Worker Pod**. Guide [here](https://github.com/dmlc/dgl/tree/master/examples/pytorch/graphsage/experimental#step-3-launch-distributed-jobs).
 2. Finally, **Launcher Pod** will be completed and **Worker Pods** will be deleted.
 
 ## Alternatives Considered
 
 ### DGL Operator vs MPI Operator
 
-Currently, for distributed partitioning, DGL uses `ParMETIS` to split big graphs up and store in parallel on each **Worker Pods**, which is empowered by MPI. For distributed training, DGL uses PyTorch's `DDP` in dense parameters updating, and self-developed methods in other scenarios.
+Currently, for distributed partitioning, DGL uses `DistParMETIS` to split big graphs up and store in parallel on each **Worker Pods**, which is empowered by MPI. For distributed training, DGL uses PyTorch's `DDP` in dense parameters updating, and self-developed methods in other scenarios.
 
 So in this manner, a fully-informed user, who understand any details about DGL and Operator philosophy, can hack some DGL workloads using MPI Operator. But this hack approach is not a good idea, because
 1. User need to revise `ipconfig` processing in DGL library to adapt MPI Operator's `hostfile`.
