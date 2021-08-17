@@ -125,20 +125,57 @@ spec:
               command: "python -m torch.distributed.run --rdzv_backend=c10d --rdzv_endpoint=$KUBEFLOW_RDZV_HOST:$KUBEFLOW_RDZV_PORT --nnodes=$KUBEFLOW_MIN_SIZE:$KUBEFLOW_MAX_SIZE --nproc_per_node=1 xxx.py"
 ```
 
-There are four environment variables here: `KUBEFLOW_RDZV_HOST`, `KUBEFLOW_RDZV_PORT`, `KUBEFLOW_MIN_SIZE` and `KUBEFLOW_MAX_SIZE`.
+There are four environment variables here: `KUBEFLOW_RDZV_HOST`, `KUBEFLOW_RDZV_PORT`, `KUBEFLOW_MIN_SIZE` and `KUBEFLOW_MAX_SIZE`. The environment variables will be set by the operators.
+
+## Operator
+
+### Environment Variables
+
+`SetPodEnv` in `pkg/controller.v1/pytorch/pytorch.go` should be changed. There is no need to set `RANK`, `WORLD_SIZE`, `MASTER_ADDR`, `MASTER_PORT` if TorchElastic is used. `KUBEFLOW_RDZV_HOST`, `KUBEFLOW_RDZV_PORT`, `KUBEFLOW_MIN_SIZE` and `KUBEFLOW_MAX_SIZE` Should be set instead.
+
+`KUBEFLOW_RDZV_HOST` will be set to `<name>-worker-0`, `KUBEFLOW_RDZV_PORT` will be set to 29500 by default. `KUBEFLOW_MIN_SIZE` and `KUBEFLOW_MAX_SIZE` will be set to `${pytorchjob.spec.replicas[worker].minReplicas}` and `${pytorchjob.spec.replicas[worker].macReplicas}`.
+
+### Ports
+
+One built-in port named `kubeflow-rdzv-port` is introduced for `rendezvous`.
+
+### Reconciliation
+
+
+
+### Resulting Spec
+
+The resulting worker looks like:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ${pytorchjob.metadata.name}-worker-0
+spec:
+  containers:
+  - image: xxx
+    name: worker
+    env:
+    - name: MASTER_PORT
+      value: "23456"
+    - name: KUBEFLOW_RDZV_HOST
+      value: ${pytorchjob.metadata.name}-worker-0
+    - name: KUBEFLOW_MIN_SIZE
+      value: "${pytorchjob.spec.replicas[worker].minReplicas}"
+    - name: KUBEFLOW_MAX_SIZE
+      value: "${pytorchjob.spec.replicas[worker].macReplicas}"
+    command: "python -m torch.distributed.run --rdzv_backend=c10d --rdzv_endpoint=$KUBEFLOW_RDZV_HOST:$KUBEFLOW_RDZV_PORT --nnodes=$KUBEFLOW_MIN_SIZE:$KUBEFLOW_MAX_SIZE --nproc_per_node=1 xxx.py"
+    ports:       
+    # KUBEFLOW_RDZV_PORT is set to 29500 by default in TorchElastic.                
+    - containerPort: 29500
+      name: kubeflow-rdzv-port
+      protocol: TCP
+
+```
+
+## Limatations
+
+- KUBEFLOW_RDZV_PORT will be open for every pod even though workers except worker-0 do not use it.
 
 ## Alternatives Considered
-One alternative considered for the CRD spec is shown below:
-```yaml
-apiVersion: "kubeflow.org/v1alpha1"
-kind: "PyTorchJob"
-metadata:
-  name: "example-job"
-spec:
-  backend: "gloo"
-  masterPort: "23456"
-  worldSize: 3
-  container:
-  - image: pytorch/pytorch:latest
-```
-The idea was the number of replicas for worker and masters could be derived from the `worldSize` given there would only be one master. It was decided against based on the fact that it deviates from a regular replicaSpec and provides less customization.
