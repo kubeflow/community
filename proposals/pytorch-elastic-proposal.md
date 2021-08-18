@@ -141,7 +141,36 @@ One built-in port named `kubeflow-rdzv-port` is introduced for `rendezvous`.
 
 ### Reconciliation
 
+`JobController.ReconcilePods` should be refactored. Now the pods are returned by `GetPodSlices`. For example, if `spec.Replicas` is 3, the PodSlices may look like: `[[0],[1],[2]]`. It is not expected when elastic training is enabled.
 
+```go
+// ReconcilePods checks and updates pods for each given ReplicaSpec.
+// It will requeue the job in case of an error while creating/deleting pods.
+func (jc *JobController) ReconcilePods(
+	job interface{},
+	jobStatus *apiv1.JobStatus,
+	pods []*v1.Pod,
+	rtype apiv1.ReplicaType,
+	spec *apiv1.ReplicaSpec,
+	replicas map[apiv1.ReplicaType]*apiv1.ReplicaSpec) error {
+  ...
+	numReplicas := int(*spec.Replicas)
+	var masterRole bool
+  ...
+	podSlices := jc.GetPodSlices(pods, numReplicas, logger)
+	for index, podSlice := range podSlices {
+		if len(podSlice) > 1 {
+			logger.Warningf("We have too many pods for %s %d", rt, index)
+		} else if len(podSlice) == 0 {
+			logger.Infof("Need to create new pod: %s-%d", rt, index)
+      ...
+		} else {
+			...
+		}
+	}
+	return nil
+}
+```
 
 ### Resulting Spec
 
@@ -179,3 +208,87 @@ spec:
 - KUBEFLOW_RDZV_PORT will be open for every pod even though workers except worker-0 do not use it.
 
 ## Alternatives Considered
+
+### API/CRD
+
+[TorchElastic operator](https://github.com/pytorch/elastic/blob/master/kubernetes/api/v1alpha1/elasticjob_types.go) implemented by @jeffwan puts the new fields under `PyTorchJobSpec`.
+
+Personally, prefer keeping it in `common.ReplicaSpec` since other Jobs may also need it.
+
+```diff
+// PyTorchJobSpec is a desired state description of the PyTorchJob.
+type PyTorchJobSpec struct {
+	// RunPolicy encapsulates various runtime policies of the distributed training
+	// job, for example how to clean up resources and how long the job can stay
+	// active.
+	//+kubebuilder:validation:Optional
+	RunPolicy common.RunPolicy `json:"runPolicy"`
+
++	// minReplicas is the lower limit for the number of replicas to which the training job
++	// can scale down.  It defaults to nil.
++	// +optional
++	MinReplicas *int32 `json:"minReplicas,omitempty"`
++	// upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas, defaults to nil.
++	// +optional
++	MaxReplicas *int32 `json:"maxReplicas,omitempty"`
+
+	// A map of PyTorchReplicaType (type) to ReplicaSpec (value). Specifies the PyTorch cluster configuration.
+	// For example,
+	//   {
+	//     "Master": PyTorchReplicaSpec,
+	//     "Worker": PyTorchReplicaSpec,
+	//   }
+	PyTorchReplicaSpecs map[common.ReplicaType]*common.ReplicaSpec `json:"pytorchReplicaSpecs"`
+}
+
+// +k8s:openapi-gen=true
+// +k8s:deepcopy-gen=true
+// ReplicaSpec is a description of the replica
+type ReplicaSpec struct {
+	// Replicas is the desired number of replicas of the given template.
+	// If unspecified, defaults to 1.
+	Replicas *int32 `json:"replicas,omitempty"`
+
+	// Template is the object that describes the pod that
+	// will be created for this replica. RestartPolicy in PodTemplateSpec
+	// will be overide by RestartPolicy in ReplicaSpec
+	Template v1.PodTemplateSpec `json:"template,omitempty"`
+
+	// Restart policy for all replicas within the job.
+	// One of Always, OnFailure, Never and ExitCode.
+	// Default to Never.
+	RestartPolicy RestartPolicy `json:"restartPolicy,omitempty"`
+}
+```
+
+### Autoscaler Integration
+
+Three fields should be added in CustomResourceDefinition:
+
+```yaml
+    scale:
+      specReplicasPath: .spec.pytorchReplicaSpecs.Worker.replicas
+      # Should we have a total replicas?
+      statusReplicasPath: .status.replicaStatuses.Active
+      labelSelectorPath: .status.labelSelector
+```
+
+`LabelSelector` should be introduced into `common.ReplicaStatus`.
+
+```diff
+type ReplicaStatus struct {
++	// LabelSelector is the selector for the replica.
++	LabelSelector *metav1.LabelSelector `json:"labelSelector,omitempty"`
+
+	// The number of actively running pods.
+	Active int32 `json:"active,omitempty"`
+
+	// The number of pods which reached phase Succeeded.
+	Succeeded int32 `json:"succeeded,omitempty"`
+	// The number of pods which reached phase Failed.
+	Failed int32 `json:"failed,omitempty"`
+}
+```
+
+Then `PyTorchJob` has the `scale` subResource, then it can work with Autoscaler. The only problem is that, `PyTorchJob` already has the minReplicas and maxReplicas fields. They are used to generate command. The Autoscaler resource needs them, too. Thus users may need to define them again.
+ 
