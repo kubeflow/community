@@ -1,6 +1,7 @@
 _Authors:_
 
-* [Ce Gao(@gaocegege)](https://github.com/gaocegege)
+* [Ce Gao(@gaocegege)](https://github.com/gaocegege) - Tencent
+* [Jiaxin Shan(@jeffwan)](https://github.com/jeffwan) - Bytedance
 
 _Status_
 
