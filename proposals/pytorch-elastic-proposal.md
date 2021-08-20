@@ -194,7 +194,7 @@ spec:
     - name: KUBEFLOW_MIN_SIZE
       value: "${pytorchjob.spec.replicas[worker].minReplicas}"
     - name: KUBEFLOW_MAX_SIZE
-      value: "${pytorchjob.spec.replicas[worker].macReplicas}"
+      value: "${pytorchjob.spec.replicas[worker].maxReplicas}"
     command: "python -m torch.distributed.run --rdzv_backend=c10d --rdzv_endpoint=$KUBEFLOW_RDZV_HOST:$KUBEFLOW_RDZV_PORT --nnodes=$KUBEFLOW_MIN_SIZE:$KUBEFLOW_MAX_SIZE --nproc_per_node=1 xxx.py"
     ports:       
     # KUBEFLOW_RDZV_PORT is set to 29500 by default in TorchElastic.                
