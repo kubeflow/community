@@ -116,7 +116,7 @@ spec:
     # There is no master in elastic training jobs.
     Worker:
       minReplicas: 3
-      MaxReplicas: 5
+      maxReplicas: 5
       restartPolicy: OnFailure 
       template:
         spec:
