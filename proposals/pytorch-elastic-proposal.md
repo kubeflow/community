@@ -2,6 +2,7 @@ _Authors:_
 
 * [Ce Gao(@gaocegege)](https://github.com/gaocegege) - Tencent
 * [Jiaxin Shan(@jeffwan)](https://github.com/jeffwan) - Bytedance
+* [Wang Zhang(@zw0610)](https://github.com/zw0610) - Tencent
 
 _Status_
 
