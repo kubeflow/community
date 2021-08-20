@@ -134,7 +134,7 @@ There are four environment variables here: `KUBEFLOW_RDZV_HOST`, `KUBEFLOW_RDZV_
 
 `SetPodEnv` in `pkg/controller.v1/pytorch/pytorch.go` should be changed. There is no need to set `RANK`, `WORLD_SIZE`, `MASTER_ADDR`, `MASTER_PORT` if TorchElastic is used. `KUBEFLOW_RDZV_HOST`, `KUBEFLOW_RDZV_PORT`, `KUBEFLOW_MIN_SIZE` and `KUBEFLOW_MAX_SIZE` Should be set instead.
 
-`KUBEFLOW_RDZV_HOST` will be set to `<name>-worker-0`, `KUBEFLOW_RDZV_PORT` will be set to 29500 by default. `KUBEFLOW_MIN_SIZE` and `KUBEFLOW_MAX_SIZE` will be set to `${pytorchjob.spec.replicas[worker].minReplicas}` and `${pytorchjob.spec.replicas[worker].macReplicas}`.
+`KUBEFLOW_RDZV_HOST` will be set to `<name>-worker-0`, `KUBEFLOW_RDZV_PORT` will be set to 29500 by default. `KUBEFLOW_MIN_SIZE` and `KUBEFLOW_MAX_SIZE` will be set to `${pytorchjob.spec.replicas[worker].minReplicas}` and `${pytorchjob.spec.replicas[worker].maxReplicas}`.
 
 ### Ports
 
