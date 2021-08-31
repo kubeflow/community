@@ -1,7 +1,8 @@
 # Kubeflow Conformance Test
 
 James Wu (james-jwu@)  
-2021-07-29
+2021-07-29  
+[link to Google doc](https://docs.google.com/document/d/1a9ufoe_6DB1eSjpE9eK5nRBoH3ItoSkbPfxRA0AjPIc/edit?resourcekey=0-IRtbQzWfw5L_geRJ7F7GWQ#)
 
 # Overview
 
@@ -12,7 +13,7 @@ This document aims to define conformance criteria for the following usage of Kub
 -  For Kubeflow distribution - "Certified Kubeflow"
 -  For Kubeflow application - TBD
 
-The goal is to ensure these special usages of Kubeflow trademark meet common standards of interoperability, increase cohesiveness of the Kubeflow platform, promote customer confidence, and reduce the burden of Kubeflow maintainers.
+The goal is to ensure these special usages of Kubeflow trademark meet common standards of interoperability, increase cohesiveness of the Kubeflow platform, promote customer confidence, reduce the burden of Kubeflow maintainers, and extend Kubeflow’s influence beyond the Kubeflow project.
 
 # Kubeflow Distribution
 
@@ -28,7 +29,7 @@ Company X creates a distribution of Kubeflow and plans to name it "X Kubeflow Se
 
 -  Install the distribution
 -  Runs the Kubflow conformance test suite
--  Submits the test log as a PR to Open Usage Commons (OUC) for approval.
+-  Submits the test log as a PR to Kubeflow Trademark Team for approval.
 -  Upon approval and following trademark guidelines, Company X changes the distribution name to "X service for Kubeflow", or "X Platform (Certified Kubeflow)"
 -  Optionally, the distribution may be listed in a catalog on Kubeflow website
 
@@ -85,7 +86,7 @@ Company X creates a Kubernetes Custom Resource for model training, and wishes to
 
 -  Create a Kubeflow Pipelines component for launching the custom resource, with inputs and outputs appropriately defined using parameters and artifacts. The component may be published as a Python function or YAML.
 -  Runs conformance tool against the Python source, by specifying the source file, and the component function (in the case of Python function).
--  Submits the test results to OUC for approval.
+-  Submits the test results to Kubeflow Trademark Team for approval.
 -  Upon approval, Company X may name the component "X Training for Kubeflow", "X Training <TBD>"
 
 ## Test principles
