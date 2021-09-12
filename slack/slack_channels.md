@@ -14,11 +14,9 @@
 *  community - Side channel for community zoom.us conference call
 *  cuj-onprem - To discuss on prem cuj.
 *  datarobot
-*  devops
 *  doc-sprint - Kubeflow Doc Sprint
 *  fairing - Discussion about Fairing project
 *  feast - Feast is an end-to-end open source feature store for machine learning. – https://feast.dev/
-*  gcp - Discuss Kubeflow on GCP
 *  general - This channel is for workspace-wide communication and announcements. All members are in this channel.
 *  github-ml-projects - Build Examples Using Public GitHub Data
 *  gsoc - Welcome to Kubeflow GSoC! Please visit this page for instructions: https://www.kubeflow.org/docs/about/gsoc/
@@ -49,7 +47,6 @@
 *  microk8s
 *  minikf - Discussion and help for miniKF, a production-ready, local Kubeflow deployment from Arrikto.
 *  ml-ops - Discussion about ML Ops best practices with Kubeflow
-*  mlkube - https://github.com/mlkube
 *  mpi-operator - Discuss the design and implementation of mpi-operator
 *  mxnet-operator
 *  necessary-images - I want to deploy kubeflow on my service, but I am doubtful that if all the images is necessary.
@@ -60,6 +57,7 @@
 *  operator-nextgen - Discussing about the next-generation operator
 *  oscon
 *  outreach - Outreach Working Group chat
+*  platform-gcp - Discuss Kubeflow on GCP
 *  product-management - Working Group coordinating Kubeflow's release & product management
 *  pytorch-operator - Discuss the design and implementation of pytorch-operator
 *  random - A place for non-work-related flimflam, faffing, hodge-podge or jibber-jabber you'd prefer to keep out of more focused work-related channels.
