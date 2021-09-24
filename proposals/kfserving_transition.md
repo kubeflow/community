@@ -61,6 +61,9 @@ All the new images released from `KServe` should be published to the [kserve doc
 
 ### Ecosystem
 
+#### Kubeflow Integration
+We plan to integrate `KServe 0.7` in Kubeflow 1.5 release.
+
 #### Kubeflow Pipeline
 - Create a new `KServe` component for `Kubeflow Pipeline`
 - Add KServe component to Kubeflow conformance test
@@ -90,3 +93,6 @@ The migration should not impact the running `InferenceServices`.
 
 ![Migration Process](diagrams/kfserving_migration.png)
 
+
+### Support
+The previous `KFServing 0.5.x` and `KFServing 0.6.x` released are still supported in six months time frame after `KServe 0.7` is released.
