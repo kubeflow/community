@@ -65,7 +65,7 @@ All the new images released from `KServe` should be published to the [kserve doc
 We plan to integrate `KServe 0.7` in Kubeflow 1.5 release.
 
 #### Kubeflow Pipeline
-- Create a new `KServe` component for `Kubeflow Pipeline`
+- Create a new `KServe` component for `Kubeflow Pipeline`, see [issue 1829](https://github.com/kserve/kserve/issues/1829)
 - Add KServe component to Kubeflow conformance test
 
 #### Models WebApp
