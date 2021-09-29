@@ -7,7 +7,9 @@ James Wu (james-jwu@)
 # Overview
 
 The [Kubeflow Project](https://github.com/kubeflow) is currently managed by different [Working Groups](https://github.com/kubeflow/community/blob/master/wg-list.md) whose composition represents a broad spectrum of industry and community. The Kubeflow trademark is owned by Google.   
+
 The [Kubeflow Brand Guidelines](https://github.com/kubeflow/community/blob/master/KUBEFLOW_BRAND_GUIDELINES.pdf) was published in Mar. 2021. The guideline is broadly applicable to usage of Kubeflow trademark by products, events and publications. While the brand guidelines provide general guidance, it does not prescribe the definition of Kubeflow and what makes a distribution/application "Kubeflow" vs. not "Kubeflow".  
+
 This document aims to define conformance criteria for the following usage of Kubeflow trademark:
 
 -  For Kubeflow distribution - "Certified Kubeflow"
@@ -17,11 +19,26 @@ The goal is to ensure these special usages of Kubeflow trademark meet common sta
 
 # Kubeflow Distribution
 
-A conformant Kubeflow Distribution is certified to provide a set of core functionalities and API integration options. A core set of these features are listed in the "[Pipeline tests](#heading=h.71p7gyy4tf5d)" and "[Metadata tests](#heading=h.wc7nytwk964f)'' sections.  
-At the high level, the tests certifies that Kubeflow Pipeline and Metadata are part of the distribution, and exposes a standard set of APIs. Pipeline and Metadata and the binding "glue" for other Kubeflow components. With open standards for certifying Kubeflow Applications (see next section), the Kubeflow conformance criteria gives more flexibility to Kubeflow distributors to provide customization.   
+A conformant Kubeflow Distribution is certified to provide a set of core functionalities and API integration options.
+
 The tests will be designed in a way similar to [Kubernetes conformance program](https://github.com/cncf/k8s-conformance).  
-The tests will be implemented in stages.  
+
+The tests will be versioned. Each versioned certification is valid for 1 year. After 1 year, recertification against the latest version of the test will be required to maintain certification standing.
+
+The first version of the tests certifies that Kubeflow Pipeline and Metadata are part of the distribution, and exposes a standard set of APIs. Pipeline and Metadata and the binding "glue" for other Kubeflow components. With open standards for certifying Kubeflow Applications (see next section), the Kubeflow conformance criteria gives more flexibility to Kubeflow distributors to provide customization.   
+
+Subsequent versions of the tests may include more components from Kubeflow organization.
+
 Conformant distributions is entitled to refer to the distribution as "Certified Kubeflow". The distribution can be listed under a partner page under the Kubeflow project. The naming of the distribution still needs to follow [Kubeflow Brand Guidelines](https://github.com/kubeflow/community/blob/master/KUBEFLOW_BRAND_GUIDELINES.pdf).
+
+The following are out of scope of the conformance tests:
+1. Product quality and supportability
+
+The test design is strongly influenced by Kubernetes conformance program, where a very narrow set of tests are established to verify key API functionality. Since the tests are versioned, it is hoped that unsupported distributions will fall out of conformance by discontinuing the certification with the latest test version.
+
+2. Development and distribution channel
+
+The test will not verify how the distribution is developed (e.g. in Kubeflow organization vs. outside), or how the distribution is made available to users. Such criteria are left to the Kubeflow organization to define and enforce.
 
 ## Example
 
@@ -76,8 +93,21 @@ The first version of conformance will be limited to V1 Pipeline Runtime conforma
 
 # Kubeflow Application
 
-Kubeflow Application certification verifies the application-under-test can integrate well with other Kubeflow Applications. Metadata generation is automatic when Kubeflow Application conforms to standard Kubeflow Pipelines component interface.  
-Kubeflow Application is entitled to refer to the application as "Kubeflow Native" or <TBD>. The application may be listed under an application catalog (to be created) under Kubeflow project. The naming of the application still needs to follow [Kubeflow Brand Guidelines](https://github.com/kubeflow/community/blob/master/KUBEFLOW_BRAND_GUIDELINES.pdf).  
+Kubeflow Application certification verifies that:
+1. The application is a Kubernetes Application
+
+Kubeflow is by definition “The Machine Learning Toolkit for Kubernetes”. There is no precise definition for “Kubernetes Application”, and Kubernetes does not have a conformance program for applications. For the purpose of Kubeflow certification, we propose “Kubernetes Application” means that the application is deployable via kubectl, kustomize or helm.
+
+Verification is done by self-attestation. The application-under-test needs to include a clause in readme saying “This application is deployable in accordance with the Kubeflow Application Certification Program version 1.0”, with a link leading to the documentation of the conformance program.
+
+We expect this test to evolve, due to the ambiguity of “Kubenetes Application”.
+
+2. The application-under-test can integrate well with other Kubeflow Applications.
+
+The first version of the test verifies that the application is integrated with Kubeflow Pipelines, for the reasons described under Kubeflow Distribution. Metadata generation is automatic when Kubeflow Application conforms to standard Kubeflow Pipelines component interface.
+
+Kubeflow Application is entitled to refer to the application as "Kubeflow Native" or <TBD>. The application may be listed under an application catalog (to be created) under Kubeflow project. The naming of the application still needs to follow [Kubeflow Brand Guidelines](https://github.com/kubeflow/community/blob/master/KUBEFLOW_BRAND_GUIDELINES.pdf).
+   
 NOTE: existing projects in Kubeflow org do not require certification.
 
 ## Example
@@ -85,6 +115,7 @@ NOTE: existing projects in Kubeflow org do not require certification.
 Company X creates a Kubernetes Custom Resource for model training, and wishes to certify the feature for Kubeflow Application. Company X needs to:
 
 -  Create a Kubeflow Pipelines component for launching the custom resource, with inputs and outputs appropriately defined using parameters and artifacts. The component may be published as a Python function or YAML.
+-  Add self-attestation to the readme file.
 -  Runs conformance tool against the Python source, by specifying the source file, and the component function (in the case of Python function).
 -  Submits the test results to Kubeflow Trademark Team for approval.
 -  Upon approval, Company X may name the component "X Training for Kubeflow", "X Training <TBD>"
