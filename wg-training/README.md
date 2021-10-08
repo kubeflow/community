@@ -22,7 +22,7 @@ The [charter](charter.md) defines the scope and governance of the Training Worki
 
 * Ce Gao (**[@gaocegege](https://github.com/gaocegege)**), Caicloud
 * Johnu George (**[@johnugeorge](https://github.com/johnugeorge)**), Nutanix
-* Yuan Tang (**[@terrytangyuan](https://github.com/terrytangyuan)**), Ant Group
+* Yuan Tang (**[@terrytangyuan](https://github.com/terrytangyuan)**), Akuity
 
 ## Contact
 - Slack: [#wg-training](https://kubeflow.slack.com/messages/wg-training)
