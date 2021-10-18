@@ -19,15 +19,11 @@ The goal is to ensure these special usages of Kubeflow trademark meet common sta
 
 # Kubeflow Distribution
 
-A conformant Kubeflow Distribution is certified to provide a set of core functionalities and API integration options.
+**A conformant Kubeflow Distribution is certified to provide a set of core functionalities and API integration options.**
 
 The tests will be designed in a way similar to [Kubernetes conformance program](https://github.com/cncf/k8s-conformance).  
 
 The tests will be versioned. Each versioned certification is valid for 1 year. After 1 year, recertification against the latest version of the test will be required to maintain certification standing.
-
-The first version of the tests certifies that Kubeflow Pipeline and Metadata are part of the distribution, and exposes a standard set of APIs. Pipeline and Metadata and the binding "glue" for other Kubeflow components. With open standards for certifying Kubeflow Applications (see next section), the Kubeflow conformance criteria gives more flexibility to Kubeflow distributors to provide customization.   
-
-Subsequent versions of the tests may include more components from Kubeflow organization.
 
 Conformant distributions is entitled to refer to the distribution as "Certified Kubeflow". The distribution can be listed under a partner page under the Kubeflow project. The naming of the distribution still needs to follow [Kubeflow Brand Guidelines](https://github.com/kubeflow/community/blob/master/KUBEFLOW_BRAND_GUIDELINES.pdf).
 
@@ -52,7 +48,70 @@ Company X creates a distribution of Kubeflow and plans to name it "X Kubeflow Se
 
 The conformance tests make sure "X service for Kubeflow" supports KFP and Metadata. Company X may include more applications (e.g. TFJob, Katib) in the distribution, but it does not affect the conformance standing of "X service for Kubeflow".
 
-## Pipeline tests
+## First version of conformance
+
+The first version of conformance aims to be inclusive of current components in Kubeflow organization. The number of tests are intentionally kept small to allow fast progress and iteration. We propose:
+-  Each Kubeflow Working Group nominate <= 10 tests to be included in the conformance suite
+   -  We recommend the candidate tests to be simple API acceptance tests that run reliably. Please keep in mind that the certification body is looking for a simple pass/fail to determine certification standing.
+   -  There is no precedence for including UI in conformance tests. That said, we will experiment with options to include UI, most likely through self attestation and supporting evidence (e.g. screenshot or video). The details are TBD.
+-  Each WG works with the conformance test team (currently staffed by Google) to include the nominated tests into the conformance suite.
+
+**Example**: for Kubeflow Pipelines, the first version of conformance will be limited to V1 Pipeline Runtime conformance. A subset of tests outlined in Appendix A will be included.
+
+# 
+
+# Kubeflow Application
+
+**Kubeflow Application certification verifies that the application under test integrates well with Kubeflow.**
+
+1. The application is a Kubernetes Application
+
+Kubeflow is by definition “The Machine Learning Toolkit for Kubernetes”. There is no precise definition for “Kubernetes Application”, and Kubernetes does not have a conformance program for applications. For the purpose of Kubeflow certification, we propose “Kubernetes Application” means that the application is deployable via kubectl, kustomize or helm.
+
+Verification is done by self-attestation. The application-under-test needs to include a clause in readme saying “This application is deployable in accordance with the Kubeflow Application Certification Program version 1.0”, with a link leading to the documentation of the conformance program.
+
+We expect this test to evolve, due to the ambiguity of “Kubenetes Application”.
+
+2. The application-under-test integrates well with Kubeflow.
+
+The first version of the test verifies that the application is integrated with Kubeflow Pipelines. Pipeline and Metadata and the binding “glue” for other Kubeflow components. Metadata generation is automatic when Kubeflow Application conforms to standard Kubeflow Pipelines component interface.
+
+Kubeflow Application is entitled to refer to the application as "Kubeflow Native" or <TBD>. The application may be listed under an application catalog (to be created) under Kubeflow project. The naming of the application still needs to follow [Kubeflow Brand Guidelines](https://github.com/kubeflow/community/blob/master/KUBEFLOW_BRAND_GUIDELINES.pdf).
+
+## Example
+
+Company X creates a Kubernetes Custom Resource for model training, and wishes to certify the feature for Kubeflow Application. Company X needs to:
+
+-  Create a Kubeflow Pipelines component for launching the custom resource, with inputs and outputs appropriately defined using parameters and artifacts. The component may be published as a Python function or YAML.
+-  Add self-attestation to the readme file.
+-  Runs conformance tool against the Python source, by specifying the source file, and the component function (in the case of Python function).
+-  Submits the test results to Kubeflow Trademark Team for approval.
+-  Upon approval, Company X may name the component "X Training for Kubeflow", "X Training <TBD>"
+
+## Test principles
+
+Kubeflow Application conformance test verifies the component function under test conforms to the Kubeflow Pipelines component definition. 
+
+Proposed CLI:
+
+```
+$ kfp conformance verify-component --file=my_component.py --component_function=my_component
+
+$ kfp conformance verify-component - file=my_component.yaml
+```
+
+The tests verify the component integrates well with the following:
+
+-  Kubeflow Pipeline integration: a well defined component interface ensures the Kubeflow Application under test plays well with other Kubeflow Applications. The test will not try to verify functionality or code quality.
+-  Metadata: Kubeflow Pipelines automatically records the input/output parameters and artifacts in metadata. The tests verify the component interfaces. Kubeflow Application candidates can optionally emit metadata, either by using output_metadata mechanism (to be explained), or some other mechanism added to KFP in the future. Kubeflow Application candidates are encouraged to log additional metadata to MLMD but are not required to do so.
+
+## References
+
+-  Prior [discussion](https://groups.google.com/g/kubeflow-discuss/c/d6whgEgror8) in Kubeflow community on Kubeflow conformance
+
+# Appendix
+
+   ## Pipeline tests
 
 -  Pipeline runtime
    -  V1 conformance
@@ -85,58 +144,3 @@ The conformance tests make sure "X service for Kubeflow" supports KFP and Metada
 -  Metrics - verifies metrics artifacts are produced
 -  Metadata APIs (future work)
 
-## First version of conformance
-
-The first version of conformance will be limited to V1 Pipeline Runtime conformance.
-
-# 
-
-# Kubeflow Application
-
-Kubeflow Application certification verifies that:
-1. The application is a Kubernetes Application
-
-Kubeflow is by definition “The Machine Learning Toolkit for Kubernetes”. There is no precise definition for “Kubernetes Application”, and Kubernetes does not have a conformance program for applications. For the purpose of Kubeflow certification, we propose “Kubernetes Application” means that the application is deployable via kubectl, kustomize or helm.
-
-Verification is done by self-attestation. The application-under-test needs to include a clause in readme saying “This application is deployable in accordance with the Kubeflow Application Certification Program version 1.0”, with a link leading to the documentation of the conformance program.
-
-We expect this test to evolve, due to the ambiguity of “Kubenetes Application”.
-
-2. The application-under-test can integrate well with other Kubeflow Applications.
-
-The first version of the test verifies that the application is integrated with Kubeflow Pipelines, for the reasons described under Kubeflow Distribution. Metadata generation is automatic when Kubeflow Application conforms to standard Kubeflow Pipelines component interface.
-
-Kubeflow Application is entitled to refer to the application as "Kubeflow Native" or <TBD>. The application may be listed under an application catalog (to be created) under Kubeflow project. The naming of the application still needs to follow [Kubeflow Brand Guidelines](https://github.com/kubeflow/community/blob/master/KUBEFLOW_BRAND_GUIDELINES.pdf).
-   
-NOTE: existing projects in Kubeflow org do not require certification.
-
-## Example
-
-Company X creates a Kubernetes Custom Resource for model training, and wishes to certify the feature for Kubeflow Application. Company X needs to:
-
--  Create a Kubeflow Pipelines component for launching the custom resource, with inputs and outputs appropriately defined using parameters and artifacts. The component may be published as a Python function or YAML.
--  Add self-attestation to the readme file.
--  Runs conformance tool against the Python source, by specifying the source file, and the component function (in the case of Python function).
--  Submits the test results to Kubeflow Trademark Team for approval.
--  Upon approval, Company X may name the component "X Training for Kubeflow", "X Training <TBD>"
-
-## Test principles
-
-Kubeflow Application conformance test verifies the component function under test conforms to the Kubeflow Pipelines component definition. 
-
-Proposed CLI:
-
-```
-$ kfp conformance verify-component --file=my_component.py --component_function=my_component
-
-$ kfp conformance verify-component - file=my_component.yaml
-```
-
-The tests verify the component integrates well with the following:
-
--  Kubeflow Pipeline integration: a well defined component interface ensures the Kubeflow Application under test plays well with other Kubeflow Applications. The test will not try to verify functionality or code quality.
--  Metadata: Kubeflow Pipelines automatically records the input/output parameters and artifacts in metadata. The tests verify the component interfaces. Kubeflow Application candidates can optionally emit metadata, either by using output_metadata mechanism (to be explained), or some other mechanism added to KFP in the future. Kubeflow Application candidates are encouraged to log additional metadata to MLMD but are not required to do so.
-
-## References
-
--  Prior [discussion](https://groups.google.com/g/kubeflow-discuss/c/d6whgEgror8) in Kubeflow community on Kubeflow conformance
