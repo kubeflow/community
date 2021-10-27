@@ -52,7 +52,7 @@ Besides this, users should be able to run non-elastic training jobs as before.
 
 ## Design and Implementation
 
-We introduce the design and implementation based on the all-in-one operator.
+We introduce the design and implementation based on [kubeflow training-operator](https://github.com/kubeflow/training-operator).
 
 ## API/CRD
 
