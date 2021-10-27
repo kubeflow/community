@@ -10,7 +10,7 @@ _Status_
 
 ## Abstract
 
-[TorchElastic](https://pytorch.org/docs/1.9.0/distributed.elastic.html), which was open sourced over a year ago in the pytorch/elastic github repository, is a runner and coordinator for PyTorch worker processes. it has been part of PyTorch core since 1.9.0. This proposal is to support such feature with the help of PyTorchJob. 
+[TorchElastic](https://pytorch.org/docs/1.9.0/distributed.elastic.html), which was open-sourced over a year ago in the [pytorch/elastic](https://github.com/pytorch/elastic) GitHub repository, is a runner and coordinator for PyTorch worker processes. it has been part of PyTorch core since 1.9.0. This proposal is to support such a feature with the help of PyTorchJob. 
 
 ## Background
 
@@ -42,7 +42,7 @@ python -m torch.distributed.run
         YOUR_TRAINING_SCRIPT.py (--arg1 ... train script args...)
 ```
 
-The command needs to be run on every node. The training job will start When at least min total number of nodes have joined. The command runs a local elastic agent on the node, which is used to launch and manage underlying worker processes. The agent on the node assigns `RANK`, `LOCAL_RANK` and so on for every worker.
+The command needs to be run on every pod. The training job will start When at least `MIN_SIZE` nodes have joined. The command runs a local elastic agent on the node, which is used to launch and manage underlying worker processes. The agent on the node assigns `RANK`, `LOCAL_RANK` and so on for every worker.
 
 ## Goals
 
@@ -52,7 +52,7 @@ Besides this, users should be able to run non-elastic training jobs as before.
 
 ## Design and Implementation
 
-We introduce the design and implentation based on all-in-one operator.
+We introduce the design and implementation based on the all-in-one operator.
 
 ## API/CRD
 
@@ -65,6 +65,8 @@ type PyTorchJobSpec struct {
 	//+kubebuilder:validation:Optional
 	RunPolicy common.RunPolicy `json:"runPolicy"`
 
++	ElasticPolicy *ElasticPolicy `json:"elasticPolicy,omitempty"`
+
 	// A map of PyTorchReplicaType (type) to ReplicaSpec (value). Specifies the PyTorch cluster configuration.
 	// For example,
 	//   {
@@ -72,6 +74,22 @@ type PyTorchJobSpec struct {
 	//     "Worker": PyTorchReplicaSpec,
 	//   }
 	PyTorchReplicaSpecs map[common.ReplicaType]*common.ReplicaSpec `json:"pytorchReplicaSpecs"`
+}
+
++ type ElasticPolicy struct {
++	Backend  *RDZVBackend `json:"backend,omitempty"`
++	RDZVPort *int32       `json:"rdzvPort,omitempty"`
++	RDZVHost *string      `json:"rdzvHost,omitempty"`
++	RDZVID   *string      `json:"rdzvId,omitempty"`
++	// RDZVConf contains additional rendezvous configuration (<key1>=<value1>,<key2>=<value2>,...).
++	RDZVConf []RDZVConf `json:"rdzvConf,omitempty"`
++	// Start a local standalone rendezvous backend that is represented by a C10d TCP store
++	// on port 29400. Useful when launching single-node, multi-worker job. If specified
++	// --rdzv_backend, --rdzv_endpoint, --rdzv_id are auto-assigned; any explicitly set values
++	// are ignored.
++	Standalone *bool `json:"standalone,omitempty"`
++	// Number of workers per node; supported values: [auto, cpu, gpu, int].
++	NProcPerNode *int32 `json:"nProcPerNode,omitempty"`
 }
 
 // +k8s:openapi-gen=true
@@ -84,12 +102,13 @@ type ReplicaSpec struct {
 	Replicas *int32 `json:"replicas,omitempty"`
 
 +	// minReplicas is the lower limit for the number of replicas to which the training job
-+	// can scale down.  It defaults to nil.
++	// can scale down.  It defaults to null.
 +	// +optional
 +	MinReplicas *int32 `json:"minReplicas,omitempty"`
-+	// upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas, defaults to nil.
++	// upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas, defaults to null.
 +	// +optional
 +	MaxReplicas *int32 `json:"maxReplicas,omitempty"`
+}
 
 	// Template is the object that describes the pod that
 	// will be created for this replica. RestartPolicy in PodTemplateSpec
@@ -103,7 +122,7 @@ type ReplicaSpec struct {
 }
 ```
 
-Two fields are added in `common.ReplicaSpec`: `minReplicas` and `maxReplicas`. They acts as MIN_SIZE and MAX_SIZE in the elastic example above.
+Two fields are added in `common.ReplicaSpec`: `minReplicas` and `maxReplicas`. They act as MIN_SIZE and MAX_SIZE in the elastic example above.
 
 ## Command
 
@@ -124,18 +143,25 @@ spec:
           containers: 
             - name: pytorch
               image: <image>
-              command: "python -m torch.distributed.run --rdzv_backend=c10d --rdzv_endpoint=$KUBEFLOW_RDZV_HOST:$KUBEFLOW_RDZV_PORT --nnodes=$KUBEFLOW_MIN_SIZE:$KUBEFLOW_MAX_SIZE --nproc_per_node=1 xxx.py"
+			  envs:
+			  - name: PET_RDZV_BACKEND
+			  	value: c10d
+			  - name: PET_RDZV_ENDPOINT
+			  	value: <rdzv_endpoint>
+			  - name: PET_NNODES
+			    value: 3:5
+			  - name: PET_NPROC_PER_NODE
+	  			value: "1"
+              command: "python -m torch.distributed.run xxx.py"
 ```
-
-There are four environment variables here: `KUBEFLOW_RDZV_HOST`, `KUBEFLOW_RDZV_PORT`, `KUBEFLOW_MIN_SIZE` and `KUBEFLOW_MAX_SIZE`. The environment variables will be set by the operators.
 
 ## Operator
 
 ### Environment Variables
 
-`SetPodEnv` in `pkg/controller.v1/pytorch/pytorch.go` should be changed. There is no need to set `RANK`, `WORLD_SIZE`, `MASTER_ADDR`, `MASTER_PORT` if TorchElastic is used. `KUBEFLOW_RDZV_HOST`, `KUBEFLOW_RDZV_PORT`, `KUBEFLOW_MIN_SIZE` and `KUBEFLOW_MAX_SIZE` Should be set instead.
+`SetPodEnv` in `pkg/controller.v1/pytorch/pytorch.go` should be changed. There is no need to set `RANK`, `WORLD_SIZE`, `MASTER_ADDR`, `MASTER_PORT` if TorchElastic is used.
 
-`KUBEFLOW_RDZV_HOST` will be set to `<name>-worker-0`, `KUBEFLOW_RDZV_PORT` will be set to 29500 by default. `KUBEFLOW_MIN_SIZE` and `KUBEFLOW_MAX_SIZE` will be set to `${pytorchjob.spec.replicas[worker].minReplicas}` and `${pytorchjob.spec.replicas[worker].maxReplicas}`.
+`PET_RDZV_ENDPOINT` will be set to `<name>-worker-0:29500`. `PET_NNODES` will be set to `${pytorchjob.spec.replicas[worker].minReplicas}:${pytorchjob.spec.replicas[worker].maxReplicas}`.
 
 ### Ports
 
@@ -176,7 +202,7 @@ func (jc *JobController) ReconcilePods(
 
 ### Resulting Spec
 
-The resulting worker looks like:
+The resulting worker looks like this:
 
 ```yaml
 apiVersion: v1
@@ -190,13 +216,15 @@ spec:
     env:
     - name: MASTER_PORT
       value: "23456"
-    - name: KUBEFLOW_RDZV_HOST
-      value: ${pytorchjob.metadata.name}-worker-0
-    - name: KUBEFLOW_MIN_SIZE
-      value: "${pytorchjob.spec.replicas[worker].minReplicas}"
-    - name: KUBEFLOW_MAX_SIZE
-      value: "${pytorchjob.spec.replicas[worker].maxReplicas}"
-    command: "python -m torch.distributed.run --rdzv_backend=c10d --rdzv_endpoint=$KUBEFLOW_RDZV_HOST:$KUBEFLOW_RDZV_PORT --nnodes=$KUBEFLOW_MIN_SIZE:$KUBEFLOW_MAX_SIZE --nproc_per_node=1 xxx.py"
+	- name: PET_RDZV_BACKEND
+	  value: c10d
+    - name: PET_RDZV_ENDPOINT
+      value: ${pytorchjob.metadata.name}-worker-0:29500
+    - name: PET_NNODES
+      value: "${pytorchjob.spec.replicas[worker].minReplicas}:${pytorchjob.spec.replicas[worker].maxReplicas}"
+	- name: PET_NPROC_PER_NODE
+	  value: "1"
+    command: "python -m torch.distributed.run xxx.py"
     ports:       
     # KUBEFLOW_RDZV_PORT is set to 29500 by default in TorchElastic.                
     - containerPort: 29500
@@ -292,5 +320,13 @@ type ReplicaStatus struct {
 }
 ```
 
-Then `PyTorchJob` has the `scale` subResource, then it can work with Autoscaler. The only problem is that, `PyTorchJob` already has the minReplicas and maxReplicas fields. They are used to generate command. The Autoscaler resource needs them, too. Thus users may need to define them again.
+Then `PyTorchJob` has the `scale` subResource, then it can work with Autoscaler. The only problem is that `PyTorchJob` already has the minReplicas and maxReplicas fields. They are used to generate commands. The Autoscaler resource needs them, too. Thus users may need to define them again.
  
+## Comments
+
+- [ ] Add custom port support
+- [ ] Consider if we should add backend related fields in CRD def
+- [ ] Add scope in the doc
+- [ ] Consider how to support target deletion
+- [ ] Consider if we should deal with worker 0 differently
+- [ ] Add more details about reconsilation
