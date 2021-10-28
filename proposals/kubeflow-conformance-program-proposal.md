@@ -17,7 +17,7 @@ This document aims to define conformance criteria for the following usage of Kub
 
 The goal is to ensure these special usages of Kubeflow trademark meet common standards of interoperability, increase cohesiveness of the Kubeflow platform, promote customer confidence, reduce the burden of Kubeflow maintainers, and extend Kubeflow’s influence beyond the Kubeflow project.
 
-# Kubeflow Distribution
+# Certified Kubeflow (for Kubeflow Distribution)
 
 **A conformant Kubeflow Distribution is certified to provide a set of core functionalities and API integration options.**
 
@@ -25,7 +25,14 @@ The tests will be designed in a way similar to [Kubernetes conformance program](
 
 The tests will be versioned. Each versioned certification is valid for 1 year. After 1 year, recertification against the latest version of the test will be required to maintain certification standing.
 
-Conformant distributions is entitled to refer to the distribution as "Certified Kubeflow". The distribution can be listed under a partner page under the Kubeflow project. The naming of the distribution still needs to follow [Kubeflow Brand Guidelines](https://github.com/kubeflow/community/blob/master/KUBEFLOW_BRAND_GUIDELINES.pdf).
+**Entitlement**
+
+- Conformant distributions are entitled to refer to the distribution as "**Certified Kubeflow**". Example usage:
+   - Appending “(Certified Kubeflow)” to the distribution name: e.g. AI-IS-FUN (Certified Kubeflow)
+   - Reference the Certified Kubeflow designation in discussion with customers, or on public documentation
+- Display a logo (to be designed) on the public website and documentation of the distribution
+- Be listed under a partner web page under the Kubeflow project.
+- The naming of the distribution still needs to follow [Kubeflow Brand Guidelines](https://github.com/kubeflow/community/blob/master/KUBEFLOW_BRAND_GUIDELINES.pdf).
 
 The following are out of scope of the conformance tests:
 1. Product quality and supportability
@@ -60,7 +67,7 @@ The first version of conformance aims to be inclusive of current components in K
 
 # 
 
-# Kubeflow Application
+# Kubeflow Native (for Kubeflow Application)
 
 **Kubeflow Application certification verifies that the application under test integrates well with Kubeflow.**
 
@@ -74,9 +81,15 @@ We expect this test to evolve, due to the ambiguity of “Kubenetes Application�
 
 2. The application-under-test integrates well with Kubeflow.
 
-The first version of the test verifies that the application is integrated with Kubeflow Pipelines. Pipeline and Metadata and the binding “glue” for other Kubeflow components. Metadata generation is automatic when Kubeflow Application conforms to standard Kubeflow Pipelines component interface.
+The first version of the test verifies that the application is integrated with Kubeflow Pipelines. Pipeline and Metadata are the binding “glue” for other Kubeflow components. Metadata generation is automatic when Kubeflow Application conforms to standard Kubeflow Pipelines component interface.
 
-Kubeflow Application is entitled to refer to the application as "Kubeflow Native" or <TBD>. The application may be listed under an application catalog (to be created) under Kubeflow project. The naming of the application still needs to follow [Kubeflow Brand Guidelines](https://github.com/kubeflow/community/blob/master/KUBEFLOW_BRAND_GUIDELINES.pdf).
+**Entitlement**
+- Conformant applications are entitled to refer to the application as “Kubeflow Native” or <TBD>. Example usage:
+   - Appending “(Kubeflow Native)” to the distribution name: e.g. SUPER-TRAINER (Kubeflow Native)
+   - Reference the Kubeflow Native designation in discussion with customers, or on public documentation
+   - Display a logo (to be designed) on the public website and documentation of the application
+- The application may be listed under an application catalog (to be created) under Kubeflow project.
+- The naming of the application still needs to follow [Kubeflow Brand Guidelines](https://github.com/kubeflow/community/blob/master/KUBEFLOW_BRAND_GUIDELINES.pdf).
 
 ## Example
 
