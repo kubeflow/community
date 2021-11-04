@@ -10,7 +10,7 @@ _Status_
 
 ## Abstract
 
-[TorchElastic](https://pytorch.org/docs/1.9.0/distributed.elastic.html), which was open-sourced over a year ago in the [pytorch/elastic](https://github.com/pytorch/elastic) GitHub repository, is a runner and coordinator for PyTorch worker processes. it has been part of PyTorch core since 1.9.0. This proposal is to support such a feature with the help of PyTorchJob. 
+[TorchElastic](https://pytorch.org/docs/1.9.0/distributed.elastic.html), which was open-sourced over a year ago in the [pytorch/elastic](https://github.com/pytorch/elastic) GitHub repository, is a runner and coordinator for PyTorch worker processes. It has been part of PyTorch core since 1.9.0. This proposal is to support such a feature with the help of PyTorchJob. 
 
 ## Background
 
@@ -77,6 +77,13 @@ type PyTorchJobSpec struct {
 }
 
 + type ElasticPolicy struct {
++	// minReplicas is the lower limit for the number of replicas to which the training job
++	// can scale down.  It defaults to null.
++	// +optional
++	MinReplicas *int32 `json:"minReplicas,omitempty"`
++	// upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas, defaults to null.
++	// +optional
++	MaxReplicas *int32 `json:"maxReplicas,omitempty"`
 +	Backend  *RDZVBackend `json:"backend,omitempty"`
 +	RDZVPort *int32       `json:"rdzvPort,omitempty"`
 +	RDZVHost *string      `json:"rdzvHost,omitempty"`
@@ -91,68 +98,45 @@ type PyTorchJobSpec struct {
 +	// Number of workers per node; supported values: [auto, cpu, gpu, int].
 +	NProcPerNode *int32 `json:"nProcPerNode,omitempty"`
 }
-
-// +k8s:openapi-gen=true
-// +k8s:deepcopy-gen=true
-// ReplicaSpec is a description of the replica
-type ReplicaSpec struct {
-	// Replicas is the desired number of replicas of the given template.
-	// If unspecified, defaults to 1.
-+	// +optional
-	Replicas *int32 `json:"replicas,omitempty"`
-
-+	// minReplicas is the lower limit for the number of replicas to which the training job
-+	// can scale down.  It defaults to null.
-+	// +optional
-+	MinReplicas *int32 `json:"minReplicas,omitempty"`
-+	// upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas, defaults to null.
-+	// +optional
-+	MaxReplicas *int32 `json:"maxReplicas,omitempty"`
-}
-
-	// Template is the object that describes the pod that
-	// will be created for this replica. RestartPolicy in PodTemplateSpec
-	// will be overide by RestartPolicy in ReplicaSpec
-	Template v1.PodTemplateSpec `json:"template,omitempty"`
-
-	// Restart policy for all replicas within the job.
-	// One of Always, OnFailure, Never and ExitCode.
-	// Default to Never.
-	RestartPolicy RestartPolicy `json:"restartPolicy,omitempty"`
-}
 ```
 
-Two fields are added in `common.ReplicaSpec`: `minReplicas` and `maxReplicas`. They act as MIN_SIZE and MAX_SIZE in the elastic example above.
+`minReplicas` and `maxReplicas` are used to generate `-nnodes` cpnfiguration when `ElasticPolicy` is specified.
+
+
+>  --nnodes NNODES       Number of nodes, or the range of nodes in form <minimum_nodes>:<maximum_nodes>.
 
 ## Command
 
 ```yaml
 apiVersion: "kubeflow.org/v1"
-kind: "PyTorchJob"
+kind: PyTorchJob
 metadata:
-  name: "pytorch-dist-mnist"
+  name: elastic-example-imagenet
 spec:
+  elasticPolicy:
+    rdzvBackend: c10d
+    minReplicas: 1
+    maxReplicas: 2
+    maxRestarts: 100
   pytorchReplicaSpecs:
-    # There is no master in elastic training jobs.
     Worker:
-      minReplicas: 3
-      maxReplicas: 5
-      restartPolicy: OnFailure 
+      replicas: 2
+      restartPolicy: OnFailure
       template:
         spec:
-          containers: 
+          containers:
             - name: pytorch
-              image: <image>
-			  envs:
-			  - name: PET_RDZV_BACKEND
-			  	value: c10d
-			  - name: PET_RDZV_ENDPOINT
-			  	value: <rdzv_endpoint>
-			  - name: PET_NNODES
-			    value: 3:5
-			  - name: PET_NPROC_PER_NODE
-	  			value: "1"
-              command: "python -m torch.distributed.run xxx.py"
+              image: gaocegege/pytorch-elastic-example-imagenet:1.0.0-sigterm
+              imagePullPolicy: IfNotPresent
+              env:
+              - name: LOGLEVEL
+                value: DEBUG
+              command:
+                - python
+                - -m
+                - torch.distributed.run
+                - /workspace/examples/imagenet.py
+                - "/workspace/data/tiny-imagenet-200"
 ```
 
 ## Operator
@@ -161,137 +145,261 @@ spec:
 
 `SetPodEnv` in `pkg/controller.v1/pytorch/pytorch.go` should be changed. There is no need to set `RANK`, `WORLD_SIZE`, `MASTER_ADDR`, `MASTER_PORT` if TorchElastic is used.
 
-`PET_RDZV_ENDPOINT` will be set to `<name>-worker-0:29500`. `PET_NNODES` will be set to `${pytorchjob.spec.replicas[worker].minReplicas}:${pytorchjob.spec.replicas[worker].maxReplicas}`.
+```go
+const (
+	// Rendezvous related arguments
 
-### Ports
+	// EnvRDZVBackend is the environment variable name for the rdzv backend.
+	EnvRDZVBackend = "PET_RDZV_BACKEND"
+	// EnvRDZVID is the environment variable name for the rdzv id.
+	EnvRDZVID = "PET_RDZV_ID"
+	// ENVRDZVConf is the environment variable name for the rdzv conf.
+	EnvRDZVConf = "PET_RDZV_CONF"
+	// EnvRDZVEndpoint is the environment variable name for the rdzv endpoint.
+	EnvRDZVEndpoint = "PET_RDZV_ENDPOINT"
+	// EnvRDZVStandalone is the environment variable name for the standalone mode.
+	EnvStandalone = "PET_STANDALONE"
 
-One built-in port named `kubeflow-rdzv-port` is introduced for `rendezvous`.
+	// User-code launch related arguments.
 
-### Reconciliation
+	// EnvMaxRestarts is the environment variable name for the maximum number of worker group restarts before failing.
+	EnvMaxRestarts = "PET_MAX_RESTARTS"
+	// EnvMonitorInterval is the environment variable name for the interval, in seconds, to monitor the state of workers.
+	EnvMonitorInterval = "PET_MONITOR_INTERVAL"
+	// EnvStartMethod is the environment variable name for the multiprocessing start method to use when creating workers, which could be fork, spawn and forkserver.
+	EnvStartMethod = "PET_START_METHOD"
 
-`JobController.ReconcilePods` should be refactored. Now the pods are returned by `GetPodSlices`. For example, if `spec.Replicas` is 3, the PodSlices may look like: `[[0],[1],[2]]`. It is not expected when elastic training is enabled.
+	// Worker/node size related arguments.
+
+	// EnvNProcPerNode is the environment variable name for the number of processes per node.
+	EnvNProcPerNode = "PET_N_PROC_PER_NODE"
+	// EnvNNodes is the environment variable name for the number of nodes.
+	EnvNNodes = "PET_NNODES"
+)
+```
+
+These variables should be set according to the `ElasticPolicy` in the `PyTorchJobSpec`.
+
+The logic of `SetPodEnv` is as follows:
 
 ```go
-// ReconcilePods checks and updates pods for each given ReplicaSpec.
-// It will requeue the job in case of an error while creating/deleting pods.
-func (jc *JobController) ReconcilePods(
-	job interface{},
-	jobStatus *apiv1.JobStatus,
-	pods []*v1.Pod,
-	rtype apiv1.ReplicaType,
-	spec *apiv1.ReplicaSpec,
-	replicas map[apiv1.ReplicaType]*apiv1.ReplicaSpec) error {
-  ...
-	numReplicas := int(*spec.Replicas)
-	var masterRole bool
-  ...
-	podSlices := jc.GetPodSlices(pods, numReplicas, logger)
-	for index, podSlice := range podSlices {
-		if len(podSlice) > 1 {
-			logger.Warningf("We have too many pods for %s %d", rt, index)
-		} else if len(podSlice) == 0 {
-			logger.Infof("Need to create new pod: %s-%d", rt, index)
-      ...
-		} else {
-			...
+func SetPodEnv(obj interface{}, podTemplateSpec *corev1.PodTemplateSpec, rtype, index string) error {
+	pytorchjob, ok := obj.(*pytorchv1.PyTorchJob)
+	if !ok {
+		return fmt.Errorf("%+v is not a type of PyTorchJob", obj)
+	}
+
+	for i := range podTemplateSpec.Spec.Containers {
+		if len(podTemplateSpec.Spec.Containers[i].Env) == 0 {
+			podTemplateSpec.Spec.Containers[i].Env = make([]corev1.EnvVar, 0)
+		}
+		podTemplateSpec.Spec.Containers[i].Env = append(podTemplateSpec.Spec.Containers[i].Env, corev1.EnvVar{
+			Name:  "PYTHONUNBUFFERED",
+			Value: "0",
+		})
+
+		envVars, err := GetMasterEnvVarGenerator().Generate(pytorchjob)
+		if err != nil {
+			return err
+		}
+		// Set elastic related environment variables.
+		podTemplateSpec.Spec.Containers[i].Env = append(
+			podTemplateSpec.Spec.Containers[i].Env, envVars...)
+
+		envVars, err = GetElasticEnvVarGenerator().Generate(pytorchjob)
+		if err != nil {
+			return err
+		}
+		// Set elastic related environment variables.
+		podTemplateSpec.Spec.Containers[i].Env = append(
+			podTemplateSpec.Spec.Containers[i].Env, envVars...)
+	}
+
+	return nil
+}
+func (e ElasticEnvVarGenerator) Generate(
+	job *pytorchv1.PyTorchJob) ([]corev1.EnvVar, error) {
+	envVars := []corev1.EnvVar{}
+
+	elasticPolicy := job.Spec.ElasticPolicy
+	if elasticPolicy == nil {
+		// Return empty env vars.
+		return nil, nil
+	}
+
+	// Generate RDZV_ENDPOINT.
+	if envVar, err := e.generateEnvRDZVEndpoint(job); err != nil {
+		return nil, err
+	} else {
+		envVars = append(envVars, *envVar)
+	}
+	// Generate RDZV_BACKEND.
+	envVars = append(envVars, e.generateEnvBackend(elasticPolicy))
+	// Generate NNODES.
+	if envVar, err := e.generateEnvNNodes(job); err != nil {
+		return nil, err
+	} else {
+		envVars = append(envVars, *envVar)
+	}
+
+	if elasticPolicy.MaxRestarts != nil {
+		envVars = append(envVars, corev1.EnvVar{
+			Name:  EnvMaxRestarts,
+			Value: strconv.Itoa(int(*elasticPolicy.MaxRestarts)),
+		})
+	}
+	if elasticPolicy.NProcPerNode != nil {
+		envVars = append(envVars, corev1.EnvVar{
+			Name:  EnvNProcPerNode,
+			Value: strconv.Itoa(int(*elasticPolicy.NProcPerNode)),
+		})
+	}
+	if elasticPolicy.RDZVID != nil {
+		envVars = append(envVars, corev1.EnvVar{
+			Name:  EnvRDZVID,
+			Value: *elasticPolicy.RDZVID,
+		})
+	}
+	if envVar := e.generateEnvRDZVConf(elasticPolicy); envVar != nil {
+		envVars = append(envVars, *envVar)
+	}
+	if elasticPolicy.Standalone != nil && *elasticPolicy.Standalone {
+		envVars = append(envVars, corev1.EnvVar{
+			Name:  EnvStandalone,
+			Value: "",
+		})
+	}
+
+	return envVars, nil
+}
+
+func (e ElasticEnvVarGenerator) generateEnvNNodes(job *pytorchv1.PyTorchJob) (*corev1.EnvVar, error) {
+	// Return worker.replicas if there is no max and min replicas specified.
+	if job.Spec.ElasticPolicy.MinReplicas == nil &&
+		job.Spec.ElasticPolicy.MaxReplicas == nil {
+		if job.Spec.PyTorchReplicaSpecs[pytorchv1.PyTorchReplicaTypeWorker] == nil {
+			return nil, fmt.Errorf("cannot find the worker spec")
+		}
+		return &corev1.EnvVar{
+			Name: EnvNNodes,
+			Value: strconv.Itoa(
+				int(*job.Spec.PyTorchReplicaSpecs[pytorchv1.PyTorchReplicaTypeWorker].
+					Replicas)),
+		}, nil
+	}
+
+	return &corev1.EnvVar{
+		Name: EnvNNodes,
+		Value: fmt.Sprintf("%d:%d",
+			*job.Spec.ElasticPolicy.MinReplicas, *job.Spec.ElasticPolicy.MaxReplicas),
+	}, nil
+}
+
+func (e ElasticEnvVarGenerator) generateEnvRDZVEndpoint(job *pytorchv1.PyTorchJob) (*corev1.EnvVar, error) {
+	var err error
+	host := ""
+	if job.Spec.ElasticPolicy.RDZVHost == nil {
+		host = fmt.Sprintf("%s-worker-0", job.Name)
+	} else {
+		host = *job.Spec.ElasticPolicy.RDZVHost
+	}
+
+	port := defaultRDZVPort
+	if job.Spec.ElasticPolicy.RDZVPort == nil {
+		// Generate RDZV_Endpoint.
+		port, err = getPortFromPyTorchJob(job, pytorchv1.PyTorchReplicaTypeWorker)
+		if err != nil {
+			return nil, err
+		}
+	} else {
+		port = *job.Spec.ElasticPolicy.RDZVPort
+	}
+	return &corev1.EnvVar{
+		Name:  EnvRDZVEndpoint,
+		Value: fmt.Sprintf("%s:%d", host, port),
+	}, nil
+}
+
+func (e ElasticEnvVarGenerator) generateEnvRDZVConf(elasticPolicy *pytorchv1.ElasticPolicy) *corev1.EnvVar {
+	if elasticPolicy.RDZVConf == nil {
+		return nil
+	}
+	val := ""
+	for _, conf := range elasticPolicy.RDZVConf {
+		val += fmt.Sprintf("%s=%s,", conf.Key, conf.Value)
+	}
+	return &corev1.EnvVar{
+		Name: EnvRDZVConf,
+		// Remove the last comma.
+		Value: val[:len(val)-1],
+	}
+}
+
+func (e ElasticEnvVarGenerator) generateEnvBackend(elasticPolicy *pytorchv1.ElasticPolicy) corev1.EnvVar {
+	if elasticPolicy.RDZVBackend != nil {
+		return corev1.EnvVar{
+			Name:  EnvRDZVBackend,
+			Value: string(*elasticPolicy.RDZVBackend),
 		}
 	}
-	return nil
+	return corev1.EnvVar{
+		Name:  EnvRDZVBackend,
+		Value: string(pytorchv1.BackendC10D),
+	}
 }
 ```
 
+### Ports
+
+The worker spec can have the following ports:
+
+- pytorchjob-port: The port for the rdzv port (if needed).
+
 ### Resulting Spec
 
-The resulting worker looks like this:
+The resulting worker pod looks like this:
 
 ```yaml
 apiVersion: v1
 kind: Pod
 metadata:
-  name: ${pytorchjob.metadata.name}-worker-0
+  name: ${pytorchjob.metadata.name}-worker-1
 spec:
   containers:
-  - image: xxx
-    name: worker
+  - command:
+    - python
+    - -m
+    - torch.distributed.run
+    - /workspace/examples/imagenet.py
+    - --arch=resnet18
+    - --epochs=20
+    - --batch-size=32
+    - --workers=0
+    - /workspace/data/tiny-imagenet-200
     env:
-    - name: MASTER_PORT
-      value: "23456"
-	- name: PET_RDZV_BACKEND
-	  value: c10d
+    - name: LOGLEVEL
+      value: DEBUG
+    - name: PYTHONUNBUFFERED
+      value: "0"
     - name: PET_RDZV_ENDPOINT
-      value: ${pytorchjob.metadata.name}-worker-0:29500
-    - name: PET_NNODES
-      value: "${pytorchjob.spec.replicas[worker].minReplicas}:${pytorchjob.spec.replicas[worker].maxReplicas}"
-	- name: PET_NPROC_PER_NODE
-	  value: "1"
-    command: "python -m torch.distributed.run xxx.py"
-    ports:       
-    # KUBEFLOW_RDZV_PORT is set to 29500 by default in TorchElastic.                
-    - containerPort: 29500
-      name: kubeflow-rdzv-port
+      value: elastic-example-imagenet-worker-0:29400
+    - name: PET_RDZV_BACKEND
+      value: c10d
+    - name: PET_NODES
+      value: "1:2"
+    - name: PET_MAX_RESTARTS
+      value: "100"
+    image: gaocegege/pytorch-elastic-example-imagenet:1.0.0-sigterm
+    imagePullPolicy: IfNotPresent
+    name: pytorch
+    ports:
+    - containerPort: 29400
+      name: pytorchjob-port
       protocol: TCP
 
 ```
 
-## Limatations
-
-- KUBEFLOW_RDZV_PORT will be open for every pod even though workers except worker-0 do not use it.
-
-## Alternatives Considered
-
-### API/CRD
-
-[TorchElastic operator](https://github.com/pytorch/elastic/blob/master/kubernetes/api/v1alpha1/elasticjob_types.go) implemented by @jeffwan puts the new fields under `PyTorchJobSpec`.
-
-Personally, prefer keeping it in `common.ReplicaSpec` since other Jobs may also need it.
-
-```diff
-// PyTorchJobSpec is a desired state description of the PyTorchJob.
-type PyTorchJobSpec struct {
-	// RunPolicy encapsulates various runtime policies of the distributed training
-	// job, for example how to clean up resources and how long the job can stay
-	// active.
-	//+kubebuilder:validation:Optional
-	RunPolicy common.RunPolicy `json:"runPolicy"`
-
-+	// minReplicas is the lower limit for the number of replicas to which the training job
-+	// can scale down.  It defaults to nil.
-+	// +optional
-+	MinReplicas *int32 `json:"minReplicas,omitempty"`
-+	// upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas, defaults to nil.
-+	// +optional
-+	MaxReplicas *int32 `json:"maxReplicas,omitempty"`
-
-	// A map of PyTorchReplicaType (type) to ReplicaSpec (value). Specifies the PyTorch cluster configuration.
-	// For example,
-	//   {
-	//     "Master": PyTorchReplicaSpec,
-	//     "Worker": PyTorchReplicaSpec,
-	//   }
-	PyTorchReplicaSpecs map[common.ReplicaType]*common.ReplicaSpec `json:"pytorchReplicaSpecs"`
-}
-
-// +k8s:openapi-gen=true
-// +k8s:deepcopy-gen=true
-// ReplicaSpec is a description of the replica
-type ReplicaSpec struct {
-	// Replicas is the desired number of replicas of the given template.
-	// If unspecified, defaults to 1.
-	Replicas *int32 `json:"replicas,omitempty"`
-
-	// Template is the object that describes the pod that
-	// will be created for this replica. RestartPolicy in PodTemplateSpec
-	// will be overide by RestartPolicy in ReplicaSpec
-	Template v1.PodTemplateSpec `json:"template,omitempty"`
-
-	// Restart policy for all replicas within the job.
-	// One of Always, OnFailure, Never and ExitCode.
-	// Default to Never.
-	RestartPolicy RestartPolicy `json:"restartPolicy,omitempty"`
-}
-```
-
-### Autoscaler Integration
+## Autoscaler Integration
 
 Three fields should be added in CustomResourceDefinition:
 
@@ -321,12 +429,8 @@ type ReplicaStatus struct {
 ```
 
 Then `PyTorchJob` has the `scale` subResource, then it can work with Autoscaler. The only problem is that `PyTorchJob` already has the minReplicas and maxReplicas fields. They are used to generate commands. The Autoscaler resource needs them, too. Thus users may need to define them again.
- 
-## Comments
 
-- [ ] Add custom port support
-- [ ] Consider if we should add backend related fields in CRD def
-- [ ] Add scope in the doc
-- [ ] Consider how to support target deletion
-- [ ] Consider if we should deal with worker 0 differently
-- [ ] Add more details about reconsilation
+## Limatations
+
+- pytorchjob-port will be open for every pod even though workers except worker-0 do not use it.
+- Does not support target deletion currently
