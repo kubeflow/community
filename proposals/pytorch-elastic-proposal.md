@@ -54,7 +54,7 @@ Besides this, users should be able to run non-elastic training jobs as before.
 
 We introduce the design and implementation based on [kubeflow training-operator](https://github.com/kubeflow/training-operator).
 
-## API/CRD
+### API/CRD
 
 ```diff
 // PyTorchJobSpec is a desired state description of the PyTorchJob.
@@ -105,7 +105,7 @@ type PyTorchJobSpec struct {
 
 >  --nnodes NNODES       Number of nodes, or the range of nodes in form <minimum_nodes>:<maximum_nodes>.
 
-## Command
+### Command
 
 ```yaml
 apiVersion: "kubeflow.org/v1"
@@ -138,8 +138,6 @@ spec:
                 - /workspace/examples/imagenet.py
                 - "/workspace/data/tiny-imagenet-200"
 ```
-
-## Operator
 
 ### Environment Variables
 
@@ -349,12 +347,6 @@ func (e ElasticEnvVarGenerator) generateEnvBackend(elasticPolicy *pytorchv1.Elas
 }
 ```
 
-### Ports
-
-The worker spec can have the following ports:
-
-- pytorchjob-port: The port for the rdzv port (if needed).
-
 ### Resulting Spec
 
 The resulting worker pod looks like this:
@@ -399,7 +391,7 @@ spec:
 
 ```
 
-## Autoscaler Integration
+### Autoscaler Integration
 
 Three fields should be added in CustomResourceDefinition:
 
@@ -428,7 +420,64 @@ type ReplicaStatus struct {
 }
 ```
 
-Then `PyTorchJob` has the `scale` subResource, then it can work with Autoscaler. The only problem is that `PyTorchJob` already has the minReplicas and maxReplicas fields. They are used to generate commands. The Autoscaler resource needs them, too. Thus users may need to define them again.
+The MetricSpec should be added into PyTorchJob ElasticPolicy:
+
+```diff
++ // +kubebuilder:subresource:scale:specpath=.spec.pytorchReplicaSpecs.Worker.replicas,statuspath=.status.replicaStatuses.Active,selectorpath=.status.labelSelector
+
+// PyTorchJob Represents a PyTorchJob resource.
+type PyTorchJob struct {
+	...
+}
+type ElasticPolicy struct {
++	Metrics []autoscalingv2beta2.MetricSpec `json:"metrics,omitempty"`
+}
+func (r *PyTorchJobReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
++	err = r.ReconcileHPA(pytorchjob)
++	if err != nil {
++		logger.Error(err, "Reconcile PyTorchJob HPA error")
++		return ctrl.Result{}, err
++	}
+	// Use common to reconcile the job related pod and service
+	err = r.ReconcileJobs(pytorchjob, pytorchjob.Spec.PyTorchReplicaSpecs, pytorchjob.Status, &pytorchjob.Spec.RunPolicy)
+	if err != nil {
+		logger.Error(err, "Reconcile PyTorchJob error")
+		return ctrl.Result{}, err
+	}
+	return ctrl.Result{}, nil
+}
+```
+
+The operator checks if the ElasticPolicy is set, and if so, it will reconcile the HPA.
+
+### Status
+
+Now we should check if the job contains master replica first, and then deal with the status of the worker.
+
+```go
+	for rtype, spec := range replicas {
+		status := jobStatus.ReplicaStatuses[rtype]
+
+		succeeded := status.Succeeded
+		expected := *(spec.Replicas) - succeeded
+		running := status.Active
+		failed := status.Failed
+
+		if ContainsMasterSpec(replicas) {
+			if rtype == commonv1.ReplicaType(pytorchv1.PyTorchReplicaTypeMaster) {
+				...
+			}
+		} else {
+			if rtype == pytorchv1.PyTorchReplicaTypeWorker {
+				...
+			}
+		}
+
+		if failed > 0 {
+			...
+		}
+	}
+```
 
 ## Limatations
 
