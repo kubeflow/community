@@ -194,7 +194,11 @@ Criteria for timeline that the team needs to consider
 - Kubecon dates - let’s not hard block on events, but keep them in mind since we know community members might get doublebooked.
 - Associated events (aka. AI Day at Kubecon, Tensorflow events) - we want to keep them in mind.
 
-**Success Criteria:** Release team selected, schedule sent to kubeflow-discuss, all release team members have the proper permissions and are meeting regularly.
+**Success Criteria:**
+* Release team selected
+* Schedule sent to kubeflow-discuss
+* All release team members have the proper permissions and are meeting regularly
+* A tracking issue for the release has been created in kubeflow/community
 
 
 ### Development (10 weeks)
