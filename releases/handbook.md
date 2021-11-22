@@ -155,26 +155,25 @@ The manifests repo will be following the release process below:
 
 
 ## Timeline
-
-| Week | Events |
-| --- | --- |
-| 1 | Development |
-| 2 |   |
-| 3 |   |
-| 4 |   |
-| 5 |   |
-| 6 |   |
-| 7 |   |
-| 8 |   |
-| 9 |   |
-| 10 |   |
-| 11 | Feature Freeze, Documentation |
-| 12 |   |
-| 13 | Manifests testing week |
-| 14 | Distributions testing |
-| 15 |   |
-| 16 |   |
-| 17 | Release |
+| **Week** | **Who** | **What** |
+| -------- | ------- | -------- |
+| Week 0 | Release Manager | [Preparation](#preparation) |
+| Week 1 | Release Manager | Start of Release Cycle |
+| Week 1 | Community | [Development](#development-10-weeks) |
+| Week 10 | Release Team | [Feature Freeze](#feature-freeze-2-weeks) |
+| Week 10 | Manifest WG | [rc.0 Released](#feature-freeze-2-weeks) |
+| Week 10 | Docs Lead | [Documentation](#documentation) |
+| Week 10 | Manifest WG | [rc.1 Released](#feature-freeze-2-weeks) |
+| Week 12 | Release Team | [Manifests Testing](#manifests-testing-1-week) |
+| Week 13 | Docs Lead | End of [Documentation](#documentation) |
+| Week 13 | Release Team | End of [Manifests Testing](#manifests-testing-1-week) |
+| Week 13 | Manifest WG | [rc.2 Released](#manifests-testing-1-week) |
+| Week 14 | Release Team and Distribution Representative | [Distribution Testing](#distribution-testing-3-weeks) |
+| Week 17 | Release Team and Distribution Representative | End of [Distribution Testing](#distribution-testing-3-weeks) |
+| Week 17 | Manifest WG | (optional) [rc.3 Released](#distribution-testing-3-weeks) |
+| Week 17 | Release Team |  [Release Day](#release) |
+| Week 17 | Release Team | Publish Release Blog |
+| TBD | Community | Release Retrospective |
 
 
 ### Preparation
