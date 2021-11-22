@@ -205,7 +205,10 @@ Criteria for timeline that the team needs to consider
 Normal development in the different WGs and in the <https://github.com/kubeflow/manifests> repo.
 
 **Success Criteria:**
-* (Optional but encouraged): Issues tracking new features should also provide information on whether the docs should be updated for that feature
+* (Optional but encouraged): Issues tracking new features should also have a
+  corresponding docs PR that gets developed in parallel with the feature.
+  This will help keep track of PRs at risk during the Feature Freeze phase as
+  well as evaluate the docs effort early.
 
 
 ### Feature Freeze (2 weeks)
