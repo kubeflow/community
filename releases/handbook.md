@@ -199,6 +199,22 @@ Criteria for timeline that the team needs to consider
 * All release team members have the proper permissions and are meeting regularly
 * A tracking issue for the release has been created in kubeflow/community
 
+#### Release Team Selection
+
+The leads of the current release team will be selecting their successors for
+the next release. This should also take place before the current release team
+holds the release retrospective, in order for the new team to be able to
+provide feedback.
+
+The process for selecting shadows and members will be different though. In this
+case we want to welcome as many members as possible to join the release team.
+The release team should make an outreach via the available channels,
+mailing-list, slack, GitHub, and ask for volunteers that would like to
+participate in the release team.
+
+We currently don't have a limit on how many consecutive times someone can be a
+release manager, but it is hightly recommended that this role is rotated. This
+will allow us to further evolve our process and handbook.
 
 ### Development (10 weeks)
 
