@@ -27,7 +27,7 @@ If multiple Release Team members meet the prerequisites to become a Release Mana
 * Making sure the processes are being followed
 * All the responsibilities of a Release Team Member
 
-**Autority:**
+**Authority:**
 The Release Manager will need to have authority to take some decisions, in
 order to ensure the stability of the release and completion in a timely manner.
 Such decisions include:
