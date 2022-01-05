@@ -452,9 +452,6 @@ workinggroups:
       name: Yuan Tang
       company: Akuity
     tech_leads:
-    - github: ChanYiLin
-      name: Jack Lin
-      company: InfuseAI
     - github: Jeffwan
       name: Jiaxin Shan
       company: ByteDance
