@@ -345,12 +345,12 @@ workinggroups:
       name: Pavel Dournov
       company: Google
     tech_leads:
-    - github: Bobgy
-      name: Yuan Gong
-      company: Google
     - github: animeshsingh
       name: Animesh Singh
       company: IBM
+    - github: chensun
+      name: Chen Sun
+      company: Google
     - github: neuromage
       name: Ajay
       company: Google
