@@ -5,9 +5,6 @@ throughout the release.
 
 ## notes
 
-After each release meeting a release team member should send an email to the
-mailing list, to give an update about the discussed items.
+After each release meeting, a release team member should email the [kubeflow-discuss mailing list](https://groups.google.com/u/1/g/kubeflow-discuss) to update the community about the discussed items.
 
-The goal of this email is to contain an overview of the discussion points and
-decision that were maid. This way people can be up to date with the progress of
-these meetings, even if they can't participate
+This email aims to contain an overview of the discussion points and decisions made during the meeting. This way, people can be up to date with the progress of these meetings even if they can't participate.
