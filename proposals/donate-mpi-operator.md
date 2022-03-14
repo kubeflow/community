@@ -18,11 +18,11 @@ _Status_
 ## Motivation
 Kubeflow currently is moving to an [Unified operator](https://github.com/kubeflow/training-operator)
 The motivation is to encourage non-training users (like HPC) to use and contribute to mpi-operator, without having to install or learn about kubeflow's training-operator.
-With the creation of the project [k8s-sigs/Kueue](https://github.com/kubernetes-sigs/kueue), having the MPi-Operator as a k8s-sigs project will facilitate the efforts to create and maintain a custom job queueing mechasinm for mpi jobs on kubernetes.
 
 ## Goals
 * Migrate repo kubeflow/mpi-operator/v2 to kubernetes-sigs/mpi-operator
 * Kubeflow declares the kubernetes-sigs/mpi-operator as a dependency
+* The Kubeflow Training WG continues to be involved in the mpi-operator development, proposing and implementing changes that align with the needs of AI/ML.
 
 ## Non-Goals
 * Migrate kubeflow/mpi-operator.v1
