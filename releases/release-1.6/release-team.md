@@ -5,12 +5,13 @@
 |----------|----------------------------------|
 | Release Manager | Anna Jung (GitHub: [@annajung](https://github.com/annajung) / Slack: `@annajung`) |
 | Product Manager |  |
-| Docs Lead |  |
+| Docs Lead | Vedant Padwal (GitHub: [@js-ts](https://github.com/js-ts) / Slack: `Vedant Padwal`) |
 | AutoML WG Liaison(s) | |
-| Notebooks WG Liaison(s) | Kimonas Sotirchos (GitHub: [@kimwnasptd](https://github.com/kimwnasptd) / Slack: `@kimwnasptd`)|
-| Manifests WG Liaison(s) | Kimonas Sotirchos (GitHub: [@kimwnasptd](https://github.com/kimwnasptd) / Slack: `@kimwnasptd`)|
-| Pipelines WG Liaison(s) | |
-| Training WG Liaison(s) | |
+| Notebooks WG Liaison(s) | Kimonas Sotirchos (GitHub: [@kimwnasptd](https://github.com/kimwnasptd) / Slack: `@kimwnasptd`), Maciek Stopa (GitHub: [mstopa](https://github.com/mstopa) / Slack: `@Maciek Stopa`) |
+| Manifests WG Liaison(s) | Daniela Plascencia (GitHub: [@DnPlas](https://github.com/DnPlas) / Slack: `@DnPlas`), Dominik Fleischmann (GitHub: [@DomFleischmann](https://github.com/DomFleischmann) / Slack: `@Dominik Fleischmann`), Kimonas Sotirchos (GitHub: [@kimwnasptd](https://github.com/kimwnasptd) / Slack: `@kimwnasptd`)|
+| Pipelines WG Liaison(s) | Dominik Fleischmann (GitHub: [@DomFleischmann](https://github.com/DomFleischmann) / Slack: `@Dominik Fleischmann`), Kartik Kalamadi (GitHub: [@akartsky](https://github.com/akartsky) / Slack: `@Kartik Kalamadi`) |
+| Training WG Liaison(s) | Daniela Plascencia (GitHub: [@DnPlas](https://github.com/DnPlas) / Slack: `@DnPlas`) |
+| KServe Liaison(s) | Kartik Kalamadi (GitHub: [@akartsky](https://github.com/akartsky) / Slack: `@Kartik Kalamadi`), Maciek Stopa (GitHub: [mstopa](https://github.com/mstopa) / Slack: `@Maciek Stopa`) |
 | Distribution Representative |  |
 
 - The definition of the release team roles and responsibilities can be found at [release handbook](../handbook.md)
