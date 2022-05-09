@@ -15,14 +15,14 @@
 
 | **Distribution** | **Representative** |
 | --- | --- |
-| Arrikto EKF | @kimwnasptd |
-| Arrikto MiniKF | @kimwnasptd |
-| AWS | @surajkota |
-| Charmed Kubeflow | @DomFleischmann |
-| Google Cloud | @zijianjoy |
-| IBM | @yhwang |
-| Nutanix | @johnugeorge |
-| OpenShift | @VaishnaviHire, @LaVLaS |
+| Arrikto EKF | [@kimwnasptd](https://github.com/kimwnasptd) |
+| Arrikto MiniKF | [@kimwnasptd](https://github.com/kimwnasptd) |
+| AWS | [@surajkota](https://github.com/surajkota) |
+| Charmed Kubeflow | [@DomFleischmann](https://github.com/DomFleischmann) |
+| Google Cloud | [@zijianjoy](https://github.com/zijianjoy) |
+| IBM | [@yhwang](https://github.com/yhwang) |
+| Nutanix | [@johnugeorge](https://github.com/johnugeorge) |
+| OpenShift | [@VaishnaviHire](https://github.com/VaishnaviHire), [@LaVLaS](https://github.com/LaVLaS) |
 
 
 - The definition of the release team roles and responsibilities can be found at [release handbook](../handbook.md)
