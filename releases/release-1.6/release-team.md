@@ -12,7 +12,18 @@
 | Pipelines WG Liaison(s) | Dominik Fleischmann (GitHub: [@DomFleischmann](https://github.com/DomFleischmann) / Slack: `@Dominik Fleischmann`), Kartik Kalamadi (GitHub: [@akartsky](https://github.com/akartsky) / Slack: `@Kartik Kalamadi`) |
 | Training WG Liaison(s) | Daniela Plascencia (GitHub: [@DnPlas](https://github.com/DnPlas) / Slack: `@DnPlas`) |
 | KServe Liaison(s) | Kartik Kalamadi (GitHub: [@akartsky](https://github.com/akartsky) / Slack: `@Kartik Kalamadi`), Maciek Stopa (GitHub: [mstopa](https://github.com/mstopa) / Slack: `@Maciek Stopa`) |
-| Distribution Representative |  |
+
+| **Distribution** | **Representative** |
+| --- | --- |
+| Arrikto EKF | @kimwnasptd |
+| Arrikto MiniKF | @kimwnasptd |
+| AWS | @surajkota |
+| Charmed Kubeflow | @DomFleischmann |
+| Google Cloud | @zijianjoy |
+| IBM | @yhwang |
+| Nutanix | @johnugeorge |
+| OpenShift | @VaishnaviHire, @LaVLaS |
+
 
 - The definition of the release team roles and responsibilities can be found at [release handbook](../handbook.md)
 - The timeline for the release can be found at [release-1.6 documentation](README.md)
