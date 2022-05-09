@@ -4,8 +4,9 @@
 | **Role** | **Name** (**GitHub / Slack ID**) |
 |----------|----------------------------------|
 | Release Manager | Anna Jung (GitHub: [@annajung](https://github.com/annajung) / Slack: `@annajung`) |
-| Product Manager | |
 | Docs Lead | Vedant Padwal (GitHub: [@js-ts](https://github.com/js-ts) / Slack: `Vedant Padwal`) |
+| Product Manager | Josh Bottum (GitHub: [@jbottum](https://github.com/jbottum) / Slack: `@JoshBottum`)|
+| Product Manager Shadows | Amber Graner (GitHub: [@akgraner](https://github.com/akgraner) / Slack: `@akgraner`), Dominik Fleischmann (GitHub: [@DomFleischmann](https://github.com/DomFleischmann) / Slack: `@Dominik Fleischmann`) |
 | AutoML WG Liaison(s) | Anna Jung (GitHub: [@annajung](https://github.com/annajung) / Slack: `@annajung`), Kimonas Sotirchos (GitHub: [@kimwnasptd](https://github.com/kimwnasptd) / Slack: `@kimwnasptd`) |
 | Notebooks WG Liaison(s) | Kimonas Sotirchos (GitHub: [@kimwnasptd](https://github.com/kimwnasptd) / Slack: `@kimwnasptd`), Maciek Stopa (GitHub: [mstopa](https://github.com/mstopa) / Slack: `@Maciek Stopa`) |
 | Manifests WG Liaison(s) | Daniela Plascencia (GitHub: [@DnPlas](https://github.com/DnPlas) / Slack: `@DnPlas`), Dominik Fleischmann (GitHub: [@DomFleischmann](https://github.com/DomFleischmann) / Slack: `@Dominik Fleischmann`), Kimonas Sotirchos (GitHub: [@kimwnasptd](https://github.com/kimwnasptd) / Slack: `@kimwnasptd`)|
