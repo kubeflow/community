@@ -50,4 +50,3 @@ The 1.6 release cycle is proposed as follows
 ## Phases
 
 Please refer to the [release handbook](../handbook.md)
-d)
