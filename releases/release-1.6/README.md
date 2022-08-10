@@ -21,9 +21,9 @@ The 1.6 release cycle is proposed as follows
 - **Wednesday, Jul 13th 2022**: Week 18 - Manifests Testing Starts
 - **Wednesday, Jul 20th 2022**: Week 19 - Manifests Testing Ends
 - **Wednesday, Jul 20th 2022**: Week 19 - Distribution Testing Starts
-- **Wednesday, Aug 10th 2022**: Week 22 - Distribution Testing Ends
-- **Wednesday, Aug 10th 2022**: Week 22 - Docs Update Ends
-- **Wednesday, Aug 17th 2022**: Week 23 - Kubeflow v1.6 Released
+- **Wednesday, Aug 31st 2022**: Week 25 - Distribution Testing Ends
+- **Wednesday, Aug 31st 2022**: Week 25 - Docs Update Ends
+- **Wednesday, Sep 7th 2022**: Week 26 - Kubeflow v1.6 Released
 
 ## Timeline
 
@@ -40,12 +40,12 @@ The 1.6 release cycle is proposed as follows
 | Wed Jul 20th 2022 | Week 19 | Release Team | End of [Manifests Testing](../handbook.md#manifests-testing-1-week) |
 | Wed Jul 20th 2022 | Week 19 | Manifest WG | [v1.6-rc.2 Released](../handbook.md#feature-freeze-2-weeks) |
 | Wed Jul 20th 2022 | Week 19 | Release Team and Distribution Representative | [Distribution Testing](../handbook.md#distribution-testing-3-weeks) |
-| Wed Aug 10th 2022 | Week 22 | Release Team and Distribution Representative | End of [Distribution Testing](../handbook.md#distribution-testing-3-weeks) |
-| Wed Aug 10th 2022 | Week 22 | Manifest WG | (optional) [v1.6-rc.3 Released](../handbook.md#distribution-testing-3-weeks) |
-| Wed Aug 10th 2022 | Week 22 | Docs Lead | End of [Documentation](../handbook.md#documentation) |
-| Wed Aug 17th 2022 | Week 23 | Release Team | **v1.6** [Release Day](../handbook.md/#release) |
-| Wed Aug 17th 2022 | Week 23 | Release Team | Publish Release Blog |
-| Mon Aug 22nd 2022 | Week 24 | Release Team | Release Retrospective |
+| Wed Aug 31st 2022 | Week 25 | Release Team and Distribution Representative | End of [Distribution Testing](../handbook.md#distribution-testing-3-weeks) |
+| Wed Aug 31st 2022 | Week 25 | Manifest WG | (optional) [v1.6-rc.3 Released](../handbook.md#distribution-testing-3-weeks) |
+| Wed Aug 31st 2022 | Week 25 | Docs Lead | End of [Documentation](../handbook.md#documentation) |
+| Wed Sep 7th 2022 | Week 26 | Release Team | **v1.6** [Release Day](../handbook.md/#release) |
+| Wed Sep 7th 2022 | Week 26 | Release Team | Publish Release Blog |
+| Mon Sep 12th 2022 | Week 27 | Release Team | Release Retrospective |
 
 ## Phases
 
