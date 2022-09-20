@@ -93,9 +93,9 @@ liaison.
 - Communicating with Release Team during the Feature Freeze about the progress of bug fixes
 
 ### Working Group Documentation Lead
-The Working Group Docs Lead is responsible for working with the Working Group and Release Team to coordinate a Working Group's documentation updates for the next Kubeflow release.
+The Working Group Documentation Lead is responsible for working with the Working Group and Release Team to coordinate a Working Group's documentation updates for the next Kubeflow release.
 
-**Prerequisites:** Contributions to the [website repo](https://github.com/kubeflow/website), experience writing feature descriptions for application, kubernetes and/or Kubeflow, and in light weight project management 
+**Prerequisites:** Contributions to the [website repo](https://github.com/kubeflow/website), experience writing feature descriptions for software applications, Kubernetes and/or Kubeflow, and in light weight project management 
 
 **Time Commitments:** This role will require some synchronous communication. The bulk of their work is expected to be in the Documentation phase of the release, but they will also be involved throughout the release by keeping track of issues that might require an update to the docs.
 
@@ -106,9 +106,9 @@ The Working Group Docs Lead is responsible for working with the Working Group an
 * Migrating the old website [version] documentation and updating it with the new release
 
 ### Working Group Test Lead
-The Working Group Test Lead is responsible for working with the Working Group and Release Team to coordinate a Working Group's test infrastructure and test plan for the next Kubeflow release.
+The Working Group Test Lead is responsible for working with the Working Group and Release Team to coordinate a Working Group's test infrastructure and test plan for the next Kubeflow release.  They will also help to execute and report the results of the test plan.
 
-**Prerequisites:** Contributions to the [website repo](https://github.com/kubeflow/website), with experience running Kubernetes and/or Kubeflow clusters, writing test plans and providing light weight project management
+**Prerequisites:** Contributions to the [website repo](https://github.com/kubeflow/website), with experience running Kubernetes and/or Kubeflow clusters, writing test plans, and providing light weight project management
 
 **Time Commitments:** This role will require some synchronous communication. The bulk of their work is expected to be in the testing phase of the release, but they will also be involved throughout the release by keeping track of issues that might require iterative testing.
 
