@@ -92,6 +92,33 @@ liaison.
 - Providing a roadmap and dependency updates to the Community early in the release cycle
 - Communicating with Release Team during the Feature Freeze about the progress of bug fixes
 
+### Working Group Documentation Lead
+The Working Group Docs Lead is responsible for working with the Working Group and Release Team to coordinate a Working Group's documentation updates for the next Kubeflow release.
+
+**Prerequisites:** Contributions to the [website repo](https://github.com/kubeflow/website), experience writing feature descriptions for application, kubernetes and/or Kubeflow, and in light weight project management 
+
+**Time Commitments:** This role will require some synchronous communication. The bulk of their work is expected to be in the Documentation phase of the release, but they will also be involved throughout the release by keeping track of issues that might require an update to the docs.
+
+**Responsibilities:**
+* Identifying and tracking new issues for a Working Group that require update to the docs
+* Working with contributors and Release Team Documentation lead to modify existing docs to accurately represent any upcoming changes
+* Reviewing documentation PRs to ensure quality following the website [Style Guide](https://www.kubeflow.org/docs/about/style-guide/)
+* Migrating the old website [version] documentation and updating it with the new release
+
+### Working Group Test Lead
+The Working Group Test Lead is responsible for working with the Working Group and Release Team to coordinate a Working Group's test infrastructure and test plan for the next Kubeflow release.
+
+**Prerequisites:** Contributions to the [website repo](https://github.com/kubeflow/website), with experience running Kubernetes and/or Kubeflow clusters, writing test plans and providing light weight project management
+
+**Time Commitments:** This role will require some synchronous communication. The bulk of their work is expected to be in the testing phase of the release, but they will also be involved throughout the release by keeping track of issues that might require iterative testing.
+
+**Responsibilities:**
+* Identifying and tracking new issues for a Working Group that require testing
+* Working with contributors and Release Team to create and/or modify the Working Group's test plan to accurately represent any upcoming changes
+* Help to configure, monitoring and operate the Working Group's test infrastructure i.e. GitHub Actions and/or AWS Test Infrastructure
+* Help to complete test cases per the test plan
+* Provide test plan results to the Release Team 
+
 ### Distribution Representative
 
 **Prerequisites:** Work at the organization that owns the distribution
@@ -101,20 +128,6 @@ liaison.
 **Responsibilities:**
 - Exposing issues that the distribution owner is facing with the new release
 - Syncing with the release team during distro testing phase, we want a nice tight feedback loop there
-
-### Shadow
-
-A person that works closely with a specific release team member as an apprentice. The member they shadow will be acting as a mentor to the shadow and will be educating them about the tasks and day to day operations that specific role needs to perform.
-
-Any Release Team member may select one or more mentees to shadow the release process in order to help fulfill future Release Team staffing requirements and continue to grow the Kubeflow community in general.
-
-**Prerequisites:** none
-
-**Time Commitments:** The shadows should be prepared to invest a lot of cycles to be up to date with the work done from their mentor
-
-**Responsibilities:**
-- Staying in sync with the work done by their mentor
-- Keeping a list of things that could be improved in the next release for the role they shadow
 
 ## Proposed WG Processes
 
