@@ -95,7 +95,7 @@ liaison.
 ### Working Group Documentation Lead
 The Working Group Documentation Lead is responsible for working with the Working Group and Release Team to coordinate a Working Group's documentation updates for the next Kubeflow release.
 
-**Prerequisites:** Contributions to the [website repo](https://github.com/kubeflow/website), experience writing feature descriptions for software applications, Kubernetes and/or Kubeflow, and in light weight project management 
+**Prerequisites:** Contributions to the [website repo](https://github.com/kubeflow/website), experience writing feature descriptions for software applications, Kubernetes and/or Kubeflow, and in light weight project management.   If the contributor is new to the Kubeflow Community, this would be a good first role and consideration will be made if the contributor does not have direct experience. 
 
 **Time Commitments:** This role will require some synchronous communication. The bulk of their work is expected to be in the Documentation phase of the release, but they will also be involved throughout the release by keeping track of issues that might require an update to the docs.
 
