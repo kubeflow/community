@@ -52,6 +52,7 @@ def update_meeting(service, meeting):
   day_of_week = datetime.strptime("{} {}".format(date, time_start), '%m/%d/%Y %I:%M%p').strftime('%A').upper()[0:2]
   start_datetime = datetime.strptime("{} {}".format(date, time_start), '%m/%d/%Y %I:%M%p').strftime('%Y-%m-%dT%H:%M:%S%z')
   end_datetime = datetime.strptime("{} {}".format(date, time_end), '%m/%d/%Y %I:%M%p').strftime('%Y-%m-%dT%H:%M:%S%z')
+  timezone = meeting.get("timezone", "America/Los_Angeles")
 
   event = {
     'summary': meeting['name'],
@@ -60,11 +61,11 @@ def update_meeting(service, meeting):
     'description': meeting['description'],
           'start': {
               'dateTime': start_datetime,
-              'timeZone': 'America/Los_Angeles',
+              'timeZone': timezone,
               },
             'end': {
               'dateTime': end_datetime,
-              'timeZone': 'America/Los_Angeles',
+              'timeZone': timezone,
               },
             'guestsCanSeeOtherGuests': 'false',
             'reminders': {
