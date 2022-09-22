@@ -1,4 +1,4 @@
 image: hello
 kf-infra-gitops:
   calendar:
-    image: gcr.io/kf-infra-gitops/calendar-sync:9c5e87b-dirty@sha256:5f169ff3ad1e66d96643a68f330e78bcc78a5c4752b5f85de343220a60425dc2
+    image: gcr.io/kf-infra-gitops/calendar-sync:2b76aca-dirty@sha256:49b7b067a354d6cdb898707eeb2a258405ce0e64e17b8b76f440a6d0b80defc2
