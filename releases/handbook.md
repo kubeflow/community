@@ -14,7 +14,7 @@ The previous Release Manager is responsible for choosing their successor that me
 **Prerequisites:**
 1. Have contributed as a release team member in two or more previous releases
 
-**Time Commitments:** This role will need to be synchronous. The Release Manager is required to join all the weekly meetings and coordinate with the Release Team and the Working Group leads. For the Development phase, an estimate of the work needed is 4-8 hours per week. For the next phases, the Release Manager is required to devote more time and coordinate the tasks of the release.
+**Time Commitments:** This role will need to be synchronous. The Release Manager is expected to join most of the weekly meetings and coordinate with the Release Team and the Working Group leads. For the Development phase, an estimate of the work needed is 4-8 hours per week. For the next phases, the Release Manager is required to devote more time and coordinate the tasks of the release.
 
 **Responsibilities:**
 * Provide updates to the mailing list with the progress of the release
