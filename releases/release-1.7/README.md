@@ -18,7 +18,7 @@ The 1.7 release cycle is proposed as follows
 
 - **Wednesday, Sep 28th 2022**: Week 1 - Release Team is formed
 - **Wednesday, Sep 28th 2022**: Week 1 - Release Cycle Begins
-- **Wednesday, Oct 12th 2022**: Week 3 - Roadmaps are finalized
+- **Wednesday, Oct 19th 2022**: Week 4 - Roadmaps are finalized
 - **Wednesday, Jan 25th 2023**: Week 18 - Feature Freeze
 - **Wednesday, Feb 1st 2023**: Week 19 - Manifests Testing Starts
 - **Wednesday, Feb 8th 2023**: Week 20 - Manifests Testing Ends
@@ -35,7 +35,7 @@ The 1.7 release cycle is proposed as follows
 | Wed Sep 28th 2022 | Week 1 | Release Manager | Release Team is Formed. |
 | Wed Sep 28th 2022 | Week 1 | Release Manager | Start of Release Cycle |
 | Wed Sep 28th 2022 | Week 1 | Community | [Development](../handbook.md#development-10-weeks) |
-| Wed Oct 12th 2022 | Week 3 | Community | Roadmaps are Finalized |
+| Wed Oct 19th 2022 | Week 4 | Community | Roadmaps are Finalized |
 | Wed Jan 25th 2023 | Week 18 | Release Team | [Feature Freeze](../handbook.md#feature-freeze-2-weeks) |
 | Wed Jan 25th 2023 | Week 18 | Manifest WG | [v1.7-rc.0 Released](../handbook.md#feature-freeze-2-weeks) |
 | Wed Jan 25th 2023 | Week 18 | Docs Lead | [Documentation](../handbook.md#documentation) |
