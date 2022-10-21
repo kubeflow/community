@@ -266,11 +266,51 @@ those can start to be documented.
 - Create a [new version dropdown and update the website version](https://github.com/kubeflow/website/pull/3333)
 - Add new [release page with component and dependency versions](https://github.com/kubeflow/website/pull/3332)
 
+**Release Documentation Checklist**
+
+The Kubeflow documentation is published in several locations: Kubeflow.org, GitHub and Distribution websites.  In addition to the Success Criteria listed below, the following checklist provides a list of documentation that should be reviewed before a Kubeflow release.   As a best practice, the Release Manager should ask the Release Docs Lead and the Working Groups Docs Leads to provide a status of the planned updates the checklist items, preferably four weeks before the release.
+
 **Success Criteria:** Documentation for this release completed with minimum following pages updated and a [new version
 in the website is cut](https://github.com/kubeflow/kubeflow/blob/master/docs_dev/releasing.md#version-the-website).
 - [Installing Kubeflow](https://www.kubeflow.org/docs/started/installing-kubeflow/)
 - [Release Page](https://www.kubeflow.org/docs/releases/)
 - [Distributions](https://www.kubeflow.org/docs/distributions/) and related pages underneath
+- [Manifest Top](https://github.com/kubeflow/manifests)
+- [Manifest Releases](https://github.com/kubeflow/manifests/releases)
+- [Manifest Components](https://github.com/kubeflow/manifests#kubeflow-components-versions) 
+
+Change logs per Working Group
+
+- [Notebooks](https://github.com/kubeflow/kubeflow/releases)  
+- [Training Operator](https://github.com/kubeflow/training-operator/blob/master/CHANGELOG.md)  
+- [Katib](https://github.com/kubeflow/katib/blob/master/CHANGELOG.md)  
+- [Pipelines](https://github.com/kubeflow/pipelines/blob/master/CHANGELOG.md)  
+- [KServe](https://github.com/kserve/kserve/releases/)
+
+Working Group updates these pages (and the pages underneath) for the features changed in current release
+
+- [Notebooks](https://www.kubeflow.org/docs/components/notebooks/)
+- [Training Operator](https://www.kubeflow.org/docs/components/training/)
+- [Katib](https://www.kubeflow.org/docs/components/katib/)
+- [Pipelines](https://www.kubeflow.org/docs/components/pipelines/)
+- [KServe](https://kserve.github.io/website/0.9/)
+
+Release Team and Product Management updates
+
+- [Release Handbook
+](https://github.com/kubeflow/community/blob/master/releases/handbook.md)
+- [Kubeflow blog post](https://blog.kubeflow.org/)
+
+**Best practices for general documentation updates, documentation refactoring and distribution documentation.**
+
+*Non-release documentation updates*
+
+The Community has found that general or non-release documentation updates are often committed in the days prior to a release.  These non-release updates are often needed, but they add additional reviews and approvals during a very busy time.   As a best practice, documentation committers should try to have PRs ready for non-release updates prior to the Release feature freeze.
+
+*Long term re-factoring and distribution documentation*
+
+In the long term, the Community may want to re-factor the documentation, which might include separating the user functionality from the installation and administration documentation.   Additionally, each individual distribution documentation should have moved, or have a plan to move, their documentation from Kubeflow.org.    
+
 
 ### Distribution testing (3 weeks)
 
