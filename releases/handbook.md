@@ -275,7 +275,7 @@ in the website is cut](https://github.com/kubeflow/kubeflow/blob/master/docs_dev
 - [Installing Kubeflow](https://www.kubeflow.org/docs/started/installing-kubeflow/)
 - [Release Page](https://www.kubeflow.org/docs/releases/)
 - [Distributions](https://www.kubeflow.org/docs/distributions/) and related pages underneath
-- [Manifest Top](https://github.com/kubeflow/manifests)
+- [Manifest Readme](https://github.com/kubeflow/manifests#readme)
 - [Manifest Releases](https://github.com/kubeflow/manifests/releases)
 - [Manifest Components](https://github.com/kubeflow/manifests#kubeflow-components-versions) 
 
