@@ -20,7 +20,7 @@ The [charter](charter.md) defines the scope and governance of the AutoML Working
 
 ## Organizers
 
-* Andrey Velichkevich (**[@andreyvelich](https://github.com/andreyvelich)**), Cisco
+* Andrey Velichkevich (**[@andreyvelich](https://github.com/andreyvelich)**), Apple
 * Ce Gao (**[@gaocegege](https://github.com/gaocegege)**), Caicloud
 * Johnu George (**[@johnugeorge](https://github.com/johnugeorge)**), Nutanix
 
