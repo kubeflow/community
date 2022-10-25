@@ -90,7 +90,7 @@ workinggroups:
     chairs:
     - github: andreyvelich
       name: Andrey Velichkevich
-      company: Cisco
+      company: Apple
     - github: gaocegege
       name: Ce Gao
       company: Caicloud
@@ -100,7 +100,7 @@ workinggroups:
     tech_leads:
     - github: andreyvelich
       name: Andrey Velichkevich
-      company: Cisco
+      company: Apple
     - github: gaocegege
       name: Ce Gao
       company: Caicloud
@@ -457,7 +457,7 @@ workinggroups:
       company: ByteDance
     - github: andreyvelich
       name: Andrey Velichkevich
-      company: Cisco
+      company: Apple
     - github: gaocegege
       name: Ce Gao
       company: Caicloud
