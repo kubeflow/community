@@ -293,7 +293,7 @@ Working Group updates these pages (and the pages underneath) for the features ch
 - [Training Operator](https://www.kubeflow.org/docs/components/training/)
 - [Katib](https://www.kubeflow.org/docs/components/katib/)
 - [Pipelines](https://www.kubeflow.org/docs/components/pipelines/)
-- [KServe](https://kserve.github.io/website/0.9/)
+- [KServe](https://kserve.github.io/website/)
 
 Release Team and Product Management updates
 
