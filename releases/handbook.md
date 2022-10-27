@@ -297,8 +297,7 @@ Working Group updates these pages (and the pages underneath) for the features ch
 
 Release Team and Product Management updates
 
-- [Release Handbook
-](https://github.com/kubeflow/community/blob/master/releases/handbook.md)
+- [Release Handbook](https://github.com/kubeflow/community/blob/master/releases/handbook.md)
 - [Kubeflow blog post](https://blog.kubeflow.org/)
 
 **Best practices for general documentation updates, documentation refactoring and distribution documentation.**
