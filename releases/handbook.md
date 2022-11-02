@@ -308,7 +308,7 @@ The Community has found that general or non-release documentation updates are of
 
 *Long term re-factoring and distribution documentation*
 
-In the long term, the Community may want to re-factor the documentation, which might include separating the user functionality from the installation and administration documentation.   Additionally, each individual distribution documentation should have moved, or have a plan to move, their documentation from Kubeflow.org.    
+In the long term, the Community may want to re-factor the documentation, which might include separating the user functionality from the installation and administration documentation.  The larger documation refactoring PRs should be completed prior to the Release feature freeze.  Additionally, each individual distribution documentation should have moved, or have a plan to move, their documentation from Kubeflow.org.    
 
 
 ### Distribution testing (3 weeks)
