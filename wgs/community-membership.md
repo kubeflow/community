@@ -96,8 +96,8 @@ The following apply to the part of codebase for which one would be a reviewer in
 an [OWNERS] file (for repos using the bot).
 
 - member for at least 3 months
-- Primary reviewer for at least 5 PRs to the codebase
-- Reviewed or merged at least 20 substantial PRs to the codebase
+- Primary reviewer for at least 3 PRs to the codebase
+- Reviewed or merged at least 5 substantial PRs to the codebase
 - Knowledgeable about the codebase
 - Sponsored by a subproject approver
   - With no objections from other approvers
@@ -139,8 +139,8 @@ The following apply to the part of codebase for which one would be an approver
 in an [OWNERS] file (for repos using the bot).
 
 - Reviewer of the codebase for at least 3 months
-- Primary reviewer for at least 10 substantial PRs to the codebase
-- Reviewed or merged at least 30 PRs to the codebase
+- Primary reviewer for at least 5 substantial PRs to the codebase
+- Reviewed or merged at least 10 PRs to the codebase
 - Nominated by a subproject owner
   - With no objections from other subproject owners
   - Done through PR to update the top-level OWNERS file
