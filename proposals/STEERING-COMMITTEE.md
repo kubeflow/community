@@ -3,7 +3,7 @@
 The Kubeflow Steering Committee (KSC) is responsible for the general health of the Kubeflow community.
 
 ## Interim KSC
-During the CNCF incubation period, KSC will be a small council that consists of the following people:
+During the CNCF transition period, the interim KSC will be a small council that consists of the following people:
 | &nbsp;                                                         | Member                    | Organization | Profile                                              |
 | -------------------------------------------------------------- | ------------------------- | ------------ | ---------------------------------------------------- 
 | <img width="30px" src="https://github.com/theadactyl.png"> | Thea Lamkin          | Google       | [@theadactyl](https://github.com/theadactyl) |
