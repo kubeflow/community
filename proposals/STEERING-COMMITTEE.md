@@ -20,4 +20,4 @@ The governance of Kubeflow is an open, living process and document, and will con
 
 The Interim KSC is chartered to establish KSC. The interim committee will propose details of the KSC charter, roles, processes and limitations under this document.
 
-KSC will replace the interim committee after CNCF’s acceptance of Kubeflow.
+KSC will replace the interim committee after CNCF accepts Kubeflow as an incubation project.

@@ -1,4 +1,4 @@
-*[This document is work in progress. It will be moved to https://github.com/kubeflow/community/GOVERNANCE.md upon completion and approval.]*
+*[This document is work in progress. It will be moved to https://github.com/kubeflow/community/GOVERNANCE.md upon completion and approval. This document drew a lot of inspirations from [Knative governance](https://github.com/knative/community/blob/main/GOVERNANCE.md).]*
 
 Kubeflow Governance consists of three components.
 
