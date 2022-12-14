@@ -48,6 +48,7 @@
   timezone: Europe/London
   frequency: bi-weekly
   video: https://zoom.us/j/89752932714?pwd=bWRRcEY5MUM3S3U1TmY5NGZaL1ByUT09
+  until: 12/13/2022
   attendees:
     - email: kubeflow-discuss@googlegroups.com
   description:
