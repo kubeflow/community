@@ -227,6 +227,7 @@ From that phase and forward updates to the manifests repo must only be fixing co
 - Create a new **vX.Y-rc.0** tag that will be pointing to the branch created above
 - Add commits on top of the **vX.Y-branch** branch to include bug fixes. The other WGs can provide a new _git revision_ to Manifests WG leads. The new git revision must only include bug fixes, not new features.
 - On the last day of feature freeze, cut a new **vX.Y-rc.1** RC tag on the **vX.Y-branch** release branch.
+- Note - The Notebooks Working Group's versioning policy follows the Manifests Working Group's process.
 
 **Actions for the Release Team:**
 - Get a git revision from all WGs, on the first day of the Feature Freeze period. WGs need to have a git revision ready to give to the release team.
