@@ -14,3 +14,4 @@ For more details, see specification of working group version policy and release 
 - [Katib](https://github.com/kubeflow/katib/tree/master/docs/release#release-process)
 - [Pipelines](https://github.com/kubeflow/pipelines/blob/master/RELEASE.md#release-tags-and-branches)
 - [Training Operator](https://github.com/kubeflow/training-operator/blob/master/docs/release/releasing.md)
+- [Manifests and Notebooks](https://github.com/kubeflow/community/blob/master/releases/handbook.md#manifests-testing-1-week)
