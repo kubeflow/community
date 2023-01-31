@@ -23,6 +23,7 @@ WG Notebooks is responsible for the user experience around Notebooks and their i
   applications have moved off of them:
     - Profile Controller
     - KFAM
+- Versioning policy - The Notebooks Working Group's versioning policy is the same as the Manifest Working Group versioning policy.   For consistency, both are defined in the Kubeflow release handbook, and the relevant sections are available[here](https://github.com/kubeflow/community/blob/master/releases/handbook.md#feature-freeze-2-weeks) 
 
 #### Cross-cutting and Externally Facing Processes
 
