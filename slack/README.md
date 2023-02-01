@@ -12,7 +12,7 @@ video recording or in another public space. Please be courteous to others.
 from these commands and we are a global project - please be kind. Note: `@all`
 is only to be used by admins.
 
-To join the [Kubeflow Slack](https://kubeflow.slack.com), click this [Invitation to Kubeflow workspace](https://join.slack.com/t/kubeflow/shared_invite/zt-cpr020z4-PfcAue_2nw67~iIDy7maAQ)
+To join the [Kubeflow Slack](https://kubeflow.slack.com), click this [Invitation to Kubeflow workspace](https://invite.playplay.io/invite?team_id=T7QLHSH6U)
 
 ## Code of Conduct
 
