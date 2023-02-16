@@ -139,6 +139,16 @@ Working groups should briefly describe what changes to existing [kubeflow.org](h
 
 Working Groups should be tracking features for the release, as well as the documentation status of each feature as it’s being developed so that the documentation team can keep track of the documentation work that needs to be done.
 
+## Versioning Policy
+
+Kubeflow version format follows [semantic versioning](https://semver.org/) terminology expressed as vX.Y.Z format,
+ where X is the major version, Y is the minor version, and Z is the patch version.
+
+Throughout the release cycle, pre-release artifacts are available at different stages. These artifacts are versioned
+ with `rc` and a number incrementing from 0 to indicate that it is a pre-release. For example, `vX.Y.Z-rc.0`.
+
+At the start of the release cycle, the release manager works with the community to propose the next version and the release timeline.
+
 ## Terminology
 
 ### git revision
