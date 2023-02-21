@@ -346,3 +346,29 @@
       Notes & Agenda: https://docs.google.com/document/d/1GHi-NFHmDA2TnH1pDrs4O7OyIQdZRtKatGAdedxte4w
       Zoom: Provided in meeting notes
   organizer: woop
+
+- id: kf034
+  name: Kubeflow Security Team Call (US West/APAC)
+  date: 02/15/2023
+  time: 8:00AM-9:00AM
+  frequency: bi-weekly
+  video: https://meet.google.com/rjj-axbq-vrp
+  until: 12/31/2023
+  attendees:
+    - email: kubeflow-discuss@googlegroups.com
+    - email: akgraner@arrikto.com
+    - email: juliusvonkohout@gmail.com
+    - email: kimwnasptd@arrikto.com 
+    - email: joshbottum@gmail.com 
+  description:
+    - |
+      Notes & agenda: https://docs.google.com/document/d/1mRmtcZEnlVDKWUeQUYoogotq_FLkOaXLsIPIUN0JZ4I/edit?usp=sharing
+
+      Join with Google Meet: https://meet.google.com/rjj-axbq-vrp
+
+      Join with Phone (US) +1 234-218-2628 PIN: 234 621 560#
+      International numbers: https://tel.meet/rjj-axbq-vrp?pin=2231504127295
+      
+      If you want to be manually added to the invite link, please reach out to Amber Graner (akgraner)
+
+  organizer: akgraner
