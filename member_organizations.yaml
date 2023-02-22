@@ -181,6 +181,13 @@
     - balaji.subramaniam@intel.com
     - abolfazl.shahbazi@intel.com
   url: https://www.intel.com
+  
+- name: Intuit
+  contacts:
+    - deepak_kumar@intuit.com
+    - deepen_mehta@intuit.com
+    - nagaraj_janardhana@intuit.com
+  url: https://www.intuit.com
 
 - name: LinkedIn
   contacts:
