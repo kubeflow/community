@@ -10,7 +10,7 @@ For pre-release artifacts, `rc` and a number incrementing from 0 are appended to
 In addition, some Kubeflow WGs leverage feature stages `alpha` and `beta` before releasing a stable version.
  For example, `X.Y.Z-alpha.0`.
 
-For more details, see specification of working group version policy and release process
+For more details, please refer to working groups' versioning policies and release processes:
 - [Katib](https://github.com/kubeflow/katib/tree/master/docs/release#release-process)
 - [Manifests](https://github.com/kubeflow/manifests#release-process)
 - [Notebooks](https://github.com/kubeflow/kubeflow/tree/master/releasing#release-process)
