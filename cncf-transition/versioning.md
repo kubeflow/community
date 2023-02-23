@@ -12,5 +12,7 @@ In addition, some Kubeflow WGs leverage feature stages `alpha` and `beta` before
 
 For more details, see specification of working group version policy and release process
 - [Katib](https://github.com/kubeflow/katib/tree/master/docs/release#release-process)
+- [Manifests](https://github.com/kubeflow/manifests#release-process)
+- [Notebooks](https://github.com/kubeflow/kubeflow/tree/master/releasing#release-process)
 - [Pipelines](https://github.com/kubeflow/pipelines/blob/master/RELEASE.md#release-tags-and-branches)
 - [Training Operator](https://github.com/kubeflow/training-operator/blob/master/docs/release/releasing.md)
