@@ -16,19 +16,15 @@
 
 The 1.8 release cycle is proposed as follows
 
-- **Friday, May 5th 2023**     : Week 0      - Release team is formed
-- **Monday, May 8th 2023**     : Week 1  C\* - Release cycle begins
-- **Friday, May 12th 2023**    : Week 1  C\* - Roadmaps are finalized
-- **Wednesday, Aug 16th 2023** : Week 15 C\* - Feature freeze
-- **Wednesday, Aug 21st 2023** : Week 16     - Manifests testing and bug fixing starts
-- **Friday, Sept 1st 2023**    : Week 17 C\* - Manifests testing and bug fixing ends
-- **Monday, Sept 4th 2023**    : Week 18     - Docs update starts
-- **Monday, Sept 4th 2023**    : Week 18     - Distribution testing starts
-- **Friday, Sept 22nd 2023**   : Week 20     - Distribution testing ends
-- **Monday, Sept 25th 2023**   : Week 21 C\* - Pre-release bug fixing stage starts
-- **Friday, Oct 6th 2023**     : Week 22     - Pre-release bug fixing stage ends
-- **Friday, Oct 6th 2023**     : Week 22     - Docs update ends
-- **Wednesday, Oct 11th 2023** : Week 23 C\* - Kubeflow v1.8 Released
+- **Monday, May 1st 2023**      : Week 0  C\* - Release team is formed
+- **Wednesday, May 10th 2023**  : Week 1  C\* - Release cycle begins
+- **Monday, May 15th 2023**     : Week 2      - Roadmaps are finalised
+- **Wednesday, Aug 2nd 2023**   : Week 13 C\* - Feature freeze, manifests sync starts, docs update starts
+- **Wednesday, Aug 9th 2023**   : Week 14     - Manifests sync ends, manifests testing and bug fixing starts
+- **Wednesday, Aug 23rd 2023**  : Week 16     - Manifests testing and bug fixing ends, RC.0 is cut, distribution testing starts
+- **Wednesday, Sept 13th 2023** : Week 19 C\* - Distribution testing ends, pre-release bug fixing stage starts
+- **Wednesday, Sept 27th 2023** : Week 21 C\* - Pre-release bug fixing stage ends, docs update ends
+- **Wednesday, Oct 4th 2023**   : Week 22     - Kubeflow v1.8 Released
 
 >C\*: this week coincides with the Community Meeting
 
