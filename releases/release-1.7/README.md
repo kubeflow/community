@@ -20,12 +20,12 @@ The 1.7 release cycle is proposed as follows
 - **Wednesday, Sep 28th 2022**: Week 1 - Release Cycle Begins
 - **Wednesday, Oct 19th 2022**: Week 4 - Roadmaps are finalized
 - **Wednesday, Jan 25th 2023**: Week 18 - Feature Freeze
-- **Wednesday, Feb 1st 2023**: Week 19 - Manifests Testing Starts
-- **Wednesday, Feb 8th 2023**: Week 20 - Manifests Testing Ends
-- **Wednesday, Feb 8th 2023**: Week 20 - Distribution Testing Starts
-- **Wednesday, Mar 1st 2023**: Week 23 - Distribution Testing Ends
-- **Tuesday, Mar 7th 2023**: Week 24 - Docs Update Ends
-- **Wednesday, Mar 8th 2023**: Week 24 - Kubeflow v1.7 Released
+- **Wednesday, Feb 8th 2023**: Week 19 - Manifests Testing Starts
+- **Wednesday, Feb 15th 2023**: Week 20 - Manifests Testing Ends
+- **Wednesday, Feb 15th 2023**: Week 20 - Distribution Testing Starts
+- **Wednesday, Mar 22st 2023**: Week 23 - Distribution Testing Ends
+- **Tuesday, Mar 28th 2023**: Week 24 - Docs Update Ends
+- **Wednesday, Mar 29th 2023**: Week 24 - Kubeflow v1.7 Released
 
 ## Timeline
 
