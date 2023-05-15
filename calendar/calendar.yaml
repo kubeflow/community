@@ -372,3 +372,23 @@
       If you want to be manually added to the invite link, please reach out to Amber Graner (akgraner)
 
   organizer: akgraner
+
+- id: kf035
+  name: Kubeflow Release Team Meeting (CET, US friendly)
+  date: 05/15/2023
+  time: 6:00-7:00 PM (CET)
+  frequency: weekly
+  video: https://meet.google.com/ezk-fmxo-fvu
+  until: 12/31/2023
+  attendees:
+    - email: kubeflow-discuss@googlegroups.com
+  description:
+    - |
+      Notes & agenda: https://bit.ly/kf-release-team-notes
+
+      Join with Google Meet: https://meet.google.com/ezk-fmxo-fvu
+      Time zone: Europe/Madrid
+      Video call link: https://meet.google.com/ezk-fmxo-fvu
+      Or dial: (ES) +34 877 99 40 20 PIN: 889 929 201#
+      More phone numbers: https://tel.meet/ezk-fmxo-fvu?pin=9345506892998
+  organizer: dnplas
