@@ -122,7 +122,7 @@
   organizer: jlewi
 
 - id: kf008
-  name: Enabling Kubeflow with Enterprise-Grade Auth for On-Prem Deployments - Yannis Zarkadas, Arrikto & Krishna Durai, Cisco 
+  name: Enabling Kubeflow with Enterprise-Grade Auth for On-Prem Deployments - Yannis Zarkadas, Arrikto & Krishna Durai, Cisco
   date: 11/19/2019
   time: 11:50am-12:25pm
   description:
@@ -280,7 +280,7 @@
     - |
       San Diego Convention Center – Sails Pavilion – O'Reilly Booth–S25
   organizer: jpatanooga
-  
+
 
 - id: kf024
   name: Model Management SIG Call
@@ -297,7 +297,7 @@
       Join at: https://meet.google.com/dxz-zthy-xjn
 
   organizer: karlshriek
-  
+
 - id: kf025
   name: Kubeflow Pipelines Community Meeting (PST PM)
   date: 08/05/2020
@@ -358,8 +358,8 @@
     - email: kubeflow-discuss@googlegroups.com
     - email: akgraner@arrikto.com
     - email: juliusvonkohout@gmail.com
-    - email: kimwnasptd@arrikto.com 
-    - email: joshbottum@gmail.com 
+    - email: kimwnasptd@arrikto.com
+    - email: joshbottum@gmail.com
   description:
     - |
       Notes & agenda: https://docs.google.com/document/d/1mRmtcZEnlVDKWUeQUYoogotq_FLkOaXLsIPIUN0JZ4I/edit?usp=sharing
@@ -368,7 +368,7 @@
 
       Join with Phone (US) +1 234-218-2628 PIN: 234 621 560#
       International numbers: https://tel.meet/rjj-axbq-vrp?pin=2231504127295
-      
+
       If you want to be manually added to the invite link, please reach out to Amber Graner (akgraner)
 
   organizer: akgraner
@@ -392,3 +392,18 @@
       Or dial: (ES) +34 877 99 40 20 PIN: 889 929 201#
       More phone numbers: https://tel.meet/ezk-fmxo-fvu?pin=9345506892998
   organizer: dnplas
+
+- id: kf036
+  name: Kubeflow Manifests WG Meeting
+  date: 06/01/2023
+  time: 6:00-7:00 PM (EET)
+  frequency: bi-weekly
+  video: https://bit.ly/kf-wg-manifests-meet
+  attendees:
+    - email: kubeflow-discuss@googlegroups.com
+  description:
+    - |
+      Notes & Agenda: https://bit.ly/kf-wg-manifests-notes
+      Meeting Link: https://bit.ly/kf-wg-manifests-meet
+      Recordings: https://bit.ly/kf-wg-manifests-drive
+  organizer: kimwnasptd
