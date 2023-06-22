@@ -335,23 +335,27 @@
   name: Kubeflow Security Team Call (US West/APAC)
   date: 02/15/2023
   time: 8:00AM-9:00AM
+  timezone: America/Los_Angeles
   frequency: bi-weekly
-  video: https://meet.google.com/rjj-axbq-vrp
+  video: https://us06web.zoom.us/j/87118537300?pwd=NG5ibWN0N2YxUGR5Y2NXSXRiN0FGZz09
   until: 12/31/2023
   attendees:
     - email: kubeflow-discuss@googlegroups.com
-    - email: akgraner@arrikto.com
+    - email: akgraner@gmail.com
     - email: juliusvonkohout@gmail.com
     - email: kimwnasptd@arrikto.com
     - email: joshbottum@gmail.com
   description:
     - |
-      Notes & agenda: https://docs.google.com/document/d/1mRmtcZEnlVDKWUeQUYoogotq_FLkOaXLsIPIUN0JZ4I/edit?usp=sharing
+      Notes & agenda: https://docs.google.com/document/d/1xGkg9GuO2OjvYhdONJFbSrpF66UKhtYonczttJoTv3s/edit?usp=sharing
 
-      Join with Google Meet: https://meet.google.com/rjj-axbq-vrp
+      Join Zoom Meeting: https://us06web.zoom.us/j/87118537300?pwd=NG5ibWN0N2YxUGR5Y2NXSXRiN0FGZz09
 
-      Join with Phone (US) +1 234-218-2628 PIN: 234 621 560#
-      International numbers: https://tel.meet/rjj-axbq-vrp?pin=2231504127295
+      Meeting ID: 871 1853 7300
+      Passcode: 273734
+      One tap mobile:
+      +13052241968,,87118537300#,,,,*273734# US
+      +13017158592,,87118537300#,,,,*273734# US (Washington DC)
 
       If you want to be manually added to the invite link, please reach out to Amber Graner (akgraner)
 
