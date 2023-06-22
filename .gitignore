@@ -1,5 +1,6 @@
 flymd.*
 **.pyc
+**.swp
 **/.ipynb_checkpoints
 **/.cache
 .DS_Store

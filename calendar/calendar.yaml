@@ -360,7 +360,8 @@
 - id: kf035
   name: Kubeflow Release Team Meeting (CET, US friendly)
   date: 05/15/2023
-  time: 6:00-7:00 PM (CET)
+  time: 6:00PM-7:00PM
+  timezone: Europe/Madrid
   frequency: weekly
   video: https://meet.google.com/ezk-fmxo-fvu
   until: 12/31/2023
@@ -380,7 +381,8 @@
 - id: kf036
   name: Kubeflow Manifests WG Meeting
   date: 06/01/2023
-  time: 6:00-7:00 PM (EET)
+  time: 6:00PM-7:00PM
+  timezone: Europe/Athens
   frequency: bi-weekly
   video: https://bit.ly/kf-wg-manifests-meet
   attendees:
@@ -390,4 +392,21 @@
       Notes & Agenda: https://bit.ly/kf-wg-manifests-notes
       Meeting Link: https://bit.ly/kf-wg-manifests-meet
       Recordings: https://bit.ly/kf-wg-manifests-drive
+  organizer: kimwnasptd
+
+- id: kf037
+  name: Kubeflow Notebooks WG Meeting
+  date: 06/08/2023
+  time: 6:00PM-6:45PM
+  timezone: Europe/Athens
+  frequency: bi-weekly
+  until: 12/31/2024
+  video: https://bit.ly/kf-wg-notebooks-meet
+  attendees:
+    - email: kubeflow-discuss@googlegroups.com
+  description:
+    - |
+      Notes & Agenda: https://bit.ly/kf-wg-notebooks-notes
+      Meeting Link: https://bit.ly/kf-wg-notebooks-meet
+      Recordings: https://bit.ly/kf-wg-notebooks-drive
   organizer: kimwnasptd
