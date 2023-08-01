@@ -87,17 +87,6 @@
       Meeting Host Link: https://zoom.us/s/83469905816
   organizer: autobot@kubeflow.org
 
-- id: kf005
-  name: Kubeflow Product Management Working Group
-  date: 08/20/2019
-  time: 10:00am-11:00am
-  frequency: bi-weekly
-  until: 07/14/2020
-  video: https://zoom.us/j/512655157
-  description:
-    - |
-      Meeting Logs: https://bit.ly/kf-pm-meeting-notes
-  organizer: theadactyl
 
 - id: kf006
   name: Kubeflow Outreach
