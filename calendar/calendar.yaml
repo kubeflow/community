@@ -291,14 +291,11 @@
   attendees:
     - email: kubeflow-discuss@googlegroups.com
     - email: kubeflow-pipelines@google.com
-    - email: zhitaoli@google.com
-    - email: ruoyu@google.com
-    - email: irenengi@google.com
   description:
     - |
       Notes & Agenda: http://bit.ly/kfp-meeting-notes
       Join at: https://meet.google.com/jkr-dupp-wwm
-  organizer: james-jwu
+  organizer: chensun
 
 - id: kf026
   name: Kubeflow Pipelines Community Meeting (PST AM)
@@ -309,14 +306,11 @@
   attendees:
     - email: kubeflow-discuss@googlegroups.com
     - email: kubeflow-pipelines@google.com
-    - email: zhitaoli@google.com
-    - email: ruoyu@google.com
-    - email: irenengi@google.com
   description:
     - |
       Notes & Agenda: http://bit.ly/kfp-meeting-notes
       Join at: https://meet.google.com/jkr-dupp-wwm
-  organizer: james-jwu
+  organizer: chensun
 
 - id: kf029
   name: Kubeflow Feature Store SIG Meeting (US/Asia friendly)
