@@ -19,7 +19,7 @@ The 1.8 release cycle is proposed as follows
 - **Wednesday, May 10th 2023**  : Week 1  C\* - Release cycle begins
 - **Monday, May 15th 2023**     : Week 2      - Roadmaps are finalised
 - **Wednesday, Aug 2nd 2023**   : Week 13 C\* - Feature freeze, manifests sync starts, docs update starts
-- **Wednesday, Aug 16th 2023**  : Week 15     - Manifests sync ends, RC.0 is cut, manifests testing and bug fixing starts
+- **Wednesday, Aug 16th 2023**  : Week 15 C\* - Manifests sync ends, RC.0 is cut, manifests testing and bug fixing starts
 - **Wednesday, Aug 23rd 2023**  : Week 16     - Manifests testing and bug fixing ends, distribution testing starts
 - **Wednesday, Sept 13th 2023** : Week 19 C\* - Distribution testing ends, pre-release bug fixing stage starts
 - **Wednesday, Sept 27th 2023** : Week 21 C\* - Pre-release bug fixing stage ends
