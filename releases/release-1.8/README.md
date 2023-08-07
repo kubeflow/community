@@ -19,7 +19,7 @@ The 1.8 release cycle is proposed as follows
 - **Wednesday, May 10th 2023**  : Week 1  C\* - Release cycle begins
 - **Monday, May 15th 2023**     : Week 2      - Roadmaps are finalised
 - **Wednesday, Aug 2nd 2023**   : Week 13 C\* - Feature freeze, manifests sync starts, docs update starts
-- **Wednesday, Aug 9th 2023**   : Week 14     - Manifests sync ends, RC.0 is cut, manifests testing and bug fixing starts
+- **Wednesday, Aug 16th 2023**  : Week 15     - Manifests sync ends, RC.0 is cut, manifests testing and bug fixing starts
 - **Wednesday, Aug 23rd 2023**  : Week 16     - Manifests testing and bug fixing ends, distribution testing starts
 - **Wednesday, Sept 13th 2023** : Week 19 C\* - Distribution testing ends, pre-release bug fixing stage starts
 - **Wednesday, Sept 27th 2023** : Week 21 C\* - Pre-release bug fixing stage ends
@@ -39,9 +39,9 @@ TODO: upon agreement on the dates above
 | Wed Aug 2nd 2023 | Week 13 | Release team | [Feature Freeze](../handbook.md#feature-freeze-2-weeks) |
 | Wed Aug 2nd 2023 | Week 13 | Release manager, WG leads | Manifests sync starts |
 | Wed Aug 2nd 2023 | Week 13 | Docs lead | Docs update starts |
-| Wed Aug 9th 2023 | Week 14 | Release manager, WG leads | Manifests sync ends |
-| Wed Aug 9th 2023 | Week 14 | Release manager | [v1.8-rc.0 Released](../handbook.md#feature-freeze-2-weeks) |
-| Wed Aug 9th 2023 | Week 14 | Manifests WG | Manifests testing and bug fixing starts |
+| Wed Aug 16th 2023 | Week 15 | Release manager, WG leads | Manifests sync ends |
+| Wed Aug 16th 2023 | Week 15 | Release manager | [v1.8-rc.0 Released](../handbook.md#feature-freeze-2-weeks) |
+| Wed Aug 16th 2023 | Week 15 | Manifests WG | Manifests testing and bug fixing starts |
 | Wed Aug 23rd 2023| Week 16 | Manifests WG | Manifests testing and bug fixing ends |
 | Wed Aug 23rd 2023 | Week 16 | Distributions | Distribution testing starts |
 | Wed Sept 13th 2023 | Week 19 | Distributions | Distribution testing ends |
