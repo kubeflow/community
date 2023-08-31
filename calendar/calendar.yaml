@@ -28,7 +28,7 @@
   name: Kubeflow Community Call (US East/EMEA)
   date: 08/18/2020
   time: 8:00AM-8:55AM
-  frequency: bi-weekly
+  frequency: weekly
   video: https://zoom.us/j/83469905816?pwd=aWM5clpLOTNTMU9udFpkZmV0L01VQT09
   attendees:
     - email: kubeflow-discuss@googlegroups.com
