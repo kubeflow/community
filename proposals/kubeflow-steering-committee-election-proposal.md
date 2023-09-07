@@ -79,6 +79,8 @@ Community members must be eligible to vote in order to stand for election (this 
 ### Voting Procedure ###
 Elections will be held using [Elekto](https://elekto.dev/), an online voting tool created by CNCF intern Manish Sahani. The details for previous KSC elections can be found in the elections folder **\<TBD\>**.
 
+In the [rare case](https://elekto.dev/docs/administration/concluding/#what-about-tie-votes) that election ends in a tie, a runoff election will be conducted. If the runoff election ends in a tie, candidate will be randomly selected to decided winners, with equal weights given to each runoff candidate.
+
 ### Limitations on Company Representation ###
 No more than two seats may be held by employees of the same organization (or conglomerate, in the case of companies owning each other). If the results of an election result in greater than two employees of the same organization, the lowest vote getters from any particular employer will be removed until representation on the committee is down to two.  
 
