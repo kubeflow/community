@@ -55,6 +55,19 @@ Interim KSC member B</td>
 ### Timeline ###  
 Steering Committee elections are held annually. 4 weeks or more before the election, the Steering Committee will appoint Election Officer(s) (see below). 2 weeks or more before the election, the Election Officer(s) will issue a call for nominations, publish the list of eligible voters, and open the call for exceptions. One week before the election the call for nominations and exceptions will be closed. The election will be open for voting not less than two weeks and not more than four. The results of the election will be announced within one week of closing the election. New Steering Committee members will take office in December of each year on the date the results are announced.
 
+The general timeline is as follows:
+- September
+  - Election officers appointed
+  - Election preparation (publish the list of eligible voters, open call for exceptions)
+- October
+  - Call for nomination
+  - Start of election
+- November
+  - Conclusion of election
+  - Results announced within one week after the election concludes
+- December
+  - New steering committee members take office in the first week of December
+
 ### Election Officer(s) ###  
 4 weeks or more before the election, the Steering Committee will appoint between one and three Election Officer(s) to administer the election. Elections Officers will be Kubeflow community members in good standing who are eligible to vote, are not running for Steering in that election, who are not currently part of the Steering Committee and can make a public promise of impartiality. They will be responsible for:
 
