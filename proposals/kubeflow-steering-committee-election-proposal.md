@@ -87,7 +87,7 @@ The electoral roll of all eligible voters will be captured at kubeflow/community
 We are committed to an inclusive process and will adapt future eligibility requirements based on community feedback.
 
 ## Candidate Eligibility ##
-Community members must be eligible to vote in order to stand for election (this includes voters who qualify for an exception). Candidates may self-nominate or be nominated by another eligible member. There are no term limits for KSC members. Nothing prevents a qualified member from serving on both the TOC and SC simultaneously.  
+Community members must be eligible to vote in order to stand for election (this includes voters who qualify for an exception). Candidates may self-nominate or be nominated by another eligible member. There are no term limits for KSC members. Nothing prevents a qualified member from serving on the Kubeflow Steering Committee, Technical Oversight Committee and Conformance Committee simultaneously.  
 
 ### Voting Procedure ###
 Elections will be held using [Elekto](https://elekto.dev/), an online voting tool created by CNCF intern Manish Sahani. The details for previous KSC elections can be found in the elections folder **\<TBD\>**.
