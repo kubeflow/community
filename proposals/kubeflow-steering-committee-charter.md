@@ -1,0 +1,118 @@
+# Kubeflow Steering Committee
+The Kubeflow Steering Committee (KSC) is the governing body of the Kubeflow project, providing decision-making and oversight pertaining to the Kubeflow project policies, sub-organizations, and financial planning, and defines the project values and structure.
+
+The governance of Kubeflow is an open, living document, and will continue to evolve as the community and project change.
+
+### Charter
+
+1. Define, evolve, and promote the vision, values, and mission of the Kubeflow project.
+1. Define and evolve project and group governance structures and policies, including election rules, working group policies, and project roles.
+1. Steward, control access, delegate access, and establish processes regarding all Kubeflow project resources and have the final say in the disposition of those resources.
+1. Define and evolve the scope of the Kubeflow community, including acceptance of new projects into Kubeflow.
+1. Receive and handle reports about code of conduct violations and maintain confidentiality.
+1. Act as the final escalation point and arbitrator for any disputes, issues, clarifications, or escalations within the project scope.
+
+## Delegated authority
+
+KSC may choose to delegate its authority to other committees as-needed. The committee currently recognizes this delegated authority for [To be set up]:
+
+-  Technical guidance is delegated to the Technical Oversight Committee.
+-  Trademark guidance is delegated to the Conformance Committee.
+
+## Committee Meetings
+
+KSC currently meets **<frequency TBD>**, or as-needed. Meetings are open to the public and held online.
+
+Given the private nature of some of these discussions (e.g. privacy, private emails to the committee, code of conduct violations, escalations, disputes between members, security reports, etc.), some meetings are held in private.
+
+Meeting notes are available to members of the kubeflow-discuss mailing list, unless community member privacy requires otherwise. Public meetings will be recorded and the recordings made available publicly.
+
+Questions and proposals for changes to governance are posted as issues in the kubeflow/community repo, and the KSC invites your feedback there. See [Getting in touch](#getting-in-touch) for other options.
+
+## Committee members
+
+KSC is composed of 5 (five) members. They are elected according to the election policy [TODO: add link].  
+Seats on the Steering Committee are held by an individual, not by their employer.  
+The current membership of the committee is currently (listed alphabetically by first name):
+
+<table>
+  <thead>
+    <tr>
+      <th><br>
+Member</th>
+      <th><br>
+Organization</th>
+      <th><br>
+Github Profile</th>
+      <th><br>
+Term Start</th>
+      <th><br>
+Term End</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+## Emeritus Committee Members
+
+[This section will be populated when there are retired committee members.]
+
+## Decision process
+
+The steering committee desires to always reach consensus.
+
+Decisions requiring a vote include: issuing written policy, amending existing written policy, creating, removing, or modifying a working group; all spending, hiring, and contracting decisions; official responses to publicly raised issues; or any other decisions that at least half of the members (rounded down) present decide require a vote.
+
+Decisions are made in meetings when a quorum of the members are present and may pass with at least half the members (rounded up) of the committee supporting it.
+
+Quorum is considered reached when at least half of the members (rounded up) are present.  
+Members of KSC may abstain from a vote. Abstaining members will only be considered as contributing to quorum, in the event that a vote is called in a meeting.
+
+## Getting in touch
+
+There are two ways to raise issues to the steering committee for decision:
+
+1. Emailing the steering committee at [TBD]. This is a private discussion list to which all members of the committee have access.
+1. Open an issue on a kubeflow/community repository and indicate that you would like attention from the steering committee using github tag [TBD].
+
+## Changes to the charter
+
+Changes to the KSC charter may be proposed via a PR on the charter itself. Amendments are accepted with majority consent of the committee as per the decision process outlined above.
+
+Proposals and amendments to the charter are available for at least a period of one week for comments and questions before a vote will occur.
