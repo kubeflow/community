@@ -152,6 +152,42 @@
       Recordings: https://bit.ly/kf-wg-notebooks-drive
   organizer: kimwnasptd
 
+- id: kf038
+  name: Kubeflow AutoML and Training WG Meeting (Asia & Europe friendly)
+  date: 09/20/2023
+  time: 11:00AM-12:00PM
+  timezone: Etc/UTC
+  frequency: every-4-weeks
+  video: https://us04web.zoom.us/j/8394435453?pwd=SHo4QXJhdHltb043NGxnMkZmU1l0UT09
+  attendees:
+    - email: kubeflow-discuss@googlegroups.com
+  description:
+    - |
+      Notes & Agenda: https://bit.ly/2PWVCkV
+
+      Join Zoom Meeting https://us04web.zoom.us/j/8394435453?pwd=SHo4QXJhdHltb043NGxnMkZmU1l0UT09
+      Meeting ID: 839 443 5453
+      Passcode: R3ScM7
+  organizer: andreyvelich
+
+- id: kf039
+  name: Kubeflow AutoML and Training WG Meeting (US friendly)
+  date: 10/04/2023
+  time: 5:00PM-6:00PM
+  timezone: Etc/UTC
+  frequency: every-4-weeks
+  video: https://us04web.zoom.us/j/8394435453?pwd=SHo4QXJhdHltb043NGxnMkZmU1l0UT09
+  attendees:
+    - email: kubeflow-discuss@googlegroups.com
+  description:
+    - |
+      Notes & Agenda: https://bit.ly/2PWVCkV
+
+      Join Zoom Meeting https://us04web.zoom.us/j/8394435453?pwd=SHo4QXJhdHltb043NGxnMkZmU1l0UT09
+      Meeting ID: 839 443 5453
+      Passcode: R3ScM7
+  organizer: andreyvelich
+
 ####################################################################################################
 # Legacy meetings
 ####################################################################################################
