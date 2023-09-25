@@ -39,7 +39,8 @@ Questions and proposals for changes to governance are posted as issues in the ku
 
 KSC is composed of 5 (five) members. They are elected according to the election policy [TODO: add link].  
 Seats on the Steering Committee are held by an individual, not by their employer.  
-The current membership of the committee is currently (listed alphabetically by first name):
+
+The current membership of the committee is (listed alphabetically by first name):
 
 <table>
   <thead>
@@ -103,7 +104,13 @@ Term End</th>
 
 The steering committee desires to always reach consensus.
 
-Decisions requiring a vote include: issuing written policy, amending existing written policy, creating, removing, or modifying a working group; all spending, hiring, and contracting decisions; official responses to publicly raised issues; or any other decisions that at least half of the members (rounded down) present decide require a vote.
+Decisions requiring a vote include:
+- Issuing written policy
+- Amending existing written policy
+- Creating, removing, or modifying a working group
+- All spending, hiring, and contracting decisions
+- Official responses to publicly raised issues
+- Any other decisions that at least half of the members (rounded down) present decide require a vote
 
 Decisions are made in meetings when a quorum of the members are present and may pass with at least half the members (rounded up) of the committee supporting it.
 
