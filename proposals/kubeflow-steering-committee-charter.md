@@ -14,16 +14,22 @@ The governance of Kubeflow is an open, living document, and will continue to evo
 
 ## Delegated authority
 
-KSC may choose to delegate its authority to other committees as-needed. The committee currently recognizes this delegated authority for [To be set up]:
+KSC may choose to delegate its authority to other committees as-needed.
+
+The committee currently recognizes this delegated authority for [To be set up]:
 
 -  Technical guidance is delegated to the Technical Oversight Committee.
 -  Trademark guidance is delegated to the Conformance Committee.
 
 ## Committee Meetings
 
-KSC currently meets **<frequency TBD>**, or as-needed. Meetings are open to the public and held online.
-
-Given the private nature of some of these discussions (e.g. privacy, private emails to the committee, code of conduct violations, escalations, disputes between members, security reports, etc.), some meetings are held in private.
+KSC currently meets **<frequency TBD>**, or as-needed. Meetings are open to the public and held online, unless they pertain to sensitive or previleged matters. Examples of such matters are:
+- Privacy related issues
+- Private emails to the committee
+- Code of conduct violations
+- Certain Escalations
+- Disputes between members
+- Security reports
 
 Meeting notes are available to members of the kubeflow-discuss mailing list, unless community member privacy requires otherwise. Public meetings will be recorded and the recordings made available publicly.
 
