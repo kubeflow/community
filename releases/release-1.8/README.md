@@ -15,18 +15,16 @@
 
 The 1.8 release cycle is proposed as follows
 
-- **Monday, May 1st 2023**      : Week 0  C\* - Release team is formed
-- **Wednesday, May 10th 2023**  : Week 1  C\* - Release cycle begins
-- **Monday, May 15th 2023**     : Week 2      - Roadmaps are finalised
-- **Wednesday, Aug 2nd 2023**   : Week 13 C\* - Feature freeze, manifests sync starts, docs update starts
-- **Wednesday, Aug 9th 2023**   : Week 14     - Manifests sync ends, manifests testing and bug fixing starts
-- **Wednesday, Aug 23rd 2023**  : Week 16     - Manifests testing and bug fixing ends, RC.0 is cut, distribution testing starts
-- **Wednesday, Sept 13th 2023** : Week 19 C\* - Distribution testing ends, pre-release bug fixing stage starts
-- **Wednesday, Sept 27th 2023** : Week 21 C\* - Pre-release bug fixing stage ends
-- **Tuesday, Oct 3rd 2023**     : Week 22     - Docs update ends
-- **Wednesday, Oct 4th 2023**   : Week 22     - Kubeflow v1.8 Released
-
->C\*: this week coincides with the Community Meeting
+- **Monday, May 1st 2023**      : Week 0  - Release team is formed
+- **Wednesday, May 10th 2023**  : Week 1  - Release cycle begins
+- **Monday, May 15th 2023**     : Week 2  - Roadmaps are finalised
+- **Wednesday, Aug 2nd 2023**   : Week 13 - Feature freeze, manifests sync starts, docs update starts
+- **Wednesday, Sept 7th 2023**  : Week 18 - Manifests sync ends, RC.0 is cut, manifests testing and bug fixing starts
+- **Wednesday, Sept 15th 2023** : Week 19 - Manifests testing and bug fixing ends, distribution testing starts
+- **Wednesday, Oct 6th 2023**   : Week 22 - Distribution testing ends, pre-release bug fixing stage starts
+- **Wednesday, Oct 20th 2023**  : Week 24 - Pre-release bug fixing stage ends
+- **Tuesday, Oct 23rd 2023**    : Week 25 - Docs update ends
+- **Wednesday, Oct 25th 2023**  : Week 25 - Kubeflow v1.8 Released
 
 ## Timeline
 
@@ -39,15 +37,15 @@ TODO: upon agreement on the dates above
 | Wed Aug 2nd 2023 | Week 13 | Release team | [Feature Freeze](../handbook.md#feature-freeze-2-weeks) |
 | Wed Aug 2nd 2023 | Week 13 | Release manager, WG leads | Manifests sync starts |
 | Wed Aug 2nd 2023 | Week 13 | Docs lead | Docs update starts |
-| Wed Aug 9th 2023 | Week 14 | Release manager, WG leads | Manifests sync ends |
-| Wed Aug 9th 2023 | Week 14 | Manifests WG | Manifests testing and bug fixing starts |
-| Wed Aug 23rd 2023| Week 16 | Manifests WG | Manifests testing and bug fixing ends |
-| Wed Aug 23rd 2023 | Week 16 | Release manager | [v1.8-rc.0 Released](../handbook.md#feature-freeze-2-weeks) |
-| Wed Aug 23rd 2023 | Week 16 | Distributions | Distribution testing starts |
-| Wed Sept 13th 2023 | Week 19 | Distributions | Distribution testing ends |
-| Wed Sept 13th 2023 | Week 19 | WGs | Pre-release bug fixing stage starts |
-| Wed Sept 27th 2023 | Week 21 | WGs | Pre-release bug fixing stage ends |
-| Wed Oct 3rd 2023 | Week 22 | Docs lead | Docs update ends |
-| Wed Oct 4th 2023 | Week 22 | Release team | **v1.8** Release day |
-| Wed Oct 4th 2023 | Week 22 | Release team, Docs lead | Publish release blog |
-| Mon Oct 9th 2023 | Week 23 | Release team | Release retrospective |
+| Wed Sept 7th 2023 | Week 18 | Release manager, WG leads | Manifests sync ends |
+| Wed Sept 7th 2023 | Week 18 | Release manager | [v1.8-rc.0 Released](../handbook.md#feature-freeze-2-weeks) |
+| Wed Sept 7th 2023 | Week 18 | Manifests WG | Manifests testing and bug fixing starts |
+| Wed Sept 15th 2023| Week 19 | Manifests WG | Manifests testing and bug fixing ends |
+| Wed Sept 15th 2023 | Week 19 | Distributions | Distribution testing starts |
+| Wed Oct 9th 2023 | Week 22 | Distributions | Distribution testing ends |
+| Wed Oct 9th 2023 | Week 22 | WGs | Pre-release bug fixing stage starts |
+| Wed Oct 20th 2023 | Week 24 | WGs | Pre-release bug fixing stage ends |
+| Wed Oct 23rd 2023 | Week 25 | Docs lead | Docs update ends |
+| Wed Oct 25th 2023 | Week 25 | Release team | **v1.8** Release day |
+| Wed Oct 25th 2023 | Week 25 | Release team, Docs lead | Publish release blog |
+| Mon Oct 30th 2023 | Week 26 | Release team | Release retrospective |
