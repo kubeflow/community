@@ -2,7 +2,7 @@
 
 The details of Kubeflow maintainers can be found in each working group specific repositories under the OWNERS file.
 
-- [Kubeflow](https://github.com/kubeflow/kubeflow/blob/master/OWNERS)
+- [Steering Committee](https://github.com/kubeflow/community/blob/master/proposals/STEERING-COMMITTEE.md)
 - [Katib](https://github.com/kubeflow/katib/blob/master/OWNERS)
 - [Manifests](https://github.com/kubeflow/manifests/blob/master/OWNERS)
 - [MPI Operator](https://github.com/kubeflow/mpi-operator/blob/master/OWNERS)
