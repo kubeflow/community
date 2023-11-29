@@ -53,20 +53,20 @@ Interim KSC member B</td>
 ## Election Procedure
 
 ### Timeline ###  
-Steering Committee elections are held annually. 4 weeks or more before the election, the Steering Committee will appoint Election Officer(s) (see below). 2 weeks or more before the election, the Election Officer(s) will issue a call for nominations, publish the list of eligible voters, and open the call for exceptions. One week before the election the call for nominations and exceptions will be closed. The election will be open for voting not less than two weeks and not more than four. The results of the election will be announced within one week of closing the election. New Steering Committee members will take office in December of each year on the date the results are announced.
+Steering Committee elections are held annually. 4 weeks or more before the election, the Steering Committee will appoint Election Officer(s) (see below). 2 weeks or more before the election, the Election Officer(s) will issue a call for nominations, publish the list of eligible voters, and open the call for exceptions. One week before the election the call for nominations and exceptions will be closed. The election will be open for voting not less than two weeks and not more than four. The results of the election will be announced within one week of closing the election. New Steering Committee members will take office in January of each year on the date the results are announced.
 
 The general timeline is as follows:
-- September
-  - Election officers appointed
-  - Election preparation (publish the list of eligible voters, open call for exceptions)
-- October
-  - Call for nomination
-  - Start of election
 - November
+  - Election officers appointed  
+- December
+  - Election preparation - publish the list of eligible voters, open call for exceptions (open for approximately 1 week)
+  - Call for nominations (open for approximately 2 weeks) 
+  - Testimonial Phase (open for approximately 2 weeks)
+  - Start of election (open for approximately 3 weeks)
+- January
   - Conclusion of election
   - Results announced within one week after the election concludes
-- December
-  - New steering committee members take office in the first week of December
+  - New steering committee members take office in January after the conclusion of the election. 
 
 ### Election Officer(s) ###  
 4 weeks or more before the election, the Steering Committee will appoint between one and three Election Officer(s) to administer the election. Elections Officers will be Kubeflow community members in good standing who are eligible to vote, are not running for Steering in that election, who are not currently part of the Steering Committee and can make a public promise of impartiality. They will be responsible for:
@@ -90,9 +90,11 @@ We are committed to an inclusive process and will adapt future eligibility requi
 Community members must be eligible to vote in order to stand for election (this includes voters who qualify for an exception). Candidates may self-nominate or be nominated by another eligible member. There are no term limits for KSC members. Nothing prevents a qualified member from serving on the Kubeflow Steering Committee, Technical Oversight Committee and Conformance Committee simultaneously.  
 
 ### Voting Procedure ###
-Elections will be held using [Elekto](https://elekto.dev/), an online voting tool created by CNCF intern Manish Sahani. The details for previous KSC elections can be found in the elections folder **\<TBD\>**.
+Elections will be held using Condorcet Internet Voting Service (CIVS), an online voting tool that is used by many of the CNCF projects and other open-source communities.  This tool has been running since 2003 and is what the [Elekto tool](https://elekto.dev/) is based on.
 
-In the [rare case](https://elekto.dev/docs/administration/concluding/#what-about-tie-votes) that election ends in a tie, the election offices may ask the tied candidates to resolve the tie (e.g. one or more candidates could decide to withdraw). If the tie cannot be resolved among the tied candidates, a runoff election will be conducted. If the runoff election ends in a tie, candidate will be randomly selected to decided winners, with equal weights given to each runoff candidate.
+After this first election, the details for the KSC elections will be published in the elections folder. This folder will be set up after the conclusion of the first election.
+
+In the rare case that election ends in a tie, the election offices may ask the tied candidates to resolve the tie (e.g. one or more candidates could decide to withdraw). If the tie cannot be resolved among the tied candidates, a runoff election will be conducted. If the runoff election ends in a tie, candidate will be randomly selected to decided winners, with equal weights given to each runoff candidate.
 
 ### Limitations on Company Representation ###
 No more than two seats may be held by employees of the same organization (or conglomerate, in the case of companies owning each other). If the results of an election result in greater than two employees of the same organization, the lowest vote getters in the current election from any particular employer will be removed until representation on the committee is down to two.
