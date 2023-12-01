@@ -450,7 +450,7 @@ workinggroups:
       company: Nutanix
     - github: terrytangyuan
       name: Yuan Tang
-      company: Akuity
+      company: Red Hat
     tech_leads:
     - github: Jeffwan
       name: Jiaxin Shan
@@ -466,7 +466,7 @@ workinggroups:
       company: Nutanix
     - github: terrytangyuan
       name: Yuan Tang
-      company: Akuity
+      company: Red Hat
   meetings:
   - description: Regular WG Meeting (Asia & Europe friendly)
     day: Wednesday
