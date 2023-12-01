@@ -86,11 +86,15 @@ The electoral roll of all eligible voters will be captured at kubeflow/community
 
 We are committed to an inclusive process and will adapt future eligibility requirements based on community feedback.
 
+If you believe you are eligible to vote but are not listed as an elegible voter [you may file an exception using the exception form](https://forms.gle/epaMrirZCNBztoRz5).
+
 ## Candidate Eligibility ##
-Community members must be eligible to vote in order to stand for election (this includes voters who qualify for an exception). Candidates may self-nominate or be nominated by another eligible member. There are no term limits for KSC members. Nothing prevents a qualified member from serving on the Kubeflow Steering Committee, Technical Oversight Committee and Conformance Committee simultaneously.  
+Community members must be eligible to vote in order to stand for election (this includes voters who qualify for an exception). Candidates may self-nominate or be nominated by another eligible member. There are no term limits for KSC members. Nothing prevents a qualified member from serving on the Kubeflow Steering Committee, Technical Oversight Committee and Conformance Committee simultaneously. 
+
+If you believe you are eligible to run in this election but are not listed as an eligible nominee candidate [you may file and exception using the exception form](https://forms.gle/epaMrirZCNBztoRz5). 
 
 ### Voting Procedure ###
-Elections will be held using Condorcet Internet Voting Service (CIVS), an online voting tool that is used by many of the CNCF projects and other open-source communities.  This tool has been running since 2003 and is what the [Elekto tool](https://elekto.dev/) is based on.
+Elections will be held using [Condorcet Internet Voting Service (CIVS)](https://civs1.civs.us/), an online voting tool that is used by many of the CNCF projects and other open-source communities.  This tool has been running since 2003 and is what the [Elekto tool](https://elekto.dev/) is based on.
 
 After this first election, the details for the KSC elections will be published in the elections folder. This folder will be set up after the conclusion of the first election.
 
