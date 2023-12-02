@@ -1,11 +1,11 @@
 # Kubeflow Project Steering Committee Elections 2023 #
 ## Guidelines, Timelines and Phases ##
 
-The Kubeflow Project is holding its first election for the Kubeflow Project Steering Committee (PSC).  The PSC will also be responsible for helping to setting up of Technical Oversight Committee (TOC) that is responsible for defining and maintaining the technical vision of the Kubeflow Project and an Administrative Oversight Committee (AOC) that is responsible for defining and maintaining the outreach, growth and other non-code specific items of the Kubeflow project. The TOC and AOC will be set up at a future date and will have its own defining role in the Kubeflow project.  
+The Kubeflow Project is holding its first election for the Kubeflow Project Steering Committee (KSC).  The KSC will also be responsible for helping to setting up of Technical Oversight Committee (TOC) that is responsible for defining and maintaining the technical vision of the Kubeflow Project and an Administrative Oversight Committee (AOC) that is responsible for defining and maintaining the outreach, growth and other non-code specific items of the Kubeflow project. The TOC and AOC will be set up at a future date and will have its own defining role in the Kubeflow project.  
 
-The PSC responsibilities and operations are defined [here](https://github.com/kubeflow/community/blob/master/proposals/STEERING-COMMITTEE.md). The PSC is intended to be a resource in the community that both guides the direction of the Kubeflow Project and acts as a resource to the TOC, AOC, Working Groups (WG), Special Interest Groups (SIG) and Teams. Their role is also to help define what new WGs, SIGs and Teams. 
+The KSC responsibilities and operations are defined [here](https://github.com/kubeflow/community/blob/master/proposals/STEERING-COMMITTEE.md). 
 
-The Project Steering Committee elections process for open positions will start on **4 December 2023**. 
+The KSC elections process for open positions will start on **4 December 2023**. 
 
 More details about the Kubeflow election process can be found in the [Kubeflow Election Process document](https://github.com/kubeflow/community/blob/master/proposals/kubeflow-steering-committee-election-proposal.md).  
 
@@ -14,13 +14,17 @@ More details about the Kubeflow election process can be found in the [Kubeflow E
 
 **Voter qualifications:** To be eligible to vote in this election a voter should be an active member in the Kubeflow Community and have a minimum of 50 contributions* to the Kubeflow project in the last year.**  If you believe you are eligible to vote, but are not listed as eligible you may [file an exception](https://forms.gle/epaMrirZCNBztoRz5). 
 
+## *The qualified voters list will be published to the elections folder and shared with the community via Kubeflow-discuss on Monday 4 December 2023, on or before 9:00am pacific.* ## 
+
 *Contributions are defined as:  Github Code and Issue Authors, Merge and Pull Requests Submitters as well as commenters on all issues, PRs and MRs.
 
 ** For this election last year is from 3 December 2022 to 3 December 2023
 
 ## Nomination Qualifications ##
 
-**Nomination qualifications:** A nominee should be an active member in the Kubeflow Community and have a minimum of 50 contributions* to the Kubeflow project in the last year.** have the available bandwidth to be invested in the PSG, and be able to operate neutrally in discussions regardless of company or project affiliation. If you believe you are eligible, but are not you may [file an exception](https://forms.gle/epaMrirZCNBztoRz5).  *(Election officers are ineligible to run in an election.)* 
+**Nomination qualifications:** A nominee should be an active member in the Kubeflow Community and have a minimum of 50 contributions* to the Kubeflow project in the last year.** have the available bandwidth to be invested in the KSC, and be able to operate neutrally in discussions regardless of company or project affiliation. If you believe you are eligible, but are not listed as eligible you may [file an exception](https://forms.gle/epaMrirZCNBztoRz5).  *(Election officers are ineligible to run in an election.)* 
+
+## *The qualified nominees list will be published to the elections folder and shared with the community via Kubeflow-discuss on Monday 4 December 2023, on or before 9:00am pacific.* ## 
 
 **Contributions are defined as:  Github Code and Issue Authors, Merge and Pull Requests Submitters as well as commenters on all issues, PRs and MRs.
 
