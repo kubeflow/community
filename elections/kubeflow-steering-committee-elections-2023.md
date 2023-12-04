@@ -1,7 +1,9 @@
 # Kubeflow Project Steering Committee Elections 2023 #
 ## Guidelines, Timelines and Phases ##
 
-The Kubeflow Project is holding its first election for the Kubeflow Project Steering Committee (KSC).  The KSC will also be responsible for helping to setting up of Technical Oversight Committee (TOC) that is responsible for defining and maintaining the technical vision of the Kubeflow Project and an Administrative Oversight Committee (AOC) that is responsible for defining and maintaining the outreach, growth and other non-code specific items of the Kubeflow project. The TOC and AOC will be set up at a future date and will have its own defining role in the Kubeflow project.  
+The Kubeflow Project is holding its first election for the Kubeflow Project Steering Committee (KSC).  The KSC will also be responsible for helping to setting up of Technical Oversight Committee (TOC) that is responsible for defining and maintaining the technical vision of the Kubeflow Project and an Administrative Oversight Committee (AOC)* that is responsible for defining and maintaining the outreach, growth and other non-code specific items of the Kubeflow project. The TOC and AOC will be set up at a future date and will have its own defining role in the Kubeflow project.  
+
+***Please note** The AOC is a suggested new committee and is here as a placeholder for a yet to be determined group that will work on non-code related topics such as marketing, communications, events and administrative needs of the project.  
 
 The KSC responsibilities and operations are defined [here](https://github.com/kubeflow/community/blob/master/proposals/STEERING-COMMITTEE.md). 
 
