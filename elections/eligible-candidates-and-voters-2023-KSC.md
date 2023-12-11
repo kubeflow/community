@@ -61,6 +61,7 @@ If you believe your name should be on either list you [may file an exception](ht
 - [xhejtman](https://github.com/xhejtman)
 - [ssheng](https://github.com/ssheng)
 - [mchowdhury-91](https://github.com/mchowdhury-91)
+- [SachinVarghese](https://github.com/SachinVarghese)
 
 ## List of eleigble candidates who can be nominated:
 - [tenzen-y](https://github.com/tenzen-y)
