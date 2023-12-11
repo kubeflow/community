@@ -2,7 +2,7 @@ As explained [in the document](https://github.com/kubeflow/community/blob/master
 
 If you believe your name should be on either list you [may file an exception](https://forms.gle/epaMrirZCNBztoRz5) between 4 December 2023 starting at 9:00am PT and 10 December 2023 ending at 12:00pm PT. 
 ​
-## List of eleigble voters:
+## List of eligble voters:
 - [tenzen-y](https://github.com/tenzen-y)
 - [connor-mccarthy](https://github.com/connor-mccarthy)
 - [chensun](https://github.com/chensun)
