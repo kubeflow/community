@@ -78,15 +78,15 @@
 
 - id: kf034
   name: Kubeflow Security Team Call (US West/APAC)
-  date: 02/15/2023
-  time: 8:00AM-9:00AM
+  date: 12/19/2023
+  time: 7:30AM-8:00AM
   frequency: bi-weekly
   video: https://us06web.zoom.us/j/87118537300?pwd=NG5ibWN0N2YxUGR5Y2NXSXRiN0FGZz09
   attendees:
     - email: kubeflow-discuss@googlegroups.com
-    - email: akgraner@arrikto.com
+    - email: akgraner@gmail.com
     - email: juliusvonkohout@gmail.com
-    - email: kimwnasptd@arrikto.com
+    - email: kimonas.sotirchos@canonical.com
     - email: joshbottum@gmail.com
   description:
     - |
