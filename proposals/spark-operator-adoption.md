@@ -61,7 +61,8 @@ on Kubernetes. Also,
 [a new proposal for Model Registry](https://docs.google.com/document/d/1T3KfOqIfJohp0s1koQ2XrJJQQhj7TECO-m2xPsW59_c/edit#heading=h.t7b42oqmiz2y)
 in Kubeflow can be part of Data WG scope.
 
-Initially, Spark Operator is the ideal candidate to start this WG.
+Initially, Spark Operator is the ideal candidate to start this WG. We will start a separate proposal
+to create Data WG in Kubeflow.
 
 ### Spark Operator & Kubeflow Training Operator
 
