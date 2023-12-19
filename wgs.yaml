@@ -512,16 +512,16 @@ workinggroups:
   - name: xgboost-operator
     owners:
     - https://raw.githubusercontent.com/kubeflow/xgboost-operator/master/OWNERS
-- dir: wg-mldata
-  name: WG ML Data (name provisional)
+- dir: wg-data
+  name: WG Data (name provisional)
   mission_statement: >
-    TODO: WG ML Data is a provisional name to bootstrap this proposal work.
+    TODO: WG Data is a provisional name to bootstrap this proposal work.
     This is being co-located with the WG for Spark scope, as suggested for the Spark proposal.
     The goal of Spark on Kubernetes Operator is to simplify the capability of running Apache Spark on Kubernetes. It automates deployment and simplifies lifecycle management of Spark Jobs on Kubernetes.
     The goal of Model Registry is gather, analyze, and develop model registry requirements of Kubeflow community users.
 
   charter_link: charter.md
-  label: area/wg-mldata
+  label: area/wg-data
   leadership:
     chairs:
     - github: andreyvelich
@@ -548,11 +548,11 @@ workinggroups:
     frequency: biweely - every other Wednesday of the month
     archive_url: https://docs.google.com/document/d/1DmMhcae081SItH19gSqBpFtPfbkr9dFhSMCgs-JKzNo/edit?usp=sharing
   contact:
-    slack: wg-mldata
+    slack: wg-data
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
     teams:
-    - name: wg-mldata
-      description: WG ML Data (name provisional) team
+    - name: wg-data
+      description: WG Data (name provisional) team
   subprojects:
   - name: TODO spark operator here
     owners:
