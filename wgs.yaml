@@ -512,33 +512,27 @@ workinggroups:
   - name: xgboost-operator
     owners:
     - https://raw.githubusercontent.com/kubeflow/xgboost-operator/master/OWNERS
-- dir: wg-lifecycle
-  name: WG Lifecycle
+- dir: wg-mldata
+  name: WG ML Data (name provisional)
   mission_statement: >
-    TODO: WG Lifecycle is a provisional name to bootstrap this proposal work.
+    TODO: WG ML Data is a provisional name to bootstrap this proposal work.
     This is being co-located with the WG for Spark scope, as suggested for the Spark proposal.
     The goal of Spark on Kubernetes Operator is to simplify the capability of running Apache Spark on Kubernetes. It automates deployment and simplifies lifecycle management of Spark Jobs on Kubernetes.
     The goal of Model Registry is gather, analyze, and develop model registry requirements of Kubeflow community users.
 
   charter_link: charter.md
-  label: area/wg-lifecycle
+  label: area/wg-mldata
   leadership:
     chairs:
     - github: andreyvelich
       name: Andrey Velichkevich
       company: Apple
-    - github: tarilabs
-      name: Matteo Mortari
+    - github: rimolive
+      name: Ricardo Martinelli de Oliveira
       company: Red Hat
     - github: Tomcli
       name: Tommy Li
       company: IBM
-    - github: dhirajsb
-      name: Dhiraj Bokde
-      company: Red Hat
-    - github: rimolive
-      name: Ricardo Martinelli de Oliveira
-      company: Red Hat
     tech_leads:
     - github: dhirajsb
       name: Dhiraj Bokde
@@ -554,15 +548,15 @@ workinggroups:
     frequency: biweely - every other Wednesday of the month
     archive_url: https://docs.google.com/document/d/1DmMhcae081SItH19gSqBpFtPfbkr9dFhSMCgs-JKzNo/edit?usp=sharing
   contact:
-    slack: wg-lifecycle
+    slack: wg-mldata
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
     teams:
-    - name: wg-lifecycle
-      description: Licycle team
+    - name: wg-mldata
+      description: WG ML Data (name provisional) team
   subprojects:
   - name: TODO spark operator here
     owners:
-    - https://raw.githubusercontent.com/kubeflow/TODO spark operator here/master/OWNERS
+    - https://raw.githubusercontent.com/kubeflow/{{TODO spark operator here}}/master/OWNERS
   - name: model-registry
     owners:
     - https://raw.githubusercontent.com/kubeflow/model-registry/master/OWNERS
