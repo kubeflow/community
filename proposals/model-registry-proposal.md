@@ -85,6 +85,9 @@ We intend to use this model to extend and provide metadata storage services for 
 
 ### Step 2:  The Re-Write (Target to Deliver End Of Q2/2024)
 
+> [!NOTE]
+> this step might be influenced by the outcomes of the current investigation on OCI/ORAS as an infrastructure layer for Model Registry (see related chapter later in this document); as such, amendments to time or scope might follow depending on the results and decisions in relation to that topic.
+
 In this step we propose to rewrite parts of the ML-Metadata project, primarily remove the C++ server and re-implement it based on Golang and make it Kube native. As part of the rewrite, we want to make this multi-tenant such that there is only a single installation of the Model Registry and integrate with Istio/envoy to support the RBAC and mTLS on its endpoints. We have done a POC using GoLang and found using the code generation and ORM solutions we could eliminate a lot of crud code for easier maintenance. We also believe picking more mainstream language for the Kubernetes environment might also encourage more contributions from the community.
 
 ![Step2 Diagram](diagrams/model-registry-connections2.png "Step2 Diagram")
