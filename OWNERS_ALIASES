@@ -17,17 +17,11 @@ aliases:
     - vpavlin
     - yanniszark
   wg-manifests-leads:
-    - PatrickXYS
     - StefanoFioravanzo
-    - elikatsis
     - kimwnasptd
-    - yanniszark
   wg-notebooks-leads:
-    - StefanoFioravanzo
-    - elikatsis
     - kimwnasptd
     - thesuperzapper
-    - yanniszark
   wg-pipelines-leads:
     - animeshsingh
     - chensun

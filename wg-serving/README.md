@@ -8,13 +8,16 @@ To understand how this file is generated, see https://github.com/kubeflow/commun
 --->
 # Serving Working Group
 
+<hr>
+<h3>⚠️This Working Group is INACTIVE ⚠️</h3>
+<h4>The following information is for historical purposes only.</h4>
+<hr>
+
 WG Serving covers developing, deploying, and operating serving jobs on Kubeflow.
 
 The [charter](charter.md) defines the scope and governance of the Serving Working Group.
 
-## Meetings
-* Regular WG Meeting: [Wednesdays at 09:00 PT (Pacific Time)]() (biweekly). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=09:00&tz=PT%20%28Pacific%20Time%29).
-  * [Meeting notes and Agenda](https://docs.google.com/document/d/1KZUURwr9MnHXqHA08TFbfVbM8EAJSJjmaMhnvstvi-k/edit).
+
 
 ## Organizers
 
