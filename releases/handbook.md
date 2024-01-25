@@ -226,7 +226,7 @@ From that phase and forward updates to the manifests repo must only be fixing co
 - Provide a _git revision_ which the release team members or Manifests leads will use to update the files in the manifests repo
 - Provide an initial list of issues that the WG would like to close until the final release
 - Work on closing the provided open issues
-- Ensure that future_git revisions_they provide only include bug fixes, and not new features, from the previously provided _git revision_
+- Ensure that future _git revisions_ they provide only include bug fixes, and not new features, from the previously provided _git revision_
 - Declare expected common dependency version ranges
 
 **Actions for Manifests WG:**
