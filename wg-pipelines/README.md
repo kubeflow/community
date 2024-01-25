@@ -27,6 +27,11 @@ The [charter](charter.md) defines the scope and governance of the Pipelines Work
 - GitHub Teams:
     - [@kubeflow/wg-pipelines-bugs](https://github.com/orgs/kubeflow/teams/wg-pipelines-bugs) - Bug Triage and Troubleshooting
     - [@kubeflow/wg-pipelines-reviews](https://github.com/orgs/kubeflow/teams/wg-pipelines-reviews) - API Changes and Reviews (API Machinery APIs, NOT all APIs)
+
+## Repository
+- https://github.com/kubeflow/pipelines
+- https://github.com/kubeflow/kfp-tekton [deprecated]
+
 <!-- BEGIN CUSTOM CONTENT -->
 
 <!-- END CUSTOM CONTENT -->
