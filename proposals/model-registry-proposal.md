@@ -73,7 +73,7 @@ To bootstrap the project fast as well as to keep the existing investment in the 
 * Step 2: Re-implement parts of the ML-Metadata project in Go lang and also make this server multi-tenant capable. Implement the RBAC features on the server to control the behavior with permissions and user personas.
 
 
-### Step 1:  The Incubation (Target to Deliver End Of Q1/2024)
+### Step 1:  The Incubation (Target to Deliver as Alpha in KF 1.9)
 
 Google community project [ML-Metadata](https://github.com/google/ml-metadata/) will be used as the core component to build the Model Registry. ML-Metadata provides a very extensible schema that is generic, similar to a key-value store, but also allows for the creation of logical schemas that can be queried as if they were physical schemas. Those can be manipulated using their bindings in the Python library. 
 
@@ -83,7 +83,7 @@ We intend to use this model to extend and provide metadata storage services for 
 [Diagram source](https://lucid.app/lucidchart/6a9818f2-d76e-40b7-b30c-57cb1c143d9e/edit?viewport_l[…]1528%2C0_0&invitationId=inv_a7e226fb-edc9-4c4e-b36e-dac9df95219b)
 
 
-### Step 2:  The Re-Write (Target to Deliver End Of Q2/2024)
+### Step 2:  The Re-Write
 
 > [!NOTE]
 > this step might be influenced by the outcomes of the current investigation on OCI/ORAS as an infrastructure layer for Model Registry (see related chapter later in this document); as such, amendments to time or scope might follow depending on the results and decisions in relation to that topic.
