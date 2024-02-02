@@ -176,6 +176,22 @@
       International numbers: https://zoom.us/zoomconference?m=Os1EjlUlpb2_XUMaQ6dX1azqMK5CkfWH
   organizer: thesuperzapper
 
+- id: kf041
+  name: KF Model Registry community meeting (US/EMEA)
+  date: 02/07/2024
+  time: 5:00PM-5:55PM
+  timezone: Etc/UTC
+  frequency: bi-weekly
+  video: https://meet.google.com/pni-ywgg-gtt
+  attendees:
+    - email: kubeflow-discuss@googlegroups.com
+  description:
+    - |
+      Bi-weekly recurring meeting for KF Model Registry community call.
+
+      Meeting notes: https://docs.google.com/document/d/1DmMhcae081SItH19gSqBpFtPfbkr9dFhSMCgs-JKzNo/edit?usp=sharing
+  organizer: tarilabs
+
 - id: kf038
   name: Kubeflow AutoML and Training WG Meeting (Asia & Europe friendly)
   date: 09/20/2023
