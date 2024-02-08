@@ -1,5 +1,6 @@
 approvers:
+  - andreyvelich
   - james-jwu
-  - theadactyl
-reviewers:
-  - theadactyl
+  - jbottum
+  - johnugeorge
+  - terrytangyuan
