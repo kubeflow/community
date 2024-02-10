@@ -178,16 +178,17 @@
 
 - id: kf041
   name: KF Model Registry community meeting (US/EMEA)
-  date: 02/07/2024
-  time: 5:00PM-5:55PM
-  timezone: Etc/UTC
+  date: 02/19/2024
+  time: 7:00PM-8:00PM
+  timezone: Europe/Madrid
+  # meeting to happen after KF Release meeting (id: kf035), hence align by using same TZ
   frequency: bi-weekly
   video: https://meet.google.com/pni-ywgg-gtt
   attendees:
     - email: kubeflow-discuss@googlegroups.com
   description:
     - |
-      Bi-weekly recurring meeting for KF Model Registry community call.
+      Bi-weekly recurring meeting for KF Model Registry community call
 
       Meeting notes: https://docs.google.com/document/d/1DmMhcae081SItH19gSqBpFtPfbkr9dFhSMCgs-JKzNo/edit?usp=sharing
   organizer: tarilabs
