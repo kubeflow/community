@@ -18,12 +18,12 @@ KSC may choose to delegate its authority to other committees as-needed.
 
 The committee currently recognizes this delegated authority for [To be set up]:
 
--  Technical guidance is delegated to the Technical Oversight Committee.
--  Trademark guidance is delegated to the Conformance Committee.
+-  Technical guidance is delegated to the [Technical Oversight Committee](https://github.com/kubeflow/community/blob/master/proposals/TECH-OVERSIGHT-COMMITTEE.md).
+-  Trademark guidance is delegated to the [Conformance Committee](https://github.com/kubeflow/community/blob/master/proposals/CONFORMANCE-COMMITTEE.md).
 
 ## Committee Meetings
 
-KSC currently meets **<frequency TBD>**, or as-needed. Meetings are open to the public and held online, unless they pertain to sensitive or previleged matters. Examples of such matters are:
+KSC currently meets at least bi-weekly, or as-needed. Meetings are open to the public and held online, unless they pertain to sensitive or previleged matters. Examples of such matters are:
 - Privacy related issues
 - Private emails to the committee
 - Code of conduct violations
