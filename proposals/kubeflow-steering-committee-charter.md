@@ -104,6 +104,8 @@ Term End</th>
 
 The steering committee desires to always reach consensus.
 
+### Normal decision process
+
 Decisions requiring a vote include:
 - Issuing written policy
 - Amending existing written policy
@@ -117,6 +119,21 @@ Decisions are made in meetings when a quorum of the members are present and may 
 Quorum is considered reached when at least half of the members (rounded up) are present.  
 Members of KSC may abstain from a vote. Abstaining members will only be considered as contributing to quorum, in the event that a vote is called in a meeting.
 
+### Special decision process
+
+Issues that impacts the KSC governance requires a special decision process. Issues include:
+- Changes to the KSC charter
+- KSC voting rules
+
+The issue may pass with 70% of the members (rounded up) of the committee supporting it.
+
+### Results
+
+The results of the decision process are recorded and made publicly available, unless they pertain to sensitive or previleged matters. The results will include:
+- Description of the issue
+- Names of members who supported, opposed, and abstained from the vote.
+-  
+
 ## Getting in touch
 
 There are two ways to raise issues to the steering committee for decision:
@@ -126,6 +143,6 @@ There are two ways to raise issues to the steering committee for decision:
 
 ## Changes to the charter
 
-Changes to the KSC charter may be proposed via a PR on the charter itself. Amendments are accepted with majority consent of the committee as per the decision process outlined above.
+Changes to the KSC charter may be proposed via a PR on the charter itself. Amendments are accepted following the [Special Decision Process](#special-decision-process) detailed above.
 
 Proposals and amendments to the charter are available for at least a period of one week for comments and questions before a vote will occur.
