@@ -23,7 +23,7 @@ The committee currently recognizes this delegated authority for [To be set up]:
 
 ## Committee Meetings
 
-KSC currently meets at least bi-weekly, or as-needed. Meetings are open to the public and held online, unless they pertain to sensitive or previleged matters. Examples of such matters are:
+KSC currently meets at least bi-weekly, or as-needed. Meetings are open to the public and held online, unless they pertain to sensitive or privileged matters. Examples of such matters are:
 - Privacy related issues
 - Private emails to the committee
 - Code of conduct violations
@@ -109,6 +109,7 @@ The steering committee desires to always reach consensus.
 Decisions requiring a vote include:
 - Issuing written policy
 - Amending existing written policy
+- Accepting, or removing a Kubeflow component
 - Creating, removing, or modifying a working group
 - All spending, hiring, and contracting decisions
 - Official responses to publicly raised issues
@@ -132,7 +133,6 @@ The issue may pass with 70% of the members (rounded up) of the committee support
 The results of the decision process are recorded and made publicly available, unless they pertain to sensitive or previleged matters. The results will include:
 - Description of the issue
 - Names of members who supported, opposed, and abstained from the vote.
--  
 
 ## Getting in touch
 
@@ -143,6 +143,6 @@ There are two ways to raise issues to the steering committee for decision:
 
 ## Changes to the charter
 
-Changes to the KSC charter may be proposed via a PR on the charter itself. Amendments are accepted following the [Special Decision Process](#special-decision-process) detailed above.
+Changes to the KSC charter may be proposed via a PR on the charter itself by a Kubeflow community member. Amendments are accepted following the [Special Decision Process](#special-decision-process) detailed above.
 
 Proposals and amendments to the charter are available for at least a period of one week for comments and questions before a vote will occur.
