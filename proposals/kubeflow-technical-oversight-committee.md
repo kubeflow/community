@@ -10,7 +10,9 @@ community and project change.
 
 - Project direction and roadmap:
 
-  - Set the overall technical direction and Kubeflow roadmap.
+  - Consolidate together with WGs the overall technical direction and Kubeflow roadmap.
+
+  - Suggest cross-WGs features like LLMOps and work with stakeholders to address it.
 
   - Create proposals based on TOC discussions and bring them to the relevant working groups for discussion.
 
@@ -49,7 +51,7 @@ The committee currently recognizes this delegated authority for [To be set up]:
 
 - Kubeflow components guidance is delegated to the appropriate [Working Groups](../wgs/wg-governance.md).
 
-- Enforcing Kubeflow conformance program rules created by TOC and KSC is deleted to the\
+- Enforcing Kubeflow conformance program rules created by TOC and KSC is delegated to the
   [Conformance Committee](CONFORMANCE-COMMITTEE.md).
 
 ## Committee Meetings
@@ -75,6 +77,8 @@ feedback there.
 
 TOC is composed of 3 (three) members. They are elected according
 to the election policy [TODO: add link].
+No more than two seats may be held by employees of the same organization
+(or conglomerate, in the case of companies owning each other).
 Seats on the TOC are held by an individual, not by their employer.
 
 The current membership of the committee is (listed alphabetically by first name):
