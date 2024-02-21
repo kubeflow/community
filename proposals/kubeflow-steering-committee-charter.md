@@ -9,6 +9,7 @@ The governance of Kubeflow is an open, living document, and will continue to evo
 1. Define and evolve project and group governance structures and policies, including election rules, working group policies, and project roles.
 1. Steward, control access, delegate access, and establish processes regarding all Kubeflow project resources and have the final say in the disposition of those resources.
 1. Define and evolve the scope of the Kubeflow community, including acceptance of new projects into Kubeflow.
+1. Define Kubeflow trademark policy and conformance criteria.
 1. Receive and handle reports about code of conduct violations and maintain confidentiality.
 1. Act as the final escalation point and arbitrator for any disputes, issues, clarifications, or escalations within the project scope.
 
@@ -19,7 +20,7 @@ KSC may choose to delegate its authority to other committees as-needed.
 The committee currently recognizes this delegated authority for [To be set up]:
 
 -  Technical guidance is delegated to the [Technical Oversight Committee](https://github.com/kubeflow/community/blob/master/proposals/TECH-OVERSIGHT-COMMITTEE.md).
--  Trademark guidance is delegated to the [Conformance Committee](https://github.com/kubeflow/community/blob/master/proposals/CONFORMANCE-COMMITTEE.md).
+-  Trademark guidance and execution of the conformance program is delegated to the [Conformance Committee](https://github.com/kubeflow/community/blob/master/proposals/CONFORMANCE-COMMITTEE.md).
 
 ## Committee Meetings
 
@@ -130,7 +131,7 @@ The issue may pass with 70% of the members (rounded up) of the committee support
 
 ### Results
 
-The results of the decision process are recorded and made publicly available, unless they pertain to sensitive or previleged matters. The results will include:
+The results of the decision process are recorded and made publicly available, unless they pertain to sensitive or privileged matters. The results will include:
 - Description of the issue
 - Names of members who supported, opposed, and abstained from the vote.
 
