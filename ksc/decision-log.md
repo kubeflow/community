@@ -32,13 +32,13 @@ TBA
 
 ## Decisions
 
-### Switch from Google CLA to DCO to follow CNCF guidelines
+### Switch from Google CLA to DCO
 
 #### Date
 02/08/2024
 
 #### Context
-Now that the Kubeflow is part of CNCF, we should consider switching to [DCO](https://developercertificate.org/) to follow CNCF guidelines.
+Now that the Kubeflow is part of CNCF, we may consider switching to [DCO](https://developercertificate.org/) from Google CLA.
 
 #### Decision
 We will move from the current Google Individual and Corporate CLAs to DCO and add [DCO App](https://github.com/apps/dco/) in every repository.
