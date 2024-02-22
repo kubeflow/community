@@ -129,7 +129,29 @@ Term End</th>
 
 ## Decision process
 
-The TOC desires to always reach consensus.
+The TOC desires to always reach consensus. The meetings for decision process should include:
+
+- Topics should be submitted in the form of a question, which can be voted on.
+
+- Topics can be prioritized by the meeting host.
+
+- Topics can be reviewed at the beginning of the meeting.
+
+- Topics should be addressed one at a time, unless there is a dependency that needs to be considered.
+
+- After stating the issue, the host should ask for a non-binding vote.
+
+- If there is consensus, then the host can ask for a 2nd to make the vote binding.
+
+- After the vote, any member can ask for a discussion period, which by default is ten minutes or less.
+
+- After discussion, the host will confirm consensus and/or ask for a vote.
+
+- The vote will be recorded.
+
+If member(s) abstain because they need more information, the issue will be documented with the
+additional information needed before it can be addressed as topic again in a future meeting.
+If the information is not provided within 2 weeks, a member can ask for a binding vote in the next meeting.
 
 ### Normal decision process
 
