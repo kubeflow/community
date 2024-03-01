@@ -6,3 +6,8 @@ You can also configure it globally (for every repo on your machine) by copying t
 You can also sign off your contributions manually by doing ONE of the following:
 * Use `git commit -s ...` with each commit to add the sign-off or
 * Manually add a `Signed-off-by: Your Name <your.email@example.com>` to each commit message.
+
+The email address must match your primary GitHub email. You do NOT need cryptographic (e.g. gpg) signing.
+* Use `git commit -s --amend ...` to add a sign-off to the latest commit, if you forgot.
+
+*Note*: Some projects will provide specific configuration to ensure all commits are signed-off. Please check the project's documentation for more details.
