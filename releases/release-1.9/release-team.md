@@ -9,7 +9,7 @@
 | AutoML and Training WG Liaison(s) | Ajay Nagar (Github: [@nagar-ajay](https://github.com/nagar-ajay) / Slack: `Ajay Nagar`)|
 | Notebooks WG Liaison(s) | Mathew Whicks (Github: [@thesuperzapper](https://github.com/thesuperzapper) / Slack: `Mathew Whicks`)|
 | Manifests WG Liaison(s) | Steven Irvin (Github: [@stevei101](https://github.com/stevei101) / Slack: `Steven Irvin`)|
-| Pipelines WG Liaison(s) | TBD |
+| Pipelines WG Liaison(s) | Milos Grubjesic (GitHub: [@milosjava](https://github.com/milosjava) / Slack: `Milos Grubjesic` ) |
 | KServe Liaison(s) | Andrew Scribner (GitHub: [@ca-scribner](https://github.com/ca-scribner) / Slack: `Andrew Scribner`)|
 | Security WG Liaison(s) | Julius von Kohout (Github: [@juliusvonkohout](https://github.com/juliusvonkohout) / Slack: `Julius von Kohout`)|
 
