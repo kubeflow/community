@@ -8,13 +8,16 @@ To understand how this file is generated, see https://github.com/kubeflow/commun
 --->
 # Feature Store Special Interest Group
 
+<hr>
+<h3>⚠️This Special Interest Group is INACTIVE ⚠️</h3>
+<h4>The following information is for historical purposes only.</h4>
+<hr>
+
 SIG Feature Store covers the definition, management, storage, discovery, and serving of features to models.
 
 The [charter](charter.md) defines the scope and governance of the Feature Store Special Interest Group.
 
-## Meetings
-* Monthly SIG Meeting: [Wednesdays at 18:00 PT (Pacific Time)]() (monthly). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=18:00&tz=PT%20%28Pacific%20Time%29).
-  * [Meeting notes and Agenda](https://docs.google.com/document/d/1h2BMuN6V6cGFQrSRk7msmYVmZdrouLRV_EPR_tphZrU/edit#).
+
 
 ## Leadership
 

@@ -12,11 +12,7 @@ WG Training covers developing, deploying, and operating training jobs on Kubeflo
 
 The [charter](charter.md) defines the scope and governance of the Training Working Group.
 
-## Meetings
-* Regular WG Meeting (Asia & Europe friendly): [Wednesdays at 03:00 PT (Pacific Time)]() (monthly - first Wednesday every month). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=03:00&tz=PT%20%28Pacific%20Time%29).
-  * [Meeting notes and Agenda](https://docs.google.com/document/d/1K0Qfr0zTuARtAg7ETg9hsMZPh0MT2QUxqGAYvM1Vpec/edit).
-* Regular WG Meeting (US friendly): [Wednesdays at 10:00 PT (Pacific Time)]() (monthly - third Wednesday every month). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=10:00&tz=PT%20%28Pacific%20Time%29).
-  * [Meeting notes and Agenda](https://docs.google.com/document/d/1K0Qfr0zTuARtAg7ETg9hsMZPh0MT2QUxqGAYvM1Vpec/edit).
+
 
 ## Organizers
 

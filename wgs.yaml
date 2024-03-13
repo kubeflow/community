@@ -1,6 +1,7 @@
 sigs:
 - dir: sig-feature-store
   name: Feature Store
+  inactive: true
   mission_statement: >
     SIG Feature Store covers the definition, management, storage, discovery, and serving
     of features to models.
@@ -26,13 +27,7 @@ sigs:
     - github: woop
       name: Willem Pienaar
       company: Gojek
-  meetings:
-  - description: Monthly SIG Meeting
-    day: Wednesday
-    time: "18:00"
-    tz: PT (Pacific Time)
-    frequency: monthly
-    archive_url: https://docs.google.com/document/d/1h2BMuN6V6cGFQrSRk7msmYVmZdrouLRV_EPR_tphZrU/edit#
+  meetings: []
   contact:
     slack: feast
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
@@ -41,6 +36,7 @@ sigs:
       description: Feature store development and roadmap
 - dir: sig-onprem
   name: OnPrem
+  inactive: true
   mission_statement: >
     Serve as a community resource for advising with on premises installation of Kubeflow.
 
@@ -58,19 +54,7 @@ sigs:
     - github: mameshini
       name: Igor Mameshin
       company: Agile Stacks
-  meetings:
-  - description: SIG Onprem Community Meeting - (US East/EMEA)
-    day: Thursday
-    time: "10:30"
-    tz: ET (Eastern Time)
-    frequency: biweekly
-    url: https://us02web.zoom.us/j/87159010361?pwd=c09wTXk2dmJPNmpkTDFTb0o0cnY2Zz09
-  - description: SIG Onprem Community Meeting - (US West)
-    day: Friday
-    time: "15:00"
-    tz: ET (Eastern Time)
-    frequency: biweekly
-    url: https://us02web.zoom.us/j/87159010361?pwd=c09wTXk2dmJPNmpkTDFTb0o0cnY2Zz09
+  meetings: []
   contact:
     slack: sig-onprem
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
@@ -134,6 +118,7 @@ workinggroups:
     - https://raw.githubusercontent.com/kubeflow/katib/master/OWNERS
 - dir: wg-deployment
   name: Deployment
+  inactive: true
   mission_statement: >
     WG Deployment covers developing, maintaining artifacts to deploy and operate Kubeflow.
 
@@ -172,13 +157,7 @@ workinggroups:
     - github: yanniszark
       name: Yannis Zarkadas
       company: Arrikto
-  meetings:
-  - description: Regular WG Meeting (Pacific PM)
-    day: Wednesday
-    time: "17:30"
-    tz: PT (Pacific Time)
-    frequency: biweekly - every other Wednesday
-    archive_url: http://bit.ly/kf-meeting-notes
+  meetings: []
   contact:
     slack: wg-deployment
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
@@ -202,38 +181,17 @@ workinggroups:
   label: area/wg-manifests
   leadership:
     chairs:
-    - github: PatrickXYS
-      name: Yao Xiao
-      company: AWS
     - github: kimwnasptd
       name: Kimonas Sotirchos
-      company: Arrikto
-    - github: yanniszark
-      name: Yannis Zarkadas
-      company: Arrikto
+      company: Canonical
     tech_leads:
-    - github: PatrickXYS
-      name: Yao Xiao
-      company: AWS
     - github: StefanoFioravanzo
       name: Stefano Fioravanzo
-      company: Arrikto
-    - github: elikatsis
-      name: Ilias Katsakioris
-      company: Arrikto
+      company: HPE
     - github: kimwnasptd
       name: Kimonas Sotirchos
-      company: Arrikto
-    - github: yanniszark
-      name: Yannis Zarkadas
-      company: Arrikto
-  meetings:
-  - description: Regular WG Meeting (Pacific AM)
-    day: Tuesday
-    time: "08:00"
-    tz: PT (Pacific Time)
-    frequency: biweekly - every other Tuesday
-    archive_url: https://arrik.to/kf-wg-manifests-notes
+      company: Canonical
+  meetings: []
   contact:
     slack: wg-manifests
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
@@ -247,49 +205,24 @@ workinggroups:
 - dir: wg-notebooks
   name: Notebooks
   mission_statement: >
-    WG Notebooks is responsible for the user experience around Notebooks and their
-    integrations with Kubeflow.
+    WG Notebooks is responsible for Kubeflow Notebooks and other core components.
 
   charter_link: charter.md
   label: area/wg-notebooks
   leadership:
     chairs:
-    - github: StefanoFioravanzo
-      name: Stefano Fioravanzo
-      company: Arrikto
-    - github: elikatsis
-      name: Ilias Katsakioris
-      company: Arrikto
     - github: kimwnasptd
       name: Kimonas Sotirchos
-      company: Arrikto
+      company: Canonical
     - github: thesuperzapper
       name: Mathew Wicks
-    - github: yanniszark
-      name: Yannis Zarkadas
-      company: Arrikto
     tech_leads:
-    - github: StefanoFioravanzo
-      name: Stefano Fioravanzo
-      company: Arrikto
-    - github: elikatsis
-      name: Ilias Katsakioris
-      company: Arrikto
     - github: kimwnasptd
       name: Kimonas Sotirchos
-      company: Arrikto
+      company: Canonical
     - github: thesuperzapper
       name: Mathew Wicks
-    - github: yanniszark
-      name: Yannis Zarkadas
-      company: Arrikto
-  meetings:
-  - description: Regular Notebooks Meeting (Australia & Europe friendly)
-    day: Thursday
-    time: 11:00 pm
-    tz: PT (Pacific Time)
-    frequency: weekly
-    archive_url: https://arrik.to/kf-wg-notebooks-notes
+  meetings: []
   contact:
     slack: wg-notebooks
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
@@ -297,30 +230,9 @@ workinggroups:
     - name: wg-notebooks-leads
       description: Tech leads of wg-notebooks
   subprojects:
-  - name: central-dashboard
+  - name: kubeflow-components
     owners:
-    - https://github.com/kubeflow/kubeflow/blob/master/components/centraldashboard/OWNERS
-  - name: crud-web-apps
-    owners:
-    - https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/crud-web-apps/OWNERS
-  - name: jupyter-web-app
-    owners:
-    - https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/jupyter-web-app/OWNERS
-  - name: kfam
-    owners:
-    - https://github.com/kubeflow/kubeflow/blob/master/components/access-management/OWNERS
-  - name: notebook-images
-    owners:
-    - https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/tensorflow-notebook-image/OWNERS
-  - name: notebooks-controller
-    owners:
-    - https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/notebook-controller/OWNERS
-  - name: poddefaults-webhook
-    owners:
-    - https://github.com/kubeflow/kubeflow/blob/master/components/admission-webhook/OWNERS
-  - name: profile-controller
-    owners:
-    - https://github.com/kubeflow/kubeflow/blob/master/components/profile-controller/OWNERS
+    - https://github.com/kubeflow/kubeflow/blob/master/components/OWNERS
 - dir: wg-pipelines
   name: Pipelines
   mission_statement: >
@@ -359,6 +271,7 @@ workinggroups:
       company: Google
   meetings: []
   contact:
+    slack: kubeflow-pipelines
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
     teams:
     - name: wg-pipelines-bugs
@@ -378,6 +291,7 @@ workinggroups:
     - https://raw.githubusercontent.com/kubeflow/pipelines/master/OWNERS
 - dir: wg-serving
   name: Serving
+  inactive: true
   mission_statement: >
     WG Serving covers developing, deploying, and operating serving jobs on Kubeflow.
 
@@ -416,13 +330,7 @@ workinggroups:
     - github: yuzisun
       name: Dan Sun
       company: Bloomberg
-  meetings:
-  - description: Regular WG Meeting
-    day: Wednesday
-    time: "09:00"
-    tz: PT (Pacific Time)
-    frequency: biweekly
-    archive_url: https://docs.google.com/document/d/1KZUURwr9MnHXqHA08TFbfVbM8EAJSJjmaMhnvstvi-k/edit
+  meetings: []
   contact:
     slack: kfserving
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
@@ -467,19 +375,7 @@ workinggroups:
     - github: terrytangyuan
       name: Yuan Tang
       company: Red Hat
-  meetings:
-  - description: Regular WG Meeting (Asia & Europe friendly)
-    day: Wednesday
-    time: "03:00"
-    tz: PT (Pacific Time)
-    frequency: monthly - first Wednesday every month
-    archive_url: https://docs.google.com/document/d/1K0Qfr0zTuARtAg7ETg9hsMZPh0MT2QUxqGAYvM1Vpec/edit
-  - description: Regular WG Meeting (US friendly)
-    day: Wednesday
-    time: "10:00"
-    tz: PT (Pacific Time)
-    frequency: monthly - third Wednesday every month
-    archive_url: https://docs.google.com/document/d/1K0Qfr0zTuARtAg7ETg9hsMZPh0MT2QUxqGAYvM1Vpec/edit
+  meetings: []
   contact:
     slack: wg-training
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
@@ -491,32 +387,11 @@ workinggroups:
     - name: wg-training-reviews
       description: API Changes and Reviews (API Machinery APIs, NOT all APIs)
   subprojects:
-  - name: caffe2-operator
-    owners:
-    - https://raw.githubusercontent.com/kubeflow/caffe2-operator/master/OWNERS
-  - name: chainer-operator
-    owners:
-    - https://raw.githubusercontent.com/kubeflow/chainer-operator/master/OWNERS
-  - name: common
-    owners:
-    - https://raw.githubusercontent.com/kubeflow/common/master/OWNERS
-  - name: fate-operator
-    owners:
-    - https://raw.githubusercontent.com/kubeflow/fate-operator/master/OWNERS
   - name: mpi-operator
     owners:
-    - https://raw.githubusercontent.com/kubeflow/mpi-operator/master/OWNERS
-  - name: mxnet-operator
+    - https://github.com/kubeflow/mpi-operator/blob/master/OWNERS
+  - name: training-operator
     owners:
-    - https://raw.githubusercontent.com/kubeflow/mxnet-operator/master/OWNERS
-  - name: pytorch-operator
-    owners:
-    - https://raw.githubusercontent.com/kubeflow/pytorch-operator/master/OWNERS
-  - name: tf-operator
-    owners:
-    - https://raw.githubusercontent.com/kubeflow/tf-operator/master/OWNERS
-  - name: xgboost-operator
-    owners:
-    - https://raw.githubusercontent.com/kubeflow/xgboost-operator/master/OWNERS
+    - https://github.com/kubeflow/training-operator/blob/master/OWNERS
 usergroups: []
 committees: []

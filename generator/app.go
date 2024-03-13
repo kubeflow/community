@@ -149,6 +149,7 @@ func (g *LeadershipGroup) Owners() []Person {
 type Group struct {
 	Dir              string
 	Name             string
+	Inactive         bool         `yaml:"inactive,omitempty"`
 	MissionStatement FoldedString `yaml:"mission_statement,omitempty"`
 	CharterLink      string       `yaml:"charter_link,omitempty"`
 	StakeholderSIGs  []string     `yaml:"stakeholder_sigs,omitempty"`

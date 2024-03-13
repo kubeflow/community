@@ -8,13 +8,16 @@ To understand how this file is generated, see https://github.com/kubeflow/commun
 --->
 # Deployment Working Group
 
+<hr>
+<h3>⚠️This Working Group is INACTIVE ⚠️</h3>
+<h4>The following information is for historical purposes only.</h4>
+<hr>
+
 WG Deployment covers developing, maintaining artifacts to deploy and operate Kubeflow.
 
 The [charter](charter.md) defines the scope and governance of the Deployment Working Group.
 
-## Meetings
-* Regular WG Meeting (Pacific PM): [Wednesdays at 17:30 PT (Pacific Time)]() (biweekly - every other Wednesday). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=17:30&tz=PT%20%28Pacific%20Time%29).
-  * [Meeting notes and Agenda](http://bit.ly/kf-meeting-notes).
+
 
 ## Organizers
 

@@ -15,7 +15,8 @@ When the need arises, a [new WG can be created](wgs/wg-lifecycle.md)
 
 | Name | Label | Chairs | Contact | Meetings |
 |------|-------|--------|---------|----------|
-{{- range .WorkingGroups}}
+{{- range .WorkingGroups }}
+{{- if not .Inactive }}
 |[{{.Name}}]({{.Dir}}/README.md)|{{.Label}}|{{range .Leadership.Chairs}}* [{{.Name}}](https://github.com/{{.GitHub}}){{if .Company}}, {{.Company}}{{end}}<br>{{end}}|* [Slack](https://kubeflow.slack.com/messages/{{.Contact.Slack}})<br>* [Mailing List]({{.Contact.MailingList}})|{{- range .Meetings -}}
   * {{.Description}}: [{{.Day}}s at {{.Time}} {{.TZ}} ({{.Frequency}})]({{.URL}})<br>
 {{- end -}}
@@ -26,12 +27,14 @@ When the need arises, a [new WG can be created](wgs/wg-lifecycle.md)
   {{- end -}}
 {{- end -}}
 {{- end }}
+{{- end }}
 
 ### Special Interest Group List
 
 | Name | Label | Chairs | Contact | Meetings |
 |------|-------|--------|---------|----------|
-{{- range .Sigs}}
+{{- range .Sigs }}
+{{- if not .Inactive }}
 |[{{.Name}}]({{.Dir}}/README.md)|{{.Label}}|{{range .Leadership.Chairs}}* [{{.Name}}](https://github.com/{{.GitHub}}){{if .Company}}, {{.Company}}{{end}}<br>{{end}}|* [Slack](https://kubeflow.slack.com/messages/{{.Contact.Slack}})<br>* [Mailing List]({{.Contact.MailingList}})|{{- range .Meetings -}}
   * {{.Description}}: [{{.Day}}s at {{.Time}} {{.TZ}} ({{.Frequency}})]({{.URL}})<br>
 {{- end -}}
@@ -41,4 +44,5 @@ When the need arises, a [new WG can be created](wgs/wg-lifecycle.md)
     * ({{ $name }}) {{.Description}}: [{{.Day}}s at {{.Time}} {{.TZ}} ({{.Frequency}})]({{.URL}})<br>
   {{- end -}}
 {{- end -}}
+{{- end }}
 {{- end }}

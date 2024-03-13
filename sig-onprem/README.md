@@ -8,13 +8,16 @@ To understand how this file is generated, see https://github.com/kubeflow/commun
 --->
 # OnPrem Special Interest Group
 
+<hr>
+<h3>⚠️This Special Interest Group is INACTIVE ⚠️</h3>
+<h4>The following information is for historical purposes only.</h4>
+<hr>
+
 Serve as a community resource for advising with on premises installation of Kubeflow.
 
 The [charter](charter.md) defines the scope and governance of the OnPrem Special Interest Group.
 
-## Meetings
-* SIG Onprem Community Meeting - (US East/EMEA): [Thursdays at 10:30 ET (Eastern Time)](https://us02web.zoom.us/j/87159010361?pwd=c09wTXk2dmJPNmpkTDFTb0o0cnY2Zz09) (biweekly). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=10:30&tz=ET%20%28Eastern%20Time%29).
-* SIG Onprem Community Meeting - (US West): [Fridays at 15:00 ET (Eastern Time)](https://us02web.zoom.us/j/87159010361?pwd=c09wTXk2dmJPNmpkTDFTb0o0cnY2Zz09) (biweekly). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=15:00&tz=ET%20%28Eastern%20Time%29).
+
 
 ## Leadership
 

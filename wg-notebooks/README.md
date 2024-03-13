@@ -8,21 +8,16 @@ To understand how this file is generated, see https://github.com/kubeflow/commun
 --->
 # Notebooks Working Group
 
-WG Notebooks is responsible for the user experience around Notebooks and their integrations with Kubeflow.
+WG Notebooks is responsible for Kubeflow Notebooks and other core components.
 
 The [charter](charter.md) defines the scope and governance of the Notebooks Working Group.
 
-## Meetings
-* Regular Notebooks Meeting (Australia & Europe friendly): [Thursdays at 11:00 pm PT (Pacific Time)]() (weekly). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=11:00 pm&tz=PT%20%28Pacific%20Time%29).
-  * [Meeting notes and Agenda](https://arrik.to/kf-wg-notebooks-notes).
+
 
 ## Organizers
 
-* Stefano Fioravanzo (**[@StefanoFioravanzo](https://github.com/StefanoFioravanzo)**), Arrikto
-* Ilias Katsakioris (**[@elikatsis](https://github.com/elikatsis)**), Arrikto
-* Kimonas Sotirchos (**[@kimwnasptd](https://github.com/kimwnasptd)**), Arrikto
+* Kimonas Sotirchos (**[@kimwnasptd](https://github.com/kimwnasptd)**), Canonical
 * Mathew Wicks (**[@thesuperzapper](https://github.com/thesuperzapper)**)
-* Yannis Zarkadas (**[@yanniszark](https://github.com/yanniszark)**), Arrikto
 
 ## Contact
 - Slack: [#wg-notebooks](https://kubeflow.slack.com/messages/wg-notebooks)

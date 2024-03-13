@@ -1,6 +1,15 @@
 {{- template "header" }}
 # {{.Name}} Working Group
 
+{{- if .Inactive }}
+
+<hr>
+<h3>⚠️This Working Group is INACTIVE ⚠️</h3>
+<h4>The following information is for historical purposes only.</h4>
+<hr>
+
+{{- end }}
+
 {{ .MissionStatement }}
 {{- if .CharterLink }}
 The [charter]({{.CharterLink}}) defines the scope and governance of the {{.Name}} Working Group.
