@@ -109,7 +109,7 @@ workinggroups:
       company: Nutanix
     - github: tenzen-y
       name: Yuki Iwai
-      company: CyberAgent
+      company: CyberAgent, Inc.
   meetings:
   - description: Kubeflow AutoML Working Group Meeting (Asia & Europe friendly)
     day: Wednesday
@@ -472,7 +472,7 @@ workinggroups:
       company: Red Hat
     - github: tenzen-y
       name: Yuki Iwai
-      company: CyberAgent
+      company: CyberAgent, Inc.
   meetings:
   - description: Regular WG Meeting (Asia & Europe friendly)
     day: Wednesday
