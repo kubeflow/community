@@ -18,10 +18,10 @@ The [charter](charter.md) defines the scope and governance of the Pipelines Work
 
 * James Wu (**[@james-jwu](https://github.com/james-jwu)**), Google
 * Karthik Ramachandran (**[@kramachandran](https://github.com/kramachandran)**), Google
-* Chen Sun (**[@chensun](https://github.com/chensun)**), Google
+* Pavel Dournov (**[@paveldournov](https://github.com/paveldournov)**), Google
 
 ## Contact
-- Slack: [#kubeflow-pipelines](https://app.slack.com/client/T7QLHSH6U/CE10KS9M4)
+- Slack: [#](https://kubeflow.slack.com/messages/)
 - [Mailing list](https://groups.google.com/forum/#!forum/kubeflow-discuss)
 - [Open Community Issues/PRs](https://github.com/kubeflow/community/labels/wg%2Farea/wg-pipelines)
 - GitHub Teams:
