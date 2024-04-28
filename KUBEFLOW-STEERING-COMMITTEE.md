@@ -43,13 +43,13 @@ Seats on the Steering Committee are held by an individual, not by their employer
 
 The current membership of the committee is (listed alphabetically by first name):
 
-| Name                | Organization | GitHub     										   | Term Start | Term End   |
-|---------------------|--------------|-----------------------------------------------------|------------|------------|
-| Andrey Velichkevich | Apple 		 | [andreyvelich](https://github.com/andreyvelich/)    | 02/01/2024 | 02/01/2026 |
-| Johnu George        | Nutanix 	 | [johnugeorge](https://github.com/johnugeorge/)      | 02/01/2024 | 02/01/2026 |
-| Josh Bottum         | Independent  | [jbottum](https://github.com/jbottum/)        	   | 02/01/2024 | 02/01/2025 |
-| James Wu            | Google 		 | [james-jwu](https://github.com/james-jwu/)          | 02/01/2024 | 02/01/2025 |
-| Yuan Tang           | Red Hat      | [terrytangyuan](https://github.com/terrytangyuan/)  | 02/01/2024 | 02/01/2026 |
+| Name                | Organization | GitHub                                             | Term Start | Term End   |
+|---------------------|--------------|----------------------------------------------------|------------|------------|
+| Andrey Velichkevich | Apple        | [andreyvelich](https://github.com/andreyvelich/)   | 02/01/2024 | 02/01/2026 |
+| Johnu George        | Nutanix      | [johnugeorge](https://github.com/johnugeorge/)     | 02/01/2024 | 02/01/2026 |
+| Josh Bottum         | Independent  | [jbottum](https://github.com/jbottum/)             | 02/01/2024 | 02/01/2025 |
+| James Wu            | Google       | [james-jwu](https://github.com/james-jwu/)         | 02/01/2024 | 02/01/2025 |
+| Yuan Tang           | Red Hat      | [terrytangyuan](https://github.com/terrytangyuan/) | 02/01/2024 | 02/01/2026 |
 
 
 ## Emeritus Committee Members
