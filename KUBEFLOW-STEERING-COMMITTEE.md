@@ -43,59 +43,14 @@ Seats on the Steering Committee are held by an individual, not by their employer
 
 The current membership of the committee is (listed alphabetically by first name):
 
-<table>
-  <thead>
-    <tr>
-      <th><br>
-Member</th>
-      <th><br>
-Organization</th>
-      <th><br>
-Github Profile</th>
-      <th><br>
-Term Start</th>
-      <th><br>
-Term End</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+| Name                | Organization | GitHub ID     | Term Start | Term End   |
+|---------------------|--------------|---------------|------------|------------|
+| Andrey Velichkevich | Apple 		 | andreyvelich  | 02/01/2024 | 02/01/2026 |
+| Johnu George        | Nutanix 	 | johnugeorge   | 02/01/2024 | 02/01/2026 |
+| Josh Bottum         | Independent  | jbottum       | 02/01/2024 | 02/01/2025 |
+| James Wu            | Google 		 | james-jwu     | 02/01/2024 | 02/01/2025 |
+| Yuan Tang           | Red Hat      | terrytangyuan | 02/01/2024 | 02/01/2026 |
+
 
 ## Emeritus Committee Members
 
@@ -147,3 +102,13 @@ There are two ways to raise issues to the steering committee for decision:
 Changes to the KSC charter may be proposed via a PR on the charter itself by a Kubeflow community member. Amendments are accepted following the [Special Decision Process](#special-decision-process) detailed above.
 
 Proposals and amendments to the charter are available for at least a period of one week for comments and questions before a vote will occur.
+
+
+
+## Interim KSC
+During the CNCF transition period, the interim KSC will be a small council that consists of the following people:
+| &nbsp;                                                         | Member                    | Organization | Profile                                              |
+| -------------------------------------------------------------- | ------------------------- | ------------ | ---------------------------------------------------- 
+| <img width="30px" src="https://github.com/theadactyl.png"> | Thea Lamkin          | Google       | [@theadactyl](https://github.com/theadactyl) |
+| <img width="30px" src="https://github.com/james-jwu.png">     | James Wu            | Google  | [@james-jwu](https://github.com/james-jwu)         |
+| <img width="30px" src="https://github.com/jbottum.png">          | Josh Bottum                | Kubeflow      | [@jbottum](https://github.com/jbottum)                   |

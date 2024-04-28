@@ -1,6 +1,6 @@
 # Kubeflow Steering Committee (KSC)
 
-This folder contains documents from the Kubeflow Steering Committee, including:
+This folder contains documents from the [Kubeflow Steering Committee](../KUBEFLOW-STEERING-COMMITTEE.md), including:
 * [Decision log](decision-log.md) documents decisions by the KSC.
 
 ## Meeting Notes and Recordings
