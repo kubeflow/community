@@ -10,17 +10,18 @@ To understand how this file is generated, see https://github.com/kubeflow/commun
 
 WG Manifests maintains a centralized repository of manifests.
 
+The development happens here https://github.com/kubeflow/manifests.
 The [charter](charter.md) defines the scope and governance of the Manifests Working Group.
 
 ## Meetings
-* Regular WG Meeting (Pacific AM): [Tuesdays at 08:00 PT (Pacific Time)]() (biweekly - every other Tuesday). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=08:00&tz=PT%20%28Pacific%20Time%29).
-  * [Meeting notes and Agenda](https://arrik.to/kf-wg-manifests-notes).
+* [Regular WG Meeting Calendar](https://www.kubeflow.org/docs/about/community/#kubeflow-community-calendars)
+* Notes & Agenda: https://bit.ly/kf-wg-manifests-notes
+* Meeting Link: https://bit.ly/kf-wg-manifests-meet
 
 ## Organizers
 
-* Yao Xiao (**[@PatrickXYS](https://github.com/PatrickXYS)**), AWS
-* Kimonas Sotirchos (**[@kimwnasptd](https://github.com/kimwnasptd)**), Arrikto
-* Yannis Zarkadas (**[@yanniszark](https://github.com/yanniszark)**), Arrikto
+* Julius von Kohout (**[@juliusvonkohout](https://github.com/juliusvonkohout)**)
+* Kimonas Sotirchos (**[@kimwnasptd](https://github.com/kimwnasptd)**)
 
 ## Contact
 - Slack: [#wg-manifests](https://kubeflow.slack.com/messages/wg-manifests)
