@@ -18,11 +18,8 @@ aliases:
     - vpavlin
     - yanniszark
   wg-manifests-leads:
-    - PatrickXYS
-    - StefanoFioravanzo
-    - elikatsis
+    - juliusvonkohout
     - kimwnasptd
-    - yanniszark
   wg-notebooks-leads:
     - StefanoFioravanzo
     - elikatsis

@@ -205,38 +205,26 @@ workinggroups:
   label: area/wg-manifests
   leadership:
     chairs:
-    - github: PatrickXYS
-      name: Yao Xiao
-      company: AWS
+    - github: juliusvonkohout
+      name: Julius von Kohout
+      company: DHL
     - github: kimwnasptd
       name: Kimonas Sotirchos
-      company: Arrikto
-    - github: yanniszark
-      name: Yannis Zarkadas
-      company: Arrikto
+      company: Canonical
     tech_leads:
-    - github: PatrickXYS
-      name: Yao Xiao
-      company: AWS
-    - github: StefanoFioravanzo
-      name: Stefano Fioravanzo
-      company: Arrikto
-    - github: elikatsis
-      name: Ilias Katsakioris
-      company: Arrikto
+    - github: juliusvonkohout
+      name: Julius von Kohout
+      company: DHL
     - github: kimwnasptd
       name: Kimonas Sotirchos
-      company: Arrikto
-    - github: yanniszark
-      name: Yannis Zarkadas
-      company: Arrikto
+      company: Canonical
   meetings:
   - description: Regular WG Meeting (Pacific AM)
-    day: Tuesday
+    day: Thursday
     time: "08:00"
     tz: PT (Pacific Time)
-    frequency: biweekly - every other Tuesday
-    archive_url: https://arrik.to/kf-wg-manifests-notes
+    frequency: biweekly - every other Thursday
+    archive_url: https://bit.ly/kf-wg-manifests-notes
   contact:
     slack: wg-manifests
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
@@ -265,7 +253,7 @@ workinggroups:
       company: Arrikto
     - github: kimwnasptd
       name: Kimonas Sotirchos
-      company: Arrikto
+      company: Canonical
     - github: thesuperzapper
       name: Mathew Wicks
     - github: yanniszark
@@ -280,7 +268,7 @@ workinggroups:
       company: Arrikto
     - github: kimwnasptd
       name: Kimonas Sotirchos
-      company: Arrikto
+      company: Canonical
     - github: thesuperzapper
       name: Mathew Wicks
     - github: yanniszark
