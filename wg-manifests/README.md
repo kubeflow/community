@@ -13,14 +13,13 @@ WG Manifests maintains a centralized repository of manifests.
 The [charter](charter.md) defines the scope and governance of the Manifests Working Group.
 
 ## Meetings
-* Regular WG Meeting (Pacific AM): [Tuesdays at 08:00 PT (Pacific Time)]() (biweekly - every other Tuesday). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=08:00&tz=PT%20%28Pacific%20Time%29).
-  * [Meeting notes and Agenda](https://arrik.to/kf-wg-manifests-notes).
+* Regular WG Meeting (Pacific AM): [Thursdays at 08:00 PT (Pacific Time)]() (biweekly - every other Thursday). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=08:00&tz=PT%20%28Pacific%20Time%29).
+  * [Meeting notes and Agenda](https://bit.ly/kf-wg-manifests-notes).
 
 ## Organizers
 
-* Yao Xiao (**[@PatrickXYS](https://github.com/PatrickXYS)**), AWS
-* Kimonas Sotirchos (**[@kimwnasptd](https://github.com/kimwnasptd)**), Arrikto
-* Yannis Zarkadas (**[@yanniszark](https://github.com/yanniszark)**), Arrikto
+* Julius von Kohout (**[@juliusvonkohout](https://github.com/juliusvonkohout)**), DHL
+* Kimonas Sotirchos (**[@kimwnasptd](https://github.com/kimwnasptd)**), Canonical
 
 ## Contact
 - Slack: [#wg-manifests](https://kubeflow.slack.com/messages/wg-manifests)
@@ -29,5 +28,5 @@ The [charter](charter.md) defines the scope and governance of the Manifests Work
 - GitHub Teams:
     - [@kubeflow/wg-manifests-leads](https://github.com/orgs/kubeflow/teams/wg-manifests-leads) - Tech leads of wg-manifests
 <!-- BEGIN CUSTOM CONTENT -->
-
+The development happens here https://github.com/kubeflow/manifests.
 <!-- END CUSTOM CONTENT -->
