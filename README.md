@@ -29,10 +29,10 @@ project.
 
 ## Kubeflow Brand Guidelines
 
-The [Kubeflow Brand Guidelines](./KUBEFLOW_BRAND_GUIDELINES.pdf) are intended to provide the community guidance on how to reference the Kubeflow trademarks.
+The [Kubeflow Brand Guidelines](https://www.linuxfoundation.org/legal/trademark-usage) are intended to provide the community guidance on how to reference the Kubeflow trademarks.
 Please make sure your usage of Kubeflow trademarks and logos is in compliance with the guidelines. 
 If you have any questions about the guidelines or would like to get feedback on a particular use case,
-please reach out to kubeflow-trademark@google.com.
+please reach out to ksc@kubeflow.org.
 
 ## About this repository
 
