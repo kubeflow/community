@@ -223,10 +223,10 @@ From that phase and forward updates to the manifests repo must only be fixing co
 
 **Actions for other WGs:**
 
-- Provide a _git revision_ which the release team members or Manifests leads will use to update the files in the manifests repo
-- Provide an initial list of issues that the WG would like to close until the final release
+- Provide a _git revision_ which the release team members or Manifests leads will use to update the files in the manifests repository. The _git revision_ should be a proper GitHub release with a descriptive changelog. The release should either be a new major/minor/patch version or a pre-release release candidate (RC).
+- Provide an initial list of issues that the working group (WG) aims to resolve before the final release, as well as the expected version number of the final component.
 - Work on closing the provided open issues
-- Ensure that future_git revisions_they provide only include bug fixes, and not new features, from the previously provided _git revision_
+- Ensure that future _git revisions_ only include bug fixes, and not new features, from the previously provided _git revision_. If the working group provides incremental releases (either sequential RCs or minor/patch version bumps), each should be a GitHub release with an incremental changelog. After releasing a series of RCs, the final version should contain the full changelog from all RCs combined.
 - Declare expected common dependency version ranges
 
 **Actions for Manifests WG:**
