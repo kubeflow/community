@@ -1,10 +1,16 @@
 approvers:
-  - annajung
-  - jbottum
-  - kimwnasptd
-  - shannonbradshaw
+  - rimolive
 reviewers:
-  - annajung
-  - jbottum
+  - StefanoFioravanzo
+  - diegolovinson
+  - hbelmiro
+  - nagar-ajay
+  - thesuperzapper
+  - stevei101
+  - milosjava
+  - ca-scribner
+  - juliusvonkohout
+emeritus_approvers:
   - kimwnasptd
-  - shannonbradshaw
+  - annajung
+  - DnPlas
