@@ -193,7 +193,8 @@ The manifests repo will be following the release process below:
 - [ ] [Assemble a release team](https://github.com/kubeflow/community/issues/571)
 - [ ] Create a new [release project](https://github.com/orgs/kubeflow/projects) to track issues and pull requests related to the release
 - [ ] Working groups broadly think about features **with priorities** they want to land for that cycle, have internal discussions, perhaps groom a backlog from previous cycle, get issues triaged, etc.
-- [ ] Update the release manager and members of the Release Team in the [kubeflow/internal-acls]](https://github.com/kubeflow/internal-acls/pull/545)
+- [ ] Update the release manager and members of the Release Team in the [kubeflow/internal-acls](https://github.com/kubeflow/internal-acls/pull/545)
+- [ ] Update the [owners file](https://github.com/kubeflow/community/blob/master/releases/OWNERS) by appointing the new release manager as approver and the rest of the release team as reviewers. Add the previous release manager to the list of emeritus approvers.
 - [ ] Establish a regular release team meeting as appropriate on the schedule and update the [Kubeflow release team calendar](https://calendar.google.com/calendar/embed?src=c_c5i4tlc61oq2kehbhv9h3gveuo%40group.calendar.google.com&ctz=America%2FNew_York)
 - [ ] [Propose a release timeline](https://github.com/kubeflow/community/pull/558), announce the schedule to [kubeflow-discuss mailing list](https://groups.google.com/g/kubeflow-discuss), and get lazy consensus on the release schedule from the WG leads
   - Review the criteria for the timeline below
