@@ -24,8 +24,8 @@ The 1.9 release cycle is proposed as follows
 - **Monday, May 27th 2024** : Week 20 - Manifests testing and bug fixing ends, distribution testing starts
 - **Monday, Jun 17th 2024** : Week 23 - Distribution testing ends, pre-release bug fixing stage starts
 - **Monday, Jul 1st 2024**  : Week 25 - Pre-release bug fixing stage ends
-- **Monday, Jul 8th 2024**  : Week 26 - Docs update ends
-- **Monday, Jul 8th 2024**  : Week 26 - Kubeflow v1.9 Released
+- **Monday, Jul 22nd 2024**  : Week 28 - Docs update ends
+- **Monday, Jul 22nd 2024**  : Week 28 - Kubeflow v1.9 Released
 
 ## Timeline
 
@@ -47,7 +47,7 @@ The 1.9 release cycle is proposed as follows
 | Monday, Jun 10th 2024 | Week 22 | Distributions | Distribution testing ends |
 | Monday, Jun 10th 2024 | Week 22 | WGs | Pre-release bug fixing stage starts |
 | Monday, Jun 24th 2024 | Week 24 | WGs | Pre-release bug fixing stage ends |
-| Monday, Jul 1st 2024 | Week 25 | Docs lead | Docs update ends |
-| Monday, Jul 1st 2024 | Week 25 | Release team | **v1.9** Release day |
-| Monday, Jul 1st 2024 | Week 25 | Release team, Docs lead | Publish release blog |
-| Monday, Jul 8th 2024 | Week 26 | Release team | Release retrospective |
+| Monday, Jul 22nd 2024 | Week 28 | Docs lead | Docs update ends |
+| Monday, Jul 22nd 2024 | Week 28 | Release team | **v1.9** Release day |
+| Monday, Jul 22nd 2024 | Week 28 | Release team, Docs lead | Publish release blog |
+| Monday, Jul 29th 2024 | Week 29 | Release team | Release retrospective |
