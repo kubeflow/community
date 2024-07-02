@@ -76,30 +76,6 @@
       Join at: https://meet.google.com/jkr-dupp-wwm
   organizer: chensun
 
-- id: kf034
-  name: Kubeflow Security Team Call (US West/APAC)
-  date: 12/19/2023
-  time: 7:30AM-8:00AM
-  frequency: bi-weekly
-  video: https://us06web.zoom.us/j/87118537300?pwd=NG5ibWN0N2YxUGR5Y2NXSXRiN0FGZz09
-  attendees:
-    - email: kubeflow-discuss@googlegroups.com
-    - email: akgraner@gmail.com
-    - email: juliusvonkohout@gmail.com
-    - email: kimonas.sotirchos@canonical.com
-    - email: joshbottum@gmail.com
-  description:
-    - |
-      Notes & agenda: https://docs.google.com/document/d/1xGkg9GuO2OjvYhdONJFbSrpF66UKhtYonczttJoTv3s/edit?usp=sharing
-
-      Join with Zoom: https://us06web.zoom.us/j/87118537300?pwd=NG5ibWN0N2YxUGR5Y2NXSXRiN0FGZz09
-
-      Meeting ID: 871 1853 7300
-      Passcode: 273734
-
-      If you want to be manually added to the invite link, please reach out to Amber Graner (akgraner)
-  organizer: akgraner
-
 - id: kf035
   name: Kubeflow Release Team Meeting (CET, US friendly)
   date: 05/15/2023
@@ -121,7 +97,7 @@
   organizer: dnplas
 
 - id: kf036
-  name: Kubeflow Manifests WG Meeting
+  name: Kubeflow Platform Meeting (Manifests + Security WG)
   date: 06/01/2023
   time: 6:00PM-7:00PM
   timezone: Europe/Athens
@@ -134,7 +110,7 @@
       Notes & Agenda: https://bit.ly/kf-wg-manifests-notes
       Meeting Link: https://bit.ly/kf-wg-manifests-meet
       Recordings: https://bit.ly/kf-wg-manifests-drive
-  organizer: kimwnasptd
+  organizer: juliusvonkohout
 
 - id: kf037
   name: Kubeflow Notebooks WG Meeting (US + EMEA)
@@ -508,3 +484,29 @@
       Notes & Agenda: https://docs.google.com/document/d/1GHi-NFHmDA2TnH1pDrs4O7OyIQdZRtKatGAdedxte4w
       Zoom: Provided in meeting notes
   organizer: woop
+
+
+- id: kf034
+  name: Kubeflow Security Team Call (US West/APAC)
+  date: 12/19/2023
+  time: 7:30AM-8:00AM
+  frequency: bi-weekly
+  video: https://us06web.zoom.us/j/87118537300?pwd=NG5ibWN0N2YxUGR5Y2NXSXRiN0FGZz09
+  until: 06/04/2024
+  attendees:
+    - email: kubeflow-discuss@googlegroups.com
+    - email: akgraner@gmail.com
+    - email: juliusvonkohout@gmail.com
+    - email: kimonas.sotirchos@canonical.com
+    - email: joshbottum@gmail.com
+  description:
+    - |
+      Notes & agenda: https://docs.google.com/document/d/1xGkg9GuO2OjvYhdONJFbSrpF66UKhtYonczttJoTv3s/edit?usp=sharing
+
+      Join with Zoom: https://us06web.zoom.us/j/87118537300?pwd=NG5ibWN0N2YxUGR5Y2NXSXRiN0FGZz09
+
+      Meeting ID: 871 1853 7300
+      Passcode: 273734
+
+      If you want to be manually added to the invite link, please reach out to Amber Graner (akgraner)
+  organizer: akgraner
