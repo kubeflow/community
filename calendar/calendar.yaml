@@ -46,26 +46,11 @@
       Meeting Host Link: https://zoom.us/s/99152427566
   organizer: autobot@kubeflow.org
 
-- id: kf025
-  name: Kubeflow Pipelines Community Meeting (PST PM)
-  date: 08/05/2020
-  time: 5:30pm-6:10pm
-  frequency: every-4-weeks
-  video: https://meet.google.com/jkr-dupp-wwm
-  attendees:
-    - email: kubeflow-discuss@googlegroups.com
-    - email: kubeflow-pipelines@google.com
-  description:
-    - |
-      Notes & Agenda: http://bit.ly/kfp-meeting-notes
-      Join at: https://meet.google.com/jkr-dupp-wwm
-  organizer: chensun
-
 - id: kf026
   name: Kubeflow Pipelines Community Meeting (PST AM)
   date: 08/19/2020
   time: 10:00am-10:40am
-  frequency: every-4-weeks
+  frequency: every-2-weeks
   video: https://meet.google.com/jkr-dupp-wwm
   attendees:
     - email: kubeflow-discuss@googlegroups.com
@@ -510,3 +495,19 @@
 
       If you want to be manually added to the invite link, please reach out to Amber Graner (akgraner)
   organizer: akgraner
+
+- id: kf025
+  name: Kubeflow Pipelines Community Meeting (PST PM)
+  date: 08/05/2020
+  time: 5:30pm-6:10pm
+  frequency: every-4-weeks
+  video: https://meet.google.com/jkr-dupp-wwm
+  until: 07/03/2024
+  attendees:
+    - email: kubeflow-discuss@googlegroups.com
+    - email: kubeflow-pipelines@google.com
+  description:
+    - |
+      Notes & Agenda: http://bit.ly/kfp-meeting-notes
+      Join at: https://meet.google.com/jkr-dupp-wwm
+  organizer: chensun
