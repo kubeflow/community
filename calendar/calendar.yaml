@@ -50,7 +50,7 @@
   name: Kubeflow Pipelines Community Meeting (PST AM)
   date: 08/19/2020
   time: 10:00am-10:40am
-  frequency: every-2-weeks
+  frequency: bi-weekly
   video: https://meet.google.com/jkr-dupp-wwm
   attendees:
     - email: kubeflow-discuss@googlegroups.com
