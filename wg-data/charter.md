@@ -25,7 +25,7 @@ For example: Data Preparation, Feature Store, and Model Registry have been recen
 #### Cross-cutting and Externally Facing Processes
 
 - Ensuring seamless integration of these WG subprojects with the rest of the Kubeflow platform. For example:
-  - Coordinating with [wg-pipelines] for integrations of Model Registry with KFP.
+  - Coordinating with WG Pipelines for integrations of Model Registry with KFP.
   - Coordinating with WG Serving for integrations of Model Registry with KServe and ModelMesh.
   - ...
 - Coordinating with release teams to ensure that the capabilities and subprojects in scope of this WG can be released properly.
