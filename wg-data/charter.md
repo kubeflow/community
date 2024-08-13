@@ -25,7 +25,7 @@ For example: Data Preparation, Feature Store, and Model Registry have been recen
   - deployment Manifests
   - BFF for Model Registry
   - UI front-end for Model Registry
-- CLI tools and REST APIs for interacting with Kubeflow APIs related to data processing and ML models metadata management.
+- SDKs and REST APIs for interacting with Kubeflow APIs related to data processing and ML models metadata management.
 - CI/CD pipelines for Kubeflow subproject repositories in the scope of this WG.
 - Documentation, in the forms of Kubeflow website sections and as necessary in each repository.
 
