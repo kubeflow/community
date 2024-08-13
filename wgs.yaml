@@ -135,6 +135,66 @@ workinggroups:
   - name: katib
     owners:
     - https://raw.githubusercontent.com/kubeflow/katib/master/OWNERS
+- dir: wg-data
+  name: Data
+  mission_statement: >
+    The WG "Data" is focused on enhancing the support for data/metadata-related tasks
+    within Kubeflow, with a specific focus on the Spark operato and Model Registry.
+    The group aims to simplify and improve data processing between various stages
+    of ML lifecycle. For example, from Data Preparation to model training and fine-tuning.
+    The group also aims to facilitate the ML model's metadata management, while ensuring
+    seamless integration with other Kubeflow components. The goal of Spark on Kubernetes
+    Operator is to simplify the capability of running Apache Spark on Kubernetes.
+    It automates deployment and simplifies lifecycle management of Spark Jobs on Kubernetes.
+    The goal of Model Registry is gather, analyze, and develop model registry requirements
+    of Kubeflow community users.
+
+  charter_link: charter.md
+  label: area/wg-data
+  leadership:
+    chairs:
+    - github: Tomcli
+      name: Tommy Li
+      company: IBM
+    - github: andreyvelich
+      name: Andrey Velichkevich
+      company: Apple
+    - github: rareddy
+      name: Ramesh Reddy
+      company: Red Hat
+    tech_leads:
+    - github: ChenYi015
+      name: Yi Chen
+      company: Alibaba Cloud
+    - github: andreyvelich
+      name: Andrey Velichkevich
+      company: Apple
+    - github: franciscojavierarceo
+      name: Francisco Javier Arceo
+      company: Red Hat
+    - github: tarilabs
+      name: Matteo Mortari
+      company: Red Hat
+  meetings:
+  - description: KF Model Registry community meeting (US/EMEA)
+    day: Monday
+    time: 7:00PM-8:00PM
+    tz: Europe/Madrid
+    frequency: biweely - every other Monday of the month
+    archive_url: https://docs.google.com/document/d/1DmMhcae081SItH19gSqBpFtPfbkr9dFhSMCgs-JKzNo/edit?usp=sharing
+  contact:
+    slack: https://cloud-native.slack.com/archives/C073W572LA2
+    mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
+    teams:
+    - name: wg-data-leads
+      description: Team of Data Working Group leads
+  subprojects:
+  - name: model-registry
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/model-registry/main/OWNERS
+  - name: spark-operator
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/spark-operator/blob/master/OWNERS
 - dir: wg-deployment
   name: Deployment
   mission_statement: >
@@ -512,61 +572,5 @@ workinggroups:
   - name: xgboost-operator
     owners:
     - https://raw.githubusercontent.com/kubeflow/xgboost-operator/master/OWNERS
-- dir: wg-data
-  name: WG Data
-  mission_statement: >
-    The WG "Data" is focused on enhancing the support for data/metadata-related tasks within Kubeflow, with a specific focus on the Spark operato and Model Registry.
-    The group aims to simplify and improve data processing between various stages of ML lifecycle. For example, from Data Preparation to model training and fine-tuning.
-    The group also aims to facilitate the ML model's metadata management, while ensuring seamless integration with other Kubeflow components.
-    The goal of Spark on Kubernetes Operator is to simplify the capability of running Apache Spark on Kubernetes. It automates deployment and simplifies lifecycle management of Spark Jobs on Kubernetes.
-    The goal of Model Registry is gather, analyze, and develop model registry requirements of Kubeflow community users.
-
-  charter_link: charter.md
-  label: area/wg-data
-  leadership:
-    chairs:
-    - github: andreyvelich
-      name: Andrey Velichkevich
-      company: Apple
-    - github: rareddy
-      name: Ramesh Reddy
-      company: Red Hat
-    - github: Tomcli
-      name: Tommy Li
-      company: IBM
-    tech_leads:
-    - github: andreyvelich
-      name: Andrey Velichkevich
-      company: Apple
-    - github: ChenYi015
-      name: Yi Chen
-      company: Alibaba Cloud
-    - github: franciscojavierarceo
-      name: Francisco Javier Arceo
-      company: Red Hat
-    - github: tarilabs
-      name: Matteo Mortari
-      company: Red Hat
-  meetings:
-  - description: KF Model Registry community meeting (US/EMEA) # see kf041 in website https://github.com/kubeflow/community/blob/a46dbd660547b4fe599bb3dcb29c7ff4d9b1dc69/calendar/calendar.yaml#L140
-    day: Monday
-    time: 7:00PM-8:00PM
-    tz: Europe/Madrid
-    # meeting to happen after KF Release meeting (id: kf035), hence align by using same TZ
-    frequency: biweely - every other Monday of the month
-    archive_url: https://docs.google.com/document/d/1DmMhcae081SItH19gSqBpFtPfbkr9dFhSMCgs-JKzNo/edit?usp=sharing
-  contact:
-    slack: https://cloud-native.slack.com/archives/C073W572LA2
-    mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
-    teams:
-    - name: wg-data-leads
-      description: Team of Data Working Group leads
-  subprojects:
-  - name: spark-operator
-    owners:
-    - https://raw.githubusercontent.com/kubeflow/spark-operator/blob/master/OWNERS
-  - name: model-registry
-    owners:
-    - https://raw.githubusercontent.com/kubeflow/model-registry/main/OWNERS
 usergroups: []
 committees: []
