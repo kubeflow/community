@@ -16,9 +16,9 @@ For example: Data Preparation, Feature Store, and Model Registry have been recen
 #### Code, Binaries, and Services
 
 - Onboarding and maintenance of the Spark operator for scalable and distributed data processing.
-[See also](https://github.com/kubeflow/community/pull/672)
+[See also](https://github.com/kubeflow/spark-operator)
 - Continued development of the Model Registry to manage and version machine learning models efficiently.
-[See also](https://github.com/kubeflow/kubeflow/issues/7396)
+[See also](https://github.com/kubeflow/model-registry)
 - CLI tools and REST APIs for interacting with Kubeflow APIs related to data processing and ML models metadata management.
 - CI/CD pipelines for Kubeflow subproject repositories in the scope of this WG.
 
@@ -63,4 +63,4 @@ CHOOSE ONE
 1. WG Technical Leads
 2. Federation of Subprojects
 
-[wg-governance]: ../wg-governance.md
+[wg-governance]: ../wgs/wg-governance.md
