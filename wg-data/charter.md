@@ -19,6 +19,11 @@ For example: Data Preparation, Feature Store, and Model Registry have been recen
 [See also](https://github.com/kubeflow/spark-operator)
 - Continued development of the Model Registry to manage and version machine learning models efficiently.
 [See also](https://github.com/kubeflow/model-registry)
+  - Model Registry REST server
+  - Model Registry Python client
+  - deployment Manifests
+  - BFF for Model Registry
+  - UI front-end for Model Registry
 - CLI tools and REST APIs for interacting with Kubeflow APIs related to data processing and ML models metadata management.
 - CI/CD pipelines for Kubeflow subproject repositories in the scope of this WG.
 
