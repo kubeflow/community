@@ -26,7 +26,7 @@ For example: Data Preparation, Feature Store, and Model Registry have been recen
 
 - Ensuring seamless integration of these WG subprojects with the rest of the Kubeflow platform. For example:
   - Coordinating with [wg-pipelines] for integrations of Model Registry with KFP.
-  - Coordinating with [wg-serving] for integrations of Model Registry with KServe and ModelMesh.
+  - Coordinating with WG Serving for integrations of Model Registry with KServe and ModelMesh.
   - ...
 - Coordinating with release teams to ensure that the capabilities and subprojects in scope of this WG can be released properly.
 - Offer mentorship to support contributors working on data-centric projects that want to integrate with Kubeflow.
