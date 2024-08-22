@@ -18,7 +18,7 @@ The [charter](charter.md) defines the scope and governance of the Data Working G
 
 ## Organizers
 
-* Tommy Li (**[@Tomcli](https://github.com/Tomcli)**), IBM
+* Yi Chen (**[@ChenYi015](https://github.com/ChenYi015)**), Alibaba Cloud
 * Andrey Velichkevich (**[@andreyvelich](https://github.com/andreyvelich)**), Apple
 * Ramesh Reddy (**[@rareddy](https://github.com/rareddy)**), Red Hat
 

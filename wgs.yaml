@@ -153,9 +153,9 @@ workinggroups:
   label: area/wg-data
   leadership:
     chairs:
-    - github: Tomcli
-      name: Tommy Li
-      company: IBM
+    - github: ChenYi015
+      name: Yi Chen
+      company: Alibaba Cloud
     - github: andreyvelich
       name: Andrey Velichkevich
       company: Apple
