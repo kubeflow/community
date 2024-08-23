@@ -1,8 +1,7 @@
 # New Project Project Application
 
-<!---
-See proposals/new-project-addition-process.md to better understand the full
-process for submitting a new project.
+Please see the [proposals/new-project-addition-process.md](Documentation) to
+better understand the full process for submitting a new project.
 
 In short, copy this Application Template and populate the document.
 --!>
