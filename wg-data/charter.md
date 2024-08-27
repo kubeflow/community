@@ -4,13 +4,13 @@ This charter adheres to the conventions, roles, and organisation management outl
 
 ## Scope
 
-The WG "Data" is focused on enhancing the support for data/metadata-related tasks within Kubeflow, with a specific focus on the [Spark operator](https://github.com/kubeflow/community/pull/672) and [Model Registry](https://github.com/kubeflow/kubeflow/issues/7396).
-The group aims to simplify and improve data processing between various stages of ML lifecycle. For example, from Data Preparation to model training and fine-tuning.
+The WG "Data" is focused on enhancing the support for data and metadata-related tasks within Kubeflow, with a specific focus on the [Spark operator](https://github.com/kubeflow/community/pull/672), the [Model Registry](https://github.com/kubeflow/kubeflow/issues/7396), and [Feast](https://github.com/feast-dev/feast).
+The group aims to simplify and improve data and feature processing between various stages of ML lifecycle. For example, from Data Preparation to model training and fine-tuning.
 The group also aims to facilitate the ML model's metadata management, while ensuring seamless integration with other Kubeflow components.
 
-An additional goal of the group is to offer a common ground for data/metadata-related topics in the MLOps orbit that didn't have a more specific working group yet, so they can "incubate as one", coherent effort.
+An additional goal of the group is to offer a common ground for data and metadata-related topics in the MLOps orbit that didn't have a more specific working group yet, so they can "incubate as one", coherent effort.
 
-For example: Data Preparation, Feature Store, and Model Registry have been recently discussed in the Kubeflow community while not mature enough yet to have their own working group, they can be nurtured together as part of this WG.
+For example: Data Preparation, the Feature Store, and Model Registry have been recently discussed in the Kubeflow community while not mature enough yet to have their own working group, they can be nurtured together as part of this WG.
 
 ### In scope
 
@@ -25,24 +25,25 @@ For example: Data Preparation, Feature Store, and Model Registry have been recen
   - deployment Manifests
   - BFF for Model Registry
   - UI front-end for Model Registry
+- Onboarding and maintenance of Feast for historical feature extraction and online feature serving.
 - SDKs and REST APIs for interacting with Kubeflow APIs related to data processing and ML models metadata management.
 - CI/CD pipelines for Kubeflow subproject repositories in the scope of this WG.
-- Documentation, in the forms of Kubeflow website sections and as necessary in each repository.
+- Documentation, in the form of Kubeflow website sections and as necessary in each repository.
 
 #### Cross-cutting and Externally Facing Processes
 
 - Ensuring seamless integration of these WG subprojects with the rest of the Kubeflow platform. For example:
-  - Coordinating with WG Pipelines for integrations of Model Registry with KFP.
-  - Coordinating with WG Serving for integrations of Model Registry with KServe and ModelMesh.
+  - Coordinating with WG Pipelines for integrations of Model Registry and Feast with KFP.
+  - Coordinating with WG Serving for integrations of Model Registry and Feast with KServe and ModelMesh.
 - Coordinating with release teams to ensure that the capabilities and subprojects in scope of this WG can be released properly.
 - Offer mentorship to support contributors working on data-centric projects that want to integrate with Kubeflow.
 
 ### Out of scope
 
 - APIs and components related to:
-  - ML exploration and experimentation (covered in Notebooks/Pipelines),
+  - ML exploration, feature development, and experimentation (covered in Notebooks/Pipelines),
   - ML training (covered in Training),
-  - serving ML models for inference (covered in Serving)
+  - serving ML features and models for model inference (covered in Serving)
 - Anything else not explicitly outlined in the scope of this WG.
 
 ## Roles and Organization Management
