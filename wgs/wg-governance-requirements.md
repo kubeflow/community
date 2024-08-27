@@ -10,7 +10,7 @@ Sub elements of a list inherit the requirements of the parent by default unless 
 ## Checklist
 
 Following is the checklist of items that should be considered as part of defining governance for
-any subarea of the Kubernetes project.
+any subarea of the Kubeflow project.
 
 ### Roles
 
