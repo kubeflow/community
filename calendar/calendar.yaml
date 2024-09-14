@@ -98,7 +98,7 @@
   organizer: juliusvonkohout
 
 - id: kf037
-  name: Kubeflow Notebooks WG Meeting (US + EMEA)
+  name: Kubeflow Notebooks 2.0 WG Meeting (US + EMEA)
   date: 06/08/2023
   time: 8:00AM-8:55AM
   frequency: bi-weekly
@@ -116,26 +116,6 @@
       Join with Phone (USA): +1 669 900 6833 or +1 646 558 8656
       International numbers: https://zoom.us/zoomconference?m=Os1EjlUlpb2_XUMaQ6dX1azqMK5CkfWH
   organizer: kimwnasptd
-
-- id: kf040
-  name: Kubeflow Notebooks WG Meeting (US + APAC)
-  date: 01/25/2024
-  time: 4:00PM-4:55PM
-  frequency: bi-weekly
-  video: https://zoom.us/j/95919259449?pwd=VGRNTm05VzRnZlIwN3lJRklsZmdqZz09
-  attendees:
-    - email: kubeflow-discuss@googlegroups.com
-  description:
-    - |
-      Notes & Agenda: https://bit.ly/kf-notebooks-wg-notes
-
-      Join with Zoom: https://zoom.us/j/95919259449?pwd=VGRNTm05VzRnZlIwN3lJRklsZmdqZz09
-      Meeting ID: 959 1925 9449
-      Passcode: 066005
-
-      Join with Phone (USA): +1 669 900 6833 or +1 646 558 8656
-      International numbers: https://zoom.us/zoomconference?m=Os1EjlUlpb2_XUMaQ6dX1azqMK5CkfWH
-  organizer: thesuperzapper
 
 - id: kf041
   name: KF Model Registry community meeting (US/EMEA)
@@ -511,3 +491,24 @@
       Notes & Agenda: http://bit.ly/kfp-meeting-notes
       Join at: https://meet.google.com/jkr-dupp-wwm
   organizer: chensun
+
+- id: kf040
+  name: Kubeflow Notebooks WG Meeting (US + APAC)
+  date: 01/25/2024
+  time: 4:00PM-4:55PM
+  frequency: bi-weekly
+  video: https://zoom.us/j/95919259449?pwd=VGRNTm05VzRnZlIwN3lJRklsZmdqZz09
+  until: 09/13/2024
+  attendees:
+    - email: kubeflow-discuss@googlegroups.com
+  description:
+    - |
+      Notes & Agenda: https://bit.ly/kf-notebooks-wg-notes
+
+      Join with Zoom: https://zoom.us/j/95919259449?pwd=VGRNTm05VzRnZlIwN3lJRklsZmdqZz09
+      Meeting ID: 959 1925 9449
+      Passcode: 066005
+
+      Join with Phone (USA): +1 669 900 6833 or +1 646 558 8656
+      International numbers: https://zoom.us/zoomconference?m=Os1EjlUlpb2_XUMaQ6dX1azqMK5CkfWH
+  organizer: thesuperzapper
