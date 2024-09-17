@@ -13,15 +13,6 @@ The governance of Kubeflow is an open, living document, and will continue to evo
 1. Receive and handle reports about code of conduct violations and maintain confidentiality.
 1. Act as the final escalation point and arbitrator for any disputes, issues, clarifications, or escalations within the project scope.
 
-## Delegated authority
-
-KSC may choose to delegate its authority to other committees as-needed.
-
-The committee currently recognizes this delegated authority for [To be set up]:
-
--  Technical guidance is delegated to the [Technical Oversight Committee](https://github.com/kubeflow/community/blob/master/proposals/TECH-OVERSIGHT-COMMITTEE.md).
--  Trademark guidance and execution of the conformance program is delegated to the [Conformance Committee](https://github.com/kubeflow/community/blob/master/proposals/CONFORMANCE-COMMITTEE.md).
-
 ## Committee Meetings
 
 KSC currently meets at least bi-weekly, or as-needed. Meetings are open to the public and held online, unless they pertain to sensitive or privileged matters. Examples of such matters are:
@@ -94,8 +85,8 @@ The results of the decision process are recorded and made publicly available, un
 
 There are two ways to raise issues to the steering committee for decision:
 
-1. Emailing the steering committee at [TBD]. This is a private discussion list to which all members of the committee have access.
-1. Open an issue on a kubeflow/community repository and indicate that you would like attention from the steering committee using github tag [TBD].
+1. Emailing the steering committee at `ksc@kubeflow.org`. This is a private discussion list to which all members of the committee have access.
+1. Open an issue on a kubeflow/community repository and indicate that you would like attention from the steering committee using GitHub tag `@kubeflow/kubeflow-steering-committee`.
 
 ## Changes to the charter
 
