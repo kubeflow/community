@@ -229,6 +229,7 @@ From that phase and forward updates to the manifests repo must only be fixing co
 - Work on closing the provided open issues
 - Ensure that future _git revisions_ only include bug fixes, and not new features, from the previously provided _git revision_. If the working group provides incremental releases (either sequential RCs or minor/patch version bumps), each should be a GitHub release with an incremental changelog. After releasing a series of RCs, the final version should contain the full changelog from all RCs combined.
 - Declare expected common dependency version ranges
+- Coordinate with the liaison of the WG with the Release team, in order to start collecting: main highlights for the release, what need to be shown in the highlight video (will be needed as part of the release announcements)
 
 **Actions for Manifests WG:**
 
@@ -243,6 +244,7 @@ From that phase and forward updates to the manifests repo must only be fixing co
 - Get a git revision from all WGs, on the first day of the Feature Freeze period. WGs need to have a git revision ready to give to the release team.
 - Make a pull request to update the manifests for the different WGs, based on the _git revision_ they provided.
 - Identify, early in the first week, bugs at risk. These should either be aggressively fixed or punted
+- Appoint the liaison for each WG to prepare an highlight video, to be assembled for release announcements  (will be needed as part of the release announcements)
 
 **Success Criteria:** All working group git branches and tags are created, manifests are up to date, features either have landed or been pushed to next release.
 
@@ -326,6 +328,7 @@ We made it!
 - (Optional but encouraged) Working Groups publish individual deep dive blog posts on features or other work they’d like to see highlighted.
 - Publish social media posts
 - Send [release announcement](https://groups.google.com/g/kubeflow-discuss/c/qDRvrLPHU70/m/ORKN14DzCQAJ) to kubeflow-discuss
+- Coordinate with the liaison for each WG to record the highlight video as part of the release meeting, or ask the liaison to share a prerecorded .mp4
 
 ## Post Release
 
