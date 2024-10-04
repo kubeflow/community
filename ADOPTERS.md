@@ -6,7 +6,7 @@ alphabetical order.
 
 | Organization | Contact | Description of Use |
 | ------------ | ------- | ------------------ |
-| TODO | TODO | TODO |
+| [Telia](https://www.teliacompany.com/) | [@akeed](https://github.com/akeed), [@sarahberenji](https://github.com/sarahberenji), [@tarekabouzeid](https://github.com/tarekabouzeid) | Kubeflow is used as our main ML platform for on-prem analytics. |
 
 # Adopters of Individual Kubeflow Components
 
