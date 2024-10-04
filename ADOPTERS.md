@@ -16,4 +16,5 @@ in the corresponding GitHub repositories.
 
 - Adopters of [Kubeflow Katib](https://github.com/kubeflow/katib/blob/master/ADOPTERS.md).
 
-- Adopters of [Kubeflow Training Operator](https://github.com/kubeflow/training-operator/blob/master/docs/adopters.md).
+- Adopters of [Kubeflow Training Operator](https://github.com/kubeflow/training-operator/blob/master/ADOPTERS.md).
+
