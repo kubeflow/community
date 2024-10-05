@@ -6,7 +6,7 @@ alphabetical order.
 
 | Organization | Contact | Description of Use |
 | ------------ | ------- | ------------------ |
-| TODO | TODO | TODO |
+| [Telia](https://www.teliacompany.com/) | [@akeed](https://github.com/akeed), [@sarahberenji](https://github.com/sarahberenji), [@tarekabouzeid](https://github.com/tarekabouzeid) | Kubeflow is used as our main ML platform for on-prem analytics. |
 
 # Adopters of Individual Kubeflow Components
 
@@ -16,4 +16,6 @@ in the corresponding GitHub repositories.
 
 - Adopters of [Kubeflow Katib](https://github.com/kubeflow/katib/blob/master/ADOPTERS.md).
 
-- Adopters of [Kubeflow Training Operator](https://github.com/kubeflow/training-operator/blob/master/docs/adopters.md).
+- Adopters of [Kubeflow Spark Operator](https://github.com/kubeflow/spark-operator/blob/master/ADOPTERS.md).
+
+- Adopters of [Kubeflow Training Operator](https://github.com/kubeflow/training-operator/blob/master/ADOPTERS.md).
