@@ -137,7 +137,8 @@
 - id: kf042
   name: Kubeflow Spark Operator Meeting
   date: 05/17/2024
-  time: 10:00AM-11:00AM
+  time: 4:00PM-5:00PM
+  timezone: America/Los_Angeles
   frequency: every-4-weeks
   video: https://zoom.us/j/93870602975?pwd=NWFNT2xrZU03alVTTXFBTEsvdDdMQT09
   attendees:
