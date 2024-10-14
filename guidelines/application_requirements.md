@@ -93,7 +93,7 @@ This document is not intended to cover SDKs (e.g. fairing) or client side tools 
 ## Reference
 
 * TFJob and PyTorch 1.0 [exit criterion](http://bit.ly/operators-exit-criterion)
-* [CNCF Graduation Criteria](https://github.com/cncf/toc/blob/main/process/graduation_criteria.md)
+* [CNCF Graduation Criteria](https://github.com/cncf/toc/blob/main/.github/ISSUE_TEMPLATE/template-graduation-application.md)
 * [Core Infrastructure Best Practices](https://github.com/coreinfrastructure/best-practices-badge)
 * [Kubeflow v1.0 Docs and Processes](https://docs.google.com/document/d/1v06QmjIms3z-uoW-waS7S9IzMA6n4CVrXOwQQ9N0do4)
 * [Application CR Issue](https://github.com/kubernetes-sigs/application/issues/6) related to dependencies and health monitoring 
