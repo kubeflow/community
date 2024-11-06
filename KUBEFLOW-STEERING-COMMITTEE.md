@@ -72,8 +72,13 @@ Members of KSC may abstain from a vote. Abstaining members will only be consider
 Issues that impacts the KSC governance requires a special decision process. Issues include:
 - Changes to the KSC charter
 - KSC voting rules
+- Election rules
 
 The issue may pass with 70% of the members (rounded up) of the committee supporting it.
+
+One organization may cast 1 vote. Votes cast by members from the same organization are equally weighted. Example:
+- If KSC is made up of employees from organizations A, A, B, C, D, each vote from organization A is weighted by a factor of 0.5. The total number of votes is 4, and 3 votes (70% rounded up) is required to pass a proposal. This rule is designed to remove organization A's ability to defeat a proposal that is supported by all other KSC members.
+- Similarly, if KSC is made up of employees from organizations A, A, B, B, C, the total number of votes is 3, and 2.5 votes is required to pass a proposal. 
 
 ### Results
 
