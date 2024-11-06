@@ -107,6 +107,11 @@ In the staggered election schedule, if a particular organization already has two
 
 If employers change because of job changes, acquisitions, or other events, in a way that would yield more than 2 seats being held by employees of the same organization, sufficient members of the committee must resign until only two employees of the same employer are left. If it is impossible to find sufficient members to resign, all employees of that organization will be removed and new special elections held. In the event of a question of company membership (for example evaluating independence of corporate subsidiaries) a majority of all non-involved Steering Committee members will decide.
 
+#### Changes to take effect in 2025 election and beyond ####
+No more than one seat may be held by employees of the same organization. Since KSC is a relatively small committee with 5 members, this rule was introduced to encourage diversity of representation in KSC.
+
+Exception: The 2024 election result may produce an outcome where the elected 2-member cohort comes from the same organization. In such scenario, the 2-member cohort may serve their full term of 2 years.
+
 ### Vacancies ###
 In the event of a resignation or other loss of an elected committee member, the next most preferred candidate from the previous election will be offered the seat.  
 
