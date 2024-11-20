@@ -51,14 +51,17 @@
   date: 08/19/2020
   time: 10:00am-10:40am
   frequency: bi-weekly
-  video: https://meet.google.com/jkr-dupp-wwm
+  video: https://zoom.us/j/92607298595?pwd=VlKLUbiguGkbT9oKbaoDmCxrhbRop7.1
   attendees:
     - email: kubeflow-discuss@googlegroups.com
     - email: kubeflow-pipelines@google.com
   description:
     - |
       Notes & Agenda: http://bit.ly/kfp-meeting-notes
-      Join at: https://meet.google.com/jkr-dupp-wwm
+      Join Zoom Meeting
+      https://zoom.us/j/92607298595?pwd=VlKLUbiguGkbT9oKbaoDmCxrhbRop7.1
+      Meeting ID: 926 0729 8595
+      Passcode: 876287
   organizer: chensun
 
 - id: kf035
