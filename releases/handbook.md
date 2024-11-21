@@ -244,7 +244,7 @@ From that phase and forward updates to the manifests repo must only be fixing co
 - Get a git revision from all WGs, on the first day of the Feature Freeze period. WGs need to have a git revision ready to give to the release team.
 - Make a pull request to update the manifests for the different WGs, based on the _git revision_ they provided.
 - Identify, early in the first week, bugs at risk. These should either be aggressively fixed or punted
-- Appoint the liaison for each WG to prepare an highlight video, to be assembled for release announcements  (will be needed as part of the release announcements)
+- Appoint the liaison for each WG to prepare a highlight video, to be assembled for release announcements (will be needed as part of the release announcements)
 
 **Success Criteria:** All working group git branches and tags are created, manifests are up to date, features either have landed or been pushed to next release.
 
