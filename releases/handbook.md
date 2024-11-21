@@ -229,7 +229,7 @@ From that phase and forward updates to the manifests repo must only be fixing co
 - Work on closing the provided open issues
 - Ensure that future _git revisions_ only include bug fixes, and not new features, from the previously provided _git revision_. If the working group provides incremental releases (either sequential RCs or minor/patch version bumps), each should be a GitHub release with an incremental changelog. After releasing a series of RCs, the final version should contain the full changelog from all RCs combined.
 - Declare expected common dependency version ranges
-- Coordinate with the liaison of the WG with the Release team, in order to start collecting: main highlights for the release, what need to be shown in the highlight video (will be needed as part of the release announcements)
+- Coordinate with the liaison of the WG with the Release team, in order to start collecting: main highlights for the release, what needs to be shown in the highlight video (will be needed as part of the release announcements)
 
 **Actions for Manifests WG:**
 
