@@ -71,6 +71,9 @@ If you believe your name should be on either list you may [file an exception](ht
 - [peter-mcclonski](https://github.com/peter-mcclonski)
 - [akshaychitneni](https://github.com/akshaychitneni)
 - [tzabbi](https://github.com/tzabbi/tzabbi)
+- [tarekabouzeid](https://github.com/tarekabouzeid)
+- [chasecadet](https://github.com/chasecadet)
+- [andreeamun](https://github.com/andreeamun)
 
 ## List of eligible canidates who can be nominated
 
