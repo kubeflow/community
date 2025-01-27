@@ -31,7 +31,7 @@ Questions and proposals for changes to governance are posted as issues in the ku
 
 ## Committee members
 
-KSC is composed of 5 (five) members. They are elected according to [the election policy](elections/kubeflow-steering-committee-elections-2024.md)/
+KSC is composed of 5 (five) members. They are elected according to [the election policy](elections/kubeflow-steering-committee-elections-2024.md).
 Seats on the Steering Committee are held by an individual, not by their employer.
 
 The current membership of the committee is (listed alphabetically by first name):
@@ -56,11 +56,15 @@ The current membership of the committee is (listed alphabetically by first name)
 KSC members hold administrative ownership of Kubeflow assets. When new members of the KSC are elected,
 a GitHub issue must be created to facilitate the transfer to the incoming members.
 
-GitHub issue name: Transfer Ownership to KSC 2025
+GitHub issue name:
+
+```
+Transfer Ownership to KSC 2025
+```
 
 GitHub issue content:
 
-- [ ] Update this document with the new members and emeritus members.
+- [ ] Update Kubeflow Steering Committee document with the new members and emeritus members.
 - [ ] Archive the current Slack channel (e.g. `#archived-ksc-2024`) and create the new Slack channel (e.g. `kubeflow-steering-committee`).
 - [ ] Schedule weekly calls with the new members.
 - [ ] Update [admins for Kubeflow GitHub org](https://github.com/kubeflow/internal-acls/blob/master/github-orgs/kubeflow/org.yaml#L7).
@@ -71,9 +75,10 @@ GitHub issue content:
   - `kubeflow/internal-acls` [OWNERS file](https://github.com/kubeflow/internal-acls/blob/master/OWNERS).
   - `kubeflow/website` [OWNERS file](https://github.com/kubeflow/website/blob/master/OWNERS).
   - `kubeflow/blog` [OWNERS file](https://github.com/kubeflow/blog/blob/master/OWNERS).
-- [ ] Kubeflow [Google Group](https://groups.google.com/g/kubeflow-discuss).
 - [ ] Kubeflow GCP projects under `kubeflow.org` for calendar, ACL, DNS management.
-- [ ] Access to Kubeflow 1password account.
+- [ ] Kubeflow [Google Group](https://groups.google.com/g/kubeflow-discuss).
+- [ ] Update members for [KSC Google Group](https://groups.google.com/a/kubeflow.org/g/ksc).
+- [ ] Access to Kubeflow `1password` account.
 - [ ] Kubeflow social media resources.
   - Kubeflow [LinkedIn](https://www.linkedin.com/company/kubeflow/)
   - Kubeflow [Twitter](https://x.com/kubeflow).
