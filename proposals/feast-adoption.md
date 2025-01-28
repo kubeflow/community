@@ -32,7 +32,8 @@ The current maintainers have no plan to leave the project and believe this will 
 We believe there are at least 6 key benefits:
 
 1\. Incorporating Feast into Kubeflow (and the manifest) will help formally fill a needed gap for Kubeflow in the [AI/ML Lifecycle](https://github.com/user-attachments/assets/400a7170-2bec-4975-8132-a1b6e9006273).  
-![][image1]
+
+![][diagrams/aiml_lifecycle.png]
 
 2\. It will also allow the Data WG to have an answer for the online serving of features. Additionally, this will nicely complement the Spark Operator as [Feast supports batch and stream processing using Spark as an offline store](https://docs.feast.dev/reference/offline-stores/spark).
 
@@ -46,7 +47,10 @@ We believe there are at least 6 key benefits:
 
 Beyond the benefits to Kubeflow, I believe it will provide significant benefits to Feast in growing our community and embedding ourselves in a complete platform. This will also allow both communities (particularly Data Scientists/MLEs) to benefit from the GenAI/LLM/NLP work that I have been doing (see here: [\#4964](https://github.com/feast-dev/feast/issues/4964) and [\#4364](https://github.com/feast-dev/feast/issues/4364)).
 
-As clear in the [Kubeflow User Survey](https://15905978862850875460.googlegroups.com/attach/150ca032927e6/'22%20Kubeflow%201.6%20User%20Survey%20-%20initial%20results.pdf?part=0.1.1&view=1&view=1&vt=ANaJVrFmCCfq8rEbnzakW7JKVPbTl1nhLDckzg79h1xmup5qc_c3rftVy1ne7tkCUMf5pUOfS3aMEXHfKEKeEVwV1TtdQOnvx3XMHYZ2uQHv-70K5CRyV0M), Feast serves a critical and challenging need: feature engineering and feature serving.![][image2]![][image3]
+As clear in the [Kubeflow User Survey](https://15905978862850875460.googlegroups.com/attach/150ca032927e6/'22%20Kubeflow%201.6%20User%20Survey%20-%20initial%20results.pdf?part=0.1.1&view=1&view=1&vt=ANaJVrFmCCfq8rEbnzakW7JKVPbTl1nhLDckzg79h1xmup5qc_c3rftVy1ne7tkCUMf5pUOfS3aMEXHfKEKeEVwV1TtdQOnvx3XMHYZ2uQHv-70K5CRyV0M), Feast serves a critical and challenging need: feature engineering and feature serving.
+
+![][diagrams/kubeflow_feast.png]
+![][diagrams/kubeflow_feature_engineering.png]
 
 #### **Kubeflow Working Group Data**
 
