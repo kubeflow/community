@@ -104,7 +104,7 @@
   name: Kubeflow Notebooks 2.0 + WG Meeting (US + EMEA)
   date: 06/08/2023
   time: 8:00AM-8:55AM
-  frequency: bi-weekly
+  frequency: weekly
   video: https://zoom.us/j/96967996819?pwd=aFNkWnBTVW1TWW1iellneFYrRXJPdz09
   attendees:
     - email: kubeflow-discuss@googlegroups.com
