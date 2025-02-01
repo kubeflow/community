@@ -31,18 +31,18 @@ Questions and proposals for changes to governance are posted as issues in the ku
 
 ## Committee members
 
-KSC is composed of 5 (five) members. They are elected according to [the election policy](elections/kubeflow-steering-committee-elections-2024.md).
+KSC is composed of 5 (five) members. They are elected according to [the election policy](proposals/kubeflow-steering-committee-election-proposal.md).
 Seats on the Steering Committee are held by an individual, not by their employer.
 
 The current membership of the committee is (listed alphabetically by first name):
 
-| Name                | Organization         | GitHub                                                           | Term Start | Term End   |
-| ------------------- | -------------------- | ---------------------------------------------------------------- | ---------- | ---------- |
-| Andrey Velichkevich | Apple                | [andreyvelich](https://github.com/andreyvelich/)                 | 02/01/2024 | 02/01/2026 |
-| Francisco Arceo     | Red Hat              | [franciscojavierarceo](https://github.com/franciscojavierarceo/) | 02/01/2025 | 02/01/2027 |
-| Johnu George        | Nutanix              | [johnugeorge](https://github.com/johnugeorge/)                   | 02/01/2024 | 02/01/2026 |
-| Julius von Kohout   | DHL Data & Analytics | [juliusvonkohout](https://github.com/juliusvonkohout/)           | 02/01/2025 | 02/01/2027 |
-| Yuan Tang           | Red Hat              | [terrytangyuan](https://github.com/terrytangyuan/)               | 02/01/2024 | 02/01/2026 |
+| Name                | Organization | GitHub                                                           | Term Start | Term End   |
+| ------------------- | ------------ | ---------------------------------------------------------------- | ---------- | ---------- |
+| Andrey Velichkevich | Apple        | [andreyvelich](https://github.com/andreyvelich/)                 | 02/01/2024 | 02/01/2026 |
+| Francisco Arceo     | Red Hat      | [franciscojavierarceo](https://github.com/franciscojavierarceo/) | 02/01/2025 | 02/01/2027 |
+| Johnu George        | Nutanix      | [johnugeorge](https://github.com/johnugeorge/)                   | 02/01/2024 | 02/01/2026 |
+| Julius von Kohout   | DHL          | [juliusvonkohout](https://github.com/juliusvonkohout/)           | 02/01/2025 | 02/01/2027 |
+| Yuan Tang           | Red Hat      | [terrytangyuan](https://github.com/terrytangyuan/)               | 02/01/2024 | 02/01/2026 |
 
 ## Emeritus Committee Members
 
@@ -81,8 +81,8 @@ GitHub issue content:
 - [ ] Access to Kubeflow `1password` account.
 - [ ] Kubeflow social media resources.
   - Kubeflow [LinkedIn](https://www.linkedin.com/company/kubeflow/)
-  - Kubeflow [Twitter](https://x.com/kubeflow).
-  - Kubeflow [BlueSky](https://bsky.app/profile/kubefloworg.bsky.social).
+  - Kubeflow [X](https://x.com/kubeflow).
+  - Kubeflow [Bluesky](https://bsky.app/profile/kubefloworg.bsky.social).
   - [Kubeflow Community](https://www.youtube.com/@KubeflowCommunity) YouTube channel.
   - [Kubeflow](https://www.youtube.com/@Kubeflow) YouTube channel.
 
