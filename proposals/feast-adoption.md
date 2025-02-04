@@ -4,6 +4,7 @@
 
 Francisco Javier Arceo (Red Hat)  
 Shuchu Han (Capital One)
+Hao Xu (JP Morgan)
 
 ## **Motivation**
 
@@ -60,10 +61,11 @@ The scope of this WG is to provide guidelines for AI/ML users to run data prepar
 
 ## **Maintainers**
 
-The following maintainers are committed to maintain Spark Operator under Kubeflow GitHub org to track issues, do releases, merge PRs.
+The following maintainers are committed to maintain Feast under Kubeflow GitHub org to track issues, do releases, merge PRs.
 
 * Francisco Javier Arceo (Red Hat)  
 * Shuchu Han (Capital One)
+* Hao Xu (JP Morgan)
 
 ## **Migration Plan**
 
