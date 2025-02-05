@@ -1,4 +1,5 @@
 # Kubeflow Steering Committee
+
 The Kubeflow Steering Committee (KSC) is the governing body of the Kubeflow project, providing decision-making and oversight pertaining to the Kubeflow project policies, sub-organizations, and financial planning, and defines the project values and structure.
 
 The governance of Kubeflow is an open, living document, and will continue to evolve as the community and project change.
@@ -16,6 +17,7 @@ The governance of Kubeflow is an open, living document, and will continue to evo
 ## Committee Meetings
 
 KSC currently meets at least bi-weekly, or as-needed. Meetings are open to the public and held online, unless they pertain to sensitive or privileged matters. Examples of such matters are:
+
 - Privacy related issues
 - Private emails to the committee
 - Code of conduct violations
@@ -29,23 +31,60 @@ Questions and proposals for changes to governance are posted as issues in the ku
 
 ## Committee members
 
-KSC is composed of 5 (five) members. They are elected according to the election policy [TODO: add link].  
-Seats on the Steering Committee are held by an individual, not by their employer.  
+KSC is composed of 5 (five) members. They are elected according to [the election policy](proposals/kubeflow-steering-committee-election-proposal.md).
+Seats on the Steering Committee are held by an individual, not by their employer.
 
 The current membership of the committee is (listed alphabetically by first name):
 
-| Name                | Organization | GitHub                                             | Term Start | Term End   |
-|---------------------|--------------|----------------------------------------------------|------------|------------|
-| Andrey Velichkevich | Apple        | [andreyvelich](https://github.com/andreyvelich/)   | 02/01/2024 | 02/01/2026 |
-| Johnu George        | Nutanix      | [johnugeorge](https://github.com/johnugeorge/)     | 02/01/2024 | 02/01/2026 |
-| Josh Bottum         | Independent  | [jbottum](https://github.com/jbottum/)             | 02/01/2024 | 02/01/2025 |
-| James Wu            | Google       | [james-jwu](https://github.com/james-jwu/)         | 02/01/2024 | 02/01/2025 |
-| Yuan Tang           | Red Hat      | [terrytangyuan](https://github.com/terrytangyuan/) | 02/01/2024 | 02/01/2026 |
-
+| Name                | Organization | GitHub                                                           | Term Start | Term End   |
+| ------------------- | ------------ | ---------------------------------------------------------------- | ---------- | ---------- |
+| Andrey Velichkevich | Apple        | [andreyvelich](https://github.com/andreyvelich/)                 | 02/01/2024 | 02/01/2026 |
+| Francisco Arceo     | Red Hat      | [franciscojavierarceo](https://github.com/franciscojavierarceo/) | 02/01/2025 | 02/01/2027 |
+| Johnu George        | Nutanix      | [johnugeorge](https://github.com/johnugeorge/)                   | 02/01/2024 | 02/01/2026 |
+| Julius von Kohout   | DHL          | [juliusvonkohout](https://github.com/juliusvonkohout/)           | 02/01/2025 | 02/01/2027 |
+| Yuan Tang           | Red Hat      | [terrytangyuan](https://github.com/terrytangyuan/)               | 02/01/2024 | 02/01/2026 |
 
 ## Emeritus Committee Members
 
-[This section will be populated when there are retired committee members.]
+| Name        | Organization | GitHub                                     | Term Start | Term End   |
+| ----------- | ------------ | ------------------------------------------ | ---------- | ---------- |
+| Josh Bottum | Independent  | [jbottum](https://github.com/jbottum/)     | 02/01/2024 | 02/01/2025 |
+| James Wu    | Google       | [james-jwu](https://github.com/james-jwu/) | 02/01/2024 | 02/01/2025 |
+
+## Ownership Transfer
+
+KSC members hold administrative ownership of Kubeflow assets. When new members of the KSC are elected,
+a GitHub issue must be created to facilitate the transfer to the incoming members.
+
+GitHub issue name:
+
+```
+Transfer Ownership to KSC 2025
+```
+
+GitHub issue content:
+
+- [ ] Update Kubeflow Steering Committee document with the new members and emeritus members.
+- [ ] Archive the current Slack channel (e.g. `#archived-ksc-2024`) and create the new Slack channel (e.g. `kubeflow-steering-committee`).
+- [ ] Schedule weekly calls with the new members.
+- [ ] Update [admins for Kubeflow GitHub org](https://github.com/kubeflow/internal-acls/blob/master/github-orgs/kubeflow/org.yaml#L7).
+- [ ] Update the [`kubeflow-steering-committee` GitHub team](https://github.com/kubeflow/internal-acls/blob/master/github-orgs/kubeflow/org.yaml).
+- [ ] Update approvers for the following OWNERS files (e.g the past members should be moved to `emeritus_approvers`):
+  - `kubeflow/kubeflow` [OWNERS file](https://github.com/kubeflow/kubeflow/blob/master/OWNERS).
+  - `kubeflow/community` [OWNERS file](https://github.com/kubeflow/community/blob/master/OWNERS).
+  - `kubeflow/internal-acls` [OWNERS file](https://github.com/kubeflow/internal-acls/blob/master/OWNERS).
+  - `kubeflow/website` [OWNERS file](https://github.com/kubeflow/website/blob/master/OWNERS).
+  - `kubeflow/blog` [OWNERS file](https://github.com/kubeflow/blog/blob/master/OWNERS).
+- [ ] Kubeflow GCP projects under `kubeflow.org` for calendar, ACL, DNS management.
+- [ ] Kubeflow [Google Group](https://groups.google.com/g/kubeflow-discuss).
+- [ ] Update members for [KSC Google Group](https://groups.google.com/a/kubeflow.org/g/ksc).
+- [ ] Access to Kubeflow `1password` account.
+- [ ] Kubeflow social media resources.
+  - Kubeflow [LinkedIn](https://www.linkedin.com/company/kubeflow/)
+  - Kubeflow [X](https://x.com/kubeflow).
+  - Kubeflow [Bluesky](https://bsky.app/profile/kubefloworg.bsky.social).
+  - [Kubeflow Community](https://www.youtube.com/@KubeflowCommunity) YouTube channel.
+  - [Kubeflow](https://www.youtube.com/@Kubeflow) YouTube channel.
 
 ## Decision process
 
@@ -54,6 +93,7 @@ The steering committee desires to always reach consensus.
 ### Normal decision process
 
 Decisions requiring a vote include:
+
 - Issuing written policy
 - Amending existing written policy
 - Accepting, or removing a Kubeflow component
@@ -70,6 +110,7 @@ Members of KSC may abstain from a vote. Abstaining members will only be consider
 ### Special decision process
 
 Issues that impacts the KSC governance requires a special decision process. Issues include:
+
 - Changes to the KSC charter
 - KSC voting rules
 - Election rules
@@ -77,12 +118,14 @@ Issues that impacts the KSC governance requires a special decision process. Issu
 The issue may pass with 70% of the members (rounded up) of the committee supporting it.
 
 One organization may cast 1 vote. Votes cast by members from the same organization are equally weighted. Example:
+
 - If KSC is made up of employees from organizations A, A, B, C, D, each vote from organization A is weighted by a factor of 0.5. The total number of votes is 4, and 3 votes (70% rounded up) is required to pass a proposal. This rule is designed to remove organization A's ability to defeat a proposal that is supported by all other KSC members.
-- Similarly, if KSC is made up of employees from organizations A, A, B, B, C, the total number of votes is 3, and 2.5 votes is required to pass a proposal. 
+- Similarly, if KSC is made up of employees from organizations A, A, B, B, C, the total number of votes is 3, and 2.5 votes is required to pass a proposal.
 
 ### Results
 
 The results of the decision process are recorded and made publicly available, unless they pertain to sensitive or privileged matters. The results will include:
+
 - Description of the issue
 - Names of members who supported, opposed, and abstained from the vote.
 
