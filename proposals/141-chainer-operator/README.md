@@ -1,6 +1,7 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [Motivation](#motivation)
 - [Goals](#goals)
@@ -18,34 +19,40 @@
 
 _Status_
 
-* 2018-06-01 - Accepted
-* 2018-06-14 - Implementation Started
+- 2018-06-01 - Accepted
+- 2018-06-14 - Implementation Started
+
+# KEP-141: Chainer Operator
 
 ## Motivation
 
-[Chainer][Chainer] is a Python-based, standalone open source framework for deep learning models. Chainer provides a flexible, intuitive, and high-performance means of implementing a full range of deep learning models, including state-of-the-art models such as recurrent neural networks and variational autoencoders.  
+[Chainer][Chainer] is a Python-based, standalone open source framework for deep learning models. Chainer provides a flexible, intuitive, and high-performance means of implementing a full range of deep learning models, including state-of-the-art models such as recurrent neural networks and variational autoencoders.
 
-[ChainerMN][ChainerMN] is an additional package for [Chainer][Chainer], which enables multi-node distributed deep learning in a scalable, flexible and easy way.  [ChainerMN][ChainerMN] currently supports MPI to initialize process groups or do collective communications(e.g. broadcast, all-reduce, etc.) among processes attending the distributed learning.  They are now planning to extend the support to other communication backends (e.g. [gloo][gloo] or other custom ones).
+[ChainerMN][ChainerMN] is an additional package for [Chainer][Chainer], which enables multi-node distributed deep learning in a scalable, flexible and easy way. [ChainerMN][ChainerMN] currently supports MPI to initialize process groups or do collective communications(e.g. broadcast, all-reduce, etc.) among processes attending the distributed learning. They are now planning to extend the support to other communication backends (e.g. [gloo][gloo] or other custom ones).
 
-Moreover, [Chainer][Chainer]/[ChainerMN][ChainerMN] achieved to [train ResNet-50 on ImageNet in 15 Minutes](https://arxiv.org/pdf/1711.04325.pdf) in the environment equipped with GPUs and InfiniBand FDR.  [The recent research](https://chainer.org/general/2018/05/25/chainermn-v1-3.html) revealed that [ChainerMN][ChainerMN]'s latest feature (Double-buffering and All-Reduce in half-precision float values) enables users to expect _almost_ linear scalability without sacrificing model accuracy even in environments (e.g. AWS) which doesn't equip InfiniBand.
+Moreover, [Chainer][Chainer]/[ChainerMN][ChainerMN] achieved to [train ResNet-50 on ImageNet in 15 Minutes](https://arxiv.org/pdf/1711.04325.pdf) in the environment equipped with GPUs and InfiniBand FDR. [The recent research](https://chainer.org/general/2018/05/25/chainermn-v1-3.html) revealed that [ChainerMN][ChainerMN]'s latest feature (Double-buffering and All-Reduce in half-precision float values) enables users to expect _almost_ linear scalability without sacrificing model accuracy even in environments (e.g. AWS) which doesn't equip InfiniBand.
 
 However, [Chainer][Chainer]/[ChainerMN][ChainerMN] currently does not have an operator/controller for Kubernetes. This proposal is aimed at defining what the operator should behave, and add it to Kubeflow.
 
 ## Goals
-A Kubeflow user should be able to run training using [Chainer][Chainer]/[ChainerMN][ChainerMN] as easily as then can using Tensorflow/PyTorch.  This proposal is centered around a Kubernetes operator for [Chainer]/[ChainerMN]. A user should be able to run both single node with [Chainer][Chainer] and distributed training jobs with [ChainerMN][ChainerMN].
+
+A Kubeflow user should be able to run training using [Chainer][Chainer]/[ChainerMN][ChainerMN] as easily as then can using Tensorflow/PyTorch. This proposal is centered around a Kubernetes operator for [Chainer]/[ChainerMN]. A user should be able to run both single node with [Chainer][Chainer] and distributed training jobs with [ChainerMN][ChainerMN].
 
 This proposal defines the following:
+
 - A Chainer operator
 - A way to deploy the operator with ksonnet
 - A single pod Chainer example
 - A distributed (multiple pods) Chainer example
 
 ## Non-Goals
+
 Currently, for the scope of this proposal, we won't be addressing the method for serving the model.
 
 ## API (CRD and resulting objects)
 
 ### Custom Resource Definition
+
 ```yaml
 apiVersion: kubeflow.org/v1alpha1
 kind: ChainerJob
@@ -56,7 +63,7 @@ spec:
   # "gloo", or custom backend will be supported in the future.
   backend: mpi
   # chief would be better like TfJorb?
-  master:  
+  master:
     # replicas of master can be ommitted but must be 1 in master.
     replicas: 1
     # In master, only backoffLimit/activeDeadlineSeconds
@@ -70,10 +77,20 @@ spec:
             name: master
             imagePullPolicy: IfNotPresent
             command: ["mpiexec"]
-            args: [
-              "-n", "3", "-N", "1",
-              "python3", "/train_mnist.py", "-e", "2", "-b", "100", "-g"
-            ]
+            args:
+              [
+                "-n",
+                "3",
+                "-N",
+                "1",
+                "python3",
+                "/train_mnist.py",
+                "-e",
+                "2",
+                "-b",
+                "100",
+                "-g",
+              ]
         restartPolicy: OnFailure
   worker:
     replicas: 3
@@ -85,20 +102,22 @@ spec:
         restartPolicy: OnFailure
 ```
 
-This `ChainerJob` resembles the existing `TfJob`/`PyTorchJob`.  The main differences are being the omission of `masterPort` options.
+This `ChainerJob` resembles the existing `TfJob`/`PyTorchJob`. The main differences are being the omission of `masterPort` options.
 
-`backend` defines the protocol the [ChainerMN][ChainerMN] processes will use to communicate when initializing the worker group.  As stated above, [ChainerMN][ChainerMN] currently support MPI only for backend.  But they are now planning to extend the support to other communication backend (e.g. [gloo][gloo] or other custom ones).
+`backend` defines the protocol the [ChainerMN][ChainerMN] processes will use to communicate when initializing the worker group. As stated above, [ChainerMN][ChainerMN] currently support MPI only for backend. But they are now planning to extend the support to other communication backend (e.g. [gloo][gloo] or other custom ones).
 
 ### Container Image
-When `backend: mpi`, the same assumption with [mpi-operator](mpi-operator-proposal.md) would be applied.  In addition, to bring out the best performance with CUDA and NVIDIA GPU power, CUDA-aware MPI should be built and installed in the container image.
+
+When `backend: mpi`, the same assumption with [mpi-operator](mpi-operator-proposal.md) would be applied. In addition, to bring out the best performance with CUDA and NVIDIA GPU power, CUDA-aware MPI should be built and installed in the container image.
 
 ### Resulting Master/Workers
 
-This resulting master/workers resembles ones in [mpi-operator](mpi-operator-proposal.md) very much.  It is because that when `backend: mpi`, the main mission of chainer operator would be a setup of MPI cluster on Kubernetes which is failt-tolerant in some extent.
+This resulting master/workers resembles ones in [mpi-operator](mpi-operator-proposal.md) very much. It is because that when `backend: mpi`, the main mission of chainer operator would be a setup of MPI cluster on Kubernetes which is failt-tolerant in some extent.
 
-The difference is that one of master's initContainers makes sure all the cluster pods are up and can connect to them with `kubectl exec`. It is because that it makes chainer-operator not to needs to watch failure of jobs or StatefulSets.  This simplifies implementation of chainer-operator.
+The difference is that one of master's initContainers makes sure all the cluster pods are up and can connect to them with `kubectl exec`. It is because that it makes chainer-operator not to needs to watch failure of jobs or StatefulSets. This simplifies implementation of chainer-operator.
 
 #### Master
+
 ```yaml
 apiVersion: batch/v1
 kind: Job
@@ -106,7 +125,7 @@ metadata:
   name: ${job-id}-master
 spec:
   backoffLimit: 5
-  activeDeadlineSeconds: 100  
+  activeDeadlineSeconds: 100
   template:
     spec:
       initContainers:
@@ -235,11 +254,11 @@ The sequence is very similar to [mpi-operator](mpi-operator-proposal.md#Design).
   - chainer-operator needs not to wait for pods in the `StatefulSet` are up and can connect to them because `master` pod has `initContainer` to do it.
 - When `Job` finishes (even when `DeadlineExceeded`), it will scale `StatefulSet` to `0`.
 
-
 ## Alternatives Considered
-We know [mpi-operator](mpi-operator-proposal.md) is already proposed.  As a design alternative, chiner-operator could emit `kind: MPIJob` custom resource instead of emitting similar constructs.
 
-Please be noted that [ChainerMN][ChainerMN] is now planning to expand backend support other than MPI.  So, even in the case which chainer-operator just emmits `kind: MPIJob` resources, chainer-operator would be worth to introduce.
+We know [mpi-operator](mpi-operator-proposal.md) is already proposed. As a design alternative, chiner-operator could emit `kind: MPIJob` custom resource instead of emitting similar constructs.
+
+Please be noted that [ChainerMN][ChainerMN] is now planning to expand backend support other than MPI. So, even in the case which chainer-operator just emmits `kind: MPIJob` resources, chainer-operator would be worth to introduce.
 
 [ChainerMN]: https://github.com/chainer/chainermn
 [Chainer]: https://chainer.org
