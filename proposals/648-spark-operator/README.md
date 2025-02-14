@@ -1,4 +1,4 @@
-# Adoption of Spark Kubernetes Operator in Kubeflow
+# KEP-648: Adoption of Spark Kubernetes Operator in Kubeflow
 
 Original doc: https://docs.google.com/document/d/1rCPEBQZPKnk0m7kcA5aHPf0fISl0MTAzsa4Wg3dfs5M/edit
 
@@ -36,7 +36,7 @@ Marcin from Google confirmed their willingness to donate the project to either o
 Spark already has a lot of AI/ML use-cases and the Kubeflow ecosystem can help to address those.
 According to the recent Kubeflow survey, Spark is one of the most popular frameworks for Kubeflow users:
 
-![Kubeflow Survey 2022](diagrams/kubeflow-survey-2022.png)
+![Kubeflow Survey 2022](kubeflow-survey-2022.png)
 
 ## Benefits for Kubeflow
 
@@ -44,7 +44,7 @@ The following diagram shows the main components of Kubeflow. Notebooks for inter
 Training Operator for distributed ML Training, Katib for HyperParameter Tuning, KServe for
 Model Serving, Pipelines for ML pipelines, and Profiles to create Kubeflow user profiles.
 
-![Kubeflow Overview](diagrams/kubeflow-overview.png)
+![Kubeflow Overview](kubeflow-overview.png)
 
 Today, Kubeflow doesn’t have any component for Data Preparation which is an essential step for
 MLOps lifecycle. Spark is one of the best and most-used frameworks for Data Preparation,
@@ -76,7 +76,7 @@ the Training Workers from Spark. We can leverage [Apache Arrow Flight](https://a
 to store data in-memory and use it in the job workers. We can propose API and controller changes
 in Spark Operator and Training Operator to support it.
 
-![Spark to Training Operator](diagrams/spark-to-training.png)
+![Spark to Training Operator](spark-to-training.png)
 
 ### Spark Operator & Kubeflow Distributions
 
