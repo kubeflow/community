@@ -1,6 +1,7 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
 
 - [TF-Operator Design (v1alpha2)](#tf-operator-design-v1alpha2)
   - [Motivation](#motivation)
@@ -22,15 +23,15 @@
 
 _Authors:_
 
-* @ScorpioCPH - Penghao Cen &lt;cenph@caicloud.io&gt;
+- @ScorpioCPH - Penghao Cen &lt;cenph@caicloud.io&gt;
 
 _Status_
 
-* 2018-03-18 - Accepted
-* 2018-04-10 - Implementation Started
-* 2018-07-02 - v1alpha2 released in 0.2
+- 2018-03-18 - Accepted
+- 2018-04-10 - Implementation Started
+- 2018-07-02 - v1alpha2 released in 0.2
 
-# TF-Operator Design (v1alpha2)
+# KEP-30: TF-Operator Design (v1alpha2)
 
 ## Motivation
 
@@ -40,10 +41,10 @@ Open this file to summarize the design details and move the version of API to `v
 ## Goals
 
 - Define the structure of API `v1alpha2`.
-    + Cover most of the refactoring requests we have discussed.
-    + Simplify the API definition.
+  - Cover most of the refactoring requests we have discussed.
+  - Simplify the API definition.
 - Define an `event-driven` mechanism for TFJob life-cycle management.
-    + And use `reconciler` mechanism as a double check.
+  - And use `reconciler` mechanism as a double check.
 - Clarify the `error handing` logic.
 - Provide a `test` mechanism to verify the design and implementation.
 
@@ -56,6 +57,7 @@ Open this file to summarize the design details and move the version of API to `v
 The `TFJob` API v1alpha2 object will have the following structure:
 
 **TFJob**:
+
 ```go
 // TFJob represents the configuration of signal TFJob
 type TFJob struct {
@@ -76,6 +78,7 @@ type TFJob struct {
 ```
 
 **TFJobSpec**:
+
 ```go
 // TFJobSpec is a desired state description of the TFJob.
 type TFJobSpec struct {
@@ -91,6 +94,7 @@ type TFJobSpec struct {
 ```
 
 **TFReplicaSpec**:
+
 ```go
 // TFReplicaSpec is a description of the TFReplica
 type TFReplicaSpec struct {
@@ -126,6 +130,7 @@ const (
 ```
 
 **TFReplicaType**:
+
 ```go
 // TFReplicaType is the type for TFReplica.
 type TFReplicaType string
@@ -148,6 +153,7 @@ const (
 ```
 
 **TFJobStatus**:
+
 ```go
 // TFJobStatus represents the current observed state of the TFJob.
 type TFJobStatus struct {
@@ -176,6 +182,7 @@ type TFJobStatus struct {
 ```
 
 **TFReplicaStatus**:
+
 ```go
 // TFReplicaStatus represents the current observed state of the TFReplica.
 type TFReplicaStatus struct {
@@ -191,6 +198,7 @@ type TFReplicaStatus struct {
 ```
 
 **TFJobCondition**:
+
 ```go
 // TFJobCondition describes the state of the TFJob at a certain point.
 type TFJobCondition struct {
@@ -215,6 +223,7 @@ type TFJobCondition struct {
 ```
 
 **TFJobConditionType**:
+
 ```go
 // TFJobConditionType defines all kinds of types of TFJobStatus.
 type TFJobConditionType string
@@ -321,34 +330,34 @@ Other user-defined arguments can also be passed into container by `Args` field i
 First, we should follow the `Event-Driven` pattern as other resource controller in kubernetes (e.g. Deployment/Job):
 
 - Start `tfJobInformer` to listen on CRUD events of TFJob.
-    + `tfJobInformer` was automatically generated from API definition by `informer-gen` script. 
+  - `tfJobInformer` was automatically generated from API definition by `informer-gen` script.
 - Create one pair pod/service for each specify TFReplicaType + replica index in TFJob CreateHandler.
-    + For example, as a given TFReplicaSpec:
-      ```
-      {
-        "PS": {
-            Replicas: 2,
-        },
-        "Worker": {
-            Replicas: 3,
-        },
-      }
-      ```
-      We will create:
-      - `two` pair pods/services for PSs:
-        - tf-job-name-ps-1-uid
-        - tf-job-name-ps-2-uid
-      - `three` pair pods/services for Workers:
-        - tf-job-name-worker-1-uid
-        - tf-job-name-worker-2-uid
-        - tf-job-name-worker-3-uid
-    + We use a postfix `uid` to make each object name unique.
-    + Then set these objects' `OwnerReferences` to this TFJob object.
+  - For example, as a given TFReplicaSpec:
+    ```
+    {
+      "PS": {
+          Replicas: 2,
+      },
+      "Worker": {
+          Replicas: 3,
+      },
+    }
+    ```
+    We will create:
+    - `two` pair pods/services for PSs:
+      - tf-job-name-ps-1-uid
+      - tf-job-name-ps-2-uid
+    - `three` pair pods/services for Workers:
+      - tf-job-name-worker-1-uid
+      - tf-job-name-worker-2-uid
+      - tf-job-name-worker-3-uid
+  - We use a postfix `uid` to make each object name unique.
+  - Then set these objects' `OwnerReferences` to this TFJob object.
 - Listen on pods/services via `podInformer` and `serviceInformer`.
-    + On pod created/updated/deleted, get TFJob object by parsing `OwnerReferences`, set the `TFJob.Status` as defined above according to the whole TF cluster state.
-    + Update the `TFJob.Status.Condition` if needed.
+  - On pod created/updated/deleted, get TFJob object by parsing `OwnerReferences`, set the `TFJob.Status` as defined above according to the whole TF cluster state.
+  - Update the `TFJob.Status.Condition` if needed.
 - Terminate/Delete the TFJob object if every pod is completed (or leave pod phase as `Succeeded`).
-    + This maybe be lead to logs and model checkpoint files unreachable.
+  - This maybe be lead to logs and model checkpoint files unreachable.
 
 ### Reconciler
 
@@ -389,15 +398,15 @@ As `tfJobImformer` provides a forcing resync mechanism by calling `UpdateFunc` w
 - UpdateFunc return a TFJob object periodically.
 - Check `LastReconcileTime` to determine whether we should trigger a reconciler call.
 - `tf-operator` will list all pods/services which related to this TFJob.
-  + Compare the current state to the spec of this TFJob.
-  + Try to recovery the failed pod/service to make the training healthy.
-      + Error handing is described below.
+  - Compare the current state to the spec of this TFJob.
+  - Try to recovery the failed pod/service to make the training healthy.
+    - Error handing is described below.
 - Update the status of this TFJob.
 - TODO: we should call this reconciler with an exponential back-off delay (15s, 30s, 60s …) capped at 5 minutes.
 
 ### Error Handling
 
-To make the system robust, the tf-operator should be able to locally and automatically recover from errors. 
+To make the system robust, the tf-operator should be able to locally and automatically recover from errors.
 
 We extend kubernetes built-in `RestartPolicy` by adding new policy `ExitCode`:
 
@@ -409,10 +418,12 @@ We extend kubernetes built-in `RestartPolicy` by adding new policy `ExitCode`:
 ```
 
 We let users set this field according to their model code.
-  + If set RestartPolicy to `OnFailure`/`Always`, user should add reloading checkpoint code by themselves.
-  + Otherwise restarting will take no effect.
+
+- If set RestartPolicy to `OnFailure`/`Always`, user should add reloading checkpoint code by themselves.
+- Otherwise restarting will take no effect.
 
 `ExitCode` policy means that user should add exit code by themselves, `tf-operator` will check these exit codes to determine the behavior when a error occurs:
+
 - 1-127: permanent error, do not restart.
 - 128-255: retryable error, will restart the pod.
 
@@ -433,7 +444,7 @@ We can use this model from TensorFlow [repo](https://github.com/tensorflow/tenso
 Apart from the above, we should add these abilities in the future:
 
 - Provide a properly mechanism to store training logs and checkpoint files.
-  + [FYI](https://github.com/kubeflow/tf-operator/issues/128)
+  - [FYI](https://github.com/kubeflow/tf-operator/issues/128)
 
 ### Related Issues
 
