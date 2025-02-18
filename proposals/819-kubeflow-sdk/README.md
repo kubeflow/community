@@ -20,7 +20,7 @@ to scale their experiments.
 Typically, ML Users want to:
 
 - Open JupyterLab.
-- Pip install any required libraries.
+- Install required AI/ML libraries with `pip`.
 - Prototype ML code using PyTorch/TensorFlow APIs.
 - Launch jobs to create features from raw data and prepare training datasets.
 - Launch jobs to train, fine-tune, and optimize models across many GPUs.
@@ -54,7 +54,7 @@ support additional languages (e.g., Swift, Rust, Java) based on user demand.
 
 ### No Goals
 
-- Integrate Kubeflow Pipelines APIs into centralized Kubeflow SDK.
+- Consolidate Kubeflow Pipelines APIs into centralized Kubeflow SDK.
 
   - As we discussed in the Google document, we want to postpone the `kfp` integration after
     we release the initial version of Kubeflow SDK. The Kubeflow community will work towards
@@ -62,14 +62,15 @@ support additional languages (e.g., Swift, Rust, Java) based on user demand.
 
 - Integrate Kubeflow Spark Operator, KServe, Model Registry into Kubeflow SDK.
 
-  - Similar to KFP, we will design the integration between those components in the future releases.
+  - Similar to KFP, we will design the integration between those components in the future releases
+    of Kubeflow SDK.
 
 - Use the Kubeflow SDK to submit Kubernetes CRDs that are not part of Kubeflow projects,
   except when a Kubeflow component relies on a third-party tool (e.g., Kubeflow Trainer
   is creating a PodGroup for gang scheduling).
 
 - Use Kubeflow SDK to install the entire Kubeflow control plane. This should be managed by
-  cluster administrators via Helm Charts or Kustomize manifests
+  cluster administrators via Helm Charts, Kustomize manifests, or Kubeflow distributions.
 
 ## Proposal
 
@@ -183,7 +184,7 @@ job_id = OptimizerClient().optimize(
 )
 
 # Get the HPs from the best Trial.
-TrainerClient().get_job(job_id).best_trial
+OptimizerClient().get_job(job_id).best_trial
 ```
 
 ### Risks and Mitigations
@@ -194,11 +195,14 @@ changes for clients.
 
 We can mitigate this risk by providing a compatibility table between SDK and control plane versions.
 We will implement E2E tests to make sure that the SDK is compatible with the desired version of
-the control plane. Also, we can gracefully deprecate client APIs if that is required.
+the control plane.
+
+Additionally, we will gracefully deprecate client APIs and inform users if API will be deleted or
+modified in the future releases of Kubeflow SDK.
 
 ## Design Details
 
-The Kubeflow SDK will be developed under `kubeflow/sdk` repository. We will use the OpenAPI to
+The Kubeflow SDK will be developed in the `kubeflow/sdk` repository. We will use the OpenAPI to
 generate clients from the Kubernetes CRDs.
 
 The following directory structure outlines the organization for the Kubeflow Trainer SDK.
@@ -207,15 +211,15 @@ The following directory structure outlines the organization for the Kubeflow Tra
 python/
 │── kubeflow/
 │   │── trainer/
-│   │   │── api/                  # Client to call Kubeflow Trainer APIs
+│   │   │── api/                               # Client to call Kubeflow Trainer APIs
 │   │   │   │── trainer_client.py
-│   │   │── types/                # User's types for Kubeflow Trainer
+│   │   │── types/                             # User's types for Kubeflow Trainer
 │   │   │   │── types.py
-│   │   │── constants/            # User's constants for Kubeflow Trainer
+│   │   │── constants/                         # User's constants for Kubeflow Trainer
 │   │   │   │── constants.py
-│   │   │── models/               # OpenAPI generated models
+│   │   │── models/                            # OpenAPI generated models
 │   │   │   │── trainer_v1alpha1_train_job.py
-│   │   │── api_client.py         # OpenAPI generated client
+│   │   │── api_client.py                      # OpenAPI generated client
 │   │   │── configuration.py
 │   │   │── exception.py
 │   │   │── rest.py
