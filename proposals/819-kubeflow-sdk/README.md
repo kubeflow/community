@@ -1,4 +1,4 @@
-# KEP-819 Kubeflow SDK
+# KEP-819: Kubeflow SDK for ML Experience
 
 ## Summary
 
