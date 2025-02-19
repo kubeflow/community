@@ -103,7 +103,7 @@ configure PEFT config, my dataset, and trigger a fine-tuning job.
 The ML Experience may look as follows:
 
 ```python
-from kubeflow.trainer import TrainerClient, Trainer, FineTuningConfig, LoraConfig
+from kubeflow.trainer import TrainerClient, Trainer, FineTuningConfig, TorchTuneConfig, LoraConfig
 
 # Get available LLM runtimes.
 TrainerClient().list_runtimes(phase="post-training")
@@ -111,10 +111,11 @@ TrainerClient().list_runtimes(phase="post-training")
 # Fine-tune LLM.
 job_id = TrainerClient().train(
     runtime_ref="llama-3.2-1b",
-    trainer=Trainer(
-        fine_tuning_config=FineTuningConfig(
+    fine_tuning_config=FineTuningConfig(
+        torch_tune_config=TorchTuneConfig(
+            lr="0.01",
             peft_config=LoraConfig(r=4)
-        )
+        ),
     ),
 )
 
@@ -161,7 +162,7 @@ For example, I know that I want to optimize learning rate and LoRA rank.
 ```python
 from kubeflow.optimizer import OptimizerClient, OptimizeConfig
 from kubeflow.optimizer import Search
-from kubeflow.trainer import Trainer, FineTuningConfig, LoraConfig
+from kubeflow.trainer import Trainer, FineTuningConfig, TorchTuneConfig, LoraConfig
 
 # Optimizer HPs during fine-tuning.
 job_id = OptimizerClient().optimize(
@@ -170,16 +171,14 @@ job_id = OptimizerClient().optimize(
         mode="min",
         num_trials=5,
     ),
-    trainer=Trainer(
-        fine_tuning_config=FineTuningConfig(
+    fine_tuning_config=FineTuningConfig(
+        torch_tune_config=TorchTuneConfig(
+            lr=Search(min="0.01", max="0.1", distribution="logNormal"),
             peft_config=LoraConfig(
                 r=Search(min="4", max="8", distribution="uniform"),
             ),
-            trainer_config=TrainerConfig(
-                lr=Search(min="0.01", max="0.1", distribution="logNormal"),
-            ),
-        )
-    ),
+        ),
+    )
     runtime_ref="llama-3.2-1b",
 )
 
