@@ -30,7 +30,16 @@ step process.
 
 The process is outlined in six steps:
 
-1. Create a GitHub Issue with a Google Document outlining your proposal (please allow for commentary)
+1. Create a GitHub Issue with a Google Document outlining your proposal (please allow for commentary), the document should have a rough outline with:
+    - Authors
+    - Motivation
+    - Benefits for Kubeflow
+    - Benefits for the Project's Community
+    - Community Metrics
+    - Contributor Metrics
+    - Maintainers
+    - Migration  Plan
+    - Other Related Projects
 2. Submit a Pull Request with the [../proposals/new-project-donation-process.md](application form).
 3. Add your proposal to the Kubeflow Community call to introduce and collect feedback on
 the application.
