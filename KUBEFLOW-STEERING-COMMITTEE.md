@@ -75,7 +75,11 @@ GitHub issue content:
   - `kubeflow/internal-acls` [OWNERS file](https://github.com/kubeflow/internal-acls/blob/master/OWNERS).
   - `kubeflow/website` [OWNERS file](https://github.com/kubeflow/website/blob/master/OWNERS).
   - `kubeflow/blog` [OWNERS file](https://github.com/kubeflow/blog/blob/master/OWNERS).
-- [ ] Kubeflow GCP projects under `kubeflow.org` for calendar, ACL, DNS management.
+- [ ] Kubeflow GCP projects under `kubeflow.org` organization for ACLs and DNS management.
+  - Access for `kf-admin-cluster` GKE cluster in `kubeflow-admin` GCP project for the GitHub ACLs sync.
+  - Access for `kubeflow-dns` GCP project for the DNS management.
+- [ ] Access for Kubeflow GKE cluster `kf-ci-v1` in `kubeflow-ci` GCP project (No Organization)
+      where Prow is running.
 - [ ] Kubeflow [Google Group](https://groups.google.com/g/kubeflow-discuss).
 - [ ] Update members for [KSC Google Group](https://groups.google.com/a/kubeflow.org/g/ksc).
 - [ ] Access to Kubeflow `1password` account.
