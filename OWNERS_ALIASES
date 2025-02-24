@@ -20,6 +20,10 @@ aliases:
   wg-manifests-leads:
     - juliusvonkohout
     - kimwnasptd
+  wg-ml-experience-leads:
+    - StefanoFioravanzo
+    - andreyvelich
+    - ederign
   wg-notebooks-leads:
     - StefanoFioravanzo
     - elikatsis
