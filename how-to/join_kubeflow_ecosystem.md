@@ -1,4 +1,4 @@
-# Project Donation Application
+# Application for a Project to Join the Kubeflow Ecosystem
 
 Please see the [proposals/new-project-join-process.md](Documentation) to
 better understand the full process for submitting a new project.

@@ -1,4 +1,4 @@
-# KEP-748: Project Donation to Kubeflow
+# KEP-748: Expanding the Kubeflow Ecosystem with a New OSS Project
 
 ## Summary
 This KEP outlines how OSS projects can join the Kubeflow Ecosystem.
@@ -43,12 +43,13 @@ The process is outlined in six steps:
     - Maintainers
     - Migration  Plan
     - Other Related Projects
-2. Submit a Pull Request with the [../proposals/new-project-join-process.md](application form).
-3. Add your proposal to the Kubeflow Community call to introduce and collect feedback on
+2. Provide a demo during the Kubeflow Community Call
+3. Submit a Pull Request with the [../proposals/new-project-join-process.md](application form).
+4. Add your proposal to the Kubeflow Community call to introduce and collect feedback on
 the application.
-4. Work with the Kubeflow Outreach Committee to send an announcement email in `kubeflow-discuss` and publish messages on Slack, LinkedIn, X/Twitter, and other Kubeflow social resources
-5. Schedule meeting with Kubeflow Steering Committee for initial vote and to collect feedback.
-6. Merge or close the Pull Request depending upon the outcome of the final vote.
+5. Work with the Kubeflow Outreach Committee to send an announcement email in `kubeflow-discuss` and publish messages on Slack, LinkedIn, X/Twitter, and other Kubeflow social resources
+6. Schedule meeting with Kubeflow Steering Committee for initial vote and to collect feedback.
+7. Merge or close the Pull Request depending upon the outcome of the final vote.
 
 ### Notes/Constraints/Caveats (Optional)
 
