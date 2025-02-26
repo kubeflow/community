@@ -1,16 +1,19 @@
 # KEP-748: Project Donation to Kubeflow
 
 ## Summary
-This KEP outlines how community members can donate their project to the Kubeflow community.
+This KEP outlines how OSS projects can join the Kubeflow Ecosystem.
 
 ## Motivation
 As Kubeflow has become a well established ecosystem and community, several
-projects may want to be donated to the Kubeflow platform to explicitly join our 
-community.
+projects may want to be donated to the Kubeflow ecosystem to explicitly join our 
+community. 
+
+Kubeflow's goal is to cover the entire AI/ML lifecycle and new projects can help 
+address missing stages in that lifecycle.
 
 ### Goals
 This goal of this process is to give clear guidelines and set expectations 
-for community members about how to be formally included into Kubeflow and 
+for community members about how to be formally included into the Kubeflow Ecosystem and 
 the application process.
 
 The decision making process will be separate from the application process and is at the 

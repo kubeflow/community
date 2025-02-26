@@ -24,8 +24,11 @@ In short, copy this Application Template and populate the document.
 1. Project Name
     -
 
-1. Why this project is valuable to the Kubeflow Community
+1. Why is this project is valuable to the Kubeflow Community?
     -
+
+1. Why is it beneficial for this project to be a part of the Kubeflow Community?
+    - 
 
 1. List of integrations with Kubeflow Core components (and potential)
     -
@@ -101,11 +104,7 @@ In short, copy this Application Template and populate the document.
     - [ ] Yes
     - [ ] No
 
-1. Distributions position on added testing, docs
-    - [ ] Yes
-    - [ ] No
-
-1. Blog/Social Media announcements
+1. Blog/Social Media 
     - [ ] Yes
     - [ ] No
 
