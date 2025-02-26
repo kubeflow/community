@@ -113,8 +113,7 @@ In short, copy this Application Template and populate the document.
     - [ ] Uncertain
 
 1. Installation
-    - [ ] Testing
-    - [ ] Stand alone
+    - [ ] Standalone/Self-contained Component
     - [ ] Part of Manifests
     - [ ] Part of Distributions
 
@@ -122,6 +121,15 @@ In short, copy this Application Template and populate the document.
     - [ ] Good
     - [ ] Fair
     - [ ] Part of Kubeflow
+
+1. CI/CD 
+    - [ ] Yes
+    - [ ] No
+
+1. Release Process
+    - [ ] Automated
+    - [ ] Semi-automated
+    - [ ] Not Automated
 
 1. Kubeflow Website Documentation
     - [ ] Yes

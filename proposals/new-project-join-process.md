@@ -48,7 +48,8 @@ The process is outlined in six steps:
 the application.
 5. Work with the Kubeflow Outreach Committee to send an announcement email in `kubeflow-discuss` and publish messages on Slack, LinkedIn, X/Twitter, and other Kubeflow social resources
 6. Schedule meeting with Kubeflow Steering Committee for initial vote and to collect feedback.
-7. Merge or close the Pull Request depending upon the outcome of the final vote.
+7. Identify the appropriate Kubeflow Working Group that should control the project.
+8. Merge or close the Pull Request depending upon the outcome of the final vote.
 
 ### Notes/Constraints/Caveats (Optional)
 
@@ -61,6 +62,8 @@ Two major risks for Kubeflow accepting projects are:
 - This is why metrics are meant to capture this
 2. Impacting the delivery speed of Kubeflow releases
 - It will be expected that the maintainers invest in incorporating the project into the manifest or it will be removed
+3. Additional infrastructure support
+- It will be expected that the maintainers invest in providing this support
 
 ## Drawbacks
 
