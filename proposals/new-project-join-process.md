@@ -5,7 +5,7 @@ This KEP outlines how OSS projects can join the Kubeflow Ecosystem.
 
 ## Motivation
 As Kubeflow has become a well established ecosystem and community, several
-projects may want to be donated to the Kubeflow ecosystem to explicitly join our 
+projects may want to join the Kubeflow ecosystem to explicitly be a part of our 
 community. 
 
 Kubeflow's goal is to cover the entire AI/ML lifecycle and new projects can help 
@@ -26,9 +26,9 @@ of the project and community.
 - Supporting project add-ons.
 
 ## Proposal
-The process for donation is intended to be simple but thorough.
+The process to join the Kubeflow Ecosystem is intended to be simple but thorough.
 
-Project owners or maintainers will apply for donation by following a four
+Project owners or maintainers will apply to join by following a four
 step process. 
 
 The process is outlined in six steps:
@@ -43,7 +43,7 @@ The process is outlined in six steps:
     - Maintainers
     - Migration  Plan
     - Other Related Projects
-2. Submit a Pull Request with the [../proposals/new-project-donation-process.md](application form).
+2. Submit a Pull Request with the [../proposals/new-project-join-process.md](application form).
 3. Add your proposal to the Kubeflow Community call to introduce and collect feedback on
 the application.
 4. Work with the Kubeflow Outreach Committee to send an announcement email in `kubeflow-discuss` and publish messages on Slack, LinkedIn, X/Twitter, and other Kubeflow social resources

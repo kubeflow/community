@@ -1,6 +1,6 @@
 # Project Donation Application
 
-Please see the [proposals/new-project-donation-process.md](Documentation) to
+Please see the [proposals/new-project-join-process.md](Documentation) to
 better understand the full process for submitting a new project.
 In short, copy this Application Template and populate the document.
 --!>
