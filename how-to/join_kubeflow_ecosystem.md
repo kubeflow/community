@@ -36,6 +36,24 @@ In short, copy this Application Template and populate the document.
 1. Short Description / Functionality
     -
 
+1. Adoption
+    - 
+
+1. License Agreement
+    - 
+
+1. Vendor Neutrality
+    - 
+
+1. Trademark transition
+    - 
+
+1. CI/CD Infra Requirements
+    - 
+
+1. Governance Structure 
+    -
+
 1. Website
     -
 
