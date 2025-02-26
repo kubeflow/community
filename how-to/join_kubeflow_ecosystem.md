@@ -9,7 +9,6 @@ In short, copy this Application Template and populate the document.
 - [ ] All project metadata and resources are vendor-neutral
 - [ ] Governance structure
 - [ ] Contributing guides
-- [ ] Overlap with existing Kubeflow projects
 - [ ] Public list of adopters.
 
 
@@ -100,7 +99,11 @@ In short, copy this Application Template and populate the document.
 - Number of Stars
 - Number of package/project installations/downloads
 
-## Kubeflow Specific Questions
+## Kubeflow Checklist
+
+1.  Overlap with existing Kubeflow projects
+    - [ ] Yes (If so please list them)
+    - [ ] No
 
 1. Manifest Integration
     - [ ] Yes
