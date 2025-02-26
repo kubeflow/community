@@ -57,7 +57,7 @@ In short, copy this Application Template and populate the document.
 1. Project Documentation
     -
 
-1. Security Profile (CVE scanning)
+1. Security Profile (CVE scanning, Pod Security Standards, Network Policies)
     -
 
 1. Ownership / Legal Profile (license type, any potential issues for CNCF)
