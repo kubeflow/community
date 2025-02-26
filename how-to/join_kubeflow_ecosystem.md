@@ -89,6 +89,11 @@ In short, copy this Application Template and populate the document.
     - [ ] No
     - [ ] Planned
 
+1. Commitment to Kubeflow Conformance Program
+    - [ ] Yes
+    - [ ] No
+    - [ ] Uncertain
+
 1. Installation
     - [ ] Testing
     - [ ] Stand alone
