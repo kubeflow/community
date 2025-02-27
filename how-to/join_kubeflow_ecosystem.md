@@ -42,6 +42,9 @@ In short, copy this Application Template and populate the document.
 1. License Agreement
     - 
 
+1. Part of an Open Source Foundation? (e.g., Apache, Liniux, CNCF, etc.)
+    - 
+
 1. Vendor Neutrality
     - 
 
