@@ -29,7 +29,7 @@ In short, copy this Application Template and populate the document.
 1. Why is it beneficial for this project to be a part of the Kubeflow Community?
     - 
 
-1. List of integrations with Kubeflow Core components (and potential)
+1. List of existing (and potential) integrations with Kubeflow Core components
     -
 
 1. Short Description / Functionality
