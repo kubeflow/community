@@ -6,6 +6,7 @@ In short, copy this Application Template and populate the document.
 --!>
 
 ## CNCF checklist
+
 - [ ] All project metadata and resources are vendor-neutral
 - [ ] Governance structure
 - [ ] Contributing guides
