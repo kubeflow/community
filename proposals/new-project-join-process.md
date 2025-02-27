@@ -54,7 +54,7 @@ the application.
 
 ### Notes/Constraints/Caveats (Optional)
 
-Note that this application does not gaurantee acceptance of the proposed project to Kubeflow.
+Note that this application does not guarantee acceptance of the proposed project to Kubeflow.
 
 ### Risks and Mitigations
 
