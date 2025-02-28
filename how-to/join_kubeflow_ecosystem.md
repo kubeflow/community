@@ -5,12 +5,12 @@ better understand the full process for submitting a new project.
 In short, copy this Application Template and populate the document.
 --!>
 
-## CNCF checklist
+## CNCF Short Checklist
 
 - [ ] All project metadata and resources are vendor-neutral
 - [ ] Governance structure
 - [ ] Contributing guides
-- [ ] Public list of adopters.
+- [ ] Public list of adopters
 
 
 ## Background information
