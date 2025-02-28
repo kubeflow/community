@@ -3,6 +3,9 @@
 ## Summary
 This KEP outlines how OSS projects can join the Kubeflow Ecosystem.
 
+
+Note: this process will follow the Kubeflow Steering Committee's [Normal decision process](../KUBEFLOW-STEERING-COMMITTEE.md#normal-decision-process) 
+
 ## Motivation
 As Kubeflow has become a well established ecosystem and community, several
 projects may want to join the Kubeflow ecosystem to explicitly be a part of our 
