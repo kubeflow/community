@@ -3,7 +3,16 @@
 Please see the [proposals/new-project-join-process.md](Documentation) to
 better understand the full process for submitting a new project.
 In short, copy this Application Template and populate the document.
---!>
+
+
+## Changes to the application process
+Changes to the application process charter may be proposed through a Pull Request
+on this document by a Kubeflow community member.
+
+Amendments are accepted following the Kubeflow Steering Committee's [Normal Decision Process](../KUBEFLOW-STEERING-COMMITTEE.md#normal-decision-process).
+
+Proposals and amendments to the application process are available for at 
+least a period of one week for comments and questions before a vote will occur.
 
 ## CNCF Short Checklist
 
