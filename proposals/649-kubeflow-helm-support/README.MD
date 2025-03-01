@@ -200,7 +200,7 @@ The Helm chart for Kubeflow will follow a modular structure similar to Argo’s 
 1. Helm Chart Structure
 
 The repository will contain a root Helm chart (kubeflow) that acts as an umbrella for subcharts, enabling users to deploy only the components they need:
-
+```
 kubeflow-helm-chart/
 │── charts/
 │   │── training-operator/
@@ -213,6 +213,7 @@ kubeflow-helm-chart/
 │── Chart.yaml
 │── README.md
 
+```
     The root kubeflow chart will manage dependencies and shared configurations.
     Subcharts for each component (training-operator, katib, pipelines, etc.) allow independent deployments.
     Templates will provide base Kubernetes resources such as Deployments, Services, and ConfigMaps.
