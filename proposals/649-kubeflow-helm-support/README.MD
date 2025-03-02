@@ -1,13 +1,13 @@
-# 649-kubeflow-helm-support: Support Helm installs for individual components
+# 649-kubeflow-helm-support: Support Helm as alternative for kustomize
 There has been increased demand for a Helm chart for a basic Kubeflow installation. Given the KSC's stance in issue 821 on neutral deployment language and user-defined production readiness, this is an opportune time to introduce a Helm chart. Supporting Helm will enhance ease of adoption and simplify deployments while maintaining the flexibility of community-maintained manifests. There already has been [community efforts](https://github.com/kromanow94/kubeflow-manifests/tree/helmcharts/charts) as well as the Kubeflow-Helm-Chart Slack Channel. "
 
 
 ## Summary
-Kubeflow manifests provide a fast way to deploy a minimal Kubeflow platform, with best-effort community support. For guaranteed assistance, users can opt for third-party distributions, consultants, or self-managed expertise. This approach extends to Helm chart support. Contributions and bug reports are encouraged, but there will be no official support. The goal is to build a [similar folder structure as Argo](https://github.com/argoproj/argo-helm/tree/main) for Kubeflow Helm Charts.
+Kubeflow manifests provide a fast way to deploy a minimal Kubeflow platform, with best-effort community support. For guaranteed assistance, users can opt for third-party distributions, consultants, or self-managed expertise. This approach extends to Helm chart support. Contributions and bug reports are encouraged, but there will be no guaranteed support. The goal is to build a [similar folder structure as Argo](https://github.com/argoproj/argo-helm/tree/main) for Kubeflow Helm Charts.
 
 
 ## Motivation
-Currently, most installation efforts rely on cloud vendor-hosted distributions or open-source solutions like DeployKF. While these options are valuable, they require engagement with adjacent projects and communities. As a project, we must ensure that our Helm chart provides a quick and accessible way for users to deploy Kubeflow, enabling them to either manage their own environments or adopt a vendor solution.
+Currently, due to kubeflow/manifest being based on kustomize, many potential users and companies that require helm charts due to company processes / policies have to rely on third-party distributions. While these options are valuable, they require engagement with adjacent projects and communities. As a project, we must ensure that our Helm chart provides a quick and accessible way for users to deploy a full  Kubeflow platform and individual components, enabling them to either manage their own environments or adopt a vendor solution.
 
 Simplifying Kubeflow deployment lowers the barrier to entry, increasing adoption and encouraging contributions. Just as Kubernetes enabled a new wave of cloud-native startups, a neutral, accessible deployment path can empower AI/ML startups to leverage tools like the Training Operator or Katib without reinventing common patterns. If support becomes burdensome, teams can hire expertise or use a distribution—both of which drive demand for Kubeflow skills.
 
@@ -15,24 +15,19 @@ By making deployment easy, we not only attract more end users but also foster co
 
 
 ### Goals
-✅ A fully functional Kubeflow Helm chart for the targeted release. This will install individual components and we can explore what a minimum viable platform could be. 
-✅ Published Helm chart documentation with clear configuration options
+✅ A fully functional Kubeflow Helm chart for the targeted release. This will install Kubeflow as a platform and as individual components.
+✅ Published Helm chart documentation with clear and simple configuration options
 ✅ A step-by-step tutorial simplifying Kubeflow deployment for users
 ✅ Contribution to the Kubeflow community effort for Helm-based installation as part of the official Kubeflow Repo.
 
 
 ### Non-Goals
-* Full multi cloud/environment support
-* End to end authentication layer
-* Integration of adjacent projects such as Kserve or Knative. 
-* Support seperate abstracted operators for components (although this effort might lead us in that direction as we learn more about the user experience)
-* Provide guaranteed community support
-* Defintion on what production is for any particular set of users.
+* Deep integration with hyperscalers such as S3 object storage (nevertheless basic Dex/oauth2-proxy configuriis valid)
 * Infrastructure provisioning. A user can opt into OpenTofu or Crossplane to template the Helm chart with infrastructure should they need to, but we are focused on the Helm chart where the values would be configured (if a component requires knowledge of external systems).
 
 
 ## Proposal
-This proposal introduces official Helm chart support for deploying Kubeflow components. The goal is to provide a modular, community-maintained way to install and manage Kubeflow, making it more accessible for users who prefer Helm over kustomize-based manifests.
+This proposal introduces official Helm chart support for deploying Kubeflow The goal is to provide a modular, community-maintained way to install and manage Kubeflow, making it more accessible for users who prefer Helm over kustomize-based manifests.
 Desired Outcome
 
 The Helm chart will allow users to:
@@ -57,11 +52,11 @@ The success of this proposal will be measured by:
         Documentation feedback and tutorial completion rates. We can also gather details from in person events.
 
     *Modularity & Customization*
-        Verified Helm installations of individual Kubeflow components.
+        Verified Helm installations of the platform and individual components.
         Flexibility demonstrated in community-reported use cases (e.g., deploying only Training Operator).
 
     *Stability & Maintainability*
-        Helm-based deployments function consistently across Minikube, cloud-managed Kubernetes (EKS, GKE, AKS), and on-prem clusters.
+        Helm-based deployments function consistently across Minikube, cloud-managed Kubernetes (EKS, GKE, AKS), and on-premises clusters.
         Contributions and maintenance of Helm charts remain sustainable within the Kubeflow community.
 
 This proposal lays the foundation for Helm-based Kubeflow installations while ensuring alignment with Kubeflow’s existing deployment philosophy: providing users with flexible options while maintaining a vendor-neutral stance.
@@ -73,7 +68,7 @@ This proposal lays the foundation for Helm-based Kubeflow installations while en
 
 *background*
 
-Alex is an ML engineer working at a mid-sized AI startup. The team wants to experiment with Kubeflow Pipelines and Katib for hyperparameter tuning but doesn’t need the full Kubeflow stack. Currently, deploying Kubeflow using kustomize and raw YAML manifests feels cumbersome, requiring significant manual effort and maintenance.
+Alex is an ML engineer working at a mid-sized AI startup. The team wants to experiment with Kubeflow Pipelines and Katib for hyperparameter tuning but doesn’t need the full Kubeflow stack. Currently, deploying Kubeflow using kustomize manifests feels cumbersome, requiring significant manual effort and maintenance.
 
 *Scenario:*
 
@@ -143,13 +138,13 @@ Thanks to Helm, Kubeflow deployment became effortless, modular, and scalable—a
 
 
 ### Notes/Constraints/Caveats (Optional)
-Alex may choose to use vanila manifests or go with a vendor after using Helm the goal is not to be an *official distro*, but more of a *community edition*. As appetite for community support grows, the scope may, but for now this is just a simple way to get Kubeflow running using a well know deployment pattern and provide examples of how to use it. 
+Alex may choose to use vanila manifests or go with a vendor after using Helm the goal is not to be a *distribution*, but still a part of kubeflow/manifests. As appetite for community support grows, the scope may, but for now this is just a simple way to get Kubeflow running using a well know deployment pattern and provide examples of how to use it. 
 
 
 ### Risks and Mitigations
 1. Fragmentation of Deployment Methods
 
-Risk: Introducing Helm charts as an official deployment method may create fragmentation within the Kubeflow ecosystem, leading to confusion between Helm-based, kustomize-based, and third-party deployment tools (e.g., DeployKF).
+Risk: Introducing Helm charts as an official deployment method next to kustomize may create fragmentation within the Kubeflow ecosystem, leading to confusion between Helm-based, kustomize-based, and third-party deployment tools.
 Mitigation:
 
     Clearly position Helm as an alternative to kustomize, rather than a replacement.
@@ -180,7 +175,7 @@ Risk: If Helm-based deployment is not well-documented and user-friendly, it coul
 Mitigation:
 
     Ensure Helm charts follow a standard structure for ease of use and consistency.
-    Provide step-by-step documentation, potentially including examples for different environments (e.g., local Minikube, cloud-managed Kubernetes).
+    Provide step-by-step documentation, potentially including examples for different environments (e.g., local Kind, cloud-managed Kubernetes).
     Gather feedback from users refine the Helm-based deployment experience.
 
 5. Helm-Specific Limitations
@@ -271,7 +266,7 @@ helm rollback kubeflow 1
 
 To ensure secure and production-ready deployments, the Helm chart will include:
 
-    Minimal privileges using Role-Based Access Control (RBAC).
+    Minimal privileges using Role-Based Access Control (RBAC) and Podsecuritystandards restricted.
     Network policies to restrict component communication where necessary.
     Secure default values, with optional overrides for users needing customization.
 
@@ -289,7 +284,7 @@ rules:
 
 Implementation Plan
 
-    Create a GitHub repository (kubeflow/kubeflow-helm) to host the Helm charts.
+    Create a subdirectory (kubeflow/manifests/experimental/helm) to host the Helm charts.
     Define the Helm chart structure, ensuring compatibility with Kubeflow manifests.
     Develop subcharts for each major Kubeflow component (Pipelines, Katib, Training Operator, Istio, etc.).
     Write Helm values documentation, including examples for different environments.
