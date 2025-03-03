@@ -22,7 +22,8 @@ By making deployment easy, we not only attract more end users but also foster co
 ✅ Published Helm chart documentation with clear and simple configuration options.  
 ✅ A step-by-step tutorial simplifying Kubeflow deployment for users.  
 ✅ Contribution to the Kubeflow community effort for Helm-based installation as part of the official Kubeflow repo.    
-✅ Where possible rely on upstream Helm charts (I.E Kserve/Istio)
+✅ Where possible rely on upstream Helm charts (I.E Kserve/Istio)  
+✅ Consolidate community Helm efforts and prevent duplicate efforts. 
 
 ## Non-Goals
 * Deep integration with hyperscalers such as S3 object storage (basic Dex/oauth2-proxy config is valid).
@@ -101,15 +102,15 @@ Alex configures resource limits and storage settings by modifying the Helm value
 Later, the team decides to add the Training Operator. Instead of redeploying everything, Alex simply enables it
 Helm seamlessly applies the changes, avoiding disruption to the existing setup.
 
-**Rolling Back** 
+**Rolling Back**   
 A misconfiguration in values.yaml causes an issue. Instead of debugging manually, Alex rolls back to the previous working state
 
 **Outcome & Value:**
 
-✅ Fast, modular deployment – No need to install unnecessary components.
-✅ Easy configuration – Fine-tune installations using Helm values.
-✅ Smooth upgrades & rollbacks – No more breaking changes due to manual YAML edits.
-✅ Better DevOps integration – Fits naturally into the team’s GitOps workflow with tools like ArgoCD
+✅ Fast, modular deployment – No need to install unnecessary components.  
+✅ Easy configuration – Fine-tune installations using Helm values.  
+✅ Smooth upgrades & rollbacks – No more breaking changes due to manual YAML edits.  
+✅ Better DevOps integration – Fits naturally into the team’s GitOps workflow with tools like ArgoCD.  
 
 ##### Alex's Outcomes: Easily Deploy Kubeflow Using Helm  
 Alex was able to deploy only the necessary Kubeflow components using Helm, avoiding the complexity of managing kustomize-based manifests. By running a single command, Alex installed Kubeflow Pipelines and Katib, making the deployment process fast, modular, and repeatable.
@@ -134,7 +135,7 @@ Alex leveraged Helm’s built-in lifecycle management to ensure a smooth deploym
 
 * Since Alex’s team only needed Kubeflow Pipelines and Katib, they didn’t have to deploy the entire Kubeflow stack. Instead, Helm allowed them to deploy only the necessary components, keeping the cluster lightweight and resource-efficient.
 
-**Drive Adoption**
+**Drive Adoption**  
 As someone new to Kubeflow, Alex benefited from clear documentation and a step-by-step guide for deploying components with Helm. Instead of spending hours understanding manifests and dependencies, Alex was able to get Kubeflow running in minutes. The modular Helm-based approach made it easy for the team to evaluate Kubeflow without committing to a complex setup.
 Contribute to and Extend the Helm Chart.  
 
@@ -142,12 +143,8 @@ Alex’s organization saw value in Helm-based deployment and wanted to contribut
 
 Thanks to Helm, Kubeflow deployment became effortless, modular, and scalable—allowing Alex’s team to focus on building ML workflows instead of dealing with infrastructure complexity. Alex will get feedback from his ML team and using Kubeflow and motivate them to contribute improvements and feature requests to enhance the Kubeflow ecosystem. 
 
-
-
 ### Notes/Constraints/Caveats
 Alex may choose to use vanila manifests or go with a vendor after using Helm the goal is not to be a **distribution**, but still a part of kubeflow/manifests. As appetite for community support grows, the scope may, but for now this is just a simple way to get Kubeflow running using a well know deployment pattern and provide examples of how to use it. 
-
-
 
 ## Risks and Mitigations
 
@@ -191,13 +188,15 @@ Alex may choose to use vanila manifests or go with a vendor after using Helm the
 The repository will contain a root Helm chart (kubeflow) that acts as an umbrella for subcharts:  
 
 ```
-kubeflow-helm-chart/
+kubeflow/manifests/experimental/helm 
 │── charts/
 │   │── training-operator/
 │   │── katib/
 │   │── pipelines/
 │   │── istio/
 │   │── profiles/
+│   │── common/platforms/
+│   │── kserve/
 │── templates/
 │── values.yaml
 │── Chart.yaml
