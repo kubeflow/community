@@ -178,7 +178,7 @@ kubeflow/manifests/experimental/helm
 │   │── pipelines/
 │   │── istio/
 │   │── profiles/
-│   │── common/platforms/
+│   │── common/
 │   │── kserve/
 │── templates/
 │── values.yaml
@@ -261,10 +261,10 @@ rules:
 ### Implementation Plan
 
 * Create a subdirectory (kubeflow/manifests/experimental/helm) to host the Helm charts.
-* Define the Helm chart structure, ensuring compatibility with Kubeflow manifests.
-* Develop subcharts for each major Kubeflow component (Pipelines, Katib, Training Operator, Istio, etc.).
-* Write Helm values documentation, including examples for different environments.
-* Test the Helm charts across various Kubernetes environments (Minikube, cloud-managed clusters).
+* Define the Helm chart structure, ensuring compatibility and especially synchronizability and single source of truth with the Kustomize manifests.
+* Develop subcharts for each major Kubeflow component (Pipelines, Platform, Notebooks, Dashboard, Katib, Training Operator, Istio, etc.) and make them deployable at once to replicate the kustomize manifests.
+* Write Helm values documentation, including examples for different environments (Dex vs oauth-proxy and authentication).
+* Test the Helm charts as we test the Kustomize manifests.
 * Engage the Kubeflow community for feedback and contributions.
 
 ### Test Plan
@@ -272,15 +272,17 @@ rules:
 Each Helm template will be tested using Helm unit testing frameworks such as:
 * helm-unittest – Validates Helm templates using YAML-based test cases.
 * helm-template – Ensures templates render correctly without errors.
+* This shall happen in the same GHA that is used for Kustomize since the output should stay the same.
 
 2. Linting and Static Analysis
 * Helm Linting (helm lint) – Ensures best practices in chart structure and values.
 * YAML Schema Validation – Ensures manifests follow correct Kubernetes API specifications.
   Kubeval & Kubeconform – Validates Kubernetes resources before applying them.
+* We already have that repository wide and can just add helm linting.
 
 3. End-to-End Testing with CI/CD Pipelines
 * Tests will validate component functionality post-deployment (e.g., Pipelines UI loads, Katib runs experiments).
-* Kubeflow Pipelines sample execution will be tested using a simple pipeline job. 
+* We shall reuse / extend the Kustomize tests, if the output is the same we can test Helm and Kustomize at the same time in the same GHA.
 
 4. Community Testing and User Feedback
 * Early adopters will be encouraged to test pre-release Helm charts and provide feedback via GitHub issues and the Kubeflow Slack #kubeflow-helm-chart channel.
@@ -290,53 +292,18 @@ Each Helm template will be tested using Helm unit testing frameworks such as:
 
 #### Prerequisite Testing Updates
 
-<!--
-Based on reviewers feedback describe what additional tests need to be added prior to implementing this enhancement to ensure the enhancements have also solid foundations.
--->
-
-#### Unit Tests
-
-<!--
-In principle every added code should have complete unit test coverage, so providing the exact set of tests will not bring additional value.
-However, if complete unit test coverage is not possible, explain the reason for it together with an explanation of why this is acceptable.
--->
-
-<!--
-Additionally, try to enumerate the core package you will be touching to implement this enhancement and provide the current unit coverage for those in the form of:
-- <package>: <date> - <current test coverage>
-This can inform certain test coverage improvements that we want to do before extending the production code to implement this enhancement.
--->
-
-- `<package>`: `<date>` - `<test coverage>`
+SInce this is a replication of the Kustomize manifests, we have most of the testing infrastrucure already in place.
 
 #### E2E Tests
-
-<!--
-Describe what E2E tests will be added to ensure proper quality of the enhancement.
-After the implementation PR is merged, add the names of the tests here.
--->
+The integration tests will be very similar to and based on the ones we have for the Kustomize manifests.
 
 #### Integration Tests
 
-<!--
-Describe what tests will be added to ensure proper quality of the enhancement.
-After the implementation PR is merged, add the names of the tests here.
--->
+The end-to-end tests will be very similar to and based on the ones we have for the Kustomize manifests.
 
 ### Graduation Criteria
 
-<!--
-This section is optional until Kubeflow has formally defined graduation criteria, feature gates, and a deprecation policy.
-
-Clearly define what it means for the feature to be implemented and considered stable.
-If the feature you are introducing has high complexity, consider adding graduation milestones with these graduation criteria:
-- [Maturity levels (`alpha`, `beta`, `stable`)][maturity-levels]
-- [Feature gate][feature gate] lifecycle
-- [Deprecation policy][deprecation-policy]
-[feature gate]: https://git.k8s.io/community/contributors/devel/sig-architecture/feature-gates.md
-[maturity-levels]: https://git.k8s.io/community/contributors/devel/sig-architecture/api_changes.md#alpha-beta-and-stable-versions
-[deprecation-policy]: https://kubernetes.io/docs/reference/using-api/deprecation-policy/
--->
+Reach feature-parity with the Kustomze manifests
 
 ## Implementation History
 
