@@ -139,9 +139,9 @@
 
 - id: kf042
   name: Kubeflow Spark Operator Meeting
-  date: 10/18/2024
-  time: 4:00PM-5:00PM
-  frequency: every-4-weeks
+  date: 03/07/2025
+  time: 8:00AM-9:00AM
+  frequency: bi-weekly
   video: https://zoom.us/j/93870602975?pwd=NWFNT2xrZU03alVTTXFBTEsvdDdMQT09
   attendees:
     - email: kubeflow-discuss@googlegroups.com
@@ -452,7 +452,6 @@
       Notes & Agenda: https://docs.google.com/document/d/1GHi-NFHmDA2TnH1pDrs4O7OyIQdZRtKatGAdedxte4w
       Zoom: Provided in meeting notes
   organizer: woop
-
 
 - id: kf034
   name: Kubeflow Security Team Call (US West/APAC)
