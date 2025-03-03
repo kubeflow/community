@@ -104,7 +104,7 @@ least a period of one week for comments and questions before a vote will occur.
 
 ## Metrics
 
-- Number of Maintainers
+- Number of Maintainers and their Affiliations
 - Number of Releases in last 12 months
 - Number of Contributors
 - Number of Users
