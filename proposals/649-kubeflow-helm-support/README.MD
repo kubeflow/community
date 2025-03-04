@@ -37,7 +37,7 @@ By making deployment easy, we attract more end users and foster collaboration wi
 
 
 ## Non-Goals
-* Deep integration with hyperscalers such as S3 object storage (basic Dex/oauth2-proxy config is valid).
+* Deep integration with hyperscalers such as AWS managed databases but for example basic Dex/oauth2-proxy configuration for authentication integration is a goal.
 * Infrastructure provisioning. Users can opt into OpenTofu or Crossplane to template the Helm chart with infrastructure. Still, we are focused on the Helm chart where the values would be configured (if a component requires knowledge of external systems).
 * Support separate abstracted operators for components. Helm will handle upgrades.
 * Provide guaranteed community support. 
