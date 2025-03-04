@@ -37,7 +37,7 @@ By making deployment easy, we attract more end users and foster collaboration wi
 
 
 ## Non-Goals
-* Deep integration with hyperscalers such as AWS managed databases but for example basic Dex/oauth2-proxy configuration for authentication integration is a goal.
+* Deep integration with hyperscalers such as AWS managed databases. Nevertheless for example basic Dex/oauth2-proxy configuration for authentication integration with popular Kubernetes platforms such as EKS is a goal, because it is needed for M2M authentication within Kubeflow.
 * Infrastructure provisioning. Users can opt into OpenTofu or Crossplane to template the Helm chart with infrastructure. Still, we are focused on the Helm chart where the values would be configured (if a component requires knowledge of external systems).
 * Support separate abstracted operators for components. Helm will handle upgrades.
 * Provide guaranteed community support. 
