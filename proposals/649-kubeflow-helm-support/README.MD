@@ -28,12 +28,12 @@ By making deployment easy, we attract more end users and foster collaboration wi
 ## Goals
 
 
-✅ A fully functional Kubeflow Helm chart for the targeted release. This will install Kubeflow as a platform and as an individual component. 
-✅ Published Helm chart documentation with straightforward and uncomplicated configuration options. 
-✅ A step-by-step tutorial simplifying Kubeflow deployment for users. 
-✅ Contribution to the Kubeflow community effort for Helm-based installation as part of the official Kubeflow repository. 
-✅ Where possible, rely on upstream Helm charts (i.e., KServe/Istio). 
-✅ Consolidate community Helm efforts and prevent duplicate efforts.
+✅ A fully functional Kubeflow Helm chart for the targeted release. This will install Kubeflow as a platform and as an individual component.   
+✅ Published Helm chart documentation with straightforward and uncomplicated configuration options.   
+✅ A step-by-step tutorial simplifying Kubeflow deployment for users.   
+✅ Contribution to the Kubeflow community effort for Helm-based installation as part of the official Kubeflow repository.   
+✅ Where possible, rely on upstream Helm charts (i.e., KServe/Istio).   
+✅ Consolidate community Helm efforts and prevent duplicate efforts.  
 
 
 ## Non-Goals
@@ -54,12 +54,12 @@ This proposal introduces official Helm chart support for deploying Kubeflow. The
 The Helm chart will allow users to: 
 
 
-✅ Deploy Kubeflow with a single Helm command, reducing installation complexity. 
-✅ Select specific components to install (e.g., Training Operator, Katib, Pipelines) without requiring the entire Kubeflow stack. 
-✅ Configure installations via Helm values, enabling customization for different environments (e.g., resource allocation, authentication settings, storage options). 
-✅ Upgrade and rollback Kubeflow deployments safely using Helm’s built-in version control. 
-✅ Integrate with GitOps workflows (e.g., ArgoCD, FluxCD) for automated deployments. 
-✅ Maintain a Helm chart structure similar to Argo’s, ensuring a familiar experience for Kubernetes users.
+✅ Deploy Kubeflow with a single Helm command, reducing installation complexity.   
+✅ Select specific components to install (e.g., Training Operator, Katib, Pipelines) without requiring the entire Kubeflow stack.   
+✅ Configure installations via Helm values, enabling customization for different environments (e.g., resource allocation, authentication settings, storage options).   
+✅ Upgrade and rollback Kubeflow deployments safely using Helm’s built-in version control.   
+✅ Integrate with GitOps workflows (e.g., ArgoCD, FluxCD) for automated deployments.   
+✅ Maintain a Helm chart structure similar to Argo’s, ensuring a familiar experience for Kubernetes users.  
 
 
 ## Measuring Success
@@ -133,10 +133,10 @@ A misconfiguration in values.yaml causes an issue. Instead of debugging manually
 **Outcome & Value:**
 
 
-✅ Fast, modular deployment – No need to install unnecessary components. 
-✅ Easy configuration – Fine-tune installations using Helm values. 
-✅ Smooth upgrades and rollbacks – No more breaking changes due to manual YAML edits. 
-✅ Better DevOps integration – Fits naturally into the team’s GitOps workflow with tools like ArgoCD. 
+✅ Fast, modular deployment – No need to install unnecessary components.  
+✅ Easy configuration – Fine-tune installations using Helm values.   
+✅ Smooth upgrades and rollbacks – No more breaking changes due to manual YAML edits.   
+✅ Better DevOps integration – Fits naturally into the team’s GitOps workflow with tools like ArgoCD.   
 
 
 ##### Alex's Outcomes: Easily Deploy Kubeflow Using Helm 
@@ -429,7 +429,7 @@ Major milestones might include:
 
 
 ### KPT
-The [GCP Distribution](https://googlecloudplatform.github.io/kubeflow-gke-docs/docs/) uses KPT, but it requires maintaining KPT containers for function calls and is not as easily integrated with upstream communities that've standardized on Helm. We'd need to consider upstream vanilla manifests and use KPT.
+The [GCP Distribution](https://googlecloudplatform.github.io/kubeflow-gke-docs/docs/) uses KPT, but KPT is not as easily integrated with upstream communities that've standardized on Helm. We'd need to consider upstream vanilla manifests and use KPT.
 
 
 ### Crossplane
