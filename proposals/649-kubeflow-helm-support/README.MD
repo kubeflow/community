@@ -32,7 +32,7 @@ By making deployment easy, we attract more end users and foster collaboration wi
 
 ## Value to the Community
 
-- Streamlined the deployment, upgrade, and rollback of the kubeflow installation process
+- Streamline the deployment, upgrade, and rollback of the kubeflow installation process
 - Provide another way to install Kubeflow to give the community more options, promoting flexibility and choice
 
 ## Goals
@@ -96,7 +96,7 @@ The Helm chart will allow users to:
 ### Stability and Maintainability
 
 
-* Helm-based deployments function consistently across Minikube, vanilla Kubernetes, and enterprise Kubernetes such as AKS, EKS, GKE, and OpenShift.
+* Helm-based deployments function consistently across Kind, Minikube, AKS, EKS, GKE, Rancher and OpenShift.
 * Contributions and maintenance of Helm charts remain sustainable within the Kubeflow community.
 
 
