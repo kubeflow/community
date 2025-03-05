@@ -24,6 +24,16 @@ Simplifying Kubeflow deployment lowers the barrier to entry, increases adoption,
 
 By making deployment easy, we attract more end users and foster collaboration with broader communities like PyTorch, improving our implementations in service of their users.
 
+### About Helm
+
+- Helm is a graduated project in the CNCF and is maintained by the Helm community.
+- Helm is supported by and built with a community of over 400 developers.
+- Helm helps you manage Kubernetes applications, rollbacks, updates, dependencies, and releases, and the most complex Kubernetes applications. [More about Helm](https://helm.sh/)
+
+## Value to the Community
+
+- Streamlined the deployment, upgrade, and rollback of the kubeflow installation process
+- Provide another way to install Kubeflow to give the community more options, promoting flexibility and choice
 
 ## Goals
 
@@ -73,6 +83,7 @@ The Helm chart will allow users to:
 * Ease of Use and Community Engagement.
 * Successful deployments reported by users via GitHub issues, Slack, and forums.
 * Documentation feedback and tutorial completion rates.
+* Metrics to compare downloads from kustomize vs Helm charts.
 
 
 ### Modularity and Customization
@@ -85,7 +96,7 @@ The Helm chart will allow users to:
 ### Stability and Maintainability
 
 
-* Helm-based deployments function consistently across Minikube, cloud-managed Kubernetes (EKS, GKE, AKS), and on-premises clusters.
+* Helm-based deployments function consistently across Minikube, vanilla Kubernetes, and enterprise Kubernetes such as AKS, EKS, GKE, and OpenShift.
 * Contributions and maintenance of Helm charts remain sustainable within the Kubeflow community.
 
 
@@ -138,6 +149,8 @@ A misconfiguration in values.yaml causes an issue. Instead of debugging manually
 ✅ Smooth upgrades and rollbacks – No more breaking changes due to manual YAML edits.   
 ✅ Better DevOps integration – Fits naturally into the team’s GitOps workflow with tools like ArgoCD.   
 
+**Managing updates** 
+Alex can easily install new updates to include new release versions and update dependencies.
 
 ##### Alex's Outcomes: Easily Deploy Kubeflow Using Helm 
 Alex could deploy only the necessary Kubeflow components using Helm, avoiding the complexity of managing Kustomize-based manifests. Alex installed Kubeflow Pipelines and Katib by running a single command, making the deployment process fast, modular, and repeatable.
