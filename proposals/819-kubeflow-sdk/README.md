@@ -103,7 +103,7 @@ configure PEFT config, my dataset, and trigger a fine-tuning job.
 The ML Experience may look as follows:
 
 ```python
-from kubeflow.trainer import TrainerClient, Trainer, FineTuningConfig, TorchTuneConfig, LoraConfig
+from kubeflow.trainer import TrainerClient, TorchTuneConfig, LoraConfig
 
 # Get available LLM runtimes.
 TrainerClient().list_runtimes(phase="post-training")
@@ -111,10 +111,11 @@ TrainerClient().list_runtimes(phase="post-training")
 # Fine-tune LLM.
 job_id = TrainerClient().train(
     runtime_ref="llama-3.2-1b",
-    fine_tuning_config=FineTuningConfig(
-        torch_tune_config=TorchTuneConfig(
-            lr="0.01",
-            peft_config=LoraConfig(r=4)
+    fine_tuning_config=TorchTuneConfig(
+        lr=0.01,
+        peft_config=LoraConfig(
+            lora_rank=4,
+            lora_alpha=128,
         ),
     ),
 )
@@ -131,7 +132,7 @@ I have 100 training nodes with 5 GPU each (e.g. 500 GPUs in total) to train my m
 The ML Experience may look as follows:
 
 ```python
-from kubeflow.trainer import TrainerClient, Trainer
+from kubeflow.trainer import TrainerClient, CustomTrainer
 
 def pytorch_train_func(test_run=False):
     import torch
@@ -143,8 +144,8 @@ pytorch_train_func(test_run=True)
 
 # Train PyTorch model with 500 GPUs.
 job_id = TrainerClient().train(
-    trainer=Trainer(
-        train_func=pytorch_train_func,
+    trainer=CustomTrainer(
+        func=pytorch_train_func,
         num_nodes=100,
         resources_per_node={"GPU": 5},
     ),
@@ -160,26 +161,24 @@ As an ML User, I want to optimize hyperparameters for the LLM that I want to fin
 For example, I know that I want to optimize learning rate and LoRA rank.
 
 ```python
-from kubeflow.optimizer import OptimizerClient, OptimizeConfig
+from kubeflow.optimizer import OptimizerClient, OptimizerConfig
 from kubeflow.optimizer import Search
-from kubeflow.trainer import Trainer, FineTuningConfig, TorchTuneConfig, LoraConfig
+from kubeflow.trainer import TorchTuneConfig, LoraConfig
 
 # Optimizer HPs during fine-tuning.
 job_id = OptimizerClient().optimize(
+    runtime_ref="llama-3.2-1b",
+    fine_tuning_config=TorchTuneConfig(
+        lr=Search(min="0.01", max="0.1", distribution="logNormal"),
+        peft_config=LoraConfig(
+            lora_rank=Search(min="4", max="8", distribution="uniform"),
+        ),
+    ),
     optimizer_config=OptimizerConfig(
         objective="loss",
         mode="min",
         num_trials=5,
     ),
-    fine_tuning_config=FineTuningConfig(
-        torch_tune_config=TorchTuneConfig(
-            lr=Search(min="0.01", max="0.1", distribution="logNormal"),
-            peft_config=LoraConfig(
-                r=Search(min="4", max="8", distribution="uniform"),
-            ),
-        ),
-    )
-    runtime_ref="llama-3.2-1b",
 )
 
 # Get the HPs from the best Trial.
@@ -218,10 +217,6 @@ python/
 │   │   │   │── constants.py
 │   │   │── models/                            # OpenAPI generated models
 │   │   │   │── trainer_v1alpha1_train_job.py
-│   │   │── api_client.py                      # OpenAPI generated client
-│   │   │── configuration.py
-│   │   │── exception.py
-│   │   │── rest.py
 │   │── optimizer/
 │   │── . . .
 │── pyproject.toml
