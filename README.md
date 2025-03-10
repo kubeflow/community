@@ -38,7 +38,3 @@ please reach out to ksc@kubeflow.org.
 
 * [proposals](https://github.com/kubeflow/community/tree/master/proposals): Kubeflow design proposals
 * [how-to](https://github.com/kubeflow/community/tree/master/how-to): for documenting community and other project processes
-
-## Legal
-
-The Linux Foundation® (TLF) has registered trademarks and uses trademarks. For a list of TLF trademarks, see [Trademark Usage](https://www.linuxfoundation.org/trademark-usage/).
