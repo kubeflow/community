@@ -18,9 +18,9 @@ The [charter](charter.md) defines the scope and governance of the Notebooks Work
 
 ## Organizers
 
-* Stefano Fioravanzo (**[@StefanoFioravanzo](https://github.com/StefanoFioravanzo)**), Arrikto
+* Stefano Fioravanzo (**[@StefanoFioravanzo](https://github.com/StefanoFioravanzo)**), Canonical
 * Ilias Katsakioris (**[@elikatsis](https://github.com/elikatsis)**), Arrikto
-* Kimonas Sotirchos (**[@kimwnasptd](https://github.com/kimwnasptd)**), Arrikto
+* Kimonas Sotirchos (**[@kimwnasptd](https://github.com/kimwnasptd)**), Canonical
 * Mathew Wicks (**[@thesuperzapper](https://github.com/thesuperzapper)**)
 * Yannis Zarkadas (**[@yanniszark](https://github.com/yanniszark)**), Arrikto
 
