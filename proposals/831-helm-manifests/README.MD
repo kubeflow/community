@@ -1,17 +1,12 @@
-# 649-Kubeflow-Helm-Support: Support Helm as an Alternative for Kustomize
-
-
-The demand for a Helm chart for a basic Kubeflow installation has increased. Given the KSC's stance in issue 821 on neutral deployment language and user-defined production readiness, this is an opportune time to introduce a Helm chart. Supporting Helm will enhance ease of adoption and simplify deployments while maintaining the flexibility of community-maintained manifests. There have already been community efforts as well as the Kubeflow-Helm-Chart Slack Channel.
-
+# 831-Helm-Manifests: Installing Kubeflow with Helm
 
 ## Summary
 
-
 Kubeflow manifests provide a fast way to deploy a minimal Kubeflow platform, with best-effort community support. For guaranteed assistance, users can opt for third-party distributions, consultants, or self-managed expertise. This approach extends to Helm chart support. Contributions and bug reports are encouraged, but no support will be guaranteed. The goal is to build a similar folder structure as Argo for Kubeflow Helm charts.
-
 
 ## Motivation
 
+The demand for a Helm chart for a basic Kubeflow installation has increased. Given the KSC's stance in issue 821 on neutral deployment language and user-defined production readiness, this is an opportune time to introduce a Helm chart. Supporting Helm will enhance ease of adoption and simplify deployments while maintaining the flexibility of community-maintained manifests. There have already been community efforts as well as the Kubeflow-Helm-Chart Slack Channel.
 
 Currently, because Kubeflow/manifests are based on Kustomize, many potential users and companies that require Helm charts due to company processes/policies have to rely on third-party distributions. While these options are valuable, they require engagement with adjacent projects and communities.
 
@@ -19,7 +14,7 @@ Currently, because Kubeflow/manifests are based on Kustomize, many potential use
 As a project, we must ensure that our Helm chart provides a quick and accessible way for users to deploy a complete Kubeflow platform and individual components, enabling them to manage their environments or adopt a vendor solution.
 
 
-Simplifying Kubeflow deployment lowers the barrier to entry, increases adoption, and encourages contributions. Just as Kubernetes enabled a new wave of cloud-native startups, a neutral, accessible deployment path can empower AI/ML startups to leverage tools like the Training Operator or Katib without reinventing common patterns. If support becomes burdensome, teams can hire expertise or use a distribution—both of which drive demand for Kubeflow skills.
+Simplifying the Kubeflow deployment and customization lowers the barrier to entry, increases adoption, and encourages contributions. Just as Kubernetes enabled a new wave of cloud-native startups, a neutral, accessible deployment path can empower AI/ML startups to leverage tools like the Training Operator or Katib without reinventing common patterns. If support becomes burdensome, teams can hire expertise or use a distribution—both of which drive demand for Kubeflow skills.
 
 
 By making deployment easy, we attract more end users and foster collaboration with broader communities like PyTorch, improving our implementations in service of their users.
@@ -38,12 +33,12 @@ By making deployment easy, we attract more end users and foster collaboration wi
 ## Goals
 
 
-✅ A fully functional Kubeflow Helm chart for the targeted release. This will install Kubeflow as a platform and as an individual component.   
-✅ Published Helm chart documentation with straightforward and uncomplicated configuration options.   
-✅ A step-by-step tutorial simplifying Kubeflow deployment for users.   
+✅ A fully functional Kubeflow Helm chart for the targeted release. Users can install Kubeflow and subsets as a multi-tenant platform and also the individual projects as single-tenant without platform-level support.
+✅ The kustomize Manifests are still the single source of truth for the Helm manifests and they shall use the same CI/CD to make sure that they satisyfy the same requirements and the difference is negligible. Therefore they must be next to each other in the same repository for Kstomize and Helm manifests. After the initial PoC the Helm manifests should be upstreamed to the respective working groups and be maintained there and synchronized like the kustomize manifests.
+✅ Published Helm chart documentation with straightforward and uncomplicated configuration options.
 ✅ Contribution to the Kubeflow community effort for Helm-based installation as part of the official Kubeflow repository.   
-✅ Where possible, rely on upstream Helm charts (i.e., KServe/Istio).   
-✅ Consolidate community Helm efforts and prevent duplicate efforts.  
+✅ Where possible, rely on upstream Helm charts (i.e., Istio) instead of translating our own Kustomize manifests again.
+✅ Consolidate community Helm efforts and prevent duplicate efforts.
 
 
 ## Non-Goals
@@ -65,10 +60,9 @@ The Helm chart will allow users to:
 
 
 ✅ Deploy Kubeflow with a single Helm command, reducing installation complexity.   
-✅ Select specific components to install (e.g., Training Operator, Katib, Pipelines) without requiring the entire Kubeflow stack.   
-✅ Configure installations via Helm values, enabling customization for different environments (e.g., resource allocation, authentication settings, storage options).   
+✅ Select a subset of components to install (e.g., Training Operator, Katib) without requiring for example Pipelines, similar to the kubeflow/manifests/example/kustomization.yaml.
+✅ Configure installations via Helm values, enabling customization for different environments (e.g., resource allocation, authentication settings, storage options).  
 ✅ Upgrade and rollback Kubeflow deployments safely using Helm’s built-in version control.   
-✅ Integrate with GitOps workflows (e.g., ArgoCD, FluxCD) for automated deployments.   
 ✅ Maintain a Helm chart structure similar to Argo’s, ensuring a familiar experience for Kubernetes users.  
 
 
@@ -109,32 +103,34 @@ The Helm chart will allow users to:
 **Background**
 
 
-Alex is an ML engineer working at a mid-sized AI startup. The team wants to experiment with Kubeflow Pipelines and Katib for hyperparameter tuning but doesn’t need the full Kubeflow stack. Currently, deploying Kubeflow using Kustomize manifests feels cumbersome and requires significant manual effort and maintenance.
+Alex is an ML engineer working at a mid-sized AI startup. The team wants to experiment with Notebooks / Workspaces and Trainer for hyperparameter tuning but does not need Kueflow Pipelines. Currently, deploying Kubeflow using Kustomize manifests feels cumbersome since he is accustomed to Helm manifests it and requires significant extra effort.
+He also has an edge device where he only wants to run Kserve for inferencing.
+
 
 
 **Scenario:**
 
 
-Alex needs a fast and repeatable way to deploy only the necessary Kubeflow components while keeping the installation manageable and configurable.
+Alex needs a fast and repeatable way to deploy only the necessary Kubeflow components dpending on the environment, while keeping the different installations manageable and configurable.
 
 
 **Steps & Experience:** 
 
 
 **Discovering Helm Support for Kubeflow** 
-Alex reads the updated Kubeflow documentation and finds that Helm is now an official installation method. The documentation provides a simple command to install only the necessary components.
+Alex reads the updated Kubeflow documentation and finds that Helm manifests are now an official installation method next to Kustomize manifests. The documentation provides a simple way to template different values for different installations.
 
 
 **Deploying Kubeflow with Helm** 
-Alex runs a command to install only Kubeflow Pipelines and Katib. The Helm chart automatically handles dependencies and namespace creation, reducing manual steps. Within minutes, the required services are running in the Kubernetes cluster.
+Alex runs a command to install only Notebooks / Workspaces and Trainer. The Helm chart automatically handles dependencies (Istio, Dashboard etc.), reducing manual steps. Within minutes, the required services are running in the Kubernetes cluster. He then modifies the values to install only Kserve on his edge device.
 
 
 **Customizing the Deployment** 
-Alex configures resource limits and storage settings by modifying the Helm values file.
+Over time more and more users (10-100) use the larger cluster. Alex configures resource limits and storage settings by modifying the Helm values file to accomodate more users on his larger Kubeflow cluster and decreases the resources on his edge device.
 
 
 **Scaling and Managing the Deployment** 
-Later, the team decides to add the Training Operator. Instead of redeploying everything, Alex simply enables it. Helm seamlessly applies the changes, avoiding disruption to the existing setup.
+Later, the team decides to add Kubeflow pipelines in multi-tenancy  platform mode for his multiple users. Instead of redeploying everything, Alex simply enables it. Helm seamlessly applies the changes, avoiding disruption to the existing setup.
 
 
 **Rolling Back** 
