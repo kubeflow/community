@@ -12,7 +12,8 @@ The ML Experience Working Group focuses on developing, maintaining, and improvin
 
 1. Development of Kubeflow JupyterLab extensions that provide simple abstractions and UX to interact with the most common Kubeflow components (e.g., pipelines, hyperparameter tuning) and shorten the time to value for practitioners comfortable with Jupyter. These extensions will focus on the most used Kubeflow components, such as:
     - Pipelines;
-    - Training Operator & Katib;
+    - Kubeflow Trainer
+    - Kubeflow Katib
     - Model Registry;
     - Model Serving (KServe);
     - Feast.
