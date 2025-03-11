@@ -2,19 +2,19 @@
 
 ## Summary
 
-Kubeflow manifests provide a fast way to deploy a minimal Kubeflow platform, with best-effort community support. For guaranteed assistance, users can opt for third-party distributions, consultants, or self-managed expertise. This approach extends to Helm chart support. Contributions and bug reports are encouraged, but no support will be guaranteed. The goal is to build a similar folder structure as Argo for Kubeflow Helm charts.
+Kubeflow manifests provide a fast way to deploy a minimal Kubeflow platform, with best-effort community support. For guaranteed assistance, users can opt for [commercial support](https://www.kubeflow.org/docs/started/support/). This approach extends to Helm support. Contributions and bug reports are encouraged, but no support will be guaranteed. The goal is to build a similar folder structure as we have for the current Kustomize manifests to rely on the existing CI/CD and have a signle source of truth. We also want to incorporate best-practices from Argo for Kubeflow Helm manifests.
 
 ## Motivation
 
 The demand for a Helm chart for a basic Kubeflow installation has increased. Given the KSC's stance in issue 821 on neutral deployment language and user-defined production readiness, this is an opportune time to introduce a Helm chart. Supporting Helm will enhance ease of adoption and simplify deployments while maintaining the flexibility of community-maintained manifests. There have already been community efforts as well as the Kubeflow-Helm-Chart Slack Channel.
 
-Currently, because Kubeflow/manifests are based on Kustomize, many potential users and companies that require Helm charts due to company processes/policies have to rely on third-party distributions. While these options are valuable, they require engagement with adjacent projects and communities.
+Currently, because Kubeflow/manifests only contains Kustomize but no Helm manifests, many potential users and companies that require Helm manifests due to company processes/policies have to rely on third-party options. While these options are valuable, they require engagement with adjacent projects and communities and often common improvents done in one fork do not reach and benefit the whole community.
 
 
 As a project, we must ensure that our Helm chart provides a quick and accessible way for users to deploy a complete Kubeflow platform and individual components, enabling them to manage their environments or adopt a vendor solution.
 
 
-Simplifying the Kubeflow deployment and customization lowers the barrier to entry, increases adoption, and encourages contributions. Just as Kubernetes enabled a new wave of cloud-native startups, a neutral, accessible deployment path can empower AI/ML startups to leverage tools like the Training Operator or Katib without reinventing common patterns. If support becomes burdensome, teams can hire expertise or use a distribution—both of which drive demand for Kubeflow skills.
+Simplifying the Kubeflow deployment and customization lowers the barrier to entry, increases adoption, and encourages contributions. Just as Kubernetes enabled a new wave of cloud-native startups, a neutral, accessible deployment path can empower AI/ML startups to leverage tools like the Training Operator or Katib without reinventing common maintenance patterns. If support becomes burdensome, teams can obtain [commercial support](https://www.kubeflow.org/docs/started/support/).
 
 
 By making deployment easy, we attract more end users and foster collaboration with broader communities like PyTorch, improving our implementations in service of their users.
@@ -185,11 +185,11 @@ As someone new to Kubeflow, Alex benefited from clear documentation and a step-b
 Alex’s organization saw value in Helm-based deployment and wanted to contribute improvements back to the community. Following a structured approach similar to Argo’s Helm charts, the team could extend the charts to support their infrastructure needs while sharing their updates with the wider Kubeflow community. 
 
 
-Thanks to Helm, Kubeflow deployment became effortless, modular, and scalable—allowing Alex’s team to focus on building ML workflows instead of dealing with infrastructure complexity. Alex will get feedback from his ML team using Kubeflow and motivate them to contribute improvements and feature requests to enhance the Kubeflow ecosystem.
+Thanks to Helm, Kubeflow deployment became effortless, modular, and scalable—allowing Alex’s team to focus on building ML workflows instead of dealing with platform complexity. Alex will get feedback from his ML team using Kubeflow and motivate them to contribute improvements and feature requests to enhance the Kubeflow ecosystem.
 
 
 ### Notes/Constraints/Caveats
-Alex may choose to use vanilla manifests or go with a vendor. The goal is not to be a distribution but still a part of Kubeflow/manifests. As the appetite for community support grows, the scope may expand, but for now, this is just a simple way to get Kubeflow running using a well-known deployment pattern and provide examples of how to use it.
+Alex may choose to use the Kustomize manifests or go with a [vendor](https://www.kubeflow.org/docs/started/support/). The goal is to be a part of the community maintained Kubeflow/manifests instead of deriving / deviating from it and becoming a distribution. As the appetite for community support grows, the scope may expand, but for now, this is just a simple way to get Kubeflow running using a well-known deployment pattern and provide examples of how to use it.
 
 
 ## Risks and Mitigations
@@ -434,7 +434,7 @@ Major milestones might include:
 
 ## Alternatives
 ### Glasskube
-[Glasskube](https://github.com/glasskube/glasskube) was initially explored as a potential way to improve our deployment. That community [has made an effort](https://glasskube.dev/blog/kubeflow-setup-guide/), but we've yet to see more traction. Their implementation is not as widely adopted, and we may struggle finding contributors. Should the Glasskube community build a Kubeflow distribution/installation method, we'd gladly support them in this effort, but we have not seen a push for Glasskube like we've seen for Helm.
+[Glasskube](https://github.com/glasskube/glasskube) was initially explored as a potential way to improve our deployment. That community [has made an effort](https://glasskube.dev/blog/kubeflow-setup-guide/), but we've yet to see more traction. Their implementation is not as widely adopted, and we may struggle finding contributors. Should the Glasskube community provide a Kubeflow installation method, we'd gladly support them in this effort, but we have not seen a push for Glasskube like we've seen for Helm.
 
 
 ### KPT
