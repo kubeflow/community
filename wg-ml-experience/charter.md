@@ -4,7 +4,7 @@ This charter adheres to the conventions, roles, and organisation management outl
 
 ## Scope
 
-The ML Experience Working Group focuses on developing, maintaining, and improving tools and extensions that support data science and machine learning practitioners workflows within Kubeflow. The group is dedicated to delivering a high-level, seamless experience integrated with the IDE of choice across multiple Kubeflow components.
+The ML Experience Working Group focuses on developing, maintaining, and improving tools and extensions that support data science and machine learning practitioners experiences within Kubeflow. The group is dedicated to delivering a high-level, seamless experience integrated with the IDE of choice across multiple Kubeflow components.
  
 ### In scope
  
