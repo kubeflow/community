@@ -30,7 +30,7 @@ The ML Experience Working Group focuses on developing, maintaining, and improvin
 
 #### Cross-cutting and Externally Facing Processes
 
-- Collaboration with other Kubeflow WGs, including WG Notebooks, WG Pipelines, WG Training, and WG Serving, ensures that IDE tools are interoperable across different stages of the ML lifecycle.
+- Collaboration with other Kubeflow WGs, including WG Notebooks, WG Pipelines, WG Training, WG AutoML, WG Data, and WG Serving, ensures that IDE tools are interoperable across different stages of the ML lifecycle.
 - Coordination with the release teams to align updates in IDE tools with broader Kubeflow release schedules.
 
 
