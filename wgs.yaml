@@ -235,6 +235,45 @@ workinggroups:
   - name: manifests
     owners:
     - https://raw.githubusercontent.com/kubeflow/manifests/master/OWNERS
+- dir: wg-ml-experience
+  name: ML Experience
+  mission_statement: >
+    The ML Experience Working Group focuses on developing, maintaining, and improving
+    tools and  extensions that support data science and machine learning practitioners
+    workflows within Kubeflow. The group is dedicated to delivering a high-level,
+    seamless experience integrated with the IDE of choice across multiple Kubeflow
+    components.
+
+  charter_link: charter.md
+  label: area/wg-ml-experience
+  leadership:
+    chairs:
+    - github: andreyvelich
+      name: Andrey Velichkevich
+      company: Apple
+    - github: ederign
+      name: Eder Ignatowicz
+      company: Red Hat
+    - github: StefanoFioravanzo
+      name: Stefano Fioravanzo
+      company: Canonical
+    tech_leads:
+    - github: andreyvelich
+      name: Andrey Velichkevich
+      company: Apple
+    - github: ederign
+      name: Eder Ignatowicz
+      company: Red Hat
+    - github: StefanoFioravanzo
+      name: Stefano Fioravanzo
+      company: Canonical
+  meetings: []
+  contact:
+    slack: https://cloud-native.slack.com/archives/C073W572LA2
+    mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
+    teams:
+    - name: wg-ml-experience-leads
+      description: Team of ML Experience Group leads
 - dir: wg-notebooks
   name: Notebooks
   mission_statement: >
@@ -247,7 +286,7 @@ workinggroups:
     chairs:
     - github: StefanoFioravanzo
       name: Stefano Fioravanzo
-      company: Arrikto
+      company: Canonical
     - github: elikatsis
       name: Ilias Katsakioris
       company: Arrikto
@@ -262,7 +301,7 @@ workinggroups:
     tech_leads:
     - github: StefanoFioravanzo
       name: Stefano Fioravanzo
-      company: Arrikto
+      company: Canonical
     - github: elikatsis
       name: Ilias Katsakioris
       company: Arrikto
