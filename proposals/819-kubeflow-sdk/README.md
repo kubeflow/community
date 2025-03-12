@@ -270,9 +270,9 @@ the tentative versions for Kubeflow Trainer and Kubeflow Optimizer.
 
 | SDK Version | Kubernetes Version | Kubeflow Trainer | Kubeflow Optimizer |
 | ----------- | ------------------ | ---------------- | ------------------ |
-| 0.1.0       | 1.29..1.31         | 2.0.0            | None               |
-| 0.2.0       | 1.29..1.31         | 2.0.0            | None               |
-| 0.3.0       | 1.30..1.32         | 2.1.0            | 1.0                |
+| 0.1.0       | 1.29..1.32         | 2.0.0            | None               |
+| 0.2.0       | 1.29..1.32         | 2.0.0            | None               |
+| 0.3.0       | 1.30..1.33         | 2.1.0            | 1.0                |
 
 The `constants.py` defines the version of CRDs that user should interact with:
 
@@ -330,8 +330,9 @@ def e2e_pipeline():
 Using build systems is critical for enhancing the development and maintenance of the Kubeflow SDK.
 It provides dependency management, reproducibility, automation, modularity, etc.
 
-For the Kubeflow SDK, we will use [Hatch](https://hatch.pypa.io/latest/) due to its widespread
-adoption and extensive functionality.
+We are currently evaluating different build systems for the Kubeflow SDK as part of this tracking issue: [kubeflow/trainer#2462](https://github.com/kubeflow/trainer/issues/2462)
+
+One option we are considering is [`uv`](https://github.com/astral-sh/uv), due to its speed and extensive functionality.
 
 ### Packaging
 
