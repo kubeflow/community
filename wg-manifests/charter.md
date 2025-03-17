@@ -1,70 +1,34 @@
-# WG Manifests Charter
+# WG Manifests/Platform Charter
 
 This charter adheres to the conventions, roles and organization management
 outlined in [wg-governance].
 
+This charter describes the working mode of the last 5 years as of March 2025:
+
 ## Scope
 
-- Provide a catalog (centralized repository) of Kubeflow application manifests.
-- Provide a catalog of third-party apps for common services.
-
-### In scope
-
-#### Code, Binaries and Services
-
-- Maintain tooling to automate copying manifests from upstream app repos.
-- Maintain a catalog that will allow users to install Kubeflow apps and
-  common services easily on Kubernetes, either on the cloud or on-prem, without
-  depending on external cloud services or closed source solutions. Those
-  manifests are deployed using `kubectl` and `kustomize` and include:
-    1. A common set of manifests for the current official Kubeflow applications:
-        - Training Operators
-        - Kubeflow Pipelines (KFP)
-        - Notebooks
-        - KFServing
-        - Katib
-        - Central Dashboard
-        - Profile Controller
-        - PodDefaults Controller
-    1. Manifests for a set of specific common services:
-        - Istio
-        - KNative
-        - Dex
-        - Cert-Manager
+- Enable users to install, extend and maintain Kubeflow as a platform for multiple users
+- This includes dependencies, security efforts and examplary integration with popular tools and frameworks.
+- Synchronize the manifests (Helm, Kustomize) between working groups
+- We try to be compatible with the popular Kubernetes clusters
+- We do not support a specific deployment tool (e.g., ArgoCD, Flux)
+- The default installation shall not contain deep integration with external cloud services or closed source solutions
+- We provide hints and experimental examples how a user could integrate non-default external authentication (e.g. companies Identity Provider) and popular services on his own
+- There is the evolving and not exhaustive list of dependencies for a proper multi-tenant platform installatio: Istio, KNative, Dex, Oauth2-proxy, Cert-Manager, ...
+- There is the evolving and not exhaustive list of applications:  KFP, Trainer, Dashboard, Workspaces / Noteboks, Kserve, Spark, ...
 
 #### Cross-cutting and Externally Facing Processes
 
 ##### With Application Owners
 
-- Aid applications owners in creating kustomize manifests for their application,
-  inside the app repo, if those don't exist already.
-- Communicate with application owners to agree upon the version they want to be
-  included in the next Kubeflow release.
+- Aid the application owner in creating manifests (Helm, Kustomize) for his application
+- Aid the application owner regarding security best practices
+- Communicate with the application owner regarding releases and versioning
 
 ##### With Distribution Owners
 
-- Coordinate with distribution owners, to make sure they are in-sync about the
-  release schedule and have time to test and bring their distributions
-  up-to-date.
+- Coordinate with "distribution owners" and users to take part in the testing of Kubeflow releases.
 
-### Out of scope
-
-This WG is NOT going to:
-- Maintain deployment-specific tools like `kfctl`.
-- Maintain distribution-specific manifests.
-- Decide which applications to include in Kubeflow.
-- Decide which variant of an application to include (e.g., KFP Standalone vs
-  KFP with Istio).
-- Create and maintain one or more Kubeflow distributions.
-- Support configurations with environment-specific requirements, like special
-  hardware, different versions of third-party apps (e.g., Istio, KNative, etc.)
-  or custom OIDC providers.
-- Support and promote a specific deployment tool (e.g., `kfctl`). Opinionated
-  deployment tools can extend the base kustomizations to create manifests that
-  support their methods.
-    - For example, people invested in `kfctl` can create overlays that enable
-      the use of `kfctl`'s parameter substitution, which expects a specific
-      folder structure (`params.env`).
 
 ## Roles and Organization Management
 
@@ -76,13 +40,13 @@ The positions of the Chairs and TLs are granted to the organizations and compani
 Kubeflow's [governance model](https://github.com/kubeflow/community/blob/master/wgs/wg-governance.md)
 includes a plethora of different leadership roles.
 This section aims to provide a clear description of what these roles mean for
-this repo, as well as set expectations from people with these roles and requirements
+this repository, as well as set expectations from people with these roles and requirements
 for people to be promoted in a role.
 
 A Working Group lead is considered someone that has either the role of
 **Subproject Owner**, **Tech Lead** or **Chair**. These roles were defined by trying
-to provide different responsibility levels for repo owners. For the Manifests WG
-we'd like to start by treating *approvers* in the root [OWNERS](https://github.com/kubeflow/manifests/blob/master/OWNERS),
+to provide different responsibility levels for repository owners. For the Manifests WG
+we would like to start by treating *approvers* in the root [OWNERS](https://github.com/kubeflow/manifests/blob/master/OWNERS),
 as Subproject Owners, Tech Leads and Chairs. This is done to ensure we have a
 simple enough model to start that people can understand and get used to. So for
 the Manifests WG we only have Manifests WG Leads, which are the root approvers.
@@ -93,16 +57,16 @@ a reviewer and an approver in the root OWNERS file (Manifests WG Lead).
 ### Manifests WG Lead Requirements
 
 The requirements for someone to be a Lead come from the processes and work required
-to be done in this repo. The main goal with having multiple Leads is to ensure
+to be done in this repository. The main goal with having multiple Leads is to ensure
 that in case there's an absence of one of the Leads the rest will be able to ensure
-the established processes and the health of the repo will be preserved.
+the established processes and the health of the repository will be preserved.
 
 With the above the main pillars of work and responsibilities that we've seen for
-this repo throughout the years are the following:
-1. Being involved with the release team, since the [release process](https://github.com/kubeflow/community/tree/master/releases) is tightly intertwined with the manifests repo
-2. Testing methodologies (GitHub Actions, E2E testing with AWS resources etc)
-3. Processes regarding the [contrib/addon](https://github.com/kubeflow/manifests/blob/master/contrib) components
-4. [Common manifests](https://github.com/kubeflow/manifests/tree/master/common)  maintained by Manifests WG (Istio, Knative, Cert Manager etc)
+this repository throughout the years are the following:
+1. Being involved with the release team, since the [release process](https://github.com/kubeflow/community/tree/master/releases) is tightly intertwined with the manifests/platform repository
+2. Testing methodologies (GitHub Actions)
+3. Processes regarding the [experimental](https://github.com/kubeflow/manifests/blob/master/experimental) components
+4. [Platform manifests](https://github.com/kubeflow/manifests/tree/master/common) maintained irectly by Manifests WG (Istio, Knative, Cert Manager etc.)
 5. Community and health of the project
 
 Root approvers, or Manifests WG Leads, are expected to have expertise and be able
@@ -120,7 +84,7 @@ role by helping with reviews throughout the project.
 
 The goal of the requirements is to quantify the main pillars that we documented
 above. The high level reasoning is that approvers should have lead efforts and
-have expertise in the different processes and artefacts maintained in this repo
+have expertise in the different processes and artefacts maintained in this repository
 as well as be invested in the community of the WG.
 
 * Need to be a root reviewer
