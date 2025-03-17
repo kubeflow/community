@@ -3,7 +3,7 @@
 This charter adheres to the conventions, roles and organization management
 outlined in [wg-governance].
 
-This charter describes the working mode of the last 5 years as of March 2025:
+This charter describes the working mode / reality / status quo  of the last 5 years as of March 2025.
 
 ## Scope
 
@@ -26,9 +26,9 @@ This charter describes the working mode of the last 5 years as of March 2025:
 - Communicate with the application owner regarding releases and versioning
 
 ##### With Distribution Owners
-
-- Coordinate with "distribution owners" and users to take part in the testing of Kubeflow releases.
-
+- Distributions are strongly opinionated derivatives of Kubeflow platform / manifests, for example replacing all databases with closed source managed databases from AWS, GKE, Azure, ...
+- A distribution can be created by an arbitrary amount of users / companies in private or in public, see the definition above
+- Coordinate with "distribution owners" / users to take part in the testing of Kubeflow releases.
 
 ## Roles and Organization Management
 
