@@ -10,22 +10,22 @@ This charter describes the working mode / reality / status quo  of the last 5 ye
 - Enable users to install, extend and maintain Kubeflow as a platform for multiple users
 - This includes dependencies, security efforts and examplary integration with popular tools and frameworks.
 - Synchronize the manifests (Helm, Kustomize) between working groups
-- We try to be compatible with the popular Kubernetes clusters
+- We try to be compatible with the popular Kubernetes clusters (Kind, Rancher, AKS, EKS, GKE, ...)
 - We do not support a specific deployment tool (e.g., ArgoCD, Flux)
 - The default installation shall not contain deep integration with external cloud services or closed source solutions
 - We provide hints and experimental examples how a user could integrate non-default external authentication (e.g. companies Identity Provider) and popular services on his own
 - There is the evolving and not exhaustive list of dependencies for a proper multi-tenant platform installatio: Istio, KNative, Dex, Oauth2-proxy, Cert-Manager, ...
 - There is the evolving and not exhaustive list of applications:  KFP, Trainer, Dashboard, Workspaces / Noteboks, Kserve, Spark, ...
 
-#### Cross-cutting and Externally Facing Processes
+## Communication Tasks
 
-##### With Application Owners
+### With Application Owners
 
 - Aid the application owner in creating manifests (Helm, Kustomize) for his application
 - Aid the application owner regarding security best practices
 - Communicate with the application owner regarding releases and versioning
 
-##### With Distribution Owners
+### With Distribution Owners
 - Distributions are strongly opinionated derivatives of Kubeflow platform / manifests, for example replacing all databases with closed source managed databases from AWS, GKE, Azure, ...
 - A distribution can be created by an arbitrary amount of users / companies in private or in public, see the definition above
 - Coordinate with "distribution owners" / users to take part in the testing of Kubeflow releases.
