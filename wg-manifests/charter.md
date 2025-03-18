@@ -6,7 +6,6 @@ This platform/manifests charter describes the working mode / reality / status qu
 
 #### Code, Binaries and Services
 
-next to the manifests adjusted to work in a multi-tenancy platform (configuration) and the dependencies we have the documentation, synchronization and probably the largest part our integration tests that make sure that the components work end-to-end together as multi-tenant platform. Maybe i missed something.
 - Enable users / distributions to install, extend and maintain Kubeflow as a multi-tenant platform for multiple users
 - This includes dependencies, security efforts and exemplary integration with popular tools and frameworks.
 - Users can also install individual components without the benefits of the platform.
