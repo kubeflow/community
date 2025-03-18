@@ -1,21 +1,23 @@
 # WG Platform/Manifests Charter
 
-This platform/manifests charter describes the working mode / reality / status quo of the last 5 years as of March 2025.
-It tries to be as lean as possible and balance community and commercial interests.
+This platform/manifests charter describes the working mode / reality / status quo of the last 5 years as of March 2025. It is not set in stone and shoul evolve.
 
-## Scope
+### In scope
 
+#### Code, Binaries and Services
+
+next to the manifests adjusted to work in a multi-tenancy platform (configuration) and the dependencies we have the documentation, synchronization and probably the largest part our integration tests that make sure that the components work end-to-end together as multi-tenant platform. Maybe i missed something.
 - Enable users / distributions to install, extend and maintain Kubeflow as a multi-tenant platform for multiple users
 - This includes dependencies, security efforts and exemplary integration with popular tools and frameworks.
-- Synchronize the manifests (Helm, Kustomize) between working groups
+- Users can also install individual components without the benefits of the platform.
+- Synchronize the manifests between working groups and make sure via integration tests that the components work end-to-end together as multi-tenant platform
 - We try to be compatible with the popular Kubernetes clusters (Kind, Rancher, AKS, EKS, GKE, ...)
-- **We do not support a specific deployment tool (e.g., ArgoCD, Flux)**
-- The default installation shall not contain deep integration with external cloud services or closed source solutions, instead we aim for Kubernetes-native solutions and light authentication and authorization integration with external IDPs
 - We provide hints and experimental examples how a user / distribution could integrate non-default external authentication (e.g. companies Identity Provider) and popular non-default services on his own
+- We in general document the installation of Kubeflow as a platform and / or  individual components including common problems and architectural overviews.
 - There is the evolving and not exhaustive list of dependencies for a proper multi-tenant platform installation: Istio, KNative, Dex, Oauth2-proxy, Cert-Manager, ...
 - There is the evolving and not exhaustive list of applications:  KFP, Trainer, Dashboard, Workspaces / Noteboks, Kserve, Spark, ...
 
-## Communication Tasks
+## Cross-cutting and Externally Facing Processes
 
 ### With Application Owners
 
@@ -24,9 +26,14 @@ It tries to be as lean as possible and balance community and commercial interest
 - Communicate with the application owner regarding releases and versioning
 
 ### With Users / Distribution Owners
-- Distributions are strongly opinionated derivatives of Kubeflow platform/manifests, for example replacing all databases with closed source managed databases from AWS, GKE, Azure, ...
+- Distributions are opinionated derivatives of Kubeflow platform/manifests, for example replacing all databases with closed source managed databases from AWS, GKE, Azure, ...
 - A distribution can be created by an arbitrary amount of users / companies in private or in public by deriving from Kubeflow platform/manifests, see the definition above
 - Coordinate with "distribution owners" / users to take part in the testing of Kubeflow releases.
+
+### Out of scope
+
+- We do not support a specific deployment tool (e.g., ArgoCD, Flux)
+- The default installation shall not contain deep integration with external cloud services or closed source solutions, instead we aim for Kubernetes-native solutions and light authentication and authorization integration with external IDPs
 
 ## Roles and Organization Management
 
