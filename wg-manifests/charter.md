@@ -1,8 +1,5 @@
 # WG Platform/Manifests Charter
 
-This charter adheres to the conventions, roles and organization management
-outlined in [wg-governance].
-
 This platform/manifests charter describes the working mode / reality / status quo of the last 5 years as of March 2025.
 It tries to be as lean as possible and balance community and commercial interests.
 
