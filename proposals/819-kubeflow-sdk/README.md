@@ -103,21 +103,27 @@ configure PEFT config, my dataset, and trigger a fine-tuning job.
 The ML Experience may look as follows:
 
 ```python
-from kubeflow.trainer import TrainerClient, TorchTuneConfig, LoraConfig
+from kubeflow.trainer import TrainerClient, BuiltinTrainer, TorchTuneConfig, LoraConfig
 
 # Get available LLM runtimes.
 TrainerClient().list_runtimes(phase="post-training")
 
 # Fine-tune LLM.
 job_id = TrainerClient().train(
-    runtime_ref="llama-3.2-1b",
-    fine_tuning_config=TorchTuneConfig(
-        lr=0.01,
-        peft_config=LoraConfig(
-            lora_rank=4,
-            lora_alpha=128,
+    trainer=BuiltinTrainer(
+        config=TorchTuneConfig(
+            dtype="bf16",
+            peft_config=LoraConfig(
+                lora_rank=8,
+            ),
         ),
     ),
+    initializer=Initializer(
+        dataset=HuggingFaceDatasetInitializer(
+            storage_uri="hf://tatsu-lab/alpaca",
+        )
+    ),
+    runtime_ref="torchtune-llama3-3-70b",
 )
 
 # Get the results.
@@ -163,15 +169,17 @@ For example, I know that I want to optimize learning rate and LoRA rank.
 ```python
 from kubeflow.optimizer import OptimizerClient, OptimizerConfig
 from kubeflow.optimizer import Search
-from kubeflow.trainer import TorchTuneConfig, LoraConfig
+from kubeflow.trainer import BuiltinTrainer, TorchTuneConfig, LoraConfig
 
 # Optimizer HPs during fine-tuning.
 job_id = OptimizerClient().optimize(
-    runtime_ref="llama-3.2-1b",
-    fine_tuning_config=TorchTuneConfig(
-        lr=Search(min="0.01", max="0.1", distribution="logNormal"),
-        peft_config=LoraConfig(
-            lora_rank=Search(min="4", max="8", distribution="uniform"),
+    trainer=BuiltinTrainer(
+        config=TorchTuneConfig(
+            dtype="bf16",
+            lr=Search(min="0.01", max="0.1", distribution="logNormal"),
+            peft_config=LoraConfig(
+                lora_rank=Search(min="4", max="8", distribution="uniform"),
+            ),
         ),
     ),
     optimizer_config=OptimizerConfig(
@@ -179,6 +187,7 @@ job_id = OptimizerClient().optimize(
         mode="min",
         num_trials=5,
     ),
+    runtime_ref="torchtune-llama3-3-70b",
 )
 
 # Get the HPs from the best Trial.
