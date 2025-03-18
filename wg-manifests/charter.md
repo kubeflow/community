@@ -3,20 +3,20 @@
 This charter adheres to the conventions, roles and organization management
 outlined in [wg-governance].
 
-This charter describes the working mode / reality / status quo  of the last 5 years as of March 2025.
+This platform/manifests charter describes the working mode / reality / status quo of the last 5 years as of March 2025.
+It tries to balance community and commercial interests.
 
 ## Scope
 
 - Enable users to install, extend and maintain Kubeflow as a platform for multiple users
-- This includes dependencies, security efforts and examplary integration with popular tools and frameworks.
+- This includes dependencies, security efforts and exemplary integration with popular tools and frameworks.
 - Synchronize the manifests (Helm, Kustomize) between working groups
 - We try to be compatible with the popular Kubernetes clusters (Kind, Rancher, AKS, EKS, GKE, ...)
-- We do not support a specific deployment tool (e.g., ArgoCD, Flux)
-- The default installation shall not contain deep integration with external cloud services or closed source solutions
+- **We do not support a specific deployment tool (e.g., ArgoCD, Flux)**
+- The default installation shall not contain deep integration with external cloud services or closed source solutions, instead we aim for Kubernetes-native solutions and light authentication and authorization integration with external IDPs
 - We provide hints and experimental examples how a user could integrate non-default external authentication (e.g. companies Identity Provider) and popular services on his own
-- There is the evolving and not exhaustive list of dependencies for a proper multi-tenant platform installatio: Istio, KNative, Dex, Oauth2-proxy, Cert-Manager, ...
+- There is the evolving and not exhaustive list of dependencies for a proper multi-tenant platform installation: Istio, KNative, Dex, Oauth2-proxy, Cert-Manager, ...
 - There is the evolving and not exhaustive list of applications:  KFP, Trainer, Dashboard, Workspaces / Noteboks, Kserve, Spark, ...
-
 ## Communication Tasks
 
 ### With Application Owners
@@ -27,7 +27,7 @@ This charter describes the working mode / reality / status quo  of the last 5 ye
 
 ### With Distribution Owners
 - Distributions are strongly opinionated derivatives of Kubeflow platform / manifests, for example replacing all databases with closed source managed databases from AWS, GKE, Azure, ...
-- A distribution can be created by an arbitrary amount of users / companies in private or in public, see the definition above
+- A distribution can be created by an arbitrary amount of users / companies in private or in public by deriving from Kubeflow platform/manifests, see the definition above
 - Coordinate with "distribution owners" / users to take part in the testing of Kubeflow releases.
 
 ## Roles and Organization Management
@@ -66,10 +66,10 @@ this repository throughout the years are the following:
 1. Being involved with the release team, since the [release process](https://github.com/kubeflow/community/tree/master/releases) is tightly intertwined with the manifests/platform repository
 2. Testing methodologies (GitHub Actions)
 3. Processes regarding the [experimental](https://github.com/kubeflow/manifests/blob/master/experimental) components
-4. [Platform manifests](https://github.com/kubeflow/manifests/tree/master/common) maintained irectly by Manifests WG (Istio, Knative, Cert Manager etc.)
+4. [Platform manifests](https://github.com/kubeflow/manifests/tree/master/common) maintained irectly by Manifests/Platform WG (Istio, Knative, Cert Manager etc.)
 5. Community and health of the project
 
-Root approvers, or Manifests WG Leads, are expected to have expertise and be able
+Root approvers, or Manifests/Platform WG Leads, are expected to have expertise and be able
 to drive all the above areas. Root reviewers on the other hand are expected to
 have knowledge in all the above and have as a goal to grow into the approvers
 role by helping with reviews throughout the project.
