@@ -1,4 +1,4 @@
-# WG Manifests/Platform Charter
+# WG Platform/Manifests Charter
 
 This charter adheres to the conventions, roles and organization management
 outlined in [wg-governance].
@@ -8,13 +8,13 @@ It tries to be as lean as possible and balance community and commercial interest
 
 ## Scope
 
-- Enable users to install, extend and maintain Kubeflow as a platform for multiple users
+- Enable users / distributions to install, extend and maintain Kubeflow as a multi-tenant platform for multiple users
 - This includes dependencies, security efforts and exemplary integration with popular tools and frameworks.
 - Synchronize the manifests (Helm, Kustomize) between working groups
 - We try to be compatible with the popular Kubernetes clusters (Kind, Rancher, AKS, EKS, GKE, ...)
 - **We do not support a specific deployment tool (e.g., ArgoCD, Flux)**
 - The default installation shall not contain deep integration with external cloud services or closed source solutions, instead we aim for Kubernetes-native solutions and light authentication and authorization integration with external IDPs
-- We provide hints and experimental examples how a user could integrate non-default external authentication (e.g. companies Identity Provider) and popular services on his own
+- We provide hints and experimental examples how a user / distribution could integrate non-default external authentication (e.g. companies Identity Provider) and popular non-default services on his own
 - There is the evolving and not exhaustive list of dependencies for a proper multi-tenant platform installation: Istio, KNative, Dex, Oauth2-proxy, Cert-Manager, ...
 - There is the evolving and not exhaustive list of applications:  KFP, Trainer, Dashboard, Workspaces / Noteboks, Kserve, Spark, ...
 
@@ -26,8 +26,8 @@ It tries to be as lean as possible and balance community and commercial interest
 - Aid the application owner regarding security best practices
 - Communicate with the application owner regarding releases and versioning
 
-### With Distribution Owners
-- Distributions are strongly opinionated derivatives of Kubeflow platform / manifests, for example replacing all databases with closed source managed databases from AWS, GKE, Azure, ...
+### With Users / Distribution Owners
+- Distributions are strongly opinionated derivatives of Kubeflow platform/manifests, for example replacing all databases with closed source managed databases from AWS, GKE, Azure, ...
 - A distribution can be created by an arbitrary amount of users / companies in private or in public by deriving from Kubeflow platform/manifests, see the definition above
 - Coordinate with "distribution owners" / users to take part in the testing of Kubeflow releases.
 
@@ -55,7 +55,7 @@ the Manifests WG we only have Manifests WG Leads, which are the root approvers.
 The following sections will aim to define the requirements for someone to become
 a reviewer and an approver in the root OWNERS file (Manifests WG Lead).
 
-### Manifests WG Lead Requirements
+### Platform/Manifests WG Lead Requirements
 
 The requirements for someone to be a Lead come from the processes and work required
 to be done in this repository. The main goal with having multiple Leads is to ensure
