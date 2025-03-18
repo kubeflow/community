@@ -6,11 +6,12 @@ outlined in [wg-governance].
 
 ## Scope
 
-We trivially (automatically) synchronize the application and dependencies manifests to then elaborately combine (configure)them for full platform experience.
+We simply (automatically) synchronize the application and dependencies manifests to then elaborately combine (configure)them for full platform experience.
 Providing a consistent and tested end-to-end multi-tenant experience is the most important task of the platform/manifests WG.
 To achieve this we maintain an extensive testing suite that covers most basic scenarios users would expect from a Platform for ML orchestration.
 We also provide the documentation regarding, but not limited to installation, extension, security and architecture to enable users to run their own ML Platform on Kubernetes.
-Users may choose to derive from platform/manifests to create so called distributions, which are opinionated to satisfy individual requirements. They may also choose to install individual components without the benefits of the platform.
+Users may choose to derive from platform/manifests to create so called distributions, which are opinionated to satisfy individual requirements.
+Users may also choose to install individual components without the benefits of the platform.
 
 ### In scope
 
@@ -18,7 +19,7 @@ Users may choose to derive from platform/manifests to create so called distribut
 
 - Enable users / distributions to install, extend and maintain Kubeflow as a end-to-end multi-tenant platform for multiple users
 - This includes dependencies, security efforts and exemplary integration with popular tools and frameworks.
-- Users can also install individual components without the benefits of the platform.
+- Users can also install individual components without the benefits of the platform, but then they could also just directly fetch them from the WG releases.
 - Synchronize the manifests between working groups and make sure via integration tests that the components work end-to-end together as multi-tenant platform
 - Release tested releases of the Kubeflow platform for downstream consumption
 - We try to be compatible with the popular Kubernetes clusters (Kind, Rancher, AKS, EKS, GKE, ...)
