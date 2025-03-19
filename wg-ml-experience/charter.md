@@ -4,7 +4,7 @@ This charter adheres to the conventions, roles, and organisation management outl
 
 ## Scope
 
-The ML Experience Working Group focuses on developing, maintaining, and improving tools and extensions that support data science and machine learning practitioners experiences within Kubeflow. The group is dedicated to delivering a high-level, seamless experience integrated with the IDE of choice across multiple Kubeflow components.
+The ML Experience Working Group focuses on developing, maintaining, and improving tools and extensions that support data science and machine learning practitioners experiences within Kubeflow. The group is dedicated to delivering a high-level, seamless experience integrated with the Cloud IDE across multiple Kubeflow components.
  
 ### In scope
  
@@ -26,8 +26,10 @@ The ML Experience Working Group focuses on developing, maintaining, and improvin
 
 #### Guiding Principles
 
-- Synergy among Kubeflow Working Groups: Collaborate with other WG to promote reusability of UI components from other Kubeflow UIs to create a single UX between Jupyter IDE and Kubeflow Central Dashboard;
-- Collaboration with other open-source IDE projects (like Jupyter and VSCode) to promote the creation and reusability of open standards for AI/ML tools (protocols, communication exchange, file formats, etc.) and plugins. The aim of this group is to actively participate in the development of these standards to include Kubeflow in a broader ecosystem or interoperable tools. 
+- Drive UX Synergy among Kubeflow Working Groups:
+    - Collaborate with other WGs to promote reusability of UI components from other Kubeflow UIs to create a single UX between Jupyter IDE and Kubeflow Central Dashboard;
+    - Collaborate with other WGs to establish Kubeflow UI Design Language, a set of standards to make sure Kubeflow UIs follow the same design language and architecture principles;
+- Collaboration with other open-source IDE projects (like Jupyter) to promote the creation and reusability of open standards for AI/ML tools (protocols, communication exchange, file formats, etc.) and plugins. The aim of this group is to actively participate in the development of these standards to include Kubeflow in a broader ecosystem or interoperable tools.
 
 #### Cross-cutting and Externally Facing Processes
 
