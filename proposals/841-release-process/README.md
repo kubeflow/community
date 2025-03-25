@@ -1,4 +1,4 @@
-# KEP-840: Proposal to update Release Process for Kubeflow
+# KEP-841: Proposal to update the Release Process for Kubeflow
 
 <!--
 This is the title of your KEP. Keep it short, simple, and descriptive. A good
@@ -8,20 +8,7 @@ any review.
 
 ## Summary
 
-<!--
-This section is incredibly important for producing high-quality, user-focused
-documentation such as release notes or a development roadmap. It should be
-possible to collect this information before implementation begins, in order to
-avoid requiring implementors to split their attention between writing release
-notes and implementing the feature itself. KEP editors and should ensure that
-the tone and content of the `Summary` section is useful for a wide audience.
-A good summary is probably at least a paragraph in length.
-Both in this section and below, follow the guidelines of the [documentation
-style guide]. In particular, wrap lines to a reasonable length, to make it
-easier for reviewers to cite specific portions, and to minimize diff churn on
-updates.
-[documentation style guide]: https://github.com/kubernetes/community/blob/master/contributors/guide/style-guide.md
--->
+This proposal aims to share insights on topics discussed with the release team and others about diverse challenges and improvement opportunities in the release process based on Kubeflow release 1.10.
 
 ## Motivation
 
