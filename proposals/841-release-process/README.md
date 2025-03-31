@@ -14,20 +14,20 @@ This proposal aims to share insights on topics discussed with the release team a
 
 Current challenges based on Kubeflow release 1.10:
 * Challenge to get component’s release progress during release meetings.
-    ** Blockers or challenges on the Release are identified later.
-    ** Incomplete/Inaccurate or null information on some components about progress/blockers.
+    - Blockers or challenges on the Release are identified later.
+    -  Incomplete/Inaccurate or null information on some components about progress/blockers.
 * The Release Manager role challenges:
-** Only one person is responsible for the Release and decisions.
-** Time dedication and commitment are high and for an extended period (6 months), which makes it hard to find candidates for Release.
-** The diverse skills required for the role make it even harder for candidates to join.
+- Only one person is responsible for the Release and decisions.
+- Time dedication and commitment are high and for an extended period (6 months), which makes it hard to find candidates for Release.
+- The diverse skills required for the role make it even harder for candidates to join.
 * Release Documentation
-** Working groups need help on building Technical Documentation for Releases.
-** Working on technical documentation during the Release, before the feature freeze, can expedite the release process.
+- Working groups need help on building Technical Documentation for Releases.
+- Working on technical documentation during the Release, before the feature freeze, can expedite the release process.
 * Feature Freeze vs Building Release Candidate
-** Teams required more time to finish the Release and later cherry-pick and work on building the Release.
+- Teams required more time to finish the Release and later cherry-pick and work on building the Release.
 * Release timeframe 
-** The Release is now 27 weeks. There are 10 weeks between feature freeze and Release. 
-** Release dates and phases are hard to predict in the current process.
+- The Release is now 27 weeks. There are 10 weeks between feature freeze and Release. 
+- Release dates and phases are hard to predict in the current process.
 
 ### Goals
 
@@ -95,10 +95,10 @@ Responsabilities:
 * Week 10 - (Community and Distribution testing starts) -Sync manifests happen at least the day before. Include Distribution liasions and release team to confirm release testing starts and bug fixing follows.
 * Week 11 - (Bug Fixing) - Discuss any potential blockers for the Release.
 * Week 12 - (Release) - Items to discuss: bug fixes required, release cut, documentation needed.
-** Release Manager synchronizes and cuts the release on Kubeflow Platform/Manifests.
-** WG leads from each component (ex., Pipelines) must approve a synchronized PR on the Kubeflow Platform/Manifests when related to that component 
-** WG leads from each component (ex., Pipelines) must approve a PR when updates regarding each component on the Kubeflow Platform/Manifests.
-** The Release Manager is responsible for approving/reviewing the blog and slides announcing the release.
+- Release Manager synchronizes and cuts the release on Kubeflow Platform/Manifests.
+- WG leads from each component (ex., Pipelines) must approve a synchronized PR on the Kubeflow Platform/Manifests when related to that component 
+- WG leads from each component (ex., Pipelines) must approve a PR when updates regarding each component on the Kubeflow Platform/Manifests.
+- The Release Manager is responsible for approving/reviewing the blog and slides announcing the release.
 
 
 
