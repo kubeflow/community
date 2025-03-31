@@ -60,25 +60,52 @@ Week 9 is code freeze. However, the working groups can use that week to finish a
 ### Release Meetings and Communication
 * Create a new Release Management team on Slack for asynchronous communication within the team
 * Bi-weekly meetings during Software Development (Week 1-Week 8). Weekly meetings between week 9-12 as needed.
+* Meetings will focus on roadmap status, including blockers, feature discussions, the overall status of the release, and the help needed.
 
 ### Release Documentation
 
 * Build a team of technical writers to be embedded in each working group for the release time frame. 
 * Provide roles within the community to boost participation and bring new members into this group.
+* Technical Doc Lead will lead this team; technical documentation can include a blog and slides to announce the Release.
 
-### Release Management Team 
-* Release management is the responsibility of a team: 
-    * Potentially: Working Group Leads + TOC + KSC + Release Manager
-    * The manifest Project is the Kubeflow Release Project, and the Release Team is responsible for this project.
-* Feature Freeze vs Building Release Candidate
-* Add one more week for building release candidates.
-* The Release Manager is still responsible for the overall release of Kubeflow and communication between the teams.
-* Release team liaisons will be responsible not for the communication but for contributing to the release with documentation, source code, PRs review, etc, according to their skills and motivation.
+### Release Management Team: 
+The Release Management Team is composed by: Release Manager, WG Leads ( in some cases Liasons), Technical Doc Lead.
+Responsabilities:
 
-### Workflow (TBD)
+- WG leads from each component (ex., Pipelines) must approve a synchronized PR on the Kubeflow Platform/Manifests when related to that component 
+- WG leads from each component (ex., Pipelines) must approve a PR when updates regarding each component on the Kubeflow Platform/Manifests.
+- Release team liaisons will be responsible not for the communication but for contributing to the release with documentation, source code, PRs review, etc, according to their skills and motivation.
+
+### Release Manager Responsibilities: 
+- Responsible for the overall Kubeflow Release Process 
+- Promote best practices for the release and software development process.
+- Manage the communication between the teams to understand current release status and potential blockers
+- Manage the communication with the community about the status of the Release or any help/blockers needed.
+- Synchronize and cut the Release on Kubeflow Platform/Manifests.
+- Approve & review the blog and slides announcing the Release.
+
+
+### Implementation -todo update release team
+* Week 0 -  (Release and Roadmap discussions) WG Leads and Release Manager meet to discuss the roadmap planned for the Release
+* Week 2 - (Software development Phase) WG Leads/Liaisons meet to discuss any release challenges, release changes, and help needed from the community (to communicate on Kubeflow Community Meeting)
+* Week 4 - (Software development Phase) WG Leads/Liaisons meet to discuss any release challenges, release changes, and help needed from the community (to communicate on Kubeflow Community Meeting)
+* Week 6 - (Software development Phase) WG Leads/Liaisons meet to discuss any release challenges, release changes, and help needed from the community (to communicate on Kubeflow Community Meeting)
+* Week 8 - (Last week of Software development Phase) WG Leads/Liaisons meet to discuss any release challenges, release changes, and help needed from the community (to communicate on Kubeflow Community Meeting). Exceptional cases: Discuss any feature that needed to be completed during the feature freeze. 
+* Week 9 - (Feature Freeze and Prep for Release) WG Leads/Liaisons meet to discuss any release challenges, release changes, and help needed from the community (to communicate on Kubeflow Community Meeting). Discuss items required to prepare for Release (including documentation).
+* Week 10 - (Community and Distribution testing starts) -Sync manifests happen at least the day before. Include Distribution liasions and release team to confirm release testing starts and bug fixing follows.
+* Week 11 - (Bug Fixing) - Discuss any potential blockers for the Release.
+* Week 12 - (Release) - Items to discuss: bug fixes required, release cut, documentation needed.
+** Release Manager synchronizes and cuts the release on Kubeflow Platform/Manifests.
+** WG leads from each component (ex., Pipelines) must approve a synchronized PR on the Kubeflow Platform/Manifests when related to that component 
+** WG leads from each component (ex., Pipelines) must approve a PR when updates regarding each component on the Kubeflow Platform/Manifests.
+** The Release Manager is responsible for approving/reviewing the blog and slides announcing the release.
+
+
 
 ### Notes/Constraints/Caveats (Optional)
 
+* At this time, there is no plan to update support. No changes to support.
+* This proposal does not cover any changes on Kubeflow manifests vs Kubeflow Platform. This should be addressed in other KFP
 <!--
 What are the caveats to the proposal?
 What are some important details that didn't come across above?
