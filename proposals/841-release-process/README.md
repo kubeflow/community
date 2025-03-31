@@ -105,7 +105,7 @@ Responsabilities:
 ### Notes/Constraints/Caveats (Optional)
 
 * At this time, there is no plan to update support. No changes to support.
-* This proposal does not cover any changes on Kubeflow manifests vs Kubeflow Platform. This should be addressed in other KFP
+* This proposal does not cover any changes on Kubeflow manifests vs Kubeflow Platform. This should be addressed in other KEP
 <!--
 What are the caveats to the proposal?
 What are some important details that didn't come across above?
