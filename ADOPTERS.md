@@ -7,6 +7,7 @@ alphabetical order.
 | Organization | Contact | Description of Use |
 | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
 | [DHL Data & Analytics](https://www.linkedin.com/company/dhl-data-analytics/) | [@juliusvonkohout](https://github.com/juliusvonkohout)                                                                                   | Kubeflow is used as our main ML platform.                                 |
+| [CERN](https://www.home.cern)                                       | [@gigabyte132](https://github.com/gigabyte132) | Kubeflow is used as our main ML platform.    |
 | [Telia](https://www.teliacompany.com/)                                       | [@akeed](https://github.com/akeed), [@sarahberenji](https://github.com/sarahberenji), [@tarekabouzeid](https://github.com/tarekabouzeid) | Kubeflow is used as our main ML platform for on-premises analytics.       |
 
 # Adopters of Individual Kubeflow Components
