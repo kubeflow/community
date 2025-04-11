@@ -8,14 +8,23 @@ The governance of the Kubeflow Outreach Committee will evolve as the community g
 
 1. Promote the vision, values, and mission of the Kubeflow project.
 2. Lead efforts to grow and engage the AI/ML community, including organizing events, producing educational materials, and advocating for Kubeflow across various tech communities.
-3. Help onboard new contributors and users to Kubeflow, particularly through accessible resources and community-building initiatives.
+3. Help grow the community by bringing new contributors and users to Kubeflow, particularly through accessible resources and community-building initiatives.
 4. Collaborate with other committees and working groups to align outreach efforts with the broader goals of the Kubeflow project.
+5. Maintain the Kubeflow Website, documentation, demonstration, and educational material for the Kubeflow community.
 
 ### Committee Structure
 
-- **Appointment of Members**: Members of the Kubeflow Outreach Committee are appointed at the discretion of the Kubeflow Steering Committee (KSC), with the removal of any members for violating the CNCF Code of Conduct also at the KSC's discretion.
+- **Appointment of Members**: Members of the Kubeflow Outreach Committee are appointed at the discretion of the Kubeflow Steering Committee (KSC), with the removal of any members for violating the CNCF Code of Conduct also at the KSC's discretion through a majority vote.
 - **Role of KOC Co-Leads**: The Outreach Committee will be co-led by established Kubeflow community members, with the co-leads being responsible for guiding the committee’s work. New members of the KOC may be newcomers to the community, and their primary role will be focused on helping drive growth for Kubeflow.
 - **Committee Expansion**: KOC may appoint new members as needed, requiring only the approval of one KSC member for the appointment.
+
+## Committee members
+
+KOC is composed of 3 (three) members. Seats on the Outreach Committee are held by an individual, not by their employer.
+
+### Limitations on Company Representation
+No more than one seat may be held by employees of the same organization (or conglomerate, in the case of companies owning each other). 
+
 
 ### Committee Meetings
 
@@ -25,11 +34,15 @@ Meeting notes will be publicly available to the community, except when privacy i
 
 ### Decision Process
 
-The KOC aims to reach consensus on all decisions. If a decision requires a vote, the decision will pass with a simple majority of the members present.
+The KOC aims to reach consensus on all decisions. If a decision requires a vote, the decision will pass with a simple majority of the members present. 
+
+Decisions are made in meetings when a quorum of the members are present and may pass with at least half the members (rounded up) of the committee supporting it.
 
 ### Special Decision Process
 
-In some cases, such as changes to the KOC’s charter or significant shifts in community direction, a special decision process may apply. A proposal can pass with 70% approval from the committee members present.
+In some cases, such as changes to the KOC’s charter, a special decision process may apply. A proposal can pass with 70% approval from the committee members present.
+
+Special decisions are made in meetings when a quorum of the members are present.
 
 ### Committee Members
 
