@@ -25,6 +25,7 @@ Typically, ML Users want to:
 - Launch jobs to create features from raw data and prepare training datasets.
 - Launch jobs to train, fine-tune, and optimize models across many GPUs.
 - Collect and analyze results within the same JupyterLab environment.
+- Create inference service to serve the trained models.
 
 One of the typical ML experience workflows can be seen at
 [this KubeCon + CloudNativeCon talk](https://youtu.be/Lgy4ir1AhYw?t=454).
