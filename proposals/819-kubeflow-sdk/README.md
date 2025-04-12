@@ -106,7 +106,7 @@ The ML Experience may look as follows:
 from kubeflow.trainer import TrainerClient, BuiltinTrainer, TorchTuneConfig, LoraConfig
 
 # Get available LLM runtimes.
-TrainerClient().list_runtimes(phase="post-training")
+llm_runtime = TrainerClient().get_runtime(name="torchtune-llama3.2-1b")
 
 # Fine-tune LLM.
 job_id = TrainerClient().train(
@@ -123,7 +123,7 @@ job_id = TrainerClient().train(
             storage_uri="hf://tatsu-lab/alpaca",
         )
     ),
-    runtime_ref="torchtune-llama3-3-70b",
+    runtime=llm_runtime,
 )
 
 # Get the results.
@@ -187,7 +187,7 @@ job_id = OptimizerClient().optimize(
         mode="min",
         num_trials=5,
     ),
-    runtime_ref="torchtune-llama3-3-70b",
+    runtime_ref=llm_runtime,
 )
 
 # Get the HPs from the best Trial.
