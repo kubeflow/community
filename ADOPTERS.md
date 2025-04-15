@@ -6,9 +6,9 @@ It's a small contribution with a big impact!
 
 We invite you to add your organization to these lists by raising a pull request on the relevant GitHub repository.
 
-## Adopters of Kubeflow Components
+## Adopters of Kubeflow Projects
 
-For adopters of specific Kubeflow components, please refer to the respective component's repository.
+For adopters of specific Kubeflow Projects, please refer to the respective component's repository.
 
 | Component               | Repository                                                              | Adopter List                                                                            |
 |-------------------------|-------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
