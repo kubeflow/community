@@ -13,19 +13,8 @@ We propose the creation of the **Kubeflow Outreach Committee (KOC)** to lead eff
 
 ## Committee Structure
 
-- **Appointment of Members**: Members will be appointed by the Kubeflow Steering Committee (KSC) at their discretion. Members can also be removed for violating the CNCF Code of Conduct.
-- **KOC Co-Leads**: Co-leads will be established Kubeflow community members, with new members being appointed from both within and outside of the Kubeflow community. The co-leads will focus on driving growth and engagement.
-- **Expansion**: The KOC will have the authority to appoint new members with the approval of one KSC member.
+- **Chairs**: The Outreach Committee will be co-chaired by established Kubeflow community members, with the Chairs being responsible for guiding the committee’s work. New members of the KOC may be newcomers to the community, and their primary role will be focused on helping drive growth for Kubeflow. Importantly, Chairs will have explicit voting responsibilities.
+- **Leads**: Leads of the Kubeflow Outreach Committee are appointed at the discretion of the KOC and majority vote of the KSC.
 
-## Next Steps
-
-1. Discuss and approve the formation of the KOC.
-2. Appoint initial members and co-leads.
-3. Begin defining the committee’s first outreach initiatives.
-
-We look forward to your feedback and support on this proposal.
-
----
-
-*This proposal is open for discussion and feedback for one week before a final vote will occur.*
+Members of the KOC, both Chairs and Leads, must adhere to the CNCF Code of Conduct. The removal of any members for violating the CNCF Code of Conduct is also at the KSC's discretion through a majority vote. 
 
