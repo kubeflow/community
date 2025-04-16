@@ -6,21 +6,24 @@ The governance of the Kubeflow Outreach Committee will evolve as the community g
 
 ### Charter
 
-1. Promote the vision, values, and mission of the Kubeflow project.
-2. Lead efforts to grow and engage the AI/ML community, including organizing events, producing educational materials, and advocating for Kubeflow across various tech communities.
+1. Promote the vision, values, and mission of the Kubeflow project in collaboration with the KSC and WG Leads.
+2. Lead efforts to grow and engage the AI/ML community, including organizing events, producing educational materials, creating and sharing content on social media, and advocating for Kubeflow across various tech communities.
 3. Help grow the community by bringing new contributors and users to Kubeflow, particularly through accessible resources and community-building initiatives.
 4. Collaborate with other committees and working groups to align outreach efforts with the broader goals of the Kubeflow project.
-5. Maintain the Kubeflow Website, documentation, demonstration, and educational material for the Kubeflow community.
+5. Contribute to the Kubeflow Website, documentation, demonstration, and educational material for the Kubeflow community.
+
+KOC Leads will help KOC Chairs execute on their outreach strategy. For example, post to Kubeflow social media accounts, review blog posts, publish YouTube videos, help with events, or other items that fall under the KOC charter. The KOC Leads should inform the KOC Chairs on important decisions but KOC Chairs are ultimately the decision makers. 
 
 ### Committee Structure
 
-- **Appointment of Members**: Members of the Kubeflow Outreach Committee are appointed at the discretion of the Kubeflow Steering Committee (KSC), with the removal of any members for violating the CNCF Code of Conduct also at the KSC's discretion through a majority vote.
-- **Role of KOC Co-Leads**: The Outreach Committee will be co-led by established Kubeflow community members, with the co-leads being responsible for guiding the committee’s work. New members of the KOC may be newcomers to the community, and their primary role will be focused on helping drive growth for Kubeflow.
-- **Committee Expansion**: KOC may appoint new members as needed, requiring only the approval of one KSC member for the appointment.
+- **Chairs**: The Outreach Committee will be co-chaired by established Kubeflow community members, with the Chairs being responsible for guiding the committee’s work. New members of the KOC may be newcomers to the community, and their primary role will be focused on helping drive growth for Kubeflow. Importantly, Chairs will have explicit voting responsibilities.
+- **Leads**: Leads of the Kubeflow Outreach Committee are appointed at the discretion of the KOC and majority vote of the KSC.
+
+Members of the KOC, both Chairs and Leads, must adhere to the CNCF Code of Conduct. The removal of any members for violating the CNCF Code of Conduct is also at the KSC's discretion through a majority vote. 
 
 ## Committee members
 
-KOC is composed of 3 (three) members. Seats on the Outreach Committee are held by an individual, not by their employer.
+The KOC will be started with three Chairs. The initial co-chairs will be able to nominate up to five laeds. Seats on the Outreach Committee are held by an individual, not by their employer.
 
 ### Limitations on Company Representation
 No more than one seat may be held by employees of the same organization (or conglomerate, in the case of companies owning each other). 
