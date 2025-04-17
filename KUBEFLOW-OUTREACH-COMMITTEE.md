@@ -76,9 +76,6 @@ Quorum is considered reached when at least half of the chairs (rounded up) are p
 Chairs of the KOC may abstain from a vote. Abstaining chairs will only be considered as contributing to quorum, in the event that a vote is called in a meeting.
 
 
-### Committee Members
-
-The Kubeflow Outreach Committee is composed of volunteers from the Kubeflow community, with a focus on individuals who are passionate about growing Kubeflow’s user and contributor base and expanding its presence within the broader AI/ML community.
 
 ### Getting in Touch
 
