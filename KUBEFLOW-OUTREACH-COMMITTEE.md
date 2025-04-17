@@ -26,7 +26,7 @@ Members of the KOC, both Chairs and Leads, must adhere to the CNCF Code of Condu
 
 ## Committee members
 
-The KOC will be started with three Chairs. The initial co-chairs will be able to nominate up to five laeds. Seats on the Outreach Committee are held by an individual, not by their employer.
+The KOC may have at most three (3) Chairs and five (5) Leads. Seats on the KOC are held by an individual, not by their employer.
 
 ### Limitations on Company Representation
 No more than one seat may be held by employees of the same organization (or conglomerate, in the case of companies owning each other). 
