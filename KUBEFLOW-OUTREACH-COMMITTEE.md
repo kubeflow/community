@@ -44,11 +44,6 @@ The KOC aims to reach consensus on all decisions. If a decision requires a vote,
 
 Decisions are made in meetings when a quorum of the members are present and may pass with at least half the members (rounded up) of the committee supporting it.
 
-### Special Decision Process
-
-In some cases, such as changes to the KOC’s charter, a special decision process may apply. A proposal can pass with 70% approval from the committee members present.
-
-Special decisions are made in meetings when a quorum of the members are present.
 
 ### Committee Members
 
