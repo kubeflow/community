@@ -10,7 +10,7 @@ The governance of the Kubeflow Outreach Committee will evolve as the community g
 2. Lead efforts to grow and engage the AI/ML community, including organizing events, producing educational materials, creating and sharing content on social media, and advocating for Kubeflow across various tech communities.
 3. Help grow the community by bringing new contributors and users to Kubeflow, particularly through accessible resources and community-building initiatives.
 4. Collaborate with other committees and working groups to align outreach efforts with the broader goals of the Kubeflow project.
-5. Contribute to the Kubeflow Website, documentation, demonstration, and educational material for the Kubeflow community.
+5. Encourage contributions to the Kubeflow Website and Blog, including project documentation, examples, and other educational materials.
 
 KOC Leads will help KOC Chairs execute on their outreach strategy. For example, post to Kubeflow social media accounts, review blog posts, publish YouTube videos, help with events, or other items that fall under the KOC charter. The KOC Leads should inform the KOC Chairs on important decisions but KOC Chairs are ultimately the decision makers. 
 ### Limitations
