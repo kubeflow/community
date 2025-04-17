@@ -29,7 +29,13 @@ Members of the KOC, both Chairs and Leads, must adhere to the CNCF Code of Condu
 The KOC may have at most three (3) Chairs and five (5) Leads. Seats on the KOC are held by an individual, not by their employer.
 
 ### Limitations on Company Representation
-No more than one seat may be held by employees of the same organization (or conglomerate, in the case of companies owning each other). 
+No more than one Chair seat may be held by employees of the same organization (or conglomerate, in the case of companies owning each other). 
+
+Separately, no more than two Lead roles may be held by employees of the same organization (or conglomerate, in the case of companies owning each other). Additionally, no more than one Lead and one Chair can be held by employees of the same organization (or conglomerate, in the case of companies owning each other). 
+
+If employers change because of job changes, acquisitions, or other events, in a way that would be in violation of the proceeding limits, sufficient members of the committee must resign their positions until the requirements are satisfied. If it is impossible to find sufficient members to resign, all employees of that organization will be removed and the vacancies will be filled using the normal process.
+
+In the event of a question of company membership (for example evaluating independence of corporate subsidiaries) a majority of all non-involved KSC members will decide.
 
 
 ### Committee Meetings
