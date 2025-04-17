@@ -36,7 +36,7 @@ In all cases, approval by the KSC refers to the normal decision process outlined
     - Leads of the KOC are nominated by the KOC Chairs, and confirmed by a decision of the KSC. The KOC Chairs may remove a KOC Lead at their discretion. 
     - KOC Leads must inform the KOC Chairs of any significant actions they take.
 
-Members of the KOC, both Chairs and Leads, must adhere to the CNCF Code of Conduct. The removal of any members for violating the CNCF Code of Conduct is also at the KSC's discretion through a majority vote. 
+Members of the KOC, both Chairs and Leads, must adhere to the CNCF Code of Conduct. The removal of any members for violating the CNCF Code of Conduct is also at the KSC's discretion through its normal decision process. 
 
 ## Committee members
 
