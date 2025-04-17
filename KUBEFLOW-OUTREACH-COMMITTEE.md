@@ -20,7 +20,10 @@ KOC Leads will help KOC Chairs execute on their outreach strategy. For example, 
     - The Kubeflow Outreach Committee will be co-chaired by established Kubeflow community members, with these Chairs being responsible for guiding the committee’s work.
     - KOC Chairs are appointed and removed by a decision of the KSC.
     - Importantly, chairs are the only role which may participate in decision votes.
-- **Leads**: Leads of the Kubeflow Outreach Committee are appointed at the discretion of the KOC and majority vote of the KSC.
+- **Leads**: 
+    - KOC Leads will help KOC Chairs execute on their outreach strategy. For example, post to Kubeflow social media accounts, review blog posts, publish YouTube videos, help with events, or other items that fall under the KOC charter. 
+    - Leads of the KOC are nominated by the KOC Chairs, and confirmed by a decision of the KSC. The KOC Chairs may remove a KOC Lead at their discretion. 
+    - KOC Leads must inform the KOC Chairs of any significant actions they take.
 
 Members of the KOC, both Chairs and Leads, must adhere to the CNCF Code of Conduct. The removal of any members for violating the CNCF Code of Conduct is also at the KSC's discretion through a majority vote. 
 
