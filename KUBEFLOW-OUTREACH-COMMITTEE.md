@@ -63,4 +63,4 @@ To engage with the Outreach Committee, you can:
 
 ### Changes to the Charter
 
-Changes to the KOC charter can be proposed by any community member via a GitHub PR. Amendments will be subject to approval following the decision process described above. Proposals will be available for at least one week for community comments before a vote occurs.
+Changes to the KOC charter can be proposed by any community member via a GitHub PR. Amendments will be subject to approval by a standard decision of the KSC. Proposals will be available for at least one week for community comments before a vote occurs.
