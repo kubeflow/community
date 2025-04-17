@@ -13,7 +13,18 @@ The governance of the Kubeflow Outreach Committee will evolve as the community g
 5. Contribute to the Kubeflow Website, documentation, demonstration, and educational material for the Kubeflow community.
 
 KOC Leads will help KOC Chairs execute on their outreach strategy. For example, post to Kubeflow social media accounts, review blog posts, publish YouTube videos, help with events, or other items that fall under the KOC charter. The KOC Leads should inform the KOC Chairs on important decisions but KOC Chairs are ultimately the decision makers. 
+### Limitations
 
+Because the actions of the KOC may be perceived to represent the views of the wider Kubeflow project, the KSC places the following limits and requirements on the KOC.
+
+1. The KOC may not endorse, recommend, or promote any product, service, or project except that which is directly provided by Kubeflow without approval by the KSC for each specific occasion.
+2. All material published and events organized by the KOC must be exclusively under the "Kubeflow Community" brand, and not that of other organizations or individuals without approval by the KSC for each specific occasion.
+3. The KOC may not enter into any partnerships or create co-branded material (including with other open-source projects) without approval by the KSC for each specific occasion.
+4. The KOC may not authorize the usage of any trademarks, any such requests must be referred to the KSC.
+5. The KOC may not enter into any contracts or other legal obligations, any such requests must be referred to the KSC.
+6. The KOC must not organize any events or gatherings without approval by the KSC for each specific occasion.
+
+In all cases, approval by the KSC refers to the normal decision process outlined in the KSC charter. 
 ### Committee Structure
 
 - **Chairs**: 
