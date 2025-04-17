@@ -60,9 +60,20 @@ Meeting notes will be publicly available to the community, except when privacy i
 
 ### Decision Process
 
-The KOC aims to reach consensus on all decisions. If a decision requires a vote, the decision will pass with a simple majority of the members present. 
+Decisions requiring a vote include:
 
-Decisions are made in meetings when a quorum of the members are present and may pass with at least half the members (rounded up) of the committee supporting it.
+- Nominating a new KOC Lead for KSC approval
+- Removing a KOC Lead
+- Granting or removing access to any social media account or other elevated permission
+- Proposing a new event or gathering to the KSC for approval
+- Proposing a new partnership or co-branded publication to the KSC for approval
+- Any other decisions that at least half of the chairs (rounded down) present decide requires a vote
+
+Decisions are made in meetings when a quorum of the chairs are present and may pass with at least half the chairs (rounded up) supporting it.
+
+Quorum is considered reached when at least half of the chairs (rounded up) are present.
+
+Chairs of the KOC may abstain from a vote. Abstaining chairs will only be considered as contributing to quorum, in the event that a vote is called in a meeting.
 
 
 ### Committee Members
