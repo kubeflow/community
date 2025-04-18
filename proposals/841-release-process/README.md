@@ -66,7 +66,7 @@ Week 9 is code freeze. However, the working groups can use that week to finish a
 
 * Build a team of technical writers to be embedded in each working group for the release time frame. 
 * Provide roles within the community to boost participation and bring new members into this group.
-* Technical Doc Lead will lead this team; technical documentation can include a blog and slides to announce the Release.
+* Technical Documentation Lead will lead this team; technical documentation can include a blog and slides to announce the Release.
 
 ### Release Management Team: 
 The Release Management Team is composed by: Release Manager, WG Leads ( in some cases Liasons), Technical Doc Lead.
