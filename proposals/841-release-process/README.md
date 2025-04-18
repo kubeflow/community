@@ -33,7 +33,7 @@ Current challenges based on Kubeflow release 1.10:
 
 * Reduce time to market of Kubeflow Release
 * Reduce meeting time and structure to give back time to the Release Team.
-* Focus on contributions from technical documents and source code by reducing meetings and promoting async communication.
+* Focus on contributions from technical documents and source code by reducing meetings and promoting asynchronous communication.
 * Promote clarity on dates and phases so distributions, working groups, and the whole community can plan accordingly.
 * Improve release cycle by moving technical decisions affecting the release to the Release Management team including Kubeflow platform
 
