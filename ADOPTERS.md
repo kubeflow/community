@@ -14,7 +14,7 @@ For adopters of specific Kubeflow Projects, please refer to the respective compo
 |-------------------------|-------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
 | Kubeflow Katib          | [`kubeflow/katib`](https://github.com/kubeflow/katib)                   | [`ADOPTERS.md`](https://github.com/kubeflow/katib/blob/master/ADOPTERS.md)              |
 | Kubeflow MPI Operator   | [`kubeflow/mpi-operator`](https://github.com/kubeflow/mpi-operator)     | [`ADOPTERS.md`](https://github.com/kubeflow/mpi-operator/blob/master/ADOPTERS.md)       |
-| Kubeflow Model Registry | [`kubeflow/model-registry`](https://github.com/kubeflow/model-registry) | TBA                                                                                     |
+| Kubeflow Model Registry | [`kubeflow/model-registry`](https://github.com/kubeflow/model-registry) | [`ADOPTERS.md`](https://github.com/kubeflow/model-registry/blob/master/ADOPTERS.md)     |
 | Kubeflow Notebooks      | [`kubeflow/notebooks`](https://github.com/kubeflow/notebooks)           | TBA                                                                                     |
 | Kubeflow Pipelines      | [`kubeflow/pipelines`](https://github.com/kubeflow/pipelines)           | TBA                                                                                     |
 | Kubeflow Spark Operator | [`kubeflow/spark-operator`](https://github.com/kubeflow/spark-operator) | [`ADOPTERS.md`](https://github.com/kubeflow/spark-operator/blob/master/ADOPTERS.md)     |
