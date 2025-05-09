@@ -16,7 +16,7 @@ For adopters of specific Kubeflow Projects, please refer to the respective compo
 | Kubeflow MPI Operator   | [`kubeflow/mpi-operator`](https://github.com/kubeflow/mpi-operator)     | [`ADOPTERS.md`](https://github.com/kubeflow/mpi-operator/blob/master/ADOPTERS.md)       |
 | Kubeflow Model Registry | [`kubeflow/model-registry`](https://github.com/kubeflow/model-registry) | [`ADOPTERS.md`](https://github.com/kubeflow/model-registry/blob/master/ADOPTERS.md)     |
 | Kubeflow Notebooks      | [`kubeflow/notebooks`](https://github.com/kubeflow/notebooks)           | TBA                                                                                     |
-| Kubeflow Pipelines      | [`kubeflow/pipelines`](https://github.com/kubeflow/pipelines)           | TBA                                                                                     |
+| Kubeflow Pipelines      | [`kubeflow/pipelines`](https://github.com/kubeflow/pipelines)           | [`ADOPTERS.md`](https://github.com/kubeflow/pipelines/blob/master/ADOPTERS.md)          |
 | Kubeflow Spark Operator | [`kubeflow/spark-operator`](https://github.com/kubeflow/spark-operator) | [`ADOPTERS.md`](https://github.com/kubeflow/spark-operator/blob/master/ADOPTERS.md)     |
 | Kubeflow Trainer        | [`kubeflow/trainer`](https://github.com/kubeflow/trainer)               | [`ADOPTERS.md`](https://github.com/kubeflow/training-operator/blob/master/ADOPTERS.md)  |
 | KServe                  | [`kserve/kserve`](https://github.com/kserve/kserve)                     | [`ADOPTERS.md`](https://github.com/kserve/website/blob/main/docs/community/adopters.md) |
