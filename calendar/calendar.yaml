@@ -91,7 +91,7 @@
   date: 05/15/2023
   time: 6:00PM-7:00PM
   timezone: Europe/Madrid
-  frequency: weekly
+  frequency: bi-weekly
   video: https://meet.google.com/ezk-fmxo-fvu
   attendees:
     - email: kubeflow-discuss@googlegroups.com
