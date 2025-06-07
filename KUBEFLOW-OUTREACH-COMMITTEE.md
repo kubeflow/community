@@ -74,7 +74,19 @@ Quorum is considered reached when at least half of the chairs (rounded up) are p
 
 Chairs of the KOC may abstain from a vote. Abstaining chairs will only be considered as contributing to quorum, in the event that a vote is called in a meeting.
 
+## Committee members
 
+Seats on the Outreach Committee are held by an individual, not by their employer.
+
+The current membership of the committee is (listed alphabetically by first name):
+
+| Name                | Organization    | GitHub                                                     | 
+| ------------------- | --------------- | ---------------------------------------------------------  |  
+| Chase Christensen         | CentML    | [chasecadet](https://github.com/chasecadet/)               |              
+| Stefano Fioravanzo        | Canonical | [StefanoFioravanzo](https://github.com/StefanoFioravanzo/) |
+| Valentina Rodriguez Sosa  | Red Hat   | [varodrig](https://github.com/varodrig/)                   |        
+          
+ 
 
 ### Getting in Touch
 
