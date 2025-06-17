@@ -31,7 +31,10 @@ Current challenges based on Kubeflow release 1.10:
 
 ### Goals
 
-* Reduce time to market of Kubeflow Release
+* Cut down the release handbook by 70 %
+* Replace the the manual bureaucratic process and overhead and human hours needed by an an automation first approach
+* Move away from the Waterfall model to an agile model that relies on automated tests instead of human labor.
+* Reduce time to market of Kubeflow Release, by being able to release at any time
 * Reduce meeting time and structure to give back time to the Release Team.
 * Focus on contributions from technical documents and source code by reducing meetings and promoting asynchronous communication.
 * Promote clarity on dates and phases so distributions, working groups, and the whole community can plan accordingly.
