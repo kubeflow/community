@@ -55,7 +55,6 @@ KubeFlow Release x.x is moved to Quarterly Release = 12 weeks
 ![alt text](release.png)
 
 * Notes: Release dates will not be changed unless critical changes are needed.
-Week 9 is code freeze. However, the working groups can use that week to finish any outstanding feature critical for the release.
 
 * KubeFlow Release minor versions x.x.xx
 ** Release can be 60-90 days.
