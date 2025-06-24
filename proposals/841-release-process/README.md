@@ -81,7 +81,6 @@ Responsabilities:
 - Promote best practices for the release and software development process.
 - Manage the communication between the teams to understand current release status and potential blockers
 - Manage the communication with the community about the status of the Release or any help/blockers needed.
-- Synchronize and cut the Release on Kubeflow Platform/Manifests.
 - Approve & review the blog and slides announcing the Release.
 
 
