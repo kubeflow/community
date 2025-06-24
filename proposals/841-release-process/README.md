@@ -90,14 +90,12 @@ Responsabilities:
 * Week 2 - (Software development Phase) WG Leads/Liaisons meet to discuss any release challenges, release changes, and help needed from the community (to communicate on Kubeflow Community Meeting)
 * Week 4 - (Software development Phase) WG Leads/Liaisons meet to discuss any release challenges, release changes, and help needed from the community (to communicate on Kubeflow Community Meeting)
 * Week 6 - (Software development Phase) WG Leads/Liaisons meet to discuss any release challenges, release changes, and help needed from the community (to communicate on Kubeflow Community Meeting)
-* Week 8 - (Last week of Software development Phase) WG Leads/Liaisons meet to discuss any release challenges, release changes, and help needed from the community (to communicate on Kubeflow Community Meeting). Exceptional cases: Discuss any feature that needed to be completed during the feature freeze. 
+* Week 8 - (Last week of Software development Phase) WG Leads/Liaisons meet to discuss any release challenges, release changes, and help needed from the community (to communicate on Kubeflow Community Meeting)
 * Week 9 - (Feature Freeze and Prep for Release) WG Leads/Liaisons meet to discuss any release challenges, release changes, and help needed from the community (to communicate on Kubeflow Community Meeting). Discuss items required to prepare for Release (including documentation).
-* Week 10 - (Community and Distribution testing starts) -Sync manifests happen at least the day before. Include Distribution liasions and release team to confirm release testing starts and bug fixing follows.
+* Week 10 - (Community and Distribution testing starts) Users and distributions run their automated test suites and try to stay away from manual labor-intensive tests.
 * Week 11 - (Bug Fixing) - Discuss any potential blockers for the Release.
 * Week 12 - (Release) - Items to discuss: bug fixes required, release cut, documentation needed.
-- Release Manager synchronizes and cuts the release on Kubeflow Platform/Manifests.
-- WG leads from each component (ex., Pipelines) must approve a synchronized PR on the Kubeflow Platform/Manifests when related to that component 
-- WG leads from each component (ex., Pipelines) must approve a PR when updates regarding each component on the Kubeflow Platform/Manifests.
+- Manifests WG leads synchronizes and cut the release on Kubeflow Platform/Manifests.
 - The Release Manager is responsible for approving/reviewing the blog and slides announcing the release.
 
 
