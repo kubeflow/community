@@ -11,17 +11,6 @@
 * Promote clarity on dates and phases so distributions, working groups, and the whole community can plan accordingly.
 * Improve release cycle by moving technical decisions affecting the release to the Release Management team including Kubeflow platform
 
-
-### Release Timelines
-KubeFlow Release x.x is moved to Quarterly Release = 12 weeks
-
-![alt text](release.png)
-
-* Notes: Release dates will not be changed unless critical changes are needed.
-
-* KubeFlow Release minor versions x.x.xx
-** Release can be 60-90 days.
-
 ### Release Meetings and Communication
 * Create a new Release Management team on Slack for asynchronous communication within the team
 * Bi-weekly meetings during Software Development (Week 1-Week 8). Weekly meetings between week 9-12 as needed.
@@ -33,21 +22,7 @@ KubeFlow Release x.x is moved to Quarterly Release = 12 weeks
 * Provide roles within the community to boost participation and bring new members into this group.
 * Technical Documentation Lead will lead this team; technical documentation can include a blog and slides to announce the Release.
 
-### Release Management Team: 
-The Release Management Team is composed by: Release Manager, WG Leads ( in some cases Liasons), Technical documentation lead.
-Responseabilities:
-
-- Release team liaisons will be responsible not for the communication but for contributing to the release with documentation, source code, PRs review, etc, according to their skills and motivation.
-
-### Release Manager Responsibilities: 
-- Responsible for the overall Kubeflow Release Process 
-- Promote best practices for the release and software development process.
-- Manage the communication between the teams to understand current release status and potential blockers
-- Manage the communication with the community about the status of the Release or any help/blockers needed.
-- Approve & review the blog and slides announcing the Release.
-
-
-### Implementation
+### Timeline
 * Week 0 -  (Release and Roadmap discussions) WG Leads and Release Manager meet to discuss the roadmap planned for the Release
 * Week 2 - (Software development Phase) WG Leads/Liaisons meet to discuss any release challenges, release changes, and help needed from the community (to communicate on Kubeflow Community Meeting)
 * Week 4 - (Software development Phase) WG Leads/Liaisons meet to discuss any release challenges, release changes, and help needed from the community (to communicate on Kubeflow Community Meeting)
@@ -62,11 +37,17 @@ Responseabilities:
 
 ## People and Roles
 
-### Release Manager
-The Release Manager will be responsible for coordinating the release and taking ultimate accountability for all release tasks to be completed on time.
+### Release Management Team: 
+The Release Management Team is composed by: Release manager, WG leads / liasons, technical documentation lead and product manager.
+Release team liaisons will be responsible not for the communication but for contributing to the release with documentation, source code, PRs review, etc, according to their skills and motivation.
 
-**Responsibilities:**
-* Provide updates to the mailing list with the progress of the release
+### Release Manager Responsibilities: 
+- Responsible for the overall Kubeflow Release Process 
+- Promote best practices for the release and software development process.
+- Manage the communication between the teams to understand current release status and potential blockers
+- Manage the communication with the community about the status of the Release or any help/blockers needed.
+- Approve & review the blog and slides announcing the Release.
+- Provide updates to the mailing list with the progress of the release
 * Coordinate directly with the WG liaisons and leads about dates and deliverables
 * Coordinate with the Release Team Members for the progress of the release
 * Ensure the WG leads have cut the necessary GitHub branches and tags for the different phases of the release
@@ -74,14 +55,6 @@ The Release Manager will be responsible for coordinating the release and taking 
 * Update the larger community on release status during the Kubeflow community meetings
 * Make sure the processes are being followed
 * All the responsibilities of a Release Team Member
-
-**Authority:**
-The Release Manager will need to have authority to take some decisions, in
-order to ensure the stability of the release and completion in a timely manner.
-Such decisions include:
-* Moving the release process to the next phase, even if there are controversial issues at hand
-* Delaying the release until some important issues are resolved
-* Denying component version upgrades
 
 ### Product Manager
 
@@ -102,12 +75,6 @@ If no members can serve as documentation lead, the release manager must take on 
 * Work with contributors to modify the existing documentation to accurately represent any upcoming changes
 * Review documentation PRs to ensure quality following the website [Style Guide](https://www.kubeflow.org/docs/about/style-guide/)
 * Migrate the old website [version] documentation and updating it with the new release
-
-### Documentation
-
-Working groups should briefly describe what changes to existing [kubeflow.org](https://www.kubeflow.org/) documentation will be required to ensure the docs reflect new features or other software updates. A few bullets identifying which pages in the docs need to change will suffice. These bullets should be added to the Working Group’s GitHub issues describing planned engineering work.
-
-Working Groups should be tracking features for the release, as well as the documentation status of each feature as it’s being developed so that the documentation team can keep track of the documentation work that needs to be done.
 
 ### Preparation
 
@@ -131,7 +98,7 @@ Criteria for timeline that the team needs to consider
 
 **Success Criteria:** Release team selected, release schedule sent to kubeflow-discuss, all release team members have the proper permissions and are meeting regularly.
 
-
+### Implementation
 **Actions for the Release Team:**
 - Get a git revision from all WGs, on the first day of the Feature Freeze period. WGs need to have a git revision ready to give to the release team.
 - Make a pull request to update the manifests for the different WGs, based on the _git revision_ they provided.
@@ -141,7 +108,7 @@ Criteria for timeline that the team needs to consider
 - Work alongside the Working Groups to bring the documentation up to date
 - Create a [new version dropdown and update the website version](https://github.com/kubeflow/website/pull/3333)
 - Add new [release page with component and dependency versions](https://github.com/kubeflow/website/pull/3332)
-- Work with the WG to build the release slides
+- Work with the WG to build the release notes and slides
 - Start creating the draft for the official blog post and collating information from the Working Groups
     - (Optional but encouraged) Working Groups start drafting WG-specific blog
         posts, deep diving into their respective areas
@@ -152,28 +119,18 @@ Criteria for timeline that the team needs to consider
 - Publish social media posts
 - Send [release announcement](https://groups.google.com/g/kubeflow-discuss/c/qDRvrLPHU70/m/ORKN14DzCQAJ) to kubeflow-discuss
 
-**Success Criteria:** Documentation for this release completed with minimum following pages updated and a [new version
+**Success Criteria:**
+- Documentation for this release completed with minimum following pages updated and a [new version
 in the website is cut](https://github.com/kubeflow/kubeflow/blob/master/docs_dev/releasing.md#version-the-website).
 - [Installing Kubeflow](https://www.kubeflow.org/docs/started/installing-kubeflow/)
 - [Release Page](https://www.kubeflow.org/docs/releases/)
 - [Distributions](https://www.kubeflow.org/docs/distributions/) and related pages underneath
 
-**Actions for other WGs:**
-
-- Evaluate which of the reported issues should be release blocking
-- Work on providing bug fixes for release blocking issues
-- Create a final git tag. It should be stable (not RC) and include fixes for release blocking issues found during this time
-
-
 ## Post Release
 
 ### Patch Release
 Planning for first patch release begins. The importance of bugs is left to the
-judgement of the Working Group's tech leads and the Release Manager to decide.
-Fixes included in the patch release must satisfy the following criteria:
-* important bug fixes
-* critical security fixes
-* updates to documentation
+judgement of the Working Group leads and the Release Manager to decide.
 
 ### Release Retrospective
 
