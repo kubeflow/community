@@ -54,16 +54,6 @@ Release team liaisons will be responsible not for the communication but for cont
 * Host the weekly Release Team meetings
 * Update the larger community on release status during the Kubeflow community meetings
 * Make sure the processes are being followed
-* All the responsibilities of a Release Team Member
-
-### Product Manager
-
-**Responsibilities:**
-* Drive the release blog post effort
-* Drive the release presentation effort
-* Handle communication for social media content publication
-* Orchestrate and create user surveys
-* Track important features and bug fixes that should be highlighted in the release
 
 ### Documentation Lead
 
