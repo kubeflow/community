@@ -25,10 +25,32 @@
 # Current meetings
 ####################################################################################################
 - id: kf032
-  name: Kubeflow Community Call (US + EMEA)
-  date: 08/18/2020
+  name: Kubeflow Community Call
+  date: 04/15/2025
   time: 8:00AM-8:55AM
-  frequency: weekly
+  frequency: bi-weekly
+  video: https://zoom.us/j/99152427566?pwd=S0djc1FPcXkyNUdneHg3UFR3VTcyQT09
+  attendees:
+    - email: kubeflow-discuss@googlegroups.com
+  description:
+    - |
+      Notes & agenda: https://bit.ly/kf-meeting-notes
+
+      Join with Zoom: https://zoom.us/j/99152427566?pwd=S0djc1FPcXkyNUdneHg3UFR3VTcyQT09
+      Meeting ID: 991 5242 7566
+      Passcode: 645928
+
+      Join with Phone (USA): +1 669 900 6833 or +1 646 558 8656
+      International numbers: https://zoom.us/zoomconference?m=Os1EjlUlpb2_XUMaQ6dX1azqMK5CkfWH
+
+      Meeting Host Link: https://zoom.us/s/99152427566
+  organizer: autobot@kubeflow.org
+
+- id: kf043
+  name: Kubeflow CNCF Graduation Call
+  date: 04/22/2025
+  time: 8:00AM-8:55AM
+  frequency: bi-weekly
   video: https://zoom.us/j/99152427566?pwd=S0djc1FPcXkyNUdneHg3UFR3VTcyQT09
   attendees:
     - email: kubeflow-discuss@googlegroups.com
@@ -69,7 +91,7 @@
   date: 05/15/2023
   time: 6:00PM-7:00PM
   timezone: Europe/Madrid
-  frequency: weekly
+  frequency: bi-weekly
   video: https://meet.google.com/ezk-fmxo-fvu
   attendees:
     - email: kubeflow-discuss@googlegroups.com
