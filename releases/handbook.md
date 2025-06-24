@@ -84,14 +84,8 @@ Such decisions include:
 * Denying component version upgrades
 
 ### Product Manager
-They will be in charge of driving non-code deliverables, like the release blog post, release video, user surveys, and social media announcements.
-
-**Prerequisites:** Experience in writing blog posts. Contributions to an existing Open Source project is a huge plus.
-
-**Time Commitments:** This role will require some synchronous communication, since they will need to attend some of the later Release Team meetings. Most of the effort is expected to start once the Feature Freeze phase completes, where they will start working on the blog and release announcements.
 
 **Responsibilities:**
-
 * Drive the release blog post effort
 * Drive the release presentation effort
 * Handle communication for social media content publication
@@ -101,16 +95,11 @@ They will be in charge of driving non-code deliverables, like the release blog p
 ### Documentation Lead
 
 The Documentation lead is responsible for working with the Release Team to coordinate documentation updates for the next Kubeflow release.
-
 If no members can serve as documentation lead, the release manager must take on the role.
 
-**Prerequisites:** Contributions to the [website repo](https://github.com/kubeflow/website)
-
-**Time Commitments:** This role will require some synchronous communication. The bulk of their work is expected to be in the Documentation phase of the release, but they will also be involved throughout the release by keeping track of issues that might require an update to the docs.
-
 **Responsibilities:**
-* Identify and track new issues that require update to the docs
-* Work with contributors to modify existing docs to accurately represent any upcoming changes
+* Identify and track new issues that require update to the documentation
+* Work with contributors to modify the existing documentation to accurately represent any upcoming changes
 * Review documentation PRs to ensure quality following the website [Style Guide](https://www.kubeflow.org/docs/about/style-guide/)
 * Migrate the old website [version] documentation and updating it with the new release
 
@@ -147,16 +136,21 @@ Criteria for timeline that the team needs to consider
 - Get a git revision from all WGs, on the first day of the Feature Freeze period. WGs need to have a git revision ready to give to the release team.
 - Make a pull request to update the manifests for the different WGs, based on the _git revision_ they provided.
 - Identify, early in the first week, bugs at risk. These should either be aggressively fixed or punted
-
-**Success Criteria:** All working group git branches and tags are created, manifests are up to date, features either have landed or been pushed to next release.
-
-
-**Actions for the Release Team:**
 - Request a list of features and deprecations, from the Working Groups, that require updates to the documentation
 - Ensure the provided component versions match the documentation
-- Work alongside the Working Groups to bring the docs up to date
+- Work alongside the Working Groups to bring the documentation up to date
 - Create a [new version dropdown and update the website version](https://github.com/kubeflow/website/pull/3333)
 - Add new [release page with component and dependency versions](https://github.com/kubeflow/website/pull/3332)
+- Work with the WG to build the release slides
+- Start creating the draft for the official blog post and collating information from the Working Groups
+    - (Optional but encouraged) Working Groups start drafting WG-specific blog
+        posts, deep diving into their respective areas
+- Preparation for social media posts can start at the beginning of this phase
+- Release Manager: List the features, and ideally with documentation, that made it into the release
+- Publish release blog post
+- (Optional but encouraged) Working Groups publish individual deep dive blog posts on features or other work they’d like to see highlighted.
+- Publish social media posts
+- Send [release announcement](https://groups.google.com/g/kubeflow-discuss/c/qDRvrLPHU70/m/ORKN14DzCQAJ) to kubeflow-discuss
 
 **Success Criteria:** Documentation for this release completed with minimum following pages updated and a [new version
 in the website is cut](https://github.com/kubeflow/kubeflow/blob/master/docs_dev/releasing.md#version-the-website).
@@ -171,18 +165,6 @@ in the website is cut](https://github.com/kubeflow/kubeflow/blob/master/docs_dev
 - Create a final git tag. It should be stable (not RC) and include fixes for release blocking issues found during this time
 
 
-**Actions for Release Team:**
-- Work with the WG to build the release slides
-- Start creating the draft for the official blog post and collating information from the Working Groups
-    - (Optional but encouraged) Working Groups start drafting WG-specific blog
-        posts, deep diving into their respective areas
-- Preparation for social media posts can start at the beginning of this phase
-- Release Manager: List the features, and ideally with documentation, that made it into the release
-- Publish release blog post
-- (Optional but encouraged) Working Groups publish individual deep dive blog posts on features or other work they’d like to see highlighted.
-- Publish social media posts
-- Send [release announcement](https://groups.google.com/g/kubeflow-discuss/c/qDRvrLPHU70/m/ORKN14DzCQAJ) to kubeflow-discuss
-
 ## Post Release
 
 ### Patch Release
@@ -192,7 +174,6 @@ Fixes included in the patch release must satisfy the following criteria:
 * important bug fixes
 * critical security fixes
 * updates to documentation
-
 
 ### Release Retrospective
 
