@@ -74,8 +74,6 @@ KubeFlow Release x.x is moved to Quarterly Release = 12 weeks
 The Release Management Team is composed by: Release Manager, WG Leads ( in some cases Liasons), Technical Doc Lead.
 Responsabilities:
 
-- WG leads from each component (ex., Pipelines) must approve a synchronized PR on the Kubeflow Platform/Manifests when related to that component 
-- WG leads from each component (ex., Pipelines) must approve a PR when updates regarding each component on the Kubeflow Platform/Manifests.
 - Release team liaisons will be responsible not for the communication but for contributing to the release with documentation, source code, PRs review, etc, according to their skills and motivation.
 
 ### Release Manager Responsibilities: 
