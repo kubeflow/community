@@ -50,6 +50,15 @@ The solution consists of two main workflows:
 
 ## Design Details
 
+### Architecture Overview
+The solution consists of two main workflows:
+
+**Document Indexing Pipeline** - Automated system for ingesting, processing, and indexing documentation
+![Document Indexing Pipeline](./assets/indexing.svg)
+
+**Query-Answering Service** - Real-time service for handling user queries with intelligent routing
+![Query-Answering Service](./assets/query.svg)
+
 The RAG-powered chatbot implementation consists of three core components that work together to provide intelligent, context-aware responses based on Kubeflow documentation:
 - **LLM Deployment**: Model serving infrastructure using KServe.
 - **Vector Database**: Document indexing and retrieval using Milvus.
