@@ -135,7 +135,7 @@ Approver status is scoped to a part of the codebase.
 ### Requirements
 
 The following apply to the part of codebase for which one would be an approver
-in an [OWNERS] file (for repos using the bot).
+in a non-root [OWNERS] file (for repositories using the bot).
 
 - Reviewer of the codebase for at least 3 months
 - Reviewer for or author of at least 5 substantial PRs to the codebase
