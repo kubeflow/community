@@ -93,7 +93,7 @@ addition to the assigned reviewers.
 ### Requirements
 
 The following apply to the part of codebase for which one would be a reviewer in
-an [OWNERS] file (for repos using the bot).
+a non-root [OWNERS] file (for repositories using the bot).
 
 - member for at least 3 months
 - Reviewer for or author of at least 5 substantial PRs to the relevant codebase for the specific ownerfile.
