@@ -96,7 +96,7 @@ The following apply to the part of codebase for which one would be a reviewer in
 an [OWNERS] file (for repos using the bot).
 
 - member for at least 3 months
-- Reviewer for or author of at least 5 substantial PRs to the codebase
+- Reviewer for or author of at least 5 substantial PRs to the relevant codebase for the specific ownerfile.
 - Knowledgeable about the codebase
 - Sponsored by a subproject approver
   - With no objections from other approvers
