@@ -32,7 +32,7 @@
 * Week 10 - (Community and Distribution testing starts) Users and distributions run their automated test suites and try to stay away from manual labor-intensive tests.
 * Week 11 - (Bug Fixing) - Discuss any potential blockers for the Release.
 * Week 12 - (Release) - Items to discuss: bug fixes required, release cut, documentation needed.
-- Manifests WG leads synchronizes and cut the release on Kubeflow Platform/Manifests.
+- Manifests WG leads synchronizes and cut the release on Kubeflow Platform/Manifests. Following version format [semantic versioning](https://semver.org/)
 - The Release Manager is responsible for approving/reviewing the blog and slides announcing the release.
 
 ## People and Roles
@@ -54,6 +54,7 @@ Release team liaisons will be responsible not for the communication but for cont
 * Host the weekly Release Team meetings
 * Update the larger community on release status during the Kubeflow community meetings
 * Make sure the processes are being followed
+* Make decisions on releae date or go-no for each release
 
 ### Documentation Lead
 
