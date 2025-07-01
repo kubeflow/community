@@ -138,7 +138,7 @@ The following apply to the part of codebase for which one would be an approver
 in a non-root [OWNERS] file (for repositories using the bot).
 
 - Reviewer of the codebase for at least 3 months
-- Reviewer for or author of at least 5 substantial PRs to the codebase
+- Reviewer for or author of at least 5 substantial PRs to the relevant codebase for the specific ownerfile.
 - Nominated by a subproject owner
   - With no objections from other subproject owners
   - Done through PR to update the top-level OWNERS file
