@@ -1,20 +1,26 @@
-# Kubeflow Security Team
+# Kubeflow Security
 
-This folder contains information regarding the newly formed (January 2023) Kubeflow Security Team. 
+This folder contains information regarding the Kubeflow security.
 
-Since this team is just beginning, there is a lot of work to be done. 
-If you are a security professional, and you are a Kubeflow User we encourage you to get involved with the Kubeflow Security Team. 
+## Security Self-Assessment
+
+The security self-assessment document is determining gaps in Kubeflow security,
+and preparing the security documentation for Kubeflow users.
+
+- [Kubeflow Security Self-Assessment](self-assessment.md).
+
+## Security Audit
+
+Kubeflow participate in 3rd party security audit. You can find the audit results here:
+
+- TODO (andreyvelich): Add document once it is published.
 
 ## Get Involved
 
-- **Join** the [CNCF Slack Workspace](https://www.kubeflow.org/docs/about/community/#kubeflow-slack-channels) and the [`#kubeflow-platform`](https://app.slack.com/client/T08PSQ7BQ/C073W572LA2) channel. 
+- **Join** the [CNCF Slack Workspace](https://www.kubeflow.org/docs/about/community/#kubeflow-slack-channels) and the [`#kubeflow-platform`](https://app.slack.com/client/T08PSQ7BQ/C073W572LA2) channel.
 - **Attend** the _Kubeflow Manifests WG_ meeting ([meeting notes](https://docs.google.com/document/d/1je_qzoJCAVXndxeJAgA8cdugvYZfsgrAi7HP_WDeUN0/edit), [community calendar](https://www.kubeflow.org/docs/about/community/#kubeflow-community-calendars)).
 
-## Roadmap
-
-Please see the [Kubeflow Security Team Roadmap](ROADMAP.md) for more information.
-
-## Policies and Procedures
+## Work in Progress Documents
 
 We are actively working to finalize the Policies and Procedures for the Kubeflow Security Team.
 
