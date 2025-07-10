@@ -4,7 +4,7 @@ This document is a Kubeflow security self-assessment.
 
 Authors:
 
-- Andrey Velichkevich [@andreyvelich](https://github.com/andreyvelich)
+- Andrey Velichkevich ([@andreyvelich](https://github.com/andreyvelich))
 
 # Table of Contents
 
@@ -127,7 +127,7 @@ AI platforms. The following diagram show the AI lifecycle and role of Kubeflow p
 
 ![ai-lifecycle](images/ai-lifecycle-kubeflow.drawio.svg)
 
-In the following sections actors are explained for every Kubeflow project.
+The actors for each Kubeflow project are explained in the following sections:
 
 ### Kubeflow Spark Operator
 
@@ -441,10 +441,10 @@ practices and is following the OpenSSF Best Practices. Kubeflow projects achieve
 
 ## Ecosystem
 
-Kubeflow projects extensively use cloud native ecosystem, including Kubernetes, Argo Workflow, Istio,
-Helm, Knative, KServe, JobSet, Kueue.
+Kubeflow projects extensively use cloud native ecosystem, including Kubernetes, Argo Workflow,
+Istio, Helm, Knative, KServe, JobSet, Kueue, and other projects.
 
-Maybe CNCF projects have integrations with Kubeflow tools like KubeEdge and Volcano have integrations
+Many CNCF projects have integrations with Kubeflow tools like KubeEdge and Volcano have integrations
 with Kubeflow Trainer.
 
 # Security Issue Resolution
