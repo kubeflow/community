@@ -7,7 +7,7 @@
 
 ## Summary
 
-This proposal requests adoption of the Spark History Server MCP project into the Kubeflow ecosystem. The Spark History Server is Apache Spark's built-in web UI service that provides access to information about completed Spark applications, including job execution details, stage performance, and task-level metrics. Our project provides a Model Context Protocol (MCP) server that enables AI agents to analyze this Spark application data through natural language queries, complementing the existing Kubeflow Spark Operator with intelligent observability capabilities.
+This proposal requests adoption of the Spark History Server MCP project into the Kubeflow ecosystem. The [Spark History Server](https://spark.apache.org/docs/latest/monitoring.html#web-uis) is [Apache Spark](https://spark.apache.org/docs/latest/index.html)'s built-in web UI service that provides access to information about completed Spark applications, including job execution details, stage performance, and task-level metrics. Our project provides a Model Context Protocol (MCP) server that enables AI agents to analyze this Spark application data through natural language queries, complementing the existing Kubeflow Spark Operator with intelligent observability capabilities.
 
 ## What is Spark History Server?
 
@@ -162,7 +162,7 @@ This proposal seeks validation from the Kubeflow community on:
 
 - **Kubeflow Community Issue**: https://github.com/kubeflow/community/issues/872
 - **Project Repository**: https://github.com/DeepDiagnostix-AI/spark-history-server-mcp
-- **GitHub Issues**: https://github.com/DeepDiagnostix-AI/spark-history-server-mcp/issues  
+- **GitHub Issues**: https://github.com/DeepDiagnostix-AI/spark-history-server-mcp/issues
 
 ---
 
