@@ -1,192 +1,71 @@
 # Kubeflow Release Handbook
 
-## Executive Summary
+### Goals
 
-The purpose of this document is to define the roles and processes for the Kubeflow community to release Kubeflow. This document will attempt to coordinate releasing between the five major components and working groups in Kubeflow, as well as defining best practices, roles, and processes to make releasing Kubeflow easier for the community with each iteration.
+* Cut down the release handbook to fit on a single page.
+* Replace the the manual bureaucratic process and overhead and human hours needed by an an automation first approach
+* Move away from the Waterfall model to an agile model that relies on automated tests instead of human labor.
+* Reduce time to market of Kubeflow Release, by being able to release at any time
+* Reduce meeting time and structure to give back time to the Release Team.
+* Focus on contributions from technical documents and source code by reducing meetings and promoting asynchronous communication.
+* Promote clarity on dates and phases so distributions, working groups, and the whole community can plan accordingly.
+* Improve release cycle by moving technical decisions affecting the release to the Release Management team including Kubeflow platform
+
+### Release Meetings and Communication
+* Create a new Release Management team on Slack for asynchronous communication within the team
+* Bi-weekly meetings during Software Development (Week 1-Week 8). Weekly meetings between week 9-12 as needed.
+* Meetings will focus on roadmap status, including blockers, feature discussions, the overall status of the release, and the help needed.
+
+### Release Documentation
+
+* Build a team of technical writers to be embedded in each working group for the release time frame. 
+* Provide roles within the community to boost participation and bring new members into this group.
+* Technical Documentation Lead will lead this team; technical documentation can include a blog and slides to announce the Release.
+
+### Timeline
+* Week 0 -  (Release and Roadmap discussions) WG Leads and Release Manager meet to discuss the roadmap planned for the Release
+* Week 2 - (Software development Phase) WG Leads/Liaisons meet to discuss any release challenges, release changes, and help needed from the community (to communicate on Kubeflow Community Meeting)
+* Week 4 - (Software development Phase) WG Leads/Liaisons meet to discuss any release challenges, release changes, and help needed from the community (to communicate on Kubeflow Community Meeting)
+* Week 6 - (Software development Phase) WG Leads/Liaisons meet to discuss any release challenges, release changes, and help needed from the community (to communicate on Kubeflow Community Meeting)
+* Week 8 - (Last week of Software development Phase) WG Leads/Liaisons meet to discuss any release challenges, release changes, and help needed from the community (to communicate on Kubeflow Community Meeting)
+* Week 9 - (Feature Freeze and Prep for Release) WG Leads/Liaisons meet to discuss any release challenges, release changes, and help needed from the community (to communicate on Kubeflow Community Meeting). Discuss items required to prepare for Release (including documentation).
+* Week 10 - (Community and Distribution testing starts) Users and distributions run their automated test suites and try to stay away from manual labor-intensive tests.
+* Week 11 - (Bug Fixing) - Discuss any potential blockers for the Release.
+* Week 12 - (Release) - Items to discuss: bug fixes required, release cut, documentation needed.
+- Manifests WG leads synchronizes and cut the release on Kubeflow Platform/Manifests. Following version format [semantic versioning](https://semver.org/)
+- The Release Manager is responsible for approving/reviewing the blog and slides announcing the release.
 
 ## People and Roles
 
-### Release Manager
-The Release Manager will be responsible for coordinating the release and taking ultimate accountability for all release tasks to be completed on time.
+### Release Management Team: 
+The Release Management Team is composed by: Release manager, WG leads / liasons, technical documentation lead and product manager.
+Release team liaisons will be responsible not for the communication but for contributing to the release with documentation, source code, PRs review, etc, according to their skills and motivation.
 
-The previous Release Manager is responsible for choosing their successor that meets the prerequisite. If multiple Release Team members meet the prerequisites to become a Release Manager, the one from a different organization than the one that drove the previous release should be preferred.
-
-**Prerequisites:**
-1. Have contributed as a release team member in two or more previous releases
-
-**Time Commitments:** This role will need to be synchronous. The Release Manager is expected to join most of the weekly meetings and coordinate with the Release Team and the Working Group leads. For the Development phase, an estimate of the work needed is 4-8 hours per week. For the next phases, the Release Manager is required to devote more time and coordinate the tasks of the release.
-
-**Responsibilities:**
-* Provide updates to the mailing list with the progress of the release
+### Release Manager Responsibilities: 
+- Responsible for the overall Kubeflow Release Process 
+- Promote best practices for the release and software development process.
+- Manage the communication between the teams to understand current release status and potential blockers
+- Manage the communication with the community about the status of the Release or any help/blockers needed.
+- Approve & review the blog and slides announcing the Release.
+- Provide updates to the mailing list with the progress of the release
 * Coordinate directly with the WG liaisons and leads about dates and deliverables
 * Coordinate with the Release Team Members for the progress of the release
 * Ensure the WG leads have cut the necessary GitHub branches and tags for the different phases of the release
 * Host the weekly Release Team meetings
 * Update the larger community on release status during the Kubeflow community meetings
 * Make sure the processes are being followed
-* All the responsibilities of a Release Team Member
+* Make decisions on releae date or go-no for each release
 
-**Authority:**
-The Release Manager will need to have authority to take some decisions, in
-order to ensure the stability of the release and completion in a timely manner.
-Such decisions include:
-* Moving the release process to the next phase, even if there are controversial issues at hand
-* Delaying the release until some important issues are resolved
-* Denying component version upgrades
+### Documentation Lead
 
-### Release Team Member (Working Group Liaison)
-Release team members are assigned to one or more WG to act as a liaison between the release team and the WGs. The release team member will be the main contact point for the release team to figure out the progress of the WG as well as required component versions throughout the release. If a release team member is already part of a WG then they could also serve as the liasion. In addition, release team members work closely with the Release Manager to address release issues.
-
-**Prerequisites:** none
-
-**Time Commitments:** Their role will need to be synchronous, since they are expected to join the Release meetings and other WG meetings. Their time commitment is expected to be spread out throughout the release.
+The Documentation lead is responsible for working with the Release Team to coordinate documentation updates for the next Kubeflow release.
+If no members can serve as documentation lead, the release manager must take on the role.
 
 **Responsibilities:**
-
-* Keep track of the provided component versions and updating the [versions table](https://github.com/kubeflow/manifests#kubeflow-components-versions)
-* Create PRs to update manifests repo from WG provided git revisions
-* Attend the Release Team meetings
-* Attend the WG meetings
-* Provide feedback on enhancing the current Release Handbook
-* Keep notes from the Release Team meetings, in a rotation manner between the members
-
-### Product Manager
-They will be in charge of driving non-code deliverables, like the release blog post, release video, user surveys, and social media announcements.
-
-**Prerequisites:** Experience in writing blog posts. Contributions to an existing Open Source project is a huge plus.
-
-**Time Commitments:** This role will require some synchronous communication, since they will need to attend some of the later Release Team meetings. Most of the effort is expected to start once the Feature Freeze phase completes, where they will start working on the blog and release announcements.
-
-**Responsibilities:**
-
-* Drive the release blog post effort
-* Drive the release presentation effort
-* Handle communication for social media content publication
-* Orchestrate and create user surveys
-* Track important features and bug fixes that should be highlighted in the release
-
-### Docs Lead
-
-The Docs Lead is responsible for working with the Release Team to coordinate documentation updates for the next Kubeflow release.
-
-If no members can serve as docs lead, the release manager must take on the role.
-
-**Prerequisites:** Contributions to the [website repo](https://github.com/kubeflow/website)
-
-**Time Commitments:** This role will require some synchronous communication. The bulk of their work is expected to be in the Documentation phase of the release, but they will also be involved throughout the release by keeping track of issues that might require an update to the docs.
-
-**Responsibilities:**
-* Identify and track new issues that require update to the docs
-* Work with contributors to modify existing docs to accurately represent any upcoming changes
+* Identify and track new issues that require update to the documentation
+* Work with contributors to modify the existing documentation to accurately represent any upcoming changes
 * Review documentation PRs to ensure quality following the website [Style Guide](https://www.kubeflow.org/docs/about/style-guide/)
 * Migrate the old website [version] documentation and updating it with the new release
-
-### Working Group Documentation Lead
-The Working Group Documentation Lead is responsible for working with the Working Group and Release Team to coordinate a Working Group's documentation updates for the next Kubeflow release.
-
-**Prerequisites:** Contributions to the [website repo](https://github.com/kubeflow/website), experience writing feature descriptions for software applications, Kubernetes and/or Kubeflow, and in light weight project management.   If the contributor is new to the Kubeflow Community, this would be a good first role and consideration will be made if the contributor does not have direct experience. 
-
-**Time Commitments:** This role will require some synchronous communication. The bulk of their work is expected to be in the Documentation phase of the release, but they will also be involved throughout the release by keeping track of issues that might require an update to the docs.
-
-**Responsibilities:**
-* Identifying and tracking new issues for a Working Group that require update to the docs
-* Working with contributors and Release Team Documentation lead to modify existing docs to accurately represent any upcoming changes
-* Reviewing documentation PRs to ensure quality following the website [Style Guide](https://www.kubeflow.org/docs/about/style-guide/)
-* Migrating the old website [version] documentation and updating it with the new release
-
-### Working Group Test Lead
-The Working Group Test Lead is responsible for working with the Working Group and Release Team to coordinate a Working Group's test infrastructure and test plan for the next Kubeflow release.  They will also help to execute and report the results of the test plan.
-
-**Prerequisites:** Contributions to the [website repo](https://github.com/kubeflow/website), with experience running Kubernetes and/or Kubeflow clusters, writing test plans, and providing light weight project management
-
-**Time Commitments:** This role will require some synchronous communication. The bulk of their work is expected to be in the testing phase of the release, but they will also be involved throughout the release by keeping track of issues that might require iterative testing.
-
-**Responsibilities:**
-* Identifying and tracking new issues for a Working Group that require testing
-* Working with contributors and Release Team to create and/or modify the Working Group's test plan to accurately represent any upcoming changes
-* Help to configure, monitoring and operate the Working Group's test infrastructure i.e. GitHub Actions and/or AWS Test Infrastructure
-* Help to complete test cases per the test plan
-* Provide test plan results to the Release Team 
-
-### Distribution Representative
-
-**Prerequisites:** Work at the organization that owns the distribution
-
-**Time Commitments:** This role can be completely asynchronous. Most of their work is expected to be in the Distribution testing phase. Ideally they should be involved when the first RC is cut in order to alert early for potential issues.
-
-**Responsibilities:**
-- Expose issues that the distribution owner is facing with the new release
-- Sync with the release team during distro testing phase, we want a nice tight feedback loop there
-
-## Proposed WG Processes
-
-### Releasing
-
-We are moving to a release cadence of **4 months**, in response to our 3 month cycle being tight for the typical set of features we have wanted to release.The release is planned out with 10 weeks of development, with 6 weeks of feature freeze, documentation work, and other processes. At some point there will be a feature freeze, as described below, in the manifests repo. This means that other WGs cannot request the Manifest WG leads to update the repo to change a component’s YAML files, if the update sets a new image with new features.
-
-The above means that WGs, which will be maintaining a list of repos, will only be providing git revisions that only include bug fixes and not features, to the Manifests WG leads.
-
-We recommend adopting a release branch to cope with this form of releasing; we suggest that all WGs follow the process below for releasing new versions of their software:
-
-1. Create a new branch for your new version
-2. Use tags for the release that will be pointing to commits in the created branch
-
-This way a WG can keep on pushing new features to their **master** branch. Once there’s a feature freeze, in manifests repo, they can cherry-pick bug fixes to their new branch and request from the Manifests WG leads to sync the manifests from commits in that branch. This ensures that the newer commits will only include bug fixes.
-
-### Documentation
-
-Working groups should briefly describe what changes to existing [kubeflow.org](https://www.kubeflow.org/) documentation will be required to ensure the docs reflect new features or other software updates. A few bullets identifying which pages in the docs need to change will suffice. These bullets should be added to the Working Group’s GitHub issues describing planned engineering work.
-
-Working Groups should be tracking features for the release, as well as the documentation status of each feature as it’s being developed so that the documentation team can keep track of the documentation work that needs to be done.
-
-## Versioning Policy
-
-Kubeflow version format follows [semantic versioning](https://semver.org/) terminology expressed as vX.Y.Z format,
- where X is the major version, Y is the minor version, and Z is the patch version.
-
-Throughout the release cycle, pre-release artifacts are available at different stages. These artifacts are versioned
- with `rc` and a number incrementing from 0 to indicate that it is a pre-release. For example, `vX.Y.Z-rc.0`.
-
-At the start of the release cycle, the release manager works with the community to propose the next version and the release timeline.
-
-## Terminology
-
-### git revision
-
-A git revision is either a git commit, branch, or tag. Ideally people should be providing the manifests repo with tags, to update the manifests from.
-
-### Release Candidate (RC)
-
-The Release Candidate (RC) in the manifests repo is always a git **tag**.
-
-The manifests repo will be following the release process below:
-
-1. There will be a **vX.Y-branch** branch, in which the Manifests WG leads will be cherry picking commits on top
-2. Manifests leads will be creating new tags for different RCs, that will be pointing to commits of that release branch
-
-
-## Timeline
-
-| Week | Events |
-| ---- | ------ |
-| 1 | Development |
-| 2 |   |
-| 3 |   |
-| 4 |   |
-| 5 |   |
-| 6 |   |
-| 7 |   |
-| 8 |   |
-| 9 |   |
-| 10 |   |
-| 11 | Feature Freeze, RC released, Documentation Update starts |
-| 12 |   |
-| 13 | Manifests testing week, RC released |
-| 14 | Distributions testing starts |
-| 15 |   |
-| 16 | Distributions testing ends, Documentation Update ends |
-| 17 | Release Day |
-
 
 ### Preparation
 
@@ -210,149 +89,44 @@ Criteria for timeline that the team needs to consider
 
 **Success Criteria:** Release team selected, release schedule sent to kubeflow-discuss, all release team members have the proper permissions and are meeting regularly.
 
-
-### Development (10 weeks)
-
-Normal development in the different WGs and in the <https://github.com/kubeflow/manifests> repo.
-
-**Success Criteria:**
-* (Optional but encouraged): Issues tracking new features should also provide information on whether the docs should be updated for that feature
-
-### Feature Freeze (2 weeks)
-
-From that phase and forward updates to the manifests repo must only be fixing component bugs. No new commits, in the manifests repo, that update a component to include a new feature are allowed.
-
-**Actions for other WGs:**
-
-- Provide a _git revision_ which the release team members or Manifests leads will use to update the files in the manifests repository. The _git revision_ should be a proper GitHub release with a descriptive changelog. The release should either be a new major/minor/patch version or a pre-release release candidate (RC).
-- Provide an initial list of issues that the working group (WG) aims to resolve before the final release, as well as the expected version number of the final component.
-- Work on closing the provided open issues
-- Ensure that future _git revisions_ only include bug fixes, and not new features, from the previously provided _git revision_. If the working group provides incremental releases (either sequential RCs or minor/patch version bumps), each should be a GitHub release with an incremental changelog. After releasing a series of RCs, the final version should contain the full changelog from all RCs combined.
-- Declare expected common dependency version ranges
-- Coordinate with the liaison of the WG with the Release team, in order to start collecting: main highlights for the release, what needs to be shown in the highlight video (will be needed as part of the release announcements)
-
-**Actions for Manifests WG:**
-
-- Keep track of the pending bug fixes for each WG in the release tracking issue
-- Push a commit that updates the manifests for the different WGs, based on the _git revision_ they had provided.
-- Create a new **vX.Y-branch** branch in the manifests repo
-- Create a new **vX.Y-rc.0** tag that will be pointing to the branch created above
-- Add commits on top of the **vX.Y-branch** branch to include bug fixes. The other WGs can provide a new _git revision_ to Manifests WG leads. The new git revision must only include bug fixes, not new features.
-- On the last day of feature freeze, cut a new **vX.Y-rc.1** RC tag on the **vX.Y-branch** release branch.
-
+### Implementation
 **Actions for the Release Team:**
 - Get a git revision from all WGs, on the first day of the Feature Freeze period. WGs need to have a git revision ready to give to the release team.
 - Make a pull request to update the manifests for the different WGs, based on the _git revision_ they provided.
 - Identify, early in the first week, bugs at risk. These should either be aggressively fixed or punted
-- Appoint the liaison for each WG to prepare a highlight video, to be assembled for release announcements (will be needed as part of the release announcements)
-
-**Success Criteria:** All working group git branches and tags are created, manifests are up to date, features either have landed or been pushed to next release.
-
-### Manifests testing (1 week)
-
-The Manifests WG leads will be evaluating the final structure of manifests before Distribution owners start testing
-
-**Actions for other WGs:**
-- Provide updates on the progress of pending issues and their fixes
-
-**Actions for Manifests WG:**
-- Ensure the manifests provide a deployable Kubeflow installation
-- Sync with other WGs on pending issues
-- After finishing testing, create a new **vX.Y-rc.2** tag on the **vX.Y-branch** release branch to ensure the latest bug fixes are included.
-
-**Success Criteria:** Manifests complete and fixes from working groups applied.
-
-### Documentation (3 weeks) (Starts the same time as Feature Freeze)
-
-Alongside the feature freeze and the continuous bug fixes we can now focus on
-ensuring that the docs are up to date, before distributions start testing.
-Features that are at risk or being worked up until the deadline
-can be documented last, ideally most of the feature work has landed already and
-those can start to be documented.
-
-**Actions for ALL WGs:** Have their documentation up to date
-
-**Actions for the Release Team:**
 - Request a list of features and deprecations, from the Working Groups, that require updates to the documentation
 - Ensure the provided component versions match the documentation
-- Work alongside the Working Groups to bring the docs up to date
+- Work alongside the Working Groups to bring the documentation up to date
 - Create a [new version dropdown and update the website version](https://github.com/kubeflow/website/pull/3333)
 - Add new [release page with component and dependency versions](https://github.com/kubeflow/website/pull/3332)
+- Work with the WG to build the release notes and slides
+- Start creating the draft for the official blog post and collating information from the Working Groups
+    - (Optional but encouraged) Working Groups start drafting WG-specific blog
+        posts, deep diving into their respective areas
+- Preparation for social media posts can start at the beginning of this phase
+- Release Manager: List the features, and ideally with documentation, that made it into the release
+- Publish release blog post
+- (Optional but encouraged) Working Groups publish individual deep dive blog posts on features or other work they’d like to see highlighted.
+- Publish social media posts
+- Send [release announcement](https://groups.google.com/g/kubeflow-discuss/c/qDRvrLPHU70/m/ORKN14DzCQAJ) to kubeflow-discuss
 
-**Success Criteria:** Documentation for this release completed with minimum following pages updated and a [new version
+**Success Criteria:**
+- Documentation for this release completed with minimum following pages updated and a [new version
 in the website is cut](https://github.com/kubeflow/kubeflow/blob/master/docs_dev/releasing.md#version-the-website).
 - [Installing Kubeflow](https://www.kubeflow.org/docs/started/installing-kubeflow/)
 - [Release Page](https://www.kubeflow.org/docs/releases/)
 - [Distributions](https://www.kubeflow.org/docs/distributions/) and related pages underneath
 
-### Distribution testing (3 weeks)
-
-Distribution owners will start testing the latest RC tag and report back issues they find. Depending on the severity of the issues, and number of bug fixes that will accommodate them, the Manifests WG leads might need to cut a new RC tag.
-
-After the 3 weeks pass, for this phase, the release process will not further wait for the distributions to be ready.
-
-**Actions for other WGs:**
-
-- Evaluate which of the reported issues should be release blocking
-- Work on providing bug fixes for release blocking issues
-- Create a final git tag. It should be stable (not RC) and include fixes for release blocking issues found during this time
-
-**Actions for Manifests WG:**
-
-- (Optional) Create a **vX.Y-rc.3** tag, depending on the number of created issues and bug fixes
-
-**Actions for Release Team:**
-
-- Work with the WG to build the release slides
-- Start creating the draft for the official blog post and collating information from the Working Groups
-    - (Optional but encouraged) Working Groups start drafting WG-specific blog
-        posts, deep diving into their respective areas
-- Preparation for social media posts can start at the beginning of this phase
-- Release Manager: List the features, and ideally with docs, that made it into the release
-
-**Success Criteria:** Thumbs up from distribution representatives when their testing is complete.
-
-### Release
-
-We made it!
-
-**Actions for Manifests WG:**
-
-- Create the final **vX.Y** tag, pointing to the latest commit of the release branch
-- Cut a new GitHub release in <https://github.com/kubeflow/kubeflow>
-- Cut a new GitHub release in <https://github.com/kubeflow/manifests>
-
-**Actions for Release Team:**
-
-- Publish release blog post
-- (Optional but encouraged) Working Groups publish individual deep dive blog posts on features or other work they’d like to see highlighted.
-- Publish social media posts
-- Send [release announcement](https://groups.google.com/g/kubeflow-discuss/c/qDRvrLPHU70/m/ORKN14DzCQAJ) to kubeflow-discuss
-- Coordinate with the liaison for each WG to record the highlight video as part of the release meeting, or ask the liaison to share a prerecorded .mp4
-
 ## Post Release
 
 ### Patch Release
 Planning for first patch release begins. The importance of bugs is left to the
-judgement of the Working Group's tech leads and the Release Manager to decide.
-Fixes included in the patch release must satisfy the following criteria:
-* important bug fixes
-* critical security fixes
-* updates to documentation
-
-The tech leads of a WG can also coordinate and decide, alongside the
-Manifests WG tech leads and the Release Manager, if a component's versions should be
-bumped in this patch release or go to the next minor release.
-
-The Release team continues to meet regularly, as often as needed for the point
-releases. Similar to the minor release, the patch releases should have a
-tracking issue or board so that distributions can track patch releases
-independently of the minor releases.
+judgement of the Working Group leads and the Release Manager to decide.
 
 ### Release Retrospective
 
 The Release Team should host a [blameless](https://sre.google/sre-book/postmortem-culture/)
-retrospective and capture notes with the community. The aim of this doc
+retrospective and capture notes with the community. The aim of this document
 is for everyone to chime in and discuss what went well and what could be improved.
 
 ### Prepare for the Next Release

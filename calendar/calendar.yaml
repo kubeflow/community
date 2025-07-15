@@ -93,6 +93,7 @@
   timezone: Europe/Madrid
   frequency: bi-weekly
   video: https://meet.google.com/ezk-fmxo-fvu
+  until: 06/24/2025
   attendees:
     - email: kubeflow-discuss@googlegroups.com
   description:
