@@ -27,7 +27,7 @@ This proposal is related to the following issues:
 ### Goals
 
 - **Primary Goal**: Create an intelligent documentation assistant that can answer user queries using both foundational LLM knowledge and Kubeflow-specific documentation.
-- **Accessibility**: Provide a single interface for accessing information across all Kubeflow repositories and documentation.
+- **Accessibility**: Provide a single chat interface on thw website for accessing information across all Kubeflow repositories and documentation.
 - **Accuracy**: Ensure responses are accurate, contextual, and properly cited.
 - **Scalability**: Build a system that can scale with the growing Kubeflow ecosystem.
 - **Maintainability**: Implement automated indexing to keep information current.
@@ -36,7 +36,7 @@ This proposal is related to the following issues:
 ### Non-Goals
 
 - Replace current documentation: This system complements existing documentation rather than replacing it.
-- Implement a general-purpose chatbot: We intend to focus on Kubeflow-specific queries and related technologies.
+- Implement a general-purpose chatbot: We intend to focus on Kubeflow-specific queries.
 - Operational debugging: We won't provide real-time debugging of user deployments.
 - Training new LLMs: We will use existing pre-trained models.
 - Multi-language support: Initial implementation will be English-only.
@@ -227,32 +227,82 @@ spec:
     targetPort: 8000
 ```
 
-### 4. GitHub Master branch ETL Pipeline
+### 4. Main Branch Change Detection and Re-indexing
 
-To keep the knowledge base current with the latest pull requests and discussions, we implement a daily ETL job that fetches PR data from GitHub's REST API.
+To keep the knowledge base current with the latest changes, we implement a GitHub Actions workflow that triggers re-indexing when PRs are merged to the main branch.
 
-**GitHub PR Fetcher Component**
+**GitHub Actions Workflow**
+```yaml
+# .github/workflows/docs-reindex.yml
+name: Documentation Re-indexing on Main Branch Changes
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'docs/**'
+      - '*.md'
+      - 'examples/**'
+      - 'manifests/**'
+
+jobs:
+  detect-changes:
+    runs-on: ubuntu-latest
+    outputs:
+      changed-files: ${{ steps.changes.outputs.files }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      
+      - name: Get changed files
+        id: changes
+        run: |
+          echo "files=$(git diff --name-only HEAD~1 HEAD | grep -E '\.(md|py|yaml|yml|ipynb)$' | jq -R -s -c 'split("\n")[:-1]')" >> $GITHUB_OUTPUT
+
+  reindex-docs:
+    needs: detect-changes
+    if: ${{ needs.detect-changes.outputs.changed-files != '[]' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger KFP Re-indexing Pipeline
+        run: |
+          curl -X POST \
+            -H "Authorization: Bearer ${{ secrets.KFP_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "pipeline_id": "docs-reindex-pipeline",
+              "parameters": {
+                "repository": "${{ github.repository }}",
+                "changed_files": ${{ needs.detect-changes.outputs.changed-files }},
+                "commit_sha": "${{ github.sha }}"
+              }
+            }' \
+            "${{ secrets.KFP_ENDPOINT }}/api/v1/runs"
+```
+
+**Incremental Re-indexing Pipeline Component**
 ```python
 @component(
     base_image="python:3.9",
     packages_to_install=[
-        "requests==2.31.0",
         "pymilvus==2.3.0",
-        "sentence-transformers==2.2.2"
+        "sentence-transformers==2.2.2", 
+        "gitpython==3.1.32"
     ]
 )
-def github_pr_etl_component(
-    github_token: str,
-    repositories: list,
+def incremental_reindex_component(
+    repository: str,
+    changed_files: list,
+    commit_sha: str,
     milvus_host: str = "my-release-milvus",
-    milvus_port: str = "19530",
-    days_back: int = 7
+    milvus_port: str = "19530"
 ) -> dict:
-    """ETL component to fetch and index GitHub PRs"""
+    """Re-index only changed files from main branch"""
     
-    import requests
-    import json
-    from datetime import datetime, timedelta
+    import git
+    import os
     from pymilvus import MilvusClient
     from sentence_transformers import SentenceTransformer
     
@@ -260,242 +310,158 @@ def github_pr_etl_component(
     client = MilvusClient(uri=f"http://{milvus_host}:{milvus_port}")
     encoder = SentenceTransformer("all-mpnet-base-v2")
     
-    headers = {
-        "Authorization": f"token {github_token}",
-        "Accept": "application/vnd.github.v3+json"
-    }
+    # Clone repository
+    repo_url = f"https://github.com/{repository}.git"
+    repo_dir = f"/tmp/{repository.split('/')[-1]}"
     
-    total_prs = 0
-    processed_repos = []
+    if os.path.exists(repo_dir):
+        repo = git.Repo(repo_dir)
+        repo.remotes.origin.pull()
+    else:
+        repo = git.Repo.clone_from(repo_url, repo_dir)
     
-    # Calculate date threshold
-    since_date = (datetime.now() - timedelta(days=days_back)).isoformat()
+    # Checkout specific commit
+    repo.git.checkout(commit_sha)
     
-    for repo in repositories:
-        print(f"Processing repository: {repo}")
+    processed_files = []
+    collection_name = f"docs_{repository.split('/')[-1].replace('-', '_').lower()}"
+    
+    # Ensure collection exists
+    if not client.has_collection(collection_name):
+        client.create_collection(
+            collection_name=collection_name,
+            dimension=768,
+            metric_type="COSINE"
+        )
+    
+    for file_path in changed_files:
+        full_path = os.path.join(repo_dir, file_path)
         
-        # Fetch recent PRs
-        pr_url = f"https://api.github.com/repos/{repo}/pulls"
-        params = {
-            "state": "all",
-            "since": since_date,
-            "per_page": 100,
-            "sort": "updated"
-        }
-        
-        response = requests.get(pr_url, headers=headers, params=params)
-        
-        if response.status_code != 200:
-            print(f"Failed to fetch PRs for {repo}: {response.status_code}")
-            continue
-            
-        prs = response.json()
-        repo_pr_count = 0
-        
-        # Process each PR
-        for pr in prs:
+        if not os.path.exists(full_path):
+            # File was deleted, remove from index
+            file_id = hash(f"{repository}:{file_path}")
             try:
-                # Fetch PR details including diff
-                pr_detail_url = f"https://api.github.com/repos/{repo}/pulls/{pr['number']}"
-                detail_response = requests.get(pr_detail_url, headers=headers)
-                pr_detail = detail_response.json()
+                client.delete(
+                    collection_name=collection_name,
+                    filter=f"file_path == '{file_path}'"
+                )
+                processed_files.append({
+                    "file": file_path,
+                    "action": "deleted"
+                })
+            except Exception as e:
+                print(f"Error deleting {file_path}: {e}")
+            continue
+        
+        # Read and process file content
+        try:
+            with open(full_path, 'r', encoding='utf-8') as f:
+                content = f.read()
+            
+            # Remove existing chunks for this file
+            client.delete(
+                collection_name=collection_name,
+                filter=f"file_path == '{file_path}'"
+            )
+            
+            # Chunk content (512 tokens with 50% overlap)
+            chunks = chunk_text(content, chunk_size=512, overlap=0.5)
+            
+            # Process each chunk
+            for i, chunk in enumerate(chunks):
+                if len(chunk.strip()) < 50:  # Skip very short chunks
+                    continue
                 
-                # Fetch PR comments
-                comments_url = f"https://api.github.com/repos/{repo}/issues/{pr['number']}/comments"
-                comments_response = requests.get(comments_url, headers=headers)
-                comments = comments_response.json() if comments_response.status_code == 200 else []
+                embedding = encoder.encode(chunk).tolist()
                 
-                # Prepare PR content for indexing
-                pr_content = f"""
-                Title: {pr['title']}
-                Description: {pr.get('body', '')}
-                Author: {pr['user']['login']}
-                State: {pr['state']}
-                Created: {pr['created_at']}
-                Updated: {pr['updated_at']}
-                
-                Comments:
-                {' '.join([comment.get('body', '') for comment in comments[:5]])}
-                """
-                
-                # Create embedding
-                embedding = encoder.encode(pr_content).tolist()
-                
-                # Prepare data for Milvus
-                pr_data = {
-                    "id": int(f"{hash(repo + str(pr['number'])) % 1000000000}"),
+                chunk_data = {
+                    "id": int(f"{hash(f'{repository}:{file_path}:{i}') % 1000000000}"),
                     "vector": embedding,
-                    "repo_name": repo.split('/')[-1],
-                    "pr_number": pr['number'],
-                    "title": pr['title'],
-                    "author": pr['user']['login'],
-                    "state": pr['state'],
-                    "content": pr_content[:2000],  # Truncate if too long
-                    "url": pr['html_url'],
-                    "created_at": pr['created_at'],
-                    "updated_at": pr['updated_at']
+                    "repo_name": repository.split('/')[-1],
+                    "file_path": file_path,
+                    "chunk_index": i,
+                    "content": chunk[:2000],  # Truncate if too long
+                    "commit_sha": commit_sha,
+                    "last_updated": datetime.now().isoformat()
                 }
                 
-                # Insert into PR collection
-                collection_name = f"pr_{repo.split('/')[-1].replace('-', '_').lower()}"
-                
-                # Create collection if it doesn't exist
-                if not client.has_collection(collection_name):
-                    client.create_collection(
-                        collection_name=collection_name,
-                        dimension=768,
-                        metric_type="COSINE"
-                    )
-                
-                client.insert(collection_name=collection_name, data=[pr_data])
-                repo_pr_count += 1
-                
-            except Exception as e:
-                print(f"Error processing PR {pr['number']}: {e}")
-                continue
-        
-        # Flush collection
-        if repo_pr_count > 0:
-            client.flush(collection_name)
-        
-        total_prs += repo_pr_count
-        processed_repos.append({
-            "repo": repo,
-            "pr_count": repo_pr_count
-        })
-        
-        print(f"Processed {repo_pr_count} PRs from {repo}")
+                client.insert(collection_name=collection_name, data=[chunk_data])
+            
+            processed_files.append({
+                "file": file_path,
+                "action": "updated",
+                "chunks": len(chunks)
+            })
+            
+        except Exception as e:
+            print(f"Error processing {file_path}: {e}")
+            processed_files.append({
+                "file": file_path,
+                "action": "error",
+                "error": str(e)
+            })
+    
+    # Flush collection
+    if processed_files:
+        client.flush(collection_name)
     
     return {
         "status": "success",
-        "total_prs": total_prs,
-        "processed_repos": processed_repos,
-        "execution_date": datetime.now().isoformat()
+        "repository": repository,
+        "commit_sha": commit_sha,
+        "processed_files": processed_files,
+        "total_files": len(processed_files)
     }
 
-@pipeline(name="github-pr-etl-pipeline")
-def github_pr_etl_pipeline(
-    github_token: str,
-    repositories: list = [
-        "kubeflow/kubeflow",
-        "kubeflow/website",
-        "kubeflow/training-operator",
-        "kubeflow/pipelines"
-    ],
-    days_back: int = 7
-):
-    """Daily ETL pipeline for GitHub PRs"""
+def chunk_text(text: str, chunk_size: int = 512, overlap: float = 0.5) -> list:
+    """Split text into overlapping chunks"""
+    words = text.split()
+    chunks = []
     
-    etl_task = github_pr_etl_component(
-        github_token=github_token,
-        repositories=repositories,
-        days_back=days_back
+    if len(words) <= chunk_size:
+        return [text]
+    
+    step = int(chunk_size * (1 - overlap))
+    
+    for i in range(0, len(words), step):
+        chunk_words = words[i:i + chunk_size]
+        if len(chunk_words) >= chunk_size * 0.3:  # Minimum chunk size
+            chunks.append(' '.join(chunk_words))
+    
+    return chunks
+
+@pipeline(name="incremental-docs-reindex-pipeline")
+def incremental_reindex_pipeline(
+    repository: str,
+    changed_files: list,
+    commit_sha: str
+):
+    """Pipeline to re-index only changed files"""
+    
+    reindex_task = incremental_reindex_component(
+        repository=repository,
+        changed_files=changed_files,
+        commit_sha=commit_sha
     )
     
-    return etl_task.outputs
+    return reindex_task.outputs
 ```
 
-**Scheduled Execution (CronJob)**
+**Repository Setup for Auto-indexing**
+
+Each monitored repository needs to add the workflow file and configure secrets:
+
 ```yaml
-apiVersion: batch/v1
-kind: CronJob
-metadata:
-  name: github-pr-etl
-spec:
-  schedule: "0 12 * * *"  # Run daily at 12:00 PM
-  jobTemplate:
-    spec:
-      template:
-        spec:
-          containers:
-          - name: pr-etl
-            image: your-registry/kfp-runner:latest
-            command:
-            - python
-            - -c
-            - |
-              import kfp
-              from github_pr_etl import github_pr_etl_pipeline
-              
-              client = kfp.Client(host='http://ml-pipeline:8888')
-              
-              run = client.run_pipeline(
-                  experiment_id="github-etl",
-                  job_name="daily-pr-sync",
-                  pipeline_func=github_pr_etl_pipeline,
-                  arguments={
-                      "github_token": "$(GITHUB_TOKEN)",
-                      "days_back": 1
-                  }
-              )
-            env:
-            - name: GITHUB_TOKEN
-              valueFrom:
-                secretKeyRef:
-                  name: github-secret
-                  key: token
-          restartPolicy: OnFailure
+# Required secrets in each repository:
+# KFP_TOKEN - Authentication token for Kubeflow Pipelines
+# KFP_ENDPOINT - Kubeflow Pipelines API endpoint
 ```
 
-**GitHub Token Secret**
-```yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: github-secret
-type: Opaque
-stringData:
-  token: <your-github-personal-access-token>
-```
-
-**Enhanced RAG Search with PR Data**
-```python
-class EnhancedRAGSearcher(RAGSearcher):
-    def search_with_prs(self, query: str, include_prs: bool = True) -> List[Dict]:
-        """Search both documentation and PR data"""
-        
-        # Get regular documentation results
-        doc_results = self.search(query, limit=3)
-        
-        if not include_prs:
-            return doc_results
-        
-        # Search PR collections
-        pr_results = []
-        query_vector = self.encoder.encode(query).tolist()
-        
-        for collection in self.client.list_collections():
-            if collection.startswith("pr_"):
-                try:
-                    results = self.client.search(
-                        collection_name=collection,
-                        data=[query_vector],
-                        limit=2,
-                        output_fields=["repo_name", "title", "author", "state", "url", "content"]
-                    )
-                    
-                    for result in results[0]:
-                        if (1 - result['distance']) > 0.4:  # Threshold for PR relevance
-                            entity = result['entity']
-                            pr_results.append({
-                                'type': 'pull_request',
-                                'repo_name': entity['repo_name'],
-                                'title': entity['title'],
-                                'author': entity['author'],
-                                'state': entity['state'],
-                                'url': entity['url'],
-                                'content': entity['content'][:500],
-                                'score': 1 - result['distance']
-                            })
-                except Exception as e:
-                    continue
-        
-        # Combine and sort results
-        combined_results = doc_results + pr_results
-        combined_results.sort(key=lambda x: x['score'], reverse=True)
-        
-        return combined_results[:5]
-```
+**Supported File Types for Re-indexing**
+- **Markdown files** (`.md`) - Documentation, READMEs, guides
+- **Python files** (`.py`) - Code examples, scripts
+- **YAML files** (`.yaml`, `.yml`) - Configuration examples, manifests
+- **Jupyter notebooks** (`.ipynb`) - Tutorials, examples
 
 ### Implementation Plan
 
@@ -513,10 +479,115 @@ class EnhancedRAGSearcher(RAGSearcher):
   - `/tests` - Testing infrastructure.
 
 #### Phase 2: Development and Testing
-- Deploy and benchmark LLM locally (Llama 3.1 8B or Mistral 7B)
-- Set up Milvus database and implement ETL pipeline starting with `website` repository
-- Develop backend services (WebSocket, RAG pipeline, GitHub API integration)
-- Implement security measures (RBAC, rate limiting, prompt injection protection)
+
+**2.1 LLM Deployment and Benchmarking with KServe**
+- **Model Selection and Evaluation**: Deploy and benchmark multiple LLM options locally:
+  - Llama 3.1 8B Instruct (primary candidate)
+  - Mistral 7B Instruct (fallback option)
+  - Evaluate response quality, inference speed, and resource requirements
+- **KServe Integration**: 
+  - Configure KServe InferenceService with appropriate resource limits (GPU/CPU)
+  - Implement model versioning and A/B testing capabilities
+  - Set up autoscaling policies based on query volume
+  - Configure health checks and monitoring for model endpoints
+
+**2.2 Vector Database Setup with Milvus and Feast Integration**
+- **Milvus Deployment**:
+  - Deploy Milvus cluster with persistent storage for vector embeddings
+  - Configure collection schemas for different data types (docs, PRs, issues)
+  - Set up indexing strategies (IVF_FLAT, HNSW) for optimal search performance
+  - Implement backup and disaster recovery procedures
+- **Feast Integration** (Optional Enhancement):
+  - Configure Feast for feature store capabilities to manage document metadata
+  - Set up feature pipelines for document freshness tracking
+  - Implement feature serving for real-time document ranking
+  - Create feature views for user interaction patterns and query analytics
+
+**2.3 Data Source Ingestion and ETL Pipeline Development**
+
+**Primary Data Sources**:
+- **Core Repositories**:
+  - `kubeflow/website` - Official documentation, tutorials, guides
+  - `kubeflow/kubeflow` - Main repository with manifests and core documentation
+  - `kubeflow/pipelines` - KFP-specific documentation and examples
+  - `kubeflow/training-operator` - Training workload documentation
+  - `kubeflow/serving` - Model serving documentation
+  - `kubeflow/katib` - Hyperparameter tuning documentation
+  - `kubeflow/notebooks` - Notebook server documentation
+
+**Secondary Data Sources**:
+- **Community Resources**:
+  - `kubeflow/community` - Governance, proposals, meeting notes
+  - Release notes and changelogs
+  - Community meeting transcripts and recordings (future enhancement)
+
+**ETL Pipeline Implementation with Kubeflow Pipelines**:
+- **Document Processing Pipeline**:
+  - File type handlers (Markdown, Python, YAML, Jupyter notebooks)
+  - Text chunking with semantic boundaries (512 tokens, 50% overlap)
+  - Metadata extraction (repository, file path, last modified, commit SHA)
+  - Embedding generation using sentence-transformers (all-mpnet-base-v2)
+- **Main Branch Change Detection**:
+  - GitHub Actions workflow triggers on main branch pushes
+  - Incremental re-indexing of only changed files
+  - Automatic cleanup of deleted files from index
+  - Commit-based versioning for change tracking
+- **KFP Pipeline Components**:
+  - `repo_clone_component` - Git repository cloning and file scanning
+  - `document_processor_component` - Text extraction and chunking
+  - `embedding_generator_component` - Vector embedding creation
+  - `milvus_indexer_component` - Vector database insertion
+  - `incremental_reindex_component` - Re-index only changed files
+  - `quality_validator_component` - Data quality checks and validation
+
+**2.4 Backend Services Development**
+- **WebSocket API Service**:
+  - Real-time bidirectional communication for streaming responses
+  - Connection management and session handling
+  - Rate limiting per user/session
+  - Error handling and graceful degradation
+- **RAG Pipeline Orchestration**:
+  - Query preprocessing and intent classification
+  - Vector similarity search with hybrid scoring
+  - Context ranking and relevance filtering
+  - Response generation with source attribution
+  - Fallback mechanisms for out-of-scope queries
+- **GitHub API Integration Service**:
+  - Authenticated API calls with token rotation
+  - Pull request and issue data synchronization
+  - Comment and discussion thread processing
+  - Webhook integration for real-time updates (future enhancement)
+
+**2.5 Security Implementation**
+- **Authentication and Authorization**:
+  - RBAC integration with Kubernetes service accounts
+  - User session management and token validation
+  - API key management for external services
+- **Rate Limiting and Abuse Prevention**:
+  - Per-user query limits (e.g., 50 queries/hour)
+  - IP-based rate limiting for anonymous users
+  - Query complexity analysis and throttling
+- **Prompt Injection Protection**:
+  - Input sanitization and validation
+  - Prompt template hardening
+  - Response filtering for sensitive information
+  - Audit logging for security monitoring
+
+**2.6 Monitoring and Observability**
+- **Performance Metrics**:
+  - Query response time tracking (target: <5 seconds)
+  - Vector search latency and accuracy metrics
+  - LLM inference time and token usage
+  - System resource utilization (CPU, GPU, memory)
+- **Quality Metrics**:
+  - User feedback collection (thumbs up/down)
+  - Response relevance scoring
+  - Source attribution accuracy
+  - Error rate tracking and alerting
+- **Operational Metrics**:
+  - ETL pipeline success rates and data freshness
+  - API endpoint availability and health checks
+  - Database connection pooling and query performance
 
 #### Phase 3: Deployment and Integration
 - Deploy complete stack to Kubernetes cluster with monitoring
