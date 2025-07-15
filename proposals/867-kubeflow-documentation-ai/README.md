@@ -159,7 +159,24 @@ def indexing_pipeline(
         rebuild=rebuild
     )
     return indexing_task.outputs
-```
+
+**Why Kubeflow Pipelines (KFP) Over a Simple ETL Script?**
+
+Using KFP is a strategic choice for this project, providing enterprise-grade capabilities that a simple script cannot match. Here are the key benefits:
+
+*   **Native Alignment with the Kubeflow Ecosystem**: This project is not just *for* Kubeflow; it's a showcase *of* Kubeflow. Using KFP makes the system instantly familiar to the community and demonstrates the power of our own tools.
+
+*   **Massive Parallel Processing**: As we add more repositories, KFP will be essential. It can process multiple PRs and components in parallel, not one by one, which is critical for scaling the system.
+
+*   **Incremental Builds (Change-Driven Logic)**: The pipeline is designed to process only the files that have changed in a commit, not the entire repository. This is far more efficient than a simple script that would need complex logic to track file states.
+
+*   **Granular Resource Management & Cost Optimization**: Our pipeline has GPU-heavy tasks (like embedding generation) and CPU-only tasks. KFP allows us to assign the right resources to the right component. This segregation is crucial for managing costs on our cluster.
+
+*   **Rich UI for Observability**: KFP provides a rich UI that allows us to see component-wise logs and visualize the pipeline's execution. This makes optimization and debugging far easier than parsing a giant log file.
+
+*   **Component Reusability**: Reusability is a common challenge in data workflows. KFP's component-based structure allows us to build reusable, modular pieces that can be shared across different pipelines.
+
+*   **Experiment and Pipeline Versioning**: We can version our pipelines as `v1`, `v2`, etc., making it easy to track changes, roll back if needed, and run different experiments.
 
 ### 3. Backend Service
 
