@@ -466,9 +466,9 @@ resolve issues, and advisories are published as needed.
 
 ## Incident Response
 
-Upon receiving a vulnerability report, the Kubeflow maintainer triage the issue, determines impact,
-and works to release a patch for supported versions. Users are notified via release notes,
-documentation, and community channels. Only limited number of maintainers have access to
+Upon receiving a vulnerability report, the Kubeflow maintainers triage the issue, determine impact,
+and work to release a patch for supported versions. Users are notified via release notes,
+documentation, and community channels. Only a limited number of maintainers have access to
 the reports to avoid excessive disclosure of vulnerabilities.
 
 # Appendix
