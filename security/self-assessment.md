@@ -370,8 +370,8 @@ Kubeflow projects don't not currently claim compliance with specific security st
 practices and is following the OpenSSF Best Practices. Kubeflow projects achieve the OpenSSF badges:
 
 - Kubeflow Spark Operator: https://www.bestpractices.dev/en/projects/10524
-- Kubeflow Notebooks: TODO
-- Kubeflow Katib: TODO
+- Kubeflow Notebooks: https://www.bestpractices.dev/en/projects/9942
+- Kubeflow Katib: https://www.bestpractices.dev/projects/9941
 - Kubeflow Trainer: https://www.bestpractices.dev/projects/10435
 - Kubeflow Model Registry: https://www.bestpractices.dev/en/projects/9937
 - Kubeflow Pipelines: https://www.bestpractices.dev/en/projects/9938
