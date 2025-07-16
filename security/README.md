@@ -11,7 +11,7 @@ and preparing the security documentation for Kubeflow users.
 
 ## Security Audit
 
-Kubeflow participate in 3rd party security audit. You can find the audit results here:
+Kubeflow participates in 3rd party security audits. You can find the audit results here:
 
 - TODO (andreyvelich): Add document once it is published.
 
