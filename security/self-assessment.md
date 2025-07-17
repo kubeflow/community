@@ -474,7 +474,7 @@ the reports to avoid excessive disclosure of vulnerabilities.
   achieve silver and gold status. Community is currently working to achieve silver status for
   each Kubeflow project.
 - _Case Studies_: Kubeflow is used by a lot of organizations including AstraZeneca, AWS, Bloomberg,
-  CERN, DHL, Google, IBM, NVIDIA, Nutanix, RedHat, Toyota, and many others. The extensive list of
+  CERN, DHL, Google, IBM, NVIDIA, Nutanix, Red Hat, Toyota, and many others. The extensive list of
   adopters for each project can be found here: https://github.com/kubeflow/community/blob/master/ADOPTERS.md
 - _Related Projects / Vendors_: Related projects including KServe, Volcano, MLFlow, Airflow. Vendors including
   SageMaker, VertexAI, AzureML, OpenShift AI.
