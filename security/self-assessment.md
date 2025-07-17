@@ -110,7 +110,7 @@ complexity and inefficiencies.
 
 Kubeflow projects addresses these challenges by creating Custom Resource Definitions (CRDs)
 on top of Kubernetes to orchestrate AI workloads for Data Processing, AI Development, Model Training,
-Model Optimization, and ML Pipelines. Additionally, Kubeflow offers variety of interfaces including
+Model Optimization, ML Pipelines and MLOps governance. Additionally, Kubeflow offers variety of interfaces including
 Python SDK and web UIs which allow users to focus on their models rather than the underlying
 complexities.
 
