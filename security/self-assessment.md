@@ -82,7 +82,7 @@ The go.mod file for each component can be found in the appropriate Kubeflow proj
 - https://github.com/kubeflow/notebooks/blob/notebooks-v2/workspaces/controller/go.mod
 - https://github.com/kubeflow/trainer/blob/master/go.mod
 - https://github.com/kubeflow/katib/blob/master/go.mod
-- https://github.com/kubeflow/model-registry/blob/main/go.mod
+- https://github.com/kubeflow/model-registry/blob/main/go.mod, https://github.com/kubeflow/model-registry/blob/main/clients/python/pyproject.toml
 - https://github.com/kubeflow/pipelines/blob/master/go.mod
 
 All Kubeflow container images can be found here: https://github.com/orgs/kubeflow/packages
@@ -455,7 +455,7 @@ Kubeflow projects maintain security policy in their corresponding `SECURITY.md` 
 - https://github.com/kubeflow/notebooks/blob/master/SECURITY.md
 - https://github.com/kubeflow/trainer/blob/master/SECURITY.md
 - https://github.com/kubeflow/katib/blob/master/SECURITY.md
-- https://github.com/kubeflow/model-registry/blob/main/go.mod/master/SECURITY.md
+- https://github.com/kubeflow/model-registry/blob/main/SECURITY.md
 - https://github.com/kubeflow/pipelines/blob/master/SECURITY.md
 
 ## Responsible Disclosure Practice
