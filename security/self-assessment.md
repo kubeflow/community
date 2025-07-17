@@ -210,8 +210,7 @@ Detailed information can be found here in the official
 ![model-registry](images/model-registry.png)
 
 - OpenAPI/REST Server: This component exposes a high-level REST API of the Model Registry.
-  In contrast, the MLMD server exposes a lower level generic API over gRPC, whereas this REST
-  server exposes a higher level API that is much closer to the domain model of Model Registry, like
+  The REST API offers end-user capabilities focused on the domain model of Model Registry, like
   register a model, version a model, get a catalog of models, manage the deployment statutes of a model
 
 - Python SDK: Python SDK to interact with Model Registry. This tool can be used by a user to execute
