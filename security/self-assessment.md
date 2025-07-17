@@ -360,7 +360,7 @@ for a security audit.
 
 # Project Compliance
 
-Kubeflow projects don't not currently claim compliance with specific security standards
+Kubeflow projects do not currently claim compliance with specific security standards
 (e.g., PCI-DSS, ISO, GDPR). The Kubeflow projects follow open source and Kubernetes security best
 practices and is following the OpenSSF Best Practices. Kubeflow projects achieve the OpenSSF badges:
 
