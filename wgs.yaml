@@ -248,25 +248,25 @@ workinggroups:
   label: area/wg-ml-experience
   leadership:
     chairs:
+    - github: StefanoFioravanzo
+      name: Stefano Fioravanzo
+      company: Canonical
     - github: andreyvelich
       name: Andrey Velichkevich
       company: Apple
     - github: ederign
       name: Eder Ignatowicz
       company: Red Hat
-    - github: StefanoFioravanzo
-      name: Stefano Fioravanzo
-      company: Canonical
     tech_leads:
+    - github: StefanoFioravanzo
+      name: Stefano Fioravanzo
+      company: Canonical
     - github: andreyvelich
       name: Andrey Velichkevich
       company: Apple
     - github: ederign
       name: Eder Ignatowicz
       company: Red Hat
-    - github: StefanoFioravanzo
-      name: Stefano Fioravanzo
-      company: Canonical
   meetings: []
   contact:
     slack: https://cloud-native.slack.com/archives/C073W572LA2
@@ -365,15 +365,15 @@ workinggroups:
   label: area/wg-pipelines
   leadership:
     chairs:
-    - github: droctothorpe
-      name: Alexander Perlman
-      company: Capital One
-    - github: chensun
-      name: Chen Sun
-      company: Google
     - github: HumairAK
       name: Humair Khan
       company: Red Hat
+    - github: chensun
+      name: Chen Sun
+      company: Google
+    - github: droctothorpe
+      name: Alexander Perlman
+      company: Capital One
     - github: james-jwu
       name: James Wu
       company: Google
