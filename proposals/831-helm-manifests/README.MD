@@ -50,7 +50,7 @@ By making deployment easy, we attract more end users and foster collaboration wi
 
 
 ## Proposal
-This proposal introduces official Helm chart support for deploying Kubeflow. The goal is to provide a modular, community-maintained method for installing and managing Kubeflow, making it more accessible for users who prefer Helm over Kustomize-based manifests.
+This proposal introduces multiple official Helm Charts to deploy Kubeflow projects. The goal is to provide a modular, community-maintained method for installing and managing Kubeflow, making it more accessible for users who prefer Helm over Kustomize-based manifests.
 
 
 ## Desired Outcome
