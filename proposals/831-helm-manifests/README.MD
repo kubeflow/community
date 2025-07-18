@@ -27,7 +27,7 @@ By making deployment easy, we attract more end users and foster collaboration wi
 ## Value to the Community
 
 - Streamline the deployment, upgrade, and rollback of the kubeflow installation process
-- Provide another way to install Kubeflow to give the community more options, promoting flexibility and choice
+- Provide another way to install Kubeflow projects to give the community more options, promoting flexibility and choice
 
 ## Goals
 
