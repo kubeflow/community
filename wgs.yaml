@@ -365,28 +365,24 @@ workinggroups:
   label: area/wg-pipelines
   leadership:
     chairs:
-    - github: james-jwu
-      name: James Wu
-      company: Google
-    - github: kramachandran
-      name: Karthik Ramachandran
-      company: Google
-    - github: paveldournov
-      name: Pavel Dournov
-      company: Google
-    tech_leads:
-    - github: animeshsingh
-      name: Animesh Singh
-      company: IBM
+    - github: droctothorpe
+      name: Alexander Perlman
+      company: Capital One
     - github: chensun
       name: Chen Sun
       company: Google
-    - github: neuromage
-      name: Ajay
+    - github: HumairAK
+      name: Humair Khan
+      company: Red Hat
+    - github: james-jwu
+      name: James Wu
       company: Google
-    - github: rmgogogo
-      name: Renmin
-      company: Google
+    - github: mprahl
+      name: Matthew Prahl
+      company: Red Hat
+    - github: zazulam
+      name: Michael Zazula
+      company: Capital One
   meetings: []
   contact:
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
