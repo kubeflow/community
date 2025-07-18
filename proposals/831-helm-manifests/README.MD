@@ -83,7 +83,7 @@ The Helm chart will allow users to:
 ### Modularity and Customization
 
 
-* Verified Helm installations of the platform and individual components.
+* Verified Helm installations of the Kubeflow projects.
 * Flexibility demonstrated in community-reported use cases (e.g., deploying only the Training Operator).
 
 
