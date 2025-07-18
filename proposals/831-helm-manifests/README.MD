@@ -72,7 +72,7 @@ The Helm chart will allow users to:
 ### Adoption Metrics
 
 
-* Number of Helm chart downloads from the official Kubeflow repository.
+* Number of Helm chart downloads from the official Kubeflow repositories.
 * Community contributions to Helm chart improvements.
 * Ease of Use and Community Engagement.
 * Successful deployments reported by users via GitHub issues, Slack, and forums.
