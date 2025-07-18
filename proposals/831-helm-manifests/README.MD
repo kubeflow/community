@@ -11,7 +11,6 @@ The demand for a Helm chart for a basic Kubeflow installation has increased. Giv
 Currently, because Kubeflow/manifests only contains Kustomize but no Helm manifests, many potential users and companies that require Helm manifests due to company processes/policies have to rely on third-party options. While these options are valuable, they require engagement with adjacent projects and communities and often common improvents done in one fork do not reach and benefit the whole community.
 
 
-As a project, we must ensure that our Helm chart provides a quick and accessible way for users to deploy a complete Kubeflow platform and individual components, enabling them to manage their environments or adopt a vendor solution.
 
 
 Simplifying the Kubeflow deployment and customization lowers the barrier to entry, increases adoption, and encourages contributions. Just as Kubernetes enabled a new wave of cloud-native startups, a neutral, accessible deployment path can empower AI/ML startups to leverage tools like the Training Operator or Katib without reinventing common maintenance patterns. If support becomes burdensome, teams can obtain [commercial support](https://www.kubeflow.org/docs/started/support/).
