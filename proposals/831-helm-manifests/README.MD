@@ -13,7 +13,7 @@ Currently, because Kubeflow/manifests only contains Kustomize but no Helm manife
 
 
 
-Simplifying the Kubeflow deployment and customization lowers the barrier to entry, increases adoption, and encourages contributions. Just as Kubernetes enabled a new wave of cloud-native startups, a neutral, accessible deployment path can empower AI/ML startups to leverage tools like the Training Operator or Katib without reinventing common maintenance patterns. If support becomes burdensome, teams can obtain [commercial support](https://www.kubeflow.org/docs/started/support/).
+Simplifying the deployment and customization of Kubeflow lowers the barrier to entry, increases adoption, and encourages contributions. Just as Kubernetes enabled a new wave of cloud-native startups, a neutral, accessible deployment path can empower AI/ML startups to leverage tools like the Kubeflow Trainer or Katib without reinventing common maintenance patterns. If support becomes burdensome, teams can obtain [commercial support](https://www.kubeflow.org/docs/started/support/).
 
 
 By making deployment easy, we attract more end users and foster collaboration with broader communities like PyTorch, improving our implementations in service of their users.
