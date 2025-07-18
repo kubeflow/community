@@ -32,8 +32,9 @@ By making deployment easy, we attract more end users and foster collaboration wi
 ## Goals
 
 
-✅ A fully functional Kubeflow Helm chart for the targeted release. Users can install Kubeflow and subsets as a multi-tenant platform and also the individual projects as single-tenant without platform-level support.
-✅ The kustomize Manifests are still the single source of truth for the Helm manifests and they shall use the same CI/CD to make sure that they satisyfy the same requirements and the difference is negligible. Therefore they must be next to each other in the same repository for Kstomize and Helm manifests. After the initial PoC the Helm manifests should be upstreamed to the respective working groups and be maintained there and synchronized like the kustomize manifests.
+✅ Users can install Kubeflow projects in standalone and multi-tenant mode.
+✅ The kustomize Manifests are still the single source of truth for the Helm manifests and they shall use the same CI/CD to make sure that they satisfy the same requirements and the difference is negligible. Therefore they must be next to each other in the same repository for Kustomize and Helm manifests. After the initial PoC the Helm manifests should be upstreamed to the respective working groups and be maintained there and synchronized like the kustomize manifests.
+✅ Provide Helm Charts for Individual Kubeflow Tools
 ✅ Published Helm chart documentation with straightforward and uncomplicated configuration options.
 ✅ Contribution to the Kubeflow community effort for Helm-based installation as part of the official Kubeflow repository.   
 ✅ Where possible, rely on upstream Helm charts (i.e., Istio) instead of translating our own Kustomize manifests again.
