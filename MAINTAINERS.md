@@ -14,7 +14,7 @@ The members can be found in [the Kubeflow Outreach Committee charter](KUBEFLOW-O
 
 The members can be found in [the Kubeflow Working Group list](wgs.yaml).
 
-## Kubeflow Projects approvers and reviewers
+## Kubeflow Projects Approvers and Reviewers
 
 The Kubeflow projects approvers and reviewers can be found in the corresponding OWNERS files:
 
