@@ -2,7 +2,7 @@
 
 ## Summary
 
-Kubeflow manifests provide a fast way to deploy a minimal Kubeflow platform, with best-effort community support. For guaranteed assistance, users can opt for [commercial support](https://www.kubeflow.org/docs/started/support/). This approach extends to Helm support. Contributions and bug reports are encouraged, but no support will be guaranteed. The goal is to build a similar folder structure as we have for the current Kustomize manifests to rely on the existing CI/CD and have a signle source of truth. We also want to incorporate best-practices from Argo for Kubeflow Helm manifests.
+Kubeflow manifests provide a fast way to deploy Kubeflow projects, with best-effort community support. For guaranteed assistance, users can opt for [commercial support](https://www.kubeflow.org/docs/started/support/). This approach extends to Helm support. Contributions and bug reports are encouraged, but no support will be guaranteed. The goal is to build a similar folder structure as we have for the current Kustomize manifests to rely on the existing CI/CD and have a signle source of truth. We also want to incorporate best-practices from Argo for Kubeflow Helm manifests.
 
 ## Motivation
 
