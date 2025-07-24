@@ -259,7 +259,7 @@ Detailed information can be found here in the official
 - Spark Application submission: Users create SparkApplication CRDs, specifying configuration for the
   Spark Job.
 
-- Spark Operator controller automatically perform appropriate actions to orchestrate Spark job on
+- Spark Operator controller automatically performs appropriate actions to orchestrate Spark jobs on
   Kubernetes
 
 - Security and Access Control: Spark Operator leverages Kubernetes RBAC to ensure that user can
