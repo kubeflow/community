@@ -5,9 +5,6 @@ This document is a Kubeflow security self-assessment.
 Authors:
 
 - Kubeflow Community
-- Andrey Velichkevich ([@andreyvelich](https://github.com/andreyvelich))
-- Julius von Kohout ([@juliusvonkohout](https://github.com/juliusvonkohout))
-- Matteo Mortari ([@tarilabs](https://github.com/tarilabs))
 
 # Table of Contents
 
@@ -262,8 +259,9 @@ Detailed information can be found here in the official
 - Spark Operator controller automatically performs appropriate actions to orchestrate Spark jobs on
   Kubernetes
 
-- Security and Access Control: Spark Operator leverages Kubernetes RBAC to ensure that user can
-  manage Spark Applications.
+- Security and Access Control: Spark Operator leverages Kubernetes RBAC for Spark drivers and
+  executors. This allows administrators to define who can create, modify, or delete SparkApplications
+  and associated pods within the specific namespaces, enabling proper multi-tenant isolation.
 
 ### Kubeflow Notebooks
 
