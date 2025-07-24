@@ -133,7 +133,7 @@ Trainer manages model training and Kubeflow Spark Operator manages data processi
 ## Actors
 
 Kubeflow consists of **six** individual projects which allow organization to build end-to-end
-AI platforms. The following diagram show the AI lifecycle and role of Kubeflow projects:
+AI platforms. The following diagram shows the AI lifecycle and role of Kubeflow projects:
 
 ![ai-lifecycle](images/ai-lifecycle-kubeflow.drawio.svg)
 
