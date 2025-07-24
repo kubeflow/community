@@ -90,7 +90,7 @@ The go.mod file for each component can be found in the appropriate Kubeflow proj
 
 All Kubeflow container images can be found here: https://github.com/orgs/kubeflow/packages
 
-The SBOMs for any released Kubeflow container image can be accessible using the following command:
+The SBOMs for any released Kubeflow container image can be accessed using the following command:
 
 ```
 docker sbom ghcr.io/kubeflow/trainer/trainer-controller-manager:v2.0.0-rc.0
