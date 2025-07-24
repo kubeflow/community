@@ -256,7 +256,7 @@ Detailed information can be found here in the official
 
 ### Kubeflow Spark Operator
 
-- Spark Application submission: User creates SparkApplication CRDs, specifying configuration for the
+- Spark Application submission: Users create SparkApplication CRDs, specifying configuration for the
   Spark Job.
 
 - Spark Operator controller automatically perform appropriate actions to orchestrate Spark job on
