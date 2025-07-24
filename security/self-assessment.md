@@ -140,9 +140,7 @@ The actors for each Kubeflow project are explained in the following sections:
 
 ![spark-operator](images/spark-operator.png)
 
-- Spark Operator controller: controller that watches for events of SparkApplication CRDs and acts on
-  the watch events, a submission runner that runs Spark submit for submissions received from the
-  controller, a Spark pod monitor that watches for Spark pods and sends pod status updates to the controller.
+- Spark Operator controller: A controller that watches for events of SparkApplication CRDs and acts on the watch events. It includes a submission runner that runs Spark submit for submissions received from the controller, and a Spark pod monitor that watches for Spark pods and sends pod status updates to the controller.
 
 - Spark Mutating Webhook: a Mutating Admission Webhook that handles customizations for Spark driver
   and executor Pods based on the annotations on the Pods added by the controller.
