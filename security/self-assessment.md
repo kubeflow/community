@@ -4,7 +4,10 @@ This document is a Kubeflow security self-assessment.
 
 Authors:
 
+- Kubeflow Community
 - Andrey Velichkevich ([@andreyvelich](https://github.com/andreyvelich))
+- Julius von Kohout ([@juliusvonkohout](https://github.com/juliusvonkohout))
+- Matteo Mortari ([@tarilabs](https://github.com/tarilabs))
 
 # Table of Contents
 
@@ -95,10 +98,17 @@ docker sbom ghcr.io/kubeflow/trainer/trainer-controller-manager:v2.0.0-rc.0
 
 # Overview
 
-Kubeflow is the foundation of tools for AI platforms on Kubernetes. Kubeflow projects address
-each stage in [the AI lifecycle](https://www.kubeflow.org/docs/started/architecture/#introducing-the-ml-lifecycle)
-with support for best-in-class open source [tools and frameworks](https://www.kubeflow.org/docs/started/architecture/#kubeflow-ecosystem).
-Kubeflow projects make AI simple, scalable, and portable.
+[Kubeflow](https://www.kubeflow.org/) is the foundation of tools for AI Platforms on Kubernetes.
+
+AI platform teams can build on top of Kubeflow by using each project independently or deploying the
+entire AI reference platform to meet their specific needs. The Kubeflow AI reference platform is
+composable, modular, portable, and scalable, backed by an ecosystem of Kubernetes-native
+projects that cover every stage of the [AI lifecycle](https://www.kubeflow.org/docs/started/architecture/#kubeflow-projects-in-the-ai-lifecycle).
+
+Whether you’re an AI practitioner, a platform administrator, or a team of developers, Kubeflow
+offers modular, scalable, and extensible tools to support your AI use cases.
+
+Please refer to [the official documentation](https://www.kubeflow.org/docs/) for more information.
 
 ## Background
 
