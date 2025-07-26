@@ -80,9 +80,8 @@ Seats on the Outreach Committee are held by an individual, not by their employer
 
 The current membership of the committee is (listed alphabetically by first name):
 
-| Name                | Organization    | GitHub                                                     | 
-| ------------------- | --------------- | ---------------------------------------------------------  |  
-| Chase Christensen         | CentML    | [chasecadet](https://github.com/chasecadet/)               |              
+| Name                | Organization    | GitHub                                                     |
+| ------------------- | --------------- | ---------------------------------------------------------  |
 | Stefano Fioravanzo        | Canonical | [StefanoFioravanzo](https://github.com/StefanoFioravanzo/) |
 | Valentina Rodriguez Sosa  | Red Hat   | [varodrig](https://github.com/varodrig/)                   |        
           

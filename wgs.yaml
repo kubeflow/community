@@ -387,12 +387,11 @@ workinggroups:
   contact:
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
     teams:
-    - name: kubeflow-pipelines-maintainers
-      description: Kubeflow Pipelines Maintainers
+    - name: wg-pipeline-leads
+      description: Team of Pipeline Working Group leads
   subprojects:
   - name: kfp-tekton
     owners:
-    - animeshsingh
     - https://raw.githubusercontent.com/kubeflow/kfp-tekton/master/OWNERS
   - name: metadata
     owners:
