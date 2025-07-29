@@ -107,9 +107,6 @@ workinggroups:
     - github: johnugeorge
       name: Johnu George
       company: Nutanix
-    - github: tenzen-y
-      name: Yuki Iwai
-      company: CyberAgent, Inc.
   meetings:
   - description: Kubeflow AutoML Working Group Meeting (Asia & Europe friendly)
     day: Wednesday
