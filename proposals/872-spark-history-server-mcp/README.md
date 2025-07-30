@@ -25,6 +25,22 @@ The Spark History Server is essential for post-mortem analysis and performance o
 
 Kubeflow users running Spark workloads currently lack AI-powered troubleshooting capabilities. While the Spark Operator handles job lifecycle management, users must manually analyze Spark UI logs, metrics, and performance data when jobs fail or perform poorly.
 
+### Goals
+
+- **Enable Natural Language Spark Analysis**: Provide conversational AI interface for Spark troubleshooting and performance analysis
+- **Integrate with Kubeflow Ecosystem**: Seamlessly connect with existing Spark Operator and History Server infrastructure
+- **AI-Powered Insights**: Deliver intelligent recommendations for Spark job optimization and failure diagnosis
+- **Standardized AI Integration**: Implement Model Context Protocol (MCP) standard for consistent AI agent interactions
+- **Multi-Framework Support**: Enable compatibility with various AI tools (Claude, Amazon Q, LangGraph, etc.)
+
+### Non-Goals
+
+- **Replace Existing Monitoring**: Not intended to replace Spark UI, Grafana, or other established monitoring tools
+- **Real-time Job Monitoring**: Focus only on completed job analysis, not live job monitoring
+- **Modify Core Spark Components**: No changes to Spark History Server core functionality or Spark Operator
+- **Custom Spark Distribution**: Not creating a fork or custom version of Apache Spark
+- **Direct Database Access**: Will not bypass Spark History Server APIs or access event logs directly
+
 ### Problem Statement
 - Manual analysis of Spark performance issues is time-consuming
 - Lack of intelligent troubleshooting capabilities  
@@ -65,12 +81,117 @@ graph TB
     class SHS,SO spark
 ```
 
+
+## Kubeflow Checklist
+
+1.  Overlap with existing Kubeflow projects
+    - [ ] Yes (If so please list them)
+    - [x] No
+
+2. Manifest Integration
+    - [ ] Yes
+    - [x] No
+    - [ ] Planned
+
+3. Commitment to Kubeflow Conformance Program
+    - [x] Yes
+    - [ ] No
+    - [ ] Uncertain
+
+4. Installation
+    - [x] Standalone/Self-contained Component
+    - [ ] Part of Manifests
+    - [ ] Part of Distributions
+
+5. Installation Documentation (Current Quality)
+    - [x] Good
+    - [ ] Fair
+    - [ ] Part of Kubeflow
+
+6. CI/CD 
+    - [x] Yes
+    - [ ] No
+
+7. Release Process
+    - [ ] Automated
+    - [x] Semi-automated
+    - [ ] Not Automated
+
+8. Kubeflow Website Documentation
+    - [ ] Yes
+    - [x] No
+
+9. Blog/Social Media 
+    - [x] Yes
+    - [ ] No
+
+
 ##  How It Works
 
 - Users interact with AI tools to ask questions about Spark performance
 - Spark History Server MCP (this proposal) processes queries and fetches data from Spark History Server
 - Spark Operator continuously writes event logs to Spark History Server
 - MCP Server returns AI-powered analysis and recommendations to users
+
+## Design Details
+
+### Technical Architecture
+
+The Spark History Server MCP consists of the following key components:
+
+#### MCP Server Implementation
+- **Language**: TypeScript/Node.js for MCP protocol compatibility
+- **Protocol**: Model Context Protocol v1.0 specification
+- **Communication**: JSON-RPC 2.0 over stdio/WebSocket
+- **API Integration**: REST client for Spark History Server HTTP APIs
+
+#### Kubernetes Deployment
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spark-history-mcp-server
+  labels:
+    app.kubernetes.io/name: spark-history-mcp
+    app.kubernetes.io/component: mcp-server
+    app.kubernetes.io/part-of: kubeflow
+spec:
+  template:
+    spec:
+      containers:
+      - name: mcp-server
+        image: kubeflow/spark-history-mcp:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPARK_HISTORY_SERVER_URL
+          value: "http://spark-history-server:18080"
+```
+
+#### API Endpoints Utilized
+- `GET /api/v1/applications` - List all applications
+- `GET /api/v1/applications/{appId}/jobs` - Job details
+- `GET /api/v1/applications/{appId}/stages` - Stage information
+- `GET /api/v1/applications/{appId}/executors` - Executor metrics
+
+#### MCP Tools Exposed
+1. **`list_spark_applications`**: Retrieve all completed Spark applications
+2. **`analyze_application_performance`**: Analyze specific application metrics
+3. **`get_job_failures`**: Identify failed jobs and root causes  
+4. **`recommend_optimizations`**: AI-generated performance recommendations
+5. **`compare_applications`**: Compare performance across multiple runs
+
+### Integration Points
+
+#### With Kubeflow Spark Operator
+- **Event Log Access**: Reads logs written by Spark Operator jobs
+- **Namespace Isolation**: Respects Kubeflow profile-based access controls
+- **Job Metadata**: Correlates with SparkApplication CRs for enhanced context
+
+#### With AI Frameworks
+- **MCP Protocol**: Standard interface for Claude, Amazon Q, LangGraph
+- **Tool Discovery**: Dynamic tool registration and capability advertisement
+- **Context Management**: Maintains conversation state for complex analyses
 
 ## Benefits
 
@@ -140,6 +261,56 @@ While several Spark monitoring solutions exist, none provide the AI-powered natu
 - ✅ **Kubernetes Native**: Helm charts, production-ready deployment
 - ✅ **CI/CD**: Automated testing and release pipeline
 - ✅ **Security**: Security scanning and vulnerability management
+
+## Test Plan
+
+### Unit Tests
+- **MCP Protocol Compliance**: Test MCP server protocol implementation
+  - Tool registration and discovery
+  - JSON-RPC message handling
+  - Error response formatting
+- **Spark History Server Integration**: Mock API responses and validate parsing
+  - Application listing and filtering
+  - Performance metrics extraction
+  - Error handling for unavailable services
+- **AI Analysis Logic**: Test recommendation algorithms
+  - Performance bottleneck identification
+  - Resource optimization suggestions
+  - Failure pattern recognition
+
+**Target Coverage**: 90%+ code coverage for core MCP server functionality
+
+### Integration Tests
+- **End-to-End MCP Workflow**: 
+  - AI client connects to MCP server
+  - Query execution and response validation  
+  - Multi-turn conversation state management
+- **Kubeflow Integration**:
+  - Spark Operator job completion → History Server → MCP analysis
+  - Namespace isolation and RBAC compliance
+  - Profile-based access control validation
+- **Error Scenarios**:
+  - Spark History Server unavailable
+  - Malformed query handling
+  - Resource limitation testing
+
+### E2E Tests
+- **Production Workflow Simulation**:
+  - Deploy complete Kubeflow + Spark Operator + MCP stack
+  - Run sample Spark jobs with various performance characteristics
+  - Validate AI analysis accuracy against known issues
+- **Multi-Framework Compatibility**:
+  - Test with Claude, Amazon Q CLI, and LangGraph clients
+  - Verify consistent behavior across AI frameworks
+- **Scale Testing**:
+  - 100+ concurrent Spark applications in History Server
+  - Multiple simultaneous MCP client connections
+  - Performance benchmarking under load
+
+### Performance Requirements
+- **Response Time**: < 2 seconds for simple queries, < 10 seconds for complex analysis
+- **Throughput**: Support 50+ concurrent AI client connections
+- **Resource Usage**: < 1GB memory, < 0.5 CPU cores under normal load
 
 ## Implementation Timeline
 
