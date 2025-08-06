@@ -190,7 +190,7 @@ Detailed information can be found here in the official
 
 ### Kubeflow Trainer
 
-![trainer](images/trainer.png)
+![trainer](images/trainer.svg)
 
 - TrainingRuntime controller: controller that watches events of TrainingRuntime and
   ClusterTrainingRuntime CRDs. It is responsible to check whether runtime is unused and can be
@@ -224,15 +224,18 @@ Detailed information can be found here in the official
 Detailed information can be found here in the official
 [Kubeflow Model Registry docs](https://www.kubeflow.org/docs/components/model-registry/reference/architecture/).
 
-### Kubeflow Pipelines
+### Kubeflow Pipelines (KFP)
 
 ![pipelines](images/pipelines.png)
 
-- API Server: gRPC and HTTP API server that accept user requests to manage their ML pipelines.
+- KFP API Server: gRPC and HTTP API server that accept user requests to manage their ML pipelines.
   User connects to the API server via REST or KFP SDK.
 
-- Pipelines SQL DB: database that contains metadata about runs and pipelines. API Server writes
+- Pipelines SQL DB: database that contains metadata about runs and pipelines. KFP API Server writes
   data to this DB.
+
+- Persistent Agent: controller that watches for events of Workflow and ScheduledWorkflow CRDs.
+  It reports status to the KFP API Server.
 
 - Scheduler Workflow controller: controller that watches for events of ScheduledWorkflow CRDs.
   It creates runs for recurrent runs. When a recurrent run is created, controller is in charge of
@@ -240,12 +243,15 @@ Detailed information can be found here in the official
 
 - ML Metadata gRPC server: gRPC server that manage data in MLMD SQL database.
 
-- MLMD SQL DB: database that contains metadata around artifacts, executions, and lineage. All
-  pipeline pods send and receive data from MLMD.
+- External Integrations:
 
-- S3-complaint object store: object store that contains artifacts that launcher pods write.
+  - Argo Workflow controller to manage orchestration of Workflow CRDs.
+  - S3-complaint object store: object store that contains artifacts that launcher pods read and
+    write to.
+  - MLMD SQL DB: database that contains metadata around artifacts, executions, and lineage. All
+    pipeline pods send and receive data from MLMD. KFP UI also communicates with this database.
 
-- External Integrations: Argo Workflow controller to manage orchestration of Workflow CRDs.
+- Envoy Gateway: Support KFP UI -> MLMD reads via HTTP/1.0 using gRPC-web protocol.
 
 ## Actions
 
