@@ -2,7 +2,7 @@
 
 Here are the steps involved in setting up a new repository; there is more information in the sections below.
 
-Step 1-3 should be performed by admin for the Kubeflow org
+Steps 1-3 should be performed by an admin for the Kubeflow org
 
 1. Create the repository
 
@@ -13,9 +13,9 @@ Step 1-3 should be performed by admin for the Kubeflow org
 1. Create an OWNERS file at the root of the repository
 
     * Anyone can create the PR
-    * PR will need to be merged manually by Kubeflow org administrator
-	  * For more info on OWNERS files see [CONTRIBUTING.md](https://github.com/kubeflow/community/blob/master/CONTRIBUTING.md)
-    * After the OWNERs file is merged subsequent PRs can be automatically merged by Tide
+    * PR will need to be merged manually by a Kubeflow org administrator
+	  * For more info on OWNERS files, see [CONTRIBUTING.md](https://github.com/kubeflow/community/blob/master/CONTRIBUTING.md)
+    * After the OWNERs file is merged, subsequent PRs can be automatically merged by Tide
 
 1. Setup prow for the repository by following the instructions [below](#setup-prow)
 
@@ -39,15 +39,15 @@ We use [Prow](https://github.com/kubernetes/test-infra)
 
 1. Configure prow for the repository by following these [instructions](https://github.com/kubeflow/testing#setting-up-a-kubeflow-repository-to-use-prow-)
 
-  * Create a prow_config.yaml file with the following contents
+  * Create a prow_config.yaml file with the following contents:
 
   ```
   workflows: []
   ```
 
-  * This file is sufficient to ensure the prow jobs pass but doesn't run any actual tests.
+  * This file is sufficient to ensure the prow jobs pass, but doesn't run any actual tests.
 
-  * When you are ready to actually add E2E tests you can follow [adding basic e2e tests](https://github.com/kubeflow/testing#adding-an-e2e-test-for-a-new-repository) to add a basic E2E test
+  * When you are ready to actually add E2E tests, you can follow [adding basic e2e tests](https://github.com/kubeflow/testing#adding-an-e2e-test-for-a-new-repository) to add a basic E2E test
    for your repository 
 
   * See kubeflow/testing#11 for work creating generating tests for things like lint.
@@ -56,7 +56,7 @@ We use [Prow](https://github.com/kubernetes/test-infra)
 ## Repository configuration
 
 ### Repository Permissions
-When setting up permissions for a repository there a few things to note:
+When setting up permissions for a repository there are a few things to note:
 - When providing permissions for `Collaborators and teams`, only teams should be used.
 - Teams that should be added by default, with write access, are `ci-bots` and `core-approvers`. 
 
@@ -69,15 +69,15 @@ Make sure to enable the third-party apps used by the Kubeflow community.
 
 These apps include:
 - Reviewable
-    - For Reviewable, sign in with Github and in the `Repositories` tab, make sure to allow visibility to your other orgs. After the allowing `Kubeflow` you should be able to enable your repo.
+    - For Reviewable, sign in with Github and in the `Repositories` tab, make sure to allow visibility to your other orgs. After allowing `Kubeflow`, you should be able to enable your repo.
     - Click on the enabled repo in Reviewable and make sure to disable `Review status in GitHub PR` because this causes problems for prow https://github.com/kubernetes/test-infra/issues/7140
-- TravisCI
-    - For TravisCI, any administrator of the repo should be able to enable tests. Just follow the TravisCI [Getting Started Guide](https://docs.travis-ci.com/user/getting-started/).
+- Travis CI
+    - For Travis CI, any administrator of the repo should be able to enable tests. Just follow the Travis CI [Getting Started Guide](https://docs.travis-ci.com/user/getting-started/).
 - Coveralls
-    - For instructions on enabling coveralls and integrating with travis, you can follow [these](https://docs.travis-ci.com/user/coveralls/) instructions. If you aren't an org admin, you may need to request assistance in enabling coveralls.
+    - For instructions on enabling coveralls and integrating with Travis CI, you can follow [these](https://docs.travis-ci.com/user/coveralls/) instructions. If you aren't an org admin, you may need to request assistance in enabling coveralls.
 
 ### Branch Protections
-When setting up the repo, the `master` branch should be protected. Instructions on protection a branch can be found [here](https://help.github.com/articles/configuring-protected-branches/).
+When setting up the repo, the `master` branch should be protected. Instructions on protecting a branch can be found [here](https://help.github.com/articles/configuring-protected-branches/).
 
 A few things to note when setting up branch protection:
 - Enable `Protect this branch` to protect the code in the `master` branch.
