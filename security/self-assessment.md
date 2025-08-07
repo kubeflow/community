@@ -420,7 +420,7 @@ practices and is following the OpenSSF Best Practices. Kubeflow projects achieve
 
 - Kubeflow projects have a dedicated CNCF Slack channel `kubeflow-contributors` used for developer
   communication.
-- Kubeflow KSC has private mailing list for maintainers and users asks: `ksc@kubeflow.org`
+- Kubeflow KSC has a private mailing list for maintainers and user requests: `ksc@kubeflow.org`
 
 ### Inbound
 
