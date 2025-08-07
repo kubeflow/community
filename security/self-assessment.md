@@ -330,7 +330,7 @@ Detailed information can be found here in the official
   JAX, HuggingFace, DeepSpeed, XGboost, and others to run AI workloads.
 
 - **Advanced Orchestration Patterns**: Support advanced orchestration patterns such as gang-scheduling,
-  High-Performance Computing jobs, GPU cost optimization to run AI workloads.
+  High-Performance Computing jobs, and GPU cost optimization to run AI workloads.
 
 - **End-to-End GenAI on Kubernetes**: Provides simple APIs and interfaces for users to perform
   end-to-end GenAI use-cases including LLM fine-tuning, RAG, LLM optimizations, LLM inference,
