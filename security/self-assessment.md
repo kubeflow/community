@@ -342,7 +342,7 @@ Detailed information can be found here in the official
 ## Non-Goals
 
 - Kubeflow doesn't re-invent ML frameworks and packages (e.g. PyTorch, JAX).
-- Kubeflow is not replacement for GitOps systems like ArgoCD.
+- Kubeflow is not a replacement for GitOps systems like ArgoCD.
 - Kubeflow doesn't enforce a deployment method or distribution for Kubeflow projects.
 - Kubeflow does not manage the security of external dependencies or third-party plugins beyond
   standard Kubernetes best practices.
