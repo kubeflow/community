@@ -115,7 +115,7 @@ originally designed to support AI workloads. Some of the gaps including gang-sch
 management, monitoring, autoscaling, managing stateful workloads, often resulting in operational
 complexity and inefficiencies.
 
-Kubeflow projects addresses these challenges by creating Custom Resource Definitions (CRDs)
+Kubeflow projects address these challenges by creating Custom Resource Definitions (CRDs)
 on top of Kubernetes to orchestrate AI workloads for Data Processing, AI Development, Model Training,
 Model Optimization, ML Pipelines and MLOps governance. Additionally, Kubeflow offers variety of interfaces including
 Python SDK and web UIs which allow users to focus on their models rather than the underlying
