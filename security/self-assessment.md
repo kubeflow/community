@@ -229,7 +229,7 @@ Detailed information can be found here in the official
 ![pipelines](images/pipelines.png)
 
 - KFP API Server: A gRPC and HTTP API server that accepts user requests to manage their ML pipelines.
-  User connects to the API server via REST or KFP SDK.
+  Users connect to the API server via REST or KFP SDK.
 
 - Pipelines SQL DB: database that contains metadata about runs and pipelines. KFP API Server writes
   data to this DB.
