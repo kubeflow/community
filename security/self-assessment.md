@@ -341,7 +341,6 @@ Detailed information can be found here in the official
 
 ## Non-Goals
 
-- Target non-Kubernetes deployment systems.
 - Kubeflow doesn't re-invent ML frameworks and packages (e.g. PyTorch, JAX).
 - Kubeflow is not replacement for GitOps systems like ArgoCD.
 - Kubeflow doesn't enforce a deployment method or distribution for Kubeflow projects.
