@@ -253,6 +253,9 @@ Detailed information can be found here in the official
 
 - Envoy Gateway: Support KFP UI -> MLMD reads via HTTP/1.0 using gRPC-web protocol.
 
+- Launcher Pod: Runs user's code that was written in KFP SDK. It uses the images specified
+  by the user and it downloads Python packages from an external pip repository (e.g. PyPI).
+
 ## Actions
 
 ### Kubeflow Spark Operator
