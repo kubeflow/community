@@ -317,7 +317,7 @@ Detailed information can be found here in the official
 
 - **Foundation for AI Platforms on Kubernetes**: Kubeflow projects provide a standard, cloud native
   solution to build end-to-end AI platforms on Kubernetes. The Kubeflow tools are scalable and
-  composable which give organizations flexibility to adopt them.
+  composable which gives organizations flexibility to adopt them.
 
 - **Simplify Complexity**: Abstract the Kubernetes complexity for ML users to manage and scale AI
   workloads. Define Python-first experience for users, so they can focus on their models rather
