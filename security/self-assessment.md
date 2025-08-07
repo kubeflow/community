@@ -110,7 +110,7 @@ Please refer to [the official documentation](https://www.kubeflow.org/docs/) for
 ## Background
 
 Building AI platforms in cloud native environments poses many challenges given the uniqueness of
-AI workloads. While Kubernetes provides a robust foundation fo container orchestration, it was not
+AI workloads. While Kubernetes provides a robust foundation for container orchestration, it was not
 originally designed to support AI workloads. Some of the gaps including gang-scheduling, accelerator
 management, monitoring, autoscaling, managing stateful workloads, often resulting in operational
 complexity and inefficiencies.
