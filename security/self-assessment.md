@@ -238,7 +238,7 @@ Detailed information can be found here in the official
   It reports status to the KFP API Server.
 
 - Scheduler Workflow controller: controller that watches for events of ScheduledWorkflow CRDs.
-  It creates runs for recurrent runs. When a recurrent run is created, controller is in charge of
+  It creates runs for recurring runs. When a recurring run is created, the controller is in charge of
   creating the underlying Workflow CR at the scheduled times.
 
 - ML Metadata gRPC server: gRPC server that manage data in MLMD SQL database.
