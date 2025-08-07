@@ -124,7 +124,7 @@ complexities.
 Kubeflow is designed to be portable, extensible, and framework-agnostic. It offers pluggable
 architecture that allows platform engineers integrate their internal systems with Kubeflow tools.
 
-Every Kubeflow project is designed to address specific part of AI lifecycle. For example, Kubeflow
+Every Kubeflow project is designed to address specific parts of the AI lifecycle. For example, Kubeflow
 Trainer manages model training and Kubeflow Spark Operator manages data processing workloads.
 
 ## Actors
