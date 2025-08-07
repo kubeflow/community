@@ -439,7 +439,7 @@ practices and is following the OpenSSF Best Practices. Kubeflow projects achieve
 
 - Kubeflow users this Slack channel for announcements: `#kubeflow-announcements`
 
-- Kubeflow has dedicated mailing: `kubeflow-discuss@googlegroups.com`
+- Kubeflow has a dedicated mailing: `kubeflow-discuss@googlegroups.com`
 
 - Kubeflow also uses various social media:
 
