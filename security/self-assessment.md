@@ -76,14 +76,24 @@ Authors:
 
 # Software Bill of Materials
 
-The go.mod file for each component can be found in the appropriate Kubeflow projects:
+The package versions for each Kubeflow project can be found in the appropriate repositories:
 
-- https://github.com/kubeflow/spark-operator/blob/master/go.mod
-- https://github.com/kubeflow/notebooks/blob/notebooks-v2/workspaces/controller/go.mod
-- https://github.com/kubeflow/trainer/blob/master/go.mod
-- https://github.com/kubeflow/katib/blob/master/go.mod
-- https://github.com/kubeflow/model-registry/blob/main/go.mod, https://github.com/kubeflow/model-registry/blob/main/clients/python/pyproject.toml
-- https://github.com/kubeflow/pipelines/blob/master/go.mod
+- Kubeflow Spark Operator
+  - Go modules: https://github.com/kubeflow/spark-operator/blob/master/go.mod
+- Kubeflow Notebooks
+  - Go modules: https://github.com/kubeflow/notebooks/blob/notebooks-v2/workspaces/controller/go.mod
+- Kubeflow Trainer
+  - Go modules: https://github.com/kubeflow/trainer/blob/master/go.mod
+  - Python packages: https://github.com/kubeflow/sdk/blob/main/pyproject.toml
+- Kubeflow Katib
+  - Go modules: https://github.com/kubeflow/katib/blob/master/go.mod
+  - Python packages: https://github.com/kubeflow/katib/blob/master/sdk/python/v1beta1/setup.py
+- Kubeflow Model Registry
+  - Go modules: https://github.com/kubeflow/model-registry/blob/main/go.mod
+  - Python packages: https://github.com/kubeflow/model-registry/blob/main/clients/python/pyproject.toml
+- Kubeflow Pipelines
+  - Go modules: https://github.com/kubeflow/pipelines/blob/master/go.mod
+  - Python packages: https://github.com/kubeflow/pipelines/blob/master/sdk/python/requirements.txt
 
 All Kubeflow container images can be found here: https://github.com/orgs/kubeflow/packages
 
