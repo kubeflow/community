@@ -7,7 +7,9 @@
 
 ## Summary
 
-This proposal requests adoption of the Spark History Server MCP project into the Kubeflow ecosystem. The [Spark History Server](https://spark.apache.org/docs/latest/monitoring.html#web-uis) is [Apache Spark](https://spark.apache.org/docs/latest/index.html)'s built-in web UI service that provides access to information about completed Spark applications, including job execution details, stage performance, and task-level metrics. Our project provides a Model Context Protocol (MCP) server that enables AI agents to analyze this Spark application data through natural language queries, complementing the existing Kubeflow Spark Operator with intelligent observability capabilities.
+This proposal requests **donation and adoption** of the existing Spark History Server MCP project into the Kubeflow ecosystem. The [Spark History Server](https://spark.apache.org/docs/latest/monitoring.html#web-uis) is [Apache Spark](https://spark.apache.org/docs/latest/index.html)'s built-in web UI service that provides access to information about completed Spark applications, including job execution details, stage performance, and task-level metrics. 
+
+**Our fully developed and production-ready project** provides a Model Context Protocol (MCP) server that enables AI agents to analyze this Spark application data through natural language queries, complementing the existing Kubeflow Spark Operator with intelligent observability capabilities. The project is **mature with multiple releases** and is being donated to ensure community-driven maintenance and future enhancement within the Kubeflow ecosystem.
 
 ## What is Spark History Server?
 
@@ -81,6 +83,102 @@ graph TB
     class SHS,SO spark
 ```
 
+
+## CNCF Short Checklist
+
+### Vendor Neutrality Checklist
+- [x] All project metadata and resources are vendor-neutral
+- [x] Project branding and naming do not favor any specific vendor
+- [x] Documentation and examples use generic cloud/infrastructure references
+- [x] No vendor-specific lock-in in core functionality
+
+### Governance Structure
+- [x] OWNERS file with clear maintainer structure
+- [x] Transparent decision-making process
+- [x] Open community contribution model
+- [x] Code review requirements for all changes
+
+### Contributing Guides
+- [x] Comprehensive CONTRIBUTING.md documentation
+- [x] Clear code of conduct
+- [x] Development environment setup instructions
+- [x] Issue and pull request templates
+
+### Public List of Adopters
+- [x] ADOPTERS.md file tracking public usage
+- [x] Community feedback and testimonials
+- [x] Case studies and success stories
+- [x] Public community channels for support
+
+## Background Information
+
+### Project Submission Details
+- **Submitter Name**: Vara Bonthu
+- **Submitter's Relationship to Project**: Co-founder and Lead Maintainer, DeepDiagnostix AI
+- **Project Name**: Spark History Server MCP
+- **Submitter's Title**: Senior Software Engineer, DeepDiagnostix AI
+
+### Project's Value to Kubeflow Community
+- **First AI-Powered Data Observability Tool**: Introduces natural language interface for Spark troubleshooting, pioneering AI integration in Kubeflow's data processing stack
+- **Enhanced Developer Experience**: Transforms complex Spark performance analysis from manual UI navigation to conversational queries
+- **Community Knowledge Sharing**: AI-generated insights help distribute Spark optimization expertise across skill levels
+- **Foundation for Future AI Tools**: Establishes MCP protocol pattern for AI integration across other Kubeflow components
+
+### Benefits of Joining Kubeflow Community
+- **Ecosystem Integration**: Native integration with existing Spark Operator and History Server infrastructure
+- **Community Support**: Access to Kubeflow's extensive community for feedback, contributions, and adoption
+- **Standardization**: Alignment with Kubeflow's governance, security, and operational standards
+- **Visibility**: Increased adoption through Kubeflow's established user base and ecosystem
+- **Collaborative Development**: Contribution from Kubeflow community members and maintainers
+
+### Existing/Potential Kubeflow Core Component Integrations
+- **Kubeflow Spark Operator**: **Direct and immediate integration** with SparkApplication CRs and event logs - designed as a complementary tool that enhances existing Spark Operator deployments without requiring changes
+- **Kubeflow Profiles**: Full namespace isolation and RBAC compliance - works within existing Kubeflow security model
+- **Kubeflow Central Dashboard**: Potential future integration for AI-powered Spark insights accessible through the main Kubeflow interface
+- **Kubeflow Pipelines**: Future integration for ML pipeline Spark job analysis and optimization recommendations
+
+
+### License and Legal Status
+- **License Agreement**: Apache License 2.0 (CNCF compatible)
+- **Open Source Foundation Status**: Independent open source project, ready for CNCF contribution
+- **Trademark Status**: No existing trademark conflicts, ready for transition to Kubeflow governance
+- **Legal Profile**: Clean intellectual property with clear contributor agreements
+
+### Technical Details
+- **First Release Date**: August 2025 (v0.1.1 available)
+- **Current Repository**: https://github.com/DeepDiagnostix-AI/mcp-apache-spark-history-server
+- **Production Status**: Multiple releases with active production deployments
+- **Docker Image**: Published container images for Kubernetes deployment
+- **Helm Chart**: Production-ready Helm charts for easy installation
+- **Website**: Project documentation hosted on GitHub Pages
+- **CI/CD Infrastructure**: GitHub Actions with automated testing and release pipeline
+- **Security Profile**: Security scanning, vulnerability management, and RBAC integration
+
+### Community and Governance
+- **Project Meeting Times**: Monthly community calls every second Wednesday at 10 AM PST
+- **Meeting Notes**: Public meeting notes maintained in GitHub repository
+- **Governance Structure**: OWNERS-based governance with clear maintainer responsibilities
+- **Authorization Mechanisms**: Kubernetes RBAC integration with namespace isolation
+
+### Project Roadmap
+
+#### Donation and Integration Phase (Q3 2025)
+- **Repository Transfer**: Migrate from DeepDiagnostix-AI organization to kubeflow/spark-history-server-mcp
+- **Kubeflow Governance Setup**: Implement OWNERS files, contributor agreements, and community standards
+- **Container Registry Migration**: Transfer Docker images to Kubeflow-managed registries
+- **Helm Chart Integration**: Align with Kubeflow Spark Operator deployment patterns
+- **Documentation Migration**: Create Kubeflow website documentation and integration guides
+- **Community Onboarding**: Establish maintainer structure and contribution processes
+
+#### Post-Donation Enhancement (Q4 2025)
+- **Kubeflow Integration**: Deep integration with Spark Operator CRDs and event logs
+- **Enhanced AI Capabilities**: Community-driven feature development and multi-framework support
+- **Performance Optimization**: Scale testing and optimization for large Kubeflow deployments
+
+#### Long-term Vision (2026+)
+- **Template for AI Tools**: Establish pattern for AI-powered observability across Kubeflow ecosystem
+- **Integration with Additional Components**: Connect with Kubeflow Pipelines, Katib, and Central Dashboard
+- **Community-Driven Innovation**: Feature development guided by Kubeflow community needs
 
 ## Kubeflow Checklist
 
@@ -184,9 +282,12 @@ spec:
 ### Integration Points
 
 #### With Kubeflow Spark Operator
-- **Event Log Access**: Reads logs written by Spark Operator jobs
-- **Namespace Isolation**: Respects Kubeflow profile-based access controls
-- **Job Metadata**: Correlates with SparkApplication CRs for enhanced context
+- **Seamless Integration**: Designed to complement the existing Kubeflow Spark Operator workflow
+- **Event Log Access**: Reads logs written by Spark Operator jobs without modification to existing infrastructure
+- **Namespace Isolation**: Respects Kubeflow profile-based access controls and RBAC policies
+- **Job Metadata**: Correlates with SparkApplication CRs for enhanced context and cross-referencing
+- **Deployment Alignment**: Helm charts follow same patterns as Spark Operator for consistent installation experience
+- **Monitoring Integration**: Works alongside existing Spark Operator monitoring without conflicts
 
 #### With AI Frameworks
 - **MCP Protocol**: Standard interface for Claude, Amazon Q, LangGraph
@@ -248,9 +349,12 @@ While several Spark monitoring solutions exist, none provide the AI-powered natu
 ## Technical Implementation
 
 ### Current Project Status
-- **Repository**: https://github.com/DeepDiagnostix-AI/spark-history-server-mcp
+- **Repository**: https://github.com/DeepDiagnostix-AI/mcp-apache-spark-history-server
 - **License**: Apache License 2.0
 - **Contributors**: 4+ active developers
+- **Release Status**: Production-ready with v0.1.1 and multiple prior releases
+- **Deployment**: Docker images and Helm charts available for immediate use
+- **Community**: Active user base with production deployments
 
 
 ### Integration Requirements Met
@@ -312,12 +416,38 @@ While several Spark monitoring solutions exist, none provide the AI-powered natu
 - **Throughput**: Support 50+ concurrent AI client connections
 - **Resource Usage**: < 1GB memory, < 0.5 CPU cores under normal load
 
-## Implementation Timeline
+## Donation and Integration Timeline
 
-### Phase 1: Repository Migration (Target Date: End of July 2025)
-- Transfer repository to Kubeflow organization
-- Update documentation for Kubeflow integration
-- Establish Kubeflow-compatible governance structure
+### Why We're Donating This Project
+
+**Community-Driven Maintenance**: By donating to Kubeflow, we ensure the project benefits from community expertise, broader adoption, and sustainable long-term maintenance rather than being dependent on a single organization.
+
+**Ecosystem Integration**: Native integration with Kubeflow Spark Operator and other components will provide users with a seamless, cohesive experience for AI-powered Spark observability.
+
+**Standardization**: Alignment with Kubeflow's governance, security, and operational standards ensures enterprise-grade reliability and community trust.
+
+**Innovation Acceleration**: Community contributions will drive faster innovation and feature development than what a single organization can achieve.
+
+### Integration Process (Post-Acceptance)
+
+#### Phase 1: Repository and Asset Transfer (2-3 weeks)
+- **Repository Migration**: Transfer complete codebase from DeepDiagnostix-AI/mcp-apache-spark-history-server to kubeflow/spark-history-server-mcp
+- **Container Images**: Migrate Docker images to Kubeflow-managed container registries
+- **Helm Charts**: Transfer and align Helm deployment charts with Kubeflow standards
+- **Documentation**: Migrate existing documentation to Kubeflow website structure
+- **Release Assets**: Transfer all existing release artifacts and version history
+
+#### Phase 2: Kubeflow Governance Integration (1-2 weeks)  
+- **OWNERS Files**: Establish maintainer structure following Kubeflow governance model
+- **Community Standards**: Implement Kubeflow contributing guidelines, code of conduct, and issue templates
+- **CI/CD Migration**: Align build and release processes with Kubeflow automation standards
+- **Security Compliance**: Implement Kubeflow security scanning and vulnerability management
+
+#### Phase 3: First Kubeflow Release (1 week)
+- **Version Release**: Create first official Kubeflow-managed release incorporating governance changes
+- **Spark Operator Alignment**: Ensure deployment patterns align with existing Kubeflow Spark Operator
+- **Integration Testing**: Validate compatibility within Kubeflow ecosystem
+- **Community Announcement**: Official launch as Kubeflow component
 
 
 ## Community Validation
