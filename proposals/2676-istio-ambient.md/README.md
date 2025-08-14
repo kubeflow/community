@@ -85,7 +85,7 @@ To get the best performance out of ambient mode[^6][^7], services are enrolled t
 Similarly to the `kubeflow` namespace, all user namespaces are included in the mesh in order to enable authorization enforcement, while sidecars are disabled.
 
 ##### One waypoint per namespace
-User namespaces are secured via an AuthorizationPolicy that is created dynamically by kubeflow's `profile-controller`. Most of the rules in this AuthorizationPolicy have L7 features[^8]. In sidecar mode, this AuthorizationPolicy is enforced to all traffic in the namespace by having no `selector`. This is due to the nature of those namespaces, where services are created dynamically. In Istio ambient mode, the only way to enforce a namespace-wide L7 AuthorizationPolicy is by proxying traffic to the whole namespace through the waypoint and then attaching the AuthorizationPolicy to the waypoint. This results in the authorization rules being enforced for all traffic proxied by the waypoint. This means that **a separate waypoint needs to be deployed in every user namespace**.
+User namespaces are secured via an AuthorizationPolicy that is created dynamically by kubeflow's `profile-controller`. Most of the rules in this AuthorizationPolicy have L7 features[^8]. In sidecar mode, this AuthorizationPolicy is enforced to all traffic in the namespace by having no `selector`. This is due to the nature of those namespaces, where services are created dynamically. In Istio ambient mode, the only way to enforce a namespace-wide L7 AuthorizationPolicy is by proxying traffic to the whole namespace through the waypoint and then attaching the AuthorizationPolicy to the waypoint. This results in the authorization rules being enforced for all traffic proxied by the waypoint. This means that **a separate waypoint needs to be deployed in every user namespace**. For more information on this decision and the future of it, refer to the [corresponding section in the Notes/Constraints/Caveats part](#one-waypoint-per-namespace-1).
 
 #### 5. Diagram
 The following diagram outlines how requests will flow with the suggested setup. For more information how this design is achieved, refer to the design details section below.
@@ -98,13 +98,18 @@ This proposal supports all the same user stories already enabled by Kubeflow wit
 ### Notes/Constraints/Caveats
 
 #### One waypoint per namespace
-Apparently, deploying one waypoint per namespace adds a resource overhead for every user namespace, while it also reduces network efficiency for requests to that namespace. As mentioned above, this architecture is required by Istio's ambient model to enforce namespace-wide L7 AuthorizationPolicies. Since the `profile-controller` creates a default policy with L7 rules  (e.g. path or headers based), one waypoint must correspond only to one namespace. The same Authorization model is not possible using a single cross-namespace waypoint. [Asking in Istio slack](https://istio.slack.com/archives/C041EQL1XMY/p1751905575407449?thread_ts=1751636618.350839&cid=C041EQL1XMY), they confirmed that:
+##### Issue
+Apparently, deploying one waypoint per namespace adds a resource overhead for every user namespace. As mentioned above, this architecture is required by Istio's ambient model to enforce namespace-wide L7 AuthorizationPolicies. Since the `profile-controller` creates a default policy with L7 rules  (e.g. path or headers based), one waypoint must correspond only to one namespace. The same Authorization model is not possible using a single cross-namespace waypoint. [Asking in Istio slack](https://istio.slack.com/archives/C041EQL1XMY/p1751905575407449?thread_ts=1751636618.350839&cid=C041EQL1XMY), they confirmed that:
 >Typically, the authorization policy would be applied to a service so the destination would be "the thing my policy is attached to".
 >...
 >I don't think there is a shorthand expression for "all services in X namespace".
 
-This leaves no other way to enforce an L7 AuthorizationPolicy to all services in a namespace, where services are being created dynamically.
+##### Future
+This limitation was brought up and discussed in the Istio community meeting. It looks like they don't see any blockers to implementing such feature. It was not an intentional omission, just something that hasn't been implemented or decided on. There was nothing brought up that was a hard blocker, just challenges to overcome. Howver, implementing this would be a big effort, so before they actually action it they'd want to see more than a single person requesting the feature. This feature is requested via https://github.com/istio/istio.io/issues/16781. Next steps for this are:
+1. Get more consensus/demand, which can only be done by getting more people to use the ambient overlay (at least from Kubeflow's side)
+2. Bring it up again in a future community meeting once the demand is obvious
 
+##### Cases affected
 Note that the introduced resource overhead affects cases with a large number of **idle** namespaces. For namespaces that are being actively used, the resource footprint is still greatly reduced, given that there are no sidecar containers injected.
 
 #### KServe compatibility with Ambient mesh
