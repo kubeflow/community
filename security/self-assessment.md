@@ -81,7 +81,7 @@ The package versions for each Kubeflow project can be found in the appropriate r
 - Kubeflow Spark Operator
   - Go modules: https://github.com/kubeflow/spark-operator/blob/master/go.mod
 - Kubeflow Notebooks
-  - Go modules: https://github.com/kubeflow/notebooks/blob/notebooks-v2/workspaces/controller/go.mod
+  - Go modules: https://github.com/kubeflow/notebooks/blob/notebooks-v1/components/notebook-controller/go.mod
 - Kubeflow Trainer
   - Go modules: https://github.com/kubeflow/trainer/blob/master/go.mod
   - Python packages: https://github.com/kubeflow/sdk/blob/main/pyproject.toml
