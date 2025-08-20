@@ -8,15 +8,13 @@ To understand how this file is generated, see https://github.com/kubeflow/commun
 --->
 # Data Working Group
 
-The WG "Data" is focused on enhancing the support for data and metadata-related tasks within Kubeflow, with a specific focus on the Spark operator, Feast and Model Registry. The group aims to simplify and improve data and feature processing between various stages of ML lifecycle. For example, from Data Preparation to model training and fine-tuning. The group also aims to facilitate the ML model's metadata management, while ensuring seamless integration with other Kubeflow components. The goal of Spark on Kubernetes Operator is to simplify the capability of running Apache Spark on Kubernetes. It automates deployment and simplifies lifecycle management of Spark Jobs on Kubernetes. The goal of Model Registry is gather, analyze, and develop model registry requirements of Kubeflow community users. The goal of Feast is to provide a customizable, operational data system that enables ML Platform Engineers, Machine Learning Engineers, and Data Scientists to accelerate production machine learning.
+The WG "Data" is focused on enhancing the support for data/metadata-related tasks within Kubeflow, with a specific focus on the Spark operato and Model Registry. The group aims to simplify and improve data processing between various stages of ML lifecycle. For example, from Data Preparation to model training and fine-tuning. The group also aims to facilitate the ML model's metadata management, while ensuring seamless integration with other Kubeflow components. The goal of Spark on Kubernetes Operator is to simplify the capability of running Apache Spark on Kubernetes. It automates deployment and simplifies lifecycle management of Spark Jobs on Kubernetes. The goal of Model Registry is gather, analyze, and develop model registry requirements of Kubeflow community users.
 
 The [charter](charter.md) defines the scope and governance of the Data Working Group.
 
 ## Meetings
 * KF Model Registry community meeting (US/EMEA): [Mondays at 7:00PM-8:00PM Europe/Madrid]() (biweely - every other Monday of the month). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=7:00PM-8:00PM&tz=Europe%2FMadrid).
   * [Meeting notes and Agenda](https://docs.google.com/document/d/1DmMhcae081SItH19gSqBpFtPfbkr9dFhSMCgs-JKzNo/edit?usp=sharing).
-* The Feast community meeting (US/EMEA): [Tuesdays at 8:00PM-9:00PM Europe/Madrid]() (biweely - every other Tuesday of the month). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=8:00PM-9:00PM&tz=Europe%2FMadrid).
-  * [Meeting notes and Agenda](https://docs.google.com/document/d/1MqNNhPCi1vvcYv71j3N0uBb4qIbl2ikaFO8tKohu12I/edit#heading=h.6js8vamr57ls).
 
 ## Organizers
 
