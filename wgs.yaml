@@ -173,12 +173,17 @@ workinggroups:
       name: Matteo Mortari
       company: Red Hat
   meetings:
-  - description: KF Model Registry community meeting (US/EMEA)
+  - description: "KF Model Registry community meeting (US/EMEA)" # id: kf041
     day: Monday
     time: 7:00PM-8:00PM
     tz: Europe/Madrid
     frequency: biweely - every other Monday of the month
     archive_url: https://docs.google.com/document/d/1DmMhcae081SItH19gSqBpFtPfbkr9dFhSMCgs-JKzNo/edit?usp=sharing
+  - description: "Kubeflow Spark Operator Meeting" # id: kf042
+    day: Friday
+    time: 8:00AM-9:00AM
+    frequency: biweely - every other Friday of the month
+    archive_url: https://bit.ly/3VGzP4n
   contact:
     slack: https://www.kubeflow.org/docs/about/community/#slack-channels
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
