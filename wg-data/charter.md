@@ -4,7 +4,7 @@ This charter adheres to the conventions, roles, and organisation management outl
 
 ## Scope
 
-The WG "Data" is focused on enhancing the support for data/metadata-related tasks within Kubeflow, with a specific focus on the [Spark operator](https://github.com/kubeflow/community/pull/672) and [Model Registry](https://github.com/kubeflow/kubeflow/issues/7396).
+The WG "Data" is focused on enhancing the support for data/metadata-related tasks within Kubeflow, with a specific focus on the [Spark Operator](https://github.com/kubeflow/community/pull/672) and [Model Registry](https://github.com/kubeflow/kubeflow/issues/7396).
 The group aims to simplify and improve data processing between various stages of ML lifecycle. For example, from Data Preparation to model training and fine-tuning.
 The group also aims to facilitate the ML model's metadata management, while ensuring seamless integration with other Kubeflow components.
 
