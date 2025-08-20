@@ -180,7 +180,7 @@ workinggroups:
     frequency: biweely - every other Monday of the month
     archive_url: https://docs.google.com/document/d/1DmMhcae081SItH19gSqBpFtPfbkr9dFhSMCgs-JKzNo/edit?usp=sharing
   contact:
-    slack: https://cloud-native.slack.com/archives/C073W572LA2
+    slack: https://www.kubeflow.org/docs/about/community/#slack-channels
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
     teams:
     - name: wg-data-leads
