@@ -16,17 +16,19 @@ The [charter](charter.md) defines the scope and governance of the Pipelines Work
 
 ## Organizers
 
+* Humair Khan (**[@HumairAK](https://github.com/HumairAK)**), Red Hat
+* Chen Sun (**[@chensun](https://github.com/chensun)**), Google
+* Alexander Perlman (**[@droctothorpe](https://github.com/droctothorpe)**), Capital One
 * James Wu (**[@james-jwu](https://github.com/james-jwu)**), Google
-* Karthik Ramachandran (**[@kramachandran](https://github.com/kramachandran)**), Google
-* Pavel Dournov (**[@paveldournov](https://github.com/paveldournov)**), Google
+* Matthew Prahl (**[@mprahl](https://github.com/mprahl)**), Red Hat
+* Michael Zazula (**[@zazulam](https://github.com/zazulam)**), Capital One
 
 ## Contact
 - Slack: [#](https://kubeflow.slack.com/messages/)
 - [Mailing list](https://groups.google.com/forum/#!forum/kubeflow-discuss)
 - [Open Community Issues/PRs](https://github.com/kubeflow/community/labels/wg%2Farea/wg-pipelines)
 - GitHub Teams:
-    - [@kubeflow/wg-pipelines-bugs](https://github.com/orgs/kubeflow/teams/wg-pipelines-bugs) - Bug Triage and Troubleshooting
-    - [@kubeflow/wg-pipelines-reviews](https://github.com/orgs/kubeflow/teams/wg-pipelines-reviews) - API Changes and Reviews (API Machinery APIs, NOT all APIs)
+    - [@kubeflow/wg-pipeline-leads](https://github.com/orgs/kubeflow/teams/wg-pipeline-leads) - Team of Pipeline Working Group leads
 <!-- BEGIN CUSTOM CONTENT -->
 
 <!-- END CUSTOM CONTENT -->

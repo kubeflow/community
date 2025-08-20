@@ -10,7 +10,6 @@ aliases:
     - andreyvelich
     - gaocegege
     - johnugeorge
-    - tenzen-y
   wg-data-leads:
     - ChenYi015
     - andreyvelich
@@ -26,6 +25,10 @@ aliases:
   wg-manifests-leads:
     - juliusvonkohout
     - kimwnasptd
+  wg-ml-experience-leads:
+    - StefanoFioravanzo
+    - andreyvelich
+    - ederign
   wg-notebooks-leads:
     - StefanoFioravanzo
     - elikatsis
@@ -33,13 +36,12 @@ aliases:
     - thesuperzapper
     - yanniszark
   wg-pipelines-leads:
-    - animeshsingh
+    - HumairAK
     - chensun
+    - droctothorpe
     - james-jwu
-    - kramachandran
-    - neuromage
-    - paveldournov
-    - rmgogogo
+    - mprahl
+    - zazulam
   wg-serving-leads:
     - animeshsingh
     - cliveseldon

@@ -1,6 +1,12 @@
 approvers:
   - andreyvelich
-  - james-jwu
-  - jbottum
+  - franciscojavierarceo
+  - juliusvonkohout
   - johnugeorge
   - terrytangyuan
+
+  
+emeritus_approvers:
+  - james-jwu
+  - jbottum
+

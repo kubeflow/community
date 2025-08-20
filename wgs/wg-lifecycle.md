@@ -72,9 +72,9 @@ Sometimes it might be necessary to sunset a SIG or Working Group. SIGs/WGs may a
 - [ ] Delete your shared WG calendar
 - [ ] Move the existing WG directory into the archive in `kubeflow/community`
 - [ ] GitHub archiving/removing/other transactions:
-   - [ ] Move all appropriate github repositories to an appropriate archive or a repo outside of the Kubernetes org
+   - [ ] Move all appropriate github repositories to an appropriate archive or a repo outside of the Kubeflow org
    - [ ] Each subproject a WG owns must transfer ownership to a new WG, outside the project, or be retired
-   - [ ] File an issue with kubernetes/org if there are multiple repos
+   - [ ] File an issue with kubeflow/org if there are multiple repos
    - [ ] Retire or transfer any test-infra jobs or testgrid dashboards, if applicable, owned by the WG.
    - [ ] Migrate/Remove/Deprecate any SIG/WG labels in labels.yaml
    - [ ] Remove or rename any GitHub teams that refer to the WG
@@ -90,7 +90,7 @@ Sometimes it might be necessary to sunset a SIG or Working Group. SIGs/WGs may a
 [wg-governance.md]: wg-governance.md
 [WG charter process]: wg-charter
 [wgs.yaml]: /templates/wgs.yaml
-[generator doc]: https://github.com/kubernetes/community/tree/master/generator
+[generator doc]: https://github.com/kubeflow/community/tree/master/generator
 [GitHub management]: https://github.com/kubeflow/community/blob/master/how-to/github_admin.md
 [code of conduct]: https://github.com/kubeflow/community/blob/master/CODE_OF_CONDUCT.md
 [GoogleGroups]: https://github.com/kubeflow/community/blob/master/how-to/kubeflow_assets.md#mailing-list

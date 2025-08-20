@@ -107,9 +107,6 @@ workinggroups:
     - github: johnugeorge
       name: Johnu George
       company: Nutanix
-    - github: tenzen-y
-      name: Yuki Iwai
-      company: CyberAgent, Inc.
   meetings:
   - description: Kubeflow AutoML Working Group Meeting (Asia & Europe friendly)
     day: Wednesday
@@ -295,6 +292,45 @@ workinggroups:
   - name: manifests
     owners:
     - https://raw.githubusercontent.com/kubeflow/manifests/master/OWNERS
+- dir: wg-ml-experience
+  name: ML Experience
+  mission_statement: >
+    The ML Experience Working Group focuses on developing, maintaining, and improving
+    tools and  extensions that support data science and machine learning practitioners
+    workflows within Kubeflow. The group is dedicated to delivering a high-level,
+    seamless experience integrated with the IDE of choice across multiple Kubeflow
+    components.
+
+  charter_link: charter.md
+  label: area/wg-ml-experience
+  leadership:
+    chairs:
+    - github: StefanoFioravanzo
+      name: Stefano Fioravanzo
+      company: Canonical
+    - github: andreyvelich
+      name: Andrey Velichkevich
+      company: Apple
+    - github: ederign
+      name: Eder Ignatowicz
+      company: Red Hat
+    tech_leads:
+    - github: StefanoFioravanzo
+      name: Stefano Fioravanzo
+      company: Canonical
+    - github: andreyvelich
+      name: Andrey Velichkevich
+      company: Apple
+    - github: ederign
+      name: Eder Ignatowicz
+      company: Red Hat
+  meetings: []
+  contact:
+    slack: https://cloud-native.slack.com/archives/C073W572LA2
+    mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
+    teams:
+    - name: wg-ml-experience-leads
+      description: Team of ML Experience Group leads
 - dir: wg-notebooks
   name: Notebooks
   mission_statement: >
@@ -307,7 +343,7 @@ workinggroups:
     chairs:
     - github: StefanoFioravanzo
       name: Stefano Fioravanzo
-      company: Arrikto
+      company: Canonical
     - github: elikatsis
       name: Ilias Katsakioris
       company: Arrikto
@@ -322,7 +358,7 @@ workinggroups:
     tech_leads:
     - github: StefanoFioravanzo
       name: Stefano Fioravanzo
-      company: Arrikto
+      company: Canonical
     - github: elikatsis
       name: Ilias Katsakioris
       company: Arrikto
@@ -386,40 +422,33 @@ workinggroups:
   label: area/wg-pipelines
   leadership:
     chairs:
-    - github: james-jwu
-      name: James Wu
-      company: Google
-    - github: kramachandran
-      name: Karthik Ramachandran
-      company: Google
-    - github: paveldournov
-      name: Pavel Dournov
-      company: Google
-    tech_leads:
-    - github: animeshsingh
-      name: Animesh Singh
-      company: IBM
+    - github: HumairAK
+      name: Humair Khan
+      company: Red Hat
     - github: chensun
       name: Chen Sun
       company: Google
-    - github: neuromage
-      name: Ajay
+    - github: droctothorpe
+      name: Alexander Perlman
+      company: Capital One
+    - github: james-jwu
+      name: James Wu
       company: Google
-    - github: rmgogogo
-      name: Renmin
-      company: Google
+    - github: mprahl
+      name: Matthew Prahl
+      company: Red Hat
+    - github: zazulam
+      name: Michael Zazula
+      company: Capital One
   meetings: []
   contact:
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
     teams:
-    - name: wg-pipelines-bugs
-      description: Bug Triage and Troubleshooting
-    - name: wg-pipelines-reviews
-      description: API Changes and Reviews (API Machinery APIs, NOT all APIs)
+    - name: wg-pipeline-leads
+      description: Team of Pipeline Working Group leads
   subprojects:
   - name: kfp-tekton
     owners:
-    - animeshsingh
     - https://raw.githubusercontent.com/kubeflow/kfp-tekton/master/OWNERS
   - name: metadata
     owners:
