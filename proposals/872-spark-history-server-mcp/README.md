@@ -311,6 +311,16 @@ spec:
 - **Knowledge Sharing**: AI-generated insights help spread Spark optimization expertise across the community
 - **Foundation for Future Tools**: Creates template for AI-powered tools across other Kubeflow data processing frameworks
 
+## AWS Community Support Pledge
+
+The AWS Open Source team commits to continuing support and building the community around the Spark History Server MCP within the Kubeflow ecosystem. From the AWS Open Source team, Vara Bonthu, Manabu McCloskey, and the AWS Data Processing Service team will continue to support and build the community. This commitment includes:
+
+- **Ongoing Community Building**: AWS will continue to support and grow the contributor community until it is ready for complete community ownership
+- **Gradual Handover**: AWS will transition maintenance responsibilities once the community demonstrates readiness to take over completely
+- **Vendor-Neutral Development**: As a vendor-neutral open source solution, this project is designed to attract participation from multiple cloud providers and users across the ecosystem
+
+This approach ensures sustainable community growth while maintaining the project's vendor-neutral foundation that welcomes contributions from all cloud providers and users.
+
 ## Maintainers
 
 **Initial Maintainers:**
