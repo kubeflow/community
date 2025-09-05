@@ -751,7 +751,7 @@ The command will cleanup all CRDs and control plane deployment. Since Kubeflow C
 actual CRDs. For example:
 
 ```sh
-kubectl delete trainjob –all –all-namespaces`
+kubectl delete trainjob --all --all-namespaces
 ```
 
 Check [this guide to cleanup](https://github.com/kubeflow/manifests/blob/master/README.md#upgrading-and-extending)
@@ -812,7 +812,7 @@ can list deployed Kubeflow CRDs across all namespaces.
 For example, to list all TrainJob from Kubeflow Trainer run:
 
 ```sh
-kubectl get trainjob –all-namespaces
+kubectl get trainjob --all-namespaces
 ```
 
 The core controllers and resources are constant (beyond replicating specific controllers),
