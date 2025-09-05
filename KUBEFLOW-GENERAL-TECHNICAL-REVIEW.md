@@ -73,13 +73,13 @@ For more information, check ROADMAP for each Kubeflow Project:
 Community-wide changes are proposed as [Kubeflow Enhancement proposals (KEPs)](https://github.com/kubeflow/community/tree/master/proposals)
 in the `kubeflow/community` repository or in the [Kubeflow sub-projects KEPs](https://github.com/kubeflow/trainer/tree/master/docs/proposals).
 
-#### Describe the target persona or user(s) for the project?
+#### Describe the target persona or user(s) for the project
 
 1. Users: Data Scientists, ML Engineer, AI Practitioners, Data Engineers, AI Practitioners.
 2. Operators: MLOps Engineers, AIOps engineers, Platform Engineers, AI Platform Engineers.
 3. Vendors: Vendors and projects building Kubernetes based AI Platform products.
 
-#### Explain the primary use case for the project. What additional use cases are supported by the project?
+#### Explain the primary use case for the project. What additional use cases are supported by the project
 
 The goal of Kubeflow is to run Cloud Native AI workloads for every stage in AI lifecycle. By
 using Kubeflow projects users can develop and deploy AI applications.
@@ -166,7 +166,7 @@ Here are some results from previous years.
 
 ### Usability
 
-#### How should your target personas interact with your project?
+#### How should your target personas interact with your project
 
 AI Practitioner - Kubeflow SDK, Kubeflow UIs
 
@@ -177,7 +177,7 @@ or Kustomize manifests predefined and available in the Kubeflow documentation fr
 - [How to install Kubeflow projects](https://www.kubeflow.org/docs/started/installing-kubeflow/).
 - [How to contribute to Kubeflow](https://www.kubeflow.org/docs/about/contributing/).
 
-#### Describe the user experience (UX) and user interface (UI) of the project.
+#### Describe the user experience (UX) and user interface (UI) of the project
 
 Kubeflow user experience in each project is a collection of projects, the user experience for the
 projects are each with their own [interfaces, APIs and SDKs](https://www.kubeflow.org/docs/started/architecture/#kubeflow-interfaces).
@@ -293,7 +293,7 @@ to manage contributors of profiles (namespaces) that you own.
 
 More information can be found [in the Kubeflow Dashboard docs](https://www.kubeflow.org/docs/components/central-dash/overview/).
 
-#### Describe how this project integrates with other projects in a production environment.
+#### Describe how this project integrates with other projects in a production environment
 
 All Kubeflow projects are Kubernetes native and so fit into the wider ecosystem of Kubernetes
 based tools. Kubeflow projects extensively use tools from the cloud native ecosystem,
@@ -340,7 +340,7 @@ resources and projects:
 
 ### Design
 
-#### Explain the design principles and best practices the project is following.
+#### Explain the design principles and best practices the project is following
 
 - Loosely Coupled and Distributable Services
   - Built as modular, independent microservices that can scale and evolve.
@@ -380,12 +380,12 @@ guidance on their GitHub repositories:
 For the new features every Kubeflow project follows
 [the KEP guidelines](https://github.com/kubeflow/community/tree/master/proposals#kep-format-to-propose-and-document-enhancements-to-kubeflow)
 
-#### Outline or link to the project’s architecture requirements?
+#### Outline or link to the project’s architecture requirements
 
 We do follow the same practices as Kubernetes for APIs, with alpha, beta, and stable status of APIs.
 Details [are described here](https://www.kubeflow.org/docs/started/support/#component-status).
 
-#### Define any specific service dependencies the project relies on in the cluster.
+#### Define any specific service dependencies the project relies on in the cluster
 
 The following projects are required to install Kubeflow projects:
 
@@ -399,7 +399,7 @@ Specific projects have other dependencies:
 - Kubeflow Katib: MySQL>=v8.0
 - Kubeflow Model Registry: MySQL>=v8.0
 
-#### Describe how the project implements Identity and Access Management.
+#### Describe how the project implements Identity and Access Management
 
 Kubeflow projects use a pluggable system of IAM that connects back to Kubernetes IAM in most cases.
 As a reference implementation, the optional Kubeflow Manifests/Dashboard components use the
@@ -415,7 +415,7 @@ General security Talks about Kubeflow including an architectural introduction:
 - [Kubeflow Summit 2023 Security Working Group Update](https://youtu.be/XKHVt2yxQFo).
 - [Blog Hardening Kubeflow Security for Enterprise Environments](https://blogs.vmware.com/opensource/2023/06/20/hardening-kubeflow-security-for-enterprise-environments-2/).
 
-#### Describe how the project has addressed sovereignty.
+#### Describe how the project has addressed sovereignty
 
 Kubeflow’s projects can be self-hosted on any Kubernetes cluster, including air-gapped environments,
 which is critical for those organizations using disconnected environments. Additionally,
@@ -429,19 +429,19 @@ profiles, which allows simplifying the permission management.
 
 In terms of data management, data sovereignty is managed by those who deploy or package the projects.
 
-#### Describe any compliance requirements addressed by the project.
+#### Describe any compliance requirements addressed by the project
 
 Kubeflow projects are extensible which allows users to fit their internal compliance requirements.
 As a result, specific common compliance frameworks (SOC-2, GDPR, etc.) are the responsibility of
 end users and vendors. However, we aim to provide a strong foundation through reference architectures
 similar things from which to build on.
 
-#### Describe the project’s High Availability requirements.
+#### Describe the project’s High Availability requirements
 
 The end users can adjust the replicas. Kubeflow project controllers support leader election,
 [for example Kubeflow Trainer](https://github.com/kubeflow/trainer/blob/master/cmd/trainer-controller-manager/main.go#L80).
 
-#### Describe the project’s resource requirements, including CPU, Network and Memory.
+#### Describe the project’s resource requirements, including CPU, Network and Memory
 
 The following table shows the resource requirements for each Kubeflow project, calculated as the
 maximum of actual usage and configured requests for CPU/memory, plus storage requirements from PVCs:
@@ -464,13 +464,13 @@ The maximum looks hefty so rather consider in general the maximum (manifest requ
 | Kubeflow Trainer        | 3m          | 25Mi        | 0GB          |
 | **Total**               | **4535m**   | **12943Mi** | **139GB**    |
 
-#### Describe the project’s storage requirements, including its use of ephemeral and/or persistent storage.
+#### Describe the project’s storage requirements, including its use of ephemeral and/or persistent storage
 
 Each project can configure storage in different ways. This is also true of the manifests which
 configure storage for a collection of projects.
 This [can be seen here](https://github.com/kubeflow/manifests/pull/3091).
 
-#### Please outline the project’s API Design:
+#### Please outline the project’s API Design
 
 Various Kubeflow projects offer APIs and Python SDKs. See the following sets of reference documentation:
 
@@ -488,7 +488,7 @@ Kubeflow CRDs are following Kubernetes best practices for
 
 [Kubeflow APIs and SDKs documentation](https://www.kubeflow.org/docs/started/architecture/#kubeflow-apis-and-sdks).
 
-#### Describe the project defaults.
+#### Describe the project defaults
 
 Some defaults can be seen [in the Kubeflow manifests](https://github.com/kubeflow/manifests#installation).
 
@@ -517,7 +517,7 @@ Kubeflow follows the same practice for [API compatibility as Kubernetes](https:/
 Many Kubeflow projects use Kubernetes CRDs, and for these resources follows
 [the same deprecation policy as Kubernetes](https://kubernetes.io/docs/reference/using-api/deprecation-policy/).
 
-#### Describe the project’s release processes, including major, minor and patch releases.
+#### Describe the project’s release processes, including major, minor and patch releases
 
 Every Kubeflow project follow its own release lifecycle, for example
 [Kubeflow Trainer](https://github.com/kubeflow/trainer/tree/master/docs/release)
@@ -535,7 +535,7 @@ releases which install all Kubeflow projects together for end-to-end AI platform
 Kubeflow projects can be installed as a standalone applications or together using
 the Kubeflow Manifests or Kubeflow Distributions (public or private).
 
-#### How does an adopter test and validate the installation?
+#### How does an adopter test and validate the installation
 
 Distributions can verify the installation [by following this guide](https://github.com/kubeflow/manifests?tab=readme-ov-file#installation)
 or [executing this test suites](https://github.com/kubeflow/manifests/blob/master/.github/workflows/full_kubeflow_integration_test.yaml).
@@ -549,7 +549,7 @@ applications, [for example Kubeflow Trainer](https://www.kubeflow.org/docs/compo
 
 - [Kubeflow Security Self Assessment](https://github.com/kubeflow/community/blob/master/security/self-assessment.md)
 
-#### How are you satisfying the tenets of cloud native security projects?
+#### How are you satisfying the tenets of cloud native security projects
 
 1. Make security a design requirement.
 
@@ -573,7 +573,7 @@ changes, leveraging Kubernetes’ declarative model.
 
 Insecure options require explicit user setup and configurations.
 
-#### Describe how each of the [cloud native principles](https://github.com/cncf/toc/blob/main/DEFINITION.md) apply to your project.
+#### Describe how each of the [cloud native principles](https://github.com/cncf/toc/blob/main/DEFINITION.md) apply to your project
 
 Kubeflow uses cloud native principles by building on Kubernetes and other cloud native technologies
 while extending them in our composable projects.
@@ -603,7 +603,7 @@ It provides isolation between Pipelines and Runs for users.
 
 #### Security Hygiene
 
-##### Describe the frameworks, practices and procedures the project uses to maintain the basic health and security of the project.
+##### Describe the frameworks, practices and procedures the project uses to maintain the basic health and security of the project
 
 - **Robust CI/CD infrastructure:** Kubeflow projects have automated unit, integration, and end-to-end
   tests that are integrated into the CI pipelines to ensure code stability and correctness of PRs.
@@ -640,7 +640,7 @@ Some examples can be found here:
 - [Kubeflow Pipelines](https://github.com/kubeflow/pipelines/tree/master/.github/workflows)
 - [Kubeflow Manifests](https://github.com/kubeflow/manifests/blob/master/.github/workflows/full_kubeflow_integration_test.yaml)
 
-##### Describe how the project has evaluated which features will be a security risk to users if they are not maintained by the project?
+##### Describe how the project has evaluated which features will be a security risk to users if they are not maintained by the project
 
 Features are discussed and reviewed in the community, with security implications considered during
 design and code review processes. The project tracks the security health of dependencies and evaluates
@@ -650,7 +650,7 @@ custom containers, user supplied models or external data sources.
 
 #### Cloud Native Threat Modeling
 
-##### Explain the least minimal privileges required by the project and reasons for additional privileges.
+##### Explain the least minimal privileges required by the project and reasons for additional privileges
 
 Each Kubeflow project's control plane needs to watch for its CRDs. For example, Kubeflow Trainer:
 TrainJob and ClusterTrainingRuntime, Spark Operator for SparkApplications, Katib for Experiments, etc.
@@ -666,7 +666,7 @@ resources. For example, users’ role for
 [Kubeflow Trainer can be found here](https://github.com/kubeflow/trainer/blob/master/manifests/overlays/kubeflow-platform/kubeflow-trainer-roles.yaml#L17).
 All roles are aggregated in the `kubeflow-edit` cluster role after installing Kubeflow Manifests.
 
-##### Describe how the project is handling certificate rotation and mitigates any issues with certificates.
+##### Describe how the project is handling certificate rotation and mitigates any issues with certificates
 
 Kubeflow projects use [cert-manager to generate and rotate certificates](https://github.com/kubeflow/manifests/tree/master/common/cert-manager).
 Those certificates are used for validation and mutation webhooks across Kubeflow projects. Cert-manager
@@ -704,7 +704,7 @@ handles the issuance, renewal, and rotation of these certificates automatically 
 
 ### Project Installation and Configuration
 
-#### Describe what project installation and configuration look like.
+#### Describe what project installation and configuration look like
 
 Each project has its [own standalone installation guide](https://www.kubeflow.org/docs/started/installing-kubeflow/#standalone-kubeflow-components).
 
@@ -716,7 +716,7 @@ We provide optional manifests to deploy all Kubeflow projects as
 
 ### Project Enablement and Rollback
 
-#### How can this project be enabled or disabled in a live cluster? Please describe any downtime required of the control plane or nodes.
+#### How can this project be enabled or disabled in a live cluster? Please describe any downtime required of the control plane or nodes
 
 Users can set the replica count to 0 in the Kubeflow projects deployment. Existing AI workloads
 should not be impacted since it won’t be reconciled by controllers.
@@ -725,19 +725,19 @@ Updating [the Kubeflow AI Reference Platform](https://github.com/kubeflow/manife
 
 The installation guide described [when control plane is ready](https://www.kubeflow.org/docs/components/trainer/operator-guides/installation/#installing-the-kubeflow-trainer-controller-manager).
 
-#### Describe how enabling the project changes any default behavior of the cluster or running workloads.
+#### Describe how enabling the project changes any default behavior of the cluster or running workloads
 
 Enable projects by scaling replica count back to 1. All running AI workloads will be reconciled again
 by controllers, and they perform the appropriate updates to the CRDs.
 
 Istio, Knative, cert-manager might interfere with existing installations.
 
-#### Describe how the project tests enablement and disablement.
+#### Describe how the project tests enablement and disablement
 
 Conformance program [is work in progress](https://github.com/kubeflow/kubeflow/tree/master/conformance/1.7)
 to ensure tests across all Kubeflow projects.
 
-#### How does the project clean up any resources created, including CRDs?
+#### How does the project clean up any resources created, including CRDs
 
 The Kubeflow projects control plane can be deleted by cleanup the appropriate resources,
 for example:
@@ -759,34 +759,34 @@ the Kubeflow AI reference platform.
 
 ### Rollout, Upgrade and Rollback Planning
 
-#### How does the project intend to provide and maintain compatibility with infrastructure and orchestration management tools like Kubernetes and with what frequency?
+#### How does the project intend to provide and maintain compatibility with infrastructure and orchestration management tools like Kubernetes and with what frequency
 
 Kubeflow projects publish its supported Kubernetes version for every release. The supported versions
 are evaluated and upgraded on every release. We support
 [Kubernetes 1.31+ and test on 1.32+](https://github.com/kubeflow/manifests/blob/master/tests/install_KinD_create_KinD_cluster_install_kustomize.sh)
 
-#### How the project handles rollback procedures.
+#### How the project handles rollback procedures
 
 Some projects support leader election and HA to make sure that long-running workloads are complete.
 Users can scale up or down replicas of controllers during rollback.
 
-#### How can a rollout or rollback fail? Describe any impact to already running workloads.
+#### How can a rollout or rollback fail? Describe any impact to already running workloads
 
 Newer revision will not be active for many reasons including insufficient cluster resources for the
 newer spec, invalid configuration spec. Traffic will not be switched to the new unless the newer
 revision is ready to accept traffic. Hence, the already running workloads will not be affected
 in any case if rollout fails.
 
-#### Describe any specific metrics that should inform a rollback.
+#### Describe any specific metrics that should inform a rollback
 
 Kubeflow projects CRDs expose status that inform about activity of AI workloads. Additionally,
 controllers are exposed various Prometheus metrics to indicate workload status.
 
-#### Explain how upgrades and rollbacks were tested and how the upgrade->downgrade->upgrade path was tested.
+#### Explain how upgrades and rollbacks were tested and how the upgrade->downgrade->upgrade path was tested
 
 Currently, it’s being manually tested by users, but automated tests are work in progress.
 
-#### Explain how the project informs users of deprecations and removals of features and APIs.
+#### Explain how the project informs users of deprecations and removals of features and APIs
 
 All API changes are backward compatible and changes are announced in the release notes and
 changelogs. If some APIs are deprecated, newer versions of APIs are introduced with user awareness.
@@ -794,7 +794,7 @@ Kubeflow CRDs follow Kubernetes best practices for API compatibility.
 
 For example [Kubeflow Trainer breaking changes](https://github.com/kubeflow/trainer/blob/master/CHANGELOG.md#breaking-changes).
 
-#### Explain how the project permits utilization of alpha and beta capabilities as part of a rollout.
+#### Explain how the project permits utilization of alpha and beta capabilities as part of a rollout
 
 At the moment, functionality is logged explicitly if a feature is alpha or beta. We do not have
 feature gates. Additionally, we are working on conversion webhook that helps users with updated
@@ -804,7 +804,7 @@ API versions of CRDs.
 
 ### Scalability/Reliability
 
-#### Describe how the project increases the size or count of existing API objects.
+#### Describe how the project increases the size or count of existing API objects
 
 In general, the API object count complexity is linear in the number of users and workloads. Users
 can list deployed Kubeflow CRDs across all namespaces.
@@ -818,58 +818,58 @@ kubectl get trainjob –all-namespaces
 The core controllers and resources are constant (beyond replicating specific controllers),
 see [the full kustomize build here](https://github.com/kubeflow/manifests?tab=readme-ov-file#install-with-a-single-command).
 
-#### Describe how the project defines Service Level Objectives (SLOs) and Service Level Indicators (SLIs).
+#### Describe how the project defines Service Level Objectives (SLOs) and Service Level Indicators (SLIs)
 
 Kubeflow currently doesn’t provide the SLOs and SLIs, however we follow
 [the Kubernetes SLOs](https://github.com/kubernetes/community/blob/master/sig-scalability/slos/slos.md)
 
-#### Describe any operations that will increase in time covered by existing SLIs/SLOs.
+#### Describe any operations that will increase in time covered by existing SLIs/SLOs
 
 As above.
 
-#### Describe the increase in resource usage in any components as a result of enabling this project, to include CPU, Memory, Storage, Throughput.
+#### Describe the increase in resource usage in any components as a result of enabling this project, to include CPU, Memory, Storage, Throughput
 
 Resources requirements for Kubeflow projects [are set here](https://github.com/kubeflow/manifests/pull/3091#issuecomment-3016609243).
 
-#### Describe which conditions enabling / using this project would result in resource exhaustion of some node resources (PIDs, sockets, inodes, etc.)
+#### Describe which conditions enabling / using this project would result in resource exhaustion of some node resources
 
 There are some specific issues for each project, we should list some of them (e.g. pipelines
 controller can have open file handler issues). Since many workloads are GPU-intensive,
 Kubernetes platform admins need to ensure that nodes have enough capacity to run AI workloads with
 Kubeflow projects.
 
-#### Describe the load testing that has been performed on the project and the results.
+#### Describe the load testing that has been performed on the project and the results
 
 Some intensive load testing has been performed by Kubeflow users, for example some LLM foundation
 models have been trained using Kubeflow Trainer across a few hundreds GPUs. At KubeCon some users
 share their experience of running more than 10,000 GPUs with Kubeflow Training Operator.
 
-#### Describe the recommended limits of users, requests, system resources, etc. and how they were obtained.
+#### Describe the recommended limits of users, requests, system resources, etc. and how they were obtained
 
 Users on the order of hundreds are known to work. Scaling beyond hundreds of users may require an
 increase in the requests/limits replicas of some deployments, or scaling dependencies like databases.
 
-#### Describe which resilience pattern the project uses and how, including the circuit breaker pattern.
+#### Describe which resilience pattern the project uses and how, including the circuit breaker pattern
 
 Kubeflow uses the Kubernetes resilience pattern to manage controllers with HA. If one replica fails, another part of the control plane takes responsibility to orchestrate workloads.
 
 ### Observability Requirements
 
-#### Describe the signals the project is using or producing, including logs, metrics, profiles and traces. Please include supported formats, recommended configurations and data storage.
+#### Describe the signals the project is using or producing, including logs, metrics, profiles and traces. Please include supported formats, recommended configurations and data storage
 
 Kubeflow controllers expose Prometheus metrics to report workload status. Controllers also expose
 logs and status for platform admins to ensure stability.
 
-#### Describe how the project captures audit logging.
+#### Describe how the project captures audit logging
 
 Platform admins can leverage [Kubernetes audit](https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/)
 for Kubeflow projects.
 
-#### Describe any dashboards the project uses or implements as well as any dashboard requirements.
+#### Describe any dashboards the project uses or implements as well as any dashboard requirements
 
 [Kubeflow Dashboard requirements](https://www.kubeflow.org/docs/components/central-dash/overview/).
 
-#### Describe how the project surfaces project resource requirements for adopters to monitor cloud and infrastructure costs, e.g. FinOps That must happen on the Kubernetes namespace level.
+#### Describe how the project surfaces project resource requirements for adopters to monitor cloud and infrastructure costs, e.g. FinOps That must happen on the Kubernetes namespace level
 
 Users are recommended to use third-party tools like Kubecost to measure cloud and infrastructure
 cost of running Kubeflow projects.
@@ -908,22 +908,22 @@ Specific projects have other dependencies:
 For details, please take a look at General security Talks about Kubeflow including
 [an architectural introduction](https://github.com/kubeflow/manifests#kubeflow-components-versions).
 
-#### Describe the project’s dependency lifecycle policy.
+#### Describe the project’s dependency lifecycle policy
 
 We follow Kubernetes deprecation policy for supported versions. For example, we support the
 3-4 latest versions of Kubernetes to deploy Kubeflow projects.
 
-#### How does the project incorporate and consider source composition analysis as part of its development and security hygiene? Describe how this source composition analysis (SCA) is tracked.
+#### How does the project incorporate and consider source composition analysis as part of its development and security hygiene? Describe how this source composition analysis (SCA) is tracked
 
 Various static and dynamic code analysis tools are enforced as described above.
 
-#### Describe how the project implements changes based on source composition analysis (SCA) and the timescale.
+#### Describe how the project implements changes based on source composition analysis (SCA) and the timescale
 
 Various static and dynamic code analysis tools are enforced as described above.
 
 ### Troubleshooting
 
-#### How does this project recover if a key component or feature becomes unavailable? e.g Kubernetes API server, etcd, database, leader node, etc.
+#### How does this project recover if a key component or feature becomes unavailable
 
 Specifics depend on the Kubeflow Project (KFP, Katib, etc.). Kubeflow projects are cloud and
 Kubernetes native apps, so fault tolerance is strongly tied to the health of the underlying cluster.
@@ -932,14 +932,14 @@ just recover automatically.
 
 More details are described in the previous sections.
 
-#### Describe the known failure modes.
+#### Describe the known failure modes
 
 Each Kubeflow project handles failure modes differently beyond native Kubernetes fault tolerance.
 Many of them are configured at the application level in user code.
 
 ### Security
 
-#### How is the project executing access control?
+#### How is the project executing access control
 
 As described above each Kubeflow projects require limited RBAC to manage its CRDs
 
@@ -947,7 +947,7 @@ As described above each Kubeflow projects require limited RBAC to manage its CRD
 
 Described in the section above.
 
-#### How does the project ensure its security reporting and response team is representative of its community diversity (organizational and individual)?
+#### How does the project ensure its security reporting and response team is representative of its community diversity (organizational and individual)
 
 Every Kubeflow project follows security guidelines.
 
@@ -958,7 +958,7 @@ Every Kubeflow project follows security guidelines.
 - Kubeflow Model Registry [security policy](https://github.com/kubeflow/model-registry/blob/main/SECURITY.md).
 - Kubeflow Pipelines [security policy](https://github.com/kubeflow/pipelines/blob/master/SECURITY.md).
 
-#### How does the project invite and rotate security reporting team members?
+#### How does the project invite and rotate security reporting team members
 
 Active project maintainers are responsible to ensure that security reports are addressed. Each
 project has its own security reporting and disclosure policy. For projects which use GitHub’s security
