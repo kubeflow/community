@@ -91,6 +91,7 @@ The package versions for each Kubeflow project can be found in the appropriate r
 - Kubeflow Model Registry
   - Go modules: https://github.com/kubeflow/model-registry/blob/main/go.mod
   - Python packages: https://github.com/kubeflow/model-registry/blob/main/clients/python/pyproject.toml
+  - FOSSA report: https://app.fossa.com/reports/0559a384-a6ce-4a37-b286-fcc47c962790
 - Kubeflow Pipelines
   - Go modules: https://github.com/kubeflow/pipelines/blob/master/go.mod
   - Python packages: https://github.com/kubeflow/pipelines/blob/master/sdk/python/requirements.txt
