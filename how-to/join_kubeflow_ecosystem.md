@@ -1,4 +1,4 @@
-# Application for a Project to Join the Kubeflow Ecosystem
+# How to Become a Kubeflow Subproject
 
 Please see the [proposals/748-expand-kubeflow-ecosystem.md](Documentation) to
 better understand the full process for submitting a new project.
