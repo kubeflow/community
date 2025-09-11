@@ -80,6 +80,7 @@ The package versions for each Kubeflow project can be found in the appropriate r
 
 - Kubeflow Spark Operator
   - Go modules: https://github.com/kubeflow/spark-operator/blob/master/go.mod
+  - FOSSA report: https://app.fossa.com/reports/b1c3b2c0-a1bf-4572-b3b2-8455729c8cf9
 - Kubeflow Notebooks
   - Go modules: https://github.com/kubeflow/notebooks/blob/notebooks-v1/components/notebook-controller/go.mod
   - FOSSA report: https://app.fossa.com/reports/8720a333-0c53-4a2d-a3c9-92a2435d4d7c
