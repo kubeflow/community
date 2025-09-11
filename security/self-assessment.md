@@ -91,6 +91,7 @@ The package versions for each Kubeflow project can be found in the appropriate r
 - Kubeflow Katib
   - Go modules: https://github.com/kubeflow/katib/blob/master/go.mod
   - Python packages: https://github.com/kubeflow/katib/blob/master/sdk/python/v1beta1/setup.py
+  - FOSSA report: https://app.fossa.com/reports/9762748b-b1fb-43ed-84d1-bee58e61e619
 - Kubeflow Model Registry
   - Go modules: https://github.com/kubeflow/model-registry/blob/main/go.mod
   - Python packages: https://github.com/kubeflow/model-registry/blob/main/clients/python/pyproject.toml
