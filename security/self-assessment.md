@@ -95,6 +95,7 @@ The package versions for each Kubeflow project can be found in the appropriate r
 - Kubeflow Pipelines
   - Go modules: https://github.com/kubeflow/pipelines/blob/master/go.mod
   - Python packages: https://github.com/kubeflow/pipelines/blob/master/sdk/python/requirements.txt
+  - FOSSA report: https://app.fossa.com/reports/295e1511-cf5e-405c-abc3-eddac2ef03ae
 
 All Kubeflow container images can be found here: https://github.com/orgs/kubeflow/packages
 
