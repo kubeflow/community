@@ -120,7 +120,7 @@ As we ask for Community inputs, the following criteria could be used later to ev
 Captured each one from the previous [community discussion](https://github.com/kubeflow/community/pull/892#discussion_r2263804358), and the Community can provide inputs directly in markdown below:
 
 - "AI Asset Registry"
-- "AI Asset"
+- "AI Assets"
 - "Kubeflow Registry" (simplified by dropping "Model")
 - "Kubeflow Tracker"
 - "Kubeflow Tracking"
