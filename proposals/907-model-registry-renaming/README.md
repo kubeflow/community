@@ -112,7 +112,7 @@ As we ask for Community inputs, the following criteria could be used later to ev
 
 - **Scope Clarity**: does the name clearly indicate the 2 model management (registry, catalog) capabilities?
 - **Industry Alignment**: is the name consistent with established ML/AI terminology? Do we actually need to be aligned, or can we introduce a "creative" name?
-- **Future-Proofing**: can it accommodate GenAI/LLM evolution and Organization needs?
+- **Future Compatibility**: can it accommodate GenAI/LLM evolution and Organization needs?
 - **Kubeflow Integration**: does it fit within the Kubeflow ecosystem naming?
 
 #### Candidate Names for Discussion
