@@ -42,9 +42,9 @@ We will publish the list of Qualified Nominees.
 
 **Testimonial Phase:** 3 November 2025 at 0900 Pacific Time (Starts) - 16 November 2025 at 12:00pm Pacific Time (Ends)
 
-**Voting Phase:** 17 November 2025 at 0900 Pacific Time (Starts) - 7 December 2025 at 12:00pm Pacific Time (Ends)
+**Voting Phase:** 17 November 2025 at 0900 Pacific Time (Starts) - 14 December 2025 at 12:00pm Pacific Time (Ends)
 
-**Announcement of Election Results:** 8 December 2025
+**Announcement of Election Results:** 15 December 2025
 
 ## Exceptions Phase
 The exceptions phase will be open for 1 week and start on 13 October 2025. If you are not on the list of eligible nominees or voters and believe you should be listed, you can file for an exception during this phase. To file an exception please [fill out the exceptions form](https://docs.google.com/forms/d/e/1FAIpQLScea0DPKnPHZF2CT7Rz324e6_CWkvumsU0cThozWg1m9MlliQ/viewform?usp=sharing&ouid=107415582881714707533).
@@ -76,7 +76,7 @@ No NEGATIVE testimonial. Testimonials should only be in support of a nominee. If
 Instructions will be added to this document and to the elections directory on how to add a testimonial. Instructions will be shared on or before 3 November 2025. 
 
 ## Voting Phase
-This phase will be open for 3 weeks starting on 17 November 2025 and ending on 7 December 2025.
+This phase will be open for 4 weeks starting on 17 November 2025 and ending on 14 December 2025.
 
 During this phase qualified members*** will be able to vote for the KSC members. 
 
@@ -87,4 +87,4 @@ If you don't have your email publicly listed on your Github account and you are 
 ## *Qualified members are those Kubeflow Community Members who have a minimum of 50 Commits in the last year from the start of the election process. As noted above, For this election the last year is from 12 October 2024 to 12 October 2025.
 
 ## Election Results
-Election Results will be announced on 8 December 2025. 
+Election Results will be announced on 15 December 2025. 
