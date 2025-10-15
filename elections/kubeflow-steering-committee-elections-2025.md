@@ -13,7 +13,7 @@ More details about the Kubeflow election process can be found in the [Kubeflow E
 
 ## Voter Qualifications
 
-**Voter qualifications:** To be eligible to vote in this election a voter should be an active member in the Kubeflow Community and have a minimum of 50 contributions* to the Kubeflow project in the last year (defined below).** If you believe you are eligible to vote, but are not listed as eligible you may [file an exception](https://docs.google.com/forms/d/e/1FAIpQLScea0DPKnPHZF2CT7Rz324e6_CWkvumsU0cThozWg1m9MlliQ/viewform?usp=sharing&ouid=107415582881714707533).
+**Voter qualifications:** To be eligible to vote in this election a voter should be an active member in the Kubeflow Community and have a minimum of 50 contributions* to the Kubeflow project in the last year (defined below).** If you believe you are eligible to vote, but are not listed as eligible you may [file an exception](https://forms.gle/cdGaE6nUQwfS5Z64A).
 
 ## *The qualified voters list will be published to the elections folder and shared with the community via Kubeflow-discuss on Monday 20 October 2025, on or before 9:00am pacific.
 
@@ -22,7 +22,7 @@ More details about the Kubeflow election process can be found in the [Kubeflow E
 ** For this election last year is from 12 October 2024 to 12 October 2025.
 
 ## Nomination Qualifications
-**Nomination qualifications:** A nominee should be an active member in the Kubeflow Community and have a minimum of 50 contributions* to the Kubeflow project in the last year.** have the available bandwidth to be invested in the KSC, and be able to operate neutrally in discussions regardless of company or project affiliation. If you believe you are eligible, but are not listed as eligible you may [file an exception](https://docs.google.com/forms/d/e/1FAIpQLScea0DPKnPHZF2CT7Rz324e6_CWkvumsU0cThozWg1m9MlliQ/viewform?usp=sharing&ouid=107415582881714707533). I *(Election officers are ineligible to run in an election, but can vote.)*
+**Nomination qualifications:** A nominee should be an active member in the Kubeflow Community and have a minimum of 50 contributions* to the Kubeflow project in the last year.** have the available bandwidth to be invested in the KSC, and be able to operate neutrally in discussions regardless of company or project affiliation. If you believe you are eligible, but are not listed as eligible you may [file an exception](https://forms.gle/cdGaE6nUQwfS5Z64A). I *(Election officers are ineligible to run in an election, but can vote.)*
 
 ## The qualified nominees list will be published to the elections folder and shared with the community via Kubeflow-discuss on Monday 20 October 2025, on or before 9:00am pacific.
 
@@ -47,7 +47,7 @@ We will publish the list of Qualified Nominees.
 **Announcement of Election Results:** 15 December 2025
 
 ## Exceptions Phase
-The exceptions phase will be open for 1 week and start on 13 October 2025. If you are not on the list of eligible nominees or voters and believe you should be listed, you can file for an exception during this phase. To file an exception please [fill out the exceptions form](https://docs.google.com/forms/d/e/1FAIpQLScea0DPKnPHZF2CT7Rz324e6_CWkvumsU0cThozWg1m9MlliQ/viewform?usp=sharing&ouid=107415582881714707533).
+The exceptions phase will be open for 1 week and start on 13 October 2025. If you are not on the list of eligible nominees or voters and believe you should be listed, you can file for an exception during this phase. To file an exception please [fill out the exceptions form](https://forms.gle/cdGaE6nUQwfS5Z64A).
 
 ## Nominations Phase
 This phase will be open for 2 weeks starting on 20 October 2025 and ending on 2 November 2025. 
