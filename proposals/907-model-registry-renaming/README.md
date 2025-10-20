@@ -126,6 +126,9 @@ Captured each one from the previous [community discussion](https://github.com/ku
 - "Kubeflow Tracking"
 - "Kubeflow AI Hub"
 - "Kubeflow AI Registry"
+- "Kubeflow Metadata"
+- "Kubeflow AI Atlas"
+- "Kubeflow Atlas"
 - `<add your proposal name in this list>`
 
 ### Risks and Mitigations
