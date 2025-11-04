@@ -136,6 +136,14 @@ Captured each one from the previous [community discussion](https://github.com/ku
 - **Risk**: Community confusion for those familiar with "Kubeflow Model Registry"
 - **Mitigation**: phased communication plan, clear documentation updates
 
+### 2025-11-04 Kubeflow Community meeting
+
+Members of KSC and of the KF Community suggests is best to proceed as follows:
+1. run a Poll on this PR to come up with the name selected (or an ordered list)
+2. based on the results of the above step, the KSC will check if any CNCF enquiry is needed
+
+A suggestion was also made that the KSC as a "backoffice activity" can rename the repo.
+
 ## Design Details
 
 ### Migration Strategy
@@ -147,7 +155,7 @@ Captured each one from the previous [community discussion](https://github.com/ku
 ## Implementation History
 
 - **KEP Creation**: 2025-09-29
-- **Community Discussion**: WIP
+- **Community Discussion**: 2025-11-04
 - **Name Selection**: WIP
 - **Implementation Start**: WIP
 
