@@ -191,8 +191,8 @@ root
 Each component or pipeline ships a `metadata.yaml` with the following validated fields:
 
 ```yaml
-tier: core | third_party
 name: <string>
+tier: core | third_party
 stability: alpha | beta | stable
 dependencies:
   kubeflow:
@@ -209,8 +209,7 @@ tags:  # Optional and may be used for tooling built around the catalog in the fu
 lastVerified: 2025-03-15T00:00:00Z
 ci:
   skip_dependency_probe: false
-  pytest: optional
-links:
+links:  # Optional and keys are free form
   documentation: https://kubeflow.org/components/<name>
   issue_tracker: https://github.com/kubeflow/kfp-components/issues
 ```
@@ -238,7 +237,7 @@ Validation rules:
 Each component/pipeline directory includes a `README.md` generated from a template and auto-populated with docstring
 metadata (every `metadata.yaml` field except `ci` is rendered verbatim). Component README files additionally embed
 details from a required colocated `example_pipelines.py` module (which may expose multiple sample pipelines), while
-pipeline README files may opt-in to the usage section when they are intended for reuse as nested components:
+pipeline README files may opt-in to the usage section when they are intended for reuse as nested components. Below is an example template:
 
 ````markdown
 # <Component Name> ✨
@@ -260,7 +259,7 @@ pipeline README files may opt-in to the usage section when they are intended for
 | ----- | ----- | ---------------------- |
 | model | Model | Trained model artifact |
 
-## Usage Example (components only) 🧪
+## Usage Example 🧪
 
 ```python
 # example_pipelines.py
@@ -274,25 +273,17 @@ def pipeline():
 
 ## Metadata 🗂️
 
-- Tier: core
-- Name: training.my_component
-- Stability: Beta
-- Tags: training, evaluation
-- Kubeflow Dependencies:
-  - Pipelines >=2.5
-  - Trainer >=2.0
-- Owners:
-  - @kubeflow/triage-ml
-- Last Verified: 2025-03-15
+* Tier: core
+* Stability: Beta
+* Kubeflow Dependencies:
+  * Pipelines >=2.5
+  * Trainer >=2.0
+* Owners:
+  * @kubeflow/triage-ml
+* Last Verified: 2025-03-15
 
-## Additional Notes 📝
+## Additional Resources 📝
 
-- Dependencies:
-  - pandas==2.2.1
-  - google-cloud-bigquery>=3.0.0
-- External Services:
-  - Argo Workflows 3.6
-- Base Image: ghcr.io/my-project/my-component-base:latest
 - Documentation: https://kubeflow.org/components/training.my_component
 - Issue Tracker: https://github.com/kubeflow/kfp-components/issues
 ````
