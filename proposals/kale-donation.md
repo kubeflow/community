@@ -126,7 +126,7 @@ In the longer term, Kale will be extended to cover other key integrations, inclu
     - [ ] Good
     - [ ] Fair
     - [ ] Part of Kubeflow
-    - [ ] We are going to do this as part of 2.0 release
+    - [X] We are going to do this as part of 2.0 release
 
 1. CI/CD 
     - [X] Yes
