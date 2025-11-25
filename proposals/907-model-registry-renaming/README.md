@@ -1,10 +1,10 @@
 # KEP-907: Renaming "Model Registry" to reflect Registry and Catalog use-cases
 
-Status: `provisional`.
+Status: `review by KSC requested`.
 
 ## Summary
 
-This KEP proposes renaming the current "Model Registry" Kubeflow project to better reflect its evolution that encompasses both _model registry_ capabilities (for tracking model evolution during development) and _model catalog_ capabilities (for showcasing organization-approved models). The current naming might under-evaluate the project's capabilities and goals, as the "Kubeflow Model Registry" project has well grown beyond its original scope to include GenAI/LLM showcasing, enterprise-wide model sharing, and more than a singular use-case pattern (i.e.: multi-tenant Registries and a cluster-wide Catalog).
+This KEP proposes renaming the current "Kubeflow Model Registry" project to "Kubeflow Hub", to better reflect its evolution that encompasses both _model registry_ capabilities (for tracking model evolution during development) and _model catalog_ capabilities (for showcasing organization-approved models). The current naming might under-evaluate the project's capabilities and goals, as the "Kubeflow Model Registry" project has well grown beyond its original scope to include GenAI/LLM showcasing, enterprise-wide model sharing, and more than a singular use-case pattern (i.e.: multi-tenant Registries and a cluster-wide Catalog).
 
 ## Motivation
 
@@ -129,6 +129,7 @@ Captured each one from the previous [community discussion](https://github.com/ku
 - "Kubeflow Metadata"
 - "Kubeflow AI Atlas"
 - "Kubeflow Atlas"
+- "Kubeflow Hub"
 - `<add your proposal name in this list>`
 
 ### Risks and Mitigations
@@ -144,6 +145,42 @@ Members of KSC and of the KF Community suggests is best to proceed as follows:
 
 A suggestion was also made that the KSC as a "backoffice activity" can rename the repo.
 
+### 2025-11-24 Kubeflow Working Group biweekly meeting
+
+The community has discussed in the dedicated github page.
+
+We [have highlighted](https://github.com/kubeflow/community/pull/907#issuecomment-3509842213) the need for the rename based on the _current_ and short-term evolution of the project:
+
+```mermaid
+---
+config:
+  theme: 'forest'
+---
+mindmap
+  root((this project))
+    Registry "pattern"
+      Model Registry
+      Catalog "pattern"
+        Model Catalog
+        MCP Catalog
+        ... Catalog
+    Integrations
+      KServe
+        Isvc reconciler
+        Storage Initializer
+      Python client
+        orchestration of Store+Register
+          S3
+          OCI / KServe ModelCar in Python
+      async-upload "vanilla" K8s Job
+```
+
+We have [proposed a simple](https://github.com/kubeflow/community/pull/907#issuecomment-3543346336), less-is-more name: "Kubeflow Hub".
+
+In the [community meeting, we have reached an unanymous consensus](https://youtu.be/lKB0coftNPY?si=XIVnI749ES9BdVME&t=111) to proceed with "Kubeflow Hub" as the preferred name.
+
+As indicated by the KSC, we are therefore asking confirmation to proceed with "Kubeflow Hub" as the name, by merging this PR to finally proceed with phase 2, 3 accordingly.
+
 ## Design Details
 
 ### Migration Strategy
@@ -156,7 +193,7 @@ A suggestion was also made that the KSC as a "backoffice activity" can rename th
 
 - **KEP Creation**: 2025-09-29
 - **Community Discussion**: 2025-11-04
-- **Name Selection**: WIP
+- **Name Selection**: 2025-11-24
 - **Implementation Start**: WIP
 
 ## Drawbacks
