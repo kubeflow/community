@@ -83,12 +83,13 @@ The current membership of the committee is (listed alphabetically by first name)
 | Name                | Organization    | GitHub                                                     |
 | ------------------- | --------------- | ---------------------------------------------------------  |
 | Stefano Fioravanzo        | Canonical | [StefanoFioravanzo](https://github.com/StefanoFioravanzo/) |
-| Valentina Rodriguez Sosa  | Red Hat   | [varodrig](https://github.com/varodrig/)                   |        
+| Valentina Rodriguez Sosa  | Red Hat   | [varodrig](https://github.com/varodrig/)                   |  
+| Tarek Abouzeid            | Telia     | [tarekabouzeid](https://github.com/tarekabouzeid/)         |
           
  ## Lead members
 | Name                | Organization  | GitHub                                              | Role               |
 | ------------------- | ------------- | --------------------------------------------------- | ------------------ |
-| Tarek Abouzeid      | Telia         | [tarekabouzeid](https://github.com/tarekabouzeid/)  | Social Media Lead  |  
+|      |     |   |   |  
 
 ### Getting in Touch
 
