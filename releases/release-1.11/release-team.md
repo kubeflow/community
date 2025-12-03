@@ -1,4 +1,4 @@
-# Kubeflow 1.11 Release Team
+# Kubeflow AI Reference Platform 1.11 Release Team
 
 | **Role** | **Name** (**GitHub / Slack ID**) |
 |----------|----------------------------------|
