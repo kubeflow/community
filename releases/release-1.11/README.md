@@ -1,4 +1,4 @@
-# Kubeflow 1.11
+# Kubeflow AI Reference Platform 1.11
 
 ### Links
 
