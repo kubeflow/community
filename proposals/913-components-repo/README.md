@@ -8,8 +8,7 @@
   - [Non-Goals](#non-goals)
 - [Proposal](#proposal)
   - [Repository Layout](#repository-layout)
-    - [Core (components and pipelines)](#core-components-and-pipelines)
-    - [Third-Party (third_party)](#third-party-third_party)
+    - [`components/` and `pipelines/`](#components-and-pipelines)
   - [Artifact Metadata Schema](#artifact-metadata-schema)
   - [Standardized README Templates](#standardized-readme-templates)
   - [Linting & Continuous Integration](#linting--continuous-integration)
@@ -17,7 +16,7 @@
   - [Maintenance Automation](#maintenance-automation)
   - [Onboarding & Documentation](#onboarding--documentation)
   - [Packaging & Release Management](#packaging--release-management)
-  - [Governance & Tiers](#governance--tiers)
+  - [Governance](#governance)
   - [Open Questions](#open-questions)
 - [Design Details](#design-details)
   - [Implementation Phases](#implementation-phases)
@@ -38,9 +37,8 @@
 
 Establish a dedicated Kubeflow Pipelines (KFP) repository\* that hosts reusable components and full pipelines under a
 consistent structure, governance policy, and release cadence. The repository will package officially supported assets as
-a Python distribution for easy consumption, while providing a parallel space for vetted third-party contributions. The
-project introduces standardized metadata, documentation, testing, and maintenance automation to make components
-discoverable, reliable, and safe to adopt.
+a Python distribution for easy consumption. The project introduces standardized metadata, documentation, testing, and
+maintenance automation to make components discoverable, reliable, and safe to adopt.
 
 \*Working title `kubeflow/pipelines-components`; the final repository name will be confirmed during implementation.
 
@@ -63,29 +61,24 @@ assets while allowing the community to maintain them at its own cadence.
 This catalog also creates a durable bridge between Kubeflow Pipelines and the broader Kubeflow ecosystem: it gives the
 SDK and API server a canonical source of reusable building blocks, provides SIGs with a venue to showcase
 Kubernetes-native MLOps patterns, and offers users a distribution channel that evolves independently from the core KFP
-release train. Centralizing community-supported assets in one place keeps the SDK surface area lean while encouraging
-experimentation in third-party areas that can later graduate into core.
+release train. Centralizing community-supported assets in one place keeps the SDK surface area lean while improving
+discoverability and consistency.
 
 ### Goals
 
 1. Move reusable components and pipelines into a dedicated GitHub repository with clear structure and governance.
 2. Provide standardized metadata, documentation, and testing requirements for every asset.
-3. Ship an installable Python package for core (community-maintained) components that is versioned to match Kubeflow or
-   Kubeflow SDK releases.
-4. Maintain a parallel, clearly demarcated area for third-party contributions, shipped as its own Python package that
-   tracks the same release cadence as the core catalog.
-5. Automate maintenance (e.g. stale component detection, dependency validation) to keep the catalog healthy.
-6. Provide developer onboarding materials and guidance for agents generating components/pipelines.
+3. Ship an installable Python package for components and pipelines that are versioned to match Kubeflow releases.
+4. Automate maintenance (e.g. stale component detection, dependency validation) to keep the catalog healthy.
+5. Provide developer onboarding materials and guidance for agents generating components/pipelines.
 
 ### Non-Goals
 
-1. Operate turnkey build or publishing pipelines for third-party maintainers. We supply validation tooling and guidance,
-   but external teams continue to manage their own release automation.
-2. Backport historical component versions; only actively maintained assets will be migrated.
-3. Remove the existing `components/` directory in the main KFP repo without notice. We will announce the new repository,
-   point contributors at the new onboarding documentation, and give the community a minimum of 90 days to move their
+1. Backport historical component versions; only actively maintained assets will be migrated by their respective owners.
+2. Remove the existing `components/` directory in the main KFP repo without notice. We will announce the new repository,
+   point contributors at the new onboarding documentation, and give the community a minimum of 60 days to move their
    assets before deleting the legacy directory.
-4. Vendor specific components. Vendors are highly encouraged to use the same repository structure in their own
+3. Vendor specific components. Vendors are highly encouraged to use the same repository structure in their own
    repository.
 
 ## Proposal
@@ -98,7 +91,7 @@ Create a new repository (e.g. `kubeflow/pipelines-components`) with the followin
 root
 ├── components
 │   ├── README.md (catalog landing page)
-│   ├── __init__.py (auto-imports all components for clean `from kfp_components import training` usage)
+│   ├── __init__.py (auto-imports all components for clean `from kfp_components.training import my_component` usage)
 │   ├── training/
 │   │   ├── README.md (category index listing each component with summaries/links)
 │   │   ├── __init__.py (re-exports all components in this category)
@@ -115,7 +108,7 @@ root
 │   └── ... (other categories: evaluation/, data_processing/, etc.)
 ├── pipelines
 │   ├── README.md (catalog landing page)
-│   ├── __init__.py (auto-imports all pipelines for `from kfp_components import pipelines.training` usage)
+│   ├── __init__.py (auto-imports all pipelines for `from kfp_components.pipelines.training import my_pipeline` usage)
 │   ├── training/
 │   │   ├── README.md (category index listing each pipeline with summaries/links)
 │   │   ├── __init__.py (re-exports all pipelines in this category)
@@ -129,17 +122,6 @@ root
 │   │       │   └── test_pipeline.py
 │   │       └── <supporting_files>
 │   └── ... (other categories: evaluation/, data_processing/, etc.)
-├── third_party
-│   ├── pyproject.toml (third-party package build definition)
-│   ├── __init__.py
-│   ├── components
-│   │   ├── README.md (catalog landing page)
-│   │   ├── __init__.py
-│   │   └── ... (mirrors `components/` structure)
-│   └── pipelines
-│       ├── README.md (catalog landing page)
-│       ├── __init__.py
-│       └── ... (mirrors `pipelines/` structure)
 ├── docs/
 │   ├── ONBOARDING.md
 │   ├── CONTRIBUTING.md
@@ -154,18 +136,22 @@ root
 └── pyproject.toml (core package)
 ```
 
-#### Core (`components/` and `pipelines/`)
+#### `components/` and `pipelines/`
 
 - Owned and maintained by the Kubeflow community.
 - Each category directory hosts one component/pipeline per subdirectory.
 - Every asset must include `component.py` or `pipeline.py`, `metadata.yaml`, `README.md`, `OWNERS`, and optional
   supporting files. The `OWNERS` file empowers the owning team to review changes, update metadata, and manage lifecycle
   tasks without central gatekeeping.
-- Optional internal unit tests must live under a `tests/` subdirectory to avoid clutter.
-- Core ownership implies Kubeflow release alignment and adherence to community support expectations.
-- If a core component uses a custom container base image, a `Dockerfile` must be colocated in that component's
-  directory. GitHub workflows build these images on pull requests for validation (images are not pushed), and on pushes
-  to branches and tags the images are built and pushed to the `ghcr.io/kubeflow` organization.
+- Initial contributions must be approved by the Pipelines Working Group before landing to ensure they align with catalog
+  expectations and support commitments.
+- Approvers listed in an asset's `OWNERS` file must be Kubeflow community members; external contributors can be added as
+  reviewers but may not hold approver permissions.
+- Optional internal unit tests must live under a `tests/` subdirectory in the component or pipeline directory to avoid
+  clutter.
+- If a component uses a custom container base image, a `Dockerfile` must be colocated in that component's directory.
+  GitHub workflows build these images on pull requests for validation (images are not pushed), and on pushes to branches
+  and tags the images are built and pushed to the `ghcr.io/kubeflow` organization.
 
 ##### Components vs Pipelines
 
@@ -175,41 +161,29 @@ root
   other pipelines). Because KFP allows nested pipelines, these assets are packaged with the same metadata guarantees and
   can be consumed like components when users want a higher-level building block.
 
-#### Third-Party (`third_party/`)
-
-- Not maintained by the Kubeflow SIGs.
-- Mirrors the full structure of core assets (`components/` and `pipelines/` subtrees, category indexes, per-asset
-  folders).
-- Packaged separately via the `third_party/pyproject.toml` definition so consumers opt in explicitly.
-- Metadata must flag `tier: third_party` and list external support channels; Kubeflow community reviews ensure
-  lint/tests pass but does not guarantee functionality.
-- Third-party assets remain the responsibility of their listed owners; Kubeflow maintainers provide validation
-  infrastructure only.
-
 ### Artifact Metadata Schema
 
 Each component or pipeline ships a `metadata.yaml` with the following validated fields:
 
 ```yaml
 name: <string>
-tier: core | third_party
 stability: alpha | beta | stable
 dependencies:
   kubeflow:
-    - name: Pipelines  # Kubeflow Pipelines version is required
+    - name: Pipelines # Kubeflow Pipelines version is required
       version: '>=2.5'
-    - name: Trainer  # Other official Kubeflow components required. This is a validated list enforced by CI.
+    - name: Trainer # Other official Kubeflow components required. This is a validated list enforced by CI.
       version: '>=2.0'
-  external_services:  # A free form of external service dependencies
+  external_services: # A free form of external service dependencies
     - name: Argo Workflows
-      version: "3.6"
-tags:  # Optional and may be used for tooling built around the catalog in the future
+      version: '3.6'
+tags: # Optional and may be used for tooling built around the catalog in the future
   - training
   - evaluation
 lastVerified: 2025-03-15T00:00:00Z
 ci:
   skip_dependency_probe: false
-links:  # Optional and keys are free form
+links: # Optional and keys are free form
   documentation: https://kubeflow.org/components/<name>
   issue_tracker: https://github.com/kubeflow/kfp-components/issues
 ```
@@ -228,8 +202,10 @@ Validation rules:
 - `skip_dependency_probe` allows opting out of dependency installation when native extensions or heavy dependencies make
   sandbox installs infeasible; justification is required in the PR description.
 - Compile validation always runs; assets must compile successfully via `kfp.compiler`.
-- `tags` is optional and used for discoverability and tooling (e.g., SDK/UI filters, docs indices). It should be a short
-  list of human-readable labels. CI validates it as an array of non-empty strings.
+- `tags` is optional and used for discoverability and tooling (e.g., docs indices). It should be a short list of
+  human-readable labels. CI validates it as an array of non-empty strings. As a long-term roadmap item, if pipeline
+  components adoption is reasonably high, we may introduce a lightweight CLI that can list/describe/filter components
+  and pipelines using these tags.
 - Additional optional fields may be introduced later but must pass schema validation.
 
 ### Standardized README Templates
@@ -237,7 +213,8 @@ Validation rules:
 Each component/pipeline directory includes a `README.md` generated from a template and auto-populated with docstring
 metadata (every `metadata.yaml` field except `ci` is rendered verbatim). Component README files additionally embed
 details from a required colocated `example_pipelines.py` module (which may expose multiple sample pipelines), while
-pipeline README files may opt-in to the usage section when they are intended for reuse as nested components. Below is an example template:
+pipeline README files may opt-in to the usage section when they are intended for reuse as nested components. Below is an
+example template:
 
 ````markdown
 # <Component Name> ✨
@@ -264,23 +241,22 @@ pipeline README files may opt-in to the usage section when they are intended for
 ```python
 # example_pipelines.py
 from kfp import dsl
-from kfp_components import training.my_component
+from kfp_components.training import my_component
 
 @dsl.pipeline(name="example-pipeline")
 def pipeline():
-    training.my_component(dataset_path="gs://bucket/data.csv")
+    my_component(text="hello world")
 ```
 
 ## Metadata 🗂️
 
-* Tier: core
-* Stability: Beta
-* Kubeflow Dependencies:
-  * Pipelines >=2.5
-  * Trainer >=2.0
-* Owners:
-  * @kubeflow/triage-ml
-* Last Verified: 2025-03-15
+- Stability: Beta
+- Kubeflow Dependencies:
+  - Pipelines >=2.5
+  - Trainer >=2.0
+- Owners:
+  - @kubeflow/triage-ml
+- Last Verified: 2025-03-15
 
 ## Additional Resources 📝
 
@@ -342,8 +318,9 @@ Scheduled automation runs weekly:
    updating metadata and re-running CI.
 3. Dependabot configuration to open pull requests when `requirements.txt` files change; owners review, run validation,
    and update `lastVerified` once verification succeeds.
-4. Security watchdog: flag components/pipelines whose dependencies are affected by critical CVEs. If remediation PRs do
-   not land within 90 days, automation proposes removal of the affected asset from the catalog and packages.
+4. Security watchdog: flag components/pipelines whose dependencies are affected by CVEs surfaced in the GitHub Security
+   tab. If remediation PRs do not land within 90 days, automation proposes removal of the affected asset from the
+   catalog and packages.
 
 Automation scripts will live under `scripts/` and will be orchestrated via GitHub Actions cron jobs.
 
@@ -354,9 +331,9 @@ Automation scripts will live under `scripts/` and will be orchestrated via GitHu
 - `docs/BESTPRACTICES.md`: authoring guidelines for components and pipelines (patterns, anti-patterns, validation tips);
   `docs/AGENTS.md` must stay in sync with these recommendations for automated tooling.
 - `docs/AGENTS.md`: guidance for code-generation agents emphasizing reuse of existing components, best practices for new
-  contributions, and instructions on selecting between core and third-party assets.
-- `docs/GOVERNANCE.md`: clarifies governance model, including release managers, approvers, and the policy for moving
-  assets between tiers.
+  contributions, and instructions on selecting among catalog assets.
+- `docs/GOVERNANCE.md`: clarifies governance model, including release managers, approvers, and policies for onboarding
+  and maintaining catalog assets.
 - Category `README.md` files act as indices. Each lists the components/pipelines in that category, provides one-line
   summaries, and links to the corresponding asset directories; these files are generated automatically and kept fresh by
   the README automation described above.
@@ -369,16 +346,12 @@ Automation scripts will live under `scripts/` and will be orchestrated via GitHu
 
 ### Packaging & Release Management
 
-- Core assets packaged as `kfp-components` (`pyproject.toml`). Packaging scripts ingest metadata and generate import
+- Assets are packaged as `kfp-components` (`pyproject.toml`). Packaging scripts ingest metadata and generate import
   stubs for each component/pipeline, enabling `from kfp_components.training import my_component` imports. If the
   Kubeflow SDK vendors the catalog it could re-export them under `kubeflow.components.<category>` (for example,
   `from kubeflow.components.training import my_component`) to avoid clashing with other SDK modules while keeping
   ergonomic names. The SDK consumption flow vendors only the runtime Python packages (via a Git submodule or similar) so
   packaging artifacts omit docs, metadata, and examples from the final wheel.
-- Third-party assets packaged separately as `kfp-components-third-party` (built from `third_party/pyproject.toml`).
-  Shared `requirements.txt` files keep packaging and runtime environments aligned. SIG Pipelines release managers build
-  and publish both wheels each cycle so external owners do not need to coordinate PyPI releases, though they remain free
-  to distribute their components independently if desired.
 - Components and pipelines are distributed as module packages (not namespace packages); category `__init__.py` files
   auto-import all assets for ergonomic usage. Namespace packages were rejected to keep imports explicit and avoid
   packaging complexity across multiple wheels.
@@ -395,30 +368,22 @@ Automation scripts will live under `scripts/` and will be orchestrated via GitHu
   build that image. Because the workflow change lives outside of the components directory, publishing a new image is
   gated by approval from someone listed in the repository's root `OWNERS` file.
 
-### Governance & Tiers
+### Governance
 
-- **Core Tier:**
-  - Maintained by Kubeflow SIGs; must meet verification SLA (update `lastVerified` annually) and pass all CI.
-  - OWNERS must include at least one Kubeflow SIG owner/team for accountability.
-  - Core assets reflect Kubeflow community ownership and support expectations.
-  - OWNERS files on each asset enable self-service maintenance: listed owners approve changes, refresh metadata, and
-    coordinate issue triage without waiting on the repo-wide maintainers.
-  - Removal requires a documented deprecation period spanning at least two Kubeflow releases, with clear communication
-    to users.
-  - All custom base images must be built from Dockerfiles in the repository and maintained by the CI infrastructure and
-    release automation.
+- Maintained by Kubeflow community members; assets must meet the verification SLA (update `lastVerified` annually) and
+  pass all CI.
+- Initial contributions require approval from the Pipelines Working Group to confirm alignment with community standards.
+- OWNERS must include at least one reviewer from the contributing community group or organization for accountability.
+  Approver entries must be Kubeflow community members; external contributors may be listed as reviewers but cannot be
+  approvers.
+- OWNERS files on each asset enable self-service maintenance: listed owners approve changes, refresh metadata, and
+  coordinate issue triage without waiting on the repo-wide maintainers.
+- Removal requires a documented deprecation period spanning at least two Kubeflow releases, with clear communication to
+  users. Exceptions can be made for circumstances such as dependencies being out of support and which cannot be updated.
+- All custom base images must be built from Dockerfiles in the repository and maintained by the CI infrastructure and
+  release automation.
 - Repository stewardship: Kubeflow Pipelines maintainers serve as primary owners for governance, release cadence, and
   escalation handling.
-- **Third-Party Tier:**
-  - Not maintained by Kubeflow SIGs.
-  - Hosted in `third_party/`; contributions vetted for lint/tests only.
-  - OWNERS list must point to external maintainers; Kubeflow community does not guarantee functionality.
-  - Packaged separately to allow users to opt in.
-  - Support, maintenance cadence, and release decisions remain the responsibility of the third-party owners, including
-    removal when they deem appropriate.
-  - Can use external base images; custom base images are not maintained in the repo but Dockerfiles can be included.
-
-Movement between tiers is proposed via pull request by Kubeflow community members and reviewed by SIG Pipelines.
 
 ### Open Questions
 
@@ -432,10 +397,8 @@ Movement between tiers is proposed via pull request by Kubeflow community member
 1. **Bootstrap:** Create repository, scaffolding, metadata schema, CI pipeline, and packaging structure.
 2. **Migration:** Ask community members to move existing core components/pipelines from the main KFP repo, update
    metadata/README templates, and publish initial PyPI release.
-3. **Third-Party Onboarding:** Document contribution process for external teams, enable separate packaging workflow.
-4. **Automation Rollout:** Deploy maintenance cron jobs (lastVerified sweeps, dependency probes, removal cleanup).
-5. **Enhancements:** Add a CI-generated static catalog website served via GitHub Pages (no API initially); consider a
-   lightweight CLI that can list/describe components and pipelines.
+3. **Automation Rollout:** Deploy maintenance cron jobs (lastVerified sweeps, dependency probes, removal cleanup).
+4. **Enhancements:** Add a CI-generated static catalog website served via GitHub Pages (no API initially).
 
 ### Rollout and Migration
 
@@ -448,10 +411,11 @@ Movement between tiers is proposed via pull request by Kubeflow community member
 
 ## Risks and Mitigations
 
-- **Fragmentation:** Users might be confused between core and third-party assets.
-  - Mitigation: clear packaging split, README disclaimers, AGENTS guidance, and metadata `tier` flag displayed in docs.
+- **Clarity:** Contributors may be unsure about ownership expectations and approval flows.
+  - Mitigation: document Pipelines Working Group approval requirements, highlight OWNERS policy in onboarding docs, and
+    keep governance guidance current.
 - **Maintenance overhead:** Keeping metadata fresh requires effort.
-  - Mitigation: automation for reminders/removals, limiting core tier to assets with active owners.
+  - Mitigation: automation for reminders/removals, limiting catalog membership to assets with active owners.
 - **Dependency sprawl:** Components may require heavy or conflicting dependencies.
   - Mitigation: dependency probe with opt-out justification, encourage minimal footprints, and categorize optional
     extras.
@@ -474,10 +438,6 @@ Movement between tiers is proposed via pull request by Kubeflow community member
 - Scheduled CI: weekly verification of `lastVerified` deadlines and dependency probe opt-outs.
 - Release CI: packaging workflow tests building wheels and verifying imports.
 
-## Graduation Criteria
-
-To be determined.
-
 ## Implementation History
 
 - 2025-10-20: Proposal drafted (this KEP).
@@ -494,7 +454,7 @@ To be determined.
 
 ### Separate Repositories
 
-Require separate repositories for third-party contributions. This would be hard to keep in sync and less user friendly.
+Require separate repositories for external contributions. This would be hard to keep in sync and less user friendly.
 
 ### Keep the Existing `components` Directory in the KFP Repo
 
