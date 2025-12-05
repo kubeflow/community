@@ -29,8 +29,10 @@ Please keep the list in alphabetical order.
 
 | Organization                                                                 | Contact                                                                                                                                  | Description of Use                                                  |
 |------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------|
+| [AT&T](https://www.att.com)                                                | [@ma-armenta](https://github.com/ma-armenta)                                                                                           | Kubeflow is  used as the ML Platform for research and PoCs.                           |
 | [CERN](https://www.home.cern)                                                | [@gigabyte132](https://github.com/gigabyte132)                                                                                           | Kubeflow is used as our main ML platform.                           |
 | [DHL Data & Analytics](https://www.linkedin.com/company/dhl-data-analytics/) | [@juliusvonkohout](https://github.com/juliusvonkohout)                                                                                   | Kubeflow is used as our main ML platform.                           |
 | [Slalom](https://www.slalom.com/us/en/services/artificial-intelligence) | [@robcube](https://github.com/robcube)                                                                                   | Kubeflow is used to prototype gesture or hand-based recognition.                         |
 | [Telia](https://www.teliacompany.com/)                                       | [@akeed](https://github.com/akeed), [@sarahberenji](https://github.com/sarahberenji), [@tarekabouzeid](https://github.com/tarekabouzeid) | Kubeflow is used as our main ML platform for on-premises analytics. |
+
 
