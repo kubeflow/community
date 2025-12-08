@@ -89,7 +89,7 @@ The current membership of the committee is (listed alphabetically by first name)
  ## Lead members
 | Name                | Organization  | GitHub                                              | Role               |
 | ------------------- | ------------- | --------------------------------------------------- | ------------------ |
-|      |     |   |   |  
+| Yash Pal |     | [yashpal2104](https://github.com/yashpal2104)   | Social Media Lead   |
 
 ### Getting in Touch
 
