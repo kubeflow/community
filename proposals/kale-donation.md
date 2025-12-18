@@ -97,7 +97,7 @@ In the longer term, Kale will be extended to cover other key integrations, inclu
 - Number of Contributors: 6 on the last 3 months
 - Number of Users: N/A (no recent release)
 - Number of Forks: 132
-- Number of Stars: 141
+- Number of Stars: 649
 - Number of package/project installations/downloads:  N/A (no recent release)
 
 ## Kubeflow Checklist
