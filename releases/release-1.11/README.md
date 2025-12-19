@@ -16,17 +16,14 @@ The 1.11 release cycle is proposed as follows
 
 **Note:** Following the successful prioritization of our graduation milestone, the standard release cycle has now been reinstated. This shorter-term release is crucial for integrating the significant updates and feature work contributed by all working groups over the recent months.
 
-- **Monday, Nov 24th 2025** : Week 0 - Release team is formed
-- **Monday, Nov 24th 2025** : Week 0 - Release cycle begins
-- TBD
+- **Monday, Nov 24th 2025** - Release team is formed
+- **Monday, Nov 24th 2025** - Release cycle begins & End of year final check
+- **Monday, Nov 28th 2025** - Feature freeze, manifests sync starts, docs update starts
+- **Monday, Nov 28th 2025** - RC.0 is cut
+- **Monday, Nov 28th 2025** - Manifests sync ends, manifests testing and bug fixing starts
+- **Monday, Dec 1st 2025**  - Manifests testing and bug fixing ends, distribution testing starts
+- **Monday, Dec 10th 2025**  Distribution testing ends, pre-release bug fixing stage starts
+- **Monday, Dec 15th 2025**  Pre-release bug fixing stage ends
+- **Monday, Dec 15st 2025** - Docs update ends
+- **Thursday, Dec 15 2025** - Kubeflow v1.11 Released
 
-
-## Timeline
-
-
-| **When** | **Week** | **Who** | **What** |
-| -------- | -------- | ------- | -------- |
-| Monday, Nov 24th 2025 | Week 0  | Release Manager | [Preparation](../handbook.md#preparation)                                                          |
-| Monday, Nov 24th 2025  | Week 0  | Release Manager | Start of Release cycle                                                                             |
-| Monday, Nov 24th 2025 | Week 1  | Community |  [Development](../handbook.md#development-10-weeks)                                                |
-TBD
