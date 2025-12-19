@@ -23,5 +23,6 @@ The Kubeflow projects approvers and reviewers can be found in the corresponding 
 - [Kubeflow Model Registry](https://github.com/kubeflow/model-registry/blob/main/OWNERS)
 - [Kubeflow Notebooks](https://github.com/kubeflow/notebooks/blob/main/OWNERS)
 - [Kubeflow Pipelines](https://github.com/kubeflow/pipelines/blob/master/OWNERS)
+- [Kubeflow SDK](https://github.com/kubeflow/sdk/blob/main/OWNERS)
 - [Kubeflow Spark Operator](https://github.com/kubeflow/spark-operator/blob/master/OWNERS)
 - [Kubeflow Trainer](https://github.com/kubeflow/trainer/blob/master/OWNERS)
