@@ -25,5 +25,5 @@ The 1.11 release cycle is proposed as follows
 - **Monday, Dec 10th 2025** - Distribution testing ends, pre-release bug fixing stage starts
 - **Monday, Dec 15th 2025** - Pre-release bug fixing stage ends
 - **Monday, Dec 15st 2025** - Docs update ends
-- **Thursday, Dec 15 2025** - Kubeflow v1.11 Released
+- **Monday, Dec 15 2025** - Kubeflow v1.11 Released
 
