@@ -44,8 +44,8 @@ Kubeflow uses Release Candidates (RC) as the only pre-release type.
 
 **Release Candidate Naming:**
 ```
-YYYY.MM-rc1
-YYYY.MM-rc2
+YYYY.MM-rc.1
+YYYY.MM-rc.2
 ```
 
 **RC Rules:**
