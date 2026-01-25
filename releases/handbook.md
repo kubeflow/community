@@ -82,7 +82,7 @@ YYYY.MM-rc.2
 ## People and Roles
 
 ### Release Management Team: 
-The Release Management Team is composed of: Release Manager, WG leads / liaisons, and Product Owner.
+The Release Management Team is composed of: Release Manager, WG leads / liaisons, and Product Manager.
 Release team liaisons will be responsible not only for the communication but for contributing to the release with documentation, source code, PRs review, etc, according to their skills and motivation.
 
 ### Release Manager Responsibilities: 
@@ -104,9 +104,9 @@ Release team liaisons will be responsible not only for the communication but for
 
 Release Manager Shadows are community members interested in becoming a Release Manager. They work closely with the current Release Manager throughout the release cycle to learn the process and are prepared to lead future releases.
 
-### Product Owner
+### Product Manager
 
-The Product Owner is responsible for coordinating documentation updates, the release blog, and the final presentation for the Kubeflow release.
+The Product Manager is responsible for coordinating documentation updates, the release blog, and the final presentation for the Kubeflow release.
 
 **Responsibilities:**
 - Ensure documentation is updated and accurate for the release
