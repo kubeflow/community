@@ -63,6 +63,46 @@ YYYY.MM-rc.2
 - `rc1` testing period: 3 weeks
 - `rc2` testing period: up to 2 weeks, if needed
 
+### Manifests Repository Releases
+
+All releases are cut from the `kubeflow/manifests` repository following these naming conventions:
+
+**Release Branches:**
+
+Branches use the pattern: `release-YYYY.MM.PATCH`
+
+Examples:
+```
+release-2026.03.0
+release-2026.03.1
+release-2026.10.0
+```
+
+**Tags for Release Candidates:**
+
+RC tags use the pattern: `vYYYY.MM-rc.N`
+
+Examples:
+```
+v2026.03-rc.1
+v2026.03-rc.2
+v2026.10-rc.1
+v2026.10-rc.2
+```
+
+**Tags for Final and Patch Releases:**
+
+Release tags use the pattern: `vYYYY.MM.PATCH`
+
+Examples:
+```
+v2026.03.0    (initial 2026.03 release)
+v2026.03.1    (first patch for 2026.03)
+v2026.03.2    (second patch for 2026.03)
+v2026.10.0    (initial 2026.10 release)
+v2026.10.1    (first patch for 2026.10)
+```
+
 ### Timeline
 * Week 0 - (Release and Roadmap discussions) WG Leads and release team meet to discuss the roadmap planned for the release
 * Week 2 - (Software development Phase) WG Leads/Liaisons meet to discuss any release challenges, release changes, and help needed from the community (to communicate on Kubeflow Community Meeting)
@@ -76,8 +116,6 @@ YYYY.MM-rc.2
 * Week 13 - (Release or RC2) Promote `rc1` to final release if no major blockers. Otherwise, apply fixes and cut `rc2`.
 * Week 14-15 - (RC2 Testing, if needed) 2 weeks validation period for `rc2`. Community and distributions report blockers.
 * Week 16 - (Final Release, if RC2 was needed) Promote `rc2` to final release.
-- Manifests WG leads synchronize and cut the release on Kubeflow Platform/Manifests following [Calendar Versioning](https://calver.org/) (`YYYY.MM[.PATCH]`)
-- The Release Manager is responsible for approving/reviewing the blog and slides announcing the release.
 
 ## People and Roles
 
