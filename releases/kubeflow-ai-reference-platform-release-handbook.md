@@ -18,18 +18,18 @@
 Kubeflow uses [Calendar Versioning](https://calver.org/) (CalVer) for the Kubeflow AI Reference Platform. The version format is:
 
 ```
-YYYY.MM[.PATCH]
+YY.MM[.PATCH]
 ```
 
 Where:
-- **YYYY** = release year
+- **YY** = release year
 - **MM** = release month
 - **PATCH** = optional bug-fix release number (incremental integer)
 
 ### Release Cadence
 
 * Kubeflow targets two base releases per year
-* Patch releases are issued as needed using the format `YYYY.MM.PATCH`.
+* Patch releases are issued as needed using the format `YY.MM.PATCH`.
 
 ### Patch (Bug-Fix) Release Policy
 
@@ -44,8 +44,8 @@ Kubeflow uses Release Candidates (RC) as the only pre-release type.
 
 **Release Candidate Naming:**
 ```
-YYYY.MM-rc.1
-YYYY.MM-rc.2
+YY.MM-rc.1
+YY.MM-rc.2
 ```
 
 **RC Rules:**
@@ -69,38 +69,36 @@ All releases are cut from the `kubeflow/manifests` repository following these na
 
 **Release Branches:**
 
-Branches use the pattern: `release-YYYY.MM.PATCH`
+Branches use the pattern: `release-YY.MM`
 
 Examples:
 ```
-release-2026.03.0
-release-2026.03.1
-release-2026.10.0
+release-26.03
+release-26.10
 ```
 
 **Tags for Release Candidates:**
 
-RC tags use the pattern: `vYYYY.MM-rc.N`
+RC tags use the pattern: `YY.MM-rc.N`
 
 Examples:
 ```
-v2026.03-rc.1
-v2026.03-rc.2
-v2026.10-rc.1
-v2026.10-rc.2
+26.03-rc.1
+26.03-rc.2
+26.10-rc.1
 ```
 
 **Tags for Final and Patch Releases:**
 
-Release tags use the pattern: `vYYYY.MM.PATCH`
+Release tags use the pattern: `YY.MM[.PATCH]`
 
 Examples:
 ```
-v2026.03.0    (initial 2026.03 release)
-v2026.03.1    (first patch for 2026.03)
-v2026.03.2    (second patch for 2026.03)
-v2026.10.0    (initial 2026.10 release)
-v2026.10.1    (first patch for 2026.10)
+26.03       (initial 26.03 release)
+26.03.1     (first patch for 26.03)
+26.03.2     (second patch for 26.03)
+26.10       (initial 26.10 release)
+26.10.1     (first patch for 26.10)
 ```
 
 ### Timeline
@@ -205,7 +203,7 @@ in the website is cut](https://github.com/kubeflow/kubeflow/blob/master/docs_dev
 ## Post Release
 
 ### Patch Release
-Planning for first patch release begins. Patch releases follow the `YYYY.MM.PATCH` format and must not introduce new features or intentional API changes. The importance of bugs is left to the judgement of the Working Group leads and the Release Manager to decide.
+Planning for first patch release begins. Patch releases follow the `YY.MM.PATCH` format and must not introduce new features or intentional API changes. The importance of bugs is left to the judgement of the Working Group leads and the Release Manager to decide.
 
 ### Release Retrospective
 
