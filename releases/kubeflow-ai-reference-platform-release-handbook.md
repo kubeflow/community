@@ -52,10 +52,6 @@ YY.MM-rc.2
 - `rc1` is mandatory for every base release
 - `rc2` is optional and may be issued if needed, at the discretion of the release team
 
-**RC Testing Period:**
-- `rc1` testing period: 3 weeks
-- `rc2` testing period: up to 2 weeks, if needed
-
 ### Manifests Repository Releases
 
 All releases are cut from the `kubeflow/manifests` repository following these naming conventions:
