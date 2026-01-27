@@ -107,7 +107,7 @@ Examples:
 * Week 4 - (Software development Phase) WG Leads/Liaisons meet to discuss any release challenges, release changes, and help needed from the community (to communicate on Kubeflow Community Meeting)
 * Week 6 - (Software development Phase) WG Leads/Liaisons meet to discuss any release challenges, release changes, and help needed from the community (to communicate on Kubeflow Community Meeting)
 * Week 8 - (Last week of Software development Phase) WG Leads/Liaisons meet to discuss any release challenges, release changes, and help needed from the community (to communicate on Kubeflow Community Meeting)
-* Week 9 - (Feature Freeze and Prep for Release) WG Leads/Liaisons finalize features and prepare documentation. `rc1` is cut at the end of this week.
+* Week 9 - (Feature Freeze and preparation for Release) WG Leads/Liaisons finalize features and prepare documentation. `rc1` is cut at the end of this week.
 * Week 10 - (RC1 Testing begins - Community and Distribution validation) Users and distributions start testing and report blockers.
 * Week 11 - (RC1 Testing continues) Continued validation and blocker identification.
 * Week 12 - (RC1 Testing ends) Final week of 3-week testing period. Discuss any potential blockers.
