@@ -5,7 +5,7 @@
 * Use Calendar Versioning (CalVer) to clearly indicate when releases occur.
 * Provide a predictable release schedule with clear dates and phases for distributions, working groups, and the community.
 * Minimize release overhead through automation and asynchronous communication.
-* Reduce meeting time by focusing on bi-weekly syncs during development and weekly syncs during testing phases.
+* Reduce meeting time by focusing on bi-weekly synchronization during development and weekly synchronization during testing phases.
 * Enable fast iteration through patch releases as needed.
 
 ### Release Meetings and Communication
