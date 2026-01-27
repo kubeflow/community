@@ -50,14 +50,7 @@ YY.MM-rc.2
 
 **RC Rules:**
 - `rc1` is mandatory for every base release
-- `rc2` is optional and may only be created if major blockers are reported during `rc1` testing, such as:
-  - Installation failures
-  - Upgrade regressions
-  - Component breakage
-  - Security issues
-- `rc2` must only contain fixes for `rc1` blockers
-- No new features are allowed in any RC
-- Additional RC iterations beyond `rc2` may be issued if needed, at the discretion of the release team
+- `rc2` is optional and may be issued if needed, at the discretion of the release team
 
 **RC Testing Period:**
 - `rc1` testing period: 3 weeks
