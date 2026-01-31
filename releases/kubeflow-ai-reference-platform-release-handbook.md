@@ -1,145 +1,65 @@
-# Kubeflow Release Handbook
+# Kubeflow AI Reference Platform Release Handbook
 
-### Goals
+## Goals
 
-* Use Calendar Versioning (CalVer) to clearly indicate when releases occur.
-* Provide a predictable release schedule with clear dates and phases for distributions, working groups, and the community.
-* Minimize release overhead through automation and asynchronous communication.
-* Reduce meeting time by focusing on bi-weekly synchronization during development and weekly synchronization during testing phases.
-* Enable fast iteration through patch releases as needed.
+- Use Calendar Versioning (CalVer) to clearly indicate when releases occur.
+- Provide a predictable release schedule with clear dates and phases for distributions, working groups, and the community.
+- Minimize release overhead through automation and asynchronous communication.
+- Enable fast iteration through patch releases.
 
-### Release Meetings and Communication
-* Create a new Release Management team on Slack for asynchronous communication within the team
-* Bi-weekly meetings during Software Development (Week 1-Week 8). Weekly meetings between week 9-16 as needed.
-* Meetings will focus on roadmap status, including blockers, feature discussions, the overall status of the release, and the help needed.
+## Release Meetings and Communication
+- Create a new Release Management team on Slack for asynchronous communication within the team.
+- Meetings are bi-weekly during development and weekly during RC testing as needed.
 
-### Versioning (CalVer)
+## Versioning (CalVer)
 
-Kubeflow uses [Calendar Versioning](https://calver.org/) (CalVer) for the Kubeflow AI Reference Platform. The version format is:
+Kubeflow uses [Calendar Versioning](https://calver.org/) with format `YY.MM[.PATCH]`. Two base releases are targeted per year.
 
-```
-YY.MM[.PATCH]
-```
+All releases are cut from `kubeflow/manifests`.
 
-Where:
-- **YY** = release year
-- **MM** = release month
-- **PATCH** = optional bug-fix release number (incremental integer)
+### Release Types
 
-### Release Cadence
+| Type | Format | Rules | Examples |
+|------|--------|-------|----------|
+| Release Candidate | `YY.MM-rc.N` | `rc.1` mandatory; additional RCs optional | Tag: `26.03-rc.1`, `26.03-rc.2` |
+| Base Release | `YY.MM` | Initial release for a version | Tag: `26.03`; Branch: `release-26.03` |
+| Patch Release | `YY.MM.PATCH` | Bug-fix; no breaking changes; sequential numbering | Tag: `26.03.1`, `26.03.2` |
 
-* Kubeflow targets two base releases per year
-* Patch releases are issued as needed using the format `YY.MM.PATCH`.
 
-### Patch (Bug-Fix) Release Policy
-
-Patch releases:
-- Must not introduce new features
-- Must increment sequentially (`.1`, `.2`, …)
-- Must retain the same `YYYY.MM` base version even if released in a later calendar month
-
-### Pre-Release Policy (Release Candidates)
-
-Kubeflow uses Release Candidates (RC) as the only pre-release type.
-
-**Release Candidate Naming:**
-```
-YY.MM-rc.1
-YY.MM-rc.2
-```
-
-**RC Rules:**
-- `rc1` is mandatory for every base release
-- `rc2` is optional and may be issued if needed, at the discretion of the release team
-
-### Manifests Repository Releases
-
-All releases are cut from the `kubeflow/manifests` repository following these naming conventions:
-
-**Release Branches:**
-
-Branches use the pattern: `release-YY.MM`
-
-Examples:
-```
-release-26.03
-release-26.10
-```
-
-**Tags for Release Candidates:**
-
-RC tags use the pattern: `YY.MM-rc.N`
-
-Examples:
-```
-26.03-rc.1
-26.03-rc.2
-26.10-rc.1
-```
-
-**Tags for Final and Patch Releases:**
-
-Release tags use the pattern: `YY.MM[.PATCH]`
-
-Examples:
-```
-26.03       (initial 26.03 release)
-26.03.1     (first patch for 26.03)
-26.03.2     (second patch for 26.03)
-26.10       (initial 26.10 release)
-26.10.1     (first patch for 26.10)
-```
-
-### Timeline
-* Week 0 - (Release and Roadmap discussions) WG Leads and release team meet to discuss the roadmap planned for the release
-* Week 2 - (Software development Phase) WG Leads/Liaisons meet to discuss any release challenges, release changes, and help needed from the community (to communicate on Kubeflow Community Meeting)
-* Week 4 - (Software development Phase) WG Leads/Liaisons meet to discuss any release challenges, release changes, and help needed from the community (to communicate on Kubeflow Community Meeting)
-* Week 6 - (Software development Phase) WG Leads/Liaisons meet to discuss any release challenges, release changes, and help needed from the community (to communicate on Kubeflow Community Meeting)
-* Week 8 - (Last week of Software development Phase) WG Leads/Liaisons meet to discuss any release challenges, release changes, and help needed from the community (to communicate on Kubeflow Community Meeting)
-* Week 9 - (Feature Freeze and preparation for Release) WG Leads/Liaisons finalize features and prepare documentation. `rc1` is cut at the end of this week.
-* Week 10 - (RC1 Testing begins - Community and Distribution validation) Users and distributions start testing and report blockers.
-* Week 11 - (RC1 Testing continues) Continued validation and blocker identification.
-* Week 12 - (RC1 Testing ends) Final week of 3-week testing period. Discuss any potential blockers.
-* Week 13 - (Release or RC2) Promote `rc1` to final release if no major blockers. Otherwise, apply fixes and cut `rc2`.
-* Week 14-15 - (RC2 Testing, if needed) 2 weeks validation period for `rc2`. Community and distributions report blockers.
-* Week 16 - (Final Release, if RC2 was needed) Promote `rc2` to final release.
+## Timeline
+- Week 0 - (Roadmap) Release team and WG Leads discuss the roadmap.
+- Weeks 2, 4, 6, 8 - (Development) Sync on challenges, changes, and blockers.
+- Week 9 - (Feature Freeze) Finalize features, prepare documentation. Cut `rc.1`.
+- Weeks 10-12 - (RC1 Testing) Community and distribution testing.
+- Week 13 - (Release Decision) Promote `rc.1` to final, or cut `rc.2` if blockers reported.
+- Weeks 14-15 - (RC2 Testing, if needed) Testing period for `rc.2`.
+- Week 16 - (Final Release, if RC2 was needed) Promote `rc.2` to final.
 
 ## People and Roles
 
-### Release Management Team: 
+### Release Management Team
 The Release Management Team is composed of: Release Manager, WG leads / liaisons, and Product Manager.
 Release team liaisons will be responsible not only for the communication but for contributing to the release with documentation, source code, PRs review, etc, according to their skills and motivation.
 
-### Release Manager Responsibilities: 
-- Responsible for the overall Kubeflow Release Process 
-- Promote best practices for the release and software development process.
-- Manage the communication between the teams to understand current release status and potential blockers
-- Manage the communication with the community about the status of the Release or any help/blockers needed.
-- Approve & review the blog and slides announcing the Release.
-- Provide updates to the mailing list with the progress of the release
-- Coordinate directly with the WG liaisons and leads about dates and deliverables
-- Coordinate with the Release Team Members for the progress of the release
-- Ensure the WG leads have cut the necessary GitHub branches and tags for the different phases of the release
-- Host the Release Team meetings
-- Update the larger community on release status during the Kubeflow community meetings
-- Make sure the processes are being followed
-- Make decisions on release date or go-no for each release
+### Release Manager
+- Own the overall Kubeflow release process and make go/no-go decisions
+- Promote best practices for release and software development
+- Coordinate with WG leads/liaisons on dates, deliverables, and blockers
+- Communicate release status via Slack, mailing list, and community meetings
+- Ensure branches and tags are cut for each release phase
+- Host release team meetings
+- Review and approve the release blog and slides
 
 ### Release Manager Shadows
-
 Release Manager Shadows are community members interested in becoming a Release Manager. They work closely with the current Release Manager throughout the release cycle to learn the process and are prepared to lead future releases.
 
 ### Product Manager
-
-The Product Manager is responsible for coordinating documentation updates, the release blog, and the final presentation for the Kubeflow release.
-
-**Responsibilities:**
 - Ensure documentation is updated and accurate for the release
 - Identify and track issues that require documentation updates
 - Coordinate and publish the release blog post
 - Prepare the final release presentation and slides
 
-### Preparation
+## Preparation
 
 - [ ] [Assemble a release team](https://github.com/kubeflow/community/issues/571)
 - [ ] Create a new [release project](https://github.com/orgs/kubeflow/projects) to track issues and pull requests related to the release
@@ -192,7 +112,7 @@ in the website is cut](https://github.com/kubeflow/kubeflow/blob/master/docs_dev
 ## Post Release
 
 ### Patch Release
-Planning for first patch release begins. Patch releases follow the `YY.MM.PATCH` format and must not introduce new features or intentional API changes. The importance of bugs is left to the judgement of the Working Group leads and the Release Manager to decide.
+Planning for first patch release begins. The importance of bugs is left to the judgement of the Working Group leads and the Release Manager to decide.
 
 ### Release Retrospective
 
@@ -207,4 +127,3 @@ is for everyone to chime in and discuss what went well and what could be improve
 - Work to close any remaining tasks
 - Close all release tracking issues
 - Give Kubeflow release calendar access to the new release manager
-
