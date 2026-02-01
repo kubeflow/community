@@ -23,7 +23,7 @@ All releases are cut from `kubeflow/manifests`.
 |------|--------|-------|----------|
 | Release Candidate | `YY.MM-rc.N` | `rc.1` mandatory; additional RCs optional | Tag: `26.03-rc.1`, `26.03-rc.2` |
 | Base Release | `YY.MM` | Initial release for a version | Tag: `26.03`; Branch: `release-26.03` |
-| Patch Release | `YY.MM.PATCH` | Bug-fix; no breaking changes; sequential numbering | Tag: `26.03.1`, `26.03.2` |
+| Patch Release | `YY.MM.PATCH` | Bug-fix; try to avoid breaking changes; sequential numbering | Tag: `26.03.1`, `26.03.2` |
 
 
 ## Timeline
