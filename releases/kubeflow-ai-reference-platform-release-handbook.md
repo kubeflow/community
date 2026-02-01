@@ -28,7 +28,7 @@ All releases are cut from `kubeflow/manifests`.
 
 ## Timeline
 - Week 0 - (Roadmap) Release team and WG Leads discuss the roadmap.
-- Weeks 2, 4, 6, 8 - (Development) Sync on challenges, changes, and blockers.
+- Weeks 2, 4, 6, 8 - (Development) Synchronize on challenges, changes, and blockers.
 - Week 9 - (Feature Freeze) Finalize features, prepare documentation. Cut `rc.1`.
 - Weeks 10-12 - (RC1 Testing) Community and distribution testing.
 - Week 13 - (Release Decision) Promote `rc.1` to final, or cut `rc.2` if blockers reported.
@@ -76,22 +76,22 @@ Release Manager Shadows are community members interested in becoming a Release M
 Criteria for timeline that the team needs to consider
 - Holidays around the world that coincide with members of the release team, WG representatives, and distro representatives.
 - Enterprise budgeting/approval lifecycle. (aka users have their own usage and purchase requirements and deadlines)
-- Kubecon dates - let’s not hard block on events, but keep them in mind since we know community members might get doublebooked.
+- Kubecon dates - let us not hard block on events, but keep them in mind since we know community members might get doublebooked.
 - Associated events (aka. AI Day at Kubecon, Tensorflow events) - we want to keep them in mind.
 
 **Success Criteria:** Release team selected, release schedule sent to kubeflow-discuss, all release team members have the proper permissions and are meeting regularly.
 
 ### Implementation
 **Actions for the Release Team:**
-- Get a git revision from all WGs, on the first day of the Feature Freeze period. WGs need to have a git revision ready to give to the release team.
-- Make a pull request to update the manifests for the different WGs, based on the _git revision_ they provided.
+- We aim to always include the latest release from each working group unless specified otherwise.
+- Make pull requests to update the manifests for the different WGs
 - Identify, early in the first week, bugs at risk. These should either be aggressively fixed or punted
 - Request a list of features and deprecations, from the Working Groups, that require updates to the documentation
 - Ensure the provided component versions match the documentation
 - Work alongside the Working Groups to bring the documentation up to date
 - Create a [new version dropdown and update the website version](https://github.com/kubeflow/website/pull/3333)
 - Add new [release page with component and dependency versions](https://github.com/kubeflow/website/pull/3332)
-- Work with the WG to build the release notes and slides
+- Work with the WGs to build the release notes and slides
 - Start creating the draft for the official blog post and collating information from the Working Groups
     - (Optional but encouraged) Working Groups start drafting WG-specific blog
         posts, deep diving into their respective areas
