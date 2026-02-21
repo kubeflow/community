@@ -342,14 +342,16 @@ Phase 2: fine_tune(..., confirmed=True)  - Submits job (after user approval)
 - Tool validation with mcp-tef
 
 ### Phase 2: Pre-flight Validation
-- Enhanced `estimate_resources()` with model registry lookup
+- Enhanced `estimate_resources()` with batch_size, sequence_length, quantization parameters
 - `check_prerequisites()` tool
+- Add "Edit" support to confirmation pattern (modify params without re-specifying)
 - Explore [Mellea](https://github.com/generative-computing/mellea) for argument validation
 
 ### Phase 3: Policy & Multi-MCP
 - Policy enforcement layer
 - Built-in persona policies
 - Namespace restrictions
+- OpenTelemetry integration via [FastMCP native instrumentation](https://gofastmcp.com/servers/telemetry)
 - Explore [AGNTCY Identity](https://github.com/agntcy/identity) for enterprise deployments
 
 ### Phase 4: Advanced Features
@@ -363,6 +365,8 @@ Phase 2: fine_tune(..., confirmed=True)  - Submits job (after user approval)
 |--------|-------|----------------|
 | **optimizer** | 8 | `OptimizerClient` |
 | **hub** | 6 | `ModelRegistryClient` |
+
+- Optional `--mode dynamic` for 33+ tools ([100x token reduction](https://www.speakeasy.com/blog/100x-token-reduction-dynamic-toolsets) via semantic search)
 
 ### Phase 6: Future Modules
 - `pipelines/` - `PipelinesClient`
@@ -409,3 +413,7 @@ Phase 2: fine_tune(..., confirmed=True)  - Submits job (after user approval)
 - [mcp-tef: Tool Evaluation Framework](https://github.com/StacklokLabs/mcp-tef)
 - [Mellea: Generative Programming Library](https://github.com/generative-computing/mellea)
 - [AGNTCY Identity](https://github.com/agntcy/identity)
+- [Memory-Efficient Fine-Tuning](https://arxiv.org/abs/2501.18824) - Activation memory analysis
+- [OpenTelemetry MCP Semantic Conventions](https://opentelemetry.io/docs/specs/semconv/gen-ai/mcp/)
+- [FastMCP OpenTelemetry Integration](https://gofastmcp.com/servers/telemetry) - Native instrumentation for MCP servers
+- [Speakeasy Dynamic Toolsets](https://www.speakeasy.com/blog/100x-token-reduction-dynamic-toolsets) - Token reduction patterns

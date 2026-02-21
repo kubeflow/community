@@ -14,14 +14,16 @@ This document contains detailed design specifications for the Kubeflow MCP Serve
 - [Tool Behavior Details](#tool-behavior-details)
 - [Two-Phase Confirmation Pattern](#two-phase-confirmation-pattern)
 - [Authentication Implementation](#authentication-implementation)
+- [Dependencies](#dependencies)
+- [Gateway Deployment (Enterprise)](#gateway-deployment-enterprise)
 - [MCP Protocol Implementation](#mcp-protocol-implementation)
 - [Installation](#installation)
 - [Configuration File](#configuration-file)
 - [Distribution](#distribution)
 - [Secret Management](#secret-management)
 - [Audit Logging](#audit-logging)
+- [OpenTelemetry Integration (Phase 3)](#opentelemetry-integration-phase-3)
 - [Phase 5: Additional Client Modules](#phase-5-additional-client-modules)
-- [Dependencies](#dependencies)
 - [Compatibility Matrix](#compatibility-matrix)
 
 ---
@@ -100,11 +102,22 @@ def run_custom_training(
                 "config": {"func_args": func_args, "num_nodes": num_nodes,
                           "packages_to_install": packages_to_install}}
     
-    # Step 1: AST validation (fail fast)
+    # Step 1: AST validation (fail fast, defense-in-depth)
     import ast
     try:
         tree = ast.parse(func_code)
-        func_names = {node.name for node in ast.walk(tree) if isinstance(node, ast.FunctionDef)}
+        func_names = set()
+        for node in ast.walk(tree):
+            if isinstance(node, ast.FunctionDef):
+                func_names.add(node.name)
+            # Security checks (defense-in-depth, not a sandbox)
+            if isinstance(node, ast.Import):
+                for alias in node.names:
+                    if alias.name.split('.')[0] in {"os", "subprocess", "sys", "shutil", "socket"}:
+                        return {"success": False, "error": f"Import '{alias.name}' not allowed. Use run_container_training() for system access."}
+            if isinstance(node, ast.Call) and isinstance(node.func, ast.Name):
+                if node.func.id in {"eval", "exec", "compile", "__import__", "open"}:
+                    return {"success": False, "error": f"'{node.func.id}()' not allowed. Use run_container_training() instead."}
         if "train" not in func_names:
             return {"success": False, "error": "Script must define a 'train(**kwargs)' function"}
     except SyntaxError as e:
@@ -193,31 +206,54 @@ SDK Layer:     func: Callable (Python function object)
 ## Resource Estimation Algorithm
 
 ```python
-def estimate_resources(model: str, peft_method: str, num_nodes: int = 1) -> dict:
-    # Step 1: Lookup model size from HuggingFace
+def estimate_resources(
+    model: str, 
+    peft_method: str,
+    batch_size: int = 4,
+    sequence_length: int = 2048,
+    quantization: str = "bf16",  # "fp32", "bf16", "fp16", "int8", "int4"
+    num_nodes: int = 1,
+) -> dict:
+    # Step 1: Lookup model metadata from HuggingFace
     model_info = get_model_info(model)  # Uses HF Hub API
     param_count = model_info.get("num_parameters", None)
+    num_layers = model_info.get("num_hidden_layers", 32)
+    hidden_size = model_info.get("hidden_size", 4096)
     
-    # Step 2: Calculate base memory (bf16 = 2 bytes/param)
-    dtype_bytes = 2
-    base_memory_gb = (param_count * dtype_bytes) / (1024**3)
+    # Step 2: Calculate base model memory
+    quant_bytes = {"fp32": 4, "bf16": 2, "fp16": 2, "int8": 1, "int4": 0.5}
+    base_memory_gb = (param_count * quant_bytes[quantization]) / (1024**3)
     
-    # Step 3: Apply PEFT multiplier
-    peft_multipliers = {"full": 3.0, "lora": 1.2, "qlora": 0.5}
-    multiplier = peft_multipliers.get(peft_method, 2.0)
+    # Step 3: Activation memory (scales with batch_size × sequence_length)
+    # Dominant factor for LoRA; ~2 bytes per activation per layer
+    activation_memory_gb = (batch_size * sequence_length * num_layers * hidden_size * 2) / (1024**3)
     
-    # Step 4: Add activation overhead
-    activation_overhead_gb = 4
-    total_memory_gb = (base_memory_gb * multiplier) + activation_overhead_gb
+    # Step 4: Optimizer and gradient memory
+    if peft_method == "full":
+        optimizer_memory_gb = base_memory_gb * 2  # AdamW: 2x model for states
+        gradient_memory_gb = base_memory_gb
+    else:  # LoRA/QLoRA: only adapter weights need gradients
+        optimizer_memory_gb = base_memory_gb * 0.1
+        gradient_memory_gb = base_memory_gb * 0.05
+    
+    total_memory_gb = base_memory_gb + activation_memory_gb + optimizer_memory_gb + gradient_memory_gb
     
     return {
         "model": model,
         "param_count": param_count,
-        "estimated_gpu_memory_gb": round(total_memory_gb, 1),
+        "breakdown": {
+            "model": round(base_memory_gb, 1),
+            "activations": round(activation_memory_gb, 1),
+            "optimizer": round(optimizer_memory_gb, 1),
+            "gradients": round(gradient_memory_gb, 1),
+        },
+        "total_gpu_memory_gb": round(total_memory_gb, 1),
         "recommended_gpu": recommend_gpu(total_memory_gb),
         "confidence": "high" if param_count else "low",
     }
 ```
+
+**Note:** Activation memory scales linearly with `batch_size × sequence_length` and is often the dominant factor for parameter-efficient methods. See [Memory-Efficient Fine-Tuning](https://arxiv.org/abs/2501.18824) for detailed analysis.
 
 | Trainer Type | Estimation Method |
 |--------------|-------------------|
@@ -437,7 +473,7 @@ Training tools use a confirmation pattern to prevent accidental resource consump
 Phase 1: Preview (confirmed=False, default)
 ┌─────────────────────────────────────────────────────────────────┐
 │ User: "Fine-tune Qwen on alpaca"                                │
-│ AI Agent calls: fine_tune(model="Qwen/Qwen2.5-7B", ...,        │
+│ AI Agent calls: fine_tune(model="Qwen/Qwen2.5-7B", ...,         │
 │                           confirmed=False)                      │
 │ Returns: {"status": "preview", "config": {...}}                 │
 │ AI Agent: "I'll fine-tune Qwen with these settings. Proceed?"   │
@@ -516,6 +552,28 @@ optimizer = ["kubeflow>=0.3.0"]
 hub = ["kubeflow[hub]>=0.3.0"]
 all = ["kubeflow[hub]>=0.3.0"]
 ```
+
+---
+
+## Gateway Deployment (Enterprise)
+
+For multi-tenant enterprise deployments, kubeflow-mcp can run behind an MCP gateway ([Microsoft](https://github.com/microsoft/mcp-gateway), [IBM Context Forge](https://ibm.github.io/mcp-context-forge/), [Red Hat](https://developers.redhat.com/articles/2025/12/12/advanced-authentication-authorization-mcp-gateway)):
+
+```yaml
+# Gateway-compatible mode
+server:
+  auth_mode: "gateway"  # Trust gateway headers, skip local auth
+  required_headers:
+    - "x-authenticated-user"
+    - "x-user-groups"
+    - "x-request-id"  # For audit correlation
+```
+
+**Gateway benefits:**
+- OAuth2 Token Exchange (RFC 8693) for narrowly-scoped backend tokens
+- Centralized identity-based tool filtering
+- Session-aware routing for stateful operations
+- Vault integration for credential management
 
 ---
 
@@ -638,6 +696,42 @@ The MCP server will log all tool invocations for audit:
 ```
 
 **Note:** Sensitive parameters (tokens, credentials) are **redacted** from logs.
+
+---
+
+## OpenTelemetry Integration (Phase 3)
+
+FastMCP includes [native OpenTelemetry instrumentation](https://gofastmcp.com/servers/telemetry). Zero configuration required—bring your own SDK:
+
+```bash
+# Install OTEL dependencies
+pip install opentelemetry-distro opentelemetry-exporter-otlp
+opentelemetry-bootstrap -a install
+
+# Run with tracing enabled
+opentelemetry-instrument \
+  --service_name kubeflow-mcp \
+  --exporter_otlp_endpoint http://localhost:4317 \
+  kubeflow-mcp serve --clients trainer
+```
+
+**Automatic spans created:**
+
+| Span Name | Description |
+|-----------|-------------|
+| `tools/call fine_tune` | Tool execution |
+| `tools/call get_training_logs` | Monitoring operations |
+| `resources/read config://...` | Resource access |
+
+**MCP semantic convention attributes:**
+
+| Attribute | Description |
+|-----------|-------------|
+| `mcp.method.name` | `tools/call`, `resources/read` |
+| `mcp.session.id` | Session identifier |
+| `enduser.id` | Client ID (when authenticated) |
+
+Works with any OTLP-compatible backend (Jaeger, Grafana Tempo, Datadog, etc.).
 
 ---
 
