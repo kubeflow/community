@@ -11,11 +11,13 @@
 
 This KEP proposes a **Model Context Protocol (MCP) Server** for the Kubeflow SDK that should enable AI agents to interact with Kubeflow Training resources through natural language. The MCP server should wrap the existing Kubeflow SDK (`TrainerClient`, `BuiltinTrainer`, `CustomTrainer`) without duplicating code, providing a conversational interface for training operations.
 
+![Quick Overview](assets/quick-overview.png)
+
 **Core Principle:** The MCP server should be a *complementary interface*, not a replacement. It should wrap the SDK, enabling natural language workflows while preserving full programmatic access for power users.
 
 ### Before vs After
 
-![Before vs After MCP](before-after.png)
+![Before vs After MCP](assets/before-after.png)
 
 ## Motivation
 
@@ -66,19 +68,19 @@ kubeflow/
 
 #### MCP as Parallel Interface to SDK
 
-![Unified SDK Architecture](unified-sdk.png)
+![Unified SDK Architecture](assets/unified-sdk.png)
 
 | SDK Client | Component | Control Plane ConfigMap | MCP Integration |
 |------------|-----------|-------------------------|-----------------|
-| `TrainerClient` | Kubeflow Trainer | `kubeflow-trainer-public` | ✅ Phase 1 (this proposal) |
-| `OptimizerClient` | Kubeflow Katib | `kubeflow-optimizer-public` | 🔜 Phase 5 |
-| `ModelRegistryClient` | Model Registry | `kubeflow-hub-public` | 🔜 Phase 5 |
-| `PipelinesClient` | Kubeflow Pipelines | `kubeflow-pipelines-public` | 🔜 Future |
-| `SparkClient` | Spark Operator | `kubeflow-spark-public` | 🔜 Future |
+| `TrainerClient` | Kubeflow Trainer | `kubeflow-trainer-public` | Phase 1 (this proposal) |
+| `OptimizerClient` | Kubeflow Katib | `kubeflow-optimizer-public` | Phase 5 |
+| `ModelRegistryClient` | Model Registry | `kubeflow-hub-public` | Phase 5 |
+| `PipelinesClient` | Kubeflow Pipelines | `kubeflow-pipelines-public` | Future |
+| `SparkClient` | Spark Operator | `kubeflow-spark-public` | Future |
 
 ### Architecture Overview
 
-![Architecture](architecture.png)
+![Architecture](assets/architecture.png)
 
 ### Design Principle: SDK Integration Without Duplication
 
@@ -195,8 +197,8 @@ As a data scientist, I want to fine-tune Qwen on a custom dataset without learni
 User: "Fine-tune Qwen/Qwen2.5-7B-Instruct on tatsu-lab/alpaca using LoRA"
 
 AI Agent (using MCP tools):
-1. get_cluster_resources() → "4x A100 80GB available"
-2. estimate_resources("Qwen/Qwen2.5-7B-Instruct", "lora") → "24GB needed"
+1. get_cluster_resources() returns "4x A100 80GB available"
+2. estimate_resources("Qwen/Qwen2.5-7B-Instruct", "lora") returns "24GB needed"
 3. fine_tune(model="Qwen/Qwen2.5-7B-Instruct", dataset="tatsu-lab/alpaca", peft_method="lora", confirmed=True)
 
 Response: "Started training job 'ft-qwen-abc123'. The model needs ~24GB GPU memory,
@@ -212,7 +214,7 @@ As an ML engineer, I want to run my distributed training function on 2 nodes wit
 User: "Run my distributed training function on 2 nodes with 4 GPUs each"
 
 AI Agent (using MCP tools):
-1. get_cluster_resources() → "8 GPUs available across 2 nodes"
+1. get_cluster_resources() returns "8 GPUs available across 2 nodes"
 2. run_custom_training(
      func=user_training_func,
      func_args={"learning_rate": "0.01"},
@@ -233,7 +235,7 @@ As a DevOps engineer, I want to run a pre-built training container.
 User: "Run my custom trainer image ghcr.io/myorg/trainer:v1 with 4 GPUs"
 
 AI Agent (using MCP tools):
-1. get_cluster_resources() → "4 GPUs available"
+1. get_cluster_resources() returns "4 GPUs available"
 2. run_container_training(image="ghcr.io/myorg/trainer:v1", resources_per_node={"nvidia.com/gpu": 4}, confirmed=True)
 
 Response: "Started container training job 'container-train-def456'.
@@ -244,7 +246,7 @@ Your image will run with 4 GPUs."
 
 ### MCP Tool Inventory
 
-![Tool Layers](tool-layers.png)
+![Tool Layers](assets/tool-layers.png)
 
 Tools are organized in layers aligned with SDK structure for maintainability. When SDK adds new methods, MCP adds corresponding tools without refactoring existing ones.
 
@@ -306,7 +308,7 @@ All three tools internally call `TrainerClient.train()` with the appropriate tra
 | `get_training_logs(job_id, step?, follow?)` | `TrainerClient.get_job_logs()` | Container logs |
 | `get_training_events(job_id)` | `TrainerClient.get_job_events()` | Kubernetes events |
 | `wait_for_training(job_id, timeout?)` | `TrainerClient.wait_for_job_status()` | Block until done |
-| `get_training_progress(job_id)` | *Future: KEP-2779* | Progress bar, metrics ⏳ |
+| `get_training_progress(job_id)` | *Future: KEP-2779* | Progress bar, metrics (deferred) |
 
 ##### Lifecycle Tools
 
@@ -334,20 +336,20 @@ All three tools internally call `TrainerClient.train()` with the appropriate tra
 
 Kubeflow MCP should be designed to work alongside other MCP servers, with clear scope boundaries:
 
-![Multi-MCP Ecosystem](multi-mcp.png)
+![Multi-MCP Ecosystem](assets/multi-mcp.png)
 
 **Design Principle:** No overlap. `kubeflow-mcp` should handle Kubeflow-specific resources; `kubernetes-mcp-server` should handle generic K8s operations.
 
 | Domain | kubeflow-mcp | kubernetes-mcp-server |
 |--------|--------------|----------------------|
-| **Kubeflow CRDs** (TrainJob, Experiment, etc.) | ✅ Owns | ❌ Delegates |
-| **Kubeflow Runtimes** (ClusterTrainingRuntime, etc.) | ✅ Owns | ❌ Delegates |
-| **Kubeflow-specific storage** | ✅ Owns | ❌ Delegates |
-| **Generic PVC management** | ❌ Delegates | ✅ Owns |
-| **ConfigMaps / Secrets** | ❌ Delegates | ✅ Owns |
-| **Pod debugging (exec, logs)** | ❌ Delegates | ✅ Owns |
-| **RBAC / Roles** | ❌ Delegates | ✅ Owns |
-| **Helm charts** | ❌ Delegates | ✅ Owns |
+| **Kubeflow CRDs** (TrainJob, Experiment, etc.) | Owns | Delegates |
+| **Kubeflow Runtimes** (ClusterTrainingRuntime, etc.) | Owns | Delegates |
+| **Kubeflow-specific storage** | Owns | Delegates |
+| **Generic PVC management** | Delegates | Owns |
+| **ConfigMaps / Secrets** | Delegates | Owns |
+| **Pod debugging (exec, logs)** | Delegates | Owns |
+| **RBAC / Roles** | Delegates | Owns |
+| **Helm charts** | Delegates | Owns |
 
 **Design Decision:** A unified `kubeflow-mcp` (mirroring the unified SDK) was chosen over per-component servers for single installation, cross-component workflows, and consistent policies. Component teams developing specialized MCP functionality (e.g., Model Registry's MCP Catalog) should coordinate on tool naming and discovery.
 
@@ -411,16 +413,16 @@ personas:
     inherit: readonly
     tools:
       - estimate_resources
-      - fine_tune                # ✅ Zero-code fine-tuning
-      - run_custom_training      # ✅ Custom training functions
-      # run_container_training   # ❌ Blocked - requires DevOps
+      - fine_tune                # Zero-code fine-tuning
+      - run_custom_training      # Custom training functions
+      # run_container_training   # Blocked - requires DevOps
       - wait_for_training
       - delete_training_job      # Own jobs only
       
   ml-engineer:
     inherit: data-scientist
     tools:
-      - run_container_training   # ✅ Container-based training
+      - run_container_training   # Container-based training
       - get_runtime_packages
       - suspend_training_job
       - resume_training_job
@@ -433,7 +435,7 @@ personas:
 
 ### Trainer Selection Logic
 
-![Trainer Selection](trainer-selection.png)
+![Trainer Selection](assets/trainer-selection.png)
 
 #### Extensibility: Dynamic LLM Trainer Framework
 
@@ -441,10 +443,10 @@ This MCP server is designed to support the upcoming **Dynamic LLM Trainer Framew
 
 | Backend | Status | MCP Support |
 |---------|--------|-------------|
-| **TorchTune** | Current default | ✅ Supported |
-| **TRL** | Planned | 🔜 When available |
-| **Unsloth** | Planned | 🔜 When available |
-| **LlamaFactory** | Planned | 🔜 When available |
+| **TorchTune** | Current default | Supported |
+| **TRL** | Planned | When available |
+| **Unsloth** | Planned | When available |
+| **LlamaFactory** | Planned | When available |
 
 **Design Principle:** MCP tools use the SDK's `LLMBackend` abstraction. When new backends are registered (e.g., `TRLBackend`, `UnslothBackend`), MCP automatically supports them through:
 
@@ -495,7 +497,7 @@ from kubeflow.trainer import TrainerType
 
 Before training, MCP tools should automatically validate:
 
-![Pre-flight Checks](preflight-checks.png)
+![Pre-flight Checks](assets/preflight-checks.png)
 
 **Argument Validation:** Invalid arguments (malformed model IDs, unsupported PEFT methods, resource requests exceeding capacity) return structured errors with suggestions rather than failing at the Kubernetes level.
 
@@ -503,14 +505,14 @@ Before training, MCP tools should automatically validate:
 
 Kubeflow MCP should support persona-based policies for enterprise environments:
 
-![Policies](policies.png)
+![Policies](assets/policies.png)
 
 | Persona | Discovery | Planning | Training | Lifecycle | Storage | Runtimes |
 |---------|-----------|----------|----------|-----------|---------|----------|
-| `readonly` | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| `data-scientist` | ✅ | ✅ | ✅ | ✅ (own jobs) | ❌ | ❌ |
-| `ml-engineer` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ (use) |
-| `platform-admin` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ (create) |
+| `readonly` | Yes | Yes | No | No | No | No |
+| `data-scientist` | Yes | Yes | Yes | Yes (own jobs) | No | No |
+| `ml-engineer` | Yes | Yes | Yes | Yes | Yes | Yes (use) |
+| `platform-admin` | Yes | Yes | Yes | Yes | Yes | Yes (create) |
 
 **Policy Configuration (YAML):**
 
@@ -553,35 +555,35 @@ mcp = FastMCP(
     Kubeflow MCP Server - AI Model Training on Kubernetes
     
     WORKFLOW: Fine-Tuning LLMs
-    1. get_cluster_resources() → Check GPU availability
-    2. estimate_resources(model, peft_method) → Memory requirements
-    3. fine_tune(model, dataset, ..., confirmed=True) → Submit job
-    4. get_training_job(job_id) / get_training_logs(job_id) → Monitor
+    1. get_cluster_resources() - Check GPU availability
+    2. estimate_resources(model, peft_method) - Memory requirements
+    3. fine_tune(model, dataset, ..., confirmed=True) - Submit job
+    4. get_training_job(job_id) / get_training_logs(job_id) - Monitor
     
     WORKFLOW: Custom Training Code
-    1. get_cluster_resources() → Check GPU availability
-    2. run_custom_training(func, func_args, ..., confirmed=True) → Submit job
-    3. get_training_logs(job_id) → View output
+    1. get_cluster_resources() - Check GPU availability
+    2. run_custom_training(func, func_args, ..., confirmed=True) - Submit job
+    3. get_training_logs(job_id) - View output
     
     WORKFLOW: Container-Based Training
-    1. get_cluster_resources() → Check GPU availability
-    2. run_container_training(image, ..., confirmed=True) → Submit job
-    3. get_training_logs(job_id) → View output
+    1. get_cluster_resources() - Check GPU availability
+    2. run_container_training(image, ..., confirmed=True) - Submit job
+    3. get_training_logs(job_id) - View output
     
     TOOL SELECTION:
-    - Fine-tune HuggingFace models → fine_tune()
-    - Run custom training function → run_custom_training()
-    - Run pre-built container → run_container_training()
-    - Check job status → get_training_job()
-    - View logs → get_training_logs()
-    - List jobs → list_training_jobs()
+    - Fine-tune HuggingFace models: fine_tune()
+    - Run custom training function: run_custom_training()
+    - Run pre-built container: run_container_training()
+    - Check job status: get_training_job()
+    - View logs: get_training_logs()
+    - List jobs: list_training_jobs()
     """
 )
 ```
 
 ### Workflow
 
-![Workflow](workflow.png)
+![Workflow](assets/workflow.png)
 
 ### Package Structure (Modular Architecture)
 
@@ -669,9 +671,9 @@ TOOLS = [
 INSTRUCTIONS = """
 TRAINER MODULE - Distributed Training & LLM Fine-Tuning
 
-WORKFLOW: Fine-Tuning → fine_tune(model, dataset, confirmed=True)
-WORKFLOW: Custom Training → run_custom_training(func, func_args, confirmed=True)
-WORKFLOW: Container Training → run_container_training(image, confirmed=True)
+WORKFLOW: Fine-Tuning - fine_tune(model, dataset, confirmed=True)
+WORKFLOW: Custom Training - run_custom_training(func, func_args, confirmed=True)
+WORKFLOW: Container Training - run_container_training(image, confirmed=True)
 """
 ```
 
@@ -746,11 +748,11 @@ kubeflow-mcp serve --clients trainer --persona data-scientist
 
 # List available client modules
 kubeflow-mcp clients list
-# trainer     - TrainerClient (16 tools) ✅ SDK available
-# optimizer   - OptimizerClient (8 tools) ✅ SDK available
-# hub         - ModelRegistryClient (6 tools) ✅ SDK available
-# pipelines   - PipelinesClient ❌ SDK not available
-# spark       - SparkClient ❌ SDK not available
+# trainer     - TrainerClient (16 tools) [SDK available]
+# optimizer   - OptimizerClient (8 tools) [SDK available]
+# hub         - ModelRegistryClient (6 tools) [SDK available]
+# pipelines   - PipelinesClient [SDK not available]
+# spark       - SparkClient [SDK not available]
 ```
 
 ### Configuration File
@@ -837,7 +839,7 @@ Multiple configurations for different use cases:
 
 ## Security Considerations
 
-![Security Architecture](security.png)
+![Security Architecture](assets/security.png)
 
 ### Authentication
 
@@ -856,7 +858,7 @@ The MCP server should inherit authentication from the underlying Kubernetes cont
 
 **User Identity Flow (Istio Integration):**
 
-![User Identity Flow](identity-flow.png)
+![User Identity Flow](assets/identity-flow.png)
 
 **Required RBAC for MCP ServiceAccount:**
 
@@ -878,7 +880,7 @@ rules:
 MCP tools should operate under the user's Kubernetes RBAC permissions:
 
 ```
-User Request → MCP Server → Kubeflow SDK → K8s API Server → RBAC Check
+User Request -> MCP Server -> Kubeflow SDK -> K8s API Server -> RBAC Check
 ```
 
 | Resource | Required RBAC Verbs |
@@ -913,7 +915,7 @@ The MCP server should support multi-tenant deployments through:
 2. **Policy Enforcement**: Persona-based policies should restrict tool access per user/group
 3. **Resource Quotas**: MCP should validate against K8s ResourceQuotas before training
 
-![Multi-Tenancy Architecture](multi-tenancy.png)
+![Multi-Tenancy Architecture](assets/multi-tenancy.png)
 
 ### Audit Logging
 
@@ -1007,9 +1009,9 @@ The MCP server should log all tool invocations for audit:
 - [ ] **Trainer Module** (`--clients trainer`):
   - Planning: `estimate_resources()` - basic heuristic-based estimation
   - Dedicated training tools wrapping `TrainerClient.train()`:
-    - `fine_tune()` → `BuiltinTrainer` (zero-code LLM fine-tuning)
-    - `run_custom_training()` → `CustomTrainer` (user-provided function)
-    - `run_container_training()` → `CustomTrainerContainer` (pre-built container)
+    - `fine_tune()` maps to `BuiltinTrainer` (zero-code LLM fine-tuning)
+    - `run_custom_training()` maps to `CustomTrainer` (user-provided function)
+    - `run_container_training()` maps to `CustomTrainerContainer` (pre-built container)
   - SDK-aligned discovery: `list_training_jobs()`, `get_training_job()`, `list_runtimes()`, `get_runtime()`, `get_runtime_packages()`
   - SDK-aligned monitoring: `get_training_logs()`, `get_training_events()`, `wait_for_training()`
   - SDK-aligned lifecycle: `delete_training_job()`, `suspend_training_job()`, `resume_training_job()`
@@ -1021,7 +1023,7 @@ The MCP server should log all tool invocations for audit:
   - Quality analysis: Ensure descriptions score ≥7/10 on clarity, completeness, conciseness
   - Similarity detection: Verify `fine_tune`, `run_custom_training`, `run_container_training` are distinguishable (similarity <0.7)
   - LLM evaluation: Create test cases for common prompts, validate correct tool selection with high confidence
-- **SDK Dependency:** `kubeflow.trainer.TrainerClient` ✅ Available in SDK v0.3.0
+- **SDK Dependency:** `kubeflow.trainer.TrainerClient` (Available in SDK v0.3.0)
 - **Tool Count:** 16 tools (~5.3K tokens)
 
 ### Phase 2: Pre-flight Validation
@@ -1089,7 +1091,7 @@ MODULE_INFO = {
 | `delete_optimization_job()` | `OptimizerClient.delete_job()` | Delete experiment |
 | `get_optimization_events()` | `OptimizerClient.get_job_events()` | K8s events |
 
-- **SDK Dependency:** `kubeflow.optimizer.OptimizerClient` ✅ Available in SDK v0.3.0
+- **SDK Dependency:** `kubeflow.optimizer.OptimizerClient` (Available in SDK v0.3.0)
 - **Tool Count:** 8 tools (~3K tokens)
 - **Validation:** mcp-tef similarity detection between optimizer and trainer tools (e.g., `optimize()` vs `fine_tune()`)
 
@@ -1114,7 +1116,7 @@ MODULE_INFO = {
 | `get_model_version()` | `ModelRegistryClient.get_model_version()` | Version details |
 | `get_model_artifact()` | `ModelRegistryClient.get_model_artifact()` | Artifact metadata |
 
-- **SDK Dependency:** `kubeflow.hub.ModelRegistryClient` ✅ Available in SDK v0.3.0
+- **SDK Dependency:** `kubeflow.hub.ModelRegistryClient` (Available in SDK v0.3.0)
 - **Tool Count:** 6 tools (~2.5K tokens)
 - **Validation:** mcp-tef quality analysis, coordinate with Model Registry MCP Catalog on tool naming
 
