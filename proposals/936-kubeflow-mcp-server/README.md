@@ -138,7 +138,7 @@ def fine_tune(
 
 @mcp.tool()
 def run_custom_training(
-    func: str,
+    func_code: str,
     func_args: dict | None = None,
     packages_to_install: list[str] | None = None,
     num_nodes: int = 1,
@@ -146,17 +146,48 @@ def run_custom_training(
     runtime: str | None = None,
     confirmed: bool = False,
 ) -> dict:
-    """Run distributed training with a user-provided function.
+    """Run distributed training with user-provided Python code.
     
-    Use this when you have custom training code.
+    Use this when you have custom training code. The func_code must define
+    a `train(**kwargs)` function that will be executed on each training node.
+    
+    MCP Bridge: func_code (str) is converted to a Callable via importlib
+    before passing to SDK's CustomTrainer which expects func: Callable.
+    
     Internally calls: TrainerClient.train(trainer=CustomTrainer(...))
     """
     if not confirmed:
         return {"error": "Set confirmed=True to submit training job"}
     
+    # Step 1: AST validation (fail fast before any I/O)
+    import ast
+    try:
+        tree = ast.parse(func_code)
+        func_names = {node.name for node in ast.walk(tree) if isinstance(node, ast.FunctionDef)}
+        if "train" not in func_names:
+            return {"error": "Script must define a 'train(**kwargs)' function"}
+    except SyntaxError as e:
+        return {"error": f"Invalid Python syntax: {e}"}
+    
+    # Step 2: Convert to Callable (file required for SDK's inspect.getsource())
+    import tempfile, importlib.util, hashlib
+    script_hash = hashlib.md5(func_code.encode()).hexdigest()[:8]
+    
+    with tempfile.NamedTemporaryFile(
+        mode='w', suffix='.py', prefix=f'mcp_train_{script_hash}_', delete=False
+    ) as f:
+        f.write(func_code)
+        temp_path = f.name
+    
+    spec = importlib.util.spec_from_file_location("training_module", temp_path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    train_func = module.train
+    
+    # Step 3: Submit to SDK
     client = TrainerClient()
     trainer = CustomTrainer(
-        func=func, func_args=func_args, packages_to_install=packages_to_install,
+        func=train_func, func_args=func_args, packages_to_install=packages_to_install,
         num_nodes=num_nodes, resources_per_node=resources_per_node,
     )
     job_name = client.train(runtime=runtime, trainer=trainer)
@@ -216,7 +247,14 @@ User: "Run my distributed training function on 2 nodes with 4 GPUs each"
 AI Agent (using MCP tools):
 1. get_cluster_resources() returns "8 GPUs available across 2 nodes"
 2. run_custom_training(
-     func=user_training_func,
+     func_code="""
+def train(**kwargs):
+    import torch.distributed as dist
+    dist.init_process_group(backend='nccl')
+    # User's training logic here
+    learning_rate = float(kwargs.get('learning_rate', 0.01))
+    ...
+""",
      func_args={"learning_rate": "0.01"},
      num_nodes=2,
      resources_per_node={"nvidia.com/gpu": 4},
@@ -283,13 +321,36 @@ As new backends are added via [KEP-2839](https://github.com/kubeflow/trainer/iss
 | Tool | SDK Type | Description |
 |------|----------|-------------|
 | `fine_tune(model, dataset, peft_method, ...)` | `BuiltinTrainer` | Zero-code LLM fine-tuning with TorchTune |
-| `run_custom_training(func, func_args, ...)` | `CustomTrainer` | User-provided training function |
+| `run_custom_training(func_code, func_args, ...)` | `CustomTrainer` | User-provided Python training code |
 | `run_container_training(image, ...)` | `CustomTrainerContainer` | Pre-built training container |
 
 All three tools internally call `TrainerClient.train()` with the appropriate trainer type. Dedicated tools provide:
 - **Clear intent** - LLM selects based on user goal, not parameter detection
 - **Focused parameters** - each tool only exposes relevant options
 - **Granular permissions** - personas can allow `fine_tune` but block `run_custom_training`
+
+**MCP-to-SDK Bridge for Custom Training:**
+
+The SDK's `CustomTrainer` expects `func: Callable`, but MCP only transports JSON-serializable data. The MCP server bridges this gap:
+
+```
+MCP Layer:     func_code: str (Python source code)
+                     |
+                     v  [1. AST validation - fail fast]
+                     |
+                     v  [2. importlib conversion - file-backed for inspect.getsource()]
+SDK Layer:     func: Callable (Python function object)
+```
+
+**Why file-backed?** The SDK internally calls `inspect.getsource(func)` to extract code for the container entrypoint. Using `exec()` alone would break this.
+
+This pattern:
+- **Validates early** - AST parsing catches syntax errors and missing `train()` before I/O
+- **Keeps MCP payloads JSON-safe** - LLMs can read/modify training code
+- **Avoids binary serialization** - No cloudpickle/dill security risks
+- **Aligns with MCP best practices** - Stateless, schema-first design
+
+For complex training with dependencies, use `run_container_training()` instead.
 
 ##### Discovery Tools
 
@@ -562,7 +623,7 @@ mcp = FastMCP(
     
     WORKFLOW: Custom Training Code
     1. get_cluster_resources() - Check GPU availability
-    2. run_custom_training(func, func_args, ..., confirmed=True) - Submit job
+    2. run_custom_training(func_code, func_args, ..., confirmed=True) - Submit job
     3. get_training_logs(job_id) - View output
     
     WORKFLOW: Container-Based Training
@@ -672,7 +733,7 @@ INSTRUCTIONS = """
 TRAINER MODULE - Distributed Training & LLM Fine-Tuning
 
 WORKFLOW: Fine-Tuning - fine_tune(model, dataset, confirmed=True)
-WORKFLOW: Custom Training - run_custom_training(func, func_args, confirmed=True)
+WORKFLOW: Custom Training - run_custom_training(func_code, func_args, confirmed=True)
 WORKFLOW: Container Training - run_container_training(image, confirmed=True)
 """
 ```
@@ -1010,7 +1071,7 @@ The MCP server should log all tool invocations for audit:
   - Planning: `estimate_resources()` - basic heuristic-based estimation
   - Dedicated training tools wrapping `TrainerClient.train()`:
     - `fine_tune()` maps to `BuiltinTrainer` (zero-code LLM fine-tuning)
-    - `run_custom_training()` maps to `CustomTrainer` (user-provided function)
+    - `run_custom_training()` maps to `CustomTrainer` (user-provided Python code as string, bridged to Callable)
     - `run_container_training()` maps to `CustomTrainerContainer` (pre-built container)
   - SDK-aligned discovery: `list_training_jobs()`, `get_training_job()`, `list_runtimes()`, `get_runtime()`, `get_runtime_packages()`
   - SDK-aligned monitoring: `get_training_logs()`, `get_training_events()`, `wait_for_training()`
