@@ -28,7 +28,6 @@
   - [Extensibility: Dynamic LLM Trainer Framework](#extensibility-dynamic-llm-trainer-framework)
   - [Pre-flight Validation](#pre-flight-validation)
   - [Policy-Based Access Control](#policy-based-access-control)
-  - [Package Structure](#package-structure)
   - [CLI Usage](#cli-usage)
   - [Workflow](#workflow)
 - [Security Considerations](#security-considerations)
@@ -47,7 +46,7 @@
 
 ## Summary
 
-This KEP proposes a **Model Context Protocol (MCP) Server** for the Kubeflow SDK that enables AI agents to interact with Kubeflow Training resources through natural language. The MCP server wraps the existing Kubeflow SDK (`TrainerClient`, `BuiltinTrainer`, `CustomTrainer`) without duplicating code.
+This KEP proposes a **Model Context Protocol (MCP) Server** for the Kubeflow SDK that enables AI agents to interact with Kubeflow Trainer resources through natural language. The MCP server wraps the existing Kubeflow SDK (`TrainerClient`, `BuiltinTrainer`, `CustomTrainer`) without duplicating code.
 
 ![Quick Overview](assets/quick-overview.png)
 
@@ -59,7 +58,7 @@ This KEP proposes a **Model Context Protocol (MCP) Server** for the Kubeflow SDK
 
 ## Motivation
 
-Kubeflow Training provides powerful distributed training capabilities, but requires Python SDK knowledge, Kubernetes expertise, and manual validation. The [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) provides a standard way for AI agents to interact with external systems, supported by modern AI-powered IDEs (Claude Code, Cursor, VS Code with Copilot).
+Kubeflow Trainer provides powerful distributed training capabilities, but requires Python SDK knowledge, Kubernetes expertise, and manual validation. The [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) provides a standard way for AI agents to interact with external systems, supported by modern AI-powered IDEs (Claude Code, Cursor, VS Code with Copilot).
 
 ### Goals
 
@@ -230,22 +229,6 @@ Before training, MCP tools validate GPU availability, memory requirements, and s
 | `data-scientist` | Yes | Yes | Yes (own jobs) | No |
 | `ml-engineer` | Yes | Yes | Yes | Yes |
 
-### Package Structure
-
-```
-kubeflow-mcp/
-├── src/kubeflow_mcp/
-│   ├── server.py              # FastMCP server with dynamic tool loading
-│   ├── core/                  # Shared utilities (auth, policy)
-│   ├── clients/
-│   │   ├── trainer/           # TrainerClient tools (16 tools)
-│   │   ├── optimizer/         # OptimizerClient tools (Phase 5)
-│   │   └── hub/               # ModelRegistryClient tools (Phase 5)
-│   └── policies/              # Persona definitions
-```
-
-See [DESIGN.md](DESIGN.md#package-structure) for full structure.
-
 ### CLI Usage
 
 ```bash
@@ -393,7 +376,7 @@ Phase 2: fine_tune(..., confirmed=True)  - Submits job (after user approval)
 ### Core
 - [Model Context Protocol Specification](https://modelcontextprotocol.io/)
 - [Kubeflow SDK Repository](https://github.com/kubeflow/sdk)
-- [Kubeflow Training Operator](https://github.com/kubeflow/trainer)
+- [Kubeflow Trainer](https://github.com/kubeflow/trainer)
 
 ### Related Issues
 - [#936: KEP Tracking Issue](https://github.com/kubeflow/community/issues/936)
