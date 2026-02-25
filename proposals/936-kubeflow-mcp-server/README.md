@@ -187,11 +187,20 @@ Tools are organized in layers aligned with SDK structure (16 tools in Phase 1):
 
 ![Multi-MCP Ecosystem](assets/multi-mcp.png)
 
-| Domain | kubeflow-mcp | kubernetes-mcp-server |
-|--------|--------------|----------------------|
-| **Kubeflow CRDs** (TrainJob, etc.) | Owns | Delegates |
-| **Generic PVC/ConfigMaps/Secrets** | Delegates | Owns |
-| **Pod debugging (exec, logs)** | Delegates | Owns |
+| Domain | kubeflow-mcp | kubernetes-mcp-server | feast-mcp |
+|--------|--------------|----------------------|-----------|
+| **Kubeflow CRDs** (TrainJob, etc.) | Owns | Delegates | - |
+| **Generic PVC/ConfigMaps/Secrets** | Delegates | Owns | - |
+| **Feature retrieval** | Delegates | - | Owns |
+| **Pod debugging (exec, logs)** | Delegates | Owns | - |
+
+**Coordination with Related Projects:**
+
+- **[Feast MCP](https://github.com/feast-dev/feast/issues/5404)** - Exposes feature server as MCP (`get_online_features`). Complementary: Feast serves features for training data, kubeflow-mcp executes training.
+
+- **[Model Registry MCP Catalog](https://github.com/kubeflow/model-registry/pull/2029)** - A UI gallery for *discovering* MCP servers, not an MCP server itself. kubeflow-mcp would be *listed in* this catalog. No tool conflicts - they're cataloging servers, we're providing tools.
+
+- **Phase 5 Hub Module** - Our `register_model()`, `list_models()` tools wrap the unified SDK's `ModelRegistryClient`. If Model Registry team later builds their own MCP tools for model operations, we'll coordinate naming via `@kubeflow/kubeflow-hub-team`.
 
 ### Tool Scalability
 
@@ -405,6 +414,8 @@ Phase 2: fine_tune(..., confirmed=True)  - Submits job (after user approval)
 - [KEP-2839: Dynamic LLM Trainer Framework](https://github.com/kubeflow/trainer/issues/2839)
 - [KEP-2779: TrainJob Progress Tracking](https://github.com/kubeflow/trainer/tree/master/docs/proposals/2779-trainjob-progress)
 - [model-registry#2029: MCP Catalog API](https://github.com/kubeflow/model-registry/pull/2029)
+- [Feast MCP Server](https://docs.feast.dev/master/reference/feature-servers/mcp-feature-server) - Feature serving integration
+- [HuggingFace MCP Server](https://github.com/huggingface/hf-mcp-server) - Model/dataset discovery
 
 ### Research
 - [ToolScope: Tool Merging and Context-Aware Filtering](https://arxiv.org/abs/2510.20036)
