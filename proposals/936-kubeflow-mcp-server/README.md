@@ -160,6 +160,18 @@ AI Agent: run_container_training(image="ghcr.io/myorg/trainer:v1",
                                   confirmed=True)
 ```
 
+**Story 4: Agent-Generated Training Code**
+
+```
+User: "Write a PyTorch script to fine-tune Llama on my data and run it distributed"
+
+AI Agent:
+1. Generates training code using its knowledge
+2. run_custom_training(func_code="def train(**kwargs): ...", 
+                       packages_to_install=["transformers", "peft"],
+                       num_nodes=2, confirmed=True)
+```
+
 ## Design Details
 
 ### MCP Tool Inventory
