@@ -46,7 +46,7 @@
 
 ## Summary
 
-This KEP proposes a **Model Context Protocol (MCP) Server** for the Kubeflow SDK that enables AI agents to interact with Kubeflow Trainer resources through natural language. The MCP server wraps the existing Kubeflow SDK (`TrainerClient`, `BuiltinTrainer`, `CustomTrainer`) without duplicating code.
+This KEP proposes a **Model Context Protocol (MCP) Server** for the Kubeflow SDK that enables AI agents to interact with Kubeflow resources through natural language. **Phase 1 focuses on `TrainerClient` for distributed training and LLM fine-tuning; the long-term goal is AI-powered end-to-end LLMOps** covering training, hyperparameter optimization, model registry, and pipelines. The MCP server wraps the existing Kubeflow SDK without duplicating code.
 
 ![Quick Overview](assets/quick-overview.png)
 
@@ -88,6 +88,7 @@ The MCP server evolves alongside the unified Kubeflow SDK (`kubeflow/sdk`):
 | `TrainerClient` | Kubeflow Trainer | Phase 1 (this proposal) |
 | `OptimizerClient` | Kubeflow Katib | Phase 5 |
 | `ModelRegistryClient` | Model Registry | Phase 5 |
+| `SparkClient` | Kubeflow Spark Operator | Future |
 | `PipelinesClient` | Kubeflow Pipelines | Future |
 
 ![Unified SDK Architecture](assets/unified-sdk.png)
@@ -95,6 +96,23 @@ The MCP server evolves alongside the unified Kubeflow SDK (`kubeflow/sdk`):
 ### Architecture Overview
 
 ![Architecture](assets/architecture.png)
+
+**Deployment Modes:**
+
+| Mode | Location | Auth | Transport |
+|------|----------|------|-----------|
+| **Local** | User's laptop | Kubeconfig | stdio |
+| **In-cluster** | K8s cluster | ServiceAccount + Impersonation | StreamableHTTP |
+| **Gateway** | Behind MCP gateway | OAuth/OIDC | StreamableHTTP |
+
+**Request Flow:**
+```
+1. User -> AI Agent: Natural language request
+2. AI Agent -> MCP Server: JSON-RPC tool call
+3. MCP Server -> Kubeflow SDK: Python method call
+4. Kubeflow SDK -> K8s API: CRD operations
+```
+*Only the SDK communicates with the K8s API server. The MCP server is a translation layer.*
 
 The MCP server will import Kubeflow SDK types directly—no code duplication:
 
