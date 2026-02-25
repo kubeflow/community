@@ -35,6 +35,7 @@
   - [Authorization](#authorization)
   - [Multi-Tenancy](#multi-tenancy)
 - [Risks and Mitigations](#risks-and-mitigations)
+- [Design Decisions](#design-decisions)
 - [Test Plan](#test-plan)
 - [Graduation Criteria](#graduation-criteria)
 - [Implementation Plan](#implementation-plan)
@@ -315,6 +316,49 @@ Training tools use a confirmation pattern to prevent accidental resource consump
 Phase 1: fine_tune(..., confirmed=False) - Returns preview
 Phase 2: fine_tune(..., confirmed=True)  - Submits job (after user approval)
 ```
+
+## Design Decisions
+
+### Why granular tools instead of one monolithic `train()` tool?
+
+We went with granular tools after thinking through a few scenarios:
+
+- We do take the point about tool count. 16 tools is fine, but Phase 5 could hit 33. We handle this in two ways: First, modular client loading (`--clients trainer`) means you only load tools for components you need - if you're just training, you don't get optimizer or registry tools. Second, persona filtering (`--persona data-scientist`) hides admin tools from users who don't need them. Combined, these give 70-85% reduction. For Phase 5+ with 33+ tools, we're also looking at what [Speakeasy documented](https://www.speakeasy.com/blog/100x-token-reduction-dynamic-toolsets) - instead of registering all schemas upfront, you expose three meta-tools: "search for tools", "describe this tool", "execute this tool." The LLM discovers what it needs dynamically. Same granularity, way fewer tokens in context.
+
+- The other thing we noticed while prototyping: LLMs are surprisingly good at adapting when you give them feedback between steps. Say `estimate_resources()` comes back with "needs 80GB, cluster has 40GB." A monolithic tool would just fail. But with separate tools, Claude or Cursor will look at that mismatch and go "oh, let me try with quantization" - without us writing any conditional logic. There's some research on this too ([ToolBeHonest](https://arxiv.org/abs/2406.20015)) showing LLMs hallucinate less when they get intermediate feedback to anchor on.
+
+- The main thing is - training jobs eat GPUs. When you're about to spin up 4x A100s, you want to see "this will need 24GB" before it runs, not discover halfway through that something was misconfigured. There's actually a paper on this ([research on HITL patterns](https://arxiv.org/abs/2510.05307)) that looked at when humans want confirmation prompts vs when they find them annoying. The finding? For cheap/reversible actions, confirmations are friction. For expensive/irreversible ones like training jobs, people actually want the pause point. That's why each tool is separate - so the agent can show intermediate results and the user can say "wait, that's too much memory, try QLoRA instead."
+
+- And honestly, debugging is way easier. "Training failed" tells you nothing. "`estimate_resources` succeeded, `fine_tune` failed with quota exceeded" - now you know where to look.
+
+- For users who just want the simple path - yeah, Phase 2 could add something like `auto_validate=True` that runs the whole chain internally. Power users get individual tools, casual users get the one-liner.
+
+- Self-correction with Mellea. Phase 2 explores [Mellea's](https://github.com/generative-computing/mellea) "Instruct-Validate-Repair" pattern. If LLM passes invalid args (e.g., `model="llama"` instead of full HuggingFace path), we validate, return a helpful error, and let the LLM fix it - instead of just failing. Granular tools make this repair loop cleaner.
+
+- Audit trails with AGNTCY. Phase 3 explores [AGNTCY Identity](https://github.com/agntcy/identity) for enterprise - cryptographic signatures on tool calls so you can prove *who* triggered *what*. Granular tools = granular audit trail. A monolithic tool would just log "training happened" without the decision chain.
+
+### Why SDK-wrapping instead of direct K8s API?
+
+The SDK is the stable interface; CRDs are implementation details:
+
+- SDK handles CRD versioning - if TrainJob schema changes, we don't need to update MCP.
+- We get `TorchTuneConfig`, `LoraConfig` Python types instead of constructing raw YAML.
+- SDK already provides log streaming, wait-with-backoff, and [local execution](https://github.com/kubeflow/sdk/tree/main/docs/proposals/2-trainer-local-execution) - we'd have to reimplement all of this with direct API.
+- [kube-authkit](https://github.com/kubeflow/sdk/issues/281) provides consistent auth across all Kubeflow APIs.
+
+### Why not HuggingFace Skills?
+
+Different problem space. [HF Skills](https://huggingface.co/blog/hf-skills-training) are instruction-based prompts that guide LLMs to *generate* Python code - but the user still runs that code locally. kubeflow-mcp provides *execution* on Kubernetes with RBAC, namespace isolation, and audit logging. They're complementary: [HF MCP Server](https://github.com/huggingface/hf-mcp-server) for model/dataset discovery, kubeflow-mcp for training execution.
+
+### Comparative analysis with Feast MCP and Model Registry Catalog
+
+We investigated existing MCP efforts in the Kubeflow/ML ecosystem:
+
+- **Feast MCP** ([issue #5404](https://github.com/feast-dev/feast/issues/5404)) - Exposes `get_online_features` for feature retrieval. Different domain: Feast serves features for training data preparation, kubeflow-mcp executes training. Complementary, no overlap.
+
+- **Model Registry MCP Catalog** ([PR #2029](https://github.com/kubeflow/model-registry/pull/2029)) - This is a *catalog/gallery* for discovering MCP servers, not an MCP server with model tools. It defines `McpServer`, `McpTool` entities for the UI. kubeflow-mcp would be *listed in* this catalog as a discoverable server. No tool conflicts.
+
+- **Future Model Registry MCP tools** - If the Model Registry team builds their own MCP server with model registration/versioning tools, we'll coordinate naming (e.g., they own `register_model()`, we expose `list_registered_models()`). Our Phase 5 Hub module tools currently wrap `ModelRegistryClient`, so we're prepared to adjust scope as the ecosystem evolves.
 
 ## Test Plan
 
