@@ -200,14 +200,16 @@ Tools are organized in layers aligned with SDK structure (16 tools in Phase 1):
 
 ![Multi-MCP Ecosystem](assets/multi-mcp.png)
 
-| Domain | kubeflow-mcp | kubernetes-mcp-server | feast-mcp |
-|--------|--------------|----------------------|-----------|
+| Domain | kubeflow-mcp | kubernetes-mcp-server | hf-mcp |
+|--------|--------------|----------------------|--------|
 | **Kubeflow CRDs** (TrainJob, etc.) | Owns | Delegates | - |
 | **Generic PVC/ConfigMaps/Secrets** | Delegates | Owns | - |
-| **Feature retrieval** | Delegates | - | Owns |
+| **Model/dataset metadata** | Delegates | - | Owns |
 | **Pod debugging (exec, logs)** | Delegates | Owns | - |
 
 **Coordination with Related Projects:**
+
+- **[HuggingFace MCP Server](https://github.com/huggingface/hf-mcp-server)** - Model/dataset discovery and metadata retrieval. For `estimate_resources()`, agents can use hf-mcp to get model metadata (param_count, hidden_size), then pass to kubeflow-mcp. Each server owns its domain: hf-mcp for discovery, kubeflow-mcp for training execution.
 
 - **[Feast MCP](https://github.com/feast-dev/feast/issues/5404)** - Exposes feature server as MCP (`get_online_features`). Complementary: Feast serves features for training data, kubeflow-mcp executes training.
 
@@ -409,6 +411,7 @@ We investigated existing MCP efforts in the Kubeflow/ML ecosystem:
 
 ### Phase 2: Pre-flight Validation
 - Enhanced `estimate_resources()` with batch_size, sequence_length, quantization parameters
+- Support `user_provided_params` (param_count, hidden_size, num_layers) for private/custom models not on HuggingFace Hub
 - `check_prerequisites()` tool
 - Add "Edit" support to confirmation pattern (modify params without re-specifying)
 - Explore [Mellea](https://github.com/generative-computing/mellea) for argument validation
