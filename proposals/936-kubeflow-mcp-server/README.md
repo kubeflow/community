@@ -232,6 +232,8 @@ Research shows LLM accuracy degrades beyond 20-25 tools ([ToolScope](https://arx
 | `trainer` | `data-scientist` | 12 |
 | `trainer` | `ml-engineer` | 16 |
 
+**Phase 5+ Scaling (33+ tools):** When tool counts exceed the optimal 20-25 range, external middleware like [mcp-optimizer](https://github.com/StacklokLabs/mcp-optimizer) can dynamically prune tools based on query context—keeping the server complete while optimizing at inference time.
+
 ### Persona-Based Tool Visibility
 
 | Persona | Tools | Use Case |
@@ -438,6 +440,7 @@ We investigated existing MCP efforts in the Kubeflow/ML ecosystem:
 | **hub** | 6 | `ModelRegistryClient` |
 
 - Optional `--mode dynamic` for 33+ tools ([100x token reduction](https://www.speakeasy.com/blog/100x-token-reduction-dynamic-toolsets) via semantic search)
+- Document [mcp-optimizer](https://github.com/StacklokLabs/mcp-optimizer) as recommended middleware for external tool optimization
 
 ### Phase 6: Future Modules
 - `pipelines/` - `PipelinesClient`
