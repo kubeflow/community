@@ -113,7 +113,7 @@ def run_custom_training(
             # Security checks (defense-in-depth, not a sandbox)
             if isinstance(node, ast.Import):
                 for alias in node.names:
-                    if alias.name.split('.')[0] in {"os", "subprocess", "sys", "shutil", "socket"}:
+                    if alias.name.split('.')[0] in {"os", "subprocess", "sys", "shutil", "socket", "importlib"}:
                         return {"success": False, "error": f"Import '{alias.name}' not allowed. Use run_container_training() for system access."}
             if isinstance(node, ast.Call) and isinstance(node.func, ast.Name):
                 if node.func.id in {"eval", "exec", "compile", "__import__", "open"}:
