@@ -362,6 +362,36 @@ The SDK is the stable interface; CRDs are implementation details:
 - SDK already provides log streaming, wait-with-backoff, and [local execution](https://github.com/kubeflow/sdk/tree/main/docs/proposals/2-trainer-local-execution) - we'd have to reimplement all of this with direct API.
 - [kube-authkit](https://github.com/kubeflow/sdk/issues/281) provides consistent auth across all Kubeflow APIs.
 
+### Why standalone repo instead of inside kubeflow/sdk?
+
+We recommend kubeflow-mcp as a **standalone project** (`kubeflow/mcp`) with one-way dependency on SDK. Key reasons:
+
+| Concern | Standalone Advantage |
+|---------|---------------------|
+| **Dependencies** | MCP brings FastMCP, uvicorn, pydantic (~15MB+). SDK users shouldn't pay this cost if they just want `TrainerClient` |
+| **Release cadence** | MCP spec evolves fast (Streamable HTTP, tool annotations). MCP can ship hotfixes without waiting for SDK release cycles |
+| **Maintainer expertise** | SDK team knows K8s/training; MCP needs agent/LLM context optimization skills. Different contributors, different domain expertise |
+| **Ecosystem consistency** | Every major MCP server is standalone (see precedents below). Users expect `pip install kubeflow-mcp` |
+| **Testing isolation** | MCP tests need LLM mocks and mcp-tef validation; SDK tests need K8s mocks. Separate repos = focused CI, clear failure attribution |
+| **Clean boundaries** | Standalone forces MCP to only import public SDK APIs. If SDK changes break MCP, that signals a breaking change |
+| **Security blast radius** | MCP vulnerability doesn't affect SDK users; patches are scoped to MCP releases only |
+| **Contribution barrier** | Agent/LLM contributors shouldn't need to clone full SDK repo or understand TrainJob internals to fix an MCP tool |
+| **Issue triage** | "Is this an MCP bug or SDK bug?" is immediately clear with separate repos and issue trackers |
+| **Language flexibility** | Future MCP features (e.g., Go components for performance, TypeScript for browser agents) aren't locked to SDK's Python-only structure |
+
+**Industry precedent—every major MCP server is standalone:**
+
+| Project | Repository | Notes |
+|---------|------------|-------|
+| GitHub MCP | [`github/github-mcp-server`](https://github.com/github/github-mcp-server) | Standalone, not inside Octokit SDK |
+| Kubernetes MCP | [`containers/kubernetes-mcp-server`](https://github.com/containers/kubernetes-mcp-server) | Go-based, 1.2k+ stars, migrated to containers org for community governance |
+| Feast MCP | Inside `feast-dev/feast` but separate package | Published as standalone PyPI package |
+| HuggingFace MCP | [`huggingface/hf-mcp-server`](https://github.com/huggingface/hf-mcp-server) | Standalone, not inside `transformers` or `huggingface_hub` |
+
+**Dependency direction:** `kubeflow-mcp` depends on `kubeflow-sdk`, never the reverse. Version compatibility documented in README (e.g., `kubeflow-sdk>=0.5,<2.0`).
+
+**Discoverability:** Solved via PyPI cross-links, Kubeflow Hub catalog ([PR #2029](https://github.com/kubeflow/model-registry/pull/2029)), and documentation—not architectural coupling.
+
 ### Why not HuggingFace Skills?
 
 Different problem space. [HF Skills](https://huggingface.co/blog/hf-skills-training) are instruction-based prompts that guide LLMs to *generate* Python code - but the user still runs that code locally. kubeflow-mcp provides *execution* on Kubernetes with RBAC, namespace isolation, and audit logging. They're complementary: [HF MCP Server](https://github.com/huggingface/hf-mcp-server) for model/dataset discovery, kubeflow-mcp for training execution.
