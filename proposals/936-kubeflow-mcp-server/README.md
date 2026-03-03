@@ -420,6 +420,7 @@ We investigated existing MCP efforts in the Kubeflow/ML ecosystem:
 ### Phase 3: Policy & Multi-MCP
 - Policy enforcement layer
 - Built-in persona policies
+- Custom persona definitions via config (org-specific tool sets, namespace restrictions, deny patterns)
 - Namespace restrictions
 - OpenTelemetry integration via [FastMCP native instrumentation](https://gofastmcp.com/servers/telemetry)
 - Explore [AGNTCY Identity](https://github.com/agntcy/identity) for enterprise deployments
