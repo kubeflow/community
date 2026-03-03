@@ -339,7 +339,7 @@ Phase 2: fine_tune(..., confirmed=True)  - Submits job (after user approval)
 
 We went with granular tools after thinking through a few scenarios:
 
-- We do take the point about tool count. 16 tools is fine, but Phase 5 could hit 33. We handle this in two ways: First, modular client loading (`--clients trainer`) means you only load tools for components you need - if you're just training, you don't get optimizer or registry tools. Second, persona filtering (`--persona data-scientist`) hides admin tools from users who don't need them. Combined, these give 70-85% reduction. For Phase 5+ with 33+ tools, we're also looking at what [Speakeasy documented](https://www.speakeasy.com/blog/100x-token-reduction-dynamic-toolsets) - instead of registering all schemas upfront, you expose three meta-tools: "search for tools", "describe this tool", "execute this tool." The LLM discovers what it needs dynamically. Same granularity, way fewer tokens in context.
+- We do take the point about tool count. 16 tools (Phase 1) is fine, but Phase 5 could hit 33. We handle this in two ways: First, modular client loading (`--clients trainer`) means you only load tools for components you need - if you're just training, you don't get optimizer or registry tools. Second, persona filtering (`--persona data-scientist`) hides admin tools from users who don't need them. Combined, these give 70-85% reduction. For Phase 5+ with 33+ tools, we're also looking at what [Speakeasy documented](https://www.speakeasy.com/blog/100x-token-reduction-dynamic-toolsets) - instead of registering all schemas upfront, you expose three meta-tools: "search for tools", "describe this tool", "execute this tool." The LLM discovers what it needs dynamically. Same granularity, way fewer tokens in context.
 
 - The other thing we noticed while prototyping: LLMs are surprisingly good at adapting when you give them feedback between steps. Say `estimate_resources()` comes back with "needs 80GB, cluster has 40GB." A monolithic tool would just fail. But with separate tools, Claude or Cursor will look at that mismatch and go "oh, let me try with quantization" - without us writing any conditional logic. There's some research on this too ([ToolBeHonest](https://arxiv.org/abs/2406.20015)) showing LLMs hallucinate less when they get intermediate feedback to anchor on.
 
@@ -437,7 +437,7 @@ We investigated existing MCP efforts in the Kubeflow/ML ecosystem:
 
 ### Phase 1: Core MCP Server (TrainerClient)
 - Modular package architecture
-- 16 trainer tools: `fine_tune()`, `run_custom_training()`, `run_container_training()`, discovery, monitoring, lifecycle
+- 15 trainer tools + 1 core tool: `fine_tune()`, `run_custom_training()`, `run_container_training()`, discovery, monitoring, lifecycle
 - CLI with `--clients` flag
 - Tool validation with mcp-tef
 

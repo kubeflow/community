@@ -280,7 +280,7 @@ kubeflow-mcp/
 │   │   └── config.py
 │   │
 │   ├── clients/                       # SDK client modules (selectively loaded)
-│   │   ├── trainer/                   # TrainerClient tools (16 tools)
+│   │   ├── trainer/                   # TrainerClient tools (15 tools)
 │   │   │   ├── __init__.py            # MODULE_INFO, TOOLS, INSTRUCTIONS
 │   │   │   ├── training.py            # fine_tune, run_custom_training, run_container_training
 │   │   │   ├── discovery.py           # list_training_jobs, get_training_job, etc.
