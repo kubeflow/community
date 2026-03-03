@@ -412,6 +412,7 @@ We investigated existing MCP efforts in the Kubeflow/ML ecosystem:
 - `check_prerequisites()` tool
 - Add "Edit" support to confirmation pattern (modify params without re-specifying)
 - Explore [Mellea](https://github.com/generative-computing/mellea) for argument validation
+- [Claude Plugin](https://code.claude.com/docs/en/plugins) packaging with manifest.json
 
 ### Phase 3: Policy & Multi-MCP
 - Policy enforcement layer
