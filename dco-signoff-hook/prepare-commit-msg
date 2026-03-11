@@ -1,18 +1,31 @@
-#!/bin/sh
 
-NAME=$(git config user.name)
-EMAIL=$(git config user.email)
+#!/bin/sh
+set -e
+
+if [ -z "$1" ]; then
+    echo "Usage: $0 <file>"
+    exit 1
+fi
+
+if [ ! -f "$1" ]; then
+    echo "File not found: $1"
+    exit 2
+fi
+
+NAME=$(git config --get user.name)
+EMAIL=$(git config --get user.email)
 
 if [ -z "$NAME" ]; then
     echo "empty git config user.name"
-    exit 1
+    exit 3
 fi
 
 if [ -z "$EMAIL" ]; then
     echo "empty git config user.email"
-    exit 1
+    exit 4
 fi
 
-git interpret-trailers --if-exists doNothing --trailer \
-    "Signed-off-by: $NAME <$EMAIL>" \
+git interpret-trailers \
+    --if-exists addIfDifferent \
+    --trailer "Signed-off-by: $NAME <$EMAIL>" \
     --in-place "$1"
