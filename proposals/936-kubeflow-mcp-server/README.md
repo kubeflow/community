@@ -15,7 +15,7 @@ This project will be owned by the **[WG ML Experience](https://github.com/kubefl
 
 - **Working Group:** [WG ML Experience](https://github.com/kubeflow/community/tree/master/wg-ml-experience)
 - **Primary Maintainer:** [@abhijeet-dhumal](https://github.com/abhijeet-dhumal) (Red Hat)
-- **Repository:** `kubeflow/mcp` (proposed)
+- **Repository:** `kubeflow/mcp-server` (proposed)
 
 **Maintainer Onboarding:** Additional maintainers will be onboarded over time as they contribute improvements to the project. Contributors demonstrating sustained engagement and domain expertise will be nominated for maintainer roles following standard Kubeflow governance processes.
 
@@ -379,7 +379,7 @@ The SDK is the stable interface; CRDs are implementation details:
 
 ### Why standalone repo instead of inside kubeflow/sdk?
 
-We recommend kubeflow-mcp as a **standalone project** (`kubeflow/mcp`) with one-way dependency on SDK. Key reasons:
+We recommend kubeflow-mcp as a **standalone project** (`kubeflow/mcp-server`) with one-way dependency on SDK. Key reasons:
 
 | Concern | Standalone Advantage |
 |---------|---------------------|
