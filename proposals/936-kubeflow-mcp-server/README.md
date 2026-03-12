@@ -421,6 +421,25 @@ We investigated existing MCP efforts in the Kubeflow/ML ecosystem:
 
 - **Future Model Registry MCP tools** - If the Model Registry team builds their own MCP server with model registration/versioning tools, we'll coordinate naming (e.g., they own `register_model()`, we expose `list_registered_models()`). Our Phase 5 Hub module tools currently wrap `ModelRegistryClient`, so we're prepared to adjust scope as the ecosystem evolves.
 
+### Where should Agent Skills live?
+
+[Agent Skills](https://skills.sh/) are instruction files that guide LLMs on how to use tools effectively. For skills that depend on `kubeflow-mcp` tools, we recommend co-locating them in the same repository (`kubeflow/mcp-server`).
+
+**Rationale:**
+
+| Approach | Pros | Cons |
+|----------|------|------|
+| **Centralized** (skills in `kubeflow/mcp-server`) | Version-locked with MCP tools, single compatibility matrix, tested together | Less sub-project autonomy |
+| **Distributed** (skills in each sub-project) | Maintainer autonomy, domain expertise | Version mismatch risk - skill may reference tool/SDK feature not yet available |
+
+**Recommendation:** MCP-backed skills (those that call `kubeflow-mcp` tools) should live in `kubeflow/mcp-server` to ensure compatibility. CLI-based skills (using `kubectl`, `kustomize`, etc.) can safely live in sub-project repos since they have no SDK dependency.
+
+**Discovery:** Skills are discoverable via [skills.sh](https://skills.sh/) regardless of repository location, so both centralized and distributed skills remain searchable within the Kubeflow GitHub org.
+
+**Future repo rename:** If MCP-backed skills are added to the repository, we may rename from `kubeflow/mcp-server` to `kubeflow/ai-agent` or similar to reflect the broader scope (MCP server + skills). This would be proposed via a separate KEP or community discussion.
+
+**Scope:** Skills are not part of Phase 1-6 implementation. This decision documents the recommended placement for future skills development.
+
 ## Test Plan
 
 - [ ] I/we understand the owners of the involved components may require updates to existing tests.
