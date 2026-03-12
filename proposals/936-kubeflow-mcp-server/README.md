@@ -9,8 +9,23 @@
 
 ---
 
+## Ownership
+
+This project will be owned by the **[WG ML Experience](https://github.com/kubeflow/community/tree/master/wg-ml-experience)** working group.
+
+- **Working Group:** [WG ML Experience](https://github.com/kubeflow/community/tree/master/wg-ml-experience)
+- **Primary Maintainer:** [@abhijeet-dhumal](https://github.com/abhijeet-dhumal) (Red Hat)
+- **Repository:** `kubeflow/mcp` (proposed)
+
+**Maintainer Onboarding:** Additional maintainers will be onboarded over time as they contribute improvements to the project. Contributors demonstrating sustained engagement and domain expertise will be nominated for maintainer roles following standard Kubeflow governance processes.
+
+**Experimental Status:** This project will initially be marked as **experimental** and not intended for production usage until graduation criteria are met and further stability statements are made by the WG ML Experience leads.
+
+---
+
 ## Table of Contents
 
+- [Ownership](#ownership)
 - [Summary](#summary)
 - [Motivation](#motivation)
   - [Goals](#goals)
