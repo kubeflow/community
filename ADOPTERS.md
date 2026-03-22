@@ -27,14 +27,11 @@ For organizations that have adopted Kubeflow Platform, please add your organizat
 <br>
 Please keep the list in alphabetical order.
 
-| Organization                                                                 | Contact                                                                                                                                  | Description of Use                                                  |
-|------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------|
-| [AT&T](https://www.att.com)                                                | [@ma-armenta](https://github.com/ma-armenta)                                                                                           | Kubeflow is  used as the ML Platform for research and PoCs.                           |
-| [CERN](https://www.home.cern)                                                | [@gigabyte132](https://github.com/gigabyte132)                                                                                           | Kubeflow is used as our main ML platform.                           |
-| [DHL Data & Analytics](https://www.linkedin.com/company/dhl-data-analytics/) | [@juliusvonkohout](https://github.com/juliusvonkohout)                                                                                   | Kubeflow is used as our main ML platform.
-[JIO Platforms](https://www.jiotv.com/) | [@abdullahpathan22](https://github.com/abdullahpathan22)                                                                                   | Kubeflow is used as our ML platform for running AI workloads on Kubernetes for JioTV+. 
-|
-| [Slalom](https://www.slalom.com/us/en/services/artificial-intelligence) | [@robcube](https://github.com/robcube)                                                                                   | Kubeflow is used to prototype gesture or hand-based recognition.                         |
-| [Telia](https://www.teliacompany.com/)                                       | [@akeed](https://github.com/akeed), [@sarahberenji](https://github.com/sarahberenji), [@tarekabouzeid](https://github.com/tarekabouzeid) | Kubeflow is used as our main ML platform for on-premises analytics.                                                 | Kubeflow is used to prototype gesture or hand-based recognition.                         |
-
-
+| Organization | Contact | Description of Use |
+| --- | --- | --- |
+| [AT&T](https://www.att.com) | [@ma-armenta](https://github.com/ma-armenta) | Kubeflow is used as the ML Platform for research and PoCs. |
+| [CERN](https://www.home.cern) | [@gigabyte132](https://github.com/gigabyte132) | Kubeflow is used as our main ML platform. |
+| [DHL Data & Analytics](https://www.linkedin.com/company/dhl-data-analytics/) | [@juliusvonkohout](https://github.com/juliusvonkohout) | Kubeflow is used as our main ML platform. |
+| [Jio Platforms](https://www.jio.com) | [@abdullahpathan22](https://github.com/abdullahpathan22) | Kubeflow is used as our ML platform for running AI workloads on Kubernetes for JioTV+. |
+| [Slalom](https://www.slalom.com/us/en/services/artificial-intelligence) | [@robcube](https://github.com/robcube) | Kubeflow is used to prototype gesture or hand-based recognition. |
+| [Telia](https://www.teliacompany.com/) | [@akeed](https://github.com/akeed), [@sarahberenji](https://github.com/sarahberenji), [@tarekabouzeid](https://github.com/tarekabouzeid) | Kubeflow is used as our main ML platform for on-premises analytics. |
