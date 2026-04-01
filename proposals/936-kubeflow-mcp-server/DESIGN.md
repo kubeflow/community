@@ -199,7 +199,7 @@ SDK Layer:     func: Callable (Python function object)
 
 **Why file-backed?** The SDK internally calls `inspect.getsource(func)` to extract code for the container entrypoint. Using `exec()` alone would break this.
 
-**Security Note:** The `func_code` is executed within K8s pods, not on the MCP server host. For untrusted code, prefer `run_container_training()` with pre-built images.
+**Security Note:** Module-level statements in `func_code` execute on the MCP server host at load time (via `exec_module()`). Only the `train()` function body is serialized to K8s pods. AST checks provide defense-in-depth but are not a sandbox. For untrusted code, prefer `run_container_training()` with pre-built images.
 
 ---
 
