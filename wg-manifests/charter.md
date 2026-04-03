@@ -51,7 +51,7 @@ Users may also choose to install individual components without the benefits of t
 This WG adheres to the Roles and Organization Management outlined in
 [wg-governance] and opts-in to updates and modifications to [wg-governance].
 
-The positions of the chairs and technicalL leads are granted to the organizations and companies participating in the workgroup governance. If an individual leaves the organization to which that position was designated - the organization will have the right to appoint others to these roles.
+The positions of the chairs and technical leads are granted to the organizations and companies participating in the workgroup governance. If an individual leaves the organization to which that position was designated - the organization will have the right to appoint others to these roles.
 
 Kubeflow's [governance model](https://github.com/kubeflow/community/blob/master/wgs/wg-governance.md)
 includes a plethora of different leadership roles.
