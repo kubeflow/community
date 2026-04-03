@@ -1,4 +1,4 @@
-# WG Manifests Charter
+# WG Platform Charter
 
 
 This charter adheres to the conventions, roles and organization management
@@ -24,7 +24,7 @@ Users may also choose to install individual components without the benefits of t
 - Release tested releases of the Kubeflow platform for downstream consumption
 - We try to be compatible with the popular Kubernetes clusters (Kind, Rancher, AKS, EKS, GKE, ...)
 - We provide hints and experimental examples how a user / distribution could integrate non-default external authentication (e.g. companies Identity Provider) and popular non-default services on his own
-- We in general document the installation of Kubeflow as a platform and / or  individual components including common problems and architectural overviews.
+- We in general document the installation of Kubeflow as a platform and or individual components including common problems and architectural overviews.
 - There is the evolving and not exhaustive list of dependencies for a proper multi-tenant platform installation: Istio, KNative, Dex, Oauth2-proxy, Cert-Manager, ...
 - There is the evolving and not exhaustive list of applications:  KFP, Trainer, Dashboard, Workspaces / Noteboks, Kserve, Spark, ...
 
@@ -43,7 +43,7 @@ Users may also choose to install individual components without the benefits of t
 
 ### Out of scope
 
-- We do not support a specific deployment tool (e.g., ArgoCD, Flux)
+- We do not enforce a specific deployment tool (e.g., ArgoCD, Flux)
 - The default installation shall not contain deep integration with external cloud services or closed source solutions, instead we aim for Kubernetes-native solutions and light authentication and authorization integration with external IDPs
 
 ## Roles and Organization Management
@@ -51,7 +51,7 @@ Users may also choose to install individual components without the benefits of t
 This WG adheres to the Roles and Organization Management outlined in
 [wg-governance] and opts-in to updates and modifications to [wg-governance].
 
-The positions of the Chairs and TLs are granted to the organizations and companies participating in the workgroup governance. If an individual leaves the organization to which that position was designated - the organization will have the right to appoint others to these roles.
+The positions of the chairs and technicalL leads are granted to the organizations and companies participating in the workgroup governance. If an individual leaves the organization to which that position was designated - the organization will have the right to appoint others to these roles.
 
 Kubeflow's [governance model](https://github.com/kubeflow/community/blob/master/wgs/wg-governance.md)
 includes a plethora of different leadership roles.
@@ -61,14 +61,14 @@ for people to be promoted in a role.
 
 A Working Group lead is considered someone that has either the role of
 **Subproject Owner**, **Tech Lead** or **Chair**. These roles were defined by trying
-to provide different responsibility levels for repository owners. For the Manifests WG
+to provide different responsibility levels for repository owners. For the Platform WG
 we would like to start by treating *approvers* in the root [OWNERS](https://github.com/kubeflow/manifests/blob/master/OWNERS),
 as Subproject Owners, Tech Leads and Chairs. This is done to ensure we have a
 simple enough model to start that people can understand and get used to. So for
 the Manifests WG we only have Manifests WG Leads, which are the root approvers.
 
 The following sections will aim to define the requirements for someone to become
-a reviewer and an approver in the root OWNERS file (Manifests WG Lead).
+a reviewer and an approver in the root OWNERS file (Platform WG Lead).
 
 ### Platform/Manifests WG Lead Requirements
 
@@ -77,12 +77,12 @@ to be done in this repository. The main goal with having multiple Leads is to en
 that in case there's an absence of one of the Leads the rest will be able to ensure
 the established processes and the health of the repository will be preserved.
 
-With the above the main pillars of work and responsibilities that we've seen for
+With the above the main pillars of work and responsibilities that we have seen for
 this repository throughout the years are the following:
 1. Being involved with the release team, since the [release process](https://github.com/kubeflow/community/tree/master/releases) is tightly intertwined with the manifests/platform repository
 2. Testing methodologies (GitHub Actions)
 3. Processes regarding the [experimental](https://github.com/kubeflow/manifests/blob/master/experimental) components
-4. [Platform manifests](https://github.com/kubeflow/manifests/tree/master/common) maintained irectly by Manifests/Platform WG (Istio, Knative, Cert Manager etc.)
+4. [Platform manifests](https://github.com/kubeflow/manifests/tree/master/common) maintained directly by Manifests/Platform WG (Istio, Knative, Cert Manager etc.)
 5. Community and health of the project
 
 Root approvers, or Manifests/Platform WG Leads, are expected to have expertise and be able
@@ -103,16 +103,16 @@ above. The high level reasoning is that approvers should have lead efforts and
 have expertise in the different processes and artefacts maintained in this repository
 as well as be invested in the community of the WG.
 
-* Need to be a root reviewer
-* Have been a WG liaison for a KF release
+* Needs to be a root reviewer
+* Has been a WG liaison for a KF release
 * Has at least 3 substantial PRs merged for `/common`
     * I.e. updating the versions of Istio, Dex or Knative
     * I.e. update manifests to work with newer versions of kustomize
 * Has at least 2 substantial PRs merged for `/testing`
 * Has at least 1 substantial PR merged for `/proposals`
 * Has been an active participant in issues and PRs for at least 3 months
-* Has attended at least 50% of Manifests WG meetings
-
+* Has attended at least 50% of Platform/Manifests WG meetings
+* Is endorsed by existing root reviewers
 
 [wg-governance]: ../wg-governance.md
 [wg-subprojects]: https://github.com/Kubeflow/community/blob/master/wg-YOURWG/README.md#subprojects
