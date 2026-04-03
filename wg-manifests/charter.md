@@ -7,7 +7,7 @@ outlined in [wg-governance].
 ## Scope
 
 We automatically synchronize the application and dependencies manifests to then elaborately combine (configure) them for a full platform experience.
-Providing a consistent and tested end-to-end multi-tenant experience is the most important task of the platform/manifests WG.
+To prioritize and provide a consistent, tested, and end-to-end multi-tenant experience is the most important task of the platform/manifests WG.
 To achieve this we maintain an extensive testing suite that covers most basic scenarios users would expect from a Platform for ML orchestration.
 We also provide the documentation regarding, but not limited to installation, extension, security and architecture to enable users to run their own ML Platform on Kubernetes.
 Users may choose to derive from platform/manifests to create so called distributions, which are opinionated to satisfy individual requirements.
