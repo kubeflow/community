@@ -10,7 +10,7 @@ We automatically synchronize the application and dependencies manifests to then 
 To prioritize and provide a consistent, tested, and end-to-end multi-tenant experience is the most important task of the platform/manifests WG.
 To maintain an extensive testing suite in order to cover scenarios that our community members and users expect from a Platform designed for AI/ML orchestration.
 To provide documentation that covers (but is not limited to) installation, extension, security, and architecture decisions in order to enable users to run an ML Platform on Kubernetes (whatever form that may take).
-Users may choose to derive from platform/manifests to create so called distributions, which are opinionated to satisfy individual requirements.
+To ensure that individuals can leverage our integrated platform and manifests in order to create an opinionated distribution that satisfies their individual requirements.
 Users may also choose to install individual components without the benefits of the platform.
 
 ### In scope
