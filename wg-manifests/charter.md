@@ -93,7 +93,7 @@ role by helping with reviews throughout the project.
 
 * Primary reviewer for at least 2 PRs in `/common`
 * Primary reviewer for at least 1 PR in `/tests`
-* Primary reviewer for at least 1 PR in `/contrib`
+* Primary reviewer for at least 1 PR in `/experimental`
 
 #### Root Approver requirements
 
@@ -107,7 +107,7 @@ as well as be invested in the community of the WG.
 * Has at least 3 substantial PRs merged for `/common`
     * I.e. updating the versions of Istio, Dex or Knative
     * I.e. update manifests to work with newer versions of kustomize
-* Has at least 2 substantial PRs merged for `/testing`
+* Has at least 2 substantial PRs merged for `/tests`
 * Has at least 1 substantial PR merged for `/proposals`
 * Has been an active participant in issues and PRs for at least 3 months
 * Has attended at least 50% of Platform/Manifests WG meetings
