@@ -37,17 +37,22 @@ operating model.
 This proposal centers on donating the Kubernetes integration work from
 [opendatahub-io/mlflow-kubernetes-plugins](https://github.com/opendatahub-io/mlflow-kubernetes-plugins) into Kubeflow,
 using those plugins to map MLflow workspaces to Kubernetes namespaces and authorize MLflow requests with Kubernetes
-RBAC. Kubeflow should pair that with a supported MLflow image and deployment path so operators do not need to
-assemble their own integration.
+RBAC. Kubeflow should pair that with a supported MLflow image and deployment path so operators do not need to assemble
+their own integration.
 
 This direction also makes Kubeflow more relevant to the GenAI ecosystem. MLflow is investing heavily in GenAI experiment
 tracking, tracing, and agent observability, so a strong Kubeflow integration helps the platform stay aligned with where
 the broader open-source ML tooling ecosystem is going.
 
-This KEP is intentionally platform-level. Component-specific behavior should be described in follow-up KEPs such as the
-in-flight Kubeflow Pipelines proposal
-[KEP-12862](https://github.com/kubeflow/pipelines/blob/master/proposals/12862-mlflow-integration/README.md), and other
-Kubeflow components can follow the same shared MLflow conventions.
+This KEP is intentionally platform-level. It defines the shared MLflow platform contract for Kubeflow: the supported
+deployment model, namespace-to-workspace mapping, authentication and authorization model, and the UI hand-off
+conventions. Component-specific behavior should be described in follow-up KEPs such as the in-flight Kubeflow Pipelines
+proposal [KEP-12862](https://github.com/kubeflow/pipelines/blob/master/proposals/12862-mlflow-integration/README.md),
+and those KEPs should reuse this contract rather than introduce separate MLflow integration patterns.
+
+This KEP also sets a terminology direction for follow-up component work: the shared MLflow concept of an experiment
+should remain platform-wide, and Kubeflow Pipelines should rename its current Experiment grouping to Run Group rather
+than continue overloading the word "experiment".
 
 ## Motivation
 
@@ -90,25 +95,28 @@ patterns.
 
 ### Goals
 
-1. Adopt MLflow as the primary experiment tracking integration for Kubeflow users.
+1. Make MLflow the first-class experiment tracking experience for Kubeflow users.
 1. Donate and maintain Kubernetes-native MLflow plugins in Kubeflow so that MLflow integrates cleanly with namespaces,
    Profiles, and Kubernetes RBAC.
 1. Offer a supported MLflow deployment story for Kubeflow operators, including a rebuilt MLflow image with the donated
    plugins preinstalled.
-1. Support a shared multi-tenant MLflow deployment in which profile namespaces act as natural MLflow workspace
-   boundaries.
+1. Support a shared multi-tenant MLflow deployment in which Kubernetes namespaces act as natural MLflow workspace
+   boundaries, with Kubeflow Profile namespaces as the default platform mapping.
 1. Improve Kubeflow's relevance for GenAI workflows by aligning with an experiment tracking ecosystem that is investing
    in tracing and agent observability.
-1. Provide a path for Kubeflow components to integrate with the shared MLflow deployment over time, with
+1. Enable Kubeflow components to adopt the shared MLflow deployment and terminology model incrementally rather than
+   requiring a full-platform rollout, with
    [KEP-12862](https://github.com/kubeflow/pipelines/blob/master/proposals/12862-mlflow-integration/README.md) serving
    as one concrete example already underway.
-1. Provide a clear UI strategy in which Kubeflow either embeds MLflow or links users out to the MLflow UI.
+1. Provide a clear initial UI integration path that launches users from Kubeflow into the correct MLflow workspace.
 
 ### Non-Goals
 
 1. Expand Kubeflow Model Registry to become the experiment tracking backend for Kubeflow.
 1. Design a brand-new Kubeflow-native experiment tracking service with its own API, storage model, and UI.
-1. Rework Pipelines' or Katib's current experiment model as part of this proposal.
+1. Implement the actual Pipelines `Run Group` and Katib or Kubeflow Optimizer terminology and UI migrations as part of
+   this proposal. Follow-up component-specific work should align those experiences with the shared MLflow model
+   described here.
 
 ## Proposal
 
@@ -120,7 +128,7 @@ backend. The user-facing model should stay simple:
 - users write to standard MLflow APIs
 - operators deploy a supported MLflow installation for Kubeflow
 - Kubeflow components discover and reuse that installation through common conventions
-- the Kubeflow dashboard either embeds the MLflow UI or links to it
+- Kubeflow surfaces launch-out links into the MLflow UI
 
 ### Donated Kubernetes Plugins
 
@@ -133,68 +141,84 @@ The donated work provides two important capabilities:
 1. **Workspace provider**: maps MLflow workspaces to Kubernetes namespaces so that a shared MLflow deployment can serve
    multiple Kubeflow tenants while preserving namespace boundaries.
 1. **Authorization plugin**: authorizes MLflow requests using Kubernetes identity and RBAC so that cluster-native access
-   control remains the source of truth.
+   control remains the source of truth. It supports direct `SelfSubjectAccessReview` checks against caller tokens and a
+   trusted-proxy `SubjectAccessReview` mode that consumes forwarded user and group headers.
 
 By bringing these capabilities into Kubeflow, the community can evolve them in the open alongside Profiles, dashboard
 integration, and component-specific adoption work.
 
 The current repository is Apache-2.0 licensed, which is compatible with Kubeflow. Before Phase 1 is considered complete,
 Kubeflow and OpenDataHub maintainers should agree on transferring the repository to Kubeflow community ownership, with
-clear approvers and release responsibilities.
+[`mprahl`](https://github.com/mprahl), [`HumairAK`](https://github.com/HumairAK), and any additional volunteers serving
+as the initial maintainer group with clear release responsibilities.
 
 ### Kubeflow Profiles and Multi-tenancy
 
-Kubeflow Profiles already give the platform a natural namespace-based tenancy model. This proposal builds directly on
-that model:
+Kubeflow Profiles already give the platform a natural namespace-based tenancy model, but the MLflow plugins are not tied
+to the Profile Controller itself. This proposal builds on the more general namespace model:
 
-- a profile namespace becomes the default MLflow workspace boundary
+- a Kubernetes namespace becomes the MLflow workspace boundary
+- in the default Kubeflow platform deployment, a Profile namespace supplies that boundary
+- other namespace-based deployments can use the same mapping even if they do not install Profile Controller
 - Kubernetes RBAC remains the source of truth for access decisions
 - a shared MLflow deployment can serve many namespaces without abandoning isolation
 - component UIs and SDKs should consistently map the active Kubeflow Profile or namespace to the default MLflow
   workspace
 
-This is a better fit for Kubeflow than a generic MLflow deployment that knows nothing about namespaces, service account
-tokens, or Profile-managed multi-user clusters.
+In practice, the workspace provider exposes tenant namespaces as MLflow workspaces, and the authorization plugin filters
+or authorizes MLflow requests within the namespaces the caller is allowed to access. This is a better fit for Kubeflow
+than a generic MLflow deployment that knows nothing about namespaces, service account tokens, or Profile-managed
+multi-user clusters.
 
 ### Deployment and Distribution
 
 Kubeflow should not require every operator to build a custom MLflow image or invent their own deployment manifests.
-Instead, the community should provide a supported distribution story with the following pieces:
+Instead, it should ship as a composable add-on that can be installed alongside existing Kubeflow components, whether an
+operator is running the full platform or only a subset such as Kubeflow Trainer plus a shared MLflow service. The
+community should provide a supported distribution story with the following pieces:
 
 1. A Kubeflow-published MLflow container image rebuilt from upstream MLflow and shipped with the donated Kubernetes
    plugins preinstalled.
 1. A supported Helm-based deployment path. Kubeflow should prefer contributing the missing requirements upstream to
-   [mlflow/mlflow#21973](https://github.com/mlflow/mlflow/pull/21973). If the upstream chart cannot accommodate the
-   Kubernetes plugins, workspace configuration, and multi-tenant auth requirements in time for Phase 1, Kubeflow should
-   maintain its own chart or manifests until the upstream path is sufficient.
+   [mlflow/mlflow#21973](https://github.com/mlflow/mlflow/pull/21973), where review feedback is already capturing several
+   Kubeflow-specific needs. If the upstream chart cannot accommodate Kubeflow's plugin, deployment, and authentication
+   requirements in time for Phase 1, Kubeflow should maintain its own chart or manifests only until the upstream path is
+   sufficient.
+1. Default Helm values that deploy MLflow into a dedicated namespace such as `kubeflow-mlflow`, separate from
+   component namespaces.
 1. Kubeflow-specific documentation and examples covering the supported MLflow deployment pattern, multi-user
    authentication, Profiles integration, and any required Kubeflow packaging or configuration.
 1. Version guidance that tells operators which MLflow version, plugin revision, and chart configuration are supported by
-   each Kubeflow release. This proposal depends on MLflow `>= 3.10`, since MLflow 3.10 includes workspace support, which
-   is a core dependency for the multi-tenant design. As MLflow 3.11 lands, Kubeflow should also adopt its built-in
-   Kubernetes client authentication providers where possible.
+   each Kubeflow release. This proposal depends on MLflow `>= 3.11`: MLflow 3.10 introduced workspace support, which is
+   a core dependency for the multi-tenant design, and MLflow 3.11 adds built-in
+   [Kubernetes client authentication providers](https://mlflow.org/docs/latest/self-hosting/security/kubernetes/) that
+   Kubeflow should reuse where possible.
 
 ### Kubeflow Component Integration Pattern
 
-Kubeflow components that choose to integrate with MLflow should build on the shared deployment, auth, and workspace
-model described in this KEP. Component-specific behavior should remain in follow-up KEPs such as
-[KEP-12862](https://github.com/kubeflow/pipelines/blob/master/proposals/12862-mlflow-integration/README.md).
+Kubeflow components that choose to integrate with MLflow should build on the shared deployment, auth, workspace, and
+terminology model described in this KEP. This platform contract is intentionally standardized here so follow-up
+component KEPs do not each need to re-solve tenancy, credentials, or UI hand-off independently.
+
+The shared MLflow data model in this KEP is intentionally simple: an MLflow experiment is the cross-component container
+for related work, and an MLflow run is the record of a single execution or logging session within that experiment.
+[KEP-12862](https://github.com/kubeflow/pipelines/blob/master/proposals/12862-mlflow-integration/README.md) applies
+that model to Kubeflow Pipelines by creating one parent MLflow run per KFP pipeline run and nested MLflow runs for
+individual tasks and loop iterations.
+
+To avoid overloading the word "experiment" inside Kubeflow, follow-up component work should align user-facing
+terminology with that shared model. In particular, this KEP sets the direction that KFP's current Experiment grouping
+should be renamed to Run Group, while Katib or Kubeflow Optimizer follow-up work should avoid introducing another
+conflicting "experiment" concept as that experience continues to evolve.
 
 ### UI Strategy
 
-The UI strategy for MLflow integration should be explicit and limited to two supported modes:
+Phase 1 and Phase 2 only require a launch-out path from Kubeflow into MLflow.
 
-1. **Launch-out link**: Kubeflow surfaces links such as "Open in MLflow" from notebooks, training jobs, pipelines, or
-   dashboard pages. This is the simpler near-term path and uses the MLflow UI directly.
-1. **Embedded MLflow experience**: Kubeflow embeds the MLflow UI, or selected MLflow views, inside the Kubeflow
-   dashboard for a more cohesive experience.
+Whether Kubeflow should later embed MLflow views inside Central Dashboard, including via an iframe-based approach,
+remains an open follow-up question rather than a requirement of this KEP.
 
-The embedded option is compelling, but it requires upstream MLflow work to make React module federation or a similarly
-maintainable embedding model easier. For that reason, the initial Kubeflow integration should assume that launch-out is
-always available, while embedded UI remains a more deeply integrated option if we pursue it.
-
-When Kubeflow launches users into MLflow, it should preserve enough context to land them in the correct workspace,
-experiment, or run view.
+When Kubeflow launches users into MLflow, it should preserve enough context to land them in the correct workspace.
 
 ### User Stories
 
@@ -211,8 +235,9 @@ experiment so that I can compare results across workflows regardless of how thos
 
 #### Story 3: Platform Administrator Managing Multi-tenant Tracking
 
-As a platform administrator, I want MLflow to follow Kubeflow Profiles and Kubernetes RBAC so that multiple teams can
-share the same cluster and the same MLflow deployment without leaking access across namespaces.
+As a platform administrator, I want MLflow to follow Kubeflow's namespace-based tenancy model, including Profiles where
+used, and Kubernetes RBAC so that multiple teams can share the same cluster and the same MLflow deployment without
+leaking access across namespaces.
 
 ## Design Details
 
@@ -222,9 +247,9 @@ share the same cluster and the same MLflow deployment without leaking access acr
 
 - Donate the Kubernetes plugins into Kubeflow and establish ownership and release processes.
 - Publish a supported MLflow image and deployment path.
-- Document and support the Kubeflow-specific MLflow auth configuration, including trusted-header
-  `subject_access_review` mode.
-- Define the default Profile-to-workspace mapping.
+- Document and support the Kubeflow-specific MLflow auth configuration, using trusted-header
+  `subject_access_review` behind trusted ingress for both browser and machine-to-machine traffic.
+- Define the default namespace-to-workspace mapping, with Profile namespaces as the default Kubeflow platform case.
 - Provide a launch-out UI path from Kubeflow into MLflow.
 
 #### Phase 2: Component Adoption
@@ -232,7 +257,8 @@ share the same cluster and the same MLflow deployment without leaking access acr
 - Align the first Kubeflow component integrations to the shared MLflow platform conventions.
 - Use [KEP-12862](https://github.com/kubeflow/pipelines/blob/master/proposals/12862-mlflow-integration/README.md) as one
   example of component-specific adoption work.
-- Publish the conventions other Kubeflow components should follow.
+- Publish the conventions other Kubeflow components should follow, including terminology guidance that avoids multiple
+  unrelated "experiment" concepts in Kubeflow UIs.
 
 ### Authentication and Authorization
 
@@ -241,25 +267,29 @@ The core deployment model is a shared MLflow instance that understands Kubeflow 
 At a high level:
 
 1. A request originates from a notebook, pipeline workload, training job, or interactive user session running in a
-   namespace associated with a Kubeflow Profile.
-1. The caller authenticates to MLflow using either projected Kubernetes service account credentials for workloads or the
-   existing Kubeflow web identity path for interactive users.
-1. The authorization plugin validates that identity and checks Kubernetes RBAC for the requested MLflow operation.
+   tenant namespace, typically one associated with a Kubeflow Profile in the default platform deployment.
+1. Browser and API-server-mediated user requests reach MLflow through Kubeflow's trusted web auth path, which
+   authenticates the user and forwards identity for downstream authorization.
+1. Direct SDK, notebook, or workload requests can also reach that trusted ingress path with Kubernetes bearer tokens
+   obtained from the caller's projected service account or kubeconfig context.
+1. Trusted ingress validates supported JWTs, derives `kubeflow-userid` and `kubeflow-groups` from validated claims,
+   and forwards those normalized headers to MLflow.
 1. If authorized, MLflow serves the requested experiments, runs, metrics, and artifacts within the deployment's
    namespace-aware tenancy model.
 
 Kubeflow components should reuse this shared authentication model rather than defining their own connection and identity
 flow.
 
-The upcoming MLflow 3.11 release improves this story with built-in Kubernetes client authentication providers documented
-in [Kubernetes Authentication](https://mlflow.org/docs/3.11.0rc0/self-hosting/security/kubernetes/). Kubeflow should use
-those providers where possible instead of inventing its own client-side auth layer. In particular,
+MLflow 3.11 improves this story with built-in Kubernetes client authentication providers documented in
+[Kubernetes Authentication](https://mlflow.org/docs/latest/self-hosting/security/kubernetes/). Kubeflow should use
+those providers where possible so SDK clients can authenticate to the trusted ingress path with Kubernetes credentials
+instead of inventing a separate client-side auth layer. In particular,
 `MLFLOW_TRACKING_AUTH=kubernetes` supports token-based authentication, and `MLFLOW_TRACKING_AUTH=kubernetes-namespaced`
 also adds the workspace header derived from the current namespace.
 
-For the typical Kubeflow browser and interactive-user path, the recommended deployment should run the authorization
-plugin in `subject_access_review` mode behind Kubeflow's trusted ingress and configure the forwarded identity headers to
-match Kubeflow conventions:
+For the supported Kubeflow deployment, the recommended MLflow server should run the authorization plugin in
+`subject_access_review` mode behind Kubeflow's trusted ingress and configure the forwarded identity headers to match
+Kubeflow conventions:
 
 - `MLFLOW_K8S_AUTH_AUTHORIZATION_MODE=subject_access_review`
 - `MLFLOW_K8S_AUTH_REMOTE_USER_HEADER=kubeflow-userid`
@@ -270,21 +300,84 @@ authorize the requested action with `SubjectAccessReview`. This matches Kubeflow
 closely than requiring MLflow to authenticate every interactive request directly from a Kubernetes service account
 token.
 
+Kubeflow should use the same trusted-ingress pattern for machine-to-machine traffic as well. Rather than sending raw
+bearer tokens directly to MLflow, trusted ingress should validate supported JWTs for both browser and machine-to-machine
+requests, derive `kubeflow-userid` and `kubeflow-groups` from validated claims, and forward only those normalized
+headers to MLflow.
+
+A concrete example of that ingress pattern looks like:
+
+```yaml
+apiVersion: security.istio.io/v1beta1
+kind: RequestAuthentication
+metadata:
+  name: mlflow-browser-jwt
+  namespace: istio-system
+spec:
+  selector:
+    matchLabels:
+      app: istio-ingressgateway
+  jwtRules:
+  - issuer: https://dex.example.com
+    outputClaimToHeaders:
+    - header: kubeflow-userid
+      claim: email
+    - header: kubeflow-groups
+      claim: groups
+    fromHeaders:
+    - name: Authorization
+      prefix: "Bearer "
+---
+apiVersion: security.istio.io/v1beta1
+kind: RequestAuthentication
+metadata:
+  name: mlflow-m2m-jwt
+  namespace: istio-system
+spec:
+  selector:
+    matchLabels:
+      app: istio-ingressgateway
+  jwtRules:
+  - issuer: https://kubernetes.example.cluster
+    jwksUri: http://cluster-jwks-proxy.istio-system.svc.cluster.local/openid/v1/jwks
+    outputClaimToHeaders:
+    - header: kubeflow-userid
+      claim: sub
+    - header: kubeflow-groups
+      claim: groups
+    fromHeaders:
+    - name: Authorization
+      prefix: "Bearer "
+```
+
+The exact issuers, claim mappings, and JWKS URIs are deployment-specific, but this is the same general pattern Kubeflow
+manifests already use for browser and machine-to-machine JWT support at ingress. In this design, MLflow consumes only
+the normalized identity headers, so the original bearer token does not need to be forwarded beyond ingress. MLflow
+should be reachable only through that trusted ingress path, and the accompanying gateway or proxy configuration must
+remove or overwrite any incoming `kubeflow-userid` or `kubeflow-groups` headers from the client before forwarding
+requests to MLflow.
+
 ### Kubeflow Deployment Configuration
 
-The main Kubeflow integration work is deployment configuration rather than a missing authorization-plugin capability.
-Kubeflow should publish a supported pattern that:
+The main Kubeflow integration work is choosing and documenting a safe deployment topology. Kubeflow should publish a
+supported pattern that:
 
 1. Runs MLflow behind the trusted Kubeflow ingress path rather than exposing it directly.
-1. Configures the MLflow authorization plugin for `subject_access_review` using `kubeflow-userid` and
-   `kubeflow-groups`.
-1. Grants the MLflow server service account permission to create `subjectaccessreviews.authorization.k8s.io`.
-1. Documents how workload and SDK clients set the active MLflow workspace so Profile namespaces map cleanly to MLflow
-   workspaces.
+1. Configures Istio `RequestAuthentication` or an equivalent trusted ingress layer to validate browser and
+   machine-to-machine JWTs and translate authenticated identity into `kubeflow-userid` and `kubeflow-groups` headers
+   for `subject_access_review`.
+1. Ensures the gateway or proxy layer removes or overwrites any client-supplied `kubeflow-userid` and
+   `kubeflow-groups` headers before forwarding requests to MLflow.
+1. Grants the MLflow server service account permission to create
+   `subjectaccessreviews.authorization.k8s.io`.
+1. Documents how workload and SDK clients set the active MLflow workspace so the active tenant namespace maps cleanly
+   to MLflow workspaces.
+1. Documents the cluster-specific issuer and JWKS requirements needed for browser and machine-to-machine JWT validation
+   at ingress.
 
-Clusters may still choose to support direct Kubernetes-token-based machine-to-machine access where token issuer or
-audience configuration matters, but that is not a fundamental blocker for Kubeflow's primary multi-user deployment
-model.
+Clusters may still need cluster-specific issuer or audience configuration for Kubernetes service account tokens, but the
+Kubeflow packaging should make trusted-ingress JWT validation and header normalization the supported path rather than
+leaving the machine-to-machine story implicit.
 
 ## Risks and Mitigations
 
@@ -293,12 +386,13 @@ model.
    Foundation governance reduces single-vendor risk, and Kubeflow should publish version guidance for each release.
 1. **Operational complexity**: A shared MLflow deployment is another service for operators to secure and upgrade.
    Mitigation: ship a supported install path with documented storage, auth, and upgrade guidance.
-1. **Trusted-header deployment risk**: `subject_access_review` mode depends on MLflow trusting headers set by Kubeflow's
-   ingress path.
-   Mitigation: publish a supported deployment that routes MLflow only through trusted ingress, configures the Kubeflow
-   header names explicitly, and documents the required Kubernetes RBAC for `SubjectAccessReview`.
-1. **Embedded UI complexity**: A deeply embedded MLflow UI may be hard to maintain until upstream integration improves.
-   Mitigation: keep launch-out as the baseline and treat embedding as a more deeply integrated option if we pursue it.
+1. **Ingress identity normalization complexity**: The supported design depends on trusted ingress validating JWTs and
+   translating them into `kubeflow-userid` and `kubeflow-groups` without allowing header spoofing.
+   Mitigation: publish a supported ingress pattern with `RequestAuthentication`, require MLflow to be reachable only
+   through that path, and explicitly document that the proxy must overwrite or strip client-supplied identity headers.
+1. **Terminology collision**: Kubeflow components already use "experiment" for different user-facing concepts.
+   Mitigation: follow-up component KEPs should align on the shared MLflow definitions in this KEP, with KFP moving its
+   current Experiment grouping toward Run Group and other components avoiding conflicting terminology.
 
 ## Graduation Criteria
 
@@ -308,7 +402,8 @@ model.
 - Kubeflow publishes a supported MLflow image and at least one supported deployment path.
 - Namespace-scoped RBAC behavior is demonstrated in a multi-user environment.
 - Kubeflow provides a launch-out path into MLflow.
-- The supported deployment documents and demonstrates `subject_access_review` mode with Kubeflow header mappings.
+- The supported deployment documents and demonstrates trusted-ingress JWT validation plus `subject_access_review`
+  header mappings for browser and machine-to-machine traffic.
 
 ### Stable
 
