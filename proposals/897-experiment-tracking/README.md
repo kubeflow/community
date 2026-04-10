@@ -52,7 +52,10 @@ and those KEPs should reuse this contract rather than introduce separate MLflow 
 
 This KEP also sets a terminology direction for follow-up component work: the shared MLflow concept of an experiment
 should remain platform-wide, and Kubeflow Pipelines should rename its current Experiment grouping to Run Group rather
-than continue overloading the word "experiment".
+than continue overloading the word "experiment". Katib or Kubeflow Optimizer follow-up work should rename to
+`OptimizationJob` terminology, as discussed in the
+[Kubeflow Optimization API design doc](https://docs.google.com/document/d/1Y8IJ-UdZ7VCEAlax_xEFbbqEi7EB6SfIX4D7ua-xn4M/edit),
+rather than introducing another conflicting `Experiment` concept.
 
 ## Motivation
 
@@ -108,15 +111,15 @@ patterns.
    requiring a full-platform rollout, with
    [KEP-12862](https://github.com/kubeflow/pipelines/blob/master/proposals/12862-mlflow-integration/README.md) serving
    as one concrete example already underway.
-1. Provide a clear initial UI integration path that launches users from Kubeflow into the correct MLflow workspace.
+1. Provide an initial UI integration in which Kubeflow embeds MLflow views via iframe.
 
 ### Non-Goals
 
 1. Expand Kubeflow Model Registry to become the experiment tracking backend for Kubeflow.
 1. Design a brand-new Kubeflow-native experiment tracking service with its own API, storage model, and UI.
-1. Implement the actual Pipelines `Run Group` and Katib or Kubeflow Optimizer terminology and UI migrations as part of
-   this proposal. Follow-up component-specific work should align those experiences with the shared MLflow model
-   described here.
+1. Implement the actual Pipelines `Run Group` and Katib or Kubeflow Optimizer / `OptimizationJob` terminology and UI
+   migrations as part of this proposal. Follow-up component-specific work should align those experiences with the shared
+   MLflow model described here.
 
 ## Proposal
 
@@ -128,7 +131,7 @@ backend. The user-facing model should stay simple:
 - users write to standard MLflow APIs
 - operators deploy a supported MLflow installation for Kubeflow
 - Kubeflow components discover and reuse that installation through common conventions
-- Kubeflow surfaces launch-out links into the MLflow UI
+- Kubeflow embeds MLflow views inside Kubeflow UIs via iframe
 
 ### Donated Kubernetes Plugins
 
@@ -170,6 +173,10 @@ or authorizes MLflow requests within the namespaces the caller is allowed to acc
 than a generic MLflow deployment that knows nothing about namespaces, service account tokens, or Profile-managed
 multi-user clusters.
 
+Existing namespaces can be opted into this model through plugin configuration such as
+`MLFLOW_K8S_WORKSPACE_LABEL_SELECTOR`, so using MLflow workspaces with pre-existing namespaces does not require Profile
+Controller.
+
 ### Deployment and Distribution
 
 Kubeflow should not require every operator to build a custom MLflow image or invent their own deployment manifests.
@@ -184,8 +191,8 @@ community should provide a supported distribution story with the following piece
    Kubeflow-specific needs. If the upstream chart cannot accommodate Kubeflow's plugin, deployment, and authentication
    requirements in time for Phase 1, Kubeflow should maintain its own chart or manifests only until the upstream path is
    sufficient.
-1. Default Helm values that deploy MLflow into a dedicated namespace such as `kubeflow-mlflow`, separate from
-   component namespaces.
+1. Default Helm values that deploy MLflow into `kubeflow-system`. Operators that want stronger isolation should treat
+   overriding this to a dedicated namespace such as `kubeflow-mlflow` as a best practice.
 1. Kubeflow-specific documentation and examples covering the supported MLflow deployment pattern, multi-user
    authentication, Profiles integration, and any required Kubeflow packaging or configuration.
 1. Version guidance that tells operators which MLflow version, plugin revision, and chart configuration are supported by
@@ -206,19 +213,33 @@ for related work, and an MLflow run is the record of a single execution or loggi
 that model to Kubeflow Pipelines by creating one parent MLflow run per KFP pipeline run and nested MLflow runs for
 individual tasks and loop iterations.
 
+The intended cross-component mapping is:
+
+- MLflow experiment: the shared grouping for related work across Kubeflow tools
+- Kubeflow Pipelines pipeline run: one parent MLflow run, with nested MLflow runs for component tasks and loop
+iterations
+- TrainJob or SparkApplication execution: one MLflow run for that execution
+- Katib or Kubeflow Optimizer follow-up work:
+  - Option 1: map each `OptimizationJob` to an MLflow experiment, and map each trial or execution created by that
+    optimization job to an MLflow run in the experiment.
+  - Option 2: let the user choose an MLflow experiment, map each `OptimizationJob` to a parent MLflow run in that
+    experiment, and map each trial or execution to a nested MLflow run under the `OptimizationJob` parent run.
+
 To avoid overloading the word "experiment" inside Kubeflow, follow-up component work should align user-facing
 terminology with that shared model. In particular, this KEP sets the direction that KFP's current Experiment grouping
-should be renamed to Run Group, while Katib or Kubeflow Optimizer follow-up work should avoid introducing another
-conflicting "experiment" concept as that experience continues to evolve.
+should be renamed to Run Group, while Katib or Kubeflow Optimizer follow-up work should rename to `OptimizationJob`
+terminology, as discussed in the
+[Kubeflow Optimization API design doc](https://docs.google.com/document/d/1Y8IJ-UdZ7VCEAlax_xEFbbqEi7EB6SfIX4D7ua-xn4M/edit),
+instead of introducing another conflicting "experiment" concept.
 
 ### UI Strategy
 
-Phase 1 and Phase 2 only require a launch-out path from Kubeflow into MLflow.
+The initial UI deliverable should be an embedded iframe experience in which Kubeflow embeds selected MLflow views
+inside Central Dashboard or other Kubeflow UIs.
 
-Whether Kubeflow should later embed MLflow views inside Central Dashboard, including via an iframe-based approach,
-remains an open follow-up question rather than a requirement of this KEP.
+A deeper integration model such as module federation remains a future goal dependent on upstream MLflow contributions.
 
-When Kubeflow launches users into MLflow, it should preserve enough context to land them in the correct workspace.
+The embedded UI path should preserve enough context to load the correct workspace.
 
 ### User Stories
 
@@ -250,7 +271,7 @@ leaking access across namespaces.
 - Document and support the Kubeflow-specific MLflow auth configuration, using trusted-header
   `subject_access_review` behind trusted ingress for both browser and machine-to-machine traffic.
 - Define the default namespace-to-workspace mapping, with Profile namespaces as the default Kubeflow platform case.
-- Provide a launch-out UI path from Kubeflow into MLflow.
+- Provide an iframe-based embedded UI path from Kubeflow into MLflow.
 
 #### Phase 2: Component Adoption
 
@@ -390,9 +411,13 @@ leaving the machine-to-machine story implicit.
    translating them into `kubeflow-userid` and `kubeflow-groups` without allowing header spoofing.
    Mitigation: publish a supported ingress pattern with `RequestAuthentication`, require MLflow to be reachable only
    through that path, and explicitly document that the proxy must overwrite or strip client-supplied identity headers.
+1. **Embedded UI maintainability**: Iframe embedding is a practical initial path, but it may be less cohesive than a
+   deeper upstream integration model.
+   Mitigation: treat iframe embedding as the supported initial deliverable and treat module federation or other tighter
+   integration models as future work dependent on upstream MLflow contributions.
 1. **Terminology collision**: Kubeflow components already use "experiment" for different user-facing concepts.
    Mitigation: follow-up component KEPs should align on the shared MLflow definitions in this KEP, with KFP moving its
-   current Experiment grouping toward Run Group and other components avoiding conflicting terminology.
+   current Experiment grouping toward Run Group and Katib or Kubeflow Optimizer moving toward `OptimizationJob`.
 
 ## Graduation Criteria
 
@@ -401,7 +426,7 @@ leaving the machine-to-machine story implicit.
 - The Kubernetes plugins are transferred to Kubeflow community ownership.
 - Kubeflow publishes a supported MLflow image and at least one supported deployment path.
 - Namespace-scoped RBAC behavior is demonstrated in a multi-user environment.
-- Kubeflow provides a launch-out path into MLflow.
+- Kubeflow provides an iframe-based embedded path into MLflow.
 - The supported deployment documents and demonstrates trusted-ingress JWT validation plus `subject_access_review`
   header mappings for browser and machine-to-machine traffic.
 
