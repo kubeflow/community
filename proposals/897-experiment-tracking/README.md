@@ -234,10 +234,19 @@ instead of introducing another conflicting "experiment" concept.
 
 ### UI Strategy
 
-The initial UI deliverable should be an embedded iframe experience in which Kubeflow embeds selected MLflow views
-inside Central Dashboard or other Kubeflow UIs.
+The initial UI deliverable should be an embedded iframe experience in which Kubeflow loads full MLflow pages at
+selected URLs inside Central Dashboard or other Kubeflow UIs.
 
-A deeper integration model such as module federation remains a future goal dependent on upstream MLflow contributions.
+Phase 1 should explicitly treat iframe embedding as a practical but limited integration model. With an unmodified
+upstream MLflow UI, the embedded experience includes the full MLflow shell such as the header, sidebar, and navigation
+to unrelated areas like Model Registry or Prompts. Because cross-origin iframes do not let Kubeflow rewrite MLflow's
+DOM or CSS from the parent page, Kubeflow cannot reliably strip that surrounding UI or constrain navigation from the
+iframe alone.
+
+If Kubeflow redistributes MLflow with the donated plugins preinstalled, the published image may also carry small,
+well-scoped UI patches that improve the embedded experience while keeping the primary behavior aligned with upstream
+MLflow. A deeper integration model such as an upstream embed or kiosk mode, or a future module-federation approach,
+remains the preferred long-term direction.
 
 The embedded UI path should preserve enough context to load the correct workspace.
 
@@ -271,7 +280,8 @@ leaking access across namespaces.
 - Document and support the Kubeflow-specific MLflow auth configuration, using trusted-header
   `subject_access_review` behind trusted ingress for both browser and machine-to-machine traffic.
 - Define the default namespace-to-workspace mapping, with Profile namespaces as the default Kubeflow platform case.
-- Provide an iframe-based embedded UI path from Kubeflow into MLflow.
+- Provide an iframe-based embedded UI path from Kubeflow into MLflow and document the full-shell navigation
+  limitations of that approach.
 
 #### Phase 2: Component Adoption
 
@@ -411,10 +421,12 @@ leaving the machine-to-machine story implicit.
    translating them into `kubeflow-userid` and `kubeflow-groups` without allowing header spoofing.
    Mitigation: publish a supported ingress pattern with `RequestAuthentication`, require MLflow to be reachable only
    through that path, and explicitly document that the proxy must overwrite or strip client-supplied identity headers.
-1. **Embedded UI maintainability**: Iframe embedding is a practical initial path, but it may be less cohesive than a
+1. **Embedded UI limitations and maintainability**: Iframe embedding is a practical initial path, but it loads the full
+   MLflow shell and may let users navigate to unrelated MLflow pages from within Kubeflow, which is less cohesive than a
    deeper upstream integration model.
-   Mitigation: treat iframe embedding as the supported initial deliverable and treat module federation or other tighter
-   integration models as future work dependent on upstream MLflow contributions.
+   Mitigation: document this as an explicit Phase 1 limitation, keep Kubeflow entry points focused on the intended
+   MLflow URLs, allow small redistribution-time UI patches if needed, and treat upstream embed or kiosk support,
+   module federation, or other tighter integration models as future work.
 1. **Terminology collision**: Kubeflow components already use "experiment" for different user-facing concepts.
    Mitigation: follow-up component KEPs should align on the shared MLflow definitions in this KEP, with KFP moving its
    current Experiment grouping toward Run Group and Katib or Kubeflow Optimizer moving toward `OptimizationJob`.
@@ -446,7 +458,8 @@ leaving the machine-to-machine story implicit.
 
 1. Kubeflow becomes more dependent on the upstream MLflow roadmap and release cadence for experiment tracking features.
 1. Operators still need to run and maintain a shared MLflow service, even if Kubeflow improves the packaging story.
-1. The best integrated UI experience may depend on upstream MLflow changes that Kubeflow does not control outright.
+1. The initial iframe integration loads the full MLflow shell, so Kubeflow cannot fully control the embedded
+   navigation experience without upstream MLflow changes or redistribution-time UI patches.
 1. Some users may prefer a more deeply Kubeflow-specific experiment tracking experience than an MLflow-first design
    provides.
 
