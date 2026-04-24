@@ -192,9 +192,9 @@ workinggroups:
     - name: wg-data-leads
       description: Team of Data Working Group leads
   subprojects:
-  - name: model-registry
+  - name: hub
     owners:
-    - https://raw.githubusercontent.com/kubeflow/model-registry/main/OWNERS
+    - https://raw.githubusercontent.com/kubeflow/hub/main/OWNERS
   - name: spark-operator
     owners:
     - https://raw.githubusercontent.com/kubeflow/spark-operator/blob/master/OWNERS

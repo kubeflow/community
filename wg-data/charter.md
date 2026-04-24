@@ -19,7 +19,7 @@ For example: Data Preparation, Feature Store, and Model Registry have been recen
 - Onboarding and maintenance of the Spark operator for scalable and distributed data processing.
 [See also](https://github.com/kubeflow/spark-operator)
 - Continued development of the Model Registry to manage and version machine learning models efficiently.
-[See also](https://github.com/kubeflow/model-registry)
+[See also](https://github.com/kubeflow/hub)
   - Model Registry REST server
   - Model Registry Python client
   - deployment Manifests
