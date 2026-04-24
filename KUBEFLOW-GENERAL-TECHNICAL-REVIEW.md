@@ -67,7 +67,7 @@ For more information, check ROADMAP for each Kubeflow Project:
 - [Kubeflow Spark Operator](https://github.com/kubeflow/spark-operator/blob/master/ROADMAP.md)
 - [Kubeflow Trainer](https://github.com/kubeflow/trainer/blob/master/ROADMAP.md)
 - [Kubeflow Katib](https://github.com/kubeflow/katib/blob/master/ROADMAP.md)
-- [Kubeflow Model Registry](https://github.com/kubeflow/model-registry/blob/main/ROADMAP.md)
+- [Kubeflow Hub](https://github.com/kubeflow/hub/blob/main/ROADMAP.md)
 - [Kubeflow Pipelines](https://github.com/kubeflow/pipelines/blob/master/ROADMAP.md)
 
 Community-wide changes are proposed as [Kubeflow Enhancement proposals (KEPs)](https://github.com/kubeflow/community/tree/master/proposals)
@@ -262,7 +262,7 @@ The API is documented using swagger and examples about its usage
 - Kubeflow Model Registry
 
 Model Registry REST API is available under the `/api/model_registry/` HTTP path. More information
-[can be found here](https://www.kubeflow.org/docs/components/model-registry/reference/rest-api/)
+[can be found here](https://www.kubeflow.org/docs/components/hub/reference/rest-api/)
 
 The Model Catalog Service provides a read-only discovery service for ML models across multiple
 catalog sources. It acts as a federated metadata aggregation layer, allowing users to search and
