@@ -1,7 +1,11 @@
 # Kubeflow Community Distribution committee charter
 
-The Kubeflow Community Distribution is a committee dedicated to provide a tested and integrated platform experience for the Kubeflow community.
+- The Kubeflow Community Distribution is a committee dedicated to provide a tested and integrated platform experience for the Kubeflow community.
 The governance of the Kubeflow Community Distribution committee will evolve as the community grows, ensuring that the platform remains relevant and impactful.
+- Promote the vision, values, and mission of the Kubeflow project in collaboration with the KSC, KOC, and WG Leads.
+- Enable all Kubeflow sub-projects to be integrated and deployed as a cohesive, end-to-end platform.
+- Improve the ease of deployment, packaging, and distribution of Kubeflow sub-projects across heterogenous environments.
+- Empower external organizations to adopt, integrate, and build upon Kubeflow sub-projects within their own distributions.
 
 ## Scope
 
