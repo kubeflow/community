@@ -152,8 +152,9 @@ integration, and component-specific adoption work.
 
 The current repository is Apache-2.0 licensed, which is compatible with Kubeflow. Before Phase 1 is considered complete,
 Kubeflow and OpenDataHub maintainers should agree on transferring the repository to Kubeflow community ownership, with
-[`mprahl`](https://github.com/mprahl), [`HumairAK`](https://github.com/HumairAK), and any additional volunteers serving
-as the initial maintainer group with clear release responsibilities.
+WG Pipelines serving as the initial owning working group and [`mprahl`](https://github.com/mprahl),
+[`HumairAK`](https://github.com/HumairAK), and any additional volunteers serving as the initial maintainer group with
+clear release responsibilities.
 
 ### Kubeflow Profiles and Multi-tenancy
 
@@ -173,6 +174,10 @@ or authorizes MLflow requests within the namespaces the caller is allowed to acc
 than a generic MLflow deployment that knows nothing about namespaces, service account tokens, or Profile-managed
 multi-user clusters.
 
+This aligns with MLflow's own framing of workspaces as the feature that makes shared deployments practical without
+requiring separate MLflow servers per team, as described in
+[MLflow Workspaces: Shared Deployment Without Separate Servers](https://mlflow.org/blog/mlflow-workspaces).
+
 Existing namespaces can be opted into this model through plugin configuration such as
 `MLFLOW_K8S_WORKSPACE_LABEL_SELECTOR`, so using MLflow workspaces with pre-existing namespaces does not require Profile
 Controller.
@@ -186,11 +191,11 @@ community should provide a supported distribution story with the following piece
 
 1. A Kubeflow-published MLflow container image rebuilt from upstream MLflow and shipped with the donated Kubernetes
    plugins preinstalled.
-1. A supported Helm-based deployment path. Kubeflow should prefer contributing the missing requirements upstream to
-   [mlflow/mlflow#21973](https://github.com/mlflow/mlflow/pull/21973), where review feedback is already capturing several
-   Kubeflow-specific needs. If the upstream chart cannot accommodate Kubeflow's plugin, deployment, and authentication
-   requirements in time for Phase 1, Kubeflow should maintain its own chart or manifests only until the upstream path is
-   sufficient.
+1. A supported Helm-based deployment path. For Phase 1, Kubeflow should initially own the Helm chart so it can ship the
+   required plugin, deployment, and authentication configuration on Kubeflow's timeline. In parallel, Kubeflow should
+   continue working with upstream MLflow on
+   [mlflow/mlflow#21973](https://github.com/mlflow/mlflow/pull/21973) to see whether Kubeflow can eventually reuse the
+   upstream chart directly or consume it as a subchart instead of duplicating the full chart long term.
 1. Default Helm values that deploy MLflow into `kubeflow-system`. Operators that want stronger isolation should treat
    overriding this to a dedicated namespace such as `kubeflow-mlflow` as a best practice.
 1. Kubeflow-specific documentation and examples covering the supported MLflow deployment pattern, multi-user
@@ -331,12 +336,24 @@ authorize the requested action with `SubjectAccessReview`. This matches Kubeflow
 closely than requiring MLflow to authenticate every interactive request directly from a Kubernetes service account
 token.
 
-Kubeflow should use the same trusted-ingress pattern for machine-to-machine traffic as well. Rather than sending raw
-bearer tokens directly to MLflow, trusted ingress should validate supported JWTs for both browser and machine-to-machine
-requests, derive `kubeflow-userid` and `kubeflow-groups` from validated claims, and forward only those normalized
-headers to MLflow.
+Kubeflow should use the same trusted-ingress pattern for machine-to-machine traffic as well. In the recommended
+`subject_access_review` deployment, trusted ingress should validate supported JWTs for both browser and
+machine-to-machine requests, derive `kubeflow-userid` and `kubeflow-groups` from validated claims, and forward those
+normalized headers to MLflow. If that pattern proves insufficient for some flows, an alternative would be to enhance
+the plugin's `self_subject_access_review` mode so a validated caller bearer token can be forwarded to MLflow instead.
 
-A concrete example of that ingress pattern looks like:
+A concrete deployment of that ingress pattern could use Gateway API with an authentication-capable gateway, Istio, or
+another equivalent ingress implementation. Istio is not a requirement for this KEP, but the following example
+illustrates the kind of ingress behavior Kubeflow needs regardless of the chosen stack:
+
+1. Validate browser JWTs at ingress and translate the authenticated identity into normalized `kubeflow-userid` and
+   `kubeflow-groups` headers for `subject_access_review`.
+1. Validate machine-to-machine JWTs at ingress as well, including Kubernetes service account tokens when the chosen
+   ingress stack and cluster configuration support them.
+1. Remove or overwrite any incoming `kubeflow-userid` or `kubeflow-groups` headers from the client before forwarding
+   requests to MLflow, and do not allow unvalidated bearer tokens to reach MLflow.
+
+For example, an Istio-based deployment could implement that behavior like this:
 
 ```yaml
 apiVersion: security.istio.io/v1beta1
@@ -381,12 +398,13 @@ spec:
       prefix: "Bearer "
 ```
 
-The exact issuers, claim mappings, and JWKS URIs are deployment-specific, but this is the same general pattern Kubeflow
-manifests already use for browser and machine-to-machine JWT support at ingress. In this design, MLflow consumes only
-the normalized identity headers, so the original bearer token does not need to be forwarded beyond ingress. MLflow
-should be reachable only through that trusted ingress path, and the accompanying gateway or proxy configuration must
-remove or overwrite any incoming `kubeflow-userid` or `kubeflow-groups` headers from the client before forwarding
-requests to MLflow.
+Gateway API-based deployments or other ingress implementations can satisfy the same requirements with different
+configuration resources. The exact issuers, claim mappings, token validation mechanism, and any JWKS-related
+configuration are deployment specific, but the key point is the trust boundary: in the recommended
+`subject_access_review` pattern, MLflow consumes normalized identity headers and the original bearer token does not
+need to be forwarded beyond ingress. If that model does not work for some flows, a possible follow-up would be to
+enhance `self_subject_access_review` mode so validated caller tokens can be forwarded instead without relaxing the same
+trusted-ingress boundary. MLflow should be reachable only through that trusted ingress path.
 
 ### Kubeflow Deployment Configuration
 
@@ -394,9 +412,9 @@ The main Kubeflow integration work is choosing and documenting a safe deployment
 supported pattern that:
 
 1. Runs MLflow behind the trusted Kubeflow ingress path rather than exposing it directly.
-1. Configures Istio `RequestAuthentication` or an equivalent trusted ingress layer to validate browser and
-   machine-to-machine JWTs and translate authenticated identity into `kubeflow-userid` and `kubeflow-groups` headers
-   for `subject_access_review`.
+1. Configures a trusted ingress layer, such as a Gateway API-compatible deployment, an Istio-based deployment, or an
+   equivalent implementation, to validate browser and machine-to-machine JWTs and translate authenticated identity into
+   `kubeflow-userid` and `kubeflow-groups` headers for `subject_access_review`.
 1. Ensures the gateway or proxy layer removes or overwrites any client-supplied `kubeflow-userid` and
    `kubeflow-groups` headers before forwarding requests to MLflow.
 1. Grants the MLflow server service account permission to create
@@ -419,8 +437,9 @@ leaving the machine-to-machine story implicit.
    Mitigation: ship a supported install path with documented storage, auth, and upgrade guidance.
 1. **Ingress identity normalization complexity**: The supported design depends on trusted ingress validating JWTs and
    translating them into `kubeflow-userid` and `kubeflow-groups` without allowing header spoofing.
-   Mitigation: publish a supported ingress pattern with `RequestAuthentication`, require MLflow to be reachable only
-   through that path, and explicitly document that the proxy must overwrite or strip client-supplied identity headers.
+   Mitigation: publish a supported ingress pattern for a trusted gateway or proxy layer, require MLflow to be
+   reachable only through that path, and explicitly document that the proxy must overwrite or strip client-supplied
+   identity headers.
 1. **Embedded UI limitations and maintainability**: Iframe embedding is a practical initial path, but it loads the full
    MLflow shell and may let users navigate to unrelated MLflow pages from within Kubeflow, which is less cohesive than a
    deeper upstream integration model.
