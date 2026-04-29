@@ -18,7 +18,7 @@ For adopters of specific Kubeflow Projects, please refer to the respective compo
 | Kubeflow Notebooks      | [`kubeflow/notebooks`](https://github.com/kubeflow/notebooks)           | [`ADOPTERS.md`](https://github.com/kubeflow/notebooks/blob/main/ADOPTERS.md)            |
 | Kubeflow Pipelines      | [`kubeflow/pipelines`](https://github.com/kubeflow/pipelines)           | [`ADOPTERS.md`](https://github.com/kubeflow/pipelines/blob/master/ADOPTERS.md)          |
 | Kubeflow Spark Operator | [`kubeflow/spark-operator`](https://github.com/kubeflow/spark-operator) | [`ADOPTERS.md`](https://github.com/kubeflow/spark-operator/blob/master/ADOPTERS.md)     |
-| Kubeflow Trainer        | [`kubeflow/trainer`](https://github.com/kubeflow/trainer)               | [`ADOPTERS.md`](https://github.com/kubeflow/training-operator/blob/master/ADOPTERS.md)  |
+| Kubeflow Trainer        | [`kubeflow/trainer`](https://github.com/kubeflow/trainer)               | [`ADOPTERS.md`](https://github.com/kubeflow/trainer/blob/master/ADOPTERS.md)  |
 | KServe                  | [`kserve/kserve`](https://github.com/kserve/kserve)                     | [`ADOPTERS.md`](https://github.com/kserve/website/blob/main/docs/community/adopters.md) |
 
 ## Adopters of Kubeflow Platform
