@@ -446,7 +446,7 @@ practices and is following the OpenSSF Best Practices. Kubeflow projects achieve
   - `#kubeflow-notebooks`
   - `#kubeflow-trainer`
   - `#kubeflow-katib`
-  - `#kubeflow-model-registry`
+  - `#kubeflow-hub`
   - `#kubeflow-pipelines`
 
 - Kubeflow Working Groups host weekly community meetings: https://www.kubeflow.org/docs/about/community/#list-of-available-meetings
