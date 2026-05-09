@@ -38,18 +38,20 @@ The current membership of the committee is (listed alphabetically by first name)
 
 | Name                | Organization | GitHub                                                           | Term Start | Term End   |
 | ------------------- | ------------ | ---------------------------------------------------------------- | ---------- | ---------- |
-| Andrey Velichkevich | Apple        | [andreyvelich](https://github.com/andreyvelich/)                 | 02/01/2024 | 02/01/2026 |
+| Andrey Velichkevich | Apple        | [andreyvelich](https://github.com/andreyvelich/)                 | 02/01/2026 | 02/01/2028 |
+| Chase Christensen   | Wiz          | [chasecadet](https://github.com/chasecadet/)                     | 02/01/2026 | 02/01/2028 |
 | Francisco Arceo     | Red Hat      | [franciscojavierarceo](https://github.com/franciscojavierarceo/) | 02/01/2025 | 02/01/2027 |
-| Johnu George        | Nutanix      | [johnugeorge](https://github.com/johnugeorge/)                   | 02/01/2024 | 02/01/2026 |
 | Julius von Kohout   | DHL          | [juliusvonkohout](https://github.com/juliusvonkohout/)           | 02/01/2025 | 02/01/2027 |
-| Yuan Tang           | Red Hat      | [terrytangyuan](https://github.com/terrytangyuan/)               | 02/01/2024 | 02/01/2026 |
+| Mathew Wicks        | NVIDIA       | [thesuperzapper](https://github.com/thesuperzapper/)             | 02/01/2026 | 02/01/2028 |
 
 ## Emeritus Committee Members
 
-| Name        | Organization | GitHub                                     | Term Start | Term End   |
-| ----------- | ------------ | ------------------------------------------ | ---------- | ---------- |
-| Josh Bottum | Independent  | [jbottum](https://github.com/jbottum/)     | 02/01/2024 | 02/01/2025 |
-| James Wu    | Google       | [james-jwu](https://github.com/james-jwu/) | 02/01/2024 | 02/01/2025 |
+| Name         | Organization | GitHub                                             | Term Start | Term End   |
+| ------------ | ------------ | -------------------------------------------------- | ---------- | ---------- |
+| Johnu George | Nutanix      | [johnugeorge](https://github.com/johnugeorge/)     | 02/01/2024 | 02/01/2026 |
+| Josh Bottum  | Independent  | [jbottum](https://github.com/jbottum/)             | 02/01/2024 | 02/01/2025 |
+| James Wu     | Google       | [james-jwu](https://github.com/james-jwu/)         | 02/01/2024 | 02/01/2025 |
+| Yuan Tang    | Red Hat      | [terrytangyuan](https://github.com/terrytangyuan/) | 02/01/2024 | 02/01/2026 |
 
 ## Ownership Transfer
 
