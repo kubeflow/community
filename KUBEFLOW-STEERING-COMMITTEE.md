@@ -29,10 +29,32 @@ Meeting notes are available to members of the kubeflow-discuss mailing list, unl
 
 Questions and proposals for changes to governance are posted as issues in the kubeflow/community repo, and the KSC invites your feedback there. See [Getting in touch](#getting-in-touch) for other options.
 
-## Committee members
+## Committee Structure
 
-KSC is composed of 5 (five) members. They are elected according to [the election policy](proposals/kubeflow-steering-committee-election-proposal.md).
+KSC is composed of 5 (five) members. They are elected according to [the election policy](proposals/645-kubeflow-steering-committee-election/README.md).
 Seats on the Steering Committee are held by an individual, not by their employer.
+
+### Limitations on Company Representation
+
+No more than one (1) seats may be held by employees of the same organization (or conglomerate, in the
+case of companies owning each other). If the results of an election result in greater than one employee
+of the same organization, the lowest vote getters in the current election from any particular
+employer will be removed until representation on the committee is down to one.
+
+In the staggered election schedule, if a particular organization already has one seat among the rotation
+not affected by the election, no candidates from that organization will be selected by the election.
+If the organization wants to change its representation in KSC, one member from that organization
+needs to stand down from KSC, which will trigger a "resignation" event as explained below.
+There is no guarantee that vacancy created will be filled by the organization's candidate.
+
+If employers change because of job changes, acquisitions, or other events, in a way that would yield
+more than one seat being held by employees of the same organization, sufficient members of the committee
+must resign until only one employee of the same employer are left. If it is impossible to find
+sufficient members to resign, all employees of that organization will be removed and new special
+elections held. In the event of a question of company membership (for example evaluating independence
+of corporate subsidiaries) a majority of all non-involved Steering Committee members will decide.
+
+### Current Committee Members
 
 The current membership of the committee is (listed alphabetically by first name):
 
@@ -44,7 +66,9 @@ The current membership of the committee is (listed alphabetically by first name)
 | Julius von Kohout   | DHL          | [juliusvonkohout](https://github.com/juliusvonkohout/)           | 02/01/2025 | 02/01/2027 |
 | Mathew Wicks        | NVIDIA       | [thesuperzapper](https://github.com/thesuperzapper/)             | 02/01/2026 | 02/01/2028 |
 
-## Emeritus Committee Members
+### Emeritus Committee Members
+
+The list of emeritus members that previously served on KSC:
 
 | Name         | Organization | GitHub                                             | Term Start | Term End   |
 | ------------ | ------------ | -------------------------------------------------- | ---------- | ---------- |
