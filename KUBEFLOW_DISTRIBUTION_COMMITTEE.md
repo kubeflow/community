@@ -1,4 +1,7 @@
-# Kubeflow Community Distribution committee charter
+# Kubeflow Community Distribution
+
+The Kubeflow Distribution Committee (KDC) is a vendor-neutral body dedicated to supporting a healthy ecosystem of solutions by prioritizing the development, sustainability, interoperability, and distribution of individual Kubeflow sub-projects. While the primary focus of the KDC is to empower these sub-projects as modular, high-quality components, the Kubeflow Community Distribution serves as a primary example of this effort – providing a validated community supported implementation that demonstrates the collective power of these projects in a unified environment. By maintaining this distribution, the KDC aims to lower the barrier to entry for users and provide a streamlined path to adoption, while ensuring that sub-projects remain robust and valuable.
+
 
 1. Promote the Kubeflow community’s vision, values, and mission in collaboration with the KSC, KOC, and WG Leads.
 2. Validate, report on, and advocate for the consumability of Kubeflow sub-projects by establishing requirements for portability and ease of deployment across heterogeneous environments; this includes identifying integration gaps—such as unexposed configurations or packaging hurdles—and opening issues with sub-project maintainers to help prioritize improvements necessary for the projects to be effectively integrated into the community distribution and the broader vendor ecosystem.
@@ -19,10 +22,14 @@
 - Provide hints and experimental examples how the consumer could integrate non-default external authentication (e.g., companies' Identity Provider) and popular non-default services on his own.
 - Document the installation of Kubeflow as a platform and/or individual components including common problems and architectural overviews.
 
-### Out of scope
+### Out of Scope (Limitations)
 
-- We do not enforce a specific deployment tool (e.g., ArgoCD, Flux), but we also do not want to block the usage of ArgoCD.
-- The default installation shall not contain deep integration with external cloud services or closed source solutions; instead, we aim for Kubernetes-native solutions and light authentication and authorization integration with external identity providers.
+- Anti-Ecosystem-Competitive Actions: Engaging in or permitting actions that undermine the longevity of the community or violate vendor-neutral sovereignty. This includes, but is not limited to:
+      - **Proprietary Lock-in:** Mandating that sub-projects or the distribution depend on proprietary APIs or closed-source components when general, open-source alternatives exist.
+       - **Core Fragmentation:** Implementing core functionality that is not upstreamed, as the KDC’s goal is to maintain a Kubernetes-native, portable, and extensible foundation.
+       - **Exclusionary Integration:** Forcing dependencies that intentionally disadvantage specific vendors or environments.
+       - **Note on Compatibility:** This does not exclude the development of community-supported or vendor-contributed adapters (e.g., data exporters, storage drivers, or external dependencies) designed to support specific environments, provided they remain external to the project's core functionality and do not compromise the portability of the base ecosystem.
+
 
 ### Collaboration with maintainers of kubeflow projects (e.g. KFP, Trainer, ...)
 
