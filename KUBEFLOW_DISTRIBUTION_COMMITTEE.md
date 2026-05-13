@@ -4,12 +4,11 @@
 
 The Kubeflow Distribution Committee (KDC) is a vendor-neutral body dedicated to supporting a healthy ecosystem of solutions by prioritizing the development, sustainability, interoperability, and distribution of individual Kubeflow sub-projects. While the primary focus of the KDC is to empower these sub-projects as modular, high-quality components, the Kubeflow Community Distribution serves as a primary example of this effort – providing a validated community supported implementation that demonstrates the collective power of these projects in a unified environment. By maintaining this distribution, the KDC aims to lower the barrier to entry for users and provide a streamlined path to adoption, while ensuring that sub-projects remain robust and valuable.
 
+## In Scope
 1. Promote the Kubeflow community’s vision, values, and mission in collaboration with the KSC, KOC, and WG Leads.
 2. Validate, report on, and advocate for the consumability of Kubeflow sub-projects by establishing requirements for portability and ease of deployment across heterogeneous environments; this includes identifying integration gaps—such as unexposed configurations or packaging hurdles—and opening issues with sub-project maintainers to help prioritize improvements necessary for the projects to be effectively integrated into the community distribution and the broader vendor ecosystem.
 3. Define and maintain the requirements for external projects and distributions of Kubeflow sub-project to be eligible to use the Kubeflow Conformant mark.
 4. Validate and impose requirements on the Kubeflow Community Distribution, which provides a reference deployment of all Kubeflow sub-projects that is vendor neutral, multi-tenant, secure, and provide an integrated experience between components.
-
-## Scope
 
 - Automatically synchronize the application and dependencies manifests to then elaborately combine (configure) them for a full platform experience.
 - Prioritize and provide a consistent, tested, and end-to-end multi-tenant experience. Enable the consumer and distributions to install, extend, and maintain Kubeflow as an end-to-end multi-tenant platform for multiple tenants on the same Kubernetes / Kubeflow installation.
