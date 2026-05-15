@@ -5,7 +5,7 @@ Welcome to Kubeflow! We're glad to have you here.
 ## Join us in discussions, forums, and meetings
 
 Visit the
-[community page in our docs](https://www.kubeflow.org/docs/about/community/) 
+[community page in our docs](https://www.kubeflow.org/docs/about/community/)
 to see where you can chat with the community and share your ideas.
 
 ## Code of conduct
@@ -23,21 +23,22 @@ which we encourage everybody to read before participating.
 
 ## Contributing
 
-The [contributor's guide](https://www.kubeflow.org/docs/about/contributing/) 
-provides a starting point for contributing ideas and bug fixes to the Kubeflow 
+The [contributor's guide](https://www.kubeflow.org/docs/about/contributing/)
+provides a starting point for contributing ideas and bug fixes to the Kubeflow
 project.
 
 ## Kubeflow Brand Guidelines
 
 The [Kubeflow Brand Guidelines](https://www.linuxfoundation.org/legal/trademark-usage) are intended to provide the community guidance on how to reference the Kubeflow trademarks.
-Please make sure your usage of Kubeflow trademarks and logos is in compliance with the guidelines. 
+Please make sure your usage of Kubeflow trademarks and logos is in compliance with the guidelines.
 If you have any questions about the guidelines or would like to get feedback on a particular use case,
 please reach out to ksc@kubeflow.org.
 
 ## About this repository
 
-* [proposals](https://github.com/kubeflow/community/tree/master/proposals): Kubeflow design proposals
-* [how-to](https://github.com/kubeflow/community/tree/master/how-to): for documenting community and other project processes
+- [proposals](proposals): for Kubeflow design proposal process
+- [subprojects](subprojects): to donate your project to Kubeflow
+- [how-to](https://github.com/kubeflow/community/tree/master/how-to): for documenting community and other project processes
 
 ## Legal
 
