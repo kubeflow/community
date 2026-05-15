@@ -8,7 +8,7 @@ This KEP proposes renaming the current "Kubeflow Model Registry" project to "Kub
 
 ## Motivation
 
-The Kubeflow Model Registry project, originally proposed in [this Model Registry Platform proposal](../model-registry-proposal.md), has evolved significantly since its original onboarding. The project now serves two distinct but complementary use cases that are not clearly reflected in its current naming ("Model Registry"):
+The Kubeflow Model Registry project, originally proposed in [this Model Registry Platform proposal](../../subprojects/682-model-registry/README.md), has evolved significantly since its original onboarding. The project now serves two distinct but complementary use cases that are not clearly reflected in its current naming ("Model Registry"):
 
 1. **Model Registry**: Tenant-scoped model tracking during development lifecycle
 2. **Model Catalog**: Cluster-scoped showcase of organization-approved models, including GenAI/LLM models

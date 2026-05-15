@@ -47,7 +47,7 @@ The process is outlined in six steps:
     - Migration  Plan
     - Other Related Projects
 2. Provide a demo during the Kubeflow Community Call
-3. Submit a Pull Request with the [../proposals/new-project-join-process.md](application form).
+3. Submit a Pull Request with the [application form](../../subprojects/TEMPLATE.md), populated as a new `subprojects/<issue-number>-<project-name>/README.md` (see the [Kubeflow Subprojects process](../../subprojects/README.md)).
 4. Add your proposal to the Kubeflow Community call to introduce and collect feedback on
 the application.
 5. Work with the Kubeflow Outreach Committee to send an announcement email in `kubeflow-discuss` and publish messages on Slack, LinkedIn, X/Twitter, and other Kubeflow social resources
