@@ -36,9 +36,9 @@ please reach out to ksc@kubeflow.org.
 
 ## About this repository
 
-- [proposals](proposals): for Kubeflow design proposal process
-- [subprojects](subprojects): to donate your project to Kubeflow
-- [how-to](https://github.com/kubeflow/community/tree/master/how-to): for documenting community and other project processes
+- [proposals](proposals): for Kubeflow Enhancement Proposal (KEP) process
+- [subprojects](subprojects): to donate your project to Kubeflow community
+- [how-to](how-to): for documenting community and other project processes
 
 ## Legal
 
