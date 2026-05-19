@@ -38,7 +38,7 @@ The Kubeflow Distribution Committee (KDC) is a vendor-neutral body dedicated to 
     - Is NOT allowed to vote on Kubeflow Community Distribution (KCD) topics
 
 2. 70% - Votes by Right
-    - 35% - KCD maintainers - 1-2 seats - appointed by KSC
+    - 35% - KCD maintainers - 1-2 seats
     - 35% - Every sub-project gets 1 seat, all votes are weighted by 35%
     - Is allowed to vote on Kubeflow Community Distribution (KCD) topics
     - When voting decisions happen on KCD topics, maintainers and sub-project owners get 50% / 50% voting power.
