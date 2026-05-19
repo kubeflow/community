@@ -30,7 +30,10 @@ The Kubeflow Distribution Committee (KDC) is a vendor-neutral body dedicated to 
        - **Exclusionary Integration:** Forcing dependencies that intentionally disadvantage specific vendors or environments.
        - **Note on Compatibility:** This does not exclude the development of community-supported or vendor-contributed adapters (e.g., data exporters, storage drivers, or external dependencies) designed to support specific environments, provided they remain external to the project's core functionality and do not compromise the portability of the base ecosystem.
 
-### Voting
+## Committee Structure
+
+### Committee Roles
+
 
 1. 30% - Votes by Appointment
     - 3-4 seats appointed by KSC for 1 year term
