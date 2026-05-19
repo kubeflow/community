@@ -33,7 +33,7 @@ The Kubeflow Distribution Committee (KDC) is a vendor-neutral body dedicated to 
 ### Voting
 
 1. 30% - Votes by Appointment
-    - 4 seats appointed by KSC for 1 year term
+    - 3-4 seats appointed by KSC for 1 year term
     - Only vendor representative.
     - Is NOT allowed to vote on Kubeflow Community Distribution (KCD) topics
 
