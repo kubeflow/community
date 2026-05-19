@@ -30,6 +30,18 @@ The Kubeflow Distribution Committee (KDC) is a vendor-neutral body dedicated to 
        - **Exclusionary Integration:** Forcing dependencies that intentionally disadvantage specific vendors or environments.
        - **Note on Compatibility:** This does not exclude the development of community-supported or vendor-contributed adapters (e.g., data exporters, storage drivers, or external dependencies) designed to support specific environments, provided they remain external to the project's core functionality and do not compromise the portability of the base ecosystem.
 
+### Voting
+
+1. 40% - Votes by Appointment
+    - 4 seats appointed by KSC for 1 year term
+    - Only vendor representative.
+    - Is NOT allowed to vote on Kubeflow Community Distribution (KCD) topics
+
+2. 60% - Votes by Right
+    - 30% - KCD maintainers - 1-2 seats - appointed by KSC
+    - 30% - Every sub-project gets 1 seat, all votes are weighted by 30%
+    - Is allowed to vote on Kubeflow Community Distribution (KCD) topics
+    - When voting decisions happen on KCD topics, maintainers and sub-project owners get 50% / 50% voting power.
 
 ### Collaboration with maintainers of kubeflow projects (e.g. KFP, Trainer, ...)
 
