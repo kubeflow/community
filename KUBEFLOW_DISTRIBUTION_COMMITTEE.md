@@ -10,18 +10,6 @@ The Kubeflow Distribution Committee (KDC) is a vendor-neutral body dedicated to 
 3. Define and maintain the requirements for external projects and distributions of Kubeflow sub-project to be eligible to use the Kubeflow Conformant mark.
 4. Validate and impose requirements on the Kubeflow Community Distribution, which provides a reference deployment of all Kubeflow sub-projects that is vendor neutral, multi-tenant, secure, and provide an integrated experience between components.
 
-- Automatically synchronize the application and dependencies manifests to then elaborately combine (configure) them for a full platform experience.
-- Prioritize and provide a consistent, tested, and end-to-end multi-tenant experience. Enable the consumer and distributions to install, extend, and maintain Kubeflow as an end-to-end multi-tenant platform for multiple tenants on the same Kubernetes / Kubeflow installation.
-- Maintain an extensive testing suite in order to cover scenarios that the community member and consumer expects from a platform designed for artificial intelligence and machine learning orchestration. This includes dependencies, security efforts, and exemplary integration with popular tools and frameworks and making sure via integration tests that the components work end-to-end together as a multi-tenant platform. 
-- There is the evolving and not exhaustive list of included dependencies for a proper multi-tenant platform installation: Istio, KNative, Dex, Oauth2-proxy, Cert-Manager, ... 
-- There is the evolving and not exhaustive list of included applications: Kubeflow Pipelines, Trainer, Dashboard, Workspaces / Notebooks, KServe, Spark, ...
-- Provide documentation that covers (but is not limited to) installation, extension, security, and architecture decisions in order to enable the consumer to run a machine learning platform on Kubernetes (whatever form that may take).
-- Ensure that the consumer can leverage and modify our integrated platform in order to create an opinionated distribution that satisfies his individual requirements. He may also choose to install individual components without the benefits of the platform. Everyone is free to create his own distribution for any number of customers or companies in private or in public by deriving from Kubeflow Community Distribution or building from scratch
-- Release tested releases of the Kubeflow Community Distribution for downstream consumption.
-- Try to be compatible with the popular Kubernetes clusters (Kind, Rancher, Azure Kubernetes Service, Elastic Kubernetes Service, Google Kubernetes Engine, ...).
-- Provide hints and experimental examples how the consumer could integrate non-default external authentication (e.g., companies' Identity Provider) and popular non-default services on his own.
-- Document the installation of Kubeflow as a platform and/or individual components including common problems and architectural overviews.
-
 ### Out of Scope (Limitations)
 
 - Anti-Ecosystem-Competitive Actions: Engaging in or permitting actions that undermine the longevity of the community or violate vendor-neutral sovereignty. This includes, but is not limited to:
@@ -51,6 +39,22 @@ The Kubeflow Distribution Committee (KDC) is a vendor-neutral body dedicated to 
 - Aid the kubeflow project maintainer in creating manifests (Helm, Kustomize) for his application.
 - Aid the kubeflow project maintainer regarding security best practices.
 - Communicate with the kubeflow project maintainer regarding releases and versioning.
+
+
+## Kubeflow community distribution maintainers
+
+### In Scope (Powers)
+- Automatically synchronize the application and dependencies manifests to then elaborately combine (configure) them for a full platform experience.
+- Prioritize and provide a consistent, tested, and end-to-end multi-tenant experience. Enable the consumer and distributions to install, extend, and maintain Kubeflow as an end-to-end multi-tenant platform for multiple tenants on the same Kubernetes / Kubeflow installation.
+- Maintain an extensive testing suite in order to cover scenarios that the community member and consumer expects from a platform designed for artificial intelligence and machine learning orchestration. This includes dependencies, security efforts, and exemplary integration with popular tools and frameworks and making sure via integration tests that the components work end-to-end together as a multi-tenant platform. 
+- There is the evolving and not exhaustive list of included dependencies for a proper multi-tenant platform installation: Istio, KNative, Dex, Oauth2-proxy, Cert-Manager, ... 
+- There is the evolving and not exhaustive list of included applications: Kubeflow Pipelines, Trainer, Dashboard, Workspaces / Notebooks, KServe, Spark, ...
+- Provide documentation that covers (but is not limited to) installation, extension, security, and architecture decisions in order to enable the consumer to run a machine learning platform on Kubernetes (whatever form that may take).
+- Ensure that the consumer can leverage and modify our integrated platform in order to create an opinionated distribution that satisfies his individual requirements. He may also choose to install individual components without the benefits of the platform. Everyone is free to create his own distribution for any number of customers or companies in private or in public by deriving from Kubeflow Community Distribution or building from scratch
+- Release tested releases of the Kubeflow Community Distribution for downstream consumption.
+- Try to be compatible with the popular Kubernetes clusters (Kind, Rancher, Azure Kubernetes Service, Elastic Kubernetes Service, Google Kubernetes Engine, ...).
+- Provide hints and experimental examples how the consumer could integrate non-default external authentication (e.g., companies' Identity Provider) and popular non-default services on his own.
+- Document the installation of Kubeflow as a platform and/or individual components including common problems and architectural overviews.
 
 ## Roles and Organization Management
 
