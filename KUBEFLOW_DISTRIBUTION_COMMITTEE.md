@@ -32,13 +32,7 @@ The Kubeflow Distribution Committee (KDC) is a vendor-neutral body dedicated to 
     - 30% - KCD maintainers - 1-2 seats, all votes are weighted in total by 30%
     - 30% - Every sub-project gets 1 seat, all votes are weighted in total by 30%
     - Is allowed to vote on Kubeflow Community Distribution (KCD) topics
-    - When voting decisions happen on KCD topics, maintainers and sub-project owners get 50% / 50% voting power.
-
-### Collaboration with maintainers of kubeflow projects (e.g. KFP, Trainer, ...)
-
-- Aid the kubeflow project maintainer in creating manifests (Helm, Kustomize) for his application.
-- Aid the kubeflow project maintainer regarding security best practices.
-- Communicate with the kubeflow project maintainer regarding releases and versioning.
+    - When voting decisions happen on KCD topics, maintainers and sub-project owners get 50% / 50% voting power
 
 
 ## Kubeflow community distribution maintainers
@@ -55,6 +49,12 @@ The Kubeflow Distribution Committee (KDC) is a vendor-neutral body dedicated to 
 - Try to be compatible with the popular Kubernetes clusters (Kind, Rancher, Azure Kubernetes Service, Elastic Kubernetes Service, Google Kubernetes Engine, ...).
 - Provide hints and experimental examples how the consumer could integrate non-default external authentication (e.g., companies' Identity Provider) and popular non-default services on his own.
 - Document the installation of Kubeflow as a platform and/or individual components including common problems and architectural overviews.
+
+### Collaboration with maintainers of kubeflow projects (e.g. KFP, Trainer, ...)
+
+- Aid the kubeflow project maintainer in creating manifests (Helm, Kustomize) for his application.
+- Aid the kubeflow project maintainer regarding security best practices.
+- Communicate with the kubeflow project maintainer regarding releases and versioning.
 
 ## Roles and Organization Management
 
