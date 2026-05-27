@@ -1,6 +1,6 @@
 # Kubeflow Community Distribution
 
-The Kubeflow Distribution Committee (KDC) is a vendor-neutral body dedicated to supporting a healthy ecosystem of solutions by prioritizing the development, sustainability, interoperability, and distribution of individual Kubeflow sub-projects. While the primary focus of the KDC is to empower these sub-projects as modular, high-quality components, the Kubeflow Community Distribution serves as a primary example of this effort – providing a validated community supported implementation that demonstrates the collective power of these projects in a unified environment. By maintaining this distribution, the KDC aims to lower the barrier to entry for users and provide a streamlined path to adoption, while ensuring that sub-projects remain robust and valuable.
+The Kubeflow Distribution Committee (KDC) is a vendor-neutral body dedicated to supporting a healthy ecosystem of solutions by prioritizing the development, sustainability, interoperability, and distribution of individual Kubeflow sub-projects. While the primary focus of the KDC is to empower these sub-projects as modular, high-quality components, the Kubeflow Community Distribution serves as a primary example of this effort – providing a validated community supported implementation that demonstrates the collective power of these projects in a unified environment. By maintaining this distribution, the KDC aims to lower the barrier to entry for users and provide a streamlined path to adoption, while ensuring that sub-projects remain robust and valuable. The charter must only be changed by the KSC.
 
 ## Charter
 
@@ -22,7 +22,6 @@ The Kubeflow Distribution Committee (KDC) is a vendor-neutral body dedicated to 
 
 ### Committee Roles
 
-
 1. 40% - Votes by Appointment
     - 3-4 seats appointed by KSC for 1 year term
     - Only vendor representative.
@@ -33,7 +32,35 @@ The Kubeflow Distribution Committee (KDC) is a vendor-neutral body dedicated to 
     - 30% - Every sub-project gets 1 seat, all votes are weighted in total by 30%
     - Is allowed to vote on Kubeflow Community Distribution (KCD) topics
     - When voting decisions happen on KCD topics, maintainers and sub-project owners get 50% / 50% voting power
+  
+### Committee members
 
+KCD maintainers:
+
+| Name                      | Organization    | GitHub                                                     |
+| ------------------------- | --------------- | ---------------------------------------------------------- |
+| Julius von Kohout         | DHL Data & AI   | [@juliusvonkohout](https://github.com/julusvonkohout/)     |
+| Tarek Abouzeid            | Telia           | [tarekabouzeid](https://github.com/tarekabouzeid/)         |
+          
+Vendor represantatives:
+| Name                      | Organization    | GitHub                                                     |
+| ------------------------- | --------------- | ---------------------------------------------------------- |
+| Tarek Abouzeid            | Telia           | [tarekabouzeid](https://github.com/tarekabouzeid/)         |
+
+The subprojects votes are not bound to individual members.
+
+### Limitations on Company Representation
+No more than one maintainer or vendor seat may be held by employees of the same organization (or conglomerate, in the case of companies owning each other). 
+
+If employers change because of job changes, acquisitions, or other events, in a way that would be in violation of the proceeding limits, sufficient members of the committee must resign their positions until the requirements are satisfied. If it is impossible to find sufficient members to resign, all employees of that organization will be removed and the vacancies will be filled using the normal process.
+
+In the event of a question of company membership (for example evaluating independence of corporate subsidiaries) a majority of all non-involved KSC members will decide.
+
+### Committee Meetings
+
+The KDC will meet regularly in the existing "Kubeflow AI Reference Platform (Release, Manifests, Security)" meeting which will be renamed to "Kubeflow Community Distribution (Release, Manifests, Security)". These meetings will be open to the public. Specific sensitive matters may be handled separately.
+
+Meeting notes will be publicly available to the community, except when privacy is required for specific discussions.
 
 ## Kubeflow community distribution maintainers
 
@@ -63,23 +90,18 @@ Kubeflow's [governance model](https://github.com/kubeflow/community/blob/master/
 **Subproject Owner**, **Technology Lead** or **Chair** roles were defined by trying
 to provide different responsibility levels for repository owners. For the Kubeflow Community Distribution committee, the root approvers ([OWNERS](https://github.com/kubeflow/manifests/blob/master/OWNERS)) aka maintainers will be "**Subproject Owner**, **Technology Lead** and **Chair**" and the root reviewers ([OWNERS](https://github.com/kubeflow/manifests/blob/master/OWNERS)) will be "**Technology Lead**".
 
-### Kubeflow Community Distribution Committee reviewer and approver requirements
+### Kubeflow Community Distribution maintainer requirements
 
-The requirements for a promotion to root reviewer or approver comes from the processes and work required to be done in this repository. The main goal with having multiple Leads is to ensure
-that in case there's an absence of one of the Leads the rest is able to ensure
-the established processes and the health of the repository will be preserved.
+The requirements for a promotion to root reviewer or approver comes from the processes and work required to be done in manifests/Distribution repository.
 
-With the above the main pillars of work and responsibilities that we have seen for
-this repository throughout the years are the following:
-1. Being involved with the release team, since the [release process](https://github.com/kubeflow/community/tree/master/releases) is tightly intertwined with the manifests/platform repository
-2. Testing methodologies (GitHub Actions)
-3. Processes regarding the [experimental](https://github.com/kubeflow/manifests/blob/master/experimental) components
+With the above the main pillars of work and responsibilities that we have seen for this repository throughout the years are the following:
+1. Being involved with the release team, since the [release process](https://github.com/kubeflow/community/tree/master/releases) is tightly intertwined with the manifests/distribution repository
+2. Testing methodologies (GitHub Actions) and Kubernetes security
+3. Processes regarding the [applications](https://github.com/kubeflow/manifests/blob/master/applications).
 4. [Platform manifests](https://github.com/kubeflow/manifests/tree/master/common) maintained directly by Manifests/Platform WG (Istio, Knative, Cert Manager etc.)
 5. Community and health of the project
 
-Root approvers, or Kubeflow Community Distribution maintainers, are expected to have expertise and be able to drive all the above areas. Root reviewers on the other hand are expected to
-have knowledge in all the above and have as a goal to grow into the approvers
-role by helping with reviews throughout the project.
+Root approvers, or Kubeflow Community Distribution maintainers, are expected to have expertise and be able to drive all the above areas. Root reviewers on the other hand are expected to have knowledge in all the above and have as a goal to grow into the approvers role by helping with reviews throughout the project.
 
 #### Root Reviewer requirements
 
