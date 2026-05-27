@@ -83,13 +83,6 @@ Meeting notes will be publicly available to the community, except when privacy i
 - Aid the kubeflow project maintainer regarding security best practices.
 - Communicate with the kubeflow project maintainer regarding releases and versioning.
 
-## Roles and Organization Management
-
-Kubeflow's [governance model](https://github.com/kubeflow/community/blob/master/wgs/wg-governance.md) includes a plethora of different leadership roles and is quite complex and designed for larger committes. This section aims to set requirements and expectations regarding tasks, roles and promotions.
-
-**Subproject Owner**, **Technology Lead** or **Chair** roles were defined by trying
-to provide different responsibility levels for repository owners. For the Kubeflow Community Distribution committee, the root approvers ([OWNERS](https://github.com/kubeflow/manifests/blob/master/OWNERS)) aka maintainers will be "**Subproject Owner**, **Technology Lead** and **Chair**" and the root reviewers ([OWNERS](https://github.com/kubeflow/manifests/blob/master/OWNERS)) will be "**Technology Lead**".
-
 ### Kubeflow Community Distribution maintainer requirements
 
 The requirements for a promotion to root reviewer or approver comes from the processes and work required to be done in manifests/Distribution repository.
