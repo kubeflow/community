@@ -105,24 +105,10 @@ Root approvers, or Kubeflow Community Distribution maintainers, are expected to 
 
 #### Root Reviewer requirements
 
-* Primary reviewer for at least 2 PRs in `/common`
-* Primary reviewer for at least 1 PR in `/tests`
-* Primary reviewer for at least 1 PR in `/experimental`
+https://www.kubeflow.org/docs/about/membership/#reviewer
 
 #### Root Approver requirements
 
-The goal of the requirements is to quantify the main pillars that we documented
-above. The high level reasoning is that approvers should have lead efforts and
-have expertise in the different processes and artefacts maintained in this repository
-as well as be invested in the community of the WG.
+The high level reasoning is that approvers should have lead efforts and have expertise in the different processes and artefacts maintained in the manifests/distribution repository as well as be invested in the community of the WG/Committee.
 
-* Needs to be a root reviewer
-* Has been a WG liaison for a KF release
-* Has at least 3 substantial PRs merged for `/common`
-    * I.e. updating the versions of Istio, Dex or Knative
-    * I.e. update manifests to work with newer versions of kustomize
-* Has at least 2 substantial PRs merged for `/tests`
-* Has at least 1 substantial PR merged for `/proposals`
-* Has been an active participant in issues and PRs for at least 3 months
-* Has attended at least 50% of Platform/Manifests WG meetings
-* Is endorsed by existing root approvers
+https://www.kubeflow.org/docs/about/membership/#approver requirements should be consistently proven for at least a year.
