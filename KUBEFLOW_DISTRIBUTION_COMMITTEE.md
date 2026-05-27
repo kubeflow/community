@@ -111,4 +111,4 @@ https://www.kubeflow.org/docs/about/membership/#reviewer
 
 The high level reasoning is that approvers should have lead efforts and have expertise in the different processes and artefacts maintained in the manifests/distribution repository as well as be invested in the community of the WG/Committee.
 
-https://www.kubeflow.org/docs/about/membership/#approver requirements should be consistently proven for at least a year.
+https://www.kubeflow.org/docs/about/membership/#approver requirements should be consistently proven for at least the last 12 months.
