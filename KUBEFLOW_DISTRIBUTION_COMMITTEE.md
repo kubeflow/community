@@ -71,11 +71,11 @@ Meeting notes will be publicly available to the community, except when privacy i
 ### In Scope (Powers)
 - Synchronize the application and dependencies manifests to then elaborately combine (configure) them for a consistent, secure and end-to-end multi-tenant enterprise platform experience.
 - Enable the consumer and distributions to install, extend, modify and maintain Kubeflow installations by providing documentation, automation and configurability that covers (but is not limited to) installation, extension, security, and architecture decisions in order to enable the consumer to run a machine learning platform on Kubernetes. He may also choose to install individual components without the benefits of the platform. Everyone is free to create his own distribution for any number of customers or companies in private or in public by deriving from Kubeflow Community Distribution or building from scratch.
-- Maintain an extensive testing suite in order to cover scenarios that the community member and consumer expects from a platform designed for artificial intelligence and machine learning orchestration. This includes dependencies, security efforts, and exemplary integration with popular tools and frameworks and making sure via integration tests that the components work end-to-end together as a multi-tenant platform. 
+- Maintain an extensive testing suite in order to cover scenarios that the community member and consumer expects from an AI/ML platform. This includes dependencies, security efforts, and exemplary integration with popular tools and frameworks and making sure via integration tests that the components work end-to-end together as a secure and multi-tenant platform. 
 - Maintain the evolving and not exhaustive list of included dependencies for a proper multi-tenant platform installation: Istio, KNative, Dex, Oauth2-proxy, Cert-Manager, ... as well as integrating the Kubeflow applications: Kubeflow Pipelines, Trainer, Dashboard, Workspaces / Notebooks, KServe, Spark, ...
 - Release tested releases of the Kubeflow Community Distribution for downstream consumption.
 - Provide guidance and examples how the consumer could integrate non-default external authentication (e.g., companies' Identity Provider) and popular non-default services on his own.
-- Try to be compatible with the popular Kubernetes clusters (Kind, Rancher, Azure Kubernetes Service, Elastic Kubernetes Service, Google Kubernetes Engine, OpenShift, ...).
+- Try to be compatible with the popular Kubernetes clusters (Kind, Rancher, AKS, GKE, EKS, OpenShift, ...).
 
 ### In Scope (Powers)
 
