@@ -69,17 +69,27 @@ Meeting notes will be publicly available to the community, except when privacy i
 ## Kubeflow community distribution maintainers
 
 ### In Scope (Powers)
-- Automatically synchronize the application and dependencies manifests to then elaborately combine (configure) them for a full platform experience.
-- Prioritize and provide a consistent, tested, and end-to-end multi-tenant experience. Enable the consumer and distributions to install, extend, and maintain Kubeflow as an end-to-end multi-tenant platform for multiple tenants on the same Kubernetes / Kubeflow installation.
+- Synchronize the application and dependencies manifests to then elaborately combine (configure) them for a consistent, secure and end-to-end multi-tenant enterprise platform experience.
+- Enable the consumer and distributions to install, extend, modify and maintain Kubeflow installations by providing documentation, automation and configurability that covers (but is not limited to) installation, extension, security, and architecture decisions in order to enable the consumer to run a machine learning platform on Kubernetes. He may also choose to install individual components without the benefits of the platform. Everyone is free to create his own distribution for any number of customers or companies in private or in public by deriving from Kubeflow Community Distribution or building from scratch.
 - Maintain an extensive testing suite in order to cover scenarios that the community member and consumer expects from a platform designed for artificial intelligence and machine learning orchestration. This includes dependencies, security efforts, and exemplary integration with popular tools and frameworks and making sure via integration tests that the components work end-to-end together as a multi-tenant platform. 
-- There is the evolving and not exhaustive list of included dependencies for a proper multi-tenant platform installation: Istio, KNative, Dex, Oauth2-proxy, Cert-Manager, ... 
-- There is the evolving and not exhaustive list of included applications: Kubeflow Pipelines, Trainer, Dashboard, Workspaces / Notebooks, KServe, Spark, ...
-- Provide documentation that covers (but is not limited to) installation, extension, security, and architecture decisions in order to enable the consumer to run a machine learning platform on Kubernetes (whatever form that may take).
-- Ensure that the consumer can leverage and modify our integrated platform in order to create an opinionated distribution that satisfies his individual requirements. He may also choose to install individual components without the benefits of the platform. Everyone is free to create his own distribution for any number of customers or companies in private or in public by deriving from Kubeflow Community Distribution or building from scratch
+- Maintain the evolving and not exhaustive list of included dependencies for a proper multi-tenant platform installation: Istio, KNative, Dex, Oauth2-proxy, Cert-Manager, ... as well as integrating the Kubeflow applications: Kubeflow Pipelines, Trainer, Dashboard, Workspaces / Notebooks, KServe, Spark, ...
 - Release tested releases of the Kubeflow Community Distribution for downstream consumption.
-- Try to be compatible with the popular Kubernetes clusters (Kind, Rancher, Azure Kubernetes Service, Elastic Kubernetes Service, Google Kubernetes Engine, ...).
-- Provide hints and experimental examples how the consumer could integrate non-default external authentication (e.g., companies' Identity Provider) and popular non-default services on his own.
-- Document the installation of Kubeflow as a platform and/or individual components including common problems and architectural overviews.
+- Provide guidance and examples how the consumer could integrate non-default external authentication (e.g., companies' Identity Provider) and popular non-default services on his own.
+- Try to be compatible with the popular Kubernetes clusters (Kind, Rancher, Azure Kubernetes Service, Elastic Kubernetes Service, Google Kubernetes Engine, OpenShift, ...).
+
+### In Scope (Powers)
+
+- Maintain the Kubeflow Community Distribution as the tested, vendor-neutral reference platform that integrates Kubeflow component manifests from `applications`, shared platform services from `common`, and selected experimental integrations that meet community quality expectations.
+- Periodically synchronize upstream Kubeflow component manifests and combine them through Kustomize overlays into a coherent, end-to-end, multi-tenant platform installation.
+- Enable consumers and downstream distributions to install, extend, operate, and maintain Kubeflow for multiple tenants on a single Kubernetes installation, while still allowing individual components to be installed separately.
+- Maintain automated installation, integration, upgrade, and security tests that validate the distribution as a complete AI/ML platform, including identity, authorization, networking, storage, notebooks, pipelines, training, tuning, serving, and dashboard workflows.
+- Maintain the evolving set of shared platform services required for the default multi-tenant installation, including Istio, Knative, Dex, OAuth2 Proxy, cert-manager, Kubeflow roles, Kubeflow namespaces, and user namespace resources.
+- Maintain the evolving set of included Kubeflow components, including Kubeflow Pipelines, Trainer, Training Operator, Kubeflow Dashboard, Notebooks, Workspaces, Katib, KServe, Kubeflow Hub, and Spark Operator.
+- Publish tested releases for downstream consumption, with documented component versions, supported Kubernetes versions, compatibility notes, and known upgrade steps.
+- Support documented target environments on a best-effort basis, including Kind, Minikube, Rancher, Amazon Elastic Kubernetes Service, Azure Kubernetes Service, Google Kubernetes Engine, and other Kubernetes-conformant Linux environments.
+- Provide documentation for installation, extension, upgrades, security, architecture, troubleshooting, release processes, default authentication and authorization behavior, and experimental integrations with external identity providers or non-default platform services.
+- Enable private or public downstream distributions derived from the Kubeflow Community Distribution, while preserving a portable, Kubernetes-native foundation.
+- Collaborate with Kubeflow component maintainers to identify and report packaging, configuration, security, multi-tenancy, and release-integration gaps to the responsible upstream projects.
 
 ### Collaboration with maintainers of kubeflow projects (e.g. KFP, Trainer, ...)
 
