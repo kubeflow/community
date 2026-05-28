@@ -20,7 +20,7 @@ The Kubeflow Distribution Committee (KDC) is a vendor-neutral body dedicated to 
 
 ### Changes to the Charter
 
-Changes to the KOC charter can be proposed by any community member via a GitHub PR. Amendments will be subject to approval by a standard decision of the KSC. Proposals will be available for at least one week for community comments before a vote occurs.
+Changes to the KDC charter can be proposed by any community member via a GitHub PR. Amendments will be subject to approval by a standard decision of the KSC. Proposals will be available for at least one week for community comments before a vote occurs.
 
 ## Committee Structure
 
