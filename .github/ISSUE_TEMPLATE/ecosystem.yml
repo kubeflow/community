@@ -1,0 +1,86 @@
+name: Ecosystem Project application
+description: Apply to be a member of the Kubeflow Ecosystem landscape
+title: "[Ecosystem] <Project Name>"
+labels: [area/ecosystem]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for filling out a Kubeflow Ecosystem Project application. Kubeflow has always fostered a strong community-driven culture and actively supports projects that build on, integrate with, or complement Kubeflow sub-projects.
+  - type: markdown
+    attributes:
+      value: |
+        As part of this effort, the Kubeflow community established the Kubeflow Ecosystem to highlight projects that are valuable to the broader community and demonstrate maturity, sustainability, and excellence within their respective domains.
+  - type: markdown
+    attributes:
+      value: |
+        Please read the guidelines and understand the [expectations](https://github.com/kubeflow/community/tree/master/how-to/join_kubeflow_ecosystem.md) for Kubeflow Ecosystem projects.
+  - type: textarea
+    attributes:
+      label: Contact emails
+      description: Provide the email address(es) of individuals who should be contacted regarding this application.
+      placeholder: Comma-separate multiple emails here
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Project repo URL
+      description: Provide the URL of the primary source code for the project. If there is no single repo but all repos under the org are in scope of the application, provide the URL of the top level repository.
+      placeholder: Add code repo URL here
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: GitHub handles of the project maintainer(s)
+      description: Provide the GitHub handler of the individuals who are the primary maintainers of this project.
+      placeholder: Comma-separate multiple GitHub handles here.
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Project license
+      description: Provide the license link that the project operates under.
+      placeholder: Add link to the license
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Project summary
+      description: Provide a very brief, single line summary of the project.
+      placeholder: One-line summary of the project
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Project description
+      description: Provide a brief, 100-300 word description of the project that explains what it does and why it's needed.
+      placeholder: Describe what the project does, why it's needed, and how it integrates with Kubeflow subprojects.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Kubeflow Subprojects Integration
+      description: Explain how your project integrates with Kubeflow subprojects.
+      placeholder: Add Kubeflow subprojects integration here
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Documentation
+      description: Provide link to the project documentation.
+      placeholder: Add documentation information and URL here
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Testing infrastructure and CI/CD
+      description: Provide a description of how you build, test, and distribute the project today.
+      placeholder: Add build and test information here
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Additional information
+      description: Any additional information you would like the Kubeflow Steering Committee to consider when evaluating this project?
+    validations:
+      required: false
