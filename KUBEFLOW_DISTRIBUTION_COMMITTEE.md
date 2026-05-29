@@ -69,6 +69,7 @@ Meeting notes will be publicly available to the community, except when privacy i
 ## Kubeflow community distribution maintainers
 
 ### In Scope (minimal expectations)
+- The Kubeflow Community Distribution must be Kubeflow Conformant. 
 - Synchronize the application and dependencies manifests to then elaborately combine (configure) them for a consistent, secure and end-to-end multi-tenant enterprise platform experience.
 Enable the consumer and distributions to install, extend, modify and maintain Kubeflow Community Distribution installations by providing documentation, automation and configurability.
 - Maintain an extensive testing suite in order to cover scenarios that the community member and consumer expects from an AI/ML platform. This includes dependencies, security efforts, and exemplary integration with popular tools and frameworks and making sure via integration tests that the components work end-to-end together as a secure and multi-tenant platform.
