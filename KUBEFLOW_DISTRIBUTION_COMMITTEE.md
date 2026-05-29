@@ -77,20 +77,6 @@ Meeting notes will be publicly available to the community, except when privacy i
 - Provide guidance and examples how the consumer could integrate non-default external authentication (e.g., companies' Identity Provider) and popular non-default services on his own.
 - Try to be compatible with the popular Kubernetes clusters (Kind, Rancher, AKS, GKE, EKS, OpenShift, ...).
 
-### In Scope (Powers)
-
-- Maintain the Kubeflow Community Distribution as the tested, vendor-neutral reference platform that integrates Kubeflow component manifests from `applications`, shared platform services from `common`, and selected experimental integrations that meet community quality expectations.
-- Periodically synchronize upstream Kubeflow component manifests and combine them through Kustomize overlays into a coherent, end-to-end, multi-tenant platform installation.
-- Enable consumers and downstream distributions to install, extend, operate, and maintain Kubeflow for multiple tenants on a single Kubernetes installation, while still allowing individual components to be installed separately.
-- Maintain automated installation, integration, upgrade, and security tests that validate the distribution as a complete AI/ML platform, including identity, authorization, networking, storage, notebooks, pipelines, training, tuning, serving, and dashboard workflows.
-- Maintain the evolving set of shared platform services required for the default multi-tenant installation, including Istio, Knative, Dex, OAuth2 Proxy, cert-manager, Kubeflow roles, Kubeflow namespaces, and user namespace resources.
-- Maintain the evolving set of included Kubeflow components, including Kubeflow Pipelines, Trainer, Training Operator, Kubeflow Dashboard, Notebooks, Workspaces, Katib, KServe, Kubeflow Hub, and Spark Operator.
-- Publish tested releases for downstream consumption, with documented component versions, supported Kubernetes versions, compatibility notes, and known upgrade steps.
-- Support documented target environments on a best-effort basis, including Kind, Minikube, Rancher, Amazon Elastic Kubernetes Service, Azure Kubernetes Service, Google Kubernetes Engine, and other Kubernetes-conformant Linux environments.
-- Provide documentation for installation, extension, upgrades, security, architecture, troubleshooting, release processes, default authentication and authorization behavior, and experimental integrations with external identity providers or non-default platform services.
-- Enable private or public downstream distributions derived from the Kubeflow Community Distribution, while preserving a portable, Kubernetes-native foundation.
-- Collaborate with Kubeflow component maintainers to identify and report packaging, configuration, security, multi-tenancy, and release-integration gaps to the responsible upstream projects.
-
 ### Collaboration with maintainers of kubeflow projects (e.g. KFP, Trainer, ...)
 
 - Aid the kubeflow project maintainer in creating manifests (Helm, Kustomize) for his application.
