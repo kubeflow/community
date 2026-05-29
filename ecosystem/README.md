@@ -5,11 +5,6 @@ that build on, integrate with, or complement Kubeflow sub-projects. As part of t
 the Kubeflow community established the Kubeflow Ecosystem to highlight projects that are valuable
 to the broader community and demonstrate maturity, sustainability, and excellence within their respective domains.
 
-You can find the list of Kubeflow Ecosystem projects [in this page](/docs/ecosystem/).
-
-If you are interested in joining the Kubeflow Ecosystem, please refer to
-[the contribution guidelines](https://github.com/kubeflow/community/tree/master/how-to/join-kubeflow-ecosystem.md)
-
 ## Ecosystem Project Requirements
 
 When projects are considered for the Kubeflow ecosystem, the Kubeflow Steering Committee considers
@@ -61,6 +56,15 @@ factors they believe are essential for community adoption. These criteria includ
   are rejected or postponed otherwise
 - Add your project into [Kubeflow Ecosystem website page](https://www.kubeflow.org/docs/ecosystem/)
 - Update [PROJECTS.md file](./PROJECTS.md)
+
+## Periodic Review & Project Offboarding
+
+Every 12 months all projects are reviewed by the Kubeflow community leadership to ensure that they
+still meet the [Ecosystem Project Requirements](#ecosystem-project-requirements). Project owners
+will be notified why they no longer qualify to be an Ecosystem project and will have 60 days to
+implement the necessary changes. If the project owners do not implement the changes or do not
+respond to requests, then the project will be immediately retired and will no longer be a part of
+the Ecosystem and listed in an active state in [the Kubeflow Website](https://www.kubeflow.org/docs/ecosystem/).
 
 ## Changes to the Process
 
