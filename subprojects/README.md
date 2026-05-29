@@ -1,16 +1,21 @@
-# How to Become Kubeflow Subproject
+# Kubeflow Subprojects
 
-This directory contains applications from open-source projects that have proposed becoming Kubeflow subprojects.
-Each subproject lives in its own directory (`subprojects/<issue-number>-<project-name>/`, where `<issue-number>` is the GitHub issue created in
-step 1 of the [Process](#process)) and contains a populated copy of [`TEMPLATE.md`](TEMPLATE.md)
-describing the project, saved as `README.md`.
+This directory contains list of Kubeflow subprojects, criteria for maturity levels, and applications
+from open-source projects that have proposed becoming Kubeflow subprojects.
 
-For background and motivation behind this process, see [KEP-748: Expanding the Kubeflow Ecosystem with a New OSS Project](../proposals/748-expand-kubeflow-ecosystem/README.md).
+You can find list of existing Kubeflow subprojects with its levels in the [PROJECTS.md](PROJECTS.md) document.
+
+You can find criteria for project status levels in the [maturity_requirements.md](maturity_requirements.md) document.
+
+## Process to Become Kubeflow Subproject
+
+Each subproject donated to the Kubeflow organization lives in its own directory:
+`subprojects/<issue-number>-<project-name>/`. The `<issue-number>` is the GitHub issue
+created in step 1 of the [Process](#process). Each directory contains a `README.md` — a
+populated copy of [`TEMPLATE.md`](TEMPLATE.md) — describing the project.
 
 This process follows the Kubeflow Steering Committee's [Normal Decision Process](../committee-steering/charter.md#normal-decision-process).
 Acceptance is at the discretion of the Kubeflow Steering Committee and is not guaranteed.
-
-## Process
 
 Project owners or maintainers can apply to become a Kubeflow subproject by following these steps:
 
@@ -61,8 +66,9 @@ Kubeflow organization following official approval.
 
 ### External References Update
 
-- [ ] Update CI badge URLs in documentation
+- [ ] Update [PROJECTS.md](PROJECTS.md) and [Kubeflow installation page](https://www.kubeflow.org/docs/started/installing-kubeflow/)
 - [ ] Update example configurations and manifests
+- [ ] If documentation website exists, link it from [the Kubeflow website](https://www.kubeflow.org/docs/components/)
 
 ### Functionality Testing
 
