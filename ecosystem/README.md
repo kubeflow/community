@@ -28,8 +28,8 @@ factors they believe are essential for community adoption. These criteria includ
 ### Measurable Requirements
 
 - Core Maintainers: The project MUST have a minimum of 2 core maintainers
-- Contributors: The project SHOULD have a minimum of 5 total contributors active in the last 90 days.
-- Commits: The project MUST have 20 commits in the last 90 days.
+- Contributors: The project SHOULD have a minimum of 3 total contributors active in the last 90 days.
+- Commits: The project MUST have 10 commits in the last 90 days.
 
 ### Github Layout Requirements
 
