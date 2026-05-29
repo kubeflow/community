@@ -77,9 +77,7 @@ Enable the consumer and distributions to install, extend, modify and maintain Ku
 - Release tested releases of the Kubeflow Community Distribution for downstream consumption.
 - Provide guidance and examples how the consumer could integrate non-default external authentication (e.g., companies' Identity Provider) and popular non-default services on his own.
 - Make Kubeflow Community Distribution compatible with the popular Kubernetes clusters (Kind, Rancher, AKS, GKE, EKS, OpenShift)
-- Aid the kubeflow subproject maintainer in creating manifests (Helm, Kustomize) for his application.
-- Aid the kubeflow subproject maintainer regarding security best practices.
-- Communicate with the kubeflow subproject maintainer regarding releases and versioning.
+- Aid the Kubeflow subproject maintainers in creating manifests (Helm, Kustomize), security best practices, maintain releases and versioning for their application.
 
 ### Kubeflow Community Distribution maintainer requirements
 
