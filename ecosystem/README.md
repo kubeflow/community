@@ -61,7 +61,7 @@ factors they believe are essential for community adoption. These criteria includ
 
 Every 12 months all projects are reviewed by the Kubeflow community leadership to ensure that they
 still meet the [Ecosystem Project Requirements](#ecosystem-project-requirements). Project owners
-will be notified why they no longer qualify to be an Ecosystem project and will have 60 days to
+will be notified why their project no longer qualifies to be an Ecosystem project and will have 60 days to
 implement the necessary changes. If the project owners do not implement the changes or do not
 respond to requests, then the project will be immediately retired and will no longer be a part of
 the Ecosystem and listed in an active state in [the Kubeflow Website](https://www.kubeflow.org/docs/ecosystem/).
