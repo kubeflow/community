@@ -17,7 +17,7 @@ When a project changes its status level, this document and the
 | [Kubeflow Pipelines](https://www.kubeflow.org/docs/components/pipelines/)           | [kubeflow/pipelines](https://github.com/kubeflow/pipelines)           |
 | [Kubeflow Spark Operator](https://www.kubeflow.org/docs/components/spark-operator/) | [kubeflow/spark-operator](https://github.com/kubeflow/spark-operator) |
 | [Kubeflow Trainer](https://www.kubeflow.org/docs/components/trainer/)               | [kubeflow/trainer](https://github.com/kubeflow/trainer)               |
-| [Kubeflow SDK](https://www.kubeflow.org/docs/components/sdk/)                       | [kubeflow/sdk](https://github.com/kubeflow/sdk)                       |
+| [Kubeflow SDK](https://sdk.kubeflow.org/en/latest/)                                 | [kubeflow/sdk](https://github.com/kubeflow/sdk)                       |
 
 ## Development
 
@@ -31,11 +31,24 @@ When a project changes its status level, this document and the
 
 ## Deprecated
 
-| Kubeflow Subproject                                                                | Source Code                                                 | Archived Date |
-| ---------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------- |
-| [Kubeflow Notebooks v1](https://www.kubeflow.org/docs/components/notebooks/)       | [kubeflow/notebooks](https://github.com/kubeflow/notebooks) | TBD           |
-| [Kubeflow Training Operator v1](https://www.kubeflow.org/docs/components/trainer/) | [kubeflow/trainer](https://github.com/kubeflow/trainer)     | 31/12/2026    |
+| Kubeflow Subproject                                                                | Source Code                                                 |
+| ---------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| [Kubeflow Notebooks v1](https://www.kubeflow.org/docs/components/notebooks/)       | [kubeflow/notebooks](https://github.com/kubeflow/notebooks) |
+| [Kubeflow Training Operator v1](https://www.kubeflow.org/docs/components/trainer/) | [kubeflow/trainer](https://github.com/kubeflow/trainer)     |
 
 ## Archived
 
-There are currently no archived Kubeflow subprojects.
+| Kubeflow Subproject                  | Source Code                                                                   | Archived Date |
+| ------------------------------------ | ----------------------------------------------------------------------------- | ------------- |
+| Kubeflow Pipelines on Tekton         | [kubeflow/kfp-tekton](https://github.com/kubeflow/kfp-tekton)                 | 30/07/2025    |
+| Kubeflow Chainer Operator            | [kubeflow/chainer-operator](https://github.com/kubeflow/chainer-operator)     | 09/08/2024    |
+| Kubeflow FATE Operator               | [kubeflow/fate-operator](https://github.com/kubeflow/fate-operator)           | 09/08/2024    |
+| Kubeflow Kubebench                   | [kubeflow/kubebench](https://github.com/kubeflow/kubebench)                   | 09/08/2024    |
+| KFServing (LTS)                      | [kubeflow/kfserving-lts](https://github.com/kubeflow/kfserving-lts)           | 09/08/2024    |
+| Kubeflow Pipelines on Tekton Backend | [kubeflow/kfp-tekton-backend](https://github.com/kubeflow/kfp-tekton-backend) | 12/11/2023    |
+| Kubeflow Fairing                     | [kubeflow/fairing](https://github.com/kubeflow/fairing)                       | 17/08/2023    |
+| kfctl                                | [kubeflow/kfctl](https://github.com/kubeflow/kfctl)                           | 17/08/2023    |
+| Kubeflow PyTorch Operator            | [kubeflow/pytorch-operator](https://github.com/kubeflow/pytorch-operator)     | 19/09/2022    |
+| Kubeflow MXNet Operator              | [kubeflow/mxnet-operator](https://github.com/kubeflow/mxnet-operator)         | 01/02/2022    |
+| Kubeflow XGBoost Operator            | [kubeflow/xgboost-operator](https://github.com/kubeflow/xgboost-operator)     | 01/02/2022    |
+| Kubeflow Caffe2 Operator             | [kubeflow/caffe2-operator](https://github.com/kubeflow/caffe2-operator)       | 01/12/2021    |
