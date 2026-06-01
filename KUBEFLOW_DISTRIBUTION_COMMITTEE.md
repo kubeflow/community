@@ -18,10 +18,6 @@ The Kubeflow Distribution Committee (KDC) is a vendor-neutral body dedicated to 
 - **Exclusionary Integration:** Forcing dependencies that intentionally disadvantage specific vendors or environments.
 - **Note on Compatibility:** This does not exclude the development of community-supported or vendor-contributed adapters (e.g., data exporters, storage drivers, or external dependencies) designed to support specific environments, provided they remain external to the project's core functionality and do not compromise the portability of the base ecosystem.
 
-### Changes to the Charter
-
-Changes to the KDC charter can be proposed by any community member via a GitHub PR. Amendments will be subject to approval by a standard decision of the KSC. Proposals will be available for at least one week for community comments before a vote occurs.
-
 ## Committee Structure
 
 ### Committee Roles
@@ -101,3 +97,7 @@ https://www.kubeflow.org/docs/about/membership/#reviewer
 The high level reasoning is that approvers should have lead efforts and have expertise in the different processes and artefacts maintained in the manifests/distribution repository as well as be invested in the community of the WG/Committee.
 
 https://www.kubeflow.org/docs/about/membership/#approver requirements should be consistently proven for at least the last 12 months.
+
+## Changes to the Charter
+
+Changes to the KDC charter can be proposed by any community member via a GitHub PR. Amendments will be subject to approval by a standard decision of the KSC. Proposals will be available for at least one week for community comments before a vote occurs.
