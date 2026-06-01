@@ -45,7 +45,7 @@ KCD maintainers:
 Vendor represantatives:
 | Name                      | Organization    | GitHub                                                     |
 | ------------------------- | --------------- | ---------------------------------------------------------- |
-| Tarek Abouzeid            | Telia           | [tarekabouzeid](https://github.com/tarekabouzeid/)         |
+|                           |                 |                                                            |
 
 The subprojects votes are not bound to individual members.
 
