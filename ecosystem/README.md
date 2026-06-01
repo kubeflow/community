@@ -21,6 +21,7 @@ factors they believe are essential for community adoption. These criteria includ
 - User experience: The value proposition SHOULD be made clear for the project and documented in the
   README of the project repository.
 - Quick start: Project SHOULD have a working and demonstrable quick start guide.
+- There must be at least integration documentation, better automated continuous integration tests (whether in the community distribution or the upstream repository)
 - Documentation: Projects MUST have clear and comprehensive documentation.
 - Permissive licensing: Users MUST be able to utilize ecosystem projects without licensing concerns.
   e.g. BSD-3, Apache-2 and MIT licenses
