@@ -62,7 +62,7 @@ In the event of a question of company membership (for example evaluating indepen
 
 ### Committee Meetings
 
-The KDC will meet regularly in the existing "Kubeflow AI Reference Platform (Release, Manifests, Security)" meeting which will be renamed to "Kubeflow Community Distribution (Release, Manifests, Security)". These meetings will be open to the public. Specific sensitive matters may be handled separately.
+The KDC will meet regularly during Kubeflow Community Distribution Call (Release, Manifests, Security). These meetings will be open to the public. Specific sensitive matters may be handled separately.
 
 Meeting notes will be publicly available to the community, except when privacy is required for specific discussions.
 
