@@ -38,6 +38,7 @@ please reach out to ksc@kubeflow.org.
 
 - [proposals](proposals): for Kubeflow Enhancement Proposal (KEP) process
 - [subprojects](subprojects): to donate your project to Kubeflow community
+- [ecosystem](ecosystem): to join Kubeflow ecosystem
 - [how-to](how-to): for documenting community and other project processes
 
 ## Legal
