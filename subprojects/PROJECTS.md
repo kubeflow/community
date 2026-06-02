@@ -12,29 +12,28 @@ When a project changes its status level, this document and the
 
 | Kubeflow Subproject                                                                 | Source Code                                                           |
 | ----------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| [Kubeflow Katib](https://www.kubeflow.org/docs/components/katib/)                   | [kubeflow/katib](https://github.com/kubeflow/katib)                   |
 | [Kubeflow Hub](https://www.kubeflow.org/docs/components/hub/)                       | [kubeflow/hub](https://github.com/kubeflow/hub)                       |
+| [Kubeflow Katib](https://www.kubeflow.org/docs/components/katib/)                   | [kubeflow/katib](https://github.com/kubeflow/katib)                   |
+| [Kubeflow Notebooks](https://www.kubeflow.org/docs/components/notebooks/)           | [kubeflow/notebooks](https://github.com/kubeflow/notebooks)           |
 | [Kubeflow Pipelines](https://www.kubeflow.org/docs/components/pipelines/)           | [kubeflow/pipelines](https://github.com/kubeflow/pipelines)           |
+| [Kubeflow SDK](https://sdk.kubeflow.org/en/latest/)                                 | [kubeflow/sdk](https://github.com/kubeflow/sdk)                       |
 | [Kubeflow Spark Operator](https://www.kubeflow.org/docs/components/spark-operator/) | [kubeflow/spark-operator](https://github.com/kubeflow/spark-operator) |
 | [Kubeflow Trainer](https://www.kubeflow.org/docs/components/trainer/)               | [kubeflow/trainer](https://github.com/kubeflow/trainer)               |
-| [Kubeflow SDK](https://sdk.kubeflow.org/en/latest/)                                 | [kubeflow/sdk](https://github.com/kubeflow/sdk)                       |
 
 ## Development
 
-| Kubeflow Subproject                                                        | Source Code                                                                                             |
-| -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| [Kubeflow Workspaces](https://www.kubeflow.org/docs/components/notebooks/) | [kubeflow/notebooks](https://github.com/kubeflow/notebooks)                                             |
-| [Kubeflow Kale](https://www.kubeflow.org/docs/components/kale/)            | [kubeflow/kale](https://github.com/kubeflow/kale)                                                       |
-| Kubeflow MLflow Integration                                                | [kubeflow/mlflow-integration](https://github.com/kubeflow/mlflow-integration)                           |
-| Kubeflow MCP Server                                                        | [kubeflow/mcp-server](https://github.com/kubeflow/mcp-server)                                           |
-| Kubeflow MCP Spark History Server                                          | [kubeflow/mcp-apache-spark-history-server](https://github.com/kubeflow/mcp-apache-spark-history-server) |
+| Kubeflow Subproject                                             | Source Code                                                                                             |
+| --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| [Kubeflow Kale](https://www.kubeflow.org/docs/components/kale/) | [kubeflow/kale](https://github.com/kubeflow/kale)                                                       |
+| Kubeflow MLflow Integration                                     | [kubeflow/mlflow-integration](https://github.com/kubeflow/mlflow-integration)                           |
+| Kubeflow MCP Server                                             | [kubeflow/mcp-server](https://github.com/kubeflow/mcp-server)                                           |
+| Kubeflow MCP Spark History Server                               | [kubeflow/mcp-apache-spark-history-server](https://github.com/kubeflow/mcp-apache-spark-history-server) |
 
 ## Deprecated
 
-| Kubeflow Subproject                                                                | Source Code                                                 |
-| ---------------------------------------------------------------------------------- | ----------------------------------------------------------- |
-| [Kubeflow Notebooks v1](https://www.kubeflow.org/docs/components/notebooks/)       | [kubeflow/notebooks](https://github.com/kubeflow/notebooks) |
-| [Kubeflow Training Operator v1](https://www.kubeflow.org/docs/components/trainer/) | [kubeflow/trainer](https://github.com/kubeflow/trainer)     |
+| Kubeflow Subproject                                                                | Source Code                                             |
+| ---------------------------------------------------------------------------------- | ------------------------------------------------------- |
+| [Kubeflow Training Operator v1](https://www.kubeflow.org/docs/components/trainer/) | [kubeflow/trainer](https://github.com/kubeflow/trainer) |
 
 ## Archived
 
