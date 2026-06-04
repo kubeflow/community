@@ -12,6 +12,12 @@ When projects are switched levels, the following document must be updated:
 - [PROJECTS.md](PROJECTS.md) document
 - [Kubeflow installation page](https://www.kubeflow.org/docs/started/installing-kubeflow/)
 
+A subproject's maturity level reflects the overall project status. Individual APIs, features, or
+components within a subproject MAY have their own stability levels that differ from the
+subproject's overall level. For example, a Stable subproject may include a Stable API alongside a
+newer API that is still in Development. Subproject maintainers are responsible for documenting the
+stability level of individual APIs, features, or components in their documentation websites.
+
 ### Stable
 
 The project is ready for general availability and MUST be included in the Kubeflow Community Distribution.
