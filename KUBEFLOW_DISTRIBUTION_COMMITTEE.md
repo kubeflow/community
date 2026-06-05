@@ -22,6 +22,8 @@ The Kubeflow Distribution Committee (KDC) is a vendor-neutral body dedicated to 
 
 ### Committee Roles
 
+Currently, all representatives are appointed by a normal decision process of the KSC.
+
 1. 40% - Votes by Appointment
     - 3-4 seats appointed by KSC for 1 year term
     - Only vendor representative.
@@ -32,22 +34,56 @@ The Kubeflow Distribution Committee (KDC) is a vendor-neutral body dedicated to 
     - 30% - Every sub-project gets 1 seat, all votes are weighted in total by 30%
     - Is allowed to vote on Kubeflow Community Distribution (KCD) topics
     - When voting decisions happen on KCD topics, maintainers and sub-project owners get 50% / 50% voting power
-  
+
+### Decision Process
+
+####  Normal Decision Process
+
+Decisions requiring a vote include:
+
+- Any decisions on requirements for Kubeflow conformance program
+- Any decisions on requirements for Kubeflow subprojects portability and ease of deployment
+- Any other decisions that at least half of the chairs (rounded down) present decide requires a vote
+
+All representatives are allowed to vote on these topics. 
+
+Decisions are made with pull requests to the community repository, must be documented in the `committee-distribution/decision_log.md`, and vote publicly on GitHub. Votes may only pass when at least 50% of the binding vote weight have been cast.
+
+The decisions is adopted if more then half of the votes (rounded up) support it, taking into account the weighting of those votes.
+
+#### KCD Decision Process
+
+Some issues related to KCD requires a special decision process. Issues include:
+
+- Any decisions on requirements for KCD
+- Propose projects for KSC to be included in KCD. List of projects that are included in KCD must be defined in  `committee-distribution/PROJECTS.md`
+
+Only KCD and subprojects representatives are allowed to vote on these topics.
+
+Decisions are made with pull requests to the community repository, must be documented in the `committee-distribution/decision_log_kcd.md`, and vote publicly on GitHub. Votes may only pass when at least 50% of the binding vote weight have been cast.
+
+The decisions is adopted if more then half of the votes (rounded up) support it, taking into account the weighting of those votes.
 ### Committee members
 
-KCD maintainers:
+KCD representatives:
 
 | Name                      | Organization    | GitHub                                                     |
 | ------------------------- | --------------- | ---------------------------------------------------------- |
 | Julius von Kohout         | DHL Data & AI   | [@juliusvonkohout](https://github.com/julusvonkohout/)     |
 | Tarek Abouzeid            | Telia           | [tarekabouzeid](https://github.com/tarekabouzeid/)         |
-          
+
+Kubeflow Subproject Representatives
+
+
+| Name                      | Subproject    | GitHub                                                     |
+| ------------------------- | --------------- | ---------------------------------------------------------- |
+| TODO         | Kubeflow Trainer  | [@TODO](https://github.com/TODO/)     |
+
 Vendor represantatives:
 | Name                      | Organization    | GitHub                                                     |
 | ------------------------- | --------------- | ---------------------------------------------------------- |
 |                           |                 |                                                            |
 
-The subprojects votes are not bound to individual members.
 
 ### Limitations on Company Representation
 No more than one maintainer or vendor seat may be held by employees of the same organization (or conglomerate, in the case of companies owning each other). 
