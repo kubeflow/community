@@ -1,4 +1,4 @@
-As explained [in the document](https://github.com/kubeflow/community/tree/master/proposals/645-kubeflow-steering-committee-election), we extracted the list of eligible voters and those candidate eligible to nominated from the github contributions.
+As explained [in the document](https://github.com/kubeflow/community/tree/master/committee-steering/elections), we extracted the list of eligible voters and those candidate eligible to nominated from the github contributions.
 
 If you believe your name should be on either list you may [file an exception](https://docs.google.com/forms/d/e/1FAIpQLScea0DPKnPHZF2CT7Rz324e6_CWkvumsU0cThozWg1m9MlliQ/viewform?usp=sharing&ouid=107415582881714707533) between 13 October 2025 starting at 9:00am PT and 19 October 2025 ending at 12:00pm PT.​
 

@@ -48,7 +48,7 @@ Decisions requiring a vote include:
 
 All representatives are allowed to vote on these topics.
 
-Decisions are made with pull requests to the community repository, must be documented in the `committee-distribution/decision_log.md`, and vote publicly on GitHub. Votes may only pass when at least 50% of the binding vote weight have been cast.
+Decisions are made with pull requests to the community repository, must be documented in the [`decision-log.md`](decision-log.md), and vote publicly on GitHub. Votes may only pass when at least 50% of the binding vote weight have been cast.
 
 The decisions is adopted if more then half of the votes (rounded up) support it, taking into account the weighting of those votes.
 
@@ -61,30 +61,9 @@ Some issues related to KCD requires a special decision process. Issues include:
 
 Only KCD and subprojects representatives are allowed to vote on these topics.
 
-Decisions are made with pull requests to the community repository, must be documented in the `committee-distribution/decision_log_kcd.md`, and vote publicly on GitHub. Votes may only pass when at least 50% of the binding vote weight have been cast.
+Decisions are made with pull requests to the community repository, must be documented in the [`decision-log-kcd.md`](decision-log-kcd.md), and vote publicly on GitHub. Votes may only pass when at least 50% of the binding vote weight have been cast.
 
 The decisions is adopted if more then half of the votes (rounded up) support it, taking into account the weighting of those votes.
-
-### Committee members
-
-KCD representatives:
-
-| Name              | Organization  | GitHub                                                 |
-| ----------------- | ------------- | ------------------------------------------------------ |
-| Julius von Kohout | DHL Data & AI | [@juliusvonkohout](https://github.com/julusvonkohout/) |
-| Tarek Abouzeid    | Telia         | [tarekabouzeid](https://github.com/tarekabouzeid/)     |
-
-Kubeflow Subproject Representatives:
-
-| Name | Subproject       | GitHub |
-| ---- | ---------------- | ------ |
-| TODO | Kubeflow Trainer | TODO   |
-
-Vendor representatives:
-
-| Name | Organization | GitHub |
-| ---- | ------------ | ------ |
-| TODO | TODO         | TODO   |
 
 ### Limitations on Company Representation
 
@@ -93,12 +72,6 @@ No more than one maintainer or vendor seat may be held by employees of the same 
 If employers change because of job changes, acquisitions, or other events, in a way that would be in violation of the proceeding limits, sufficient members of the committee must resign their positions until the requirements are satisfied. If it is impossible to find sufficient members to resign, all employees of that organization will be removed and the vacancies will be filled using the normal process.
 
 In the event of a question of company membership (for example evaluating independence of corporate subsidiaries) a majority of all non-involved KSC members will decide.
-
-### Committee Meetings
-
-The KDC will meet regularly during Kubeflow Community Distribution Call (Release, Manifests, Security). These meetings will be open to the public. Specific sensitive matters may be handled separately.
-
-Meeting notes will be publicly available to the community, except when privacy is required for specific discussions.
 
 ## Kubeflow Community Distribution maintainers
 

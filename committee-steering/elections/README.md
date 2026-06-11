@@ -1,4 +1,4 @@
-# KEP-645: KSC Election Process Proposal
+# Kubeflow Steering Committee Election Process
 
 ## 2 cohorts and Staggered elections
 

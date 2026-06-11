@@ -3,13 +3,13 @@
 
 The Kubeflow Project is holding its second election for the Kubeflow Project Steering Committee (KSC). 
 
-The KSC responsibilities and operations are defined [here](https://github.com/kubeflow/community/blob/master/KUBEFLOW-STEERING-COMMITTEE.md).
+The KSC responsibilities and operations are defined [here](https://github.com/kubeflow/community/blob/master/committee-steering/charter.md).
 
 
 The KSC elections process for 3 seats will start on **7 October 2025**.
 
 
-More details about the Kubeflow election process can be found in the [Kubeflow Election Process document](https://github.com/kubeflow/community/tree/master/proposals/645-kubeflow-steering-committee-election).
+More details about the Kubeflow election process can be found in the [Kubeflow Election Process document](https://github.com/kubeflow/community/tree/master/committee-steering/elections).
 
 ## Voter Qualifications
 

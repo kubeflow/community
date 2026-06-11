@@ -4,11 +4,15 @@ This document lists the maintainers under [the Kubeflow governance model](https:
 
 ## Kubeflow Steering Committee
 
-The members can be found in [the Kubeflow Steering Committee charter](KUBEFLOW-STEERING-COMMITTEE.md).
+The members can be found in [the Kubeflow Steering Committee directory](./committee-steering/).
 
 ## Kubeflow Outreach Committee
 
-The members can be found in [the Kubeflow Outreach Committee charter](KUBEFLOW-OUTREACH-COMMITTEE.md).
+The members can be found in [the Kubeflow Outreach Committee directory](./committee-outreach/).
+
+## Kubeflow Distribution Committee
+
+The members can be found in [the Kubeflow Distribution Committee directory](./committee-distribution/).
 
 ## Kubeflow Working Groups
 
