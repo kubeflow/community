@@ -46,7 +46,8 @@ sensitive or privileged matters.
 ## Ownership Transfer
 
 The KSC members hold administrative ownership of Kubeflow assets. When new members of the KSC are elected,
-a GitHub issue must be created to facilitate the transfer to the incoming members.
+[a GitHub community issue](https://github.com/kubeflow/community/issues/812) must be created to
+facilitate the transfer to the incoming members.
 
 GitHub issue name:
 
@@ -80,5 +81,3 @@ GitHub issue content:
   - Kubeflow [Bluesky](https://bsky.app/profile/kubefloworg.bsky.social).
   - [Kubeflow Community](https://www.youtube.com/@KubeflowCommunity) YouTube channel.
   - [Kubeflow](https://www.youtube.com/@Kubeflow) YouTube channel.
-
-Example: [Transfer Ownership to KSC 2025 #812 issue.](https://github.com/kubeflow/community/issues/812)
