@@ -74,10 +74,11 @@ GitHub issue content:
       where Prow is running.
 - [ ] Kubeflow [Google Group](https://groups.google.com/g/kubeflow-discuss).
 - [ ] Update members for [KSC Google Group](https://groups.google.com/a/kubeflow.org/g/ksc).
-- [ ] Access to Kubeflow `1password` account.
 - [ ] Kubeflow social media resources.
   - Kubeflow [LinkedIn](https://www.linkedin.com/company/kubeflow/)
   - Kubeflow [X](https://x.com/kubeflow).
   - Kubeflow [Bluesky](https://bsky.app/profile/kubefloworg.bsky.social).
   - [Kubeflow Community](https://www.youtube.com/@KubeflowCommunity) YouTube channel.
   - [Kubeflow](https://www.youtube.com/@Kubeflow) YouTube channel.
+
+Example: [Transfer Ownership to KSC 2025 #812 issue.](https://github.com/kubeflow/community/issues/812)
