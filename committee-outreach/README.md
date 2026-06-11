@@ -6,9 +6,9 @@ The [charter](charter.md) defines the scope and governance of the KOC.
 
 ## Members
 
-Seats on the Outreach Committee are held by an individual, not by their employer.
-
 The current membership of the committee is (listed alphabetically by first name):
+
+### Chairs Representatives
 
 | Name                     | Organization | GitHub                                                     |
 | ------------------------ | ------------ | ---------------------------------------------------------- |
@@ -16,7 +16,7 @@ The current membership of the committee is (listed alphabetically by first name)
 | Valentina Rodriguez Sosa | Red Hat      | [varodrig](https://github.com/varodrig/)                   |
 | Tarek Abouzeid           | Telia        | [tarekabouzeid](https://github.com/tarekabouzeid/)         |
 
-### Lead Members
+### Leads Representatives
 
 | Name     | Organization | GitHub                                        | Role              |
 | -------- | ------------ | --------------------------------------------- | ----------------- |

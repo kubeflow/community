@@ -8,20 +8,22 @@ The [charter](charter.md) defines the scope and governance of the KDC.
 
 ## Members
 
-Vendor representatives:
+The current membership of the committee is (listed alphabetically by first name):
+
+### Vendor Representatives
 
 | Name | Organization | GitHub |
 | ---- | ------------ | ------ |
 | TODO | TODO         | TODO   |
 
-KCD representatives:
+### Kubeflow Community Distribution Representatives
 
-| Name              | Organization  | GitHub                                                 |
-| ----------------- | ------------- | ------------------------------------------------------ |
-| Julius von Kohout | DHL Data & AI | [@juliusvonkohout](https://github.com/julusvonkohout/) |
-| Tarek Abouzeid    | Telia         | [@tarekabouzeid](https://github.com/tarekabouzeid/)    |
+| Name              | Organization  | GitHub                                                |
+| ----------------- | ------------- | ----------------------------------------------------- |
+| Julius von Kohout | DHL Data & AI | [juliusvonkohout](https://github.com/julusvonkohout/) |
+| Tarek Abouzeid    | Telia         | [tarekabouzeid](https://github.com/tarekabouzeid/)    |
 
-Kubeflow Subproject Representatives:
+### Kubeflow Subproject Representatives
 
 | Name | Subproject       | GitHub |
 | ---- | ---------------- | ------ |
