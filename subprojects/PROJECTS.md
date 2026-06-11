@@ -8,7 +8,7 @@ The criteria for each status level are defined in the
 When a project changes its status level, this document and the
 [Kubeflow installation page](https://www.kubeflow.org/docs/started/installing-kubeflow/) MUST be updated.
 
-## Stable
+## Graduated
 
 | Kubeflow Subproject                                                                 | Source Code                                                           |
 | ----------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
@@ -20,7 +20,7 @@ When a project changes its status level, this document and the
 | [Kubeflow Spark Operator](https://www.kubeflow.org/docs/components/spark-operator/) | [kubeflow/spark-operator](https://github.com/kubeflow/spark-operator) |
 | [Kubeflow Trainer](https://www.kubeflow.org/docs/components/trainer/)               | [kubeflow/trainer](https://github.com/kubeflow/trainer)               |
 
-## Development
+## Incubating
 
 | Kubeflow Subproject                                             | Source Code                                                                                             |
 | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
