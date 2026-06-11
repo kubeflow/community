@@ -19,7 +19,7 @@ KCD representatives:
 | Name              | Organization  | GitHub                                                 |
 | ----------------- | ------------- | ------------------------------------------------------ |
 | Julius von Kohout | DHL Data & AI | [@juliusvonkohout](https://github.com/julusvonkohout/) |
-| Tarek Abouzeid    | Telia         | [tarekabouzeid](https://github.com/tarekabouzeid/)     |
+| Tarek Abouzeid    | Telia         | [@tarekabouzeid](https://github.com/tarekabouzeid/)    |
 
 Kubeflow Subproject Representatives:
 
@@ -38,5 +38,5 @@ The KDC currently meets bi-weekly. Meetings are open to the public and held onli
 ## Contact
 
 - Slack: [#kubeflow-community-distribution](https://cloud-native.slack.com/archives/C073W572LA2)
-- Open community [issue/PR](https://github.com/kubeflow/manifests/issues/new)
+- Open Kubeflow Community Distribution [issue/PR](https://github.com/kubeflow/community-distribution/issues/new)
 - GitHub Team: [@kubeflow-distribution-committee](https://github.com/orgs/kubeflow/teams/kubeflow-distribution-committee)
