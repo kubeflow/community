@@ -1,11 +1,4 @@
 aliases:
-  sig-feature-store-leads:
-    - kevinstumpf
-    - pyalex
-    - woop
-  sig-onprem-leads:
-    - jtfogarty
-    - mameshini
   wg-data-leads:
     - ChenYi015
     - andreyvelich
@@ -15,15 +8,6 @@ aliases:
     - rareddy
     - tarilabs
     - vara-bonthu
-  wg-deployment-leads:
-    - PatrickXYS
-    - animeshsingh
-    - mameshini
-    - vpavlin
-    - yanniszark
-  wg-manifests-leads:
-    - juliusvonkohout
-    - kimwnasptd
   wg-ml-experience-leads:
     - StefanoFioravanzo
     - andreyvelich
@@ -41,13 +25,6 @@ aliases:
     - james-jwu
     - mprahl
     - zazulam
-  wg-serving-leads:
-    - animeshsingh
-    - cliveseldon
-    - ellistarn
-    - iamlovingit
-    - rakelkar
-    - yuzisun
   wg-training-leads:
     - andreyvelich
     - astefanutti
