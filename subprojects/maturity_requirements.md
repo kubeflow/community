@@ -24,8 +24,8 @@ the gaps are not resolved within 180 days.
 
 ### Graduated
 
-The project is stable and ready for general availability. Breaking changes are only allowed under
-special circumstances.
+The project is stable and ready for general availability. Breaking changes are only allowed when
+following the defined feature lifecycle for the project.
 
 #### Requirements
 
