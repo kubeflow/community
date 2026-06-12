@@ -47,6 +47,7 @@ in production environments should be evaluated carefully.
 #### Requirements
 
 - The project MUST meet all Experimental requirements
+- The project MUST must be used by at least 1 company
 - The project MUST have a minimum of 2 core maintainers who have been active over the last 180 days
 - The project MUST have a minimum of 3 active contributors over the last 180 days
 - The project MUST have a demonstrable, working CI workflow for all declared architectures
