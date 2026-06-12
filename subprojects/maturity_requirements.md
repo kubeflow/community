@@ -58,6 +58,6 @@ for API changes including alpha, beta, and v1 policies.
 
 Changes to the maturity levels may be proposed through a Pull Request on this document by a Kubeflow community member.
 
-Amendments are accepted following the Kubeflow Steering Committee's [Normal Decision Process](../KUBEFLOW-STEERING-COMMITTEE.md#normal-decision-process).
+Amendments are accepted following the Kubeflow Steering Committee's [Normal Decision Process](../committee-steering/charter.md#normal-decision-process).
 
 Proposals and amendments to the application process are available for at least a period of one week for comments and questions before a vote will occur.
