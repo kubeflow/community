@@ -57,7 +57,8 @@ The decisions is adopted if more then half of the votes (rounded up) support it,
 Some issues related to KCD requires a special decision process. Issues include:
 
 - Any decisions on requirements for KCD
-- Propose projects for KSC to be included in KCD. List of projects that are included in KCD must be defined in `committee-distribution/PROJECTS.md`
+- Propose projects for KSC to be included in KCD. List of projects that are included in KCD
+  must be defined in [`PROJECTS.md`](PROJECTS.md)
 
 Only KCD and subprojects representatives are allowed to vote on these topics.
 
