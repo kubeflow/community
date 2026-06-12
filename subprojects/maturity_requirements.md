@@ -77,8 +77,8 @@ version number or the date of a release.
 
 ### Archived
 
-A project identified as archived does not have an active code owner. The GitHub repository is
-archived or corresponding branch is not maintained.
+The project has been officially discontinued, and will no longer be receiving updates or releases
+of any kind.
 
 ## Kubeflow's Custom Resource Definition APIs
 
