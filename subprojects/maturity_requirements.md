@@ -4,10 +4,10 @@ This document establishes criteria for different maturity levels for Kubeflow su
 
 ## Maturity Levels
 
-Kubeflow maintainers and WG leads MUST define the maturity level for their projects by
-following the criteria below.
+A project moves to a new level by a decision of the Kubeflow Steering Committee (KSC): the project's
+maintainers demonstrate that the project meets the criteria below, and the KSC approves the move.
 
-When projects are switched levels, the following document must be updated:
+When projects are switched levels, maintainers demonstrate , the following documents must be updated:
 
 - [PROJECTS.md](PROJECTS.md) document
 - [Kubeflow installation page](https://www.kubeflow.org/docs/started/installing-kubeflow/)
@@ -24,7 +24,7 @@ the gaps are not resolved within 180 days.
 
 ### Graduated
 
-The project is stable and ready for general availability. Breaking changes are only allowed when
+The project is stable and ready for general availability. Breaking changes are only allowed
 following the defined feature lifecycle for the project.
 
 #### Requirements
