@@ -18,21 +18,52 @@ subproject's overall level. For example, a Graduated subproject may include a St
 newer API that is still in Development. Subproject maintainers are responsible for documenting the
 stability level of individual APIs, features, or components in their documentation websites.
 
+The Graduated, Incubating, and Experimental levels each impose a cumulative set of requirements. If
+a project stops meeting these criteria, the KSC reviews it and MAY move it to Deprecated if
+the gaps are not resolved within 180 days.
+
 ### Graduated
 
-The project is ready for general availability and MUST be included in the Kubeflow Community Distribution.
-Bugs and performance problems SHOULD be reported, and there's an expectation that the maintainers
-will work on them. Breaking changes, including configuration options and the project's output,
-are only allowed under special circumstances.
+The project is stable and ready for general availability. Breaking changes are only allowed under
+special circumstances.
+
+#### Requirements
+
+- The project MUST meet all Incubating requirements
+- The project MUST have had a major version (v1 or higher) released for at least 90 days that has
+  been adopted by at least 3 companies
+- The project MUST be included in the Kubeflow Community Distribution
+- The project MUST have a defined feature lifecycle and a history of following it
+- The project MUST achieve the OpenSSF Best Practices badge
+- The project MUST have a history of consistently following its security policies
 
 ### Incubating
 
-Not all pieces of the project are in place yet, and it might not be available for users yet. Issues
-and performance enhancements are expected to be reported. User feedback around the UX of the project
-is desired, such as for Custom Resource Definition APIs, technical implementation details, and
-planned use-cases for the project. Configuration options might break often depending on how things
-evolve. Use of this project in production environments should be approached with caution, as stability,
-compatibility, and long-term support are not yet guaranteed. The project MAY be removed without prior notice.
+The project is actively developed and broadly usable, but is still maturing toward stable version
+and is on a path to Graduated. Most core functionality is in place. Maintainers SHOULD address bugs
+and performance issues. APIs and configuration options MAY still change between releases, so use
+in production environments should be evaluated carefully.
+
+#### Requirements
+
+- The project MUST meet all Experimental requirements
+- The project MUST have a minimum of 2 core maintainers who have been active over the last 180 days
+- The project MUST have a minimum of 3 active contributors over the last 180 days
+- The project MUST have a demonstrable, working CI workflow for all declared architectures
+- The project MUST have a documentation website that clearly explains its features and how to use them
+- The project MUST have a SECURITY.md that defines its security processes and how reports are handled
+
+### Experimental
+
+Not all pieces of the project are in place yet, and it might not be available for users yet. User
+feedback around the UX of the project is desired, such as for Custom Resource Definition APIs,
+technical implementation details, and planned use-cases for the project. The project MAY be
+removed without prior notice.
+
+#### Requirements
+
+- The project MUST have at least 1 core maintainer
+- The project MUST have a minimum of 1 contributor active over the last 180 days
 
 ### Deprecated
 
