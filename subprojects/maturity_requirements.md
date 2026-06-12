@@ -4,8 +4,8 @@ This document establishes criteria for different maturity levels for Kubeflow su
 
 ## Maturity Levels
 
-Kubeflow maintainers and WG leads MUST define maturity level for their projects by following below
-criteria.
+Kubeflow maintainers and WG leads MUST define the maturity level for their projects by
+following the criteria below.
 
 When projects are switched levels, the following document must be updated:
 
@@ -31,7 +31,8 @@ Not all pieces of the project are in place yet, and it might not be available fo
 and performance enhancements are expected to be reported. User feedback around the UX of the project
 is desired, such as for Custom Resource Definition APIs, technical implementation details, and
 planned use-cases for the project. Configuration options might break often depending on how things
-evolve. The project NOT SHOULDbe used in production. The project MAY be removed without prior notice.
+evolve. Use of this project in production environments should be approached with caution, as stability,
+compatibility, and long-term support are not yet guaranteed. The project MAY be removed without prior notice.
 
 ### Deprecated
 

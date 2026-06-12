@@ -11,8 +11,8 @@ You can find criteria for project status levels in the [maturity_requirements.md
 
 Each subproject donated to the Kubeflow organization lives in its own directory:
 `subprojects/<issue-number>-<project-name>/`. The `<issue-number>` is the GitHub issue
-created in step 1 of the [Process](#process). Each directory contains a `README.md` — a
-populated copy of [`TEMPLATE.md`](TEMPLATE.md) — describing the project.
+created in step 1 of the [Process](#process-to-become-kubeflow-subproject).
+Each directory contains a `README.md` — a populated copy of [`TEMPLATE.md`](TEMPLATE.md) — describing the project.
 
 This process follows the Kubeflow Steering Committee's [Normal Decision Process](../committee-steering/charter.md#normal-decision-process).
 Acceptance is at the discretion of the Kubeflow Steering Committee and is not guaranteed.
