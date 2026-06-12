@@ -56,10 +56,10 @@ We recommend thoroughly testing the project before deploying it to a production 
 
 ### Experimental
 
-Not all pieces of the project are in place yet, and it might not be available for users yet. User
+Not all pieces of the project are in place, and it may not be ready for wider adoption. User
 feedback around the UX of the project is desired, such as for Custom Resource Definition APIs,
-technical implementation details, and planned use-cases for the project. Maintainer may remove the
-project without prior notice.
+technical implementation details, and planned use-cases for the project. The project may be
+removed without prior notice.
 
 #### Requirements
 
