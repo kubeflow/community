@@ -36,10 +36,9 @@ When a project changes its status level, this document and the
 
 ## Deprecated
 
-| Kubeflow Subproject                                                                          | Source Code                                                 |
-| -------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
-| [Kubeflow Pipelines v1](https://www.kubeflow.org/docs/components/pipelines/legacy-v1/)       | [kubeflow/pipelines](https://github.com/kubeflow/pipelines) |
-| [Kubeflow Training Operator v1](https://www.kubeflow.org/docs/components/trainer/legacy-v1/) | [kubeflow/trainer](https://github.com/kubeflow/trainer)     |
+| Kubeflow Subproject | Source Code |
+| ------------------- | ----------- |
+| TBA                 | TBA         |
 
 ## Archived
 
