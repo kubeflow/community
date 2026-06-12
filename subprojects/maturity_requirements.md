@@ -39,10 +39,10 @@ special circumstances.
 
 ### Incubating
 
-The project is actively developed and broadly usable, but is still maturing toward stable version
-and is on a path to Graduated. Most core functionality is in place. Maintainers SHOULD address bugs
-and performance issues. APIs and configuration options MAY still change between releases, so use
-in production environments should be evaluated carefully.
+The project is actively developed, broadly usable, and on track for Graduation. While most core
+functionality is stable, it is still maturing toward a final release. Our maintainers prioritize
+fixing bugs and optimizing performance. APIs and configuration options may change between releases.
+We recommend thoroughly testing the project before deploying it to a production environment.
 
 #### Requirements
 
@@ -58,8 +58,8 @@ in production environments should be evaluated carefully.
 
 Not all pieces of the project are in place yet, and it might not be available for users yet. User
 feedback around the UX of the project is desired, such as for Custom Resource Definition APIs,
-technical implementation details, and planned use-cases for the project. The project MAY be
-removed without prior notice.
+technical implementation details, and planned use-cases for the project. Maintainer may remove the
+project without prior notice.
 
 #### Requirements
 
