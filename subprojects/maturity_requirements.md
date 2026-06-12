@@ -53,6 +53,10 @@ We recommend thoroughly testing the project before deploying it to a production 
 - The project MUST have a demonstrable, working CI workflow for all declared architectures
 - The project MUST have a documentation website that clearly explains its features and how to use them
 - The project MUST have a SECURITY.md that defines its security processes and how reports are handled
+- If the project maintains Kubernetes
+  [Custom Resource Definition](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) APIs,
+  it MUST follow the [Kubernetes standards](https://kubernetes.io/docs/concepts/overview/kubernetes-api/#api-changes)
+  for API changes including alpha, beta, and v1 policies.
 
 ### Experimental
 
@@ -79,13 +83,6 @@ version number or the date of a release.
 
 The project has been officially discontinued, and will no longer be receiving updates or releases
 of any kind.
-
-## Kubeflow's Custom Resource Definition APIs
-
-Some Kubeflow projects maintain Kubernetes
-[Custom Resource Definition](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) APIs.
-These APIs follow [Kubernetes standards](https://kubernetes.io/docs/concepts/overview/kubernetes-api/#api-changes)
-for API changes including alpha, beta, and v1 policies.
 
 ## Changes to the Maturity Levels
 
