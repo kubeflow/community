@@ -29,13 +29,15 @@ following the defined feature lifecycle for the project.
 
 #### Requirements
 
-- The project MUST meet all Incubating requirements
-- The project MUST have had a major version (v1 or higher) released for at least 90 days that has
-  been adopted by at least 3 companies
-- The project MUST be included in the Kubeflow Community Distribution
-- The project MUST have a defined feature lifecycle and a history of following it
-- The project MUST achieve the OpenSSF Best Practices badge
-- The project MUST have a history of consistently following its security policies
+Graduated projects MUST meet the following criteria:
+
+- Meet all Incubating requirements
+- Had a major version (v1 or higher) released for at least 90 days
+- Been adopted by at least 3 companies
+- Be included in the Kubeflow Community Distribution
+- Have a defined feature lifecycle (e.g. feature flags) and a history of following it
+- Achieve the OpenSSF Best Practices badge
+- Have a history of consistently following its security policies
 
 ### Incubating
 
@@ -46,17 +48,17 @@ We recommend thoroughly testing the project before deploying it to a production 
 
 #### Requirements
 
-- The project MUST meet all Experimental requirements
-- The project MUST must be used by at least 1 company
-- The project MUST have a minimum of 2 core maintainers who have been active over the last 180 days
-- The project MUST have a minimum of 3 active contributors over the last 180 days
-- The project MUST have a demonstrable, working CI workflow for all declared architectures
-- The project MUST have a documentation website that clearly explains its features and how to use them
-- The project MUST have a SECURITY.md that defines its security processes and how reports are handled
-- If the project maintains Kubernetes
-  [Custom Resource Definition](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) APIs,
-  it MUST follow the [Kubernetes standards](https://kubernetes.io/docs/concepts/overview/kubernetes-api/#api-changes)
-  for API changes including alpha, beta, and v1 policies.
+Incubating projects MUST meet the following criteria:
+
+- Meet all Experimental requirements
+- Be used by at least 1 company
+- A minimum of 2 core maintainers who have been active over the last 180 day
+- A minimum of 3 active contributors over the last 180 days
+- A demonstrable, working CI workflow for all declared architectures
+- Well defined documentation
+- A `SECURITY.md` that defines its security processes and how reports are handled
+- Follow the the [Kubernetes standards](https://kubernetes.io/docs/concepts/overview/kubernetes-api/#api-changes)
+  for API changes including alpha, beta, and v1 policies, if project maintains Kubernetes CRDs.
 
 ### Experimental
 
@@ -67,8 +69,9 @@ removed without prior notice.
 
 #### Requirements
 
-- The project MUST have at least 1 core maintainer
-- The project MUST have a minimum of 1 contributor active over the last 180 days
+Experimental projects MUST meet the following criteria:
+
+- A minimum of 1 active contributor or maintainer active over the last 180 days
 
 ### Deprecated
 
