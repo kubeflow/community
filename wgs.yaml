@@ -78,60 +78,6 @@ sigs:
     - name: sig-onprem
       description: General Discussion
 workinggroups:
-- dir: wg-automl
-  name: AutoML
-  mission_statement: >
-    WG AutoML is responsible for all aspects of Automated Machine Learning technologies
-    on Kubeflow.
-
-  charter_link: charter.md
-  label: area/wg-automl
-  leadership:
-    chairs:
-    - github: andreyvelich
-      name: Andrey Velichkevich
-      company: Apple
-    - github: gaocegege
-      name: Ce Gao
-      company: Caicloud
-    - github: johnugeorge
-      name: Johnu George
-      company: Nutanix
-    tech_leads:
-    - github: andreyvelich
-      name: Andrey Velichkevich
-      company: Apple
-    - github: gaocegege
-      name: Ce Gao
-      company: Caicloud
-    - github: johnugeorge
-      name: Johnu George
-      company: Nutanix
-  meetings:
-  - description: Kubeflow AutoML Working Group Meeting (Asia & Europe friendly)
-    day: Wednesday
-    time: 11:00am
-    tz: UTC (Coordinated Universal Time)
-    frequency: every 4 weeks on Wednesday from the 10th of March 2021
-    url: https://calendar.google.com/calendar/u/0/r?cid=ZDQ5bnNpZWZzbmZna2Y5MW8wdThoMmpoazRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ
-    archive_url: https://docs.google.com/document/d/1MChKfzrKAeFRtYqypFbMXL6ZIc_OgijjkvbqmwRV-64
-  - description: Kubeflow AutoML Working Group Meeting (US friendly)
-    day: Wednesday
-    time: 5:00pm
-    tz: UTC (Coordinated Universal Time)
-    frequency: every 4 weeks on Wednesday from the 24th of March 2021
-    url: https://calendar.google.com/calendar/u/0/r?cid=ZDQ5bnNpZWZzbmZna2Y5MW8wdThoMmpoazRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ
-    archive_url: https://docs.google.com/document/d/1MChKfzrKAeFRtYqypFbMXL6ZIc_OgijjkvbqmwRV-64
-  contact:
-    slack: wg-automl
-    mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
-    teams:
-    - name: wg-automl-leads
-      description: AutoML WG Tech Leads
-  subprojects:
-  - name: katib
-    owners:
-    - https://raw.githubusercontent.com/kubeflow/katib/master/OWNERS
 - dir: wg-data
   name: Data
   mission_statement: >
@@ -523,34 +469,22 @@ workinggroups:
 - dir: wg-training
   name: Training
   mission_statement: >
-    WG Training covers developing, deploying, and operating training jobs on Kubeflow.
+    WG Training focuses on the development, deployment, and operation of distributed
+    AI workloads on Kubernetes. It covers the entire model development lifecycle,
+    including pre-training, post-training (such as LLM fine-tuning), hyperparameter
+    optimization, reinforcement learning, and other techniques required to build,
+    train, and run AI models at scale.
 
   charter_link: charter.md
   label: area/wg-training
   leadership:
     chairs:
-    - github: gaocegege
-      name: Ce Gao
-      company: Caicloud
-    - github: johnugeorge
-      name: Johnu George
-      company: Nutanix
-    - github: terrytangyuan
-      name: Yuan Tang
-      company: Red Hat
-    tech_leads:
-    - github: Jeffwan
-      name: Jiaxin Shan
-      company: ByteDance
     - github: andreyvelich
       name: Andrey Velichkevich
       company: Apple
-    - github: gaocegege
-      name: Ce Gao
-      company: Caicloud
-    - github: johnugeorge
-      name: Johnu George
-      company: Nutanix
+    - github: astefanutti
+      name: Antonin Stefanutti
+      company: Red Hat
     - github: tenzen-y
       name: Yuki Iwai
       company: CyberAgent, Inc.
@@ -558,55 +492,29 @@ workinggroups:
       name: Yuan Tang
       company: Red Hat
   meetings:
-  - description: Regular WG Meeting (Asia & Europe friendly)
+  - description: Kubeflow Trainer and Katib Call
     day: Wednesday
-    time: "03:00"
+    time: 08:00AM
     tz: PT (Pacific Time)
-    frequency: monthly - first Wednesday every month
-    archive_url: https://docs.google.com/document/d/1K0Qfr0zTuARtAg7ETg9hsMZPh0MT2QUxqGAYvM1Vpec/edit
-  - description: Regular WG Meeting (US friendly)
-    day: Wednesday
-    time: "10:00"
-    tz: PT (Pacific Time)
-    frequency: monthly - third Wednesday every month
-    archive_url: https://docs.google.com/document/d/1K0Qfr0zTuARtAg7ETg9hsMZPh0MT2QUxqGAYvM1Vpec/edit
+    frequency: bi-weekly
+    archive_url: https://bit.ly/kf-trainer-meeting
   contact:
-    slack: wg-training
+    slack: kubeflow-trainer
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
     teams:
-    - name: wg-training-bugs
-      description: Bug Triage and Troubleshooting
-    - name: wg-training-machinery-misc
-      description: General Discussion
-    - name: wg-training-reviews
-      description: API Changes and Reviews (API Machinery APIs, NOT all APIs)
+    - name: kubeflow-trainer-team
+      description: Kubeflow Trainer maintainers
+    - name: wg-training-leads
+      description: Working Group leads and chairs
   subprojects:
-  - name: caffe2-operator
+  - name: katib
     owners:
-    - https://raw.githubusercontent.com/kubeflow/caffe2-operator/master/OWNERS
-  - name: chainer-operator
-    owners:
-    - https://raw.githubusercontent.com/kubeflow/chainer-operator/master/OWNERS
-  - name: common
-    owners:
-    - https://raw.githubusercontent.com/kubeflow/common/master/OWNERS
-  - name: fate-operator
-    owners:
-    - https://raw.githubusercontent.com/kubeflow/fate-operator/master/OWNERS
+    - https://raw.githubusercontent.com/kubeflow/katib/master/OWNERS
   - name: mpi-operator
     owners:
     - https://raw.githubusercontent.com/kubeflow/mpi-operator/master/OWNERS
-  - name: mxnet-operator
+  - name: trainer
     owners:
-    - https://raw.githubusercontent.com/kubeflow/mxnet-operator/master/OWNERS
-  - name: pytorch-operator
-    owners:
-    - https://raw.githubusercontent.com/kubeflow/pytorch-operator/master/OWNERS
-  - name: tf-operator
-    owners:
-    - https://raw.githubusercontent.com/kubeflow/tf-operator/master/OWNERS
-  - name: xgboost-operator
-    owners:
-    - https://raw.githubusercontent.com/kubeflow/xgboost-operator/master/OWNERS
+    - https://raw.githubusercontent.com/kubeflow/trainer/master/OWNERS
 usergroups: []
 committees: []

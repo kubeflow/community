@@ -25,7 +25,7 @@ The [charter](charter.md) defines the scope and governance of the Notebooks Work
 * Yannis Zarkadas (**[@yanniszark](https://github.com/yanniszark)**), Arrikto
 
 ## Contact
-- Slack: [#wg-notebooks](https://kubeflow.slack.com/messages/wg-notebooks)
+- Slack: [#wg-notebooks](https://www.kubeflow.org/docs/about/community/#slack-channels)
 - [Mailing list](https://groups.google.com/forum/#!forum/kubeflow-discuss)
 - [Open Community Issues/PRs](https://github.com/kubeflow/community/labels/wg%2Farea/wg-notebooks)
 - GitHub Teams:
