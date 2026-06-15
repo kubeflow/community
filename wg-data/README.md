@@ -8,27 +8,32 @@ To understand how this file is generated, see https://github.com/kubeflow/commun
 --->
 # Data Working Group
 
-The WG "Data" is focused on enhancing the support for data/metadata-related tasks within Kubeflow, with a specific focus on the Spark Operator and Model Registry. The group aims to simplify and improve data processing between various stages of ML lifecycle. For example, from Data Preparation to model training and fine-tuning. The group also aims to facilitate the ML model's metadata management, while ensuring seamless integration with other Kubeflow components. The goal of Spark on Kubernetes Operator is to simplify the capability of running Apache Spark on Kubernetes. It automates deployment and simplifies lifecycle management of Spark Jobs on Kubernetes. The goal of Model Registry is gather, analyze, and develop model registry requirements of Kubeflow community users.
+The WG "Data" is focused on enhancing the support for data/metadata-related tasks within Kubeflow, with a specific focus on the Spark Operator and Kubeflow Hub. The group aims to simplify and improve data processing between various stages of ML lifecycle. For example, from Data Preparation to model training and fine-tuning. The group also aims to facilitate the ML model's metadata management, while ensuring seamless integration with other Kubeflow components. The goal of Spark on Kubernetes Operator is to simplify the capability of running Apache Spark on Kubernetes. It automates deployment and simplifies lifecycle management of Spark Jobs on Kubernetes. The goal of Kubeflow Hub is to provide registries and catalogs for AI assets for Kubeflow community users.
 
 The [charter](charter.md) defines the scope and governance of the Data Working Group.
 
 ## Meetings
-* KF Model Registry community meeting (US/EMEA): [Mondays at 7:00PM-8:00PM Europe/Madrid]() (biweely - every other Monday of the month). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=7:00PM-8:00PM&tz=Europe%2FMadrid).
+* Kubeflow Hub Community Meeting (US/EMEA): [Mondays at 7:00PM-8:00PM Europe/Madrid]() (biweekly - every other Monday of the month). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=7:00PM-8:00PM&tz=Europe%2FMadrid).
   * [Meeting notes and Agenda](https://docs.google.com/document/d/1DmMhcae081SItH19gSqBpFtPfbkr9dFhSMCgs-JKzNo/edit?usp=sharing).
-* Kubeflow Spark Operator Meeting: [Fridays at 8:00AM-9:00AM ]() (biweely - every other Friday of the month). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=8:00AM-9:00AM&tz=).
+* Kubeflow Spark Operator Meeting: [Fridays at 9:00AM-10:00AM PT (Pacific Time)]() (biweekly - every other Friday of the month). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=9:00AM-10:00AM&tz=PT%20%28Pacific%20Time%29).
   * [Meeting notes and Agenda](https://bit.ly/3VGzP4n).
 
 ## Organizers
 
 * Yi Chen (**[@ChenYi015](https://github.com/ChenYi015)**), Alibaba Cloud
 * Andrey Velichkevich (**[@andreyvelich](https://github.com/andreyvelich)**), Apple
+* Francisco Javier Arceo (**[@franciscojavierarceo](https://github.com/franciscojavierarceo)**), Red Hat
+* Jon Burdo (**[@jonburdo](https://github.com/jonburdo)**), Red Hat
+* Manabu McCloskey (**[@nabuskey](https://github.com/nabuskey)**), AWS
 * Ramesh Reddy (**[@rareddy](https://github.com/rareddy)**), Red Hat
+* Matteo Mortari (**[@tarilabs](https://github.com/tarilabs)**), Red Hat
 
 ## Contact
 - Slack: [#https://www.kubeflow.org/docs/about/community/#slack-channels](https://kubeflow.slack.com/messages/https://www.kubeflow.org/docs/about/community/#slack-channels)
 - [Mailing list](https://groups.google.com/forum/#!forum/kubeflow-discuss)
 - [Open Community Issues/PRs](https://github.com/kubeflow/community/labels/wg%2Farea/wg-data)
 - GitHub Teams:
+    - [@kubeflow/kubeflow-hub-team](https://github.com/orgs/kubeflow/teams/kubeflow-hub-team) - Kubeflow Hub maintainers
     - [@kubeflow/wg-data-leads](https://github.com/orgs/kubeflow/teams/wg-data-leads) - Team of Data Working Group leads
 <!-- BEGIN CUSTOM CONTENT -->
 

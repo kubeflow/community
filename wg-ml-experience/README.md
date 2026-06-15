@@ -8,7 +8,7 @@ To understand how this file is generated, see https://github.com/kubeflow/commun
 --->
 # ML Experience Working Group
 
-The ML Experience Working Group focuses on developing, maintaining, and improving tools and  extensions that support data science and machine learning practitioners workflows within Kubeflow. The group is dedicated to delivering a high-level, seamless experience integrated with the IDE of choice across multiple Kubeflow components.
+The ML Experience Working Group focuses on developing, maintaining, and improving tools and extensions that support data science and machine learning practitioners workflows within Kubeflow. The group is dedicated to delivering a high-level, seamless experience integrated with the IDE of choice across multiple Kubeflow components.
 
 The [charter](charter.md) defines the scope and governance of the ML Experience Working Group.
 
