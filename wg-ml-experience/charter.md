@@ -14,7 +14,7 @@ The ML Experience Working Group focuses on developing, maintaining, and improvin
     - Pipelines;
     - Kubeflow Trainer
     - Kubeflow Katib
-    - Model Registry;
+    - Kubeflow Hub;
     - Model Serving (KServe);
     - Feast.
 
