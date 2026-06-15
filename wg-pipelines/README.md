@@ -29,6 +29,19 @@ The [charter](charter.md) defines the scope and governance of the Pipelines Work
 - [Open Community Issues/PRs](https://github.com/kubeflow/community/labels/wg%2Farea/wg-pipelines)
 - GitHub Teams:
     - [@kubeflow/wg-pipeline-leads](https://github.com/orgs/kubeflow/teams/wg-pipeline-leads) - Team of Pipeline Working Group leads
+
+## Subprojects
+
+The following [subprojects](https://github.com/kubeflow/community/tree/master/subprojects) are owned by WG Pipelines:
+### kfp-tekton
+- **Owners:**
+  - https://raw.githubusercontent.com/kubeflow/kfp-tekton/master/OWNERS
+### metadata
+- **Owners:**
+  - https://raw.githubusercontent.com/kubeflow/metadata/master/OWNERS
+### pipelines
+- **Owners:**
+  - https://raw.githubusercontent.com/kubeflow/pipelines/master/OWNERS
 <!-- BEGIN CUSTOM CONTENT -->
 
 <!-- END CUSTOM CONTENT -->

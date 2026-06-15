@@ -30,6 +30,34 @@ The [charter](charter.md) defines the scope and governance of the Notebooks Work
 - [Open Community Issues/PRs](https://github.com/kubeflow/community/labels/wg%2Farea/wg-notebooks)
 - GitHub Teams:
     - [@kubeflow/wg-notebooks-leads](https://github.com/orgs/kubeflow/teams/wg-notebooks-leads) - Tech leads of wg-notebooks
+
+## Subprojects
+
+The following [subprojects](https://github.com/kubeflow/community/tree/master/subprojects) are owned by WG Notebooks:
+### central-dashboard
+- **Owners:**
+  - https://github.com/kubeflow/kubeflow/blob/master/components/centraldashboard/OWNERS
+### crud-web-apps
+- **Owners:**
+  - https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/crud-web-apps/OWNERS
+### jupyter-web-app
+- **Owners:**
+  - https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/jupyter-web-app/OWNERS
+### kfam
+- **Owners:**
+  - https://github.com/kubeflow/kubeflow/blob/master/components/access-management/OWNERS
+### notebook-images
+- **Owners:**
+  - https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/tensorflow-notebook-image/OWNERS
+### notebooks-controller
+- **Owners:**
+  - https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/notebook-controller/OWNERS
+### poddefaults-webhook
+- **Owners:**
+  - https://github.com/kubeflow/kubeflow/blob/master/components/admission-webhook/OWNERS
+### profile-controller
+- **Owners:**
+  - https://github.com/kubeflow/kubeflow/blob/master/components/profile-controller/OWNERS
 <!-- BEGIN CUSTOM CONTENT -->
 
 <!-- END CUSTOM CONTENT -->

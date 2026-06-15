@@ -278,20 +278,24 @@ workinggroups:
     slack: kubeflow-ml-experience
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
     teams:
-    - name: kubeflow-kale-team
-      description: Kubeflow Kale maintainers
-    - name: kubeflow-sdk-team
-      description: Kubeflow SDK maintainers
     - name: wg-ml-experience-leads
       description: Working Group leads and chairs
   subprojects:
-  - name: kale
+  - name: Kale
+    contact:
+      teams:
+      - name: kubeflow-kale-team
+        description: Kubeflow Kale maintainers
     owners:
     - https://raw.githubusercontent.com/kubeflow/kale/master/OWNERS
-  - name: mcp-server
+  - name: Kubeflow MCP Server
     owners:
     - https://raw.githubusercontent.com/kubeflow/mcp-server/master/OWNERS
-  - name: sdk
+  - name: Kubeflow SDK
+    contact:
+      teams:
+      - name: kubeflow-sdk-team
+        description: Kubeflow SDK maintainers
     owners:
     - https://raw.githubusercontent.com/kubeflow/sdk/master/OWNERS
 - dir: wg-notebooks

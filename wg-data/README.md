@@ -35,6 +35,16 @@ The [charter](charter.md) defines the scope and governance of the Data Working G
 - GitHub Teams:
     - [@kubeflow/kubeflow-hub-team](https://github.com/orgs/kubeflow/teams/kubeflow-hub-team) - Kubeflow Hub maintainers
     - [@kubeflow/wg-data-leads](https://github.com/orgs/kubeflow/teams/wg-data-leads) - Team of Data Working Group leads
+
+## Subprojects
+
+The following [subprojects](https://github.com/kubeflow/community/tree/master/subprojects) are owned by WG Data:
+### hub
+- **Owners:**
+  - https://raw.githubusercontent.com/kubeflow/hub/main/OWNERS
+### spark-operator
+- **Owners:**
+  - https://raw.githubusercontent.com/kubeflow/spark-operator/blob/master/OWNERS
 <!-- BEGIN CUSTOM CONTENT -->
 
 <!-- END CUSTOM CONTENT -->

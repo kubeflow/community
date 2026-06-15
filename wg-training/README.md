@@ -30,6 +30,19 @@ The [charter](charter.md) defines the scope and governance of the Training Worki
 - GitHub Teams:
     - [@kubeflow/kubeflow-trainer-team](https://github.com/orgs/kubeflow/teams/kubeflow-trainer-team) - Kubeflow Trainer maintainers
     - [@kubeflow/wg-training-leads](https://github.com/orgs/kubeflow/teams/wg-training-leads) - Working Group leads and chairs
+
+## Subprojects
+
+The following [subprojects](https://github.com/kubeflow/community/tree/master/subprojects) are owned by WG Training:
+### katib
+- **Owners:**
+  - https://raw.githubusercontent.com/kubeflow/katib/master/OWNERS
+### mpi-operator
+- **Owners:**
+  - https://raw.githubusercontent.com/kubeflow/mpi-operator/master/OWNERS
+### trainer
+- **Owners:**
+  - https://raw.githubusercontent.com/kubeflow/trainer/master/OWNERS
 <!-- BEGIN CUSTOM CONTENT -->
 
 <!-- END CUSTOM CONTENT -->
