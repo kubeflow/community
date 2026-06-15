@@ -267,23 +267,33 @@ workinggroups:
     - github: ederign
       name: Eder Ignatowicz
       company: Red Hat
-    tech_leads:
-    - github: StefanoFioravanzo
-      name: Stefano Fioravanzo
-      company: Canonical
-    - github: andreyvelich
-      name: Andrey Velichkevich
-      company: Apple
-    - github: ederign
-      name: Eder Ignatowicz
-      company: Red Hat
-  meetings: []
+  meetings:
+  - description: Kubeflow SDK and ML Experience Call
+    day: Wednesday
+    time: 08:00AM
+    tz: PT (Pacific Time)
+    frequency: bi-weekly
+    archive_url: https://bit.ly/kf-ml-experience
   contact:
-    slack: https://cloud-native.slack.com/archives/C073W572LA2
+    slack: kubeflow-ml-experience
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
     teams:
+    - name: kubeflow-kale-team
+      description: Kubeflow Kale maintainers
+    - name: kubeflow-sdk-team
+      description: Kubeflow SDK maintainers
     - name: wg-ml-experience-leads
-      description: Team of ML Experience Group leads
+      description: Working Group leads and chairs
+  subprojects:
+  - name: kale
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/kale/master/OWNERS
+  - name: mcp-server
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/mcp-server/master/OWNERS
+  - name: sdk
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/sdk/master/OWNERS
 - dir: wg-notebooks
   name: Notebooks
   mission_statement: >
