@@ -156,6 +156,9 @@ workinggroups:
     - github: andreyvelich
       name: Andrey Velichkevich
       company: Apple
+    - github: jonburdo
+      name: Jon Burdo
+      company: Red Hat
     - github: rareddy
       name: Ramesh Reddy
       company: Red Hat
@@ -168,6 +171,9 @@ workinggroups:
       company: Apple
     - github: franciscojavierarceo
       name: Francisco Javier Arceo
+      company: Red Hat
+    - github: jonburdo
+      name: Jon Burdo
       company: Red Hat
     - github: tarilabs
       name: Matteo Mortari
