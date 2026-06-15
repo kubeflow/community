@@ -26,12 +26,11 @@ WG Notebooks is responsible for the user experience around Notebooks and their i
 
 #### Cross-cutting and Externally Facing Processes
 
-- Coordinating with Manifests WG to ensure that Notebooks manifests are properly deployed with Kubeflow.
-- Coordinating with Central Dashboard WG to ensure the integration with the Notebook Manager UI is up-to-date.
-- Coordinating with Training and AutoML WG to ensure that corresponding SDK is properly working in Kubeflow Notebooks
+- Coordinating with the Kubeflow Distribution Committee to ensure that Notebooks manifests are properly deployed with Kubeflow.
+- Coordinating with Kubeflow Trainer to ensure that corresponding SDK is properly working in Kubeflow Notebooks.
+- Coordinating with the ML Experience WG to ensure Kubeflow SDK is properly working in Kubeflow Notebooks.
 - Ensuring that Kubeflow's Notebook images are continuously built and released.
-- Ensuring that the Notebook Manager UI images are continuously built and released.
-- Ensuring that the Notebook Controller images are continuously built and released.
+- Ensuring that the Notebook Controller and UI are continuously built and released.
 - Communicate the following APIs to WGs that want to integrate their web apps
   with them:
   - The PodDefault API to integrate closely with the Notebooks UI.

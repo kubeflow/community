@@ -13,19 +13,17 @@ WG Notebooks is responsible for the user experience around Notebooks and their i
 The [charter](charter.md) defines the scope and governance of the Notebooks Working Group.
 
 ## Meetings
-* Regular Notebooks Meeting (Australia & Europe friendly): [Thursdays at 11:00 pm PT (Pacific Time)]() (weekly). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=11:00 pm&tz=PT%20%28Pacific%20Time%29).
-  * [Meeting notes and Agenda](https://arrik.to/kf-wg-notebooks-notes).
+* Regular Notebooks Meeting (US & Europe friendly): [Thursdays at 08:00 am PT (Pacific Time)](https://www.kubeflow.org/docs/about/community/#kubeflow-community-calendar) (weekly). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=08:00 am&tz=PT%20%28Pacific%20Time%29).
+  * [Meeting notes and Agenda](https://bit.ly/kf-notebooks-wg-notes).
+  * [Meeting recordings](https://youtube.com/playlist?list=PLmzRWLV1CK_wpsjmJYTo50xe2eYu1-HvP&si=HUJph7a8SXbYd668).
 
 ## Organizers
 
-* Stefano Fioravanzo (**[@StefanoFioravanzo](https://github.com/StefanoFioravanzo)**), Canonical
-* Ilias Katsakioris (**[@elikatsis](https://github.com/elikatsis)**), Arrikto
-* Kimonas Sotirchos (**[@kimwnasptd](https://github.com/kimwnasptd)**), Canonical
-* Mathew Wicks (**[@thesuperzapper](https://github.com/thesuperzapper)**)
-* Yannis Zarkadas (**[@yanniszark](https://github.com/yanniszark)**), Arrikto
+* Andy Stoneberg (**[@andyatmiami](https://github.com/andyatmiami)**), RedHat
+* Mathew Wicks (**[@thesuperzapper](https://github.com/thesuperzapper)**), NVIDIA
 
 ## Contact
-- Slack: [#wg-notebooks](https://www.kubeflow.org/docs/about/community/#slack-channels)
+- Slack: [#kubeflow-notebooks](https://www.kubeflow.org/docs/about/community/#slack-channels)
 - [Mailing list](https://groups.google.com/forum/#!forum/kubeflow-discuss)
 - GitHub Teams:
     - [@kubeflow/wg-notebooks-chairs](https://github.com/orgs/kubeflow/teams/wg-notebooks-chairs) - Team of Notebooks Working Group Chairs
@@ -33,30 +31,12 @@ The [charter](charter.md) defines the scope and governance of the Notebooks Work
 ## Subprojects
 
 The following [subprojects](https://github.com/kubeflow/community/tree/master/subprojects) are owned by WG Notebooks:
-### central-dashboard
+### Kubeflow Dashboard
 - **Owners:**
-  - https://github.com/kubeflow/kubeflow/blob/master/components/centraldashboard/OWNERS
-### crud-web-apps
+  - https://github.com/kubeflow/dashboard/blob/main/OWNERS
+### Kubeflow Notebooks
 - **Owners:**
-  - https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/crud-web-apps/OWNERS
-### jupyter-web-app
-- **Owners:**
-  - https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/jupyter-web-app/OWNERS
-### kfam
-- **Owners:**
-  - https://github.com/kubeflow/kubeflow/blob/master/components/access-management/OWNERS
-### notebook-images
-- **Owners:**
-  - https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/tensorflow-notebook-image/OWNERS
-### notebooks-controller
-- **Owners:**
-  - https://raw.githubusercontent.com/kubeflow/kubeflow/master/components/notebook-controller/OWNERS
-### poddefaults-webhook
-- **Owners:**
-  - https://github.com/kubeflow/kubeflow/blob/master/components/admission-webhook/OWNERS
-### profile-controller
-- **Owners:**
-  - https://github.com/kubeflow/kubeflow/blob/master/components/profile-controller/OWNERS
+  - https://github.com/kubeflow/notebooks/blob/main/OWNERS
 <!-- BEGIN CUSTOM CONTENT -->
 
 <!-- END CUSTOM CONTENT -->
