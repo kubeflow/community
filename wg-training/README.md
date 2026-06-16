@@ -26,9 +26,7 @@ The [charter](charter.md) defines the scope and governance of the Training Worki
 ## Contact
 - Slack: [#kubeflow-trainer](https://www.kubeflow.org/docs/about/community/#slack-channels)
 - [Mailing list](https://groups.google.com/forum/#!forum/kubeflow-discuss)
-- [Open Community Issues/PRs](https://github.com/kubeflow/community/labels/wg%2Farea/wg-training)
 - GitHub Teams:
-    - [@kubeflow/kubeflow-trainer-team](https://github.com/orgs/kubeflow/teams/kubeflow-trainer-team) - Kubeflow Trainer maintainers
     - [@kubeflow/wg-training-leads](https://github.com/orgs/kubeflow/teams/wg-training-leads) - Working Group leads and chairs
 
 ## Subprojects
@@ -43,6 +41,9 @@ The following [subprojects](https://github.com/kubeflow/community/tree/master/su
 ### trainer
 - **Owners:**
   - https://raw.githubusercontent.com/kubeflow/trainer/master/OWNERS
+- **Contact:**
+  - GitHub Teams:
+    - [@kubeflow/kubeflow-trainer-team](https://github.com/orgs/kubeflow/teams/kubeflow-trainer-team) - Kubeflow Trainer maintainers
 <!-- BEGIN CUSTOM CONTENT -->
 
 <!-- END CUSTOM CONTENT -->

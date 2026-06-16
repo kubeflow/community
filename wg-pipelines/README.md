@@ -26,7 +26,6 @@ The [charter](charter.md) defines the scope and governance of the Pipelines Work
 ## Contact
 - Slack: [#](https://www.kubeflow.org/docs/about/community/#slack-channels)
 - [Mailing list](https://groups.google.com/forum/#!forum/kubeflow-discuss)
-- [Open Community Issues/PRs](https://github.com/kubeflow/community/labels/wg%2Farea/wg-pipelines)
 - GitHub Teams:
     - [@kubeflow/wg-pipeline-leads](https://github.com/orgs/kubeflow/teams/wg-pipeline-leads) - Team of Pipeline Working Group leads
 

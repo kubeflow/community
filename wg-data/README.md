@@ -12,11 +12,7 @@ The WG "Data" is focused on enhancing the support for data/metadata-related task
 
 The [charter](charter.md) defines the scope and governance of the Data Working Group.
 
-## Meetings
-* Kubeflow Hub Community Meeting (US/EMEA): [Mondays at 7:00PM-8:00PM Europe/Madrid]() (biweekly - every other Monday of the month). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=7:00PM-8:00PM&tz=Europe%2FMadrid).
-  * [Meeting notes and Agenda](https://docs.google.com/document/d/1DmMhcae081SItH19gSqBpFtPfbkr9dFhSMCgs-JKzNo/edit?usp=sharing).
-* Kubeflow Spark Operator Meeting: [Fridays at 9:00AM-10:00AM PT (Pacific Time)]() (biweekly - every other Friday of the month). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=9:00AM-10:00AM&tz=PT%20%28Pacific%20Time%29).
-  * [Meeting notes and Agenda](https://bit.ly/3VGzP4n).
+
 
 ## Organizers
 
@@ -31,9 +27,7 @@ The [charter](charter.md) defines the scope and governance of the Data Working G
 ## Contact
 - Slack: [#https://www.kubeflow.org/docs/about/community/#slack-channels](https://www.kubeflow.org/docs/about/community/#slack-channels)
 - [Mailing list](https://groups.google.com/forum/#!forum/kubeflow-discuss)
-- [Open Community Issues/PRs](https://github.com/kubeflow/community/labels/wg%2Farea/wg-data)
 - GitHub Teams:
-    - [@kubeflow/kubeflow-hub-team](https://github.com/orgs/kubeflow/teams/kubeflow-hub-team) - Kubeflow Hub maintainers
     - [@kubeflow/wg-data-leads](https://github.com/orgs/kubeflow/teams/wg-data-leads) - Team of Data Working Group leads
 
 ## Subprojects
@@ -42,9 +36,18 @@ The following [subprojects](https://github.com/kubeflow/community/tree/master/su
 ### hub
 - **Owners:**
   - https://raw.githubusercontent.com/kubeflow/hub/main/OWNERS
+- **Contact:**
+  - GitHub Teams:
+    - [@kubeflow/kubeflow-hub-team](https://github.com/orgs/kubeflow/teams/kubeflow-hub-team) - Kubeflow Hub maintainers
+- **Meetings:**
+  - Kubeflow Hub Call: [Mondays at 7:00PM-8:00PM Europe/Madrid]() (biweekly - every other Monday of the month). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=7:00PM-8:00PM&tz=Europe%2FMadrid).
+    - [Meeting notes and Agenda](https://bit.ly/kf-model-registry-notes).
 ### spark-operator
 - **Owners:**
   - https://raw.githubusercontent.com/kubeflow/spark-operator/blob/master/OWNERS
+- **Meetings:**
+  - Kubeflow Spark on Kubernetes Call: [Fridays at 9:00AM-10:00AM PT (Pacific Time)]() (biweekly - every other Friday of the month). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=9:00AM-10:00AM&tz=PT%20%28Pacific%20Time%29).
+    - [Meeting notes and Agenda](https://bit.ly/3VGzP4n).
 <!-- BEGIN CUSTOM CONTENT -->
 
 <!-- END CUSTOM CONTENT -->
