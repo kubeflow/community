@@ -30,6 +30,13 @@ The [charter](charter.md) defines the scope and governance of the Serving Workin
 - [Open Community Issues/PRs](https://github.com/kubeflow/community/labels/wg%2Farea/wg-serving)
 - GitHub Teams:
     - [@kubeflow/wg-serving](https://github.com/orgs/kubeflow/teams/wg-serving) - KFServing Development and roadmap
+
+## Subprojects
+
+The following [subprojects](https://github.com/kubeflow/community/tree/master/subprojects) are owned by WG Serving:
+### kfserving
+- **Owners:**
+  - https://github.com/kubeflow/kfserving/blob/master/OWNERS
 <!-- BEGIN CUSTOM CONTENT -->
 
 <!-- END CUSTOM CONTENT -->

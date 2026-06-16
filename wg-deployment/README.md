@@ -32,6 +32,13 @@ The [charter](charter.md) defines the scope and governance of the Deployment Wor
     - [@kubeflow/wg-deployment-bugs](https://github.com/orgs/kubeflow/teams/wg-deployment-bugs) - Bug Triage and Troubleshooting
     - [@kubeflow/wg-deployment-misc](https://github.com/orgs/kubeflow/teams/wg-deployment-misc) - General Discussion
     - [@kubeflow/wg-deployment-reviews](https://github.com/orgs/kubeflow/teams/wg-deployment-reviews) - Changes and Reviews
+
+## Subprojects
+
+The following [subprojects](https://github.com/kubeflow/community/tree/master/subprojects) are owned by WG Deployment:
+### kfctl
+- **Owners:**
+  - https://raw.githubusercontent.com/kubeflow/kfctl/master/OWNERS
 <!-- BEGIN CUSTOM CONTENT -->
 
 <!-- END CUSTOM CONTENT -->

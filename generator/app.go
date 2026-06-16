@@ -249,10 +249,6 @@ func (c *Context) Validate() []error {
 			if expectedDir != group.Dir {
 				errors = append(errors, fmt.Errorf("expected dir: %s, got: %s", expectedDir, group.Dir))
 			}
-			expectedLabel := "area/" + group.LabelName(prefix)
-			if expectedLabel != group.Label {
-				errors = append(errors, fmt.Errorf("%s: expected label: %s, got: %s", group.Dir, expectedLabel, group.Label))
-			}
 			for prefix, persons := range group.Leadership.PrefixToPersonMap() {
 				for _, person := range persons {
 					if val, ok := people[person.GitHub]; ok {

@@ -42,7 +42,9 @@ The [charter]({{.CharterLink}}) defines the scope and governance of the {{.Name}
 {{- end }}
 
 ## Contact
+{{- if .Contact.Slack }}
 - Slack: [#{{.Contact.Slack}}](https://www.kubeflow.org/docs/about/community/#slack-channels)
+{{- end }}
 - [Mailing list]({{.Contact.MailingList}})
 {{- if .Label }}
 - [Open Community Issues/PRs](https://github.com/kubeflow/community/labels/wg%2F{{.Label}})
@@ -51,5 +53,41 @@ The [charter]({{.CharterLink}}) defines the scope and governance of the {{.Name}
 - GitHub Teams:
 {{- range .Contact.GithubTeams }}
     - [@kubeflow/{{.Name}}](https://github.com/orgs/kubeflow/teams/{{.Name}}) {{- if .Description }} - {{.Description}} {{- end}}
+{{- end }}
+{{- end }}
+
+## Subprojects
+
+The following [subprojects](https://github.com/kubeflow/community/tree/master/subprojects) are owned by WG {{.Name}}:
+
+{{- range .Subprojects }}
+### {{.Name}}
+{{- if .Description }}
+{{ trimSpace .Description }}
+{{- end }}
+- **Owners:**
+{{- range .Owners }}
+  - {{.}}
+{{- end }}
+{{- if .Contact }}
+- **Contact:**
+{{- if .Contact.Slack }}
+  - Slack: [#{{.Contact.Slack}}](https://www.kubeflow.org/docs/about/community/#slack-channels)
+{{- end }}
+{{- if .Contact.GithubTeams }}
+  - GitHub Teams:
+{{- range .Contact.GithubTeams }}
+    - [@kubeflow/{{.Name}}](https://github.com/orgs/kubeflow/teams/{{.Name}}) {{- if .Description }} - {{.Description}}{{- end}}
+{{- end }}
+{{- end }}
+{{- end }}
+{{- if .Meetings }}
+- **Meetings:**
+{{- range .Meetings }}
+  - {{.Description}}: [{{.Day}}s at {{.Time}} {{.TZ}}]({{.URL}}) ({{.Frequency}}). [Convert to your timezone](http://www.thetimezoneconverter.com/?t={{.Time}}&tz={{.TZ | tzUrlEncode}}).
+{{- if .ArchiveURL }}
+    - [Meeting notes and Agenda]({{.ArchiveURL}}).
+{{- end }}
+{{- end }}
 {{- end }}
 {{- end }}

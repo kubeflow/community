@@ -93,7 +93,7 @@ workinggroups:
     Kubeflow community users.
 
   charter_link: charter.md
-  label: area/wg-data
+  label: ""
   leadership:
     chairs:
     - github: ChenYi015
@@ -117,34 +117,40 @@ workinggroups:
     - github: tarilabs
       name: Matteo Mortari
       company: Red Hat
-  meetings:
-  - description: Kubeflow Hub Community Meeting (US/EMEA)
-    day: Monday
-    time: 7:00PM-8:00PM
-    tz: Europe/Madrid
-    frequency: biweekly - every other Monday of the month
-    archive_url: https://docs.google.com/document/d/1DmMhcae081SItH19gSqBpFtPfbkr9dFhSMCgs-JKzNo/edit?usp=sharing
-  - description: Kubeflow Spark Operator Meeting
-    day: Friday
-    time: 9:00AM-10:00AM
-    tz: PT (Pacific Time)
-    frequency: biweekly - every other Friday of the month
-    archive_url: https://bit.ly/3VGzP4n
+  meetings: []
   contact:
-    slack: https://www.kubeflow.org/docs/about/community/#slack-channels
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
     teams:
-    - name: kubeflow-hub-team
-      description: Kubeflow Hub maintainers
     - name: wg-data-leads
       description: Team of Data Working Group leads
   subprojects:
   - name: hub
+    contact:
+      slack: kubeflow-hub
+      teams:
+      - name: kubeflow-hub-team
+        description: Kubeflow Hub maintainers
     owners:
     - https://raw.githubusercontent.com/kubeflow/hub/main/OWNERS
+    meetings:
+    - description: Kubeflow Hub Call
+      day: Monday
+      time: 7:00PM-8:00PM
+      tz: Europe/Madrid
+      frequency: biweekly - every other Monday of the month
+      archive_url: https://bit.ly/kf-model-registry-notes
   - name: spark-operator
+    contact:
+      slack: kubeflow-spark-on-kubernetes
     owners:
     - https://raw.githubusercontent.com/kubeflow/spark-operator/blob/master/OWNERS
+    meetings:
+    - description: Kubeflow Spark on Kubernetes Call
+      day: Friday
+      time: 9:00AM-10:00AM
+      tz: PT (Pacific Time)
+      frequency: biweekly - every other Friday of the month
+      archive_url: https://bit.ly/3VGzP4n
 - dir: wg-deployment
   name: Deployment
   mission_statement: >
@@ -255,7 +261,7 @@ workinggroups:
     components.
 
   charter_link: charter.md
-  label: area/wg-ml-experience
+  label: ""
   leadership:
     chairs:
     - github: StefanoFioravanzo
@@ -267,23 +273,37 @@ workinggroups:
     - github: ederign
       name: Eder Ignatowicz
       company: Red Hat
-    tech_leads:
-    - github: StefanoFioravanzo
-      name: Stefano Fioravanzo
-      company: Canonical
-    - github: andreyvelich
-      name: Andrey Velichkevich
-      company: Apple
-    - github: ederign
-      name: Eder Ignatowicz
-      company: Red Hat
-  meetings: []
+  meetings:
+  - description: Kubeflow SDK and ML Experience Call
+    day: Wednesday
+    time: 08:00AM
+    tz: PT (Pacific Time)
+    frequency: bi-weekly
+    archive_url: https://bit.ly/kf-ml-experience
   contact:
-    slack: https://cloud-native.slack.com/archives/C073W572LA2
+    slack: kubeflow-ml-experience
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
     teams:
     - name: wg-ml-experience-leads
-      description: Team of ML Experience Group leads
+      description: Working Group leads and chairs
+  subprojects:
+  - name: Kale
+    contact:
+      teams:
+      - name: kubeflow-kale-team
+        description: Kubeflow Kale maintainers
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/kale/master/OWNERS
+  - name: Kubeflow MCP Server
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/mcp-server/master/OWNERS
+  - name: Kubeflow SDK
+    contact:
+      teams:
+      - name: kubeflow-sdk-team
+        description: Kubeflow SDK maintainers
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/sdk/master/OWNERS
 - dir: wg-notebooks
   name: Notebooks
   mission_statement: >
@@ -291,7 +311,7 @@ workinggroups:
     integrations with Kubeflow.
 
   charter_link: charter.md
-  label: area/wg-notebooks
+  label: ""
   leadership:
     chairs:
     - github: StefanoFioravanzo
@@ -372,7 +392,7 @@ workinggroups:
     of users across various Kubernetes deployment options.
 
   charter_link: charter.md
-  label: area/wg-pipelines
+  label: ""
   leadership:
     chairs:
     - github: HumairAK
@@ -476,7 +496,7 @@ workinggroups:
     train, and run AI models at scale.
 
   charter_link: charter.md
-  label: area/wg-training
+  label: ""
   leadership:
     chairs:
     - github: andreyvelich
@@ -502,8 +522,6 @@ workinggroups:
     slack: kubeflow-trainer
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
     teams:
-    - name: kubeflow-trainer-team
-      description: Kubeflow Trainer maintainers
     - name: wg-training-leads
       description: Working Group leads and chairs
   subprojects:
@@ -514,6 +532,10 @@ workinggroups:
     owners:
     - https://raw.githubusercontent.com/kubeflow/mpi-operator/master/OWNERS
   - name: trainer
+    contact:
+      teams:
+      - name: kubeflow-trainer-team
+        description: Kubeflow Trainer maintainers
     owners:
     - https://raw.githubusercontent.com/kubeflow/trainer/master/OWNERS
 usergroups: []

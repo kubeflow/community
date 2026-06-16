@@ -27,6 +27,13 @@ The [charter](charter.md) defines the scope and governance of the Manifests Work
 - [Open Community Issues/PRs](https://github.com/kubeflow/community/labels/wg%2Farea/wg-manifests)
 - GitHub Teams:
     - [@kubeflow/wg-manifests-leads](https://github.com/orgs/kubeflow/teams/wg-manifests-leads) - Tech leads of wg-manifests
+
+## Subprojects
+
+The following [subprojects](https://github.com/kubeflow/community/tree/master/subprojects) are owned by WG Manifests:
+### manifests
+- **Owners:**
+  - https://raw.githubusercontent.com/kubeflow/manifests/master/OWNERS
 <!-- BEGIN CUSTOM CONTENT -->
 The development happens here https://github.com/kubeflow/manifests.
 <!-- END CUSTOM CONTENT -->

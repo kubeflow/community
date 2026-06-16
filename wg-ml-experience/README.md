@@ -12,7 +12,9 @@ The ML Experience Working Group focuses on developing, maintaining, and improvin
 
 The [charter](charter.md) defines the scope and governance of the ML Experience Working Group.
 
-
+## Meetings
+* Kubeflow SDK and ML Experience Call: [Wednesdays at 08:00AM PT (Pacific Time)]() (bi-weekly). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=08:00AM&tz=PT%20%28Pacific%20Time%29).
+  * [Meeting notes and Agenda](https://bit.ly/kf-ml-experience).
 
 ## Organizers
 
@@ -21,11 +23,29 @@ The [charter](charter.md) defines the scope and governance of the ML Experience 
 * Eder Ignatowicz (**[@ederign](https://github.com/ederign)**), Red Hat
 
 ## Contact
-- Slack: [#https://cloud-native.slack.com/archives/C073W572LA2](https://www.kubeflow.org/docs/about/community/#slack-channels)
+- Slack: [#kubeflow-ml-experience](https://www.kubeflow.org/docs/about/community/#slack-channels)
 - [Mailing list](https://groups.google.com/forum/#!forum/kubeflow-discuss)
-- [Open Community Issues/PRs](https://github.com/kubeflow/community/labels/wg%2Farea/wg-ml-experience)
 - GitHub Teams:
-    - [@kubeflow/wg-ml-experience-leads](https://github.com/orgs/kubeflow/teams/wg-ml-experience-leads) - Team of ML Experience Group leads
+    - [@kubeflow/wg-ml-experience-leads](https://github.com/orgs/kubeflow/teams/wg-ml-experience-leads) - Working Group leads and chairs
+
+## Subprojects
+
+The following [subprojects](https://github.com/kubeflow/community/tree/master/subprojects) are owned by WG ML Experience:
+### Kale
+- **Owners:**
+  - https://raw.githubusercontent.com/kubeflow/kale/master/OWNERS
+- **Contact:**
+  - GitHub Teams:
+    - [@kubeflow/kubeflow-kale-team](https://github.com/orgs/kubeflow/teams/kubeflow-kale-team) - Kubeflow Kale maintainers
+### Kubeflow MCP Server
+- **Owners:**
+  - https://raw.githubusercontent.com/kubeflow/mcp-server/master/OWNERS
+### Kubeflow SDK
+- **Owners:**
+  - https://raw.githubusercontent.com/kubeflow/sdk/master/OWNERS
+- **Contact:**
+  - GitHub Teams:
+    - [@kubeflow/kubeflow-sdk-team](https://github.com/orgs/kubeflow/teams/kubeflow-sdk-team) - Kubeflow SDK maintainers
 <!-- BEGIN CUSTOM CONTENT -->
 
 <!-- END CUSTOM CONTENT -->
