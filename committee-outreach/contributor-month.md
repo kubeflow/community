@@ -15,8 +15,8 @@
 
 - The submission will be done using a Google Form that will indicate why the contributor should be selected as **Contributor of the Month**, such as, but not limited to: 
   - Name of the contributor
-  - Contribution (description)  type - tech/non-technical
-  - Contribution  what’s is - project / event.
+  - Choose a category where the candidate is being nominated.
+  - Describe the nominee's primary contribution(s) in detail
   - Proof of the contribution (Link, resources)
   - Referral/Sponsor (someone from the community including WG leads, but not limited to the WGs)
 
