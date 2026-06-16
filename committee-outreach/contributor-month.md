@@ -33,7 +33,7 @@
 
 ### Eligibility Faq
 1. Can a contributor of the month be selected twice?
-  - No in the same year.
+  - Not in the same year.
 2. Can I nominate myself?
   - Nominations need to be submitted from a sponsor to showcase the contributor value to the community.
 3. Can contributor of the Month be selected from the same organization during the same year?
