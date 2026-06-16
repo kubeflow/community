@@ -5,7 +5,7 @@ The Kubeflow Project is holding its first election for the Kubeflow Project Stee
 
 ***Please note** The AOC is a suggested new committee and is here as a placeholder for a yet to be determined group that will work on non-code related topics such as marketing, communications, events and administrative needs of the project.  
 
-The KSC responsibilities and operations are defined [here](https://github.com/kubeflow/community/blob/master/proposals/STEERING-COMMITTEE.md). 
+The KSC responsibilities and operations are defined [here](https://github.com/kubeflow/community/blob/master/committee-steering/charter.md). 
 
 The KSC elections process for open positions will start on **4 December 2023**. 
 
