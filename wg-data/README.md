@@ -20,10 +20,10 @@ The [charter](charter.md) defines the scope and governance of the Data Working G
 * Andrey Velichkevich (**[@andreyvelich](https://github.com/andreyvelich)**), Apple
 * Francisco Javier Arceo (**[@franciscojavierarceo](https://github.com/franciscojavierarceo)**), Red Hat
 * Jon Burdo (**[@jonburdo](https://github.com/jonburdo)**), Red Hat
-* Manabu McCloskey (**[@vara-bonth](https://github.com/vara-bonthu)**), AWS
-* Vara Bonth (**[@nabuskey](https://github.com/nabuskey)**), AWS
+* Manabu McCloskey (**[@nabuskey](https://github.com/nabuskey)**), AWS
 * Ramesh Reddy (**[@rareddy](https://github.com/rareddy)**), Red Hat
 * Matteo Mortari (**[@tarilabs](https://github.com/tarilabs)**), Red Hat
+* Vara Bonthu (**[@vara-bonthu](https://github.com/vara-bonthu)**), AWS
 
 ## Contact
 - [Mailing list](https://groups.google.com/forum/#!forum/kubeflow-discuss)
