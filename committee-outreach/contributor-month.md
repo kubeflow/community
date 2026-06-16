@@ -2,7 +2,7 @@
 
 ## Goal: Maintain/increase Contributors engagement to support project sustainability
 
-## Who’s eligible:
+## Who is eligible:
 
 - Everyone who contributes to the **Kubeflow** project (technical and non-technical contributions)
   - **Examples**: outreach activities, advocacy activities (videos, demos), PRs merged code/blogs.
