@@ -42,7 +42,9 @@ The [charter]({{.CharterLink}}) defines the scope and governance of the {{.Name}
 {{- end }}
 
 ## Contact
+{{- if .Contact.Slack }}
 - Slack: [#{{.Contact.Slack}}](https://www.kubeflow.org/docs/about/community/#slack-channels)
+{{- end }}
 - [Mailing list]({{.Contact.MailingList}})
 {{- if .Label }}
 - [Open Community Issues/PRs](https://github.com/kubeflow/community/labels/wg%2F{{.Label}})

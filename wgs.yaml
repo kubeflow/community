@@ -119,7 +119,6 @@ workinggroups:
       company: Red Hat
   meetings: []
   contact:
-    slack: https://www.kubeflow.org/docs/about/community/#slack-channels
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
     teams:
     - name: wg-data-leads
@@ -127,6 +126,7 @@ workinggroups:
   subprojects:
   - name: hub
     contact:
+      slack: kubeflow-hub
       teams:
       - name: kubeflow-hub-team
         description: Kubeflow Hub maintainers
@@ -140,6 +140,8 @@ workinggroups:
       frequency: biweekly - every other Monday of the month
       archive_url: https://bit.ly/kf-model-registry-notes
   - name: spark-operator
+    contact:
+      slack: kubeflow-spark-on-kubernetes
     owners:
     - https://raw.githubusercontent.com/kubeflow/spark-operator/blob/master/OWNERS
     meetings:

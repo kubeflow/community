@@ -25,7 +25,6 @@ The [charter](charter.md) defines the scope and governance of the Data Working G
 * Matteo Mortari (**[@tarilabs](https://github.com/tarilabs)**), Red Hat
 
 ## Contact
-- Slack: [#https://www.kubeflow.org/docs/about/community/#slack-channels](https://www.kubeflow.org/docs/about/community/#slack-channels)
 - [Mailing list](https://groups.google.com/forum/#!forum/kubeflow-discuss)
 - GitHub Teams:
     - [@kubeflow/wg-data-leads](https://github.com/orgs/kubeflow/teams/wg-data-leads) - Team of Data Working Group leads
@@ -37,6 +36,7 @@ The following [subprojects](https://github.com/kubeflow/community/tree/master/su
 - **Owners:**
   - https://raw.githubusercontent.com/kubeflow/hub/main/OWNERS
 - **Contact:**
+  - Slack: [#kubeflow-hub](https://www.kubeflow.org/docs/about/community/#slack-channels)
   - GitHub Teams:
     - [@kubeflow/kubeflow-hub-team](https://github.com/orgs/kubeflow/teams/kubeflow-hub-team) - Kubeflow Hub maintainers
 - **Meetings:**
@@ -45,6 +45,8 @@ The following [subprojects](https://github.com/kubeflow/community/tree/master/su
 ### spark-operator
 - **Owners:**
   - https://raw.githubusercontent.com/kubeflow/spark-operator/blob/master/OWNERS
+- **Contact:**
+  - Slack: [#kubeflow-spark-on-kubernetes](https://www.kubeflow.org/docs/about/community/#slack-channels)
 - **Meetings:**
   - Kubeflow Spark on Kubernetes Call: [Fridays at 9:00AM-10:00AM PT (Pacific Time)]() (biweekly - every other Friday of the month). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=9:00AM-10:00AM&tz=PT%20%28Pacific%20Time%29).
     - [Meeting notes and Agenda](https://bit.ly/3VGzP4n).
