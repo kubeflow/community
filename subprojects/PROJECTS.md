@@ -12,6 +12,7 @@ When a project changes its status level, this document and the
 
 | Kubeflow Subproject                                                                 | Source Code                                                           |
 | ----------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| [Kubeflow Hub](https://www.kubeflow.org/docs/components/hub/)                       | [kubeflow/hub](https://github.com/kubeflow/hub)                       |
 | [Kubeflow Katib](https://www.kubeflow.org/docs/components/katib/)                   | [kubeflow/katib](https://github.com/kubeflow/katib)                   |
 | [Kubeflow Notebooks](https://www.kubeflow.org/docs/components/notebooks/)           | [kubeflow/notebooks](https://github.com/kubeflow/notebooks)           |
 | [Kubeflow Pipelines](https://www.kubeflow.org/docs/components/pipelines/)           | [kubeflow/pipelines](https://github.com/kubeflow/pipelines)           |
@@ -23,7 +24,6 @@ When a project changes its status level, this document and the
 | Kubeflow Subproject                                             | Source Code                                       |
 | --------------------------------------------------------------- | ------------------------------------------------- |
 | [Kubeflow Kale](https://www.kubeflow.org/docs/components/kale/) | [kubeflow/kale](https://github.com/kubeflow/kale) |
-| [Kubeflow Hub](https://www.kubeflow.org/docs/components/hub/)   | [kubeflow/hub](https://github.com/kubeflow/hub)   |
 | [Kubeflow SDK](https://sdk.kubeflow.org/en/latest/)             | [kubeflow/sdk](https://github.com/kubeflow/sdk)   |
 
 ## Experimental

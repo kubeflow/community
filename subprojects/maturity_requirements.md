@@ -32,7 +32,6 @@ following the defined feature lifecycle for the project.
 Graduated projects MUST meet the following criteria:
 
 - Meet all Incubating requirements
-- Had a major version (v1 or higher) released for at least 90 days
 - Been adopted by at least 3 companies
 - Be included in the Kubeflow Community Distribution
 - Have a defined feature lifecycle (e.g. feature flags) and a history of following it
