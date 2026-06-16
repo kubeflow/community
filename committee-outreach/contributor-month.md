@@ -11,7 +11,7 @@
 ### Submission process:
 
 - The submission process will open the 1st day of the month, where the community will nominate someone for his impact in the community. There is 15 days to submit the applications. 
-- The **KSC** will nominate the Contributor of the Month by the end of the month. The contributor will be announced during the Kubeflow weekly community meeting, in social media and in the Kubeflow website on the [Contributor of the Month web page](https://www.kubeflow.org/docs/about/contributor-of-the-month/).
+- The **KOC** will nominate the Contributor of the Month by the end of the month. The contributor will be announced during the Kubeflow weekly community meeting, in social media and in the Kubeflow website on the [Contributor of the Month web page](https://www.kubeflow.org/docs/about/contributor-of-the-month/).
 
 - The submission will be done using a Google Form that will indicate why the contributor should be selected as **Contributor of the Month**, such as, but not limited to: 
   - Name of the contributor
@@ -22,7 +22,7 @@
 
 ### Criteria to select the contributor of the month:
 
-- KSC will be selecting the contributor of the month based on the impact on the community
+- KOC will be selecting the contributor of the month based on the impact on the community
 - Categories:
   - New contributors
   - Outreach/Advocacy
