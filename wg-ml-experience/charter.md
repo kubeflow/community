@@ -21,8 +21,8 @@ The ML Experience Working Group focuses on developing, maintaining, and improvin
 2. Promote the reusability of UI components from other Kubeflow UIs into the IDE (e.g., rendering a pipeline graph inside the JupyterLab environment) by establishing a shared contract between the IDE WG and the wider Kubeflow community.
 
 3. Develop a Python SDK to simplify operationalization across Kubeflow components and provide a “one-stop-shop” for practitioners who want easy access to Kubeflow services. The SDK also provides the groundwork for the IDE extension automation and workflows.
-   - Create a single installation and configuration layer for users interacting programmatically with the Kubeflow ecosystem via SDKs.
-   - The “common” SDK is not meant to replace individual components’ SDKs but rather to offer a unified access layer to simplify dependency management and shared configuration (like authorization).
+   - Create a single installation and configuration layer for users interacting programmatically with the Kubeflow subprojects via SDKs
+   - Provide ML engineers simple interface to scale their AI workloads with Kubeflow tools
 
 4. Develop a Kubeflow MCP server to give AI agents access to Kubeflow tools and automate entire model development lifecycle.
 
@@ -33,7 +33,8 @@ The ML Experience Working Group focuses on developing, maintaining, and improvin
 
 #### Cross-cutting and Externally Facing Processes
 
-- Collaboration with other Kubeflow WGs, including WG Notebooks, WG Pipelines, WG Training, WG AutoML, WG Data, and WG Serving, ensures that IDE tools are interoperable across different stages of the ML lifecycle.
+- Collaboration with other Kubeflow WGs, including WG Notebooks, WG Pipelines, WG Training, and,
+  WG Data to ensure that IDE tools are interoperable across different stages of the ML lifecycle.
 - Coordination with the release teams to align updates in IDE tools with broader Kubeflow release schedules.
 
 ### Out of scope
