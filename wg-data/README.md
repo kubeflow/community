@@ -20,7 +20,8 @@ The [charter](charter.md) defines the scope and governance of the Data Working G
 * Andrey Velichkevich (**[@andreyvelich](https://github.com/andreyvelich)**), Apple
 * Francisco Javier Arceo (**[@franciscojavierarceo](https://github.com/franciscojavierarceo)**), Red Hat
 * Jon Burdo (**[@jonburdo](https://github.com/jonburdo)**), Red Hat
-* Manabu McCloskey (**[@nabuskey](https://github.com/nabuskey)**), AWS
+* Manabu McCloskey (**[@vara-bonth](https://github.com/vara-bonthu)**), AWS
+* Vara Bonth (**[@nabuskey](https://github.com/nabuskey)**), AWS
 * Ramesh Reddy (**[@rareddy](https://github.com/rareddy)**), Red Hat
 * Matteo Mortari (**[@tarilabs](https://github.com/tarilabs)**), Red Hat
 
@@ -44,7 +45,7 @@ The following [subprojects](https://github.com/kubeflow/community/tree/master/su
     - [Meeting notes and Agenda](https://bit.ly/kf-model-registry-notes).
 ### spark-operator
 - **Owners:**
-  - https://raw.githubusercontent.com/kubeflow/spark-operator/blob/master/OWNERS
+  - https://raw.githubusercontent.com/kubeflow/spark-operator/refs/heads/master/OWNERS
 - **Contact:**
   - Slack: [#kubeflow-spark-on-kubernetes](https://www.kubeflow.org/docs/about/community/#slack-channels)
 - **Meetings:**
