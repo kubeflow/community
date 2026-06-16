@@ -9,23 +9,18 @@ and preparing the security documentation for Kubeflow users.
 
 - [Kubeflow Security Self-Assessment](self-assessment.md).
 
-## Security Audit
+## Security Policies for Kubeflow Subprojects
 
-Kubeflow participates in 3rd party security audits. You can find the audit results here:
+Every graduated or incubating Kubeflow subproject defines a `SECURITY.md` file that describes
+the project's security policies.
 
-- TODO (andreyvelich): Add document once it is published.
+For example, Kubeflow Trainer [security policy](https://github.com/kubeflow/trainer/blob/master/SECURITY.md).
 
 ## Get Involved
 
-- **Join** the [CNCF Slack Workspace](https://www.kubeflow.org/docs/about/community/#kubeflow-slack-channels) and the [`#kubeflow-platform`](https://app.slack.com/client/T08PSQ7BQ/C073W572LA2) channel.
-- **Attend** the _Kubeflow Manifests WG_ meeting ([meeting notes](https://docs.google.com/document/d/1je_qzoJCAVXndxeJAgA8cdugvYZfsgrAi7HP_WDeUN0/edit), [community calendar](https://www.kubeflow.org/docs/about/community/#kubeflow-community-calendars)).
+If you are interested in helping improve security across Kubeflow subprojects, please:
 
-## Work in Progress Documents
-
-We are actively working to finalize the Policies and Procedures for the Kubeflow Security Team.
-
-See the following documents for more information:
-
-- [DRAFT and Working Docs](https://docs.google.com/document/d/1sjWa0G2UqdsP1QROYVEl9iQR6v1x8HD7-F4TQo7lV6M/edit)
-- [Policy and Procedure Working Document](https://docs.google.com/document/d/1vw_efQyYG_zWEoL-vk9mZQX5p7fOcl3RTG6pcxMhYKI/edit)
-- [Kubernetes Security Policy](https://kubernetes.io/docs/reference/issues-security/security/) (being used as a reference)
+- **Join** the [CNCF Slack Workspace](https://www.kubeflow.org/docs/about/community/#kubeflow-slack-channels)
+  and the [`#kubeflow-community-distribution`](https://cloud-native.slack.com/archives/C073W572LA2) channel.
+- **Attend** the _Kubeflow Community Distribution_ meeting ([meeting notes](https://docs.google.com/document/d/1OUWifNf7hZ_QH3m1J3zjSUUk11yKUZnvom1BS2KxrUQ/edit?tab=t.0),
+  [community calendar](https://www.kubeflow.org/docs/about/community/#kubeflow-community-meetings)).
