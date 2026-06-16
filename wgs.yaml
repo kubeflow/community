@@ -117,6 +117,9 @@ workinggroups:
     - github: tarilabs
       name: Matteo Mortari
       company: Red Hat
+    - github: vara-bonthu
+      name: Vara Bonthu
+      company: AWS
   meetings: []
   contact:
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
@@ -143,7 +146,7 @@ workinggroups:
     contact:
       slack: kubeflow-spark-on-kubernetes
     owners:
-    - https://raw.githubusercontent.com/kubeflow/spark-operator/blob/master/OWNERS
+    - https://raw.githubusercontent.com/kubeflow/spark-operator/refs/heads/master/OWNERS
     meetings:
     - description: Kubeflow Spark on Kubernetes Call
       day: Friday
