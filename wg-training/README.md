@@ -8,30 +8,28 @@ To understand how this file is generated, see https://github.com/kubeflow/commun
 --->
 # Training Working Group
 
-WG Training covers developing, deploying, and operating training jobs on Kubeflow.
+WG Training focuses on the development, deployment, and operation of distributed AI workloads on Kubernetes. It covers the entire model development lifecycle, including pre-training, post-training (such as LLM fine-tuning), hyperparameter optimization, reinforcement learning, and other techniques required to build, train, and run AI models at scale.
 
 The [charter](charter.md) defines the scope and governance of the Training Working Group.
 
 ## Meetings
-* Regular WG Meeting (Asia & Europe friendly): [Wednesdays at 03:00 PT (Pacific Time)]() (monthly - first Wednesday every month). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=03:00&tz=PT%20%28Pacific%20Time%29).
-  * [Meeting notes and Agenda](https://docs.google.com/document/d/1K0Qfr0zTuARtAg7ETg9hsMZPh0MT2QUxqGAYvM1Vpec/edit).
-* Regular WG Meeting (US friendly): [Wednesdays at 10:00 PT (Pacific Time)]() (monthly - third Wednesday every month). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=10:00&tz=PT%20%28Pacific%20Time%29).
-  * [Meeting notes and Agenda](https://docs.google.com/document/d/1K0Qfr0zTuARtAg7ETg9hsMZPh0MT2QUxqGAYvM1Vpec/edit).
+* Kubeflow Trainer and Katib Call: [Wednesdays at 08:00AM PT (Pacific Time)]() (bi-weekly). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=08:00AM&tz=PT%20%28Pacific%20Time%29).
+  * [Meeting notes and Agenda](https://bit.ly/kf-trainer-meeting).
 
 ## Organizers
 
-* Ce Gao (**[@gaocegege](https://github.com/gaocegege)**), Caicloud
-* Johnu George (**[@johnugeorge](https://github.com/johnugeorge)**), Nutanix
+* Andrey Velichkevich (**[@andreyvelich](https://github.com/andreyvelich)**), Apple
+* Antonin Stefanutti (**[@astefanutti](https://github.com/astefanutti)**), Red Hat
+* Yuki Iwai (**[@tenzen-y](https://github.com/tenzen-y)**), CyberAgent, Inc.
 * Yuan Tang (**[@terrytangyuan](https://github.com/terrytangyuan)**), Red Hat
 
 ## Contact
-- Slack: [#wg-training](https://kubeflow.slack.com/messages/wg-training)
+- Slack: [#kubeflow-trainer](https://www.kubeflow.org/docs/about/community/#slack-channels)
 - [Mailing list](https://groups.google.com/forum/#!forum/kubeflow-discuss)
 - [Open Community Issues/PRs](https://github.com/kubeflow/community/labels/wg%2Farea/wg-training)
 - GitHub Teams:
-    - [@kubeflow/wg-training-bugs](https://github.com/orgs/kubeflow/teams/wg-training-bugs) - Bug Triage and Troubleshooting
-    - [@kubeflow/wg-training-machinery-misc](https://github.com/orgs/kubeflow/teams/wg-training-machinery-misc) - General Discussion
-    - [@kubeflow/wg-training-reviews](https://github.com/orgs/kubeflow/teams/wg-training-reviews) - API Changes and Reviews (API Machinery APIs, NOT all APIs)
+    - [@kubeflow/kubeflow-trainer-team](https://github.com/orgs/kubeflow/teams/kubeflow-trainer-team) - Kubeflow Trainer maintainers
+    - [@kubeflow/wg-training-leads](https://github.com/orgs/kubeflow/teams/wg-training-leads) - Working Group leads and chairs
 <!-- BEGIN CUSTOM CONTENT -->
 
 <!-- END CUSTOM CONTENT -->

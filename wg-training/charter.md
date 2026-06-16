@@ -4,24 +4,29 @@ This charter adheres to the conventions, roles and organization management outli
 
 ## Scope
 
-WG Training covers developing, deploying, and operating training jobs on Kubeflow.
+WG Training focuses on the development, deployment, and operation of distributed AI workloads on
+Kubernetes. It covers the entire model development lifecycle, including pre-training, post-training
+(such as LLM fine-tuning), hyperparameter optimization, reinforcement learning, and other techniques
+required to build, train, and run AI models at scale.
+
 
 ### In scope
 
 #### Code, Binaries and Services
 
-- APIs used for running distributed training jobs (e.g., TFJob API)
-- Tools and documentation to aid in ecosystem tool interoperability around distributed training jobs (e.g., TFJob CRD/Controller)
+- APIs used for running distributed training jobs (e.g., TrainJob, TrainingRuntime APIs)
+- APIs used for running hyperparameter tuning jobs (e.g. OptimizationJob APIs)
+- Tools and documentation to aid in ecosystem tool interoperability around Trainer APIs
 
 #### Cross-cutting and Externally Facing Processes
 
 - Coordinating with WG Pipeline to make sure distributed training jobs can interact well with pipelines
-- Coordinating with release teams to ensure that the distributed training features can be released properly
-- Coordinating with WG AutoML to integrate with AutoML systems (e.g. Katib)
+- Coordinating with Kubeflow Distribution Committee to ensure that the Kubeflow Trainer can be deployed as part of distribution
+- Coordinating with WG ML Experience to make sure Trainer is well integrated with Kubeflow SDK
 
 ### Out of scope
 
-- APIs used for running inference/serving tasks (this falls under the purview of WG Serving).
+- Development of Kubeflow SDK (this falls under the purview of WG ML Experience).
 
 ## Roles and Organization Management
 

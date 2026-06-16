@@ -24,7 +24,7 @@ The [charter](charter.md) defines the scope and governance of the Pipelines Work
 * Michael Zazula (**[@zazulam](https://github.com/zazulam)**), Capital One
 
 ## Contact
-- Slack: [#](https://kubeflow.slack.com/messages/)
+- Slack: [#](https://www.kubeflow.org/docs/about/community/#slack-channels)
 - [Mailing list](https://groups.google.com/forum/#!forum/kubeflow-discuss)
 - [Open Community Issues/PRs](https://github.com/kubeflow/community/labels/wg%2Farea/wg-pipelines)
 - GitHub Teams:

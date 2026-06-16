@@ -21,7 +21,7 @@ The [charter](charter.md) defines the scope and governance of the ML Experience 
 * Eder Ignatowicz (**[@ederign](https://github.com/ederign)**), Red Hat
 
 ## Contact
-- Slack: [#https://cloud-native.slack.com/archives/C073W572LA2](https://kubeflow.slack.com/messages/https://cloud-native.slack.com/archives/C073W572LA2)
+- Slack: [#https://cloud-native.slack.com/archives/C073W572LA2](https://www.kubeflow.org/docs/about/community/#slack-channels)
 - [Mailing list](https://groups.google.com/forum/#!forum/kubeflow-discuss)
 - [Open Community Issues/PRs](https://github.com/kubeflow/community/labels/wg%2Farea/wg-ml-experience)
 - GitHub Teams:

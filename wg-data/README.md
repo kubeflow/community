@@ -29,7 +29,7 @@ The [charter](charter.md) defines the scope and governance of the Data Working G
 * Matteo Mortari (**[@tarilabs](https://github.com/tarilabs)**), Red Hat
 
 ## Contact
-- Slack: [#https://www.kubeflow.org/docs/about/community/#slack-channels](https://kubeflow.slack.com/messages/https://www.kubeflow.org/docs/about/community/#slack-channels)
+- Slack: [#https://www.kubeflow.org/docs/about/community/#slack-channels](https://www.kubeflow.org/docs/about/community/#slack-channels)
 - [Mailing list](https://groups.google.com/forum/#!forum/kubeflow-discuss)
 - [Open Community Issues/PRs](https://github.com/kubeflow/community/labels/wg%2Farea/wg-data)
 - GitHub Teams:

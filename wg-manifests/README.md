@@ -22,7 +22,7 @@ The [charter](charter.md) defines the scope and governance of the Manifests Work
 * Kimonas Sotirchos (**[@kimwnasptd](https://github.com/kimwnasptd)**), Canonical
 
 ## Contact
-- Slack: [#wg-manifests](https://kubeflow.slack.com/messages/wg-manifests)
+- Slack: [#wg-manifests](https://www.kubeflow.org/docs/about/community/#slack-channels)
 - [Mailing list](https://groups.google.com/forum/#!forum/kubeflow-discuss)
 - [Open Community Issues/PRs](https://github.com/kubeflow/community/labels/wg%2Farea/wg-manifests)
 - GitHub Teams:
