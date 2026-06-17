@@ -155,7 +155,7 @@ A WG may also be retired once it has completed its mission.
 - [ ] Move the existing WG directory into the archive in `kubeflow/community`.
 - [ ] Kubeflow subprojects transactions:
   - [ ] Each subproject a WG owns must transfer ownership to a new WG, transfer project outside of
-        Kubeflow org, or be archived.l.
+        Kubeflow org, or be archived.
   - [ ] Remove [all GitHub teams](https://github.com/kubeflow/internal-acls/blob/master/github-orgs/kubeflow/org.yaml)
         that refer to the WG.
   - [ ] Update [wgs.yaml] to remove WG.
