@@ -1,12 +1,12 @@
 # Kubeflow Working Group Governance
 
-This document defines the roles, organizational governance, charter process, and lifecycle of
+This document defines the requirements, roles, lifecycle, and charter process of
 Kubeflow Working Groups (WGs). A major pillar of the Kubeflow's governance model is WGs.
 
 Every Kubeflow subproject _MUST_ be owned by a WG, as defined in the [wgs.yaml].
 
 Each WG defines a [charter](#wg-charter) that links to this document as the default
-governance. A WG _MAY_ record deviations from these defaults in its own charter.
+governance.
 
 ## Working Group Requirements
 
@@ -14,7 +14,7 @@ In order to standardize WG efforts, create maximum transparency, and route contr
 appropriate WG, WGs _SHOULD_ follow these guidelines:
 
 - Create a charter and have it approved according to the [WG charter process](#wg-charter).
-- Meet regularly across working group and subproject discussions
+- Meet regularly across WG and subproject discussions
 - Record meetings and make them publicly available in [the YouTube channel](https://www.youtube.com/@KubeflowCommunity).
 - Keep up-to-date meeting notes, linked from the WG's page in the community repo.
 - Report activity with the community via [the `kubeflow-discuss`](https://groups.google.com/g/kubeflow-discuss)
@@ -83,19 +83,28 @@ Subprojects of the WG _MUST_ use the following processes:
 
 ## WG Lifecycle
 
-This section covers the creation and retirement of a working group. Subproject creation is
+This section covers the creation and retirement of a WG. Subproject creation is
 covered under [Subprojects](#subprojects).
 
 ### Creation
 
-### Prerequisites for a WG
+Follow these steps to propose a new WG:
 
 - [ ] Read this governance document.
 - [ ] Ensure all WG chairs are [community members](../community-membership.md).
 - [ ] Send an email to the `kubeflow-discuss` mailing list to scope the WG and get provisional approval.
 - [ ] Follow the [WG charter process](#wg-charter) to propose and obtain approval for a
       charter.
-- [ ] Coordinate with Kubeflow Outreach Team to announce creation of WG
+- [ ] Submit a PR that adds rows to [wgs.yaml] and run `make generate` to autogenerate docs. You'll need:
+  - WG Name
+  - Mission Statement
+  - Charter
+  - Chairs information
+  - Subproject list
+  - Meeting information
+  - Slack channels
+  - GitHub teams
+- [ ] If WG is approved, coordinate with Kubeflow Outreach Team to announce it
 
 ### WG Charter
 
@@ -118,33 +127,16 @@ All Kubeflow WGs must define a charter defining the scope and governance of the 
    changes.
 1. Once accepted, the steering committee will ratify the PR by merging it.
 
-### Steps to Update an Existing WG Charter
+#### Steps to Update an Existing WG Charter
 
 - For significant changes, or any changes that could impact other WGs (such as the scope),
   create a PR and send it to the Kubeflow Steering Committee for review.
 - For minor updates that only impact issues or areas within the scope of the WG, the WG
   Chairs _SHOULD_ facilitate the change.
 
-### Creation
-
-#### GitHub
-
-- Submit a PR that:
-  - adds rows to [wgs.yaml]
-  - runs `make generate` to autogenerate docs
-- You'll need:
-  - WG Name
-  - Charter
-  - Directory URL
-  - Mission Statement
-  - Chair Information
-  - Meeting Information
-  - Contact Methods
-  - Any Subproject Stakeholders
-
 ### Retirement
 
-Sometimes it might be necessary to sunset a Working Group, either by disbandment or by
+Sometimes it might be necessary to sunset a WG, either by disbandment or by
 merging with an existing WG when deemed appropriate (which can save project overhead
 in the long run).
 
@@ -158,7 +150,7 @@ A WG may also be retired once it has completed its mission.
 
 #### Retirement Steps
 
-- [ ] Send an email to `kubeflow-discuss` Google group alerting the community of your
+- [ ] Send an email to `kubeflow-discuss` mailing list alerting the community of your
       intentions to disband or merge.
 - [ ] Move the existing WG directory into the archive in `kubeflow/community`.
 - [ ] Kubeflow subprojects transactions:

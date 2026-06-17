@@ -57,7 +57,7 @@ to remain active contributors to the community.
 
 ### Responsibilities & Privileges
 
-- Subscribed to [`kubeflow-discuss` Google group](https://groups.google.com/g/kubeflow-discuss)
+- Subscribed to [`kubeflow-discuss` mailing list](https://groups.google.com/g/kubeflow-discuss)
 - Responsive to issues and PRs assigned to them
 - Active participants in the Kubeflow community by participating in:
   - WG Meetings
