@@ -260,7 +260,6 @@ Detailed information can be found here in the official
 - ML Metadata gRPC server: gRPC server that manage data in MLMD SQL database.
 
 - External Integrations:
-
   - Argo Workflow controller to manage orchestration of Workflow CRDs.
   - S3-complaint object store: object store that contains artifacts that launcher pods read and
     write to.
@@ -411,7 +410,6 @@ practices and is following the OpenSSF Best Practices. Kubeflow projects achieve
 - Automated tests for unit, integration, and end-to-end testing.
 - Automated code quality checks and linting.
 - Publicly documented contribution and code review guidelines
-
   - https://www.kubeflow.org/docs/about/contributing/
   - https://github.com/kubeflow/spark-operator/blob/master/CONTRIBUTING.md
   - https://github.com/kubeflow/notebooks/blob/main/CONTRIBUTING.md
@@ -423,9 +421,8 @@ practices and is following the OpenSSF Best Practices. Kubeflow projects achieve
 - Tide is enabled to automatically merge the PRs after approvers add `/lgtm` and `/approve` labels.
 
 - Release process for each Kubeflow project is described in their GitHub repositories:
-
   - https://github.com/kubeflow/spark-operator/blob/master/docs/release.md
-  - https://github.com/kubeflow/trainer/blob/master/docs/release/README.md
+  - https://github.com/kubeflow/trainer/blob/master/RELEASE.md
   - https://github.com/kubeflow/katib/blob/master/docs/release/README.md
   - https://github.com/kubeflow/pipelines/blob/master/RELEASE.md
   - https://github.com/kubeflow/model-registry/blob/main/RELEASE.md
@@ -441,7 +438,6 @@ practices and is following the OpenSSF Best Practices. Kubeflow projects achieve
 ### Inbound
 
 - Kubeflow Projects have dedicated CNCF Slack channels to communicate with users and maintainers:
-
   - `#kubeflow-spark-operator`
   - `#kubeflow-notebooks`
   - `#kubeflow-trainer`
@@ -458,7 +454,6 @@ practices and is following the OpenSSF Best Practices. Kubeflow projects achieve
 - Kubeflow has a dedicated mailing: `kubeflow-discuss@googlegroups.com`
 
 - Kubeflow also uses various social media:
-
   - LinkedIn: https://www.linkedin.com/company/kubeflow/
   - X: https://x.com/kubeflow
   - BlueSky: https://bsky.app/profile/kubefloworg.bsky.social
@@ -498,8 +493,17 @@ the reports to avoid excessive disclosure of vulnerabilities.
 
 # Appendix
 
-- _Known Issues Over Time_: Issues and vulnerabilities are tracked in GitHub Issues and Security
-  Advisories. No critical vulnerabilities are currently open.
+- _Known Issues Over Time_: Issues are tracked in GitHub Issues, and vulnerabilities are tracked
+  and disclosed through GitHub Security Advisories for each Kubeflow project. Maintainers triage
+  reported vulnerabilities, release patches for supported versions, and publish advisories as
+  needed (see [Incident Response](#incident-response)). The current set of published and open
+  advisories for each project can be reviewed here:
+  - https://github.com/kubeflow/spark-operator/security/advisories
+  - https://github.com/kubeflow/notebooks/security/advisories
+  - https://github.com/kubeflow/trainer/security/advisories
+  - https://github.com/kubeflow/katib/security/advisories
+  - https://github.com/kubeflow/model-registry/security/advisories
+  - https://github.com/kubeflow/pipelines/security/advisories
 - _OpenSSF Best Practices_: Kubeflow projects achieved the passing level criteria and some projects
   achieve silver and gold status. Community is currently working to achieve silver status for
   each Kubeflow project.
