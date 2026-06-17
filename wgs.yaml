@@ -229,28 +229,31 @@ workinggroups:
     - github: droctothorpe
       name: Alexander Perlman
       company: Capital One
-    - github: james-jwu
-      name: James Wu
-      company: Google
     - github: mprahl
       name: Matthew Prahl
       company: Red Hat
     - github: zazulam
       name: Michael Zazula
       company: Capital One
-  meetings: []
+  meetings:
+  - description: Kubeflow Pipelines Call
+    day: Wednesday
+    time: 010:00AM
+    tz: PT (Pacific Time)
+    frequency: bi-weekly
+    archive_url: https://bit.ly/kfp-meeting-notes
   contact:
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
     teams:
     - name: wg-pipeline-leads
       description: Team of Pipeline Working Group leads
   subprojects:
-  - name: kfp-tekton
+  - name: mlflow-integration
     owners:
-    - https://raw.githubusercontent.com/kubeflow/kfp-tekton/master/OWNERS
-  - name: metadata
+    - https://raw.githubusercontent.com/kubeflow/mlflow-integration/master/OWNERS
+  - name: pipeline-components
     owners:
-    - https://raw.githubusercontent.com/kubeflow/metadata/master/OWNERS
+    - https://raw.githubusercontent.com/kubeflow/pipeline-components/master/OWNERS
   - name: pipelines
     owners:
     - https://raw.githubusercontent.com/kubeflow/pipelines/master/OWNERS

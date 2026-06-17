@@ -12,14 +12,15 @@ The goal of the Kubeflow Pipelines project is to build a Kubernetes optimized st
 
 The [charter](charter.md) defines the scope and governance of the Pipelines Working Group.
 
-
+## Meetings
+* Kubeflow Pipelines Call: [Wednesdays at 010:00AM PT (Pacific Time)]() (bi-weekly). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=010:00AM&tz=PT%20%28Pacific%20Time%29).
+  * [Meeting notes and Agenda](https://bit.ly/kfp-meeting-notes).
 
 ## Organizers
 
 * Humair Khan (**[@HumairAK](https://github.com/HumairAK)**), Red Hat
 * Chen Sun (**[@chensun](https://github.com/chensun)**), Google
 * Alexander Perlman (**[@droctothorpe](https://github.com/droctothorpe)**), Capital One
-* James Wu (**[@james-jwu](https://github.com/james-jwu)**), Google
 * Matthew Prahl (**[@mprahl](https://github.com/mprahl)**), Red Hat
 * Michael Zazula (**[@zazulam](https://github.com/zazulam)**), Capital One
 
@@ -31,12 +32,12 @@ The [charter](charter.md) defines the scope and governance of the Pipelines Work
 ## Subprojects
 
 The following [subprojects](https://github.com/kubeflow/community/tree/master/subprojects) are owned by WG Pipelines:
-### kfp-tekton
+### mlflow-integration
 - **Owners:**
-  - https://raw.githubusercontent.com/kubeflow/kfp-tekton/master/OWNERS
-### metadata
+  - https://raw.githubusercontent.com/kubeflow/mlflow-integration/master/OWNERS
+### pipeline-components
 - **Owners:**
-  - https://raw.githubusercontent.com/kubeflow/metadata/master/OWNERS
+  - https://raw.githubusercontent.com/kubeflow/pipeline-components/master/OWNERS
 ### pipelines
 - **Owners:**
   - https://raw.githubusercontent.com/kubeflow/pipelines/master/OWNERS

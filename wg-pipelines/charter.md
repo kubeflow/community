@@ -1,4 +1,4 @@
-# ML Pipelines Charter
+**# ML Pipelines Charter
 
 This charter adheres to the conventions, roles and organization management outlined in [wg-governance].
 
@@ -42,37 +42,7 @@ Includes Argo and Tekton based forks, as well as new versions of orchestrators
 - Concepts documentation 
 - Cloud provider specific documentation
 - Documentation for the SDK and REST API
-- Documentation for the sample components and pipelines 
-
-
-#### Dependencies
-
-ML Pipeline projects may have dependencies on the following projects managed by other KF work groups:
-- KF User Profiles Controller
-  - Used by multi-user feature in fullset Kubeflow deployement
-- KF Central UI Console
-  - Used by fullset Kubeflow deployment
-- Notebook and KF integration of Notebooks
-  - Used by fullset Kubeflow deployment
-- TF Job and other training controllers
-  - Used by user's codes, e.x. certain pipeline component (one node in DAG) uses TF Job for training.
-- Katib
-  - Used by user's codes, e.x. certain pipeline component (one node in DAG) uses Katib for HP tuning etc.
- 
-#### Initial set of subprojects governed by ML Pipelines WG
-
->github.com/kubeflow/pipelines
-- KFP Backend (mainline), incl. all backend servers
-- KFP UI
-- KFP SDK/DSL/CLI, including samples
-- Components and pipelines content in KF repo
-
->github.com/kubeflow/kfp-tekton
-- KFP Tekton Backend (fork, with long term intent of merging in mainstream pipelines repo)
-
->github.com/kubeflow/metadata
-- Metadata Backend, API and UI 
-
+- Documentation for the sample components and pipelines
 
 #### Cross-cutting and Externally Facing Processes
 
@@ -99,4 +69,4 @@ New [wg-subprojects] need to be reviewed and approved by the WG Leads.
 
 
 [wg-governance]: ../wgs/wg-governance.md
-[wg-subprojects]: https://github.com/Kubeflow/community/blob/master/wgs/wg-pipelines/README.md#subprojects
+[wg-subprojects]: https://github.com/Kubeflow/community/blob/master/wgs/wg-pipelines/README.md#subprojects**
