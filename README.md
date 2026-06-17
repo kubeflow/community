@@ -36,6 +36,7 @@ please reach out to ksc@kubeflow.org.
 
 ## About this repository
 
+- [community membership](community-membership.md): to understand contributor roles within Kubeflow community
 - [proposals](proposals): for Kubeflow Enhancement Proposal (KEP) process
 - [subprojects](subprojects): to view the list of existing Kubeflow subprojects, or to donate your
   project to the Kubeflow community.

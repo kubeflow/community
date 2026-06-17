@@ -68,4 +68,5 @@ The positions of the Chairs and TLs are granted to the organizations and compani
 
 New subprojects need to be reviewed and approved by the WG Leads.
 
-[wg-governance]: ../wgs/wg-governance.md
+[wg-governance]: ../committee-steering/wg-governance.md
+[wg-subprojects]: https://github.com/Kubeflow/community/blob/master/wgs/wg-pipelines/README.md#subprojects

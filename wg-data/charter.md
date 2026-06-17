@@ -67,4 +67,4 @@ This WG follows the outlined roles and governance in [wg-governance].
 
 WG Technical Leads
 
-[wg-governance]: ../wgs/wg-governance.md
+[wg-governance]: ../committee-steering/wg-governance.md

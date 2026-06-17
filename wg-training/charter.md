@@ -9,7 +9,6 @@ Kubernetes. It covers the entire model development lifecycle, including pre-trai
 (such as LLM fine-tuning), hyperparameter optimization, reinforcement learning, and other techniques
 required to build, train, and run AI models at scale.
 
-
 ### In scope
 
 #### Code, Binaries and Services
@@ -37,4 +36,4 @@ and opts-in to updates and modifications to [wg-governance].
 
 WG Technical Leads
 
-[wg-governance]: ../wgs/wg-governance.md
+[wg-governance]: ../committee-steering/wg-governance.md
