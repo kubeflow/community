@@ -59,6 +59,7 @@ Kubeflow organization following official approval.
 - [ ] Update CONTRIBUTING.md with Kubeflow guidelines
 - [ ] Create RELEASE.md to document release process
 - [ ] Create SECURITY.md to document security process
+- [ ] Create CODE_OF_CONDUCT.md to reference Kubeflow code of conduct
 - [ ] Add DCO (Developer Certificate of Origin) sign-off documentation
 - [ ] Verify Apache 2.0 license formatting
 - [ ] Verify if we should update copyright notices for Kubeflow ownership
