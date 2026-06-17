@@ -40,10 +40,3 @@
   -  There must not be more than 30% of contributors of the month from the same organization during the same year. No more than 4 Contributors of the Month per organization and year.
 4. To be nominated, is there a minium requirement on how long the contributor is being part of the kubeflow community?
   -  No mininum requirement, all contributors new or seasoned contributors are welcome. We value all contributions that are creating an impact on the Kubeflow community.
-
-
-
-
-
-
-
