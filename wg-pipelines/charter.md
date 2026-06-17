@@ -67,7 +67,7 @@ The goal of the Kubeflow Pipelines project is to build a Kubernetes optimized st
 
 This WG adheres to the Roles and Organization Management outlined in [wg-governance] and opts-in to updates and modifications to wg-governance.
 
-The positions of the Chairs and TLs are granted to the organizations and companies participating in the workgroup governance. If an individual leaves the organization to which that position was designated - the organization will have the right to appoint others to these roles.
+The positions of the Chairs are granted to the organizations and companies participating in the workgroup governance. If an individual leaves the organization to which that position was designated - the organization will have the right to appoint others to these roles.
 
 ### Subproject Creation
 
