@@ -1,6 +1,6 @@
 # Kubeflow Contributor Guide
 
-Welcome to the Kubeflow project! We'd love to accept your patches and
+Welcome to the Kubeflow project! We would love to accept your patches and
 contributions to this project. Please read the
 [contributor's guide in our docs](https://www.kubeflow.org/docs/about/contributing/).
 

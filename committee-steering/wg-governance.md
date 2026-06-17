@@ -56,8 +56,8 @@ WG Chair membership disagreements may be escalated to the Kubeflow Steering Comm
 - Vote on changes to the WG charter
 - Provide yearly updates to the `kubeflow-discuss` mailing list and the community meeting.
 - Chairs _SHOULD_ remove any other Chairs that have not communicated a leave of absence
-  and either cannot be reached for more than 1 month or are not fulfilling their documented
-  responsibilities for more than 1 month.
+  and either cannot be reached for more than 1 year or are not fulfilling their documented
+  responsibilities for more than 1 year.
   - This may be done through a [super-majority] vote of Chairs.
 - Have write access to the Kubeflow subprojects
 
