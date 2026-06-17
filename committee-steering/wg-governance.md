@@ -43,7 +43,7 @@ WG Chair membership disagreements may be escalated to the Kubeflow Steering Comm
 
 - _MUST_ be at least a [Member](../community-membership.md#member) on the contributor ladder
 - _SHOULD_ hold some documented role in at least one subproject (e.g. reviewer or approver)
-- _SHOULD_ should sustained contributions to at least one subproject
+- _SHOULD_ have sustained contributions to at least one subproject
 - _SHOULD_ have sufficient domain knowledge to provide effective technical leadership
 - Sponsored by a Kubeflow member and supported by [super-majority] vote of chairs.
 
