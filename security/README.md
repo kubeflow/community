@@ -9,6 +9,10 @@ and preparing the security documentation for Kubeflow users.
 
 - [Kubeflow Security Self-Assessment](self-assessment.md).
 
+## Security Audits
+
+- [Ada Logics Kubeflow Security Audit 2025](Ada_Logics-Kubeflow-security-audit-2025.pdf).
+
 ## Security Policies for Kubeflow Subprojects
 
 Every graduated or incubating Kubeflow subproject defines a `SECURITY.md` file that describes
