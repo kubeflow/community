@@ -8,13 +8,13 @@ Every Kubeflow subproject _MUST_ be owned by a WG, as defined in the [wgs.yaml].
 Each WG defines a [charter](#wg-charter) that links to this document as the default
 governance. A WG _MAY_ record deviations from these defaults in its own charter.
 
-## Operating Requirements
+## Working Group Requirements
 
 In order to standardize WG efforts, create maximum transparency, and route contributors to the
 appropriate WG, WGs _SHOULD_ follow these guidelines:
 
 - Create a charter and have it approved according to the [WG charter process](#wg-charter).
-- Meet regularly across working group or subproject discussions
+- Meet regularly across working group and subproject discussions
 - Record meetings and make them publicly available in [the YouTube channel](https://www.youtube.com/@KubeflowCommunity).
 - Keep up-to-date meeting notes, linked from the WG's page in the community repo.
 - Report activity with the community via [the `kubeflow-discuss`](https://groups.google.com/g/kubeflow-discuss)
@@ -65,7 +65,7 @@ WG Chair membership disagreements may be escalated to the Kubeflow Steering Comm
 
 ### Subproject Creation
 
-- Subprojects may be created by [Kubeflow Enhancement Proposal](proposals) and accepted by
+- Subprojects may be created by [Kubeflow Enhancement Proposal](../proposals) and accepted by
   [lazy-consensus] with fallback on majority vote of the WG Chairs. The result _SHOULD_ be supported by the
   majority of WG Chairs.
   - The proposal _MUST_ establish the subproject's reviewers and approvers.
@@ -107,8 +107,6 @@ All Kubeflow WGs must define a charter defining the scope and governance of the 
 
 1. Copy [the template](wg-charter-template.md) into a new file under
    `community/wg-*YOURWG*/charter.md` ([example](/wg-training/charter.md)) and fill out template
-1. Read the [Governance Requirements](#governance-requirements) so you have context for the
-   template
 1. Update [wgs.yaml] with the individuals holding the roles as defined in the template
 1. Add subprojects owned by your WG in [wgs.yaml]
 1. Create a pull request with a draft of your charter.md and wgs.yaml changes. Communicate
@@ -181,3 +179,5 @@ Proposals and amendments to the application process are available for at least a
 
 [wgs.yaml]: /wgs.yaml
 [super-majority]: https://en.wikipedia.org/wiki/Supermajority#Two-thirds_vote
+[lazy-consensus]: http://en.osswiki.info/concepts/lazy_consensus
+[OWNERS]: https://www.kubeflow.org/docs/about/contributing/#owners

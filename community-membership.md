@@ -10,7 +10,7 @@ Responsibilities for most roles are scoped to these repositories.
 | Member     | Active contributor in the community                      | Sponsored by 2 Kubeflow members                                              | Kubeflow GitHub org member        |
 | Reviewer   | Review contributions from others                         | History of contributions in a subproject                                     | [OWNERS] file reviewer entry      |
 | Approver   | Contributions acceptance approval                        | Highly experienced active contributor to a subproject                        | [OWNERS] file approver entry      |
-| WG Chair   | Overall leadership and direction for a WG                | Have sufficient domain knowledge to provide effective leadership             | [wgs.yaml] entry                  |
+| WG Chair   | Leadership and direction for a WG                        | Have sufficient domain knowledge to provide effective leadership             | [wgs.yaml] entry                  |
 | KOC Member | [KOC Charter](committee-outreach/charter.md#charter)     | [Committee Structure](committee-outreach/charter.md#committee-structure)     | [Members](committee-outreach)     |
 | KDC Member | [KDC Charter](committee-distribution/charter.md#charter) | [Committee Structure](committee-distribution/charter.md#committee-structure) | [Members](committee-distribution) |
 | KSC Member | [KSC Charter](committee-steering/charter.md#charter)     | [Committee Structure](committee-steering/charter.md#committee-structure)     | [Members](committee-steering)     |
@@ -45,13 +45,13 @@ to remain active contributors to the community.
 - Have read the [contributor guide](https://www.kubeflow.org/docs/about/contributing/)
 - Sponsored by 2 Kubeflow members. **Note the following requirements for sponsors**:
   - Open an issue with [the membership template](https://github.com/kubeflow/internal-acls/blob/master/.github/ISSUE_TEMPLATE/join_org.md) against the
-    `kubeflow/internal-acls repo`
+    `kubeflow/internal-acls` repo
   - Ensure your sponsors are `@mentioned` on the issue
 - Open a pull request against the `kubeflow/internal-acls` repo
-  - Complete every item on the checklist, [preview the current version of the template][https://github.com/kubeflow/internal-acls/blob/master/.github/ISSUE_TEMPLATE/join_org.md]
+  - Complete every item on the checklist, [preview the current version of the template](https://github.com/kubeflow/internal-acls/blob/master/.github/ISSUE_TEMPLATE/join_org.md)
   - Make sure that the list of contributions included is representative of your work on the project
 - Have your sponsoring reviewers reply confirmation of sponsorship
-- Once your sponsors have responded, your request will be reviewed by the Kubeflow Steering Committee (KSC). Any missing information will be requested
+- Once your sponsors have responded, your request will be reviewed by the Kubeflow Steering Committee. Any missing information will be requested
 - After your PR is merged, you will get an email (to your GitHub-associated email address) inviting you to the Kubeflow GitHub org. Follow the instructions to accept your membership
 - To confirm that the membership acceptance process has completed, you can search for your GitHub username at https://github.com/orgs/kubeflow/people
 
@@ -165,7 +165,7 @@ The following apply to the part of codebase for which one would be an approver i
 
 WG Chairs provide overall leadership for a working group.
 
-You can find requirements, responsibilities, and privileges in [this governance document](committee-steering/wg-governance.md#asd)
+You can find requirements, responsibilities, and privileges in [this governance document](committee-steering/wg-governance.md#wg-chairs).
 
 ## Kubeflow Outreach Committee Member
 
@@ -176,9 +176,17 @@ You can find requirements, responsibilities, and privileges in [this charter](co
 
 ## Kubeflow Distribution Committee Member
 
+The Kubeflow Distribution Committee is a vendor-neutral body dedicated to supporting a healthy
+ecosystem of solutions by prioritizing the development, sustainability, interoperability, and
+distribution of individual Kubeflow subprojects.
+
 You can find requirements, responsibilities, and privileges in [this charter](committee-distribution/charter.md).
 
 ## Kubeflow Steering Committee Member
+
+The Kubeflow Steering Committee is the governing body of the Kubeflow project, providing
+decision-making and oversight pertaining to the Kubeflow project policies, sub-organizations, and
+financial planning, and defines the project values and structure.
 
 You can find requirements, responsibilities, and privileges in [this charter](committee-steering/charter.md).
 
