@@ -41,7 +41,7 @@ Authors:
   <tbody>
     <tr>
       <td>Assessment Stage</td>
-      <td>Incomplete</td>
+      <td>Complete</td>
     </tr>
     <tr>
       <td>Software</td>
