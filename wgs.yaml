@@ -46,8 +46,8 @@ workinggroups:
   contact:
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
     teams:
-    - name: wg-data-leads
-      description: Team of Data Working Group leads
+    - name: wg-data-chairs
+      description: Team of Data Working Group Chairs
   subprojects:
   - name: hub
     contact:
@@ -109,8 +109,8 @@ workinggroups:
     slack: kubeflow-ml-experience
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
     teams:
-    - name: wg-ml-experience-leads
-      description: Working Group leads and chairs
+    - name: wg-ml-experience-chairs
+      description: Team of ML Experience Working Group Chairs
   subprojects:
   - name: Kale
     contact:
@@ -179,8 +179,8 @@ workinggroups:
     slack: wg-notebooks
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
     teams:
-    - name: wg-notebooks-leads
-      description: Tech leads of wg-notebooks
+    - name: wg-notebooks-chairs
+      description: Team of Notebooks Working Group Chairs
   subprojects:
   - name: central-dashboard
     owners:
@@ -247,8 +247,8 @@ workinggroups:
     slack: kubeflow-pipelines
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
     teams:
-    - name: wg-pipeline-leads
-      description: Working Group leads and chairs
+    - name: wg-pipeline-chairs
+      description: Team of Pipelines Working Group Chairs
   subprojects:
   - name: mlflow-integration
     owners:
@@ -295,8 +295,8 @@ workinggroups:
     slack: kubeflow-trainer
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
     teams:
-    - name: wg-training-leads
-      description: Working Group leads and chairs
+    - name: wg-training-chairs
+      description: Team of Training Working Group Chairs
   subprojects:
   - name: katib
     owners:

@@ -15,6 +15,11 @@ The goal of the Kubeflow Pipelines project is to build a Kubernetes optimized st
 - ML Pipelines user facing APIs
 - Storage abstraction and integration components for pipelines
 - Pipelines Orchestration Engine
+  <<<<<<< HEAD
+  =======
+  Includes Argo and Tekton based forks, as well as new versions of orchestrators
+- Metadata Store that tracks pipeline artifacts, their lineage and dependencies as well as the ML Metadata Service exposing the Metadata APIs, and the Metadata collection agent
+  > > > > > > > cc28204 (Remove WG leads)
 - Pipeline job scheduling controller, and continuous pipeline execution services
 
 ##### FE and UI
@@ -69,4 +74,3 @@ The positions of the Chairs and TLs are granted to the organizations and compani
 New subprojects need to be reviewed and approved by the WG Leads.
 
 [wg-governance]: ../committee-steering/wg-governance.md
-[wg-subprojects]: https://github.com/Kubeflow/community/blob/master/wgs/wg-pipelines/README.md#subprojects

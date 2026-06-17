@@ -34,6 +34,6 @@ and opts-in to updates and modifications to [wg-governance].
 
 ### Subproject Creation
 
-WG Technical Leads
+New WG subprojects need to be reviewed and approved by the WG Chairs.
 
 [wg-governance]: ../committee-steering/wg-governance.md

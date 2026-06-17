@@ -21,8 +21,8 @@ WG Notebooks is responsible for the user experience around Notebooks and their i
   controller out of Kubeflow, as it's not specific to ML.
 - Maintenance of the following deprecated components, until dependant
   applications have moved off of them:
-    - Profile Controller
-    - KFAM
+  - Profile Controller
+  - KFAM
 
 #### Cross-cutting and Externally Facing Processes
 
@@ -34,8 +34,8 @@ WG Notebooks is responsible for the user experience around Notebooks and their i
 - Ensuring that the Notebook Controller images are continuously built and released.
 - Communicate the following APIs to WGs that want to integrate their web apps
   with them:
-    - The PodDefault API to integrate closely with the Notebooks UI.
-    - The CentralDashboard API to get the selected namespace from Javascript.
+  - The PodDefault API to integrate closely with the Notebooks UI.
+  - The CentralDashboard API to get the selected namespace from Javascript.
 
 ### Out of scope
 
@@ -48,6 +48,6 @@ and opts-in to updates and modifications to [wg-governance].
 
 ### Subproject Creation
 
-WG Technical Leads.
+New WG subprojects need to be reviewed and approved by the WG Chairs.
 
-[wg-governance]: ../wg-governance.md
+[wg-governance]: ../committee-steering/wg-governance.md

@@ -34,12 +34,8 @@ and opts-in to updates and modifications to [wg-governance].
 
 - list of any additional responsibilities of Chairs
 
-### Additional responsibilities of Leads
-
-- list of any additional responsibilities of Leads
-
 ### Subproject Creation
 
-New WG subprojects need to be reviewed and approved by the WG leads and chairs.
+New WG subprojects need to be reviewed and approved by the WG Chairs.
 
 [wg-governance]: ../committee-steering/wg-governance.md

@@ -27,7 +27,7 @@ The [charter](charter.md) defines the scope and governance of the Training Worki
 - Slack: [#kubeflow-trainer](https://www.kubeflow.org/docs/about/community/#slack-channels)
 - [Mailing list](https://groups.google.com/forum/#!forum/kubeflow-discuss)
 - GitHub Teams:
-    - [@kubeflow/wg-training-leads](https://github.com/orgs/kubeflow/teams/wg-training-leads) - Working Group leads and chairs
+    - [@kubeflow/wg-training-chairs](https://github.com/orgs/kubeflow/teams/wg-training-chairs) - Team of Training Working Group Chairs
 
 ## Subprojects
 

@@ -26,7 +26,7 @@ The [charter](charter.md) defines the scope and governance of the ML Experience 
 - Slack: [#kubeflow-ml-experience](https://www.kubeflow.org/docs/about/community/#slack-channels)
 - [Mailing list](https://groups.google.com/forum/#!forum/kubeflow-discuss)
 - GitHub Teams:
-    - [@kubeflow/wg-ml-experience-leads](https://github.com/orgs/kubeflow/teams/wg-ml-experience-leads) - Working Group leads and chairs
+    - [@kubeflow/wg-ml-experience-chairs](https://github.com/orgs/kubeflow/teams/wg-ml-experience-chairs) - Team of ML Experience Working Group Chairs
 
 ## Subprojects
 

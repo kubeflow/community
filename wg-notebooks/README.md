@@ -28,7 +28,7 @@ The [charter](charter.md) defines the scope and governance of the Notebooks Work
 - Slack: [#wg-notebooks](https://www.kubeflow.org/docs/about/community/#slack-channels)
 - [Mailing list](https://groups.google.com/forum/#!forum/kubeflow-discuss)
 - GitHub Teams:
-    - [@kubeflow/wg-notebooks-leads](https://github.com/orgs/kubeflow/teams/wg-notebooks-leads) - Tech leads of wg-notebooks
+    - [@kubeflow/wg-notebooks-chairs](https://github.com/orgs/kubeflow/teams/wg-notebooks-chairs) - Team of Notebooks Working Group Chairs
 
 ## Subprojects
 

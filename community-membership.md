@@ -10,7 +10,6 @@ Responsibilities for most roles are scoped to these repositories.
 | Member     | Active contributor in the community                      | Sponsored by 2 Kubeflow members                                              | Kubeflow GitHub org member        |
 | Reviewer   | Review contributions from others                         | History of contributions in a subproject                                     | [OWNERS] file reviewer entry      |
 | Approver   | Contributions acceptance approval                        | Highly experienced active contributor to a subproject                        | [OWNERS] file approver entry      |
-| WG Lead    | Technical leadership for a WG                            | Have sufficient domain knowledge to provide effective technical leadership   | [wgs.yaml] entry                  |
 | WG Chair   | Overall leadership and direction for a WG                | Have sufficient domain knowledge to provide effective leadership             | [wgs.yaml] entry                  |
 | KOC Member | [KOC Charter](committee-outreach/charter.md#charter)     | [Committee Structure](committee-outreach/charter.md#committee-structure)     | [Members](committee-outreach)     |
 | KDC Member | [KDC Charter](committee-distribution/charter.md#charter) | [Committee Structure](committee-distribution/charter.md#committee-structure) | [Members](committee-distribution) |
@@ -101,7 +100,7 @@ The following apply to the part of codebase for which one would be a reviewer in
 - Knowledgeable about the codebase
 - Active engagement with the Kubeflow community by answering user questions in GitHub issues and Slack
 - Sponsored by a subproject approver
-  - With no objections from other approvers, WG leads, or chairs
+  - With no objections from other approvers, WG chairs
 - May either self-nominate or be nominated by other Kubeflow member
 
 > [!NOTE]
@@ -142,7 +141,7 @@ The following apply to the part of codebase for which one would be an approver i
 - Primary reviewer for at least 10 substantial PRs to the codebase
 - Reviewed or merged at least 30 PRs to the codebase
 - Sponsored by a subproject approver
-  - With no objections from other approvers, WG leads, or chairs
+  - With no objections from other approvers, WG chairs
 - May either self-nominate or be nominated by other Kubeflow member
 
 > [!NOTE]
@@ -161,12 +160,6 @@ The following apply to the part of codebase for which one would be an approver i
 - Mentor contributors and reviewers
 - All privileges that reviewers have
 - May approve code contributions for acceptance
-
-## WG Lead
-
-WG Lead provides technical leadership for a working group and Kubeflow subprojects they own.
-
-You can find requirements, responsibilities, and privileges in [this governance document](committee-steering/wg-governance.md#asd)
 
 ## WG Chair
 

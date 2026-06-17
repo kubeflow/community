@@ -3,15 +3,15 @@
 This document defines the roles, organizational governance, charter process, and lifecycle of
 Kubeflow Working Groups (WGs). A major pillar of the Kubeflow's governance model is WGs.
 
-Every Kubeflow subproject MUST be owned by a WG, as defined in the [wgs.yaml].
+Every Kubeflow subproject _MUST_ be owned by a WG, as defined in the [wgs.yaml].
 
 Each WG defines a [charter](#wg-charter) that links to this document as the default
-governance. A WG MAY record deviations from these defaults in its own charter.
+governance. A WG _MAY_ record deviations from these defaults in its own charter.
 
 ## Operating Requirements
 
 In order to standardize WG efforts, create maximum transparency, and route contributors to the
-appropriate WG, WGs SHOULD follow these guidelines:
+appropriate WG, WGs _SHOULD_ follow these guidelines:
 
 - Create a charter and have it approved according to the [WG charter process](#wg-charter).
 - Meet regularly across working group or subproject discussions
@@ -27,80 +27,56 @@ appropriate WG, WGs SHOULD follow these guidelines:
 
 ## WG Structure
 
-Kubeflow WGs are composed of several leads.
-
-### WG Leads
-
-WG Lead provides technical leadership for a working group and Kubeflow subprojects they own. This is
-an optional role – if not present, WG chairs assume these responsibilities.
-
-- Number: 2+
-- Membership tracked in [wgs.yaml]
-
-#### Requirements
-
-- MUST be at least a [Member](../community-membership.md#member) on the contributor ladder
-- SHOULD hold some documented role in at least one subproject (e.g. reviewer or approver)
-- SHOULD should sustained contributions to at least one subproject
-- Have sufficient domain knowledge to provide effective technical leadership
-- Sponsored by a Kubeflow member and supported by [super-majority] vote of chairs.
-
-#### Responsibilities & Privileges
-
-- Remain active and responsive in their roles
-- When taking an extended leave of 1 or more months leads SHOULD coordinate with other leads and chairs
-  to ensure the role is adequately staffed during the leave.
-- Establish new subprojects within the WG
-- Decommission existing subprojects
-- Have write access to the Kubeflow subprojects
+Kubeflow WGs are composed of several Chairs.
 
 ### WG Chairs
 
 WG Chairs provide overall leadership for a WG. They are responsible for running operations and
 processes governing the WG.
 
+WG Chair membership disagreements may be escalated to the Kubeflow Steering Committee.
+
 - Number: 2+
 - Membership tracked in [wgs.yaml]
 
 #### Requirements
 
-- All requirements that WG leads have
+- _MUST_ be at least a [Member](../community-membership.md#member) on the contributor ladder
+- _SHOULD_ hold some documented role in at least one subproject (e.g. reviewer or approver)
+- _SHOULD_ should sustained contributions to at least one subproject
+- _SHOULD_ have sufficient domain knowledge to provide effective technical leadership
 - Sponsored by a Kubeflow member and supported by [super-majority] vote of chairs.
 
 #### Responsibilities & Privileges
 
-- All responsibilities that WG leads have
-- Establish new subprojects
+- Remain active and responsive in their roles
+- Establish new subprojects within the WG
 - Decommission existing subprojects
 - Resolve cross-subproject technical issues and decisions
 - Vote on changes to the WG charter
 - Provide yearly updates to the `kubeflow-discuss` mailing list and the community meeting.
-- Chairs SHOULD remove any other lead or chair roles that have not communicated a leave of absence
+- Chairs _SHOULD_ remove any other Chairs that have not communicated a leave of absence
   and either cannot be reached for more than 1 month or are not fulfilling their documented
   responsibilities for more than 1 month.
-  - This may be done through a [super-majority] vote of chairs.
-
-### Escalations
-
-- WG Leads membership disagreements MAY be escalated to the WG Chairs. WG Chair membership
-  disagreements may be escalated to the Kubeflow Steering Committee.
+  - This may be done through a [super-majority] vote of Chairs.
+- Have write access to the Kubeflow subprojects
 
 ## Subprojects
 
 ### Subproject Creation
 
 - Subprojects may be created by [Kubeflow Enhancement Proposal](proposals) and accepted by
-  [lazy-consensus] with fallback on majority vote of the WG Chairs. The result SHOULD be supported by the
-  majority of WG Leads.
-  - The proposal MUST establish the subproject's reviewers and approvers.
-  - [wgs.yaml] MUST be updated to include subproject information and [OWNERS] files with
+  [lazy-consensus] with fallback on majority vote of the WG Chairs. The result _SHOULD_ be supported by the
+  majority of WG Chairs.
+  - The proposal _MUST_ establish the subproject's reviewers and approvers.
+  - [wgs.yaml] _MUST_ be updated to include subproject information and [OWNERS] files with
     the subproject's reviewers and approvers.
 - Once subprojects are approved, [similar steps](../subprojects/README.md#-migration-checklist)
-  SHOULD be completed to create a new project.
+  _SHOULD_ be completed to create a new project.
 
 ### Technical Processes
 
-Subprojects of the WG MUST use the following processes:
+Subprojects of the WG _MUST_ use the following processes:
 
 - Follow the [Kubeflow Enhancement Proposal](../proposals) process to propose large feature requests
 - Maintain workable CI/CD
@@ -115,7 +91,7 @@ covered under [Subprojects](#subprojects).
 ### Prerequisites for a WG
 
 - [ ] Read this governance document.
-- [ ] Ensure all WG chairs and leads are [community members](../community-membership.md).
+- [ ] Ensure all WG chairs are [community members](../community-membership.md).
 - [ ] Send an email to the `kubeflow-discuss` mailing list to scope the WG and get provisional approval.
 - [ ] Follow the [WG charter process](#wg-charter) to propose and obtain approval for a
       charter.
@@ -149,7 +125,7 @@ All Kubeflow WGs must define a charter defining the scope and governance of the 
 - For significant changes, or any changes that could impact other WGs (such as the scope),
   create a PR and send it to the Kubeflow Steering Committee for review.
 - For minor updates that only impact issues or areas within the scope of the WG, the WG
-  Chairs SHOULD facilitate the change.
+  Chairs _SHOULD_ facilitate the change.
 
 ### Creation
 
@@ -193,6 +169,15 @@ A WG may also be retired once it has completed its mission.
   - [ ] Remove [all GitHub teams](https://github.com/kubeflow/internal-acls/blob/master/github-orgs/kubeflow/org.yaml)
         that refer to the WG.
   - [ ] Update [wgs.yaml] to remove WG.
+
+## Changes to the WG Governance
+
+Changes to the WG Governance may be proposed through a Pull Requests on this document by a
+Kubeflow community member.
+
+Amendments are accepted following the Kubeflow Steering Committee's [Normal Decision Process](../committee-steering/charter.md#normal-decision-process).
+
+Proposals and amendments to the application process are available for at least a period of one week for comments and questions before a vote will occur.
 
 [wgs.yaml]: /wgs.yaml
 [super-majority]: https://en.wikipedia.org/wiki/Supermajority#Two-thirds_vote

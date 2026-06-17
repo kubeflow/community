@@ -49,18 +49,11 @@ This WG adheres to the Roles and Organization Management outlined in [wg-governa
 
 - Coordinating and facilitating discussions on ML experience topics in scope of the WG, within the WG itself and the Kubeflow community.
 - Ensuring alignment with overall Kubeflow goals and objectives in the context of user experience to data scientists and machine learning practitioners on Kubeflow.
-
-### Additional responsibilities of Tech Leads
-
 - Providing technical guidance and mentorship to contributors working on Kubeflow JupyterLab extensions, SDK, and the projects in scope of this WG.
 - Overseeing the technical direction of the subprojects and ensuring consistency with Kubeflow's vision for Kubeflow ML Experience.
 
-### Deviations from [wg-governance]
-
-This WG follows the outlined roles and governance in [wg-governance].
-
 ### Subproject Creation
 
-WG Technical Leads
+New WG subprojects need to be reviewed and approved by the WG Chairs.
 
 [wg-governance]: ../committee-steering/wg-governance.md

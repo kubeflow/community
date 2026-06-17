@@ -28,7 +28,7 @@ The [charter](charter.md) defines the scope and governance of the Data Working G
 ## Contact
 - [Mailing list](https://groups.google.com/forum/#!forum/kubeflow-discuss)
 - GitHub Teams:
-    - [@kubeflow/wg-data-leads](https://github.com/orgs/kubeflow/teams/wg-data-leads) - Team of Data Working Group leads
+    - [@kubeflow/wg-data-chairs](https://github.com/orgs/kubeflow/teams/wg-data-chairs) - Team of Data Working Group Chairs
 
 ## Subprojects
 
