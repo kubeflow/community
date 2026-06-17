@@ -1,7 +1,7 @@
 # Kubeflow Working Group Governance
 
 This document defines the requirements, roles, lifecycle, and charter process of
-Kubeflow Working Groups (WGs). A major pillar of the Kubeflow's governance model is WGs.
+Kubeflow Working Groups (WGs). A major pillar of the Kubeflow governance model is WGs.
 
 Every Kubeflow subproject _MUST_ be owned by a WG, as defined in the [wgs.yaml].
 
