@@ -8,7 +8,7 @@ To understand how this file is generated, see https://github.com/kubeflow/commun
 --->
 # Pipelines Working Group
 
-The goal of the Kubeflow Pipelines project is to build a Kubernetes optimized stack for creating and deploying ML Pipelines and enabling a rich ecosystem of pipelines components and tools. ML Pipelines project has the goal of enabling simple and reliable productionalization of autonomous ML workflows, advancing the standards of ML Engineering and making them available to a large community of users across various Kubernetes deployment options.
+The goal of the Kubeflow Pipelines project is to build a Kubernetes optimized stack for creating and deploying ML Pipelines and enabling a rich ecosystem of pipelines components and tools. ML Pipelines project has the goal of enabling simple and reliable operationalization of autonomous ML workflows, advancing the standards of ML Engineering, and making them available to a large community of users across various Kubernetes deployment options.
 
 The [charter](charter.md) defines the scope and governance of the Pipelines Working Group.
 
@@ -31,12 +31,6 @@ The [charter](charter.md) defines the scope and governance of the Pipelines Work
 ## Subprojects
 
 The following [subprojects](https://github.com/kubeflow/community/tree/master/subprojects) are owned by WG Pipelines:
-### kfp-tekton
-- **Owners:**
-  - https://raw.githubusercontent.com/kubeflow/kfp-tekton/master/OWNERS
-### metadata
-- **Owners:**
-  - https://raw.githubusercontent.com/kubeflow/metadata/master/OWNERS
 ### pipelines
 - **Owners:**
   - https://raw.githubusercontent.com/kubeflow/pipelines/master/OWNERS
