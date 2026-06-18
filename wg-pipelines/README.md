@@ -12,7 +12,9 @@ The goal of the Kubeflow Pipelines project is to build a Kubernetes optimized st
 
 The [charter](charter.md) defines the scope and governance of the Pipelines Working Group.
 
-
+## Meetings
+* Kubeflow Pipelines Call: [Wednesdays at 1:00PM ET (Eastern Time)]() (bi-weekly). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=1:00PM&tz=ET%20%28Eastern%20Time%29).
+  * [Meeting notes and Agenda](http://bit.ly/kfp-meeting-notes).
 
 ## Organizers
 
@@ -24,16 +26,23 @@ The [charter](charter.md) defines the scope and governance of the Pipelines Work
 * Michael Zazula (**[@zazulam](https://github.com/zazulam)**), Capital One
 
 ## Contact
+- Slack: [#kubeflow-pipelines](https://www.kubeflow.org/docs/about/community/#slack-channels)
 - [Mailing list](https://groups.google.com/forum/#!forum/kubeflow-discuss)
 - GitHub Teams:
-    - [@kubeflow/wg-pipeline-leads](https://github.com/orgs/kubeflow/teams/wg-pipeline-leads) - Team of Pipeline Working Group leads
+    - [@kubeflow/wg-pipeline-leads](https://github.com/orgs/kubeflow/teams/wg-pipeline-leads) - Working Group leads and chairs
 
 ## Subprojects
 
 The following [subprojects](https://github.com/kubeflow/community/tree/master/subprojects) are owned by WG Pipelines:
+### mlflow-integration
+- **Owners:**
+  - https://raw.githubusercontent.com/kubeflow/mlflow-integration/refs/heads/main/OWNERS
 ### pipelines
 - **Owners:**
   - https://raw.githubusercontent.com/kubeflow/pipelines/master/OWNERS
+### pipelines-components
+- **Owners:**
+  - https://raw.githubusercontent.com/kubeflow/pipelines-components/refs/heads/main/OWNERS
 <!-- BEGIN CUSTOM CONTENT -->
 
 <!-- END CUSTOM CONTENT -->
