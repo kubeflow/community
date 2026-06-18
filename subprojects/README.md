@@ -7,6 +7,11 @@ You can find list of existing Kubeflow subprojects with its levels in the [PROJE
 
 You can find criteria for project status levels in the [maturity_requirements.md](maturity_requirements.md) document.
 
+## Process to Create Kubeflow Subproject
+
+Kubeflow Working Group Chairs can propose to start a new Kubeflow subproject. The process of creating
+a new project is defined [in the WG governance document](../committee-steering/wg-governance.md#subprojects)
+
 ## Process to Become Kubeflow Subproject
 
 Each subproject donated to the Kubeflow organization lives in its own directory:
@@ -52,6 +57,9 @@ Kubeflow organization following official approval.
 
 - [ ] Create OWNERS file with appropriate approvers/reviewers
 - [ ] Update CONTRIBUTING.md with Kubeflow guidelines
+- [ ] Create RELEASE.md to document release process
+- [ ] Create SECURITY.md to document security process
+- [ ] Create CODE_OF_CONDUCT.md to reference Kubeflow code of conduct
 - [ ] Add DCO (Developer Certificate of Origin) sign-off documentation
 - [ ] Verify Apache 2.0 license formatting
 - [ ] Verify if we should update copyright notices for Kubeflow ownership

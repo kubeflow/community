@@ -17,9 +17,9 @@ For example: Data Preparation, Feature Store, and Kubeflow Hub have been recentl
 #### Code, Binaries, and Other relevant assets
 
 - Onboarding and maintenance of the Spark operator for scalable and distributed data processing.
-[See also](https://github.com/kubeflow/spark-operator)
+  [See also](https://github.com/kubeflow/spark-operator)
 - Continued development of the Kubeflow Hub to manage and version machine learning models efficiently.
-[See also](https://github.com/kubeflow/hub)
+  [See also](https://github.com/kubeflow/hub)
   - Kubeflow Hub REST server
   - Kubeflow Hub Python client
   - deployment Manifests
@@ -53,18 +53,11 @@ This WG adheres to the Roles and Organization Management outlined in [wg-governa
 
 - Coordinating and facilitating discussions on Data-related topics in scope of the WG, within the WG itself and the Kubeflow community.
 - Ensuring alignment with overall Kubeflow goals and objectives in the context of data processing and ML model metadata's management.
-
-### Additional responsibilities of Tech Leads
-
 - Providing technical guidance and mentorship to contributors working on Spark operator, Kubeflow Hub, and the projects in scope of this WG.
 - Overseeing the technical direction of the subprojects and ensuring consistency with Kubeflow's vision for data processing and metadata management.
 
-### Deviations from [wg-governance]
-
-This WG follows the outlined roles and governance in [wg-governance].
-
 ### Subproject Creation
 
-WG Technical Leads
+New WG subprojects need to be reviewed and approved by the WG Chairs.
 
-[wg-governance]: ../wgs/wg-governance.md
+[wg-governance]: ../committee-steering/wg-governance.md
