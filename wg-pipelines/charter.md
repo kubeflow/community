@@ -47,30 +47,6 @@ The goal of the Kubeflow Pipelines project is to build a Kubernetes optimized st
 - Documentation for the SDK and REST API
 - Documentation for the sample components and pipelines
 
-#### Dependencies
-
-ML Pipeline projects may have dependencies on the following projects managed by other KF work groups:
-
-- KF User Profiles Controller
-  - Used by multi-user feature in fullset Kubeflow deployement
-- KF Central UI Console
-  - Used by fullset Kubeflow deployment
-- Notebook and KF integration of Notebooks
-  - Used by fullset Kubeflow deployment
-- TF Job and other training controllers
-  - Used by user's codes, e.x. certain pipeline component (one node in DAG) uses TF Job for training.
-- Katib
-  - Used by user's codes, e.x. certain pipeline component (one node in DAG) uses Katib for HP tuning etc.
-
-#### Initial set of subprojects governed by ML Pipelines WG
-
-> github.com/kubeflow/pipelines
-
-- KFP Backend (mainline), incl. all backend servers
-- KFP UI
-- KFP SDK/DSL/CLI, including samples
-- Components and pipelines content in KF repo
-
 #### Cross-cutting and Externally Facing Processes
 
 ##### ML Pipelines WG defines the following processes for the included projects:
