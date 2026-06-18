@@ -238,16 +238,29 @@ workinggroups:
     - github: zazulam
       name: Michael Zazula
       company: Capital One
-  meetings: []
+  meetings:
+  - description: Kubeflow Pipelines Call
+    day: Wednesday
+    time: 1:00PM
+    tz: ET (Eastern Time)
+    frequency: bi-weekly
+    archive_url: http://bit.ly/kfp-meeting-notes
   contact:
+    slack: kubeflow-pipelines
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
     teams:
     - name: wg-pipeline-leads
-      description: Team of Pipeline Working Group leads
+      description: Working Group leads and chairs
   subprojects:
+  - name: mlflow-integration
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/mlflow-integration/refs/heads/main/OWNERS
   - name: pipelines
     owners:
     - https://raw.githubusercontent.com/kubeflow/pipelines/master/OWNERS
+  - name: pipelines-components
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/pipelines-components/refs/heads/main/OWNERS
 - dir: wg-training
   name: Training
   mission_statement: >
