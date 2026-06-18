@@ -15,13 +15,13 @@ The [charter](charter.md) defines the scope and governance of the Pipelines Work
 ## Meetings
 * Kubeflow Pipelines Call: [Wednesdays at 1:00PM ET (Eastern Time)]() (bi-weekly). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=1:00PM&tz=ET%20%28Eastern%20Time%29).
   * [Meeting notes and Agenda](http://bit.ly/kfp-meeting-notes).
+  * [Meeting recordings](https://www.youtube.com/playlist?list=PLmzRWLV1CK_zxNI1k5aF1cJreIymqAFBo).
 
 ## Organizers
 
 * Humair Khan (**[@HumairAK](https://github.com/HumairAK)**), Red Hat
 * Chen Sun (**[@chensun](https://github.com/chensun)**), Google
 * Alexander Perlman (**[@droctothorpe](https://github.com/droctothorpe)**), Capital One
-* James Wu (**[@james-jwu](https://github.com/james-jwu)**), Google
 * Matthew Prahl (**[@mprahl](https://github.com/mprahl)**), Red Hat
 * Michael Zazula (**[@zazulam](https://github.com/zazulam)**), Capital One
 

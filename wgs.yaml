@@ -229,9 +229,6 @@ workinggroups:
     - github: droctothorpe
       name: Alexander Perlman
       company: Capital One
-    - github: james-jwu
-      name: James Wu
-      company: Google
     - github: mprahl
       name: Matthew Prahl
       company: Red Hat
@@ -245,6 +242,7 @@ workinggroups:
     tz: ET (Eastern Time)
     frequency: bi-weekly
     archive_url: http://bit.ly/kfp-meeting-notes
+    recordings_url: https://www.youtube.com/playlist?list=PLmzRWLV1CK_zxNI1k5aF1cJreIymqAFBo
   contact:
     slack: kubeflow-pipelines
     mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
