@@ -4,7 +4,7 @@ This charter adheres to the conventions, roles and organization management outli
 
 ## Scope
 
-The goal of the Kubeflow Pipelines project is to build a Kubernetes optimized stack for creating and deploying ML Pipelines and enabling a rich ecosystem of pipelines components and tools. ML Pipelines project has the goal of enabling simple and reliable productionalization of autonomous ML workflows, advancing the standards of ML Engineering and making them available to a large community of users across various Kubernetes deployment options.
+WG Pipelines focuses on building a Kubernetes optimized stack for creating and deploying ML Pipelines and enabling a rich ecosystem of pipelines components and tools. ML Pipelines project has the goal of enabling simple and reliable productionalization of autonomous ML workflows, advancing the standards of ML Engineering and making them available to a large community of users across various Kubernetes deployment options.
 
 ### In scope
 
@@ -15,11 +15,6 @@ The goal of the Kubeflow Pipelines project is to build a Kubernetes optimized st
 - ML Pipelines user facing APIs
 - Storage abstraction and integration components for pipelines
 - Pipelines Orchestration Engine
-  <<<<<<< HEAD
-  =======
-  Includes Argo and Tekton based forks, as well as new versions of orchestrators
-- Metadata Store that tracks pipeline artifacts, their lineage and dependencies as well as the ML Metadata Service exposing the Metadata APIs, and the Metadata collection agent
-  > > > > > > > cc28204 (Remove WG leads)
 - Pipeline job scheduling controller, and continuous pipeline execution services
 
 ##### FE and UI
@@ -37,7 +32,8 @@ The goal of the Kubeflow Pipelines project is to build a Kubernetes optimized st
 
 ##### Deployment
 
-- Deployment scripts and tools for deploying ML Pipeline service components on Kubernetes engines of various cloud providers and on-prem deployments
+- Deployment scripts and tools for deploying ML Pipeline service components on Kubernetes engines
+  of various cloud providers and on-prem deployments
 
 ##### Pipeline Content
 
@@ -54,23 +50,17 @@ The goal of the Kubeflow Pipelines project is to build a Kubernetes optimized st
 
 #### Cross-cutting and Externally Facing Processes
 
-##### ML Pipelines WG defines the following processes for the included projects:
-
-- Community meetings
-- Release and validation processes
-- Issue triaging and prioritization (focusing on decision making process)
-- Feature and roadmap planning
-- Integration process with other external projects
-- Extensibility points and extension development by the community. (e.g pipeline components, system extensions such as schedulers, metadata stores, etc)
+- Coordinating with other Kubeflow WGs to ensure subprojects are well integrated with Pipelines
+- Coordinating with Kubeflow Distribution Committee to ensure that Kubeflow Pipelines can be deployed
+  as part of distribution
 
 ## Roles and Organization Management
 
-This WG adheres to the Roles and Organization Management outlined in [wg-governance] and opts-in to updates and modifications to wg-governance.
-
-The positions of the Chairs are granted to the organizations and companies participating in the workgroup governance. If an individual leaves the organization to which that position was designated - the organization will have the right to appoint others to these roles.
+This WG follows adheres to the Roles and Organization Management outlined in [wg-governance]
+and opts-in to updates and modifications to [wg-governance].
 
 ### Subproject Creation
 
-New subprojects need to be reviewed and approved by the WG Leads.
+New WG subprojects need to be reviewed and approved by the WG Chairs.
 
 [wg-governance]: ../committee-steering/wg-governance.md
