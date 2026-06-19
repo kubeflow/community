@@ -15,6 +15,7 @@ The [charter](charter.md) defines the scope and governance of the ML Experience 
 ## Meetings
 * Kubeflow SDK and ML Experience Call: [Wednesdays at 08:00AM PT (Pacific Time)]() (bi-weekly). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=08:00AM&tz=PT%20%28Pacific%20Time%29).
   * [Meeting notes and Agenda](https://bit.ly/kf-ml-experience).
+  * [Meeting recordings](https://www.youtube.com/playlist?list=PLmzRWLV1CK_wSO2IMPnzChxESmaoXNfrY).
 
 ## Organizers
 
