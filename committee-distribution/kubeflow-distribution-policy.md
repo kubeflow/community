@@ -1,6 +1,6 @@
 # Kubeflow Distribution Policy
 
-[The Kubeflow Distribution](https://www.kubeflow.org/docs/started/introduction/#kubeflow-distribution)
+A [Kubeflow Distribution](https://www.kubeflow.org/docs/started/introduction/#kubeflow-distribution)
 is a vendor-provided and supported deployment of Kubeflow subprojects and integrations designed to
 run on specific infrastructure or platform environments.
 
@@ -12,7 +12,7 @@ To ensure Kubeflow users will get the expected experience and results regardless
 they run Kubeflow subprojects, each Kubeflow Distribution MUST meet the following criteria to be
 listed in [the Kubeflow Website](https://www.kubeflow.org/docs/started/installing-kubeflow/#kubeflow-distributions):
 
-- Be compatible with **n-2** version of Kubeflow Community Distribution
+- Be compatible with **n-2** major version of Kubeflow Community Distribution
 - Being listed in one of Kubeflow subprojects [`ADOPTERS.md`](https://github.com/kubeflow/community/blob/master/ADOPTERS.md)
   files
 - Well defined documentation website
