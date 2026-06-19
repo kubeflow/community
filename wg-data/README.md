@@ -43,6 +43,7 @@ The following [subprojects](https://github.com/kubeflow/community/tree/master/su
 - **Meetings:**
   - Kubeflow Hub Call: [Mondays at 7:00PM-8:00PM Europe/Madrid]() (biweekly - every other Monday of the month). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=7:00PM-8:00PM&tz=Europe%2FMadrid).
     - [Meeting notes and Agenda](https://bit.ly/kf-model-registry-notes).
+    - [Meeting recordings](https://www.youtube.com/playlist?list=PLmzRWLV1CK_ymLhMu0UMeaWPsLDPIjNnW).
 ### spark-operator
 - **Owners:**
   - https://raw.githubusercontent.com/kubeflow/spark-operator/refs/heads/master/OWNERS
@@ -51,6 +52,7 @@ The following [subprojects](https://github.com/kubeflow/community/tree/master/su
 - **Meetings:**
   - Kubeflow Spark on Kubernetes Call: [Fridays at 9:00AM-10:00AM PT (Pacific Time)]() (biweekly - every other Friday of the month). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=9:00AM-10:00AM&tz=PT%20%28Pacific%20Time%29).
     - [Meeting notes and Agenda](https://bit.ly/3VGzP4n).
+    - [Meeting recordings](https://www.youtube.com/playlist?list=PLmzRWLV1CK_xXuM6gALgBG8vDZHFCNxce).
 <!-- BEGIN CUSTOM CONTENT -->
 
 <!-- END CUSTOM CONTENT -->
