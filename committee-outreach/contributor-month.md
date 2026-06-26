@@ -37,6 +37,6 @@
 2. Can I nominate myself?
   - Nominations need to be submitted from a sponsor to showcase the contributor value to the community.
 3. Can the contributor of the Month be selected from the same organization during the same year?
-  -  There must not be more than 30% of contributors of the month from the same organization during the same year. No more than 4 Contributors of the Month per organization and year.
+  -  Yes, but with limitations. To ensure diversity, no single organization can account for more than 30% of the winners in a calendar year, with a strict cap of 4 Contributor of the Month per organization per year.
 4. To be nominated, is there a minium requirement on how long the contributor is being part of the kubeflow community?
   -  No mininum requirement, all contributors new or seasoned contributors are welcome. We value all contributions that are creating an impact on the Kubeflow community.
