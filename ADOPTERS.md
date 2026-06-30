@@ -12,10 +12,12 @@ For adopters of specific Kubeflow Subproject, please refer to the respective com
 
 | Component               | Adopter List                                                                        |
 | ----------------------- | ----------------------------------------------------------------------------------- |
-| Kubeflow Katib          | [`ADOPTERS.md`](https://github.com/kubeflow/katib/blob/master/ADOPTERS.md)          |
 | Kubeflow Hub            | [`ADOPTERS.md`](https://github.com/kubeflow/hub/blob/master/ADOPTERS.md)            |
+| Kubeflow Kale           | [`ADOPTERS.md`](https://github.com/kubeflow/kale/blob/main/ADOPTERS.md)             |
+| Kubeflow Katib          | [`ADOPTERS.md`](https://github.com/kubeflow/katib/blob/master/ADOPTERS.md)          |
 | Kubeflow Notebooks      | [`ADOPTERS.md`](https://github.com/kubeflow/notebooks/blob/main/ADOPTERS.md)        |
 | Kubeflow Pipelines      | [`ADOPTERS.md`](https://github.com/kubeflow/pipelines/blob/master/ADOPTERS.md)      |
+| Kubeflow SDK            | [`ADOPTERS.md`](https://github.com/kubeflow/sdk/blob/main/ADOPTERS.md)              |
 | Kubeflow Spark Operator | [`ADOPTERS.md`](https://github.com/kubeflow/spark-operator/blob/master/ADOPTERS.md) |
 | Kubeflow Trainer        | [`ADOPTERS.md`](https://github.com/kubeflow/trainer/blob/master/ADOPTERS.md)        |
 
