@@ -151,7 +151,7 @@ workinggroups:
   meetings:
   - description: Regular Notebooks Meeting (US & Europe friendly)
     day: Thursday
-    time: 08:00 am
+    time: 08:00AM
     tz: PT (Pacific Time)
     frequency: weekly
     url: https://www.kubeflow.org/docs/about/community/#kubeflow-community-calendar

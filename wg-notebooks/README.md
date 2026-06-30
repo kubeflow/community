@@ -13,7 +13,7 @@ WG Notebooks is responsible for the user experience around Notebooks and their i
 The [charter](charter.md) defines the scope and governance of the Notebooks Working Group.
 
 ## Meetings
-* Regular Notebooks Meeting (US & Europe friendly): [Thursdays at 08:00 am PT (Pacific Time)](https://www.kubeflow.org/docs/about/community/#kubeflow-community-calendar) (weekly). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=08:00 am&tz=PT%20%28Pacific%20Time%29).
+* Regular Notebooks Meeting (US & Europe friendly): [Thursdays at 08:00AM PT (Pacific Time)](https://www.kubeflow.org/docs/about/community/#kubeflow-community-calendar) (weekly). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=08:00AM&tz=PT%20%28Pacific%20Time%29).
   * [Meeting notes and Agenda](https://bit.ly/kf-notebooks-wg-notes).
   * [Meeting recordings](https://youtube.com/playlist?list=PLmzRWLV1CK_wpsjmJYTo50xe2eYu1-HvP&si=HUJph7a8SXbYd668).
 
