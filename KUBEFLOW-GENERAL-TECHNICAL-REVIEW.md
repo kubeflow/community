@@ -6,7 +6,7 @@
 
 - **Website:** https://www.kubeflow.org/
 
-- **Date Updated**: 2025-09-05
+- **Date Updated**: 2026-06-18
 
 - **Template Version**: v1.0
 
@@ -14,22 +14,24 @@
 
 Kubeflow is the foundation of tools for AI Platforms on Kubernetes.
 
-AI platform teams can build on top of Kubeflow by using each project independently or deploying the
-entire AI reference platform to meet their specific needs. The Kubeflow AI reference platform is
-composable, modular, portable, and scalable, backed by an ecosystem of Kubernetes-native projects
-that cover every stage of the
-[AI lifecycle.](https://www.kubeflow.org/docs/started/architecture/#kubeflow-projects-in-the-ai-lifecycle)
+AI platform teams can build on top of Kubeflow by using each project
+independently or deploying the entire suite of Kubeflow Components as shown in
+the Kubeflow Community Distribution to meet their specific needs. The Kubeflow
+platform is composable, modular, portable, and scalable, backed by an ecosystem
+of Kubernetes-native projects that cover every stage of the [AI
+lifecycle.](https://www.kubeflow.org/docs/started/architecture/#kubeflow-projects-in-the-ai-lifecycle)
 
 Whether you’re an AI practitioner, a platform administrator, or a team of developers,
 Kubeflow offers modular, scalable, and extensible tools to support your AI use cases.
 
 ## What are Kubeflow Projects
 
-Kubeflow is composed of multiple open source projects that address different aspects of the AI
-lifecycle. These projects are designed to be usable both independently and as part of the Kubeflow
-AI reference platform. This provides flexibility for users who may not need the full end-to-end
-AI platform capabilities but want to leverage specific functionalities, such as model training or
-model serving.
+Kubeflow is composed of multiple open source projects that address different
+aspects of the AI lifecycle. These projects are designed to be usable both
+independently and as part of the Kubeflow Community Distribution. This provides
+flexibility for users who may not need the full end-to-end AI platform
+capabilities but want to leverage specific functionalities, such as model
+training or running pipelines.
 
 ### Kubeflow Projects in scope for CNCF Graduation
 
@@ -40,13 +42,13 @@ model serving.
 - Kubeflow Model Registry
 - Kubeflow Pipelines
 
-## What is the Kubeflow AI Reference Platform
+## What is a Kubeflow Distribution?
 
-The Kubeflow AI reference platform refers to the full suite of Kubeflow projects bundled together
-with additional integration and management tools. Kubeflow AI reference platform deploys the
-comprehensive toolkit for the entire AI lifecycle. The Kubeflow AI reference platform can be
-installed via [Packaged Distributions](https://www.kubeflow.org/docs/started/installing-kubeflow/#packaged-distributions)
-or [Kubeflow Manifests](https://www.kubeflow.org/docs/started/installing-kubeflow/#kubeflow-manifests).
+A Kubeflow Distribution refers to the full suite of Kubeflow projects bundled together
+with additional integration and management tools and deploys a comprehensive
+toolkit that covers the entire AI lifecycle. Kubeflow can be
+installed via one of the [Packaged Distributions](https://www.kubeflow.org/docs/started/installing-kubeflow/#packaged-distributions)
+or the [Kubeflow Community Distribution](https://www.kubeflow.org/docs/started/installing-kubeflow/#kubeflow-community-distribution).
 
 ## Day 0 - Planning Phase
 
@@ -69,9 +71,10 @@ For more information, check ROADMAP for each Kubeflow Project:
 - [Kubeflow Katib](https://github.com/kubeflow/katib/blob/master/ROADMAP.md)
 - [Kubeflow Hub](https://github.com/kubeflow/hub/blob/main/ROADMAP.md)
 - [Kubeflow Pipelines](https://github.com/kubeflow/pipelines/blob/master/ROADMAP.md)
+- [Kubeflow Notebooks](https://github.com/kubeflow/notebooks/blob/main/ROADMAP.md)
 
 Community-wide changes are proposed as [Kubeflow Enhancement proposals (KEPs)](https://github.com/kubeflow/community/tree/master/proposals)
-in the `kubeflow/community` repository or in the [Kubeflow sub-projects KEPs](https://github.com/kubeflow/trainer/tree/master/docs/proposals).
+in the `kubeflow/community` repository or in the [Kubeflow sub-projects KEPs](https://github.com/kubeflow/trainer/tree/master/proposals).
 
 #### Describe the target persona or user(s) for the project
 
@@ -100,18 +103,18 @@ Additional Use Cases:
 
 #### Explain which use cases have been identified as unsupported by the project
 
-As Kubeflow is composed of multiple projects, each working group makes its own determinations as t
+As Kubeflow is composed of multiple projects, each working group makes its own determinations as to
 what will be excluded from them. However we have an overarching theme and governance structure
 (Steering Committee) that has identified the following areas as not being a priority for all projects:
 
 - The projects are deployed in any Kubernetes (each release will specify tested versions),
   regardless of the underlying infrastructure, independently through Kubernetes manifests leveraging
   Kustomize and/or Helm Charts. However, the project doesn’t provide an implementation to be deployed
-  on infrastructure besides Kubernetes. - We do not officially enforce a deployment method or distribution.
+  on infrastructure besides Kubernetes. We do not officially enforce a deployment method or distribution.
 
 - Kubeflow doesn’t provide a GitOps implementation, however Kubeflow manifests can be integrated
   into a GitOps solution. For example, Platform Engineers can create an ArgoCD Application (CRD)
-  to install and configure Kubeflow projects. by providing Kubeflow individual project manifests,
+  to install and configure Kubeflow projects by providing Kubeflow individual project manifests,
   for example Pipelines. The GitOps application will read from the Kubeflow Pipelines manifest and
   Argo CD will deploy the configurations in the target cluster.
 
@@ -158,6 +161,7 @@ are visible to the public and shared with the community.
 
 Here are some results from previous years.
 
+- [Kubeflow 2026 SDK Survey](https://blog.kubeflow.org/kubeflow-sdk-user-survey-insights/)
 - [Kubeflow 2025 Survey](https://docs.google.com/forms/d/11cSe5vmGLrGekJISHBMfjVh_97WFGuhcvGnd0l5aNLg/edit#responses)
 - [2025:UX designers supporting Model Registry conducted a series of user sessions to understand preferred interaction patterns (link)](https://docs.google.com/forms/d/11cSe5vmGLrGekJISHBMfjVh_97WFGuhcvGnd0l5aNLg/edit#responses)
 - [Kubeflow Survey 2024](https://github.com/kubeflow/community/issues/708)
@@ -179,8 +183,10 @@ or Kustomize manifests predefined and available in the Kubeflow documentation fr
 
 #### Describe the user experience (UX) and user interface (UI) of the project
 
-Kubeflow user experience in each project is a collection of projects, the user experience for the
-projects are each with their own [interfaces, APIs and SDKs](https://www.kubeflow.org/docs/started/architecture/#kubeflow-interfaces).
+Given the overall project structure, the Kubeflow user experience is
+compromised of the sum of the UX of its subprojects, which each have their own
+[interfaces, APIs and
+SDKs](https://www.kubeflow.org/docs/started/architecture/#kubeflow-interfaces).
 
 ##### Describing User Experience through SDK
 
@@ -191,7 +197,7 @@ Through Kubeflow SDK, users will be able to interact with the different projects
 
 <div style="text-align: center;">
   <img
-    src="https://raw.githubusercontent.com/kubeflow/sdk/main/docs/images/persona_diagram.svg"
+    src="https://raw.githubusercontent.com/kubeflow/sdk/main/docs/images/kubeflow-sdk.drawio.svg"
     width="600"
     title="Kubeflow SDK Personas"
     alt="Kubeflow SDK Personas"
@@ -390,7 +396,7 @@ Details [are described here](https://www.kubeflow.org/docs/started/support/#comp
 The following projects are required to install Kubeflow projects:
 
 - Istio, Knative, Cert-manager
-- Detailed information [can be found in the Kubeflow manifests](https://github.com/kubeflow/manifests#kubeflow-components-versions).
+- Detailed information [can be found in the Kubeflow Community Distribution version overview](https://github.com/kubeflow/community-distribution#kubeflow-components-versions).
 
 Specific projects have other dependencies:
 
@@ -405,8 +411,8 @@ Kubeflow projects use a pluggable system of IAM that connects back to Kubernetes
 As a reference implementation, the optional Kubeflow Manifests/Dashboard components use the
 following IAM systems:
 
-- [OAuth2 Proxy](https://github.com/kubeflow/manifests#oauth2-proxy)
-- [Kubeflow manifest with Dex](https://github.com/kubeflow/manifests#dex)
+- [OAuth2 Proxy](https://github.com/kubeflow/community-distribution#oauth2-proxy)
+- [Kubeflow manifest with Dex](https://github.com/kubeflow/community-distribution#dex)
 
 General security Talks about Kubeflow including an architectural introduction:
 
@@ -439,7 +445,7 @@ similar things from which to build on.
 #### Describe the project’s High Availability requirements
 
 The end users can adjust the replicas. Kubeflow project controllers support leader election,
-[for example Kubeflow Trainer](https://github.com/kubeflow/trainer/blob/master/cmd/trainer-controller-manager/main.go#L80).
+[for example Kubeflow Trainer](https://github.com/kubeflow/trainer/blob/a433daeee5697bfacdbfa0451a042911fbeb4874/pkg/apis/config/v1alpha1/configuration_types.go#L39).
 
 #### Describe the project’s resource requirements, including CPU, Network and Memory
 
@@ -468,7 +474,7 @@ The maximum looks hefty so rather consider in general the maximum (manifest requ
 
 Each project can configure storage in different ways. This is also true of the manifests which
 configure storage for a collection of projects.
-This [can be seen here](https://github.com/kubeflow/manifests/pull/3091).
+This [can be seen here](https://github.com/kubeflow/community-distribution/pull/3091).
 
 #### Please outline the project’s API Design
 
@@ -490,7 +496,7 @@ Kubeflow CRDs are following Kubernetes best practices for
 
 #### Describe the project defaults
 
-Some defaults can be seen [in the Kubeflow manifests](https://github.com/kubeflow/manifests#installation).
+Some defaults can be seen [in the Kubeflow Community Distribution](https://github.com/kubeflow/community-distribution#installation).
 
 Additionally, API defaults are shown in the API docs, such as:
 [Kubeflow Trainer](https://github.com/kubeflow/trainer/blob/master/pkg/apis/trainer/v1alpha1/trainjob_types.go#L128)
@@ -498,15 +504,16 @@ or [Kubeflow Katib](https://github.com/kubeflow/katib/blob/master/pkg/apis/contr
 
 #### Outline any additional configurations from default to make reasonable use of the project
 
-[Kubeflow manifests guides](https://github.com/kubeflow/manifests/blob/master/README.md).
+[Kubeflow Community Distribution guides](https://github.com/kubeflow/community-distribution/blob/master/README.md).
 
 Some public and listed distributions have their own ways
-[to install Kubeflow AI platform](https://www.kubeflow.org/docs/started/installing-kubeflow/#packaged-distributions)
+[to install Kubeflow](https://www.kubeflow.org/docs/started/installing-kubeflow/#packaged-distributions)
 
 #### Describe any new or changed API types and calls—including to cloud providers—that will result from this project being enabled and used
 
-Deploying Kubeflow manifests and individual projects results in exposing new APIs and the possibility
-to call configured 3rd party APIs if integrations exist. These all have to be explicitly set by the users.
+Deploying the Kubeflow Community Distribution and individual projects results
+in exposing new APIs and the possibility to call configured 3rd party APIs if
+integrations exist. These all have to be explicitly set by the users.
 
 #### Describe compatibility of any new or changed APIs with API servers, including the Kubernetes API server
 
@@ -523,7 +530,7 @@ Every Kubeflow project follow its own release lifecycle, for example
 [Kubeflow Trainer](https://github.com/kubeflow/trainer/tree/master/docs/release)
 or [Kubeflow Katib](https://github.com/kubeflow/katib/tree/master/docs/release).
 
-However, community also maintain [the Kubeflow AI reference platform](https://www.kubeflow.org/docs/kubeflow-platform/releases/)
+However, the community also maintain [the Kubeflow Community Distribution](https://www.kubeflow.org/docs/kubeflow-distribution/releases/)
 releases which install all Kubeflow projects together for end-to-end AI platform:
 
 ### Installation
@@ -533,12 +540,13 @@ releases which install all Kubeflow projects together for end-to-end AI platform
 [Kubeflow Installation guide](https://www.kubeflow.org/docs/started/installing-kubeflow/).
 
 Kubeflow projects can be installed as a standalone applications or together using
-the Kubeflow Manifests or Kubeflow Distributions (public or private).
+the Kubeflow Community Distribution or vendor-provided Kubeflow Distributions
+(public or private).
 
 #### How does an adopter test and validate the installation
 
-Distributions can verify the installation [by following this guide](https://github.com/kubeflow/manifests?tab=readme-ov-file#installation)
-or [executing this test suites](https://github.com/kubeflow/manifests/blob/master/.github/workflows/full_kubeflow_integration_test.yaml).
+Distributions can verify the installation [by following this guide](https://github.com/kubeflow/community-distribution/#installation)
+or [executing this test suites](https://github.com/kubeflow/community-distribution/blob/master/.github/workflows/full_kubeflow_integration_test.yaml).
 
 Kubeflow projects docs also explain how platform admins should validate the installation of individual
 applications, [for example Kubeflow Trainer](https://www.kubeflow.org/docs/components/trainer/operator-guides/installation/#installing-the-kubeflow-trainer-controller-manager)
@@ -596,7 +604,7 @@ SparkApplication to manage Spark jobs or TrainJob to manage distributed training
 #### How do you recommend users alter security defaults in order to "loosen" the security of the project
 
 Users can install Kubeflow Pipelines without multi-user isolation if they want to loosen the
-security of deployment. Users suggested to follow the Kubeflow AI reference platform deployment
+security of deployment. Users suggested to follow the Kubeflow Community Distribution deployment
 mode to install Kubeflow Pipelines control plane
 [in multi-tenant model](https://www.kubeflow.org/docs/components/pipelines/operator-guides/multi-user/).
 It provides isolation between Pipelines and Runs for users.
@@ -638,7 +646,7 @@ Some examples can be found here:
 - [Kubeflow Trainer](https://github.com/kubeflow/trainer/tree/master/.github/workflows)
 - [Kubeflow Model Registry](https://github.com/kubeflow/model-registry/tree/main/.github/workflows)
 - [Kubeflow Pipelines](https://github.com/kubeflow/pipelines/tree/master/.github/workflows)
-- [Kubeflow Manifests](https://github.com/kubeflow/manifests/blob/master/.github/workflows/full_kubeflow_integration_test.yaml)
+- [Kubeflow Community Distribution](https://github.com/kubeflow/community-distribution/blob/master/.github/workflows/full_kubeflow_integration_test.yaml)
 
 ##### Describe how the project has evaluated which features will be a security risk to users if they are not maintained by the project
 
@@ -664,11 +672,11 @@ minimizing the risk of privilege escalation.
 Users who interact with Kubeflow SDK get namespace-scoped permission to interact with required
 resources. For example, users’ role for
 [Kubeflow Trainer can be found here](https://github.com/kubeflow/trainer/blob/master/manifests/overlays/kubeflow-platform/kubeflow-trainer-roles.yaml#L17).
-All roles are aggregated in the `kubeflow-edit` cluster role after installing Kubeflow Manifests.
+All roles are aggregated in the `kubeflow-edit` cluster role after installing the Kubeflow Community Distribution.
 
 ##### Describe how the project is handling certificate rotation and mitigates any issues with certificates
 
-Kubeflow projects use [cert-manager to generate and rotate certificates](https://github.com/kubeflow/manifests/tree/master/common/cert-manager).
+Kubeflow projects use [cert-manager to generate and rotate certificates](https://github.com/kubeflow/community-distribution/tree/master/common/cert-manager).
 Those certificates are used for validation and mutation webhooks across Kubeflow projects. Cert-manager
 handles the issuance, renewal, and rotation of these certificates automatically without downtime.
 
@@ -712,7 +720,7 @@ Kubeflow projects are packaged by [distributions and vendors](https://www.kubefl
 into platform products which can be used to install our tools.
 
 We provide optional manifests to deploy all Kubeflow projects as
-[Kubeflow AI reference platform](https://github.com/kubeflow/manifests/blob/master/README.md).
+[Kubeflow Community Distribution](https://github.com/kubeflow/community-distribution).
 
 ### Project Enablement and Rollback
 
@@ -721,7 +729,7 @@ We provide optional manifests to deploy all Kubeflow projects as
 Users can set the replica count to 0 in the Kubeflow projects deployment. Existing AI workloads
 should not be impacted since it won’t be reconciled by controllers.
 
-Updating [the Kubeflow AI Reference Platform](https://github.com/kubeflow/manifests/blob/master/README.md#upgrading-and-extending).
+Updating [the Kubeflow Community Distribution](https://github.com/kubeflow/community-distribution#upgrading-and-extending).
 
 The installation guide described [when control plane is ready](https://www.kubeflow.org/docs/components/trainer/operator-guides/installation/#installing-the-kubeflow-trainer-controller-manager).
 
@@ -734,8 +742,7 @@ Istio, Knative, cert-manager might interfere with existing installations.
 
 #### Describe how the project tests enablement and disablement
 
-Conformance program [is work in progress](https://github.com/kubeflow/kubeflow/tree/master/conformance/1.7)
-to ensure tests across all Kubeflow projects.
+The Kubeflow Conformance program is currently in-progress and steered by the recently formed [Kubeflow Distribution Committee](https://github.com/kubeflow/community/tree/master/committee-distribution) to ensure a consistent experience across all Kubeflow subprojects and vendors.
 
 #### How does the project clean up any resources created, including CRDs
 
@@ -754,8 +761,8 @@ actual CRDs. For example:
 kubectl delete trainjob --all --all-namespaces
 ```
 
-Check [this guide to cleanup](https://github.com/kubeflow/manifests/blob/master/README.md#upgrading-and-extending)
-the Kubeflow AI reference platform.
+Check [this guide to cleanup](https://github.com/kubeflow/community-distribution#upgrading-and-extending)
+the Kubeflow Community Distribution.
 
 ### Rollout, Upgrade and Rollback Planning
 
@@ -763,7 +770,7 @@ the Kubeflow AI reference platform.
 
 Kubeflow projects publish its supported Kubernetes version for every release. The supported versions
 are evaluated and upgraded on every release. We support
-[Kubernetes 1.31+ and test on 1.32+](https://github.com/kubeflow/manifests/blob/master/tests/install_KinD_create_KinD_cluster_install_kustomize.sh)
+[Kubernetes 1.31+ and test on 1.36+](https://github.com/kubeflow/community-distribution/blob/master/tests/install_KinD_create_KinD_cluster_install_kustomize.sh)
 
 #### How the project handles rollback procedures
 
@@ -784,7 +791,11 @@ controllers are exposed various Prometheus metrics to indicate workload status.
 
 #### Explain how upgrades and rollbacks were tested and how the upgrade->downgrade->upgrade path was tested
 
-Currently, it’s being manually tested by users, but automated tests are work in progress.
+As part of the Kubeflow Community Distributions [Release Handbook](https://github.com/kubeflow/community-distribution/blob/master/releases/kubeflow-ai-reference-platform-release-handbook.md) the adopters of the Distribution are performing manual upgrade testing for the overall ecosystem, as well as the vendors who integrate Kubeflow subprojects as
+part of their products.
+This in turn results in version-specific notes in the [Upgrading and Extending](https://github.com/kubeflow/community-distribution/tree/master#upgrading-and-extending) section of the Kubeflow Community Distribution.
+
+Automated verification of upgrade and downgrade paths [are in discussion](https://github.com/kubeflow/community-distribution/issues/3523).
 
 #### Explain how the project informs users of deprecations and removals of features and APIs
 
@@ -816,7 +827,7 @@ kubectl get trainjob --all-namespaces
 ```
 
 The core controllers and resources are constant (beyond replicating specific controllers),
-see [the full kustomize build here](https://github.com/kubeflow/manifests?tab=readme-ov-file#install-with-a-single-command).
+see [the full kustomize build here](https://github.com/kubeflow/community-distribution#install-with-a-single-command).
 
 #### Describe how the project defines Service Level Objectives (SLOs) and Service Level Indicators (SLIs)
 
@@ -829,7 +840,7 @@ As above.
 
 #### Describe the increase in resource usage in any components as a result of enabling this project, to include CPU, Memory, Storage, Throughput
 
-Resources requirements for Kubeflow projects [are set here](https://github.com/kubeflow/manifests/pull/3091#issuecomment-3016609243).
+Resources requirements for Kubeflow projects [are set here](https://github.com/kubeflow/community-distribution/pull/3091#issuecomment-3016609243).
 
 #### Describe which conditions enabling / using this project would result in resource exhaustion of some node resources
 
@@ -882,14 +893,14 @@ For example [Kubeflow Trainer controller manager](https://github.com/kubeflow/tr
 
 #### How can an operator determine if the project is in use by workloads
 
-- Check the Pods in `kubeflow-profil`e labeled namespaces.
+- Check the Pods in `kubeflow-profile` labeled namespaces.
 - Check the CRDs in user’s namespaces
 - Check the Kubeflow Dashboard resources.
 
-#### How can someone using this project know that it is working for his instance
+#### How can someone using this project know that it is working for their instance
 
-- [Kubeflow Manifests guide](https://github.com/kubeflow/manifests#installation).
-- Run the [Kubeflow manifest test suite](https://github.com/kubeflow/manifests/blob/master/.github/workflows/full_kubeflow_integration_test.yaml)
+- [Kubeflow Community Distribution guide](https://github.com/kubeflow/community-distribution#installation).
+- Run the [Kubeflow manifest test suite](https://github.com/kubeflow/community-distribution/blob/master/.github/workflows/full_kubeflow_integration_test.yaml)
 - Run the upstream examples, for example [Kubeflow Trainer PyTorch training](https://github.com/kubeflow/trainer/blob/master/examples/pytorch/question-answering/fine-tune-distilbert.ipynb).
 
 ### Dependencies
@@ -906,7 +917,7 @@ Specific projects have other dependencies:
 - Kubeflow Model Registry: MySQL>=v8.0
 
 For details, please take a look at General security Talks about Kubeflow including
-[an architectural introduction](https://github.com/kubeflow/manifests#kubeflow-components-versions).
+[an architectural introduction](https://github.com/kubeflow/community-distribution#kubeflow-components-versions).
 
 #### Describe the project’s dependency lifecycle policy
 
@@ -936,6 +947,19 @@ More details are described in the previous sections.
 
 Each Kubeflow project handles failure modes differently beyond native Kubernetes fault tolerance.
 Many of them are configured at the application level in user code.
+
+### Compliance
+
+#### What steps does the project take to ensure that all third-party code and components have correct and complete attribution and license notices?
+
+- Describe how the project ensures alignment with CNCF [recommendations](https://github.com/cncf/foundation/blob/main/policies-guidance/recommendations-for-attribution.md) for attribution notices.
+<!--Note that each question describes a use case covered by the referenced policy document.-->
+   * How are notices managed for third-party code incorporated directly into the project's source files?
+   * How are notices retained for unmodified third-party components included within the project's repository?
+   * How are notices for all dependencies obtained at build time included in the project's distributed build artifacts (e.g. compiled binaries, container images)?
+
+Kubeflow uses [the FOSSA product](https://app.fossa.com/reports/bb8e2d41-254a-4af3-9044-e7f484c34dd1) provided by the CNCF to scan for license compliance on a regular and ongoing basis.
+
 
 ### Security
 
