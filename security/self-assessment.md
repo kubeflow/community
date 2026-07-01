@@ -5,12 +5,19 @@ This document is a Kubeflow security self-assessment.
 Authors:
 
 - Kubeflow Community
+- Alex (@droctothorpe)
+- Andrey Velichkevich (@andreyvelich)
+- Francisco Javier Arceo (@franciscojavierarceo)
+- Humair Khan (@HumairAK)
+- Julius von Kohout (@juliusvonkohout)
+- Manabu McCloskey (@nabuskey)
+- Matteo Mortari (@tarilabs)
+- Mathew Wicks (@thesuperzapper)
+- Vara Bonthu (@vara-bonthu)
 
 # Table of Contents
 
 - [Metadata](#metadata)
-- [Security links](#security-links)
-- [Software Bill of Materials](#software-bill-of-materials)
 - [Overview](#overview)
   - [Background](#background)
   - [Actors](#actors)
@@ -22,6 +29,7 @@ Authors:
 - [Project Compliance](#project-compliance)
 - [Secure Development Practices](#secure-development-practices)
   - [Development pipeline](#development-pipeline)
+  - [Software Bill of Materials](#software-bill-of-materials)
   - [Communication Channels](#communication-channels)
   - [Ecosystem](#ecosystem)
 - [Security issue resolution](#security-issue-resolution)
@@ -65,61 +73,61 @@ Authors:
   </tbody>
 </table>
 
-# Security links
-
-- Kubeflow Spark Operator security policy: https://github.com/kubeflow/spark-operator/blob/master/SECURITY.md
-- Kubeflow Notebooks security policy: https://github.com/kubeflow/notebooks/blob/master/SECURITY.md
-- Kubeflow Trainer security policy: https://github.com/kubeflow/trainer/blob/master/SECURITY.md
-- Kubeflow Katib security policy: https://github.com/kubeflow/katib/blob/master/SECURITY.md
-- Kubeflow Model Registry security policy: https://github.com/kubeflow/model-registry/blob/main/SECURITY.md
-- Kubeflow Pipelines security policy: https://github.com/kubeflow/pipelines/blob/master/SECURITY.md
-
-# Software Bill of Materials
-
-The package versions for each Kubeflow project can be found in the appropriate repositories:
-
-- Kubeflow Spark Operator
-  - Go modules: https://github.com/kubeflow/spark-operator/blob/master/go.mod
-  - FOSSA report: https://app.fossa.com/reports/b1c3b2c0-a1bf-4572-b3b2-8455729c8cf9
-- Kubeflow Notebooks
-  - Go modules: https://github.com/kubeflow/notebooks/blob/notebooks-v1/components/notebook-controller/go.mod
-  - FOSSA report: https://app.fossa.com/reports/8720a333-0c53-4a2d-a3c9-92a2435d4d7c
-- Kubeflow Trainer
-  - Go modules: https://github.com/kubeflow/trainer/blob/master/go.mod
-  - Python packages: https://github.com/kubeflow/sdk/blob/main/pyproject.toml
-  - FOSSA report: https://app.fossa.com/reports/bb8e2d41-254a-4af3-9044-e7f484c34dd1
-- Kubeflow Katib
-  - Go modules: https://github.com/kubeflow/katib/blob/master/go.mod
-  - Python packages: https://github.com/kubeflow/katib/blob/master/sdk/python/v1beta1/setup.py
-  - FOSSA report: https://app.fossa.com/reports/9762748b-b1fb-43ed-84d1-bee58e61e619
-- Kubeflow Model Registry
-  - Go modules: https://github.com/kubeflow/model-registry/blob/main/go.mod
-  - Python packages: https://github.com/kubeflow/model-registry/blob/main/clients/python/pyproject.toml
-  - FOSSA report: https://app.fossa.com/reports/0559a384-a6ce-4a37-b286-fcc47c962790
-- Kubeflow Pipelines
-  - Go modules: https://github.com/kubeflow/pipelines/blob/master/go.mod
-  - Python packages: https://github.com/kubeflow/pipelines/blob/master/sdk/python/requirements.txt
-  - FOSSA report: https://app.fossa.com/reports/295e1511-cf5e-405c-abc3-eddac2ef03ae
-
-All Kubeflow container images can be found here: https://github.com/orgs/kubeflow/packages
-
-The SBOMs for any released Kubeflow container image can be accessed using the following command:
-
-```
-docker sbom ghcr.io/kubeflow/trainer/trainer-controller-manager:v2.0.0-rc.0
-```
-
 # Overview
 
-[Kubeflow](https://www.kubeflow.org/) is the foundation of tools for AI Platforms on Kubernetes.
+[Kubeflow](https://www.kubeflow.org/) consists of multiple open source projects that run on
+Kubernetes and cover every stage of the [AI lifecycle](https://www.kubeflow.org/docs/started/architecture/#kubeflow-projects-in-the-ai-lifecycle).
+Each project can be used independently or composed into an end-to-end AI platform.
 
-AI platform teams can build on top of Kubeflow by using each project independently or deploying the
-entire AI reference platform to meet their specific needs. The Kubeflow AI reference platform is
-composable, modular, portable, and scalable, backed by an ecosystem of Kubernetes-native
-projects that cover every stage of the [AI lifecycle](https://www.kubeflow.org/docs/started/architecture/#kubeflow-projects-in-the-ai-lifecycle).
+Kubeflow subprojects have a control plane that orchestrates user-supplied AI workloads on Kubernetes,
+so its security model builds on, and inherits, the security boundary of the underlying cluster.
+Kubeflow aims to provide the following security properties:
 
-Whether you’re an AI practitioner, a platform administrator, or a team of developers, Kubeflow
-offers modular, scalable, and extensible tools to support your AI use cases.
+- **Authenticated and authorized access**: access to Kubeflow APIs is mediated by Kubernetes RBAC,
+  and access to Kubeflow web interfaces is authenticated and authorized at the Istio ingress gateway
+  together with OAuth2 Proxy. Kubeflow does not introduce an authorization path that bypasses
+  Kubernetes RBAC.
+- **Tenant isolation**: Kubeflow's control-plane components (controllers, admission webhooks, and
+  API servers, such as the Katib experiment and suggestion controllers) are shared, trusted services
+  operated by the platform administrator, not by end users. End users — including multiple, mutually
+  untrusted tenants — interact with Kubeflow only by creating namespaced custom resources (for
+  example, `Experiment`, `TrainJob`, or `SparkApplication`) in the namespaces they are granted
+  access to. Kubernetes namespaces, RBAC, and, where configured, network policies isolate each
+  tenant, so one tenant cannot read or control another tenant's resources or workloads without an
+  explicit grant. See the [Kubeflow Community Distribution architecture](https://github.com/kubeflow/community-distribution#architecture)
+  for how this isolation is composed into an end-to-end platform.
+- **Least-privilege control plane**: Kubeflow controllers run under scoped service accounts, and
+  admission webhooks validate user-submitted resources before they are admitted.
+
+These properties rely on the following trust assumptions and operator responsibilities. The
+Kubeflow control-plane components are trusted services that the platform administrator (operator)
+runs in dedicated system namespaces; end users neither run them nor have access to them. The
+operator is responsible for:
+
+- deploying, hardening, and protecting the control-plane components from compromise;
+- configuring the Kubernetes primitives Kubeflow depends on (RBAC, namespaces, network policies,
+  the Istio ingress gateway, and the identity provider);
+- enforcing pod-level isolation for workloads — the reference [Kubeflow Community Distribution](https://github.com/kubeflow/community-distribution#architecture)
+  applies Pod Security Standards `restricted` (falling back to `baseline` where a workload requires
+  it) together with network policies by default, and standalone installations of individual Kubeflow
+  projects are expected to apply the same `restricted`-by-default baseline;
+- trusting the container images and user-supplied code they choose to run.
+
+The control plane further assumes that the underlying Kubernetes cluster and its components (API
+server, etcd, kubelet, container runtime, scheduler, and CNI) are correctly operated.
+
+When these assumptions do not hold, the corresponding guarantees no longer apply. If RBAC or
+namespace isolation is misconfigured, tenant isolation can break; if the ingress gateway or identity
+provider is bypassed or misconfigured, the web-interface access controls no longer hold. Kubeflow
+executes user-supplied code and does not sandbox it beyond the isolation Kubernetes provides, so
+protecting the cluster and other tenants from a malicious or compromised workload relies on the
+Kubernetes mechanisms (RBAC, namespace isolation, Pod Security Admission, network policies, and
+resource quotas) that the operator configures. If a control-plane component itself is compromised,
+the blast radius is bounded by its service account: an attacker can disrupt orchestration for the
+resources that component manages — for example, a denial of service by failing to reconcile or
+schedule jobs — and can read or write the namespaced resources that component is authorized to
+access, but least-privilege, namespace-scoped RBAC means a single compromised controller does not by
+itself grant access to unrelated tenants' data.
 
 Please refer to [the official documentation](https://www.kubeflow.org/docs/) for more information.
 
@@ -156,10 +164,56 @@ The actors for each Kubeflow project are explained in the following sections:
 
 ![spark-operator](images/spark-operator.png)
 
-- Spark Operator controller: A controller that watches for events of SparkApplication CRDs and acts on the watch events. It includes a submission runner that runs Spark submit for submissions received from the controller, and a Spark pod monitor that watches for Spark pods and sends pod status updates to the controller.
+Spark Operator manages three Custom Resource Definitions (CRDs):
 
-- Spark Mutating Webhook: a Mutating Admission Webhook that handles customizations for Spark driver
-  and executor Pods based on the annotations on the Pods added by the controller.
+- **SparkApplication** (v1beta2): Represents a single Spark job. Users declare their Spark
+  configuration (image, main class, driver/executor resource specs, volumes, secrets) and the
+  operator handles submission and lifecycle management.
+
+- **ScheduledSparkApplication** (v1beta2): Extends SparkApplication with cron-based scheduling.
+  The controller creates SparkApplication resources at user-defined intervals based on a cron
+  expression. Note: scheduled jobs continue executing until the ScheduledSparkApplication CR is
+  explicitly deleted, even if the creating user's RBAC access is subsequently revoked.
+
+- **SparkConnect** (v1alpha1): Represents a persistent Spark Connect session (interactive Spark
+  server endpoint). The controller manages the server pod, associated services, configmaps, and
+  executor pods for the session.
+
+Components:
+
+- Spark Operator controller: A controller that watches for events of all three CRDs above and acts on the watch events. It includes a submission runner that runs Spark submit for submissions received from the controller, and a Spark pod monitor that watches for Spark pods and sends pod status updates to the controller.
+  - The submission runner is not a separate service: it is the controller itself executing
+    `spark-submit` as a subprocess, and user-supplied fields from the SparkApplication CRD are
+    passed to it as CLI arguments. The controller is a trusted component, which here means that its
+    image is built and deployed by the operator and has not been tampered with, that user-supplied
+    CRD fields have been validated by the admission webhooks before the controller processes them,
+    and that cluster-level policies (Pod Security Admission, NetworkPolicy, ResourceQuota) constrain
+    the resulting pods. The Spark Operator itself does not sandbox or restrict what a SparkApplication
+    can request; enforcing those limits is the operator's (cluster administrator's) responsibility.
+
+- Admission webhooks: the Spark Operator registers several validating and mutating admission
+  webhooks. The validating webhooks check resource specs, while the mutating webhooks set defaults
+  and inject pod-level configuration:
+  - ValidatingWebhook for `SparkApplication` — validates naming, spec consistency, and (optionally)
+    ResourceQuota usage.
+  - ValidatingWebhook for `ScheduledSparkApplication` — validates scheduled job specs.
+  - ValidatingWebhook for `SparkConnect` — validates SparkConnect specs.
+  - MutatingWebhook for `SparkApplication` — sets default values on the CRD.
+  - MutatingWebhook for `ScheduledSparkApplication` — sets default values on the CRD.
+  - MutatingWebhook for `SparkConnect` — sets default values on the CRD.
+  - MutatingWebhook for Pods (`SparkPodDefaulter`) — mutates the Spark driver and executor Pods,
+    injecting volumes, environment variables, sidecars, and security contexts based on the
+    `SparkApplication` spec.
+
+  The Pod mutating webhook is the most security-relevant endpoint: based on user-supplied
+  `SparkApplication` fields it can inject `hostNetwork`, `hostPath` volumes, `privileged` security
+  contexts, and arbitrary sidecars into pods. The webhooks intentionally do **not** restrict these
+  capabilities (container images, `hostPath`, privileged containers, etc.); enforcing such limits is
+  delegated to cluster-level Pod Security Admission, NetworkPolicy, and ResourceQuota, which the
+  operator is responsible for configuring. By default the webhooks are configured with
+  `failurePolicy: Fail` (fail-closed), so if the webhook server is unavailable no SparkApplications
+  or Spark pods can be created — secure by default, at the cost of an availability dependency on the
+  webhook server. This policy is configurable via the Helm chart.
 
 Detailed information can be found here in the official
 [Kubeflow Spark Operator docs](https://www.kubeflow.org/docs/components/spark-operator/overview/#architecture).
@@ -284,6 +338,28 @@ Detailed information can be found here in the official
 - Security and Access Control: Spark Operator leverages Kubernetes RBAC for Spark drivers and
   executors. This allows administrators to define who can create, modify, or delete SparkApplications
   and associated pods within the specific namespaces, enabling proper multi-tenant isolation.
+
+- Security compartments and blast radius: the Spark Operator's components run in separate trust
+  compartments, each bounded by its own Kubernetes service account and RBAC:
+  - The **Spark Operator controller** (including the in-process submission runner) is the most
+    privileged component, since it creates driver pods and reconciles SparkApplications across the
+    namespaces it watches. If it is compromised, the blast radius is the set of namespaces it is
+    granted access to: an attacker could disrupt orchestration (a denial of service by failing to
+    submit or reconcile jobs) and read or write the SparkApplications and pods in those namespaces,
+    but it does not by itself grant access to unrelated namespaces the controller is not authorized
+    for.
+  - The **admission webhooks** can only validate and mutate the resources submitted to them; a
+    compromise there could weaken input validation for new SparkApplications/pods (and, because the
+    webhooks are fail-closed, taking them down blocks new submissions — a DoS), but it does not give
+    access to existing workloads' data.
+  - The **driver and executor pods** run user code and are isolated per namespace by RBAC,
+    NetworkPolicy, and Pod Security Admission; a compromised workload is confined to its tenant's
+    namespace and the permissions of its own service account.
+
+  Note that these compartments are only isolated to the extent the operator configures Kubernetes to
+  enforce it. If the controller's service account is granted cluster-wide or cross-namespace
+  permissions, a compromise of the controller effectively breaks isolation between the namespaces it
+  can reach, so the controller's RBAC should be scoped to the smallest set of namespaces required.
 
 ### Kubeflow Notebooks
 
@@ -427,6 +503,41 @@ practices and is following the OpenSSF Best Practices. Kubeflow projects achieve
   - https://github.com/kubeflow/pipelines/blob/master/RELEASE.md
   - https://github.com/kubeflow/model-registry/blob/main/RELEASE.md
 
+## Software Bill of Materials
+
+The package versions for each Kubeflow project can be found in the appropriate repositories:
+
+- Kubeflow Spark Operator
+  - Go modules: https://github.com/kubeflow/spark-operator/blob/master/go.mod
+  - FOSSA report: https://app.fossa.com/reports/b1c3b2c0-a1bf-4572-b3b2-8455729c8cf9
+- Kubeflow Notebooks
+  - Go modules: https://github.com/kubeflow/notebooks/blob/notebooks-v1/components/notebook-controller/go.mod
+  - FOSSA report: https://app.fossa.com/reports/8720a333-0c53-4a2d-a3c9-92a2435d4d7c
+- Kubeflow Trainer
+  - Go modules: https://github.com/kubeflow/trainer/blob/master/go.mod
+  - Python packages: https://github.com/kubeflow/sdk/blob/main/pyproject.toml
+  - FOSSA report: https://app.fossa.com/reports/bb8e2d41-254a-4af3-9044-e7f484c34dd1
+- Kubeflow Katib
+  - Go modules: https://github.com/kubeflow/katib/blob/master/go.mod
+  - Python packages: https://github.com/kubeflow/katib/blob/master/sdk/python/v1beta1/setup.py
+  - FOSSA report: https://app.fossa.com/reports/9762748b-b1fb-43ed-84d1-bee58e61e619
+- Kubeflow Model Registry
+  - Go modules: https://github.com/kubeflow/model-registry/blob/main/go.mod
+  - Python packages: https://github.com/kubeflow/model-registry/blob/main/clients/python/pyproject.toml
+  - FOSSA report: https://app.fossa.com/reports/0559a384-a6ce-4a37-b286-fcc47c962790
+- Kubeflow Pipelines
+  - Go modules: https://github.com/kubeflow/pipelines/blob/master/go.mod
+  - Python packages: https://github.com/kubeflow/pipelines/blob/master/sdk/python/requirements.txt
+  - FOSSA report: https://app.fossa.com/reports/295e1511-cf5e-405c-abc3-eddac2ef03ae
+
+All Kubeflow container images can be found here: https://github.com/orgs/kubeflow/packages
+
+The SBOMs for any released Kubeflow container image can be accessed using the following command:
+
+```
+docker sbom ghcr.io/kubeflow/trainer/trainer-controller-manager:v2.0.0-rc.0
+```
+
 ## Communication Channels
 
 ### Internal
@@ -493,6 +604,13 @@ the reports to avoid excessive disclosure of vulnerabilities.
 
 # Appendix
 
+- _Security Policies_: each Kubeflow project documents its security policy in a `SECURITY.md` file:
+  - https://github.com/kubeflow/spark-operator/blob/master/SECURITY.md
+  - https://github.com/kubeflow/notebooks/blob/master/SECURITY.md
+  - https://github.com/kubeflow/trainer/blob/master/SECURITY.md
+  - https://github.com/kubeflow/katib/blob/master/SECURITY.md
+  - https://github.com/kubeflow/model-registry/blob/main/SECURITY.md
+  - https://github.com/kubeflow/pipelines/blob/master/SECURITY.md
 - _Known Issues Over Time_: Issues are tracked in GitHub Issues, and vulnerabilities are tracked
   and disclosed through GitHub Security Advisories for each Kubeflow project. Maintainers triage
   reported vulnerabilities, release patches for supported versions, and publish advisories as
