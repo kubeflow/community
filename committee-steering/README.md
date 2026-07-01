@@ -75,6 +75,8 @@ GitHub issue content:
       where Prow is running.
 - [ ] Kubeflow [Google Group](https://groups.google.com/g/kubeflow-discuss).
 - [ ] Update members for [KSC Google Group](https://groups.google.com/a/kubeflow.org/g/ksc).
+- [ ] Access to Kubeflow 1password account.
+- [ ] Access to Kubeflow bit.ly account.
 - [ ] Kubeflow social media resources.
   - Kubeflow [LinkedIn](https://www.linkedin.com/company/kubeflow/)
   - Kubeflow [X](https://x.com/kubeflow).
