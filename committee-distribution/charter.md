@@ -20,7 +20,7 @@ The committee will not approve decisions or policies on the upstream project tha
 - **Proprietary Lock-in:** Mandating that sub-projects or the distribution depend on proprietary APIs or closed-source components when general, open-source alternatives exist.
 - **Exclusionary Integration:** Forcing dependencies that intentionally disadvantage specific vendors or environments.
 
-Note on Compatibility: Development of community-supported, vendor-contributed adapters (e.g., data exporters, storage drivers, or external dependencies) or proprietary plugins designed to support specific environments shall remain external to the project's core functionality and as to not compromise the portability of the base ecosystem.
+Note on Compatibility: Development of community-supported, vendor-contributed adapters (e.g., data exporters, storage drivers, or external dependencies) or proprietary plugins designed to support specific environments shall remain external to the project's core functionality and as to not compromise the portability of the base ecosystem, unless it is decided that such components would pursue the goals above and not conflict with the restrictions.
 
 ## Committee Structure
 
