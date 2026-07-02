@@ -63,6 +63,7 @@ workinggroups:
       time: 7:00PM-8:00PM
       tz: Europe/Madrid
       frequency: biweekly - every other Monday of the month
+      url: https://zoom-lfx.platform.linuxfoundation.org/meeting/96514587367?password=647fd9fb-4419-4a1f-9590-224157419168
       archive_url: https://bit.ly/kf-model-registry-notes
       recordings_url: https://www.youtube.com/playlist?list=PLmzRWLV1CK_ymLhMu0UMeaWPsLDPIjNnW
   - name: spark-operator
@@ -76,6 +77,7 @@ workinggroups:
       time: 9:00AM-10:00AM
       tz: PT (Pacific Time)
       frequency: biweekly - every other Friday of the month
+      url: https://zoom-lfx.platform.linuxfoundation.org/meeting/91692004209?password=e48ce50b-b41d-459a-9f32-7313fa388380
       archive_url: https://bit.ly/3VGzP4n
       recordings_url: https://www.youtube.com/playlist?list=PLmzRWLV1CK_xXuM6gALgBG8vDZHFCNxce
 - dir: wg-ml-experience
@@ -106,6 +108,7 @@ workinggroups:
     time: 08:00AM
     tz: PT (Pacific Time)
     frequency: bi-weekly
+    url: https://zoom-lfx.platform.linuxfoundation.org/meeting/99885200814?password=12a9c369-1b62-4025-9f10-421678026350
     archive_url: https://bit.ly/kf-ml-experience
     recordings_url: https://www.youtube.com/playlist?list=PLmzRWLV1CK_wSO2IMPnzChxESmaoXNfrY
   contact:
@@ -154,7 +157,7 @@ workinggroups:
     time: 08:00AM
     tz: PT (Pacific Time)
     frequency: weekly
-    url: https://www.kubeflow.org/docs/about/community/#kubeflow-community-calendar
+    url: https://zoom-lfx.platform.linuxfoundation.org/meeting/91703267161?password=34d61440-cca9-4249-9fc9-31df1d5db746
     archive_url: https://bit.ly/kf-notebooks-wg-notes
     recordings_url: https://youtube.com/playlist?list=PLmzRWLV1CK_wpsjmJYTo50xe2eYu1-HvP&si=HUJph7a8SXbYd668
   contact:
@@ -205,6 +208,7 @@ workinggroups:
     time: 1:00PM
     tz: ET (Eastern Time)
     frequency: bi-weekly
+    url: https://zoom-lfx.platform.linuxfoundation.org/meeting/91355917913?password=a81a7846-1fcb-4ffc-9b83-6eb897da0c3a
     archive_url: http://bit.ly/kfp-meeting-notes
     recordings_url: https://www.youtube.com/playlist?list=PLmzRWLV1CK_zxNI1k5aF1cJreIymqAFBo
   contact:
@@ -254,6 +258,7 @@ workinggroups:
     time: 08:00AM
     tz: PT (Pacific Time)
     frequency: bi-weekly
+    url: https://zoom-lfx.platform.linuxfoundation.org/meeting/94838800520?password=07cd1676-1c31-4fb3-8536-732cf7dad502
     archive_url: https://bit.ly/kf-trainer-meeting
     recordings_url: https://www.youtube.com/playlist?list=PLmzRWLV1CK_xAiAY-3Vw94lrUs4xeNZ3j
   contact:
