@@ -37,5 +37,5 @@ distribution will be removed and will no longer be listed in the Kubeflow websit
 ## Changes to the Process
 
 Changes to the Kubeflow Distribution policy can be proposed by any community member via a GitHub PR.
-Amendments will be subject to approval by a standard decision of the Kubeflow Steering Committee.
+Amendments will be subject to approval by a standard decision of the Kubeflow Distribution Committee.
 Proposals will be available for at least one week for community comments before a vote occurs.
