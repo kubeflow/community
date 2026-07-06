@@ -77,7 +77,7 @@ If employers change because of job changes, acquisitions, or other events, in a 
 In the event of a question of company membership (for example evaluating independence of corporate subsidiaries) a majority of all non-involved KSC members will decide.
 
 ## Kubeflow Community Distribution maintainers
-Kubeflow Community Distribution (KCD) is community-maintained reference deployment of all Kubeflow sub-projects that is vendor neutral, multi-tenant, secure, and provides an integrated experience between components.
+The Kubeflow Community Distribution (KCD) is the community-maintained reference deployment of all Kubeflow sub-projects and is vendor neutral, multi-tenant, secure, and provides an integrated experience between components.
 ### In Scope (minimal expectations)
 
 - The Kubeflow Community Distribution must be Kubeflow Conformant.
