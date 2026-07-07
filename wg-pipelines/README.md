@@ -13,7 +13,7 @@ The goal of the Kubeflow Pipelines project is to build a Kubernetes optimized st
 The [charter](charter.md) defines the scope and governance of the Pipelines Working Group.
 
 ## Meetings
-* Kubeflow Pipelines Call: [Wednesdays at 1:00PM ET (Eastern Time)]() (bi-weekly). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=1:00PM&tz=ET%20%28Eastern%20Time%29).
+* Kubeflow Pipelines Call: [Wednesdays at 1:00PM ET (Eastern Time)](https://zoom-lfx.platform.linuxfoundation.org/meeting/91355917913?password=a81a7846-1fcb-4ffc-9b83-6eb897da0c3a) (bi-weekly). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=1:00PM&tz=ET%20%28Eastern%20Time%29).
   * [Meeting notes and Agenda](http://bit.ly/kfp-meeting-notes).
   * [Meeting recordings](https://www.youtube.com/playlist?list=PLmzRWLV1CK_zxNI1k5aF1cJreIymqAFBo).
 

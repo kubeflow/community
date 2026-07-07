@@ -41,7 +41,7 @@ The following [subprojects](https://github.com/kubeflow/community/tree/master/su
   - GitHub Teams:
     - [@kubeflow/kubeflow-hub-team](https://github.com/orgs/kubeflow/teams/kubeflow-hub-team) - Kubeflow Hub maintainers
 - **Meetings:**
-  - Kubeflow Hub Call: [Mondays at 7:00PM-8:00PM Europe/Madrid]() (biweekly - every other Monday of the month). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=7:00PM-8:00PM&tz=Europe%2FMadrid).
+  - Kubeflow Hub Call: [Mondays at 7:00PM-8:00PM Europe/Madrid](https://zoom-lfx.platform.linuxfoundation.org/meeting/96514587367?password=647fd9fb-4419-4a1f-9590-224157419168) (biweekly - every other Monday of the month). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=7:00PM-8:00PM&tz=Europe%2FMadrid).
     - [Meeting notes and Agenda](https://bit.ly/kf-model-registry-notes).
     - [Meeting recordings](https://www.youtube.com/playlist?list=PLmzRWLV1CK_ymLhMu0UMeaWPsLDPIjNnW).
 ### spark-operator
@@ -50,7 +50,7 @@ The following [subprojects](https://github.com/kubeflow/community/tree/master/su
 - **Contact:**
   - Slack: [#kubeflow-spark-on-kubernetes](https://www.kubeflow.org/docs/about/community/#slack-channels)
 - **Meetings:**
-  - Kubeflow Spark on Kubernetes Call: [Fridays at 9:00AM-10:00AM PT (Pacific Time)]() (biweekly - every other Friday of the month). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=9:00AM-10:00AM&tz=PT%20%28Pacific%20Time%29).
+  - Kubeflow Spark on Kubernetes Call: [Fridays at 9:00AM-10:00AM PT (Pacific Time)](https://zoom-lfx.platform.linuxfoundation.org/meeting/91692004209?password=e48ce50b-b41d-459a-9f32-7313fa388380) (biweekly - every other Friday of the month). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=9:00AM-10:00AM&tz=PT%20%28Pacific%20Time%29).
     - [Meeting notes and Agenda](https://bit.ly/3VGzP4n).
     - [Meeting recordings](https://www.youtube.com/playlist?list=PLmzRWLV1CK_xXuM6gALgBG8vDZHFCNxce).
 <!-- BEGIN CUSTOM CONTENT -->
