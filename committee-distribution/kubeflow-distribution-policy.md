@@ -12,12 +12,11 @@ To ensure Kubeflow users will get the expected experience and results regardless
 they run Kubeflow subprojects, each Kubeflow Distribution MUST meet the following criteria to be
 listed in [the Kubeflow Website](https://www.kubeflow.org/docs/started/installing-kubeflow/#kubeflow-distributions):
 
-- Include all Kubeflow Graduated subprojects
+- Include all [Kubeflow Graduated](../subprojects/PROJECTS.md#graduated) subprojects
 - Support Kubeflow subproject versions that are n-2 or newer relative to the latest
   Kubeflow Community Distribution (KCD) release. The supported subprojects versions for each KCD
   release are published in [the release documentation](https://www.kubeflow.org/docs/kubeflow-distribution/releases/)
-- Being listed in one of Kubeflow subprojects [`ADOPTERS.md`](https://github.com/kubeflow/community/blob/master/ADOPTERS.md)
-  files
+- Being listed in one of Kubeflow subprojects [`ADOPTERS.md`](../ADOPTERS.md) files
 - Well defined documentation website
 - Point of contact that Kubeflow community can reach out to
 - Defined Kubernetes target platform
