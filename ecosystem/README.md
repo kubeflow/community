@@ -49,7 +49,7 @@ factors they believe are essential for community adoption. These criteria includ
 
 ## Ecosystem Project Process
 
-- Open an issue using [the ecosystem application template](https://github.com/kubeflow/community/issues/new?template=ecosystem.yaml)
+- Open an issue using [the ecosystem application template](https://github.com/kubeflow/community/issues/new?template=ecosystem.yml)
   in the Kubeflow Community repository
 - Attend [the Kubeflow Community Call](http://bit.ly/kf-meeting-notes) on Tuesday to present your project and why it should be accepted
   into Kubeflow ecosystem
