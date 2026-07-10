@@ -1,21 +1,22 @@
 # Kubeflow Distribution Committee
 
-The Kubeflow Distribution Committee (KDC) is a vendor-neutral body dedicated to supporting a healthy ecosystem of solutions by prioritizing the development, sustainability, interoperability, and distribution of individual Kubeflow sub-projects. While the primary focus of the KDC is to empower these sub-projects as modular, high-quality components, the Kubeflow Community Distribution serves as a primary example of this effort – providing a validated community supported implementation that demonstrates the collective power of these projects in a unified environment. By maintaining this distribution, the KDC aims to lower the barrier to entry for users and provide a streamlined path to adoption, while ensuring that sub-projects remain robust and valuable.
+The Kubeflow Distribution Committee (KDC) is a vendor-neutral body dedicated to supporting a healthy ecosystem of solutions by prioritizing the development, sustainability, interoperability, and distribution of individual Kubeflow sub-projects. While the primary focus of the KDC is to empower these sub-projects as modular, high-quality components, the Kubeflow Community Distribution serves as a primary example of this effort – providing a validated community supported implementation that demonstrates the collective power of these projects in a unified platform.
 
 ## Charter
 
-### In Scope (Powers)
+### Goals
+
+The committee will approve policies and decisions to bound the Kubeflow subprojects that will pursue the following goals:
 
 1. Promote the Kubeflow community’s vision, values, and mission in collaboration with the KSC, KOC, and WG Chairs.
 2. Validate, report on, and advocate for the consumability of Kubeflow sub-projects by establishing requirements for portability and ease of deployment across heterogeneous environments; this includes identifying integration gaps—such as unexposed configurations or packaging hurdles—and opening issues with sub-project maintainers to help prioritize improvements necessary for the projects to be effectively integrated into the community distribution and the broader vendor ecosystem.
 3. Define and maintain the requirements for external projects and distributions of Kubeflow sub-project to be eligible to use the Kubeflow Conformant mark.
-4. Validate and impose requirements on the Kubeflow Community Distribution, which provides a reference deployment of all Kubeflow sub-projects that is vendor neutral, multi-tenant, secure, and provide an integrated experience between components.
+4. Collaborate with Kubeflow Community Distribution maintainers
 
-### Out of Scope (Limitations)
+### Restrictions
 
 - Anti-Ecosystem-Competitive Actions: Engaging in or permitting actions that undermine the longevity of the community or violate vendor-neutral sovereignty. This includes, but is not limited to:
 - **Proprietary Lock-in:** Mandating that sub-projects or the distribution depend on proprietary APIs or closed-source components when general, open-source alternatives exist.
-- **Core Fragmentation:** Implementing core functionality that is not upstreamed, as the KDC’s goal is to maintain a Kubernetes-native, portable, and extensible foundation.
 - **Exclusionary Integration:** Forcing dependencies that intentionally disadvantage specific vendors or environments.
 - **Note on Compatibility:** This does not exclude the development of community-supported or vendor-contributed adapters (e.g., data exporters, storage drivers, or external dependencies) designed to support specific environments, provided they remain external to the project's core functionality and do not compromise the portability of the base ecosystem.
 
@@ -68,14 +69,14 @@ The decisions is adopted if more then half of the votes (rounded up) support it,
 
 ### Limitations on Company Representation
 
-No more than one maintainer or vendor seat may be held by employees of the same organization (or conglomerate, in the case of companies owning each other).
+No more than one maintainer or vendor seat may be held by employees of the same organization (or conglomerate, in the case of companies owning each other). The organization seat may be transferred within members of the same organization during the 1 year term, if KSC approves it.
 
 If employers change because of job changes, acquisitions, or other events, in a way that would be in violation of the proceeding limits, sufficient members of the committee must resign their positions until the requirements are satisfied. If it is impossible to find sufficient members to resign, all employees of that organization will be removed and the vacancies will be filled using the normal process.
 
 In the event of a question of company membership (for example evaluating independence of corporate subsidiaries) a majority of all non-involved KSC members will decide.
 
 ## Kubeflow Community Distribution maintainers
-
+The Kubeflow Community Distribution (KCD) is the community-maintained reference deployment of all Kubeflow sub-projects and is vendor neutral, multi-tenant, secure, and provides an integrated experience between components.
 ### In Scope (minimal expectations)
 
 - The Kubeflow Community Distribution must be Kubeflow Conformant.
@@ -85,7 +86,7 @@ In the event of a question of company membership (for example evaluating indepen
 - Maintain the evolving and not exhaustive list of included dependencies for a proper multi-tenant platform installation: Istio, KNative, Dex, Oauth2-proxy, Cert-Manager, ... as well as Kubeflow sub-projects, Kubeflow Ecosystem projects and disabled by default experimental integrations.
 - Release tested releases of the Kubeflow Community Distribution for downstream consumption.
 - Provide guidance and examples how the consumer could integrate non-default external authentication (e.g., companies' Identity Provider) and popular non-default services on his own.
-- Make Kubeflow Community Distribution compatible with the popular Kubernetes clusters (Kind, Rancher, AKS, GKE, EKS, OpenShift)
+- Make Kubeflow Community Distribution compatible with the popular Kubernetes clusters (Kind, Rancher, AKS, GKE, EKS, OpenShift, MicroK8s)
 - Aid the Kubeflow subproject maintainers in creating manifests (Helm, Kustomize), security best practices, maintain releases and versioning for their application.
 
 ### Kubeflow Community Distribution maintainer requirements
