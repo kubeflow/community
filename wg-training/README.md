@@ -21,7 +21,7 @@ The [charter](charter.md) defines the scope and governance of the Training Worki
 
 * Andrey Velichkevich (**[@andreyvelich](https://github.com/andreyvelich)**), Apple
 * Antonin Stefanutti (**[@astefanutti](https://github.com/astefanutti)**), Red Hat
-* Yuki Iwai (**[@tenzen-y](https://github.com/tenzen-y)**), CyberAgent, Inc.
+* Yuki Iwai (**[@tenzen-y](https://github.com/tenzen-y)**), Preferred Networks, Inc.
 * Yuan Tang (**[@terrytangyuan](https://github.com/terrytangyuan)**), Red Hat
 
 ## Contact
