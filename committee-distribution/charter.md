@@ -11,7 +11,7 @@ The committee will approve policies and decisions to bound the Kubeflow subproje
 1. Promote the Kubeflow community’s vision, values, and mission in collaboration with the KSC, KOC, and WG Chairs.
 2. Validate, report on, and advocate for the consumability of Kubeflow sub-projects by establishing requirements for portability and ease of deployment across heterogeneous environments; this includes identifying integration gaps—such as unexposed configurations or packaging hurdles—and opening issues with sub-project maintainers to help prioritize improvements necessary for the projects to be effectively integrated into the community distribution and the broader vendor ecosystem.
 3. Define and maintain the requirements for external projects and distributions of Kubeflow sub-project to be eligible to use the Kubeflow Conformant mark.
-4. Collaborate with Kubeflow Community Distribution maintainers
+4. Define and maintain the requirements for the Kubeflow Community Distribution. Subject to the _KCD Decision Process_.
 
 ### Restrictions
 
