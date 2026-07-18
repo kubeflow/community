@@ -13,9 +13,10 @@ they run Kubeflow subprojects, each Kubeflow Distribution MUST meet the followin
 listed in [the Kubeflow Website](https://www.kubeflow.org/docs/started/installing-kubeflow/#kubeflow-distributions):
 
 - Include all [Kubeflow Graduated](../subprojects/PROJECTS.md#graduated) subprojects
-- Support Kubeflow subproject versions that are n-2 or newer relative to the latest
-  Kubeflow Community Distribution (KCD) release. The supported subprojects versions for each KCD
-  release are published in [the release documentation](https://www.kubeflow.org/docs/kubeflow-distribution/releases/)
+- Support Kubeflow subproject versions that are equal or newer relative to the latest
+  Kubeflow Community Distribution (KCD) release or at least two major versions
+  prior to that. The supported subproject versions for each KCD release are
+  published in [the release documentation](https://www.kubeflow.org/docs/kubeflow-distribution/releases/)
 - Being listed in one of Kubeflow subprojects [`ADOPTERS.md`](../ADOPTERS.md) files
 - Well defined documentation website
 - Point of contact that Kubeflow community can reach out to
