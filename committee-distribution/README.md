@@ -12,9 +12,11 @@ The current membership of the committee is (listed alphabetically by first name)
 
 ### Vendor Representatives
 
-| Name | Organization | GitHub |
-| ---- | ------------ | ------ |
-| TODO | TODO         | TODO   |
+| Name                   | Organization | GitHub                                                          |
+| ---------------------- | ------------ | --------------------------------------------------------------- |
+| Francisco Javier Arceo | Red Hat      | [franciscojavierarceo](https://github.com/franciscojavierarceo) |
+| Rob Gibbon             | Canonical    | [grobbie](https://github.com/grobbie)                           |
+| Vikas Saxena           | RAICS.AI     | [vikas-saxena02](https://github.com/vikas-saxena02)             |
 
 ### Kubeflow Community Distribution Representatives
 
