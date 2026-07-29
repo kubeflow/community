@@ -2,7 +2,7 @@
 
 The Kubeflow Distribution Committee (KDC) is a vendor-neutral body dedicated to supporting a healthy
 ecosystem of solutions by prioritizing the development, sustainability, interoperability,
-and distribution of individual Kubeflow sub-projects.
+and distribution of individual Kubeflow Subprojects.
 
 The [charter](charter.md) defines the scope and governance of the KDC.
 
@@ -13,23 +13,28 @@ The current membership of the committee is (listed alphabetically by first name)
 ### Vendor Representatives
 
 | Name                   | Organization | GitHub                                                          | Term Start | Term End   |
-| ---------------------- | ------------ | --------------------------------------------------------------- | ---------- | ---------- |
+|------------------------|--------------|-----------------------------------------------------------------|------------|------------|
 | Francisco Javier Arceo | Red Hat      | [franciscojavierarceo](https://github.com/franciscojavierarceo) | 07/17/2026 | 07/17/2027 |
 | Rob Gibbon             | Canonical    | [grobbie](https://github.com/grobbie)                           | 07/17/2026 | 07/17/2027 |
 | Vikas Saxena           | RAICS.AI     | [vikas-saxena02](https://github.com/vikas-saxena02)             | 07/17/2026 | 07/17/2027 |
 
 ### Kubeflow Community Distribution Representatives
 
-| Name              | Organization  | GitHub                                                |
-| ----------------- | ------------- | ----------------------------------------------------- |
-| Julius von Kohout | DHL Data & AI | [juliusvonkohout](https://github.com/julusvonkohout/) |
-| Tarek Abouzeid    | Telia         | [tarekabouzeid](https://github.com/tarekabouzeid/)    |
+| Name              | Organization  | GitHub                                                | Term Start | Term End   |
+|-------------------|---------------|-------------------------------------------------------|------------|------------|
+| Julius von Kohout | DHL Data & AI | [juliusvonkohout](https://github.com/julusvonkohout/) | 06/05/2026 | 06/05/2027 |
+| Tarek Abouzeid    | Telia         | [tarekabouzeid](https://github.com/tarekabouzeid/)    | 06/05/2026 | 06/05/2027 |
 
 ### Kubeflow Subproject Representatives
 
-| Name | Subproject       | GitHub |
-| ---- | ---------------- | ------ |
-| TODO | Kubeflow Trainer | TODO   |
+| Kubeflow Subproject     | Name | Organization | GitHub | Term Start | Term End |
+|-------------------------|------|--------------|--------|------------|----------|
+| Kubeflow Hub            | TBD  | -            | -      | -          | -        |
+| Kubeflow Katib          | TBD  | -            | -      | -          | -        |
+| Kubeflow Notebooks      | TBD  | -            | -      | -          | -        |
+| Kubeflow Pipelines      | TBD  | -            | -      | -          | -        |
+| Kubeflow Spark Operator | TBD  | -            | -      | -          | -        |
+| Kubeflow Trainer        | TBD  | -            | -      | -          | -        |
 
 ## Meetings
 
