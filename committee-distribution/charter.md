@@ -111,12 +111,6 @@ Rules for voting:
 - Votes may only pass when at least 50% of the TOTAL vote weight (rounding down) have been cast.
 - Votes expire if they are not adopted within 30 days of the vote being opened.
 
-## Changes to the Charter
-
-Changes to the KDC charter can be proposed by any community member via a GitHub PR. 
-Amendments will be subject to approval by a standard decision of the KSC. 
-Proposals will be available for at least one week for community comments before a vote occurs.
-
 ---
 
 ## Kubeflow Community Distribution maintainers
@@ -158,3 +152,11 @@ https://www.kubeflow.org/docs/about/membership/#reviewer
 The high level reasoning is that approvers should have lead efforts and have expertise in the different processes and artefacts maintained in the manifests/distribution repository as well as be invested in the community of the WG/Committee.
 
 https://www.kubeflow.org/docs/about/membership/#approver requirements should be consistently proven for at least the last 12 months.
+
+---
+
+## Changes to the Charter
+
+Changes to the KDC charter can be proposed by any community member via a GitHub PR. 
+Amendments will be subject to approval by a standard decision of the KSC. 
+Proposals will be available for at least one week for community comments before a vote occurs.
