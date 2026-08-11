@@ -1,0 +1,71 @@
+name: Infrastructure Request
+description: Request development or testing resources in the CNCF Kubeflow OCI Tenancy.
+title: "[Infra Request]: <Short Summary>"
+labels: ["area/infrastructure"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for submitting an infrastructure request! Please fill out the details below so that KSC members, WG leads, and OCI admins can review and approve your request. See [KEP-939](https://github.com/kubeflow/community/tree/master/proposals/939-oci-infrastructure-management) for the full process.
+  - type: input
+    id: poc
+    attributes:
+      label: Point of Contact (PoC)
+      description: The GitHub username(s) of the person/people responsible for this resource.
+      placeholder: "@username"
+    validations:
+      required: true
+  - type: dropdown
+    id: association
+    attributes:
+      label: Working Group / Community Role
+      description: What is your association/role in the Kubeflow community?
+      options:
+        - WG Lead
+        - KSC Member
+        - GSoC Mentor
+        - GSoC Contributor
+        - WG Contributor
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: duration
+    attributes:
+      label: Requested Duration
+      description: How long is this resource required for? (e.g., 30 days, 90 days, or GSoC duration)
+      placeholder: "e.g., 90 days"
+    validations:
+      required: true
+  - type: textarea
+    id: resources
+    attributes:
+      label: Resource Requirements
+      description: List the required compute, memory, OS, or specialized hardware (e.g., CPU cores, RAM, GPU, OS, storage).
+      placeholder: |
+        - VM Type: (e.g., ARM64, AMD64)
+        - vCPUs:
+        - RAM:
+        - OS: (e.g., Ubuntu 22.04)
+        - GPU: (if needed, specify model/count)
+        - Storage:
+    validations:
+      required: true
+  - type: textarea
+    id: justification
+    attributes:
+      label: Justification & Use Case
+      description: Explain why these resources are needed and how they benefit the Kubeflow community.
+      placeholder: Describe the project scope, testing plans, and why local or public CI options are insufficient.
+    validations:
+      required: true
+  - type: checkboxes
+    id: compliance
+    attributes:
+      label: Operational Compliance
+      description: Please acknowledge the following compliance requirements.
+      options:
+        - label: I agree to tag all resources according to KEP-939 (owner, issue, expiry_date).
+          required: true
+        - label: I understand that resources will be decommissioned automatically when the requested duration ends, unless an extension is requested and approved.
+          required: true
