@@ -1,17 +1,17 @@
 name: Infrastructure Request
-description: Request development or testing resources in the CNCF Kubeflow OCI Tenancy.
-title: "[Infra Request]: <Short Summary>"
+description: Request development or testing resources in the CNCF Kubeflow Oracle Cloud Infrastructure (OCI) Tenancy.
+title: "[Infrastructure Request]: <Short Summary>"
 labels: ["area/infrastructure"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thank you for submitting an infrastructure request! Please fill out the details below so that KSC members, WG leads, and OCI admins can review and approve your request. See [KEP-939](https://github.com/kubeflow/community/tree/master/proposals/939-oci-infrastructure-management) for the full process.
+        Thank you for submitting an infrastructure request! Please fill out the details below so that KSC members, WG leads, and Oracle Cloud Infrastructure (OCI) admins can review and approve your request. See [KEP-939](https://github.com/kubeflow/community/tree/master/proposals/939-oci-infrastructure-management) for the full process.
   - type: input
     id: poc
     attributes:
       label: Point of Contact (PoC)
-      description: The GitHub username(s) of the person/people responsible for this resource.
+      description: The GitHub handle(s) of one or more person/team responsible for this resource.
       placeholder: "@username"
     validations:
       required: true
