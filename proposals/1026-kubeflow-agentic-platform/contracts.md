@@ -1,0 +1,164 @@
+# Kubeflow Agent Integration Contract: Normative Contracts
+
+This document describes what must happen when an agent uses a Kubeflow capability. It is written as a request flow so project teams can see where each responsibility belongs.
+
+The words **MUST**, **MUST NOT**, and **MAY** are normative. Exact JSON Schemas, Kubernetes manifests, and test fixtures belong in implementation repositories and profile locks.
+
+## The request flow
+
+```text
+1. Discover a capability
+2. Load its Skill and tool metadata
+3. Resolve identity and scope
+4. Preview a mutation
+5. Obtain user approval
+6. Execute the native operation
+7. Follow native status and evidence
+8. Retry safely or reconcile failures
+```
+
+The same flow applies to Trainer, KFP, KServe, Katib, Spark, Hub / Model Registry, Semantic Operator, and other approved adapters.
+
+## 1. Responsibilities by layer
+
+| Layer | Owns | Does not own |
+| --- | --- | --- |
+| Agent harness, such as Kagent | Model calls, planning, memory/context, tool selection, user interaction, and approval UI. | Kubernetes authorization or native resource lifecycle. |
+| MCP client | MCP negotiation, request metadata, Skills/Tasks calls, retries, and transport. | Authority to grant access. |
+| Agentgateway | Authentication, token exchange or impersonation, routing, policy, audit, and telemetry. | Operator status or model planning. |
+| Kubeflow MCP adapter | Capability discovery, SDK/API translation, preview, confirmation verification, idempotency, and native references. | A new controller, lifecycle database, or universal state model. |
+| Operator, controller, or service | Native resources, schemas, status, errors, scheduling, and data. | Agent-specific planning or prompt behavior. |
+
+This KEP defines the interfaces between these layers. It does not require a particular model provider, prompt strategy, memory implementation, planning algorithm, or agent-quality score.
+
+## 2. Protocol and discovery
+
+The reference protocol is MCP `2026-07-28`. A conformant server MUST:
+
+- support `server/discover`;
+- support namespaced request metadata in `_meta`;
+- declare and negotiate optional extensions explicitly;
+- implement the Skills methods when Skills are advertised; and
+- define a clear fallback when a client or backend lacks an optional extension.
+
+The initial Skills contract requires `io.modelcontextprotocol/skills`, `skills/list`, `skills/get`, and `resources/read`. MCP Tasks are used when the selected profile advertises them. Legacy session translation MAY be provided by Agentgateway, but stateful session affinity is not required by this KEP.
+
+## 3. Capability and pack descriptions
+
+Every enabled adapter MUST expose a versioned capability resource such as:
+
+```text
+kubeflow://capabilities/<component>.json
+```
+
+The descriptor MUST state the component and contract versions, status, usable tools and resources, Skills, personas, feature gates, hard dependencies, optional integrations, Profile scope, supported API/CRD versions, authorization-filtered availability, and observation time.
+
+Unavailable or unauthorized operations MUST NOT be advertised as usable. A degraded descriptor MUST explain the reason and expose only the operations that still work.
+
+Every installable capability pack MUST also have a versioned manifest describing:
+
+- required and optional dependencies;
+- supported topologies;
+- exposed tools, resources, Skills, and personas;
+- SDK/API/CRD and feature-gate requirements;
+- security scopes;
+- enable, disable, deprecation, and upgrade behavior; and
+- owner and conformance evidence.
+
+A pack manifest describes a capability. It never grants authority. A pack with an unsatisfied hard dependency MUST be unavailable rather than advertising unsafe mutations.
+
+Existing external MCP servers, such as MLflow MCP or Feast MCP, MAY remain independent backends and be federated through Agentgateway. Federation does not make them Kubeflow adapters or transfer ownership of their native APIs, resources, status, or release lifecycle. A federated backend MUST satisfy the same identity, policy, naming, protocol, and conformance requirements claimed by the deployment.
+
+## 4. Operator adapter rules
+
+Every adapter MUST:
+
+1. call a supported SDK or documented API;
+2. preserve native validation, authorization, status, errors, and lifecycle;
+3. return the authoritative native resource reference in additive response data;
+4. preserve existing MCP tool names, required parameters, and shared response shapes;
+5. declare supported versions and feature gates; and
+6. provide unit, API/SDK, security, failure, and conformance fixtures.
+
+Trainer and `TrainJob` are the first reference adapter. They demonstrate the contract and do not create Trainer-specific rules for other operators.
+
+## 5. Skills and untrusted content
+
+Each stable Skill entry MUST include its `SKILL.md` URI, complete frontmatter, every supporting file, and each file's raw-byte SHA-256 digest and byte size. Skill identity is the originating server plus URI. A Skill name or URI scheme alone is not enough to identify it.
+
+Kubeflow metadata MAY be carried in Agent Skills `metadata` frontmatter, but it MUST NOT redefine the Skills protocol. OCI packaging for Kagent is a separate artifact whose digest is pinned in the profile lock.
+
+Skills, logs, events, model cards, datasets, traces, and other retrieved content are untrusted. They MUST NOT grant authorization, contain credentials, bypass confirmation, or change server policy. Executable Skill content requires explicit filesystem, secret, resource, and network-egress limits.
+
+## 6. Identity and authorization
+
+The server MUST derive actor, Profile, namespace, persona, and native authorization from verified identity and server-side policy. A client MAY send untrusted selectors such as:
+
+```json
+{
+  "_meta": {
+    "io.kubeflow/request-id": "018f...",
+    "io.kubeflow/profile-selector": "team-a",
+    "io.kubeflow/namespace-selector": "team-a"
+  }
+}
+```
+
+Selectors may only choose exactly one scope already allowed for the authenticated actor. Zero, multiple, inconsistent, or unauthorized matches MUST fail closed. A selector never grants access.
+
+Gateway identity MUST use an audience-bound credential exchange or trusted workload identity with explicit user impersonation. An MCP token MUST NOT be forwarded to Kubernetes, MLflow, or another resource server unless it was deliberately issued for that audience.
+
+Authorization uses deny-overrides:
+
+1. verified identity and native Kubernetes authorization define the maximum authority;
+2. Profile and operator policy may restrict that authority;
+3. MCP persona and tool policy may further restrict exposure; and
+4. the harness may request less authority but can never grant more.
+
+A denial at any layer is final and MUST not reveal unauthorized resource details.
+
+## 7. Mutation safety
+
+Every mutating operation MUST follow this sequence:
+
+1. `confirmed=false` returns a preview;
+2. the preview describes expected effects, policy warnings, resource/quota observations, expiry, and safety preconditions;
+3. user approval binds the actor, Profile, tool, canonical arguments, `request_id`, and `plan_id`; and
+4. `confirmed=true` executes only after server-side authorization and approval verification.
+
+A model-authored `confirmed=true` is never proof of user approval. The implementation MUST first evaluate MCP Elicitation or the harness's native approval surface. If that cannot bind approval to the exact preview, Gateway mutation conformance remains deferred or uses a versioned signed approval receipt. The receipt contract must define its signature algorithm, issuer, audience, key distribution, revocation, and replay rules.
+
+## 8. Safe retries and stored state
+
+`request_id` identifies one client intent and is the idempotency key for confirmed mutations. The server MUST store pending Tasks, previews, approvals, and completed request results in a shared durable store that survives restarts and multiple replicas.
+
+The server MUST compare retries using a deterministic canonical argument representation. The representation includes every semantic tool argument and excludes `confirmed`, approval receipts, trace context, and other transient metadata. It must define defaults, omitted values, numbers, and Unicode handling.
+
+An identical retry returns the original result. A changed request returns a conflict and MUST NOT create another resource. The store must support atomic writes, TTL, cleanup, recovery, concurrency control, privacy, and signing-key rotation.
+
+## 9. Tasks and native resources
+
+MCP Tasks provide durable handles for polling, reconnect, input, and cooperative cancellation. They MUST NOT replace a native `TrainJob`, KFP run, model version, `InferenceService`, or other operator resource.
+
+The native resource remains authoritative when Task state and native state differ. The adapter MUST distinguish:
+
+- native resource created and Task linked;
+- native submission rejected and no resource created;
+- submission outcome unknown and reconciliation required; and
+- Task expired while the native resource remains observable.
+
+A cancellation race must report whether cancellation was accepted, rejected, or still pending. Cross-operator partial effects must identify completed, failed, and unknown effects. This KEP does not promise distributed transactions.
+
+## 10. Evidence, resources, and governance
+
+Adapters MAY return immutable native references, opaque authorized evidence links, and additive correlation metadata. Full workflow and operation URIs belong in annotations, traces, or protected audit data, not Kubernetes labels or metric dimensions. Evidence links MUST reauthorize on dereference, expire when required, and contain no credentials.
+
+OpenTelemetry and audit records MUST redact credentials and sensitive attributes and limit high-cardinality dimensions. Native status and evidence must remain usable when one continuous trace is unavailable.
+
+Profiles MUST define resource, accelerator, queue, quota, and optional cost limits for mutating plans. A preview MUST distinguish an estimate from an admission guarantee. Regulated or sensitive-data deployments must define retention, residency, data classification, and prompt/trace storage policy.
+
+## 11. Compatibility
+
+Every supported topology and capability-pack combination MUST have a profile lock containing component, SDK/API/CRD, MCP, gateway, identity, image, Skill, storage, and feature-gate versions. Floating versions are not conformant.
+
+Agentgateway federation MUST lock tool names, reject collisions, preserve Skill origin, and reject a backend that would downgrade the required MCP revision or extensions. Progressive and semantic tool modes remain outside the first conformance profile unless the inner tool identity and arguments are enforced at every authorization, approval, and audit boundary.
