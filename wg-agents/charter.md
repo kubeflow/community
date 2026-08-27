@@ -1,4 +1,4 @@
-# WG Agent Charter
+# WG Agents Charter
 
 This charter adheres to the conventions, roles and organization management outlined in [wg-governance].
 
