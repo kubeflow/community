@@ -28,12 +28,12 @@ In the end, this WG seeks to ensure the success of Agentic tools deployed within
 
 #### Guiding Principles
 
-- Synergy among Kubeflow Working Groups: Collaborate with other WGs to ensure the success of Agentic tools deployed within or alongside Kubeflow project components.
+- Synergy among Kubeflow Working Groups: Collaborate with other WGs to ensure the success of Agentic tools deployed within or alongside Kubeflow subprojects.
 - Ecosystem Interoperability: Technical collaboration with agent-focused [ecosystem partners](/ecosystem/PROJECTS.md) to ensure smooth integration, open standards, and operational stability within the Kubeflow environment.
 
 #### Cross-cutting and Externally Facing Processes
 
-- Collaboration with other Kubeflow WGs, including WG ML Experience, WG Pipelines, WG Training, and WG Serving, to ensure that agentic tools are interoperable and secure across different stages of the ML lifecycle.
+- Collaboration with other Kubeflow WGs, including WG ML Experience, WG Pipelines, and WG Training to ensure that agentic tools are interoperable and secure across different stages of the ML lifecycle.
 - Coordination with the release teams to align updates in agentic reference architectures and MCP servers with broader Kubeflow release schedules.
 
 ### Out of scope
