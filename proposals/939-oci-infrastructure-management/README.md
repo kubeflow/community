@@ -216,7 +216,9 @@ securely deploy their cluster.
    Contributors or WG Leads open an issue in the `kubeflow/community` repository
    using the designated template. This requires details on purpose, resource
    specifications (vCPUs, RAM, OS), requested duration (lease term), and an
-   identified Point of Contact (PoC).
+   identified Point of Contact (PoC). The template automatically applies the
+   `infra/needs-allocation` label to mark the request as awaiting
+   allocation.
 2. **Review & Approval:**
    Requests undergo review by KSC members, WG leads, and Oracle Cloud
    Infrastructure (OCI) administrators. Formal approval requires at least one
@@ -225,14 +227,18 @@ securely deploy their cluster.
    Following approval, the team provisions the resources strictly via Terraform
    and deploys the standard Kubeflow Community Distribution. Access is then
    granted to the PoC by merging the appropriate RBAC changes into the GitOps
-   repository.
+   repository. The issue's `infra/needs-allocation` label is replaced with
+   `infra/allocated` plus the timeline label matching the approved lease
+   (e.g., `infra/timeline-90d`).
 4. **Lifecycle, Leases & Cleanup:**
    To maintain visibility, all resources operate on a strict lease methodology.
    Provisioned resources are tagged within Terraform with the GitHub Issue
    number, owner, and lease expiration date.
 5. **Alerting:**
    Automated methodologies will be put in place to alert the management team and
-   KSC on long-running clusters.
+   KSC on long-running clusters. As the lease progresses, the issue's timeline
+   label is downgraded (`infra/timeline-120d` → `-90d` → `-60d` → `-30d` →
+   `-expired`) with a reminder comment mentioning the PoC at each transition.
 6. **Auditing & Renewal:**
    Before a lease expires, the PoC is alerted and must actively renew access.
    This triggers a brief audit to verify who currently has access and whether
@@ -243,14 +249,18 @@ securely deploy their cluster.
 
 To protect community resources, the Infrastructure team will publish a set of
 Infrastructure Guidelines outlining acceptable resource boundaries for standard
-requests (e.g., standard VM shapes, GPU caps).
+requests (e.g., standard VM shapes, GPU caps). The infrastructure available
+and currently deployed in the tenancy is listed in
+[infrastructure.md](infrastructure.md). That document records a last-checked
+date: quotas and deployed resources are re-verified against the tenancy
+service limits (via the Oracle Cloud Infrastructure (OCI) CLI) during lease
+audits, and the date is updated accordingly.
 
 Additionally, proactive Cost Alerts will be implemented at the Oracle Cloud
 Infrastructure (OCI) compartment level. If a cluster's usage spikes or the
-overall tenancy approaches a specific
-threshold, alerts will automatically notify the management team and KSC,
-allowing for immediate auditing and intervention before significant costs are
-incurred.
+overall tenancy approaches a specific threshold, alerts will automatically
+notify the management team and KSC, allowing for immediate auditing and
+intervention before significant costs are incurred.
 
 ### Risks and Mitigations
 
@@ -291,6 +301,58 @@ To ensure accountability, all resources within the Oracle Cloud Infrastructure
 - `issue`: A reference to the requesting GitHub issue ID or URL.
 - `expiry_date`: The lease decommissioning date formatted as `YYYY-MM-DD`.
 
+#### Issue Labels & Timeline Tracking
+
+To make the allocation state and remaining lease time of every request visible
+and filterable directly in the issue tracker, each infrastructure request issue
+carries a set of dedicated labels under the `infra/` prefix. The labels are
+applied automatically by the issue template and the lease automation, or
+manually by admins (via the GitHub UI, or the Prow `/label` command once the
+labels are registered in the label plugin configuration):
+
+| Label | Meaning | Applied by |
+| ----- | ------- | ---------- |
+| `infra/needs-allocation` | Request open, awaiting review and provisioning | Issue template, automatically on creation |
+| `infra/allocated` | Resources provisioned and handed over to the PoC | Admin at provisioning time (replaces `infra/needs-allocation`) |
+| `infra/timeline-120d` / `-90d` / `-60d` / `-30d` | At most 120/90/60/30 days remaining on the lease | Admin sets the initial bucket matching the approved lease; automation downgrades it over time |
+| `infra/timeline-expired` | Lease elapsed; renewal or decommissioning required | Automation |
+
+The lifecycle of a request therefore reads directly from its labels:
+
+```text
+infra/needs-allocation
+        ↓  (provisioned)
+infra/allocated + infra/timeline-120d
+        ↓
+infra/timeline-90d
+        ↓
+infra/timeline-60d
+        ↓
+infra/timeline-30d
+        ↓
+infra/timeline-expired  →  renewed (new bucket) or decommissioned
+```
+
+Timeline labels are mutually exclusive: an issue carries exactly one at a
+time, and applying a new bucket removes the previous one. This also makes
+lease extensions a single label swap — an approved 120-day renewal moves an
+issue from `infra/timeline-30d` straight back to
+`infra/timeline-120d`. Leases that do not match a bucket exactly start at
+the nearest bucket (e.g., a 30-day VM lease starts at
+`infra/timeline-30d`). The Terraform `expiry_date` tag remains the source
+of truth for decommissioning; labels are the visibility layer on top of it.
+
+In the Alpha phase, admins apply and downgrade these labels manually during
+lease audits. In the Beta phase, a GitHub Actions cron job (following the same
+pattern as the existing stale-issue workflow) runs daily and, for each open
+issue carrying `infra/allocated` and a timeline label, checks when the
+current timeline label was applied. Once 30 days have elapsed, it replaces the
+label with the next-lower bucket and posts a reminder comment mentioning the
+PoC. The transition from `infra/timeline-30d` to
+`infra/timeline-expired` additionally notifies the Oracle Cloud
+Infrastructure (OCI) admins and KSC to trigger the renewal audit or Terraform
+decommissioning.
+
 ### Test Plan
 
 Since this is an operational process KEP, the test plan does not require
@@ -305,6 +367,11 @@ software unit or integration tests. Instead, verification consists of:
 3. **Audit and Cleanup Dry-Run**: Perform a manual audit of existing resources
    to check that Terraform tags are properly applied and ensure they can be
    successfully queried in the Oracle Cloud Infrastructure (OCI) Console.
+4. **Label Transition Dry-Run**: On a dummy issue, verify the template applies
+   `infra/needs-allocation`, swap it for `infra/allocated` plus a
+   timeline label, and simulate a downgrade (e.g., `infra/timeline-90d` to
+   `-60d`) confirming that the old bucket is removed and a reminder comment is
+   posted.
 
 ### Implementation Phases
 
@@ -317,15 +384,25 @@ software unit or integration tests. Instead, verification consists of:
 - Clusters deployed manually using the Kubeflow Community Distribution.
 - Manual configuration of GitOps repository access for the requested PoCs.
 - Consolidation of baseline Terraform scripts into a public community folder.
+- Publication of the tenancy's
+  [available and deployed infrastructure tables](infrastructure.md).
 - Strict enforcement of the mandatory tagging schema within Terraform modules:
   `owner`, `issue`, and `expiry_date`.
+- Allocation and timeline labels (`infra/needs-allocation`,
+  `infra/allocated`, `infra/timeline-*`) created in the repository
+  and applied/downgraded manually by admins during lease audits.
 
 #### Beta Phase
 
 - Integration of GitHub Actions or webhooks to trigger automated lease alerts,
-  renewal methodologies, and decommissioning reminders.
+  renewal methodologies, and decommissioning reminders — including the daily
+  cron job that downgrades `infra/timeline-*` labels and posts reminder
+  comments as leases approach expiry.
 - Implementation of automated cost alerts linked to community communication
   channels (e.g., Slack).
+- Automated refresh of the
+  [infrastructure tables](infrastructure.md) (quotas and deployed resources)
+  from tenancy data.
 - Formal organization of the open-source Terraform repo with clean documentation
   modules.
 - Publication of the initial draft of the Kubeflow Field Operations Guides
@@ -335,9 +412,15 @@ software unit or integration tests. Instead, verification consists of:
 
 - **2026-06-03**: KEP-939 proposed.
 - **2026-06-03**: GitHub Issue template designed and added.
-- **2026-08-12**: KEP revised to add deployment standards, Terraform
+- **2026-08-26**: KEP revised to add deployment standards, Terraform
   auditability, GitOps access controls, leases, cost alerting, and security
   requirements.
+- **2026-08-26**: Published [infrastructure.md](infrastructure.md) with
+  tenancy quotas and deployed resources verified via the Oracle Cloud
+  Infrastructure (OCI) CLI.
+- **2026-09-01**: Added label-based allocation and lease-timeline tracking
+  design (`infra/needs-allocation`, `infra/allocated`,
+  `infra/timeline-*`).
 
 ## Drawbacks
 
