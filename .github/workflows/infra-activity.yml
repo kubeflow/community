@@ -1,0 +1,55 @@
+# Manages the infra/* labels on Infrastructure Request issues, as defined in
+# KEP-939 (proposals/939-oci-infrastructure-management/README.md):
+#
+#   infra/needs-allocation  -> applied by the issue template on creation
+#   infra/allocated         -> applied by an admin once resources are provisioned
+#   infra/timeline-120d/90d/60d/30d/expired -> remaining-lease buckets
+#
+# Two jobs:
+#   * on `issues: labeled` — keep labels consistent: a timeline label removes
+#     any other timeline label (they are mutually exclusive), and
+#     infra/allocated removes infra/needs-allocation.
+#   * on a daily cron — for every open issue carrying infra/allocated and a
+#     timeline label, check when the current timeline label was applied and
+#     downgrade it once the bucket has elapsed (120d -> 90d -> 60d -> 30d ->
+#     expired), posting a reminder comment mentioning the PoC at each step.
+#
+# Optional repository variable INFRA_ADMINS (e.g. "@alice @bob") is mentioned
+# when a lease expires.
+name: Infra activity
+
+on:
+  schedule:
+    - cron: '30 0 * * *' # Daily at 00:30 UTC
+  issues:
+    types: [labeled]
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  sync-labels:
+    if: github.event_name == 'issues' && startsWith(github.event.label.name, 'infra/')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const run = require('./.github/scripts/infra-activity.js');
+            await run.syncLabels({ github, context, core });
+
+  timeline-countdown:
+    if: github.event_name != 'issues'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/github-script@v7
+        env:
+          INFRA_ADMINS: ${{ vars.INFRA_ADMINS }}
+        with:
+          script: |
+            const run = require('./.github/scripts/infra-activity.js');
+            await run.ensureLabels({ github, context, core });
+            await run.timelineCountdown({ github, context, core });

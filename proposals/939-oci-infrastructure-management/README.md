@@ -343,15 +343,17 @@ the nearest bucket (e.g., a 30-day VM lease starts at
 of truth for decommissioning; labels are the visibility layer on top of it.
 
 In the Alpha phase, admins apply and downgrade these labels manually during
-lease audits. In the Beta phase, a GitHub Actions cron job (following the same
-pattern as the existing stale-issue workflow) runs daily and, for each open
-issue carrying `infra/allocated` and a timeline label, checks when the
-current timeline label was applied. Once 30 days have elapsed, it replaces the
-label with the next-lower bucket and posts a reminder comment mentioning the
-PoC. The transition from `infra/timeline-30d` to
-`infra/timeline-expired` additionally notifies the Oracle Cloud
-Infrastructure (OCI) admins and KSC to trigger the renewal audit or Terraform
-decommissioning.
+lease audits. The `infra-activity` GitHub Actions workflow
+(`.github/workflows/infra-activity.yml`) automates this. Whenever an `infra/*`
+label is added, it enforces consistency: a new timeline label removes any other
+timeline label, and `infra/allocated` removes `infra/needs-allocation`. A daily
+cron job then checks, for each open issue carrying `infra/allocated` and a
+timeline label, when the current timeline label was applied. Once 30 days have
+elapsed, it replaces the label with the next-lower bucket and posts a reminder
+comment mentioning the PoC. The transition from `infra/timeline-30d` to
+`infra/timeline-expired` additionally notifies the Oracle Cloud Infrastructure
+(OCI) admins and KSC (configured via the `INFRA_ADMINS` repository variable) to
+trigger the renewal audit or Terraform decommissioning.
 
 ### Test Plan
 
@@ -395,9 +397,9 @@ software unit or integration tests. Instead, verification consists of:
 #### Beta Phase
 
 - Integration of GitHub Actions or webhooks to trigger automated lease alerts,
-  renewal methodologies, and decommissioning reminders — including the daily
-  cron job that downgrades `infra/timeline-*` labels and posts reminder
-  comments as leases approach expiry.
+  renewal methodologies, and decommissioning reminders, building on the
+  `infra-activity` workflow that already downgrades `infra/timeline-*` labels
+  and posts reminder comments as leases approach expiry.
 - Implementation of automated cost alerts linked to community communication
   channels (e.g., Slack).
 - Automated refresh of the
@@ -421,6 +423,9 @@ software unit or integration tests. Instead, verification consists of:
 - **2026-09-01**: Added label-based allocation and lease-timeline tracking
   design (`infra/needs-allocation`, `infra/allocated`,
   `infra/timeline-*`).
+- **2026-09-10**: Added the `infra-activity` GitHub Actions workflow that
+  keeps `infra/*` labels consistent and runs the daily lease-timeline
+  countdown with reminder comments.
 
 ## Drawbacks
 
