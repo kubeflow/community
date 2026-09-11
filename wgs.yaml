@@ -1,5 +1,42 @@
 sigs: []
 workinggroups:
+- dir: wg-agents
+  name: wg-agents
+  mission_statement: >
+    This working group (WG) focuses on the deployment, maintenance, and operationalization of autonomous agentic workflows within Kubeflow. 
+    While the [wg-ml-experience](/wg-ml-experience/charter.md) governs direct-to-IDE developer integrations, this WG focuses on the autonomous agent experience. 
+    Building the infrastructure and tooling that allows agents to independently execute operational tasks (e.g., "investigate this Spark app") and/or serve as integrated solutions as part on Kubeflow.
+  charter_link: charter.md
+  label: ""
+  leadership:
+    chairs:
+    - github: ChaseCadet
+      name: Chase Christensen
+      company: Wiz/Google Cloud
+    - github: andreyvelich
+      name: Andrey Velichkevich
+      company: Apple
+    - github: franciscojavierarceo
+      name: Francisco Javier Arceo
+      company: Red Hat
+    - github: vara-bonthu
+      name: Vara Bonthu
+      company: AWS
+  meetings:
+  - description: 
+    day: TBD
+    time: TBD
+    tz: TBD
+    frequency: TBD
+    archive_url: TBD
+    recordings_url: TBD
+  contact:
+    slack: Kubeflow-wg-agents
+    mailing_list: https://groups.google.com/forum/#!forum/kubeflow-discuss
+    teams:
+    - name: wg-agents
+      description: Team of Agents Working Group Chairs
+  subprojects:
 - dir: wg-data
   name: Data
   mission_statement: >
