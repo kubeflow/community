@@ -1,0 +1,88 @@
+name: Infrastructure Request
+description: Request resources in the Kubeflow Oracle Cloud Infrastructure (OCI) Tenancy.
+title: "[Request(Infra)]: <Short Summary>"
+labels: ["area/infrastructure", "infra/needs-allocation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please fill out the details below so that KSC members, WG leads, and Oracle Cloud Infrastructure (OCI) admins can review and approve your request. See [KEP-939](https://github.com/kubeflow/community/tree/master/proposals/939-oci-infrastructure-management) for the full process.
+  - type: input
+    id: poc
+    attributes:
+      label: Who would be using this infra?
+      description: The GitHub handle(s) of person/team who would be using the resource.
+      placeholder: "@username"
+    validations:
+      required: true
+  - type: dropdown
+    id: association
+    attributes:
+      label: Requester Role
+      description: What is your association/role in the Kubeflow community?
+      options:
+        - KSC Member
+        - WG Lead
+        - GSoC/LFX Mentor
+        - GSoC/LFX Mentee
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: working-group
+    attributes:
+      label: Working Group / Initiative
+      description: Which WG, GSoC/LFX project, or community initiative does this request support? This helps reviewers route and audit the request.
+      placeholder: "e.g., WG AutoML, GSoC 2026 — Agentic RAG on Kubeflow"
+    validations:
+      required: false
+  - type: input
+    id: duration
+    attributes:
+      label: Requested Duration
+      description: How long is this resource required for? (e.g., 30, 60, 90, or 120 days, or GSoC duration). Admins map this to the nearest infra/timeline-* bucket per KEP-939.
+      placeholder: "e.g., 90 days"
+    validations:
+      required: true
+  - type: textarea
+    id: resources
+    attributes:
+      label: Resource Requirements
+      description: List the required compute, memory, OS, or specialized hardware. Check [infrastructure.md](https://github.com/kubeflow/community/blob/master/proposals/939-oci-infrastructure-management/infrastructure.md) for available resources.
+      placeholder: |
+        - Type: (e.g., VM, Cluster, etc)
+        - vCPUs:
+        - RAM:
+        - OS: (e.g., Ubuntu 22.04)
+        - GPU: (if needed, specify model/count)
+        - Storage:
+    validations:
+      required: true
+  - type: textarea
+    id: justification
+    attributes:
+      label: Justification & Use Case
+      description: Explain why these resources are needed and how they benefit the Kubeflow community.
+      placeholder: Describe the project scope, testing plans, and why local or public CI options are insufficient.
+    validations:
+      required: true
+  - type: textarea
+    id: related-links
+    attributes:
+      label: Related Links
+      description: Links to the GSoC/LFX project page, related KEP, WG doc, or prior discussion backing this request.
+      placeholder: |
+        - GSoC project:
+        - Related KEP/issue:
+    validations:
+      required: false
+  - type: checkboxes
+    id: compliance
+    attributes:
+      label: Compliance
+      description: Please acknowledge the following compliance requirements.
+      options:
+        - label: I agree to tag all resources according to KEP-939 (owner, issue, expiry_date).
+          required: true
+        - label: I understand that resources will be decommissioned automatically when the requested duration ends, unless an extension is requested and approved.
+          required: true
