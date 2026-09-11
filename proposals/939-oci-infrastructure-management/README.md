@@ -312,7 +312,7 @@ labels are registered in the label plugin configuration):
 
 | Label | Meaning | Applied by |
 | ----- | ------- | ---------- |
-| `infra/needs-allocation` | Request open, awaiting review and provisioning | Issue template, automatically on creation |
+| `infra/needs-allocation` | Request open, awaiting review and provisioning | Automatically on creation, by the issue template and the `infra-activity` workflow |
 | `infra/allocated` | Resources provisioned and handed over to the PoC | Admin at provisioning time (replaces `infra/needs-allocation`) |
 | `infra/timeline-120d` / `-90d` / `-60d` / `-30d` | At most 120/90/60/30 days remaining on the lease | Admin sets the initial bucket matching the approved lease; automation downgrades it over time |
 | `infra/timeline-expired` | Lease elapsed; renewal or decommissioning required | Automation |
@@ -342,18 +342,19 @@ the nearest bucket (e.g., a 30-day VM lease starts at
 `infra/timeline-30d`). The Terraform `expiry_date` tag remains the source
 of truth for decommissioning; labels are the visibility layer on top of it.
 
-In the Alpha phase, admins apply and downgrade these labels manually during
-lease audits. The `infra-activity` GitHub Actions workflow
-(`.github/workflows/infra-activity.yml`) automates this. Whenever an `infra/*`
-label is added, it enforces consistency: a new timeline label removes any other
-timeline label, and `infra/allocated` removes `infra/needs-allocation`. A daily
-cron job then checks, for each open issue carrying `infra/allocated` and a
-timeline label, when the current timeline label was applied. Once 30 days have
-elapsed, it replaces the label with the next-lower bucket and posts a reminder
-comment mentioning the PoC. The transition from `infra/timeline-30d` to
-`infra/timeline-expired` additionally notifies the Oracle Cloud Infrastructure
-(OCI) admins and KSC (configured via the `INFRA_ADMINS` repository variable) to
-trigger the renewal audit or Terraform decommissioning.
+Admins apply the allocation and initial timeline labels when resources are
+provisioned; every subsequent transition is automated by the `infra-activity`
+GitHub Actions workflow (`.github/workflows/infra-activity.yml`). Whenever an
+`infra/*` label is added, the workflow enforces consistency: a new timeline
+label removes any other timeline label, and `infra/allocated` removes
+`infra/needs-allocation`. A daily cron job then checks, for each open issue
+carrying `infra/allocated` and a timeline label, when the current timeline
+label was applied. Once 30 days have elapsed, it replaces the label with the
+next-lower bucket and posts a reminder comment mentioning the PoC. The
+transition from `infra/timeline-30d` to `infra/timeline-expired` additionally
+notifies the Oracle Cloud Infrastructure (OCI) admins and KSC (configured via
+the `INFRA_ADMINS` repository variable) to trigger the renewal audit or
+Terraform decommissioning.
 
 ### Test Plan
 
@@ -391,8 +392,10 @@ software unit or integration tests. Instead, verification consists of:
 - Strict enforcement of the mandatory tagging schema within Terraform modules:
   `owner`, `issue`, and `expiry_date`.
 - Allocation and timeline labels (`infra/needs-allocation`,
-  `infra/allocated`, `infra/timeline-*`) created in the repository
-  and applied/downgraded manually by admins during lease audits.
+  `infra/allocated`, `infra/timeline-*`) created in the repository, with admins
+  applying `infra/allocated` and the initial timeline label at provisioning
+  time and the `infra-activity` workflow handling the subsequent countdown
+  transitions and reminder comments.
 
 #### Beta Phase
 

@@ -49,7 +49,7 @@ function targetLabel(remaining) {
 function pocMentions(issue) {
   const body = issue.body || '';
   const firstField = body.split(/(?:^|\n)### /)[1] || '';
-  const handles = new Set(firstField.match(/@[A-Za-z0-9-]+/g) || []);
+  const handles = new Set(firstField.match(/@[A-Za-z0-9-]+(?:\/[A-Za-z0-9-]+)?/g) || []);
   handles.add(`@${issue.user.login}`);
   return [...handles].join(' ');
 }
@@ -60,6 +60,34 @@ async function removeLabel(github, context, issueNumber, name) {
   } catch (error) {
     if (error.status !== 404) throw error; // already gone
   }
+}
+
+// --- issues: opened --------------------------------------------------------
+
+// Issues created from the Infrastructure Request form carry area/infrastructure
+// (an existing label) and the template's title prefix; either identifies them.
+function isInfraRequest(issue) {
+  const labels = issue.labels.map((l) => (typeof l === 'string' ? l : l.name));
+  return labels.includes('area/infrastructure') || /^\[Request\(Infra\)\]/i.test(issue.title || '');
+}
+
+// Issue forms only apply labels that already exist, so a request opened before
+// the infra/* labels were bootstrapped would silently miss its intake label.
+// Create the labels on demand and apply infra/needs-allocation here.
+async function intake({ github, context, core }) {
+  const issue = context.payload.issue;
+  if (!isInfraRequest(issue)) {
+    core.info(`#${issue.number} is not an infrastructure request; nothing to do`);
+    return;
+  }
+  await ensureLabels({ github, context, core });
+  const labels = issue.labels.map((l) => (typeof l === 'string' ? l : l.name));
+  if (labels.includes(NEEDS_ALLOCATION) || labels.includes(ALLOCATED)) {
+    core.info(`#${issue.number} already has an allocation label; nothing to do`);
+    return;
+  }
+  core.info(`#${issue.number}: applying ${NEEDS_ALLOCATION}`);
+  await github.rest.issues.addLabels({ ...context.repo, issue_number: issue.number, labels: [NEEDS_ALLOCATION] });
 }
 
 // --- issues: labeled -------------------------------------------------------
@@ -179,4 +207,4 @@ async function timelineCountdown({ github, context, core }) {
   core.info(`Checked ${issues.length} allocated issue(s); updated ${changed}`);
 }
 
-module.exports = { syncLabels, ensureLabels, timelineCountdown, targetLabel, pocMentions };
+module.exports = { intake, isInfraRequest, syncLabels, ensureLabels, timelineCountdown, targetLabel, pocMentions };

@@ -5,7 +5,10 @@
 #   infra/allocated         -> applied by an admin once resources are provisioned
 #   infra/timeline-120d/90d/60d/30d/expired -> remaining-lease buckets
 #
-# Two jobs:
+# Three jobs:
+#   * on `issues: opened` — for issues created from the Infrastructure Request
+#     form, create the infra/* labels if they do not exist yet and apply
+#     infra/needs-allocation (issue forms only apply labels that already exist).
 #   * on `issues: labeled` — keep labels consistent: a timeline label removes
 #     any other timeline label (they are mutually exclusive), and
 #     infra/allocated removes infra/needs-allocation.
@@ -22,15 +25,27 @@ on:
   schedule:
     - cron: '30 0 * * *' # Daily at 00:30 UTC
   issues:
-    types: [labeled]
+    types: [opened, labeled]
   workflow_dispatch:
 
 permissions:
+  contents: read
   issues: write
 
 jobs:
+  intake:
+    if: github.event_name == 'issues' && github.event.action == 'opened'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const run = require('./.github/scripts/infra-activity.js');
+            await run.intake({ github, context, core });
+
   sync-labels:
-    if: github.event_name == 'issues' && startsWith(github.event.label.name, 'infra/')
+    if: github.event_name == 'issues' && github.event.action == 'labeled' && startsWith(github.event.label.name, 'infra/')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
