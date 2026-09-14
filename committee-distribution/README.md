@@ -28,10 +28,10 @@ The current membership of the committee is (listed alphabetically by first name)
 ### Kubeflow Subproject Representatives
 
 | Kubeflow Subproject     | Name            | Organization | GitHub                                               | Term Start | Term End   |
-| ----------------------- | --------------- | ------------ | ---------------------------------------------------- | ---------- | ---------- |
+| ----------------------- |-----------------| ------------ |------------------------------------------------------|------------|------------|
 | Kubeflow Hub            | TBD             | -            | -                                                    | -          | -          |
 | Kubeflow Notebooks      | TBD             | -            | -                                                    | -          | -          |
-| Kubeflow Pipelines      | TBD             | -            | -                                                    | -          | -          |
+| Kubeflow Pipelines      | Michael Zazula  | Capital One  | [zazulam](https://github.com/zazulam/)               | 10/01/2026 | 10/01/2027  |
 | Kubeflow Spark Operator | TBD             | -            | -                                                    | -          | -          |
 | Kubeflow Trainer        | Akshay Chitneni | Apple        | [akshaychitneni](https://github.com/akshaychitneni/) | 10/01/2026 | 10/01/2027 |
 
