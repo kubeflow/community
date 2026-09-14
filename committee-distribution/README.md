@@ -27,14 +27,14 @@ The current membership of the committee is (listed alphabetically by first name)
 
 ### Kubeflow Subproject Representatives
 
-| Kubeflow Subproject     | Name | Organization | GitHub | Term Start | Term End |
-|-------------------------|------|--------------|--------|------------|----------|
-| Kubeflow Hub            | TBD  | -            | -      | -          | -        |
-| Kubeflow Katib          | TBD  | -            | -      | -          | -        |
-| Kubeflow Notebooks      | TBD  | -            | -      | -          | -        |
-| Kubeflow Pipelines      | TBD  | -            | -      | -          | -        |
-| Kubeflow Spark Operator | TBD  | -            | -      | -          | -        |
-| Kubeflow Trainer        | TBD  | -            | -      | -          | -        |
+| Kubeflow Subproject     | Name           | Organization | GitHub                                 | Term Start | Term End |
+|-------------------------|----------------|--------------|----------------------------------------|------------|---------|
+| Kubeflow Hub            | TBD            | -            | -                                      | -          | -       |
+| Kubeflow Katib          | TBD            | -            | -                                      | -          | -       |
+| Kubeflow Notebooks      | TBD            | -            | -                                      | -          | -       |
+| Kubeflow Pipelines      | Michael Zazula | Capital One  | [zazulam](https://github.com/zazulam/) | 09/XX/2026 | 09/XX/2027        |
+| Kubeflow Spark Operator | TBD            | -            | -                                      | -          | -       |
+| Kubeflow Trainer        | TBD            | -            | -                                      | -          | -       |
 
 ## Meetings
 
