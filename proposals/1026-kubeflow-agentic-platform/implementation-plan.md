@@ -14,10 +14,9 @@ MCP 2026-07-28
   to preview and approval
   to durable idempotency
   to native TrainJob status
-  to Gateway conformance
 ```
 
-Trainer is the first adapter because it is already implemented and exercises mutation, asynchronous status, progress, metrics, checkpoints, and native resource references. The implementation must keep the adapter interfaces operator-neutral so another operator can add a capability pack without changing the core security or protocol contract.
+Trainer is the first adapter because it is already implemented and exercises mutation, asynchronous status, progress, metrics, checkpoints, and native resource references. The implementation must keep the adapter interfaces operator-neutral so another operator can add a capability pack without changing the core security or protocol contract. Gateway integration and additional capability packs follow as extension profiles after the Standalone Training core is proven.
 
 ## Workstreams
 
@@ -62,7 +61,7 @@ Repository: `kubeflow/mcp-server` and the future shared contract location
 Deliverables:
 
 - machine-readable schemas for capability descriptors, native resource references, context, evidence links, and additive response data;
-- a versioned capability-pack manifest covering dependencies, supported topologies, exposed surfaces, security scopes, and upgrade/deprecation behavior;
+- a minimal Trainer profile lock covering the MCP revision, identity model, SDK/API/CRD versions, image, and storage;
 - adapter registration and version negotiation;
 - a documented mapping from native SDK/API calls to MCP tools;
 - common error, status, correlation, and authorization test helpers;
@@ -154,15 +153,12 @@ Exit criteria:
 - incompatible targets cannot silently downgrade the locked protocol;
 - direct backend access cannot bypass Gateway enforcement.
 
-### 7. Skills supply chain
+### 7. Skills supply chain extension profile
 
-Repositories: `kubeflow/mcp-server`, Skills packaging, Kagent integration, and distribution CI
+Repositories: `kubeflow/mcp-server`, Skills packaging, Kagent integration, and distribution CI. This work is not required for the first Standalone Training milestone.
 
 Deliverables:
 
-- `skills/list`, `skills/get`, and `resources/read` fixtures;
-- complete per-file manifest generation with raw-byte digest and size;
-- `SKILL.md` frontmatter and metadata validation;
 - OCI packaging and digest linkage for Kagent;
 - signature/attestation verification and trusted registry policy;
 - sandbox, filesystem, secret, resource, and egress restrictions.
@@ -204,7 +200,7 @@ Exit criteria:
 | 4. Standalone foundation | Implement MCP discovery, Skills, Tasks, descriptors, Profile policy, and Trainer adapter. | Standalone Training core passes Alpha conformance. |
 | 5. Mutation safety | Implement durable previews, approval binding, idempotency, and replay tests. | Confirmed mutations are safe across replicas and retries. |
 | 6. Gateway reference | Add Kagent, Agentgateway, delegated identity, policy, stable naming, audit, and OTel. | Gateway read/preview path passes; mutation path passes after approval integration. |
-| 7. Capability packs | Add Kueue, Pipelines, MLflow, Hub / Model Registry, KServe, or other adapters individually. | Each pack has owner approval and independent conformance evidence. |
+| 7. Capability packs | Add Kueue, Pipelines, Hub / Model Registry, KServe, or other adapters, and federate external MCP backends such as MLflow MCP, individually. | Each pack or backend has owner approval and independent conformance evidence. |
 
 ## Dependencies and blockers
 
@@ -214,7 +210,7 @@ Exit criteria:
 - A supported Kagent approval integration that can bind approval to a preview intent.
 - An HA persistence choice for preview, approval, Tasks, and idempotency records.
 - Agreement on policy precedence and deny-overrides behavior across all authorization layers.
-- A versioned capability-pack manifest and lifecycle policy for enablement, deprecation, and upgrades.
+- For extension profiles, a versioned capability-pack manifest and lifecycle policy for enablement, deprecation, and upgrades.
 - A participating distribution willing to own the locked reference profile.
 
 Until these dependencies are resolved, the KEP remains a design blueprint and should not claim Implementable status.

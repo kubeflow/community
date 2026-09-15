@@ -1,6 +1,6 @@
 # Establish a Kubeflow Agent Integration Contract
 
-**Status:** Draft for project review
+**Status:** Provisional design proposal
 **Tracking issue:** [kubeflow/community#1026](https://github.com/kubeflow/community/issues/1026)
 **Interim sponsor:** WG ML Experience until the proposed WG Agents is established
 **Intended owner:** Proposed WG Agents ([kubeflow/community#1025](https://github.com/kubeflow/community/pull/1025))
@@ -64,17 +64,30 @@ The design has two independent axes:
 
 | Axis | Options | Meaning |
 | --- | --- | --- |
-| Deployment topology | Standalone / Gateway | Direct `kubeflow-mcp` access, or Kagent and Agentgateway with delegated identity, policy, routing, audit, and tracing. |
-| Capability pack | Training core / optional Kueue / experimental Lifecycle | The operator capabilities installed and individually approved for the deployment. |
+| Deployment topology | Standalone first / Gateway extension | Direct `kubeflow-mcp` access is the first milestone. Kagent and Agentgateway are a follow-up profile. |
+| Capability pack | Training core first / other packs extensions | Trainer is the first reference. Other operator and service integrations are added independently. |
 
 The Training core is the first required pack. Trainer demonstrates the contract with `TrainJob`, Runtime, progress, metrics, checkpoints, optimization, and native status. Adapters for Pipelines, KServe, Katib, Spark, Hub / Model Registry, or other Kubeflow capabilities are independent and optional. Existing external MCP servers, such as MLflow MCP or Feast MCP, remain separate and may be federated into the same Gateway topology.
+
+## First milestone
+
+The first implementation milestone is deliberately narrow:
+
+- Standalone MCP access only;
+- Trainer as the sole reference adapter;
+- one verified identity and Profile model;
+- one approval flow bound to the exact preview;
+- one durable idempotency implementation; and
+- a working conformance suite for discovery, Skills, authorization, mutation safety, retries, and native status.
+
+Gateway integration, additional capability packs, external MCP federation, Skills supply-chain verification, and multi-cluster behavior are extension profiles for follow-up work.
 
 ## Goals
 
 - Define an operator-neutral MCP and Agent Skills contract for Kubeflow capabilities.
 - Provide safe, auditable, preview-first access to mutations.
 - Preserve native operator resources, status, errors, and lifecycle authority.
-- Support direct MCP access and an authenticated Gateway topology.
+- Define direct MCP access first and an authenticated Gateway topology as a follow-up profile.
 - Prove the contract with a locked Trainer reference adapter.
 - Make it possible for other Kubeflow components, such as Pipelines, KServe, Katib, Spark, and Model Registry, to integrate through the same contract, with each component's owners approving its adapter.
 
@@ -97,6 +110,12 @@ This KEP integrates with an agent harness, such as Kagent, but does not define a
 
 This KEP owns the cross-project rules for discovery, authorization scope, preview and approval, idempotency, native references, evidence, telemetry, compatibility, and conformance. Components retain authority over their native schemas, status, errors, lifecycle, APIs, and releases. The full boundary is defined in [contracts.md](contracts.md).
 
+## API impact
+
+This proposal requires no breaking changes to controller APIs, CRDs, or existing SDK methods. Controllers remain authoritative for native resources, validation, status, and lifecycle. SDK changes should be additive and limited to native information needed by adapters. MCP-specific discovery, Skills, authorization, preview, approval, idempotency, Tasks, evidence, and telemetry are implemented at the adapter and optional Gateway layers.
+
+Where native APIs support it, adapters MAY use server-side dry-run or validation-only requests to build previews. Otherwise, previews MUST be generated without mutating resources.
+
 ## Component integration workflow
 
 1. Agree on the operator or service's native authority and supported API versions.
@@ -105,9 +124,9 @@ This KEP owns the cross-project rules for discovery, authorization scope, previe
 4. Add identity, failure, replay, security, and compatibility fixtures.
 5. Add the capability to a locked topology/pack profile only after component-owner approval.
 
-## Graduation
+## Initial acceptance
 
-Graduation requires a reviewed contract and implementation plan, a locked Trainer reference path, conformance evidence for each claimed topology and capability pack, and release qualification. The detailed gates are in [conformance.md](conformance.md).
+Initial acceptance requires a reviewed contract and implementation plan, a locked Trainer reference path, and Standalone Training core conformance evidence. The criteria are in [conformance.md](conformance.md); later extension-profile graduation rules will be defined separately.
 
 ## Open decisions
 
@@ -123,7 +142,7 @@ Graduation requires a reviewed contract and implementation plan, a locked Traine
 
 - [Normative contracts](contracts.md)
 - [Implementation plan](implementation-plan.md)
-- [Conformance and graduation](conformance.md)
+- [Conformance and initial acceptance](conformance.md)
 
 ## Related work
 

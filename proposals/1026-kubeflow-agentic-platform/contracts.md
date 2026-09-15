@@ -4,6 +4,8 @@ This document describes what must happen when an agent uses a Kubeflow capabilit
 
 The words **MUST**, **MUST NOT**, and **MAY** are normative. Exact JSON Schemas, Kubernetes manifests, and test fixtures belong in implementation repositories and profile locks.
 
+For the first milestone, the normative claim is limited to the Standalone Training core profile. Gateway integration, external MCP federation, additional capability packs, and multi-cluster behavior are extension profiles and are not required for the initial conformance claim.
+
 ## The request flow
 
 ```text
@@ -45,29 +47,19 @@ The initial Skills contract requires `io.modelcontextprotocol/skills`, `skills/l
 
 ## 3. Capability and pack descriptions
 
-Every enabled adapter MUST expose a versioned capability resource such as:
+The Standalone Training profile MUST expose a versioned capability resource such as:
 
 ```text
 kubeflow://capabilities/<component>.json
 ```
 
-The descriptor MUST state the component and contract versions, status, usable tools and resources, Skills, personas, feature gates, hard dependencies, optional integrations, Profile scope, supported API/CRD versions, authorization-filtered availability, and observation time.
+The first descriptor MUST state the component and contract versions, status, usable tools and resources, Skills, Profile scope, authorization-filtered availability, and observation time. Feature gates, dependency graphs, optional integrations, and additional pack metadata belong to extension profiles.
 
 Unavailable or unauthorized operations MUST NOT be advertised as usable. A degraded descriptor MUST explain the reason and expose only the operations that still work.
 
 Capability descriptors MUST NOT be shared across authorization scopes without isolation. A cache MUST be private to the caller or keyed by actor, Profile, namespace, and policy revision, and MUST be invalidated when authorization or capability state changes. Conformance MUST verify that one scope cannot receive another scope's tools or capabilities.
 
-Every installable capability pack MUST also have a versioned manifest describing:
-
-- required and optional dependencies;
-- supported topologies;
-- exposed tools, resources, Skills, and personas;
-- SDK/API/CRD and feature-gate requirements;
-- security scopes;
-- enable, disable, deprecation, and upgrade behavior; and
-- owner and conformance evidence.
-
-A pack manifest describes a capability. It never grants authority. A pack with an unsatisfied hard dependency MUST be unavailable rather than advertising unsafe mutations.
+The first profile uses one minimal lock for the Trainer adapter, including the MCP revision, identity model, SDK/API/CRD versions, image, and storage. A full capability-pack manifest covering dependencies, topologies, lifecycle, and conformance evidence is an extension-profile requirement. A manifest never grants authority.
 
 Existing external MCP servers, such as MLflow MCP or Feast MCP, MAY remain independent backends and be federated through Agentgateway. Federation does not make them Kubeflow adapters or transfer ownership of their native APIs, resources, status, or release lifecycle. A federated backend MUST satisfy the same identity, policy, naming, protocol, and conformance requirements claimed by the deployment.
 
@@ -86,11 +78,11 @@ Trainer and `TrainJob` are the first reference adapter. They demonstrate the con
 
 ## 5. Skills and untrusted content
 
-Each stable Skill entry MUST include its `SKILL.md` URI, complete frontmatter, every supporting file, and each file's raw-byte SHA-256 digest and byte size. Skill identity is the originating server plus URI. A Skill name or URI scheme alone is not enough to identify it.
+The first profile supports immutable, read-only Skills. Each Skill entry MUST include its `SKILL.md` URI, complete frontmatter, originating server, raw-byte SHA-256 digest, and byte size. A Skill name or URI scheme alone is not enough to identify it.
 
-Kubeflow metadata MAY be carried in Agent Skills `metadata` frontmatter, but it MUST NOT redefine the Skills protocol. OCI packaging for Kagent is a separate artifact whose digest is pinned in the profile lock.
+Kubeflow metadata MAY be carried in Agent Skills `metadata` frontmatter, but it MUST NOT redefine the Skills protocol. OCI packaging, signatures, attestations, and executable Skill sandboxing belong to a later supply-chain profile.
 
-Skills, logs, events, model cards, datasets, traces, and other retrieved content are untrusted. They MUST NOT grant authorization, contain credentials, bypass confirmation, or change server policy. Executable Skill content requires explicit filesystem, secret, resource, and network-egress limits.
+Skills, logs, events, model cards, datasets, traces, and other retrieved content are untrusted. They MUST NOT grant authorization, contain credentials, bypass confirmation, or change server policy. Executable Skills are outside the first profile.
 
 ## 6. Identity and authorization
 
@@ -140,7 +132,7 @@ An identical retry returns the original result. A changed request returns a conf
 
 ## 9. Tasks and native resources
 
-MCP Tasks provide durable handles for polling, reconnect, input, and cooperative cancellation. They MUST NOT replace a native `TrainJob`, KFP run, model version, `InferenceService`, or other operator resource.
+MCP Tasks provide durable handles for polling, reconnect, input, and cooperative cancellation. In the first profile, Tasks are used only for Trainer submissions and MUST NOT replace the native `TrainJob` resource.
 
 The native resource remains authoritative when Task state and native state differ. The adapter MUST distinguish:
 
@@ -149,7 +141,7 @@ The native resource remains authoritative when Task state and native state diffe
 - submission outcome unknown and reconciliation required; and
 - Task expired while the native resource remains observable.
 
-A cancellation race must report whether cancellation was accepted, rejected, or still pending. Cross-operator partial effects must identify completed, failed, and unknown effects. This KEP does not promise distributed transactions.
+The Trainer adapter MUST report whether cancellation was accepted, rejected, or still pending. Cross-operator partial effects and distributed transaction semantics belong to a later extension profile.
 
 ## 10. Evidence, resources, and governance
 
@@ -157,9 +149,13 @@ Adapters MAY return immutable native references, opaque authorized evidence link
 
 OpenTelemetry and audit records MUST redact credentials and sensitive attributes and limit high-cardinality dimensions. Native status and evidence must remain usable when one continuous trace is unavailable.
 
-Profiles MUST define resource, accelerator, queue, quota, and optional cost limits for mutating plans. A preview MUST distinguish an estimate from an admission guarantee. Regulated or sensitive-data deployments must define retention, residency, data classification, and prompt/trace storage policy.
+Profiles MAY define resource, accelerator, queue, quota, and optional cost limits for mutating plans. A preview MUST distinguish an estimate from an admission guarantee. Retention, residency, data classification, and regulated-data controls belong to deployment-specific profiles.
 
 ## 11. Compatibility
+
+The contract is additive at the integration boundary. Existing controller APIs, CRDs, SDK method names, required parameters, and native response semantics MUST remain compatible. MCP-specific behavior belongs in the adapter or optional Gateway layer and MUST NOT require every controller to understand agent approvals, Skills, Tasks, or planning state.
+
+Adapters MAY use Kubernetes server-side dry-run or an operator's validation-only API to construct a preview. If no such operation exists, the adapter MUST construct the preview without creating or modifying a native resource.
 
 Every supported topology and capability-pack combination MUST have a profile lock containing component, SDK/API/CRD, MCP, gateway, identity, image, Skill, storage, and feature-gate versions. Floating versions are not conformant.
 
