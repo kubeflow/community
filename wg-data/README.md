@@ -40,10 +40,6 @@ The following [subprojects](https://github.com/kubeflow/community/tree/master/su
   - Slack: [#kubeflow-hub](https://www.kubeflow.org/docs/about/community/#slack-channels)
   - GitHub Teams:
     - [@kubeflow/kubeflow-hub-team](https://github.com/orgs/kubeflow/teams/kubeflow-hub-team) - Kubeflow Hub maintainers
-- **Meetings:**
-  - Kubeflow Hub Call: [Mondays at 7:00PM-8:00PM Europe/Madrid]() (biweekly - every other Monday of the month). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=7:00PM-8:00PM&tz=Europe%2FMadrid).
-    - [Meeting notes and Agenda](https://bit.ly/kf-model-registry-notes).
-    - [Meeting recordings](https://www.youtube.com/playlist?list=PLmzRWLV1CK_ymLhMu0UMeaWPsLDPIjNnW).
 ### spark-operator
 - **Owners:**
   - https://raw.githubusercontent.com/kubeflow/spark-operator/refs/heads/master/OWNERS

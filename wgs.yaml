@@ -57,14 +57,7 @@ workinggroups:
         description: Kubeflow Hub maintainers
     owners:
     - https://raw.githubusercontent.com/kubeflow/hub/main/OWNERS
-    meetings:
-    - description: Kubeflow Hub Call
-      day: Monday
-      time: 7:00PM-8:00PM
-      tz: Europe/Madrid
-      frequency: biweekly - every other Monday of the month
-      archive_url: https://bit.ly/kf-model-registry-notes
-      recordings_url: https://www.youtube.com/playlist?list=PLmzRWLV1CK_ymLhMu0UMeaWPsLDPIjNnW
+    meetings: []
   - name: spark-operator
     contact:
       slack: kubeflow-spark-on-kubernetes
