@@ -1,9 +1,8 @@
 # Establish a Kubeflow Agent Integration Contract
 
-**Structured companion draft.** The existing proposal directory remains unchanged.
-
 **Status:** Draft for project review
 **Tracking issue:** [kubeflow/community#1026](https://github.com/kubeflow/community/issues/1026)
+**Interim sponsor:** WG ML Experience until the proposed WG Agents is established
 **Intended owner:** Proposed WG Agents ([kubeflow/community#1025](https://github.com/kubeflow/community/pull/1025))
 
 Now that Kubeflow is a CNCF graduated project, it is part of a broader cloud-native AI ecosystem. This proposal aligns Kubeflow agent integrations with the wider cloud-native AI ecosystem and emerging Agentic AI Foundation efforts, while preserving the ownership and lifecycle of each Kubeflow component.

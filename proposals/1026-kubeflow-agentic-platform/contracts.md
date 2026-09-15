@@ -55,6 +55,8 @@ The descriptor MUST state the component and contract versions, status, usable to
 
 Unavailable or unauthorized operations MUST NOT be advertised as usable. A degraded descriptor MUST explain the reason and expose only the operations that still work.
 
+Capability descriptors MUST NOT be shared across authorization scopes without isolation. A cache MUST be private to the caller or keyed by actor, Profile, namespace, and policy revision, and MUST be invalidated when authorization or capability state changes. Conformance MUST verify that one scope cannot receive another scope's tools or capabilities.
+
 Every installable capability pack MUST also have a versioned manifest describing:
 
 - required and optional dependencies;
@@ -126,11 +128,11 @@ Every mutating operation MUST follow this sequence:
 3. user approval binds the actor, Profile, tool, canonical arguments, `request_id`, and `plan_id`; and
 4. `confirmed=true` executes only after server-side authorization and approval verification.
 
-A model-authored `confirmed=true` is never proof of user approval. The implementation MUST first evaluate MCP Elicitation or the harness's native approval surface. If that cannot bind approval to the exact preview, Gateway mutation conformance remains deferred or uses a versioned signed approval receipt. The receipt contract must define its signature algorithm, issuer, audience, key distribution, revocation, and replay rules.
+A model-authored `confirmed=true` is never proof of user approval. For MCP `2026-07-28`, approval requiring user input MUST use Multi Round-Trip Requests: the server returns `input_required`, optionally containing an embedded `elicitation/create` request, and the client retries with `inputResponses` and the returned request state. The implementation MUST bind the response to the exact preview through MCP input handling or the harness's native approval surface. Legacy server-initiated elicitation MAY be supported only as a compatibility path. If approval cannot be bound to the exact preview, Gateway mutation conformance remains deferred or uses a versioned signed approval receipt. The receipt contract must define its signature algorithm, issuer, audience, key distribution, revocation, and replay rules.
 
 ## 8. Safe retries and stored state
 
-`request_id` identifies one client intent and is the idempotency key for confirmed mutations. The server MUST store pending Tasks, previews, approvals, and completed request results in a shared durable store that survives restarts and multiple replicas.
+`request_id` identifies one client intent. For confirmed mutations, the durable idempotency key MUST be scoped by authenticated actor, Profile, namespace, tool, audience, and `request_id`. The server MUST store pending Tasks, previews, approvals, and completed request results in a shared durable store that survives restarts and multiple replicas. A request ID reused with a different scope MUST fail closed and MUST NOT return a result from another scope.
 
 The server MUST compare retries using a deterministic canonical argument representation. The representation includes every semantic tool argument and excludes `confirmed`, approval receipts, trace context, and other transient metadata. It must define defaults, omitted values, numbers, and Unicode handling.
 

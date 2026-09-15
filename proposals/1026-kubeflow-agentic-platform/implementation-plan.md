@@ -208,7 +208,7 @@ Exit criteria:
 
 ## Dependencies and blockers
 
-- WG Agents ownership or an explicitly recorded interim sponsor.
+- WG Agents ownership, or the named interim sponsor, WG ML Experience, until WG Agents is established.
 - `kubeflow/mcp-server` project approval for additive contract changes.
 - Stable MCP framework support for the selected protocol revision and extensions.
 - A supported Kagent approval integration that can bind approval to a preview intent.

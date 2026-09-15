@@ -53,6 +53,7 @@ Install one approved operator adapter alongside the Training core. Verify its na
 - Missing, expired, tampered, wrong-actor, wrong-Profile, changed-argument, or wrong-audience approvals are rejected.
 - Reusing `request_id` across actors, Profiles, tools, or changed arguments cannot replay a result.
 - Gateway policy cannot be bypassed through alternate target names, Skills, resources, prompts, or meta-tools.
+- Capability descriptor caches cannot expose one actor's Profile, namespace, tools, or capabilities to another actor.
 - Incompatible federation targets cannot rename existing tools or downgrade the locked protocol/extensions.
 - Skill digest, size, frontmatter, signature, provenance, sandbox, secret, and egress violations are rejected.
 - Logs, events, model cards, datasets, traces, and Skills cannot alter authorization, confirmation, or tool arguments.
