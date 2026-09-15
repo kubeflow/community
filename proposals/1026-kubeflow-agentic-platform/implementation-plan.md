@@ -8,7 +8,7 @@ Build one narrow, end-to-end reference path first:
 
 ```text
 MCP 2026-07-28
-  to Skills and Tasks
+  to Skills
   to Trainer adapter
   to Profile authorization
   to preview and approval
@@ -41,7 +41,7 @@ Repository: `kubeflow/mcp-server`
 Deliverables:
 
 - migrate to a framework/runtime that passes MCP `2026-07-28` protocol fixtures, or implement an explicit compatibility layer;
-- implement `server/discover`, request `_meta`, Skills methods, and negotiated Tasks;
+- implement `server/discover`, request `_meta`, and Skills methods; define Tasks as a follow-up extension;
 - preserve existing tool names, parameters, personas, and response shapes;
 - publish versioned capability descriptors;
 - expose operator modules through the existing module export contract;
@@ -79,7 +79,7 @@ Repositories: `kubeflow/mcp-server`, Kubeflow SDK, and Trainer
 
 Deliverables:
 
-- lock the first supported Trainer and SDK versions, initially Trainer 2.3 and SDK 0.5;
+- propose Trainer 2.3 and SDK 0.5 as the initial compatibility baseline, pending compatibility evidence and project sign-off;
 - map `TrainJob`, Runtime, progress, metrics, checkpoints, and optimization capabilities;
 - preserve native conditions, events, logs, and resource references;
 - implement preview output with resource, quota, policy, and precondition information;
@@ -119,10 +119,10 @@ Deliverables:
 - deterministic canonical argument encoding;
 - durable preview records with bound resource versions and safety observations;
 - signed approval receipt or an equivalent server-verifiable approval mechanism;
-- explicit evaluation of MCP Elicitation and the selected harness approval surface;
+- implement MCP `2026-07-28` Multi Round-Trip Requests with `input_required`, and evaluate the selected harness approval surface; retain legacy elicitation only as a compatibility path;
 - durable HA storage with atomic create, replay, conflict, TTL, cleanup, and recovery behavior;
 - key rotation and receipt revocation rules;
-- one-prompt reference user journey for Gateway mutations.
+- one-prompt reference user journey for Gateway mutations as an extension-profile deliverable.
 
 Exit criteria:
 
@@ -194,21 +194,33 @@ Exit criteria:
 | Phase | Scope | Exit gate |
 | --- | --- | --- |
 | 0. Governance | Confirm sponsor, intended owner, component owners, and issue scope. | Proposal is accepted as provisional by the owning group. |
-| 1. Contract fixtures | Freeze schemas, MCP revision, Skills/Tasks behavior, context keys, and canonicalization. | Valid/invalid fixtures are reviewed by the MCP Server project. |
+| 1. Contract fixtures | Freeze schemas, MCP revision, Skills behavior, context keys, and canonicalization; define a Tasks extension hook. | Valid/invalid fixtures are reviewed by the MCP Server project. |
 | 2. Design prototype | Run the narrow Trainer path against the contract, including protocol, descriptor, identity, preview, and native-resource fixtures. | Owners have evidence to approve the implementation plan. |
 | 3. Implementable gate | Approve the contracts and plan before broad implementation begins. | KEP is approved for implementation. |
-| 4. Standalone foundation | Implement MCP discovery, Skills, Tasks, descriptors, Profile policy, and Trainer adapter. | Standalone Training core passes Alpha conformance. |
+| 4. Standalone foundation | Implement MCP discovery, Skills, descriptors, Profile policy, and Trainer adapter. | Standalone Training core passes Alpha conformance. |
 | 5. Mutation safety | Implement durable previews, approval binding, idempotency, and replay tests. | Confirmed mutations are safe across replicas and retries. |
 | 6. Gateway reference | Add Kagent, Agentgateway, delegated identity, policy, stable naming, audit, and OTel. | Gateway read/preview path passes; mutation path passes after approval integration. |
 | 7. Capability packs | Add Kueue, Pipelines, Hub / Model Registry, KServe, or other adapters, and federate external MCP backends such as MLflow MCP, individually. | Each pack or backend has owner approval and independent conformance evidence. |
+
+## Ownership gates
+
+| Owner | Required decision |
+| --- | --- |
+| `kubeflow/mcp-server` | Adapter and MCP compatibility. |
+| Trainer and SDK owners | `TrainJob` mapping and proposed version baseline. |
+| WG ML Experience or WG Agents | Scope, governance, and ownership. |
+| Participating distribution | Standalone reference deployment. |
+| Gateway and harness owners | Only for the Gateway extension profile. |
+
+The KEP MUST NOT claim Implementable status until the first four owner groups have accepted the core profile.
 
 ## Dependencies and blockers
 
 - WG Agents ownership, or the named interim sponsor, WG ML Experience, until WG Agents is established.
 - `kubeflow/mcp-server` project approval for additive contract changes.
 - Stable MCP framework support for the selected protocol revision and extensions.
-- A supported Kagent approval integration that can bind approval to a preview intent.
-- An HA persistence choice for preview, approval, Tasks, and idempotency records.
+- A supported MCP/harness approval integration that can bind approval to a preview intent.
+- An HA persistence choice for preview, approval, and idempotency records.
 - Agreement on policy precedence and deny-overrides behavior across all authorization layers.
 - For extension profiles, a versioned capability-pack manifest and lifecycle policy for enablement, deprecation, and upgrades.
 - A participating distribution willing to own the locked reference profile.

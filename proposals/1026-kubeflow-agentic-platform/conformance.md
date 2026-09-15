@@ -21,7 +21,7 @@ Each release claims only combinations represented by a checked-in lock file. The
 1. Install the locked topology and create two isolated Profiles and namespaces.
 2. Install only the clients and capability packs selected by the lock.
 3. For the Gateway extension profile, install Kagent, Agentgateway, default-deny policy, identity exchange or impersonation, NetworkPolicies, and the OpenTelemetry collector.
-4. Verify `server/discover`, Skills methods, Tasks negotiation, capability descriptors, authorization-sensitive caching, and trace export.
+4. Verify `server/discover`, Skills methods, capability descriptors, authorization-sensitive caching, and trace export.
 5. For the Skills supply-chain extension profile, verify Skill manifests, signatures/attestations, OCI provenance where Kagent is used, and sandbox/egress policy.
 6. Verify that the selected MCP framework passes the locked `2026-07-28` protocol and extension fixtures.
 
@@ -35,6 +35,18 @@ Each release claims only combinations represented by a checked-in lock file. The
 4. Obtain explicit approval bound to the exact intent.
 5. Execute the native mutation with `confirmed=true` and return its immutable reference.
 6. Retry the same intent and verify the original result is returned without a duplicate resource.
+
+The first-profile exchange is:
+
+| Step | MCP exchange and state | Native effect |
+| --- | --- | --- |
+| Discover | `server/discover` returns the locked Trainer descriptor and read/mutation tools. | None. |
+| Authorize | The server resolves the verified actor, Profile, and namespace from identity and policy. | None. |
+| Preview | `confirmed=false` returns canonical arguments, preconditions, and a server-issued `plan_id`; the durable store records the preview. | No resource is created. |
+| Approve | The selected MRTR or harness approval flow binds approval to the `plan_id` and exact intent. | No resource is created. |
+| Execute | `confirmed=true` verifies approval and stores the scoped idempotency record before submitting the native request. | One `TrainJob` is created or a definitive submission error is returned. |
+| Observe | The adapter returns the native reference and polls `TrainJob` status. | Native conditions remain authoritative. |
+| Retry | The same scoped request returns the stored result; changed arguments return a conflict. | No duplicate `TrainJob` is created. |
 
 ### Reference observation
 
@@ -60,15 +72,25 @@ Install one approved operator adapter alongside the Training core. Verify its na
 - Skill digest, size, and frontmatter violations are rejected in the first profile. Signature, provenance, sandbox, secret, and egress checks belong to the Skills supply-chain extension profile.
 - Logs, events, model cards, datasets, traces, and Skills cannot alter authorization, confirmation, or tool arguments.
 - Credentials, approval receipts, and sensitive trace attributes do not enter normal model context or logs.
-- Task/native-resource races, unknown submission outcomes, expired Tasks, and Trainer cancellation races are classified correctly. Partial cross-operator effects are an extension-profile test.
+- Trainer submission outcomes and native status transitions are classified correctly. Task/native-resource races, expired Tasks, and partial cross-operator effects are extension-profile tests.
 - Resource, accelerator, queue, quota, cost, retention, and residency limits are enforced only where claimed by the applicable profile.
+
+## Core acceptance checks
+
+- Duplicate confirmed requests create exactly one `TrainJob`.
+- Changed arguments return a conflict and create no resource.
+- Approval for one Profile cannot execute in another Profile.
+- `confirmed=true` without valid approval is rejected.
+- Unauthorized capabilities are absent from discovery.
+- Restarting the server does not lose pending preview, approval, or idempotency state.
+- Native `TrainJob` status remains authoritative after any client-side request expires.
 
 ## Required artifacts by owner
 
 | Owner | Evidence |
 | --- | --- |
 | `kubeflow/mcp-server` | Additive schemas/metadata, valid/invalid fixtures, compatibility tests, Trainer reference tests, and direct MCP conformance. |
-| Trainer and SDK owners | Trainer 2.3 / SDK 0.5 API mapping, status/progress fixtures, and version compatibility evidence. |
+| Trainer and SDK owners | Proposed Trainer 2.3 / SDK 0.5 API mapping, status/progress fixtures, and version compatibility evidence. |
 | Kagent and Agentgateway owners | Identity delegation, default-deny policy, approval integration, stable naming, sessionless MCP, Skill handling, audit, and trace fixtures. |
 | Agent harness owner | Harness/runtime boundary, approval surface, context/memory behavior, MCP client compatibility, and user-interaction evidence. |
 | Each operator/service owner | Approved adapter mapping, supported versions, native references/status, mutation semantics, failure tests, and security review. |
@@ -79,7 +101,7 @@ Install one approved operator adapter alongside the Training core. Verify its na
 | Stage | Gate |
 | --- | --- |
 | Provisional | Sponsoring group accepts the problem and scope; intended owner and component liaisons are recorded. |
-| Implementable | Named owners approve the contracts and implementation plan; a design prototype and locked Trainer 2.3 / SDK 0.5 compatibility evidence make implementation risk acceptable. |
+| Implementable | Named owners approve the contracts and implementation plan; a design prototype and compatibility evidence for the proposed Trainer 2.3 / SDK 0.5 baseline make implementation risk acceptable. |
 | Alpha | Standalone plus Training core passes installation, discovery, Skills, Profile policy, preview/confirmation, idempotency, and native-status tests. |
 
 Gateway, stable-release, and additional capability-pack graduation criteria will be defined when those extension profiles are proposed.

@@ -19,7 +19,7 @@ For the first milestone, the normative claim is limited to the Standalone Traini
 8. Retry safely or reconcile failures
 ```
 
-The same flow applies to Trainer, KFP, KServe, Katib, Spark, Hub / Model Registry, Semantic Operator, and other approved adapters.
+This flow is specified first for Trainer. It is intended as a compatibility direction for KFP, KServe, Katib, Spark, Hub / Model Registry, Semantic Operator, and other adapters, which require their own approved profiles before they become conformant.
 
 ## 1. Responsibilities by layer
 
@@ -43,7 +43,7 @@ The reference protocol is MCP `2026-07-28`. A conformant server MUST:
 - implement the Skills methods when Skills are advertised; and
 - define a clear fallback when a client or backend lacks an optional extension.
 
-The initial Skills contract requires `io.modelcontextprotocol/skills`, `skills/list`, `skills/get`, and `resources/read`. MCP Tasks are used when the selected profile advertises them. Legacy session translation MAY be provided by Agentgateway, but stateful session affinity is not required by this KEP.
+The initial Skills contract requires `io.modelcontextprotocol/skills`, `skills/list`, `skills/get`, and `resources/read`. MCP Tasks are an extension and are not required by the first profile. Legacy session translation MAY be provided by Agentgateway, but stateful session affinity is not required by this KEP.
 
 ## 3. Capability and pack descriptions
 
@@ -59,7 +59,7 @@ Unavailable or unauthorized operations MUST NOT be advertised as usable. A degra
 
 Capability descriptors MUST NOT be shared across authorization scopes without isolation. A cache MUST be private to the caller or keyed by actor, Profile, namespace, and policy revision, and MUST be invalidated when authorization or capability state changes. Conformance MUST verify that one scope cannot receive another scope's tools or capabilities.
 
-The first profile uses one minimal lock for the Trainer adapter, including the MCP revision, identity model, SDK/API/CRD versions, image, and storage. A full capability-pack manifest covering dependencies, topologies, lifecycle, and conformance evidence is an extension-profile requirement. A manifest never grants authority.
+The first profile uses one minimal lock for the Trainer adapter, including the MCP revision, identity model, SDK/API/CRD versions, image, and storage. Its proposed defaults are Kubernetes/OIDC identity, PostgreSQL durable storage, and a Standalone deployment. A full capability-pack manifest covering dependencies, topologies, lifecycle, and conformance evidence is an extension-profile requirement. A manifest never grants authority.
 
 Existing external MCP servers, such as MLflow MCP or Feast MCP, MAY remain independent backends and be federated through Agentgateway. Federation does not make them Kubeflow adapters or transfer ownership of their native APIs, resources, status, or release lifecycle. A federated backend MUST satisfy the same identity, policy, naming, protocol, and conformance requirements claimed by the deployment.
 
@@ -117,22 +117,24 @@ Every mutating operation MUST follow this sequence:
 
 1. `confirmed=false` returns a preview;
 2. the preview describes expected effects, policy warnings, resource/quota observations, expiry, and safety preconditions;
-3. user approval binds the actor, Profile, tool, canonical arguments, `request_id`, and `plan_id`; and
+3. user approval binds the actor, Profile, tool, canonical arguments, `request_id`, and server-issued `plan_id`; and
 4. `confirmed=true` executes only after server-side authorization and approval verification.
 
-A model-authored `confirmed=true` is never proof of user approval. For MCP `2026-07-28`, approval requiring user input MUST use Multi Round-Trip Requests: the server returns `input_required`, optionally containing an embedded `elicitation/create` request, and the client retries with `inputResponses` and the returned request state. The implementation MUST bind the response to the exact preview through MCP input handling or the harness's native approval surface. Legacy server-initiated elicitation MAY be supported only as a compatibility path. If approval cannot be bound to the exact preview, Gateway mutation conformance remains deferred or uses a versioned signed approval receipt. The receipt contract must define its signature algorithm, issuer, audience, key distribution, revocation, and replay rules.
+A model-authored `confirmed=true` is never proof of user approval. The server MUST generate an opaque `plan_id` when it creates a preview. The same `plan_id` remains valid for retries of the same `request_id` while the preview is unexpired and its safety preconditions remain unchanged. Changed canonical arguments, scope, or preconditions require a new preview and `plan_id`. A `plan_id` MUST NOT be accepted with another actor, Profile, namespace, tool, audience, or `request_id`.
+
+For MCP `2026-07-28`, approval requiring user input MUST use Multi Round-Trip Requests: the server returns `input_required`, optionally containing an embedded `elicitation/create` request, and the client retries with `inputResponses` and the returned request state. The implementation MUST bind the response to the exact preview through MCP input handling or the harness's native approval surface. Legacy server-initiated elicitation MAY be supported only as a compatibility path. If approval cannot be bound to the exact preview, Gateway mutation conformance remains deferred or uses a versioned signed approval receipt. The receipt contract must define its signature algorithm, issuer, audience, key distribution, revocation, and replay rules.
 
 ## 8. Safe retries and stored state
 
-`request_id` identifies one client intent. For confirmed mutations, the durable idempotency key MUST be scoped by authenticated actor, Profile, namespace, tool, audience, and `request_id`. The server MUST store pending Tasks, previews, approvals, and completed request results in a shared durable store that survives restarts and multiple replicas. A request ID reused with a different scope MUST fail closed and MUST NOT return a result from another scope.
+`request_id` identifies one client intent. For confirmed mutations, the durable idempotency key MUST be scoped by authenticated actor, Profile, namespace, tool, audience, and `request_id`. The first profile uses a PostgreSQL-backed durable store; other stores require equivalent atomicity, recovery, and isolation evidence. The server MUST store previews, approvals, and completed request results in a shared durable store that survives restarts and multiple replicas. A request ID reused with a different scope MUST fail closed and MUST NOT return a result from another scope. The `plan_id` is distinct from `request_id`: the former identifies one preview and approval plan, while the latter identifies the client intent across retries.
 
-The server MUST compare retries using a deterministic canonical argument representation. The representation includes every semantic tool argument and excludes `confirmed`, approval receipts, trace context, and other transient metadata. It must define defaults, omitted values, numbers, and Unicode handling.
+The server MUST compare retries using RFC 8785 JSON Canonicalization Scheme followed by SHA-256 over the canonical UTF-8 bytes. The representation includes every semantic tool argument and excludes `confirmed`, approval receipts, trace context, and other transient metadata. Defaults and omitted values MUST be normalized before hashing.
 
 An identical retry returns the original result. A changed request returns a conflict and MUST NOT create another resource. The store must support atomic writes, TTL, cleanup, recovery, concurrency control, privacy, and signing-key rotation.
 
 ## 9. Tasks and native resources
 
-MCP Tasks provide durable handles for polling, reconnect, input, and cooperative cancellation. In the first profile, Tasks are used only for Trainer submissions and MUST NOT replace the native `TrainJob` resource.
+MCP Tasks provide durable handles for polling, reconnect, input, and cooperative cancellation, but are an extension profile. The first profile polls the native `TrainJob` resource directly; Tasks MUST NOT replace native operator resources.
 
 The native resource remains authoritative when Task state and native state differ. The adapter MUST distinguish:
 
@@ -141,7 +143,7 @@ The native resource remains authoritative when Task state and native state diffe
 - submission outcome unknown and reconciliation required; and
 - Task expired while the native resource remains observable.
 
-The Trainer adapter MUST report whether cancellation was accepted, rejected, or still pending. Cross-operator partial effects and distributed transaction semantics belong to a later extension profile.
+The Trainer adapter MUST report native status and submission failures. Cancellation races, cross-operator partial effects, and distributed transaction semantics belong to later extension profiles.
 
 ## 10. Evidence, resources, and governance
 

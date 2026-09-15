@@ -40,7 +40,7 @@ User / IDE / Notebook / Dashboard
                 |
                 v
             MCP client
-        Skills · Tasks · tools
+        Skills · tools
                 |
        +--------+---------+
        |                  |
@@ -71,16 +71,32 @@ The Training core is the first required pack. Trainer demonstrates the contract 
 
 ## First milestone
 
-The first implementation milestone is deliberately narrow:
+The first implementation milestone is deliberately narrow.
 
-- Standalone MCP access only;
+Core interoperability requires:
+
+- Standalone MCP access;
 - Trainer as the sole reference adapter;
 - one verified identity and Profile model;
-- one approval flow bound to the exact preview;
-- one durable idempotency implementation; and
-- a working conformance suite for discovery, Skills, authorization, mutation safety, retries, and native status.
+- discovery, immutable read-only Skills, preview, and native status.
+
+Alpha hardening adds approval binding, durable idempotency, cache isolation, and the conformance suite for retries and mutation safety.
 
 Gateway integration, additional capability packs, external MCP federation, Skills supply-chain verification, and multi-cluster behavior are extension profiles for follow-up work.
+
+### Proposed `Standalone Training Core v0.1` defaults
+
+These defaults make the first implementation concrete and remain subject to project-owner sign-off:
+
+| Area | Proposed default |
+| --- | --- |
+| Identity | Kubernetes/OIDC identity with one documented actor-to-Profile and namespace mapping. |
+| Approval | MCP `2026-07-28` MRTR using `input_required`, with approval bound to the preview and `plan_id`. |
+| Persistence | PostgreSQL-backed durable store for previews, approvals, and idempotency results. |
+| Idempotency | RFC 8785 JSON Canonicalization Scheme plus SHA-256 over canonical request arguments. |
+| Tasks | Deferred; poll native `TrainJob` status in the first profile. |
+| Policy | Deny-overrides precedence. |
+| Deployment | Standalone `kubeflow-mcp` reference profile. |
 
 ## Goals
 
@@ -116,6 +132,14 @@ This proposal requires no breaking changes to controller APIs, CRDs, or existing
 
 Where native APIs support it, adapters MAY use server-side dry-run or validation-only requests to build previews. Otherwise, previews MUST be generated without mutating resources.
 
+| Existing behavior | Compatibility requirement |
+| --- | --- |
+| Tool names | Unchanged. |
+| Required parameters | Unchanged. |
+| Response shapes | Additive fields only. |
+| Personas | Existing policy retained. |
+| Confirm gate | Formalized, not replaced. |
+
 ## Component integration workflow
 
 1. Agree on the operator or service's native authority and supported API versions.
@@ -131,9 +155,11 @@ Initial acceptance requires a reviewed contract and implementation plan, a locke
 ## Open decisions
 
 - Agree on the changes `kubeflow-mcp` must make to support this KEP while keeping its current tool names, parameters, response types, personas, and confirmation behavior compatible.
-- Choose the first tested versions of Trainer, the Kubeflow SDK, MCP support, Agentgateway, the identity mechanism, and the exposed tool mode. These versions will form the initial reference lock.
-- Choose how a user reviews and approves a mutation after seeing its preview. The approval must be tied to the exact user, Profile, tool, arguments, and expiration time, and a model must not be able to approve its own request.
-- Choose where Tasks, previews, approvals, and completed request results are stored so they survive restarts and multiple server replicas. Define how the server recognizes two retries as the same request.
+- Confirm the proposed Trainer, Kubeflow SDK, MCP, identity, and tool-mode versions for the initial reference lock.
+- Confirm the proposed MRTR approval flow and its binding to the exact user, Profile, tool, arguments, preview, and expiration time.
+- Confirm PostgreSQL as the initial durable store for previews, approvals, and idempotency results, and confirm the retry identity rules.
+- Confirm that MCP Tasks are deferred while the first profile polls native `TrainJob` status.
+- Confirm RFC 8785 canonicalization plus SHA-256 for idempotency hashes.
 - Agree how conflicting access decisions are resolved when the agent harness, gateway, MCP server, Profile/RBAC, Kubernetes, and operator policy all participate. A lower layer must never grant more access than an upper layer allows.
 - Define the small manifest that describes an optional operator integration: what it depends on, which topologies it supports, which tools and Skills it exposes, who owns it, and how it is enabled, upgraded, deprecated, or removed.
 - Define what the agent sees when an MCP Task and the native operator resource disagree, including failed submissions, unknown outcomes, cancellation races, expiration, and workflows where one component succeeds and another fails.
