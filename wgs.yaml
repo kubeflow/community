@@ -1,11 +1,15 @@
 sigs: []
 workinggroups:
 - dir: wg-agents
-  name: wg-agents
+  name: Agents
   mission_statement: >
-    This working group (WG) focuses on the deployment, maintenance, and operationalization of autonomous agentic workflows within Kubeflow. 
-    While the [wg-ml-experience](/wg-ml-experience/charter.md) governs direct-to-IDE developer integrations, this WG focuses on the autonomous agent experience. 
-    Building the infrastructure and tooling that allows agents to independently execute operational tasks (e.g., "investigate this Spark app") and/or serve as integrated solutions as part on Kubeflow.
+    This working group (WG) focuses on the deployment, maintenance, and operationalization
+    of autonomous agentic workflows within Kubeflow.  While the [wg-ml-experience](/wg-ml-experience/charter.md)
+    governs direct-to-IDE developer integrations, this WG focuses on the autonomous
+    agent experience.  Building the infrastructure and tooling that allows agents
+    to independently execute operational tasks (e.g., "investigate this Spark app")
+    and/or serve as integrated solutions as part on Kubeflow.
+
   charter_link: charter.md
   label: ""
   leadership:
@@ -13,9 +17,9 @@ workinggroups:
     - github: ChaseCadet
       name: Chase Christensen
       company: Wiz/Google Cloud
-    - github: andreyvelich
-      name: Andrey Velichkevich
-      company: Apple
+    - github: Tarek
+      name: Tarek Abouzeid
+      company: Telia
     - github: franciscojavierarceo
       name: Francisco Javier Arceo
       company: Red Hat
@@ -23,7 +27,7 @@ workinggroups:
       name: Vara Bonthu
       company: AWS
   meetings:
-  - description: 
+  - description: ""
     day: TBD
     time: TBD
     tz: TBD
@@ -37,6 +41,18 @@ workinggroups:
     - name: wg-agents
       description: Team of Agents Working Group Chairs
   subprojects:
+  - name: Kubeflow Docs Agent
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/docs-agent/main/OWNERS
+  - name: Kubeflow MCP Server
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/mcp-server/master/OWNERS
+  - name: Kubeflow MCP Spark History Server
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/mcp-apache-spark-history-server/main/OWNERS
+  - name: Kubeflow Semantic Operator
+    owners:
+    - https://raw.githubusercontent.com/kubeflow/semantic-operator/main/OWNERS
 - dir: wg-data
   name: Data
   mission_statement: >
@@ -94,7 +110,6 @@ workinggroups:
         description: Kubeflow Hub maintainers
     owners:
     - https://raw.githubusercontent.com/kubeflow/hub/main/OWNERS
-    meetings: []
   - name: spark-operator
     contact:
       slack: kubeflow-spark-on-kubernetes
@@ -152,9 +167,6 @@ workinggroups:
         description: Kubeflow Kale maintainers
     owners:
     - https://raw.githubusercontent.com/kubeflow/kale/master/OWNERS
-  - name: Kubeflow MCP Server
-    owners:
-    - https://raw.githubusercontent.com/kubeflow/mcp-server/master/OWNERS
   - name: Kubeflow SDK
     contact:
       teams:
