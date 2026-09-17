@@ -46,13 +46,6 @@ In the end, this WG seeks to ensure the success of Agentic tools deployed within
 This WG adheres to the Roles and Organization Management outlined in [wg-governance]
 and opts-in to updates and modifications to [wg-governance].
 
-### Additional responsibilities of Chairs
-
-- Coordinating and facilitating discussions on autonomous agentic workflows in scope of the WG, within the WG itself and the Kubeflow community.
-- Ensuring alignment with overall Kubeflow goals and objectives in the context of the autonomous agent experience on Kubeflow.
-- Providing technical guidance and mentorship to contributors working on Kubeflow MCP servers, reference architectures, and the projects in scope of this WG.
-- Overseeing the technical direction of the subprojects and ensuring consistency with Kubeflow's vision for Kubeflow Agentic Workflows.
-- Collaborate and connect with current and potential agentic focused [ecosystem partners](/ecosystem/PROJECTS.md)
 
 ### Subproject Creation
 
