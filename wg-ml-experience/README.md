@@ -38,9 +38,6 @@ The following [subprojects](https://github.com/kubeflow/community/tree/master/su
 - **Contact:**
   - GitHub Teams:
     - [@kubeflow/kubeflow-kale-team](https://github.com/orgs/kubeflow/teams/kubeflow-kale-team) - Kubeflow Kale maintainers
-### Kubeflow MCP Server
-- **Owners:**
-  - https://raw.githubusercontent.com/kubeflow/mcp-server/master/OWNERS
 ### Kubeflow SDK
 - **Owners:**
   - https://raw.githubusercontent.com/kubeflow/sdk/master/OWNERS
