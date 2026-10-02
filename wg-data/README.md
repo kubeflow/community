@@ -46,7 +46,7 @@ The following [subprojects](https://github.com/kubeflow/community/tree/master/su
 - **Contact:**
   - Slack: [#kubeflow-spark-on-kubernetes](https://www.kubeflow.org/docs/about/community/#slack-channels)
 - **Meetings:**
-  - Kubeflow Spark on Kubernetes Call: [Fridays at 9:00AM-10:00AM PT (Pacific Time)]() (biweekly - every other Friday of the month). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=9:00AM-10:00AM&tz=PT%20%28Pacific%20Time%29).
+  - Kubeflow Spark on Kubernetes Call: [Fridays at 9:00AM-10:00AM PT (Pacific Time)](https://zoom-lfx.platform.linuxfoundation.org/meeting/91692004209?password=e48ce50b-b41d-459a-9f32-7313fa388380) (biweekly - every other Friday of the month). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=9:00AM-10:00AM&tz=PT%20%28Pacific%20Time%29).
     - [Meeting notes and Agenda](https://bit.ly/3VGzP4n).
     - [Meeting recordings](https://www.youtube.com/playlist?list=PLmzRWLV1CK_xXuM6gALgBG8vDZHFCNxce).
 <!-- BEGIN CUSTOM CONTENT -->
