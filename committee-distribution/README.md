@@ -13,7 +13,7 @@ The current membership of the committee is (listed alphabetically by first name)
 ### Vendor Representatives
 
 | Name                   | Organization | GitHub                                                          | Term Start | Term End   |
-|------------------------|--------------|-----------------------------------------------------------------|------------|------------|
+| ---------------------- | ------------ | --------------------------------------------------------------- | ---------- | ---------- |
 | Francisco Javier Arceo | Red Hat      | [franciscojavierarceo](https://github.com/franciscojavierarceo) | 07/17/2026 | 07/17/2027 |
 | Rob Gibbon             | Canonical    | [grobbie](https://github.com/grobbie)                           | 07/17/2026 | 07/17/2027 |
 | Vikas Saxena           | RAICS.AI     | [vikas-saxena02](https://github.com/vikas-saxena02)             | 07/17/2026 | 07/17/2027 |
@@ -21,20 +21,19 @@ The current membership of the committee is (listed alphabetically by first name)
 ### Kubeflow Community Distribution Representatives
 
 | Name              | Organization  | GitHub                                                | Term Start | Term End   |
-|-------------------|---------------|-------------------------------------------------------|------------|------------|
+| ----------------- | ------------- | ----------------------------------------------------- | ---------- | ---------- |
 | Julius von Kohout | DHL Data & AI | [juliusvonkohout](https://github.com/julusvonkohout/) | 06/05/2026 | 06/05/2027 |
 | Tarek Abouzeid    | Telia         | [tarekabouzeid](https://github.com/tarekabouzeid/)    | 06/05/2026 | 06/05/2027 |
 
 ### Kubeflow Subproject Representatives
 
-| Kubeflow Subproject     | Name | Organization | GitHub | Term Start | Term End |
-|-------------------------|------|--------------|--------|------------|----------|
-| Kubeflow Hub            | TBD  | -            | -      | -          | -        |
-| Kubeflow Katib          | TBD  | -            | -      | -          | -        |
-| Kubeflow Notebooks      | TBD  | -            | -      | -          | -        |
-| Kubeflow Pipelines      | TBD  | -            | -      | -          | -        |
-| Kubeflow Spark Operator | TBD  | -            | -      | -          | -        |
-| Kubeflow Trainer        | TBD  | -            | -      | -          | -        |
+| Kubeflow Subproject     | Name            | Organization | GitHub                                               | Term Start | Term End   |
+| ----------------------- | --------------- | ------------ | ---------------------------------------------------- | ---------- | ---------- |
+| Kubeflow Hub            | TBD             | -            | -                                                    | -          | -          |
+| Kubeflow Notebooks      | TBD             | -            | -                                                    | -          | -          |
+| Kubeflow Pipelines      | TBD             | -            | -                                                    | -          | -          |
+| Kubeflow Spark Operator | TBD             | -            | -                                                    | -          | -          |
+| Kubeflow Trainer        | Akshay Chitneni | Apple        | [akshaychitneni](https://github.com/akshaychitneni/) | 10/01/2026 | 10/01/2027 |
 
 ## Meetings
 
