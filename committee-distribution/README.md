@@ -29,7 +29,7 @@ The current membership of the committee is (listed alphabetically by first name)
 
 | Kubeflow Subproject     | Name             | Organization | GitHub                                                   | Term Start | Term End   |
 | ----------------------- |------------------| ------------ |----------------------------------------------------------|------------|------------|
-| Kubeflow Hub            | TBD              | -            | -                                                        | -          | -          |
+| Kubeflow Hub            | Adysen Rothman   | Red Hat      | [adysenrothman](https://github.com/adysenrothman/)       | 09/XX/2026 | 09/XX/2027 |
 | Kubeflow Notebooks      | Christian Heusel | Contractor   | [christian-heusel](https://github.com/christian-heusel/) | 10/01/2026 | 09/01/2027 |
 | Kubeflow Pipelines      | Michael Zazula   | Capital One  | [zazulam](https://github.com/zazulam/)                   | 10/01/2026 | 10/01/2027 |
 | Kubeflow Spark Operator | Tariq Hasan      | Independent  | [tariq-hasan](https://github.com/tariq-hasan/)           | 10/01/2026 | 10/01/2027 |
