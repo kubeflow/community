@@ -12,25 +12,24 @@ The current membership of the committee is (listed alphabetically by first name)
 
 ### Vendor Representatives
 
-| Name                   | Organization | GitHub                                                          | Term Start | Term End   |
-| ---------------------- | ------------ | --------------------------------------------------------------- | ---------- | ---------- |
-| Francisco Javier Arceo | Red Hat      | [franciscojavierarceo](https://github.com/franciscojavierarceo) | 07/17/2026 | 07/17/2027 |
-| Rob Gibbon             | Canonical    | [grobbie](https://github.com/grobbie)                           | 07/17/2026 | 07/17/2027 |
-| Vikas Saxena           | RAICS.AI     | [vikas-saxena02](https://github.com/vikas-saxena02)             | 07/17/2026 | 07/17/2027 |
+| Name         | Organization | GitHub                                              | Term Start | Term End   |
+| ------------ | ------------ | --------------------------------------------------- | ---------- | ---------- |
+| Rob Gibbon   | Canonical    | [grobbie](https://github.com/grobbie)               | 10/01/2026 | 10/01/2027 |
+| Vikas Saxena | RAICS.AI     | [vikas-saxena02](https://github.com/vikas-saxena02) | 10/01/2026 | 10/01/2027 |
 
 ### Kubeflow Community Distribution Representatives
 
 | Name              | Organization  | GitHub                                                | Term Start | Term End   |
 | ----------------- | ------------- | ----------------------------------------------------- | ---------- | ---------- |
-| Julius von Kohout | DHL Data & AI | [juliusvonkohout](https://github.com/julusvonkohout/) | 06/05/2026 | 06/05/2027 |
-| Tarek Abouzeid    | Telia         | [tarekabouzeid](https://github.com/tarekabouzeid/)    | 06/05/2026 | 06/05/2027 |
+| Julius von Kohout | DHL Data & AI | [juliusvonkohout](https://github.com/julusvonkohout/) | 10/01/2026 | 10/01/2027 |
+| Tarek Abouzeid    | Telia         | [tarekabouzeid](https://github.com/tarekabouzeid/)    | 10/01/2026 | 10/01/2027 |
 
 ### Kubeflow Subproject Representatives
 
 | Kubeflow Subproject     | Name             | Organization | GitHub                                                   | Term Start | Term End   |
-| ----------------------- |------------------| ------------ |----------------------------------------------------------|------------|------------|
-| Kubeflow Hub            | Adysen Rothman   | Red Hat      | [adysenrothman](https://github.com/adysenrothman/)       | 09/XX/2026 | 09/XX/2027 |
-| Kubeflow Notebooks      | Christian Heusel | Contractor   | [christian-heusel](https://github.com/christian-heusel/) | 10/01/2026 | 09/01/2027 |
+| ----------------------- | ---------------- | ------------ | -------------------------------------------------------- | ---------- | ---------- |
+| Kubeflow Hub            | Adysen Rothman   | Red Hat      | [adysenrothman](https://github.com/adysenrothman/)       | 10/01/2026 | 10/01/2027 |
+| Kubeflow Notebooks      | Christian Heusel | Contractor   | [christian-heusel](https://github.com/christian-heusel/) | 10/01/2026 | 10/01/2027 |
 | Kubeflow Pipelines      | Michael Zazula   | Capital One  | [zazulam](https://github.com/zazulam/)                   | 10/01/2026 | 10/01/2027 |
 | Kubeflow Spark Operator | Tariq Hasan      | Independent  | [tariq-hasan](https://github.com/tariq-hasan/)           | 10/01/2026 | 10/01/2027 |
 | Kubeflow Trainer        | Akshay Chitneni  | Apple        | [akshaychitneni](https://github.com/akshaychitneni/)     | 10/01/2026 | 10/01/2027 |
