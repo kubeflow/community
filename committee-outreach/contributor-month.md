@@ -7,6 +7,7 @@
 - Everyone who contributes to the **Kubeflow** project (technical and non-technical contributions)
   - **Examples**: outreach activities, advocacy activities (videos, demos), PRs merged code/blogs.
 - The candidate follows to the [CNCF Code of Conduct](https://github.com/cncf/foundation/blob/main/code-of-conduct.md) and the [Kubeflow Contributor practices including Code of Conduct and Inclusivity](https://www.kubeflow.org/docs/about/contributing/).
+- The contributors has done contributions at least for the same month of the Contributor of Month Program.
 
 ### Submission process:
 
@@ -16,13 +17,13 @@
 - The submission will be done using a Google Form that will indicate why the contributor should be selected as **Contributor of the Month**, such as, but not limited to: 
   - Name of the contributor
   - Choose a category where the candidate is being nominated.
-  - Describe the nominee's primary contribution(s) in detail
+  - Describe the nominee's primary contribution(s) in detail in regards to the specific month that you are nominating the contributor. 
   - Proof of the contribution (Link, resources)
   - Referral/Sponsor (someone from the community including WG leads, but not limited to the WGs)
 
 ### Criteria to select the contributor of the month:
 
-- KOC will be selecting the contributor of the month based on the impact on the community
+- KOC will be selecting the contributor of the month based on the impact on the community during the specific month
 - Categories:
   - New contributors
   - Outreach/Advocacy
@@ -39,4 +40,4 @@
 3. Can the contributor of the Month be selected from the same organization during the same year?
   -  Yes, but with limitations. To ensure diversity, no single organization can account for more than 30% of the winners in a calendar year, with a strict cap of 4 Contributor of the Month per organization per year.
 4. To be nominated, is there a minium requirement on how long the contributor is being part of the kubeflow community?
-  -  No mininum requirement, all contributors new or seasoned contributors are welcome. We value all contributions that are creating an impact on the Kubeflow community.
+  -  No mininum requirement, all contributors new or seasoned contributors are welcome. We value all contributions that are creating an impact on the Kubeflow community. 
