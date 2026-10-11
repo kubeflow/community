@@ -32,9 +32,9 @@ The list of emeritus members that previously served on KSC:
 The KSC currently meets weekly. Meetings are open to the public and held online, unless they pertain to
 sensitive or privileged matters.
 
-- Friday at 7:30AM PST (Pacific Time)
-- [Meeting notes](https://docs.google.com/document/d/1IzmwOpEszYTfkGkMITBgLm1Hid6LgOwla0HgZXJd7UQ)
-- [YouTube playlist recordings](https://www.youtube.com/@KubeflowCommunity)
+* Regular Public KSC Meeting [Friday at 7:30AM PST (Pacific Time)](https://zoom-lfx.platform.linuxfoundation.org/meeting/95592784903?password=7df07604-d781-45ad-af18-562ee29973f3)
+  * [Meeting notes](https://docs.google.com/document/d/1IzmwOpEszYTfkGkMITBgLm1Hid6LgOwla0HgZXJd7UQ)
+  * [YouTube playlist recordings](https://www.youtube.com/@KubeflowCommunity)
 
 ## Contact
 
@@ -75,6 +75,8 @@ GitHub issue content:
       where Prow is running.
 - [ ] Kubeflow [Google Group](https://groups.google.com/g/kubeflow-discuss).
 - [ ] Update members for [KSC Google Group](https://groups.google.com/a/kubeflow.org/g/ksc).
+- [ ] Access to Kubeflow 1password account.
+- [ ] Access to Kubeflow bit.ly account.
 - [ ] Kubeflow social media resources.
   - Kubeflow [LinkedIn](https://www.linkedin.com/company/kubeflow/)
   - Kubeflow [X](https://x.com/kubeflow).

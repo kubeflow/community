@@ -13,7 +13,7 @@ The ML Experience Working Group focuses on developing, maintaining, and improvin
 The [charter](charter.md) defines the scope and governance of the ML Experience Working Group.
 
 ## Meetings
-* Kubeflow SDK and ML Experience Call: [Wednesdays at 08:00AM PT (Pacific Time)]() (bi-weekly). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=08:00AM&tz=PT%20%28Pacific%20Time%29).
+* Kubeflow SDK and ML Experience Call: [Wednesdays at 08:00AM PT (Pacific Time)](https://zoom-lfx.platform.linuxfoundation.org/meeting/99885200814?password=12a9c369-1b62-4025-9f10-421678026350) (bi-weekly). [Convert to your timezone](http://www.thetimezoneconverter.com/?t=08:00AM&tz=PT%20%28Pacific%20Time%29).
   * [Meeting notes and Agenda](https://bit.ly/kf-ml-experience).
   * [Meeting recordings](https://www.youtube.com/playlist?list=PLmzRWLV1CK_wSO2IMPnzChxESmaoXNfrY).
 
@@ -38,9 +38,6 @@ The following [subprojects](https://github.com/kubeflow/community/tree/master/su
 - **Contact:**
   - GitHub Teams:
     - [@kubeflow/kubeflow-kale-team](https://github.com/orgs/kubeflow/teams/kubeflow-kale-team) - Kubeflow Kale maintainers
-### Kubeflow MCP Server
-- **Owners:**
-  - https://raw.githubusercontent.com/kubeflow/mcp-server/master/OWNERS
 ### Kubeflow SDK
 - **Owners:**
   - https://raw.githubusercontent.com/kubeflow/sdk/master/OWNERS
