@@ -7,7 +7,7 @@
 - Everyone who contributes to the **Kubeflow** project (technical and non-technical contributions)
   - **Examples**: outreach activities, advocacy activities (videos, demos), PRs merged code/blogs.
 - The candidate follows to the [CNCF Code of Conduct](https://github.com/cncf/foundation/blob/main/code-of-conduct.md) and the [Kubeflow Contributor practices including Code of Conduct and Inclusivity](https://www.kubeflow.org/docs/about/contributing/).
-- The contributors has done contributions at least for the same month of the Contributor of Month Program.
+- The contributor must have made contributions during the same month as the Contributor of the Month program.
 
 ### Submission process:
 
