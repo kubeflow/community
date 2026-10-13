@@ -33,6 +33,7 @@ When a project changes its status level, this document and the
 | Kubeflow MLflow Integration       | [kubeflow/mlflow-integration](https://github.com/kubeflow/mlflow-integration)                           |
 | Kubeflow MCP Server               | [kubeflow/mcp-server](https://github.com/kubeflow/mcp-server)                                           |
 | Kubeflow MCP Spark History Server | [kubeflow/mcp-apache-spark-history-server](https://github.com/kubeflow/mcp-apache-spark-history-server) |
+| Kubeflow Semantic Operator        | [kubeflow/semantic-operator](https://github.com/kubeflow/semantic-operator)                             |
 
 ## Deprecated
 
