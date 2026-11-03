@@ -44,6 +44,8 @@ The following [subprojects](https://github.com/kubeflow/community/tree/master/su
 ### Semantic Operator
 - **Owners:**
   - https://raw.githubusercontent.com/kubeflow/semantic-operator/main/OWNERS
+- **Contact:**
+  - Slack: [#kubeflow-semantic-operator](https://www.kubeflow.org/docs/about/community/#slack-channels)
 <!-- BEGIN CUSTOM CONTENT -->
 
 <!-- END CUSTOM CONTENT -->

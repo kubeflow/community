@@ -48,6 +48,8 @@ workinggroups:
     owners:
     - https://raw.githubusercontent.com/kubeflow/mcp-apache-spark-history-server/main/OWNERS
   - name: Semantic Operator
+    contact:
+      slack: kubeflow-semantic-operator
     owners:
     - https://raw.githubusercontent.com/kubeflow/semantic-operator/main/OWNERS
 - dir: wg-data

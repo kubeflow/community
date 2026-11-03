@@ -28,13 +28,13 @@ When a project changes its status level, this document and the
 
 ## Experimental
 
-| Kubeflow Subproject               | Source Code                                                                                             |
-| --------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| Kubeflow Docs Agent               | [kubeflow/docs-agent](https://github.com/kubeflow/docs-agent)                                           |
-| Kubeflow MCP Server               | [kubeflow/mcp-server](https://github.com/kubeflow/mcp-server)                                           |
-| Kubeflow MCP Spark History Server | [kubeflow/mcp-apache-spark-history-server](https://github.com/kubeflow/mcp-apache-spark-history-server) |
-| Kubeflow MLflow Integration       | [kubeflow/mlflow-integration](https://github.com/kubeflow/mlflow-integration)                           |
-| Kubeflow Semantic Operator        | [kubeflow/semantic-operator](https://github.com/kubeflow/semantic-operator)                             |
+| Kubeflow Subproject                                                         | Source Code                                                                                             |
+| --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| Kubeflow Docs Agent                                                         | [kubeflow/docs-agent](https://github.com/kubeflow/docs-agent)                                           |
+| Kubeflow MCP Server                                                         | [kubeflow/mcp-server](https://github.com/kubeflow/mcp-server)                                           |
+| Kubeflow MCP Spark History Server                                           | [kubeflow/mcp-apache-spark-history-server](https://github.com/kubeflow/mcp-apache-spark-history-server) |
+| Kubeflow MLflow Integration                                                 | [kubeflow/mlflow-integration](https://github.com/kubeflow/mlflow-integration)                           |
+| [Kubeflow Semantic Operator](https://kubeflow.github.io/semantic-operator/) | [kubeflow/semantic-operator](https://github.com/kubeflow/semantic-operator)                             |
 
 ## Deprecated
 
