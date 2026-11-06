@@ -13,7 +13,6 @@ When a project changes its status level, this document and the
 | Kubeflow Subproject                                                                 | Source Code                                                           |
 | ----------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
 | [Kubeflow Hub](https://www.kubeflow.org/docs/components/hub/)                       | [kubeflow/hub](https://github.com/kubeflow/hub)                       |
-| [Kubeflow Katib](https://www.kubeflow.org/docs/components/katib/)                   | [kubeflow/katib](https://github.com/kubeflow/katib)                   |
 | [Kubeflow Notebooks](https://www.kubeflow.org/docs/components/notebooks/)           | [kubeflow/notebooks](https://github.com/kubeflow/notebooks)           |
 | [Kubeflow Pipelines](https://www.kubeflow.org/docs/components/pipelines/)           | [kubeflow/pipelines](https://github.com/kubeflow/pipelines)           |
 | [Kubeflow Spark Operator](https://www.kubeflow.org/docs/components/spark-operator/) | [kubeflow/spark-operator](https://github.com/kubeflow/spark-operator) |
@@ -38,9 +37,9 @@ When a project changes its status level, this document and the
 
 ## Deprecated
 
-| Kubeflow Subproject | Source Code |
-| ------------------- | ----------- |
-| TBA                 | TBA         |
+| Kubeflow Subproject                                               | Source Code                                         | Deprecation Date | Archiving Date |
+| ----------------------------------------------------------------- | --------------------------------------------------- | ---------------- | -------------- |
+| [Kubeflow Katib](https://www.kubeflow.org/docs/components/katib/) | [kubeflow/katib](https://github.com/kubeflow/katib) | 01/11/2026       | 01/11/2027     |
 
 ## Archived
 
