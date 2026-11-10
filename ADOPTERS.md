@@ -35,4 +35,5 @@ Please keep the list in alphabetical order.
 | [Jio Platforms](https://www.jio.com) | [@abdullahpathan22](https://github.com/abdullahpathan22) | Kubeflow is used as our ML platform for running AI workloads on Kubernetes for JioTV+. |
 | [Slalom](https://www.slalom.com/us/en/services/artificial-intelligence) | [@robcube](https://github.com/robcube) | Kubeflow is used to prototype gesture or hand-based recognition. |
 | [Telia](https://www.teliacompany.com/) | [@akeed](https://github.com/akeed), [@sarahberenji](https://github.com/sarahberenji), [@tarekabouzeid](https://github.com/tarekabouzeid) | Kubeflow is used as our main ML platform for on-premises analytics. |
+| [Unimicron](https://www.unimicron.com/) | [@Ang-edgar](https://github.com/Ang-edgar) | Kubeflow is used as our main AI/ML platform for training AI models, and running AI workloads on on-premise Kubernetes Infrastructure |
 | [RAICS.AI](https://raics.ai) | [@vikas-saxena02](https://github.com/vikas-saxena02) | We help organisations stand up and run Kubeflow in their cloud or on-prem environment — coming soon, a fully managed multi-tenant Kubeflow SaaS on AWS. |
