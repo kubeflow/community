@@ -71,7 +71,12 @@ The general timeline is as follows:
 
 ### Election Officer(s)
 
-4 weeks or more before the election, the Steering Committee will appoint between one and three Election Officer(s) to administer the election. Elections Officers will be Kubeflow community members in good standing who are eligible to vote, are not running for Steering in that election, who are not currently part of the Steering Committee and can make a public promise of impartiality. They will be responsible for:
+4 weeks or more before the election, the Steering Committee will appoint by special decision process
+between one and three Election Officer(s) to administer the election. Elections Officers will be
+Kubeflow community members in good standing, are not running for Steering in that election,
+who are not currently part of the Steering Committee and can make a public promise of impartiality.
+
+They will be responsible for:
 
 - Making all announcements associated with the election
 - Preparing and distributing electronic ballots
