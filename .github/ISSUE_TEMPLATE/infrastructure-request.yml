@@ -1,7 +1,7 @@
 name: Infrastructure Request
 description: Request resources in the Kubeflow Oracle Cloud Infrastructure (OCI) Tenancy.
 title: "[Request(Infra)]: <Short Summary>"
-labels: ["area/infrastructure", "infra/needs-allocation"]
+labels: ["area/infrastructure", "area/infra-needs-allocation"]
 body:
   - type: markdown
     attributes:
@@ -40,7 +40,7 @@ body:
     id: duration
     attributes:
       label: Requested Duration
-      description: How long is this resource required for? (e.g., 30, 60, 90, or 120 days, or GSoC duration). Admins map this to the nearest infra/timeline-* bucket per KEP-939.
+      description: How long is this resource required for? (e.g., 30, 60, 90, or 120 days, or GSoC duration). Admins map this to the nearest area/infra-timeline-* bucket per KEP-939.
       placeholder: "e.g., 90 days"
     validations:
       required: true
@@ -82,7 +82,7 @@ body:
       label: Compliance
       description: Please acknowledge the following compliance requirements.
       options:
-        - label: I agree to tag all resources according to KEP-939 (owner, issue, expiry_date).
+        - label: I understand that all resources will be tagged per KEP-939 (owner, issue, expiry_date), and that I am the owner accountable for them.
           required: true
-        - label: I understand that resources will be decommissioned automatically when the requested duration ends, unless an extension is requested and approved.
+        - label: I understand that resources will be decommissioned when the requested duration ends, unless I request an extension in this issue and it is approved.
           required: true
