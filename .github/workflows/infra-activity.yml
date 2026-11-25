@@ -1,21 +1,23 @@
-# Manages the infra/* labels on Infrastructure Request issues, as defined in
+# Manages the area/infra-* labels on Infrastructure Request issues, as defined in
 # KEP-939 (proposals/939-oci-infrastructure-management/README.md):
 #
-#   infra/needs-allocation  -> applied by the issue template on creation
-#   infra/allocated         -> applied by an admin once resources are provisioned
-#   infra/timeline-120d/90d/60d/30d/expired -> remaining-lease buckets
+#   area/infra-needs-allocation  -> applied by the issue template on creation
+#   area/infra-allocated         -> applied by an admin once resources are provisioned
+#   area/infra-timeline-120d/90d/60d/30d/expired -> remaining-lease buckets
 #
 # Three jobs:
 #   * on `issues: opened` — for issues created from the Infrastructure Request
-#     form, create the infra/* labels if they do not exist yet and apply
-#     infra/needs-allocation (issue forms only apply labels that already exist).
+#     form, create the area/infra-* labels if they do not exist yet and apply
+#     area/infra-needs-allocation (issue forms only apply labels that already exist).
 #   * on `issues: labeled` — keep labels consistent: a timeline label removes
 #     any other timeline label (they are mutually exclusive), and
-#     infra/allocated removes infra/needs-allocation.
-#   * on a daily cron — for every open issue carrying infra/allocated and a
-#     timeline label, check when the current timeline label was applied and
-#     downgrade it once the bucket has elapsed (120d -> 90d -> 60d -> 30d ->
-#     expired), posting a reminder comment mentioning the PoC at each step.
+#     area/infra-allocated removes area/infra-needs-allocation.
+#   * on a daily cron — delete the legacy infra/* labels (pre-area/ naming) if
+#     they still exist, then for every open issue carrying area/infra-allocated
+#     and a timeline label, measure the lease from the last timeline label an
+#     admin applied and downgrade the label as the remaining time drops
+#     (120d -> 90d -> 60d -> 30d -> expired), posting a reminder comment
+#     mentioning the PoC at each step.
 #
 # Optional repository variable INFRA_ADMINS (e.g. "@alice @bob") is mentioned
 # when a lease expires.
@@ -37,19 +39,19 @@ jobs:
     if: github.event_name == 'issues' && github.event.action == 'opened'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/github-script@v7
+      - uses: actions/checkout@v7
+      - uses: actions/github-script@v9
         with:
           script: |
             const run = require('./.github/scripts/infra-activity.js');
             await run.intake({ github, context, core });
 
   sync-labels:
-    if: github.event_name == 'issues' && github.event.action == 'labeled' && startsWith(github.event.label.name, 'infra/')
+    if: github.event_name == 'issues' && github.event.action == 'labeled' && startsWith(github.event.label.name, 'area/infra-')
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/github-script@v7
+      - uses: actions/checkout@v7
+      - uses: actions/github-script@v9
         with:
           script: |
             const run = require('./.github/scripts/infra-activity.js');
@@ -59,12 +61,13 @@ jobs:
     if: github.event_name != 'issues'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/github-script@v7
+      - uses: actions/checkout@v7
+      - uses: actions/github-script@v9
         env:
           INFRA_ADMINS: ${{ vars.INFRA_ADMINS }}
         with:
           script: |
             const run = require('./.github/scripts/infra-activity.js');
             await run.ensureLabels({ github, context, core });
+            await run.deleteLegacyLabels({ github, context, core });
             await run.timelineCountdown({ github, context, core });

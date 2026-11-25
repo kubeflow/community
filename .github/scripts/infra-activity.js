@@ -1,9 +1,9 @@
 // Label automation for Infrastructure Request issues (KEP-939).
 // Invoked from .github/workflows/infra-activity.yml via actions/github-script.
 
-const NEEDS_ALLOCATION = 'infra/needs-allocation';
-const ALLOCATED = 'infra/allocated';
-const TIMELINE_PREFIX = 'infra/timeline-';
+const NEEDS_ALLOCATION = 'area/infra-needs-allocation';
+const ALLOCATED = 'area/infra-allocated';
+const TIMELINE_PREFIX = 'area/infra-timeline-';
 const EXPIRED = `${TIMELINE_PREFIX}expired`;
 // Ordered from longest to shortest remaining lease.
 const BUCKETS = [120, 90, 60, 30];
@@ -33,7 +33,7 @@ function timelineLabelsOf(issue) {
 }
 
 function bucketDays(label) {
-  const match = /^infra\/timeline-(\d+)d$/.exec(label);
+  const match = /^area\/infra-timeline-(\d+)d$/.exec(label);
   return match ? Number(match[1]) : null;
 }
 
@@ -72,8 +72,8 @@ function isInfraRequest(issue) {
 }
 
 // Issue forms only apply labels that already exist, so a request opened before
-// the infra/* labels were bootstrapped would silently miss its intake label.
-// Create the labels on demand and apply infra/needs-allocation here.
+// the area/infra-* labels were bootstrapped would silently miss its intake label.
+// Create the labels on demand and apply area/infra-needs-allocation here.
 async function intake({ github, context, core }) {
   const issue = context.payload.issue;
   if (!isInfraRequest(issue)) {
@@ -122,18 +122,57 @@ async function ensureLabels({ github, context, core }) {
   }
 }
 
-// When was the given label most recently applied to the issue?
-async function labelAppliedAt(github, context, issue, label) {
+// Labels from before the move to the area/ namespace (Prow's /area command can
+// only apply area/* labels). Deleting a label also removes it from every issue
+// carrying it. Once these are gone this is a no-op and can be dropped.
+const LEGACY_LABELS = [
+  'infra/needs-allocation',
+  'infra/allocated',
+  'infra/timeline-120d',
+  'infra/timeline-90d',
+  'infra/timeline-60d',
+  'infra/timeline-30d',
+  'infra/timeline-expired',
+];
+
+async function deleteLegacyLabels({ github, context, core }) {
+  for (const name of LEGACY_LABELS) {
+    try {
+      await github.rest.issues.deleteLabel({ ...context.repo, name });
+      core.info(`Deleted legacy label ${name}`);
+    } catch (error) {
+      if (error.status !== 404) throw error; // 404: already deleted
+    }
+  }
+}
+
+// Labels this workflow applies itself are authored by the Actions bot.
+const AUTOMATION_ACTOR = 'github-actions[bot]';
+
+// The lease is anchored on the most recent timeline label set by an admin (at
+// provisioning or on renewal, via the UI or Prow's /area), not on the
+// downgrades this workflow applies. Measuring from the latest downgrade would
+// lose time whenever a downgrade lands late (e.g. the first run after the
+// workflow was fixed), because the next bucket would restart in full.
+async function leaseStart(github, context, issue, current) {
   const events = await github.paginate(github.rest.issues.listEvents, {
     ...context.repo,
     issue_number: issue.number,
     per_page: 100,
   });
-  const applied = events
-    .filter((e) => e.event === 'labeled' && e.label && e.label.name === label)
-    .map((e) => new Date(e.created_at))
-    .sort((a, b) => b - a)[0];
-  return applied || new Date(issue.created_at);
+  const anchor = events
+    .filter(
+      (e) =>
+        e.event === 'labeled' &&
+        e.label &&
+        bucketDays(e.label.name) !== null &&
+        !(e.actor && e.actor.login === AUTOMATION_ACTOR),
+    )
+    .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))[0];
+  if (anchor) {
+    return { days: bucketDays(anchor.label.name), since: new Date(anchor.created_at) };
+  }
+  return { days: bucketDays(current), since: new Date(issue.created_at) };
 }
 
 function reminderComment(issue, from, to) {
@@ -183,11 +222,13 @@ async function timelineCountdown({ github, context, core }) {
     const days = bucketDays(current);
     if (days === null) continue; // already expired
 
-    const since = await labelAppliedAt(github, context, issue, current);
-    const elapsed = Math.floor((now - since) / DAY_MS);
-    const target = targetLabel(days - elapsed);
-    if (target === current) {
-      core.info(`#${issue.number}: ${current} applied ${elapsed}d ago; no change`);
+    const lease = await leaseStart(github, context, issue, current);
+    const elapsed = Math.floor((now - lease.since) / DAY_MS);
+    const target = targetLabel(lease.days - elapsed);
+    // Only ever count down: never move an issue to a longer bucket.
+    const targetDays = bucketDays(target);
+    if (target === current || (targetDays !== null && targetDays >= days)) {
+      core.info(`#${issue.number}: ${current}, ${elapsed}d into a ${lease.days}d lease; no change`);
       continue;
     }
 
@@ -207,4 +248,4 @@ async function timelineCountdown({ github, context, core }) {
   core.info(`Checked ${issues.length} allocated issue(s); updated ${changed}`);
 }
 
-module.exports = { intake, isInfraRequest, syncLabels, ensureLabels, timelineCountdown, targetLabel, pocMentions };
+module.exports = { intake, isInfraRequest, syncLabels, ensureLabels, deleteLegacyLabels, timelineCountdown, targetLabel, pocMentions };

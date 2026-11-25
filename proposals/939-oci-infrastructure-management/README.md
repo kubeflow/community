@@ -217,7 +217,7 @@ securely deploy their cluster.
    using the designated template. This requires details on purpose, resource
    specifications (vCPUs, RAM, OS), requested duration (lease term), and an
    identified Point of Contact (PoC). The template automatically applies the
-   `infra/needs-allocation` label to mark the request as awaiting
+   `area/infra-needs-allocation` label to mark the request as awaiting
    allocation.
 2. **Review & Approval:**
    Requests undergo review by KSC members, WG leads, and Oracle Cloud
@@ -227,9 +227,9 @@ securely deploy their cluster.
    Following approval, the team provisions the resources strictly via Terraform
    and deploys the standard Kubeflow Community Distribution. Access is then
    granted to the PoC by merging the appropriate RBAC changes into the GitOps
-   repository. The issue's `infra/needs-allocation` label is replaced with
-   `infra/allocated` plus the timeline label matching the approved lease
-   (e.g., `infra/timeline-90d`).
+   repository. The issue's `area/infra-needs-allocation` label is replaced with
+   `area/infra-allocated` plus the timeline label matching the approved lease
+   (e.g., `area/infra-timeline-90d`).
 4. **Lifecycle, Leases & Cleanup:**
    To maintain visibility, all resources operate on a strict lease methodology.
    Provisioned resources are tagged within Terraform with the GitHub Issue
@@ -237,7 +237,7 @@ securely deploy their cluster.
 5. **Alerting:**
    Automated methodologies will be put in place to alert the management team and
    KSC on long-running clusters. As the lease progresses, the issue's timeline
-   label is downgraded (`infra/timeline-120d` → `-90d` → `-60d` → `-30d` →
+   label is downgraded (`area/infra-timeline-120d` → `-90d` → `-60d` → `-30d` →
    `-expired`) with a reminder comment mentioning the PoC at each transition.
 6. **Auditing & Renewal:**
    Before a lease expires, the PoC is alerted and must actively renew access.
@@ -305,56 +305,72 @@ To ensure accountability, all resources within the Oracle Cloud Infrastructure
 
 To make the allocation state and remaining lease time of every request visible
 and filterable directly in the issue tracker, each infrastructure request issue
-carries a set of dedicated labels under the `infra/` prefix. The labels are
-applied automatically by the issue template and the lease automation, or
-manually by admins (via the GitHub UI, or the Prow `/label` command once the
-labels are registered in the label plugin configuration):
+carries a set of dedicated labels under the `area/infra-` prefix. The labels
+use the `area/` namespace so that admins can manage them with the Prow `/area`
+and `/remove-area` commands, which only apply labels that already exist in the
+repository (the Prow `/label` command is restricted to a fixed allow-list and
+cannot be used for them). The labels are applied automatically by the issue
+template and the lease automation, or manually by admins:
 
 | Label | Meaning | Applied by |
 | ----- | ------- | ---------- |
-| `infra/needs-allocation` | Request open, awaiting review and provisioning | Automatically on creation, by the issue template and the `infra-activity` workflow |
-| `infra/allocated` | Resources provisioned and handed over to the PoC | Admin at provisioning time (replaces `infra/needs-allocation`) |
-| `infra/timeline-120d` / `-90d` / `-60d` / `-30d` | At most 120/90/60/30 days remaining on the lease | Admin sets the initial bucket matching the approved lease; automation downgrades it over time |
-| `infra/timeline-expired` | Lease elapsed; renewal or decommissioning required | Automation |
+| `area/infra-needs-allocation` | Request open, awaiting review and provisioning | Automatically on creation, by the issue template and the `infra-activity` workflow |
+| `area/infra-allocated` | Resources provisioned and handed over to the PoC | Admin at provisioning time (replaces `area/infra-needs-allocation`) |
+| `area/infra-timeline-120d` / `-90d` / `-60d` / `-30d` | At most 120/90/60/30 days remaining on the lease | Admin sets the initial bucket matching the approved lease; automation downgrades it over time |
+| `area/infra-timeline-expired` | Lease elapsed; renewal or decommissioning required | Automation |
 
 The lifecycle of a request therefore reads directly from its labels:
 
 ```text
-infra/needs-allocation
+area/infra-needs-allocation
         ↓  (provisioned)
-infra/allocated + infra/timeline-120d
+area/infra-allocated + area/infra-timeline-120d
         ↓
-infra/timeline-90d
+area/infra-timeline-90d
         ↓
-infra/timeline-60d
+area/infra-timeline-60d
         ↓
-infra/timeline-30d
+area/infra-timeline-30d
         ↓
-infra/timeline-expired  →  renewed (new bucket) or decommissioned
+area/infra-timeline-expired  →  renewed (new bucket) or decommissioned
 ```
 
 Timeline labels are mutually exclusive: an issue carries exactly one at a
 time, and applying a new bucket removes the previous one. This also makes
 lease extensions a single label swap — an approved 120-day renewal moves an
-issue from `infra/timeline-30d` straight back to
-`infra/timeline-120d`. Leases that do not match a bucket exactly start at
+issue from `area/infra-timeline-30d` straight back to
+`area/infra-timeline-120d`. Leases that do not match a bucket exactly start at
 the nearest bucket (e.g., a 30-day VM lease starts at
-`infra/timeline-30d`). The Terraform `expiry_date` tag remains the source
+`area/infra-timeline-30d`). The Terraform `expiry_date` tag remains the source
 of truth for decommissioning; labels are the visibility layer on top of it.
 
 Admins apply the allocation and initial timeline labels when resources are
 provisioned; every subsequent transition is automated by the `infra-activity`
 GitHub Actions workflow (`.github/workflows/infra-activity.yml`). Whenever an
-`infra/*` label is added, the workflow enforces consistency: a new timeline
-label removes any other timeline label, and `infra/allocated` removes
-`infra/needs-allocation`. A daily cron job then checks, for each open issue
-carrying `infra/allocated` and a timeline label, when the current timeline
-label was applied. Once 30 days have elapsed, it replaces the label with the
-next-lower bucket and posts a reminder comment mentioning the PoC. The
-transition from `infra/timeline-30d` to `infra/timeline-expired` additionally
+`area/infra-*` label is added, the workflow enforces consistency: a new timeline
+label removes any other timeline label, and `area/infra-allocated` removes
+`area/infra-needs-allocation`. A daily cron job then checks, for each open issue
+carrying `area/infra-allocated` and a timeline label, how much of the lease is
+left, measured from the last timeline label an admin applied (at provisioning
+or on renewal) rather than from the workflow's own downgrades, so a late run
+never extends the lease. When the remaining time falls into a lower bucket, it
+replaces the label and posts a reminder comment mentioning the PoC. The
+transition from `area/infra-timeline-30d` to `area/infra-timeline-expired` additionally
 notifies the Oracle Cloud Infrastructure (OCI) admins and KSC (configured via
 the `INFRA_ADMINS` repository variable) to trigger the renewal audit or
 Terraform decommissioning.
+
+For example, once a 90-day request is provisioned, an admin hands it over by
+commenting on the issue:
+
+```text
+/area infra-allocated
+/area infra-timeline-90d
+```
+
+The workflow then removes `area/infra-needs-allocation` on its own. A renewal
+is a single `/area infra-timeline-<bucket>` comment, which replaces whichever
+timeline label the issue currently carries.
 
 ### Test Plan
 
@@ -371,8 +387,8 @@ software unit or integration tests. Instead, verification consists of:
    to check that Terraform tags are properly applied and ensure they can be
    successfully queried in the Oracle Cloud Infrastructure (OCI) Console.
 4. **Label Transition Dry-Run**: On a dummy issue, verify the template applies
-   `infra/needs-allocation`, swap it for `infra/allocated` plus a
-   timeline label, and simulate a downgrade (e.g., `infra/timeline-90d` to
+   `area/infra-needs-allocation`, swap it for `area/infra-allocated` plus a
+   timeline label, and simulate a downgrade (e.g., `area/infra-timeline-90d` to
    `-60d`) confirming that the old bucket is removed and a reminder comment is
    posted.
 
@@ -391,9 +407,9 @@ software unit or integration tests. Instead, verification consists of:
   [available and deployed infrastructure tables](infrastructure.md).
 - Strict enforcement of the mandatory tagging schema within Terraform modules:
   `owner`, `issue`, and `expiry_date`.
-- Allocation and timeline labels (`infra/needs-allocation`,
-  `infra/allocated`, `infra/timeline-*`) created in the repository, with admins
-  applying `infra/allocated` and the initial timeline label at provisioning
+- Allocation and timeline labels (`area/infra-needs-allocation`,
+  `area/infra-allocated`, `area/infra-timeline-*`) created in the repository, with admins
+  applying `area/infra-allocated` and the initial timeline label at provisioning
   time and the `infra-activity` workflow handling the subsequent countdown
   transitions and reminder comments.
 
@@ -401,7 +417,7 @@ software unit or integration tests. Instead, verification consists of:
 
 - Integration of GitHub Actions or webhooks to trigger automated lease alerts,
   renewal methodologies, and decommissioning reminders, building on the
-  `infra-activity` workflow that already downgrades `infra/timeline-*` labels
+  `infra-activity` workflow that already downgrades `area/infra-timeline-*` labels
   and posts reminder comments as leases approach expiry.
 - Implementation of automated cost alerts linked to community communication
   channels (e.g., Slack).
@@ -424,11 +440,16 @@ software unit or integration tests. Instead, verification consists of:
   tenancy quotas and deployed resources verified via the Oracle Cloud
   Infrastructure (OCI) CLI.
 - **2026-09-01**: Added label-based allocation and lease-timeline tracking
-  design (`infra/needs-allocation`, `infra/allocated`,
-  `infra/timeline-*`).
+  design (`area/infra-needs-allocation`, `area/infra-allocated`,
+  `area/infra-timeline-*`).
 - **2026-09-10**: Added the `infra-activity` GitHub Actions workflow that
-  keeps `infra/*` labels consistent and runs the daily lease-timeline
+  keeps `area/infra-*` labels consistent and runs the daily lease-timeline
   countdown with reminder comments.
+- **2026-11-25**: Renamed the tracking labels from `infra/*` to
+  `area/infra-*` so admins can apply them with the Prow `/area` command, and
+  updated the issue template and `infra-activity` workflow to match. The
+  lease countdown now measures from the last admin-set timeline label so late
+  runs cannot extend a lease.
 
 ## Drawbacks
 
